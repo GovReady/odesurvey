@@ -65,25 +65,7 @@
 <!-- Vertical Nav Section -->
 <div class="row" style="border:0px solid gray;">
 
- <div class="col-md-3" role="complementary" style="height:1200px;">
-   <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm">
-
-
-   <ul class="nav">
-
-      <li>
-      <ul class="nav" style="font-size: 10pt;">
-        <li class="text-muted">menu item 1 </li>
-        <li class="text-muted">menu item 2</li>
-        <li class="text-muted">menu item 3</li>
-      </ul>
-    </li>
-
-   </ul>
-   
-  </nav>
-</div><!--/end Vertical Nav Section -->
-
+ 
 
 
     

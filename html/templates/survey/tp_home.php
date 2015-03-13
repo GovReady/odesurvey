@@ -67,7 +67,7 @@
  <div class="col-md-9 controlsec" role="sec2">
   	<div class="row">
  		<div class="col-md-10">
- 			<h3>Sec 5</h3>
+ 			<h3>Sec 3</h3>
  		</div>
 
  	</div>
