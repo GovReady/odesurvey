@@ -1,0 +1,7 @@
+assets/*
+
+# Vagrant
+**/.vagrant/**
+
+# application
+credentials.inc.php
