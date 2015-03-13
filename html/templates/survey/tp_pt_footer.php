@@ -74,6 +74,15 @@
 
           // Editable areas
           $("#comments").editable();
+          $("#orgName").editable();
+
+          $('#orgType').editable({
+              source: [
+                    {value: 1, text: 'for-profit'},
+                    {value: 2, text: 'nonprofit'},
+                    {value: 3, text: 'developer community'}
+                 ]
+          });
           
 
          }); // End Document Ready function

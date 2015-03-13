@@ -29,16 +29,19 @@
  <div class="col-md-9 controlsec" role="sec2">
  	<div class="row">
  		<div class="col-md-10">
- 			<h3>Sec 1</h3>
+ 			<h3>Organization information</h3>
  		</div>
 
  	</div>
 
  	<div class="row">
  		<div class="col-md-12">
- 			<span id="comments" class="myeditableshow" data-type="wysihtml5" data-inputclass="myeditable" data-pk="1" data-placeholder="Your comments here..." data-title="Enter comments">
-        Blah, blah 1
-    </span>  
+      <div>1. Name of organization</div>
+      <a href="#" id="orgName" data-type="text" data-pk="1">  </a>
+
+      <br /><br />
+ 			<div>2. What type of organziation is it? (select 1)</div>
+      <a href="#" id="orgType" data-type="select" data-pk="1" data-title="Select org type"></a>
 		</div>	
 	</div>
 
@@ -49,15 +52,16 @@
   <div class="col-md-9 controlsec" role="sec2" >
   	 	<div class="row">
  		<div class="col-md-10">
- 			<h3>Sec 2</h3>
+ 			<h3>Da</h3>
  		</div>
 
  	</div>
 
  	<div class="row">
  		<div class="col-md-12">
- 			<p>Blah, blah 2
- 			</p>
+ 			<span id="comments" class="myeditableshow" data-type="wysihtml5" data-inputclass="myeditable" data-pk="1" data-placeholder="Your comments here..." data-title="Enter comments">
+        Blah, blah 2
+    </span>  
 		</div>	
 	</div>
 
