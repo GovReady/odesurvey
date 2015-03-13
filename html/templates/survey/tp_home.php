@@ -13,7 +13,6 @@
 	.controlsec {
 		border:1px solid #eee; 
 		margin: 12px 0px 0px 0px; 
-		height:320px;
 	}
 
   .myeditable {
@@ -36,11 +35,11 @@
 
  	<div class="row">
  		<div class="col-md-12">
-      <div>1. Name of organization</div>
+      <div>1) Name of organization</div>
       <a href="#" id="orgName" data-type="text" data-pk="1">  </a>
 
       <br /><br />
- 			<div>2. What type of organziation is it? (select 1)</div>
+ 			<div>2) What type of organziation is it? (select 1)</div>
       <a href="#" id="orgType" data-type="select" data-pk="1" data-title="Select org type"></a>
 		</div>	
 	</div>
@@ -52,16 +51,67 @@
   <div class="col-md-9 controlsec" role="sec2" >
   	 	<div class="row">
  		<div class="col-md-10">
- 			<h3>Da</h3>
+ 			<h3>Data use</h3>
+      <div>3) Please indicate your organizations primary uses of open data. For each type of open data your organization uses, indicate the general data type, the level of government providing the data, and the source country of the data.<br /><br /></div>
  		</div>
 
  	</div>
 
  	<div class="row">
  		<div class="col-md-12">
- 			<span id="comments" class="myeditableshow" data-type="wysihtml5" data-inputclass="myeditable" data-pk="1" data-placeholder="Your comments here..." data-title="Enter comments">
-        Blah, blah 2
-    </span>  
+
+      <div class="row" style="border-bottom:1px solid #eee;">
+        <div class="col-md-1">
+          #
+        </div>
+        <div class="col-md-5">
+          General data type
+        </div>
+        <div class="col-md-3">
+          Gov level
+        </div>
+        <div class="col-md-2">
+          Country source
+        </div>
+      </div>
+
+ 			<div class="row" style="border-bottom:1px solid #eee;">
+
+        <div class="col-md-1">a.</div>
+        <div class="col-md-5"><a href="#" id="dataType1" data-type="select" data-pk="1" data-title="Select data type"></a></div>
+        <div class="col-md-3"><a href="#" id="srcGovLevel1" data-type="checklist" data-pk="1" data-title="Select source government level"></a></div>
+        <div class="col-md-2"><a href="#" id="srcCountry1" data-type="checklist" data-pk="1" data-title="Select source Country"></a></div>
+
+      </div> <!-- /row -->
+
+      <div class="row" style="border-bottom:1px solid #eee;">
+
+        <div class="col-md-1">b.</div>
+        <div class="col-md-5"><a href="#" id="dataType2" data-type="select" data-pk="1" data-title="Select data type"></a></div>
+        <div class="col-md-3"><a href="#" id="srcGovLevel2" data-type="checklist" data-pk="1" data-title="Select source government level"></a></div>
+        <div class="col-md-2"><a href="#" id="srcCountry2" data-type="checklist" data-pk="1" data-title="Select source Country"></a></div>
+
+      </div> <!-- /row -->
+
+      <div class="row" style="border-bottom:1px solid #eee;">
+
+        <div class="col-md-1">c.</div>
+        <div class="col-md-5"><a href="#" id="dataType3" data-type="select" data-pk="3" data-title="Select data type"></a></div>
+        <div class="col-md-3"><a href="#" id="srcGovLevel3" data-type="checklist" data-pk="3" data-title="Select source government level"></a></div>
+        <div class="col-md-2"><a href="#" id="srcCountry3" data-type="checklist" data-pk="8" data-title="Select source Country"></a></div>
+
+      </div> <!-- /row -->
+
+      <div class="row" style="margin: 12px 0px 0px 0px">
+        <button class="btn btn-primary" type="submit">Add data use row</button>
+      </div>
+
+      <div class="row" style="margin: 12px 0px 0px 0px">
+        <div>4) What purpose does open data serve for your company or organization? - select all that apply</div>
+
+      </div>
+
+
 		</div>	
 	</div>
 
@@ -78,7 +128,7 @@
 
  	<div class="row">
  		<div class="col-md-12">
- 			<p>Blah, blah 3
+ 			<div id="#">Blah, blah 3</div>
  			</p>
 		</div>	
 	</div>

@@ -25,6 +25,7 @@
      <link href="/js/vendor/inputs-ext/wysihtml5/bootstrap-wysihtml5-0.0.2/bootstrap-wysihtml5-0.0.2.css" rel="stylesheet" type="text/css"></link>  
       <script src="/js/vendor/inputs-ext/wysihtml5/bootstrap-wysihtml5-0.0.2/wysihtml5-0.3.0.min.js"></script>  
       <script src="/js/vendor/inputs-ext/wysihtml5/bootstrap-wysihtml5-0.0.2/bootstrap-wysihtml5-0.0.2.min.js"></script>
+      <script src="/js/vendor/inputs-ext/typeaheadjs/typeaheadjs.js"></script>
       <script src="/js/vendor/inputs-ext/wysihtml5/wysihtml5.js"></script>
 
      <script>
@@ -73,7 +74,11 @@
           $.fn.editable.defaults.mode = 'inline';
 
           // Editable areas
+
+
           $("#comments").editable();
+          
+          // org information
           $("#orgName").editable();
 
           $('#orgType').editable({
@@ -83,6 +88,101 @@
                     {value: 3, text: 'developer community'}
                  ]
           });
+
+          // Data use
+          $('#dataType1').editable({
+              source: [
+                    {value: 1, text: 'Agriculture'},
+                    {value: 2, text: 'Arts & Culture'},
+                    {value: 3, text: 'Business and Legal Services'},
+                    {value: 4, text: 'Consumer Services'}
+                 ]
+          });
+
+
+          $('#srcCountry1').editable({
+              source: [
+                    {value: 1, text: 'Mexico'},
+                    {value: 2, text: 'Russia'},
+                    {value: 3, text: 'United States'},
+                    {value: 4, text: 'Other countries below this'}
+                 ]
+          });
+
+
+          $('#srcGovLevel1').editable({
+              source: [
+                    {value: 1, text: 'local'},
+                    {value: 2, text: 'regional'},
+                    {value: 3, text: 'national'}
+                 ]
+          });
+          
+          // row 2
+
+          // Data use
+          $('#dataType2').editable({
+              source: [
+                    {value: 1, text: 'Agriculture'},
+                    {value: 2, text: 'Arts & Culture'},
+                    {value: 3, text: 'Business and Legal Services'},
+                    {value: 4, text: 'Consumer Services'}
+                 ]
+          });
+
+
+          $('#srcCountry2').editable({
+              source: [
+                    {value: 1, text: 'Mexico'},
+                    {value: 2, text: 'Russia'},
+                    {value: 3, text: 'United States'},
+                    {value: 4, text: 'Other countries below this'}
+                 ]
+          });
+
+
+          $('#srcGovLevel2').editable({
+              source: [
+                    {value: 1, text: 'local'},
+                    {value: 2, text: 'regional'},
+                    {value: 3, text: 'national'}
+                 ]
+          });
+
+          // row 3
+
+          // Data use
+          $('#dataType3').editable({
+              showbuttons: false,
+              source: [
+                    {value: 1, text: 'Agriculture'},
+                    {value: 2, text: 'Arts & Culture'},
+                    {value: 3, text: 'Business and Legal Services'},
+                    {value: 4, text: 'Consumer Services'}
+                 ]
+          });
+
+
+        $('#srcGovLevel3').editable({
+              showbuttons: false,
+              source: [
+                    {value: 1, text: 'local'},
+                    {value: 2, text: 'regional'},
+                    {value: 3, text: 'national'}
+                 ]
+          });
+
+
+          $('#srcCountry3').editable({
+              showbuttons: true,
+              source: [
+                    {value: 1, text: 'local'},
+                    {value: 2, text: 'regional'},
+                    {value: 3, text: 'national'}
+                 ]
+          });
+
+
           
 
          }); // End Document Ready function
