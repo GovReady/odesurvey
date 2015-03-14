@@ -118,41 +118,41 @@
                  ]
           });
           
-          // row 2
+          addDataUseRow();
+          addDataUseRow();
 
-          // Data use
-          $('#dataType2').editable({
-              source: [
-                    {value: 1, text: 'Agriculture'},
-                    {value: 2, text: 'Arts & Culture'},
-                    {value: 3, text: 'Business and Legal Services'},
-                    {value: 4, text: 'Consumer Services'}
-                 ]
+          $('#addDataUseBtn').on('click', function(event) {
+            event.preventDefault(); // To prevent following the link (optional)
+            addDataUseRow();
           });
+          
 
 
-          $('#srcCountry2').editable({
-              source: [
-                    {value: 1, text: 'Mexico'},
-                    {value: 2, text: 'Russia'},
-                    {value: 3, text: 'United States'},
-                    {value: 4, text: 'Other countries below this'}
-                 ]
-          });
+         }); // End Document Ready function
 
+        /* Declare the function 'addDataUseRow' 
+           Add a row to data use question
+        */
+        function addDataUseRow(){
+          console.log('addDataUseRow called');
 
-          $('#srcGovLevel2').editable({
-              source: [
-                    {value: 1, text: 'local'},
-                    {value: 2, text: 'regional'},
-                    {value: 3, text: 'national'}
-                 ]
-          });
+          var rows = $('.dataUseGridRow').length;
+          console.log('rows: '+rows);
+          var idSuffixNum = rows + 1;
 
-          // row 3
+          var x = '<div class="row col-md-12 dataUseGridRow" style="border-bottom:1px solid #eee;">' +
+           '<div class="col-md-1">('+idSuffixNum.toString()+')</div>'+
+           '<div class="col-md-5"><a href="#" id="dataType'+idSuffixNum.toString()+'"></a></div>'+
+           '<div class="col-md-3"><a href="#" id="srcGovLevel'+idSuffixNum.toString()+'"></a></div>' +
+           '<div class="col-md-2"><a href="#" id="srcCountry'+idSuffixNum.toString()+'"></a></div>' +
+           '</div><!-- /row -->';
 
-          // Data use
-          $('#dataType3').editable({
+           $('#dataUseGrid').append(x);
+
+           $('#dataType'+idSuffixNum.toString()).editable({
+              type: 'select',
+              pk: idSuffixNum,
+              title: 'Select data type',
               showbuttons: false,
               source: [
                     {value: 1, text: 'Agriculture'},
@@ -160,32 +160,43 @@
                     {value: 3, text: 'Business and Legal Services'},
                     {value: 4, text: 'Consumer Services'}
                  ]
-          });
+              });
 
-
-        $('#srcGovLevel3').editable({
-              showbuttons: false,
-              source: [
-                    {value: 1, text: 'local'},
-                    {value: 2, text: 'regional'},
-                    {value: 3, text: 'national'}
-                 ]
-          });
-
-
-          $('#srcCountry3').editable({
+            $('#srcGovLevel'+idSuffixNum.toString()).editable({
+              type: 'checklist',
+              pk: idSuffixNum,
+              title: 'Select source government',
               showbuttons: true,
               source: [
                     {value: 1, text: 'local'},
                     {value: 2, text: 'regional'},
                     {value: 3, text: 'national'}
                  ]
-          });
+              });
 
+            $('#srcCountry'+idSuffixNum.toString()).editable({
+              type: 'checklist',
+              pk: idSuffixNum,
+              title: 'Select source government',
+              showbuttons: true,
+              source: [
+                    {value: 1, text: 'Mexico'},
+                    {value: 2, text: 'Russia'},
+                    {value: 3, text: 'United States'},
+                    {value: 4, text: 'Other countries below this'}
+                 ]
+              });
+        }
+        /*
+      <div class="row" style="border-bottom:1px solid #eee;">
 
-          
+        <div class="col-md-1">a.</div>
+        <div class="col-md-5"><a href="#" id="dataType1" data-type="select" data-pk="1" data-title="Select data type"></a></div>
+        <div class="col-md-3"><a href="#" id="srcGovLevel1" data-type="checklist" data-pk="1" data-title="Select source government level"></a></div>
+        <div class="col-md-2"><a href="#" id="srcCountry1" data-type="checklist" data-pk="1" data-title="Select source Country"></a></div>
 
-         }); // End Document Ready function
+      </div> <!-- /row -->
+        */
 
      </script>
  </body>

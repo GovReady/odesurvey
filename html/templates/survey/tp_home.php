@@ -25,16 +25,12 @@
 
 </style>
 
- <div class="col-md-9 controlsec" role="sec2">
- 	<div class="row">
- 		<div class="col-md-10">
+ <div class="row col-md-9 controlsec" role="sec2">
+ 	<div class="row col-md-12">
  			<h3>Organization information</h3>
- 		</div>
-
  	</div>
 
- 	<div class="row">
- 		<div class="col-md-12">
+ 	<div class="row col-md-12 ">
       <div>1) Name of organization</div>
       <a href="#" id="orgName" data-type="text" data-pk="1">  </a>
 
@@ -44,79 +40,42 @@
 		</div>	
 	</div>
 
-
- 	
- </div>
-
-  <div class="col-md-9 controlsec" role="sec2" >
-  	 	<div class="row">
- 		<div class="col-md-10">
+  <div class="col-md-9 controlsec" role="sec3" >
+  	<div class="row col-md-12">
  			<h3>Data use</h3>
       <div>3) Please indicate your organizations primary uses of open data. For each type of open data your organization uses, indicate the general data type, the level of government providing the data, and the source country of the data.<br /><br /></div>
  		</div>
 
- 	</div>
+ 	  <div class="row col-md-12" id="dataUse">
 
- 	<div class="row">
- 		<div class="col-md-12">
-
-      <div class="row" style="border-bottom:1px solid #eee;">
-        <div class="col-md-1">
-          #
-        </div>
-        <div class="col-md-5">
-          General data type
-        </div>
-        <div class="col-md-3">
-          Gov level
-        </div>
-        <div class="col-md-2">
-          Country source
-        </div>
+      <div class="row col-md-12" id="dataUseHeading" style="border-bottom:1px solid #eee;">
+        <div class="col-md-1">#</div>
+        <div class="col-md-5">General data type</div>
+        <div class="col-md-3">Gov level</div>
+        <div class="col-md-3">Country source</div>
       </div>
 
- 			<div class="row" style="border-bottom:1px solid #eee;">
+      <div class="row col-md-12" id="dataUseGrid">
+        <div class="row col-md-12 dataUseGridRow" style="border-bottom:1px solid #eee;">
+          <div class="col-md-1">(1)</div>
+          <div class="col-md-5"><a href="#" id="dataType1" data-type="select" data-pk="1" data-title="Select data type"></a></div>
+          <div class="col-md-3"><a href="#" id="srcGovLevel1" data-type="checklist" data-pk="1" data-title="Select source government level"></a></div>
+          <div class="col-md-2"><a href="#" id="srcCountry1" data-type="checklist" data-pk="1" data-title="Select source Country"></a></div>
+        </div> <!-- /row -->
 
-        <div class="col-md-1">a.</div>
-        <div class="col-md-5"><a href="#" id="dataType1" data-type="select" data-pk="1" data-title="Select data type"></a></div>
-        <div class="col-md-3"><a href="#" id="srcGovLevel1" data-type="checklist" data-pk="1" data-title="Select source government level"></a></div>
-        <div class="col-md-2"><a href="#" id="srcCountry1" data-type="checklist" data-pk="1" data-title="Select source Country"></a></div>
+      </div> <!-- /dataUseGrid -->
 
-      </div> <!-- /row -->
-
-      <div class="row" style="border-bottom:1px solid #eee;">
-
-        <div class="col-md-1">b.</div>
-        <div class="col-md-5"><a href="#" id="dataType2" data-type="select" data-pk="1" data-title="Select data type"></a></div>
-        <div class="col-md-3"><a href="#" id="srcGovLevel2" data-type="checklist" data-pk="1" data-title="Select source government level"></a></div>
-        <div class="col-md-2"><a href="#" id="srcCountry2" data-type="checklist" data-pk="1" data-title="Select source Country"></a></div>
-
-      </div> <!-- /row -->
-
-      <div class="row" style="border-bottom:1px solid #eee;">
-
-        <div class="col-md-1">c.</div>
-        <div class="col-md-5"><a href="#" id="dataType3" data-type="select" data-pk="3" data-title="Select data type"></a></div>
-        <div class="col-md-3"><a href="#" id="srcGovLevel3" data-type="checklist" data-pk="3" data-title="Select source government level"></a></div>
-        <div class="col-md-2"><a href="#" id="srcCountry3" data-type="checklist" data-pk="8" data-title="Select source Country"></a></div>
-
-      </div> <!-- /row -->
-
-      <div class="row" style="margin: 12px 0px 0px 0px">
-        <button class="btn btn-primary" type="submit">Add data use row</button>
+      <div class="row col-md-10" style="margin: 12px 0px 0px 0px">
+        <button class="btn btn-primary" id="addDataUseBtn" type="submit">Add row</button>
       </div>
 
-      <div class="row" style="margin: 12px 0px 0px 0px">
+      <div class="row col-md-11" style="margin: 12px 0px 0px 0px">
         <div>4) What purpose does open data serve for your company or organization? - select all that apply</div>
-
       </div>
 
+    </div> <!-- /dataUse row -->
 
-		</div>	
-	</div>
-
- </div>
-
+  </div> <!-- /sec2 -->
 
  <div class="col-md-9 controlsec" role="sec2">
   	<div class="row">
