@@ -67,7 +67,7 @@
 
 
 <!-- Main Content Section -->
-<div class="container lg-font col-md-12" style="padding-top:20px;border:0px solid black;">
+<div class="container lg-font col-md-12" style="padding-top:0px;border:0px solid black;">
 
 <!-- Vertical Nav Section -->
 <div class="row" style="border:0px solid gray;">

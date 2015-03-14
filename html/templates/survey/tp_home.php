@@ -88,7 +88,7 @@
       </div> <!-- /dataUseGrid -->
 
       <div class="row col-md-10" style="margin: 12px 0px 0px 0px">
-        <button class="btn btn-default btn-xs" id="addDataUseBtn" type="submit">Add row</button>
+        <button class="btn btn-default btn-xs" id="addDataUseBtn" type="">Add row</button>
       </div>
 
     </div> <!-- /dataUse row -->
@@ -151,8 +151,8 @@
       </div> <!-- /dataPurposeGrid -->
     </div> <!-- /dataPurpose row -->
 
-
-
+    <br /><br />
+  <button class="btn btn-primary col-md-3" id="btnSubmit" type="submit">SEND</button>
 
 
  </div>
