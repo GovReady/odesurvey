@@ -241,7 +241,16 @@
                     {value: 'ieo', text: 'Increase efficiency of operations'},
                     {value: 'ikmt', text: 'Increase knowledge of markets and trends'}
                  ]
-            });        
+            });    
+
+            // Org impact
+
+            $('#orgImpactResponse').editable({
+              rows: 6,
+              placeholder: 'placeholder text',
+              cols: 80
+            });    
+
         }
         /*
       <div class="row" style="border-bottom:1px solid #eee;">

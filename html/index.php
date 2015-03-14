@@ -79,7 +79,7 @@ $app->get('/:surveyName/survey1/', function ($surveyName) use ($app) {
 	// $audits = $response['results'];
 
 	$content['surveyName'] = $surveyName;
-	$content['title'] = "SURVEY STUDY 1";
+	$content['title'] = "Open Data Enterprise Survey";
 	$content['intro'] = <<<HTML
 
         <blockquote>First Survey Study

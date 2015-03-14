@@ -11,17 +11,29 @@
 <!-- exploration -->
 <style>
 	.controlsec {
-		border:1px solid #eee; 
+		border:0px solid #eee; 
 		margin: 12px 0px 0px 0px; 
 	}
 
   .myeditable {
     height: 200px;
-    width: 140%;
+    width: 150%;
   }
 
   .myeditableshow {
   }
+
+
+ /* Important to get editable to be full width (see: https://github.com/vitalets/x-editable/issues/361#issuecomment-74871125) */
+  .editable-container.editable-inline,
+  .editable-container.editable-inline .control-group.form-group,
+  .editable-container.editable-inline .control-group.form-group .editable-input,
+  .editable-container.editable-inline .control-group.form-group .editable-input textarea,
+  .editable-container.editable-inline .control-group.form-group .editable-input select,
+  .editable-container.editable-inline .control-group.form-group .editable-input input:not([type=radio]):not([type=checkbox]):not([type=submit])
+{
+    width: 85%!important;
+}
 
 </style>
 
@@ -31,19 +43,19 @@
  	</div>
 
  	<div class="row col-md-12 ">
-      <div>1) Name of organization</div>
+      <div><strong>1) Name of organization</strong></div>
       <a href="#" id="orgName" data-type="text" data-pk="1">  </a>
 
       <br /><br />
- 			<div>2) What type of organziation is it? (select 1)</div>
+ 			<div><strong>2) What type of organziation is it? (select 1)</strong></div>
       <a href="#" id="orgType" data-type="select" data-pk="1" data-title="Select org type"></a>
 		</div>	
 	</div>
 
   <div class="col-md-9 controlsec" role="dataUse">
   	<div class="row col-md-12" role="dataTypes">
- 			<h3>Data use</h3>
-      <div>3) Please tell us what kinds of open government data are most relevant for your organization. In each case tell us the country that supplies the data, and whether the data is local, regional or national.<br /><br /></div>
+ 			<h3>Open data use</h3>
+      <div><strong>3) Please tell us what kinds of open government data are most relevant for your organization. In each case tell us the country that supplies the data, and whether the data is local, regional or national.</strong><br /><br /></div>
  		</div>
 
  	  <div class="row col-md-12" id="dataUse">
@@ -64,33 +76,41 @@
       </div> <!-- /dataUseGrid -->
 
       <div class="row col-md-10" style="margin: 12px 0px 0px 0px">
-        <button class="btn btn-primary" id="addDataUseBtn" type="submit">Add row</button>
+        <button class="btn btn-default btn-xs" id="addDataUseBtn" type="submit">Add row</button>
       </div>
 
     </div> <!-- /dataUse row -->
     <p>&nbsp;</p>
     
-
-
     <div class="row col-md-12" role="dataPurposes">
-      <div>4) What purpose does open data serve for your company or organization? - select all that apply<br /><br /></div>
+      <div><strong>4) What purpose does open data serve for your company or organization? - select all that apply</strong><br /><br /></div>
     </div>
-
     <div class="row col-md-12" id="dataPurpose">
-      <div class="row col-md-12" id="dataPurposeGridHeading" style="border-bottom:1px solid #eee;">
+      <div class="row col-md-12" id="dataPurposeGridHeading" style="border-bottom:0px solid #eee;">
         <div class="col-md-8"><small>Build new products/services with open government data</small></div>
         <div class="col-md-4"><small>Organizaton optimization</small></div>
       </div>
-
       <div class="row col-md-12" id="dataPurposeGrid">
-        <div class="row col-md-12 dataPurposeGridRow" style="border-bottom:1px solid #eee;">
+        <div class="row col-md-12 dataPurposeGridRow" style="border-bottom:0px solid #eee;">
           <div class="col-md-8"><a href="#" id="x1" data-type="checklist" data-pk="1" data-title="Select"></a></div>
           <div class="col-md-4"><a href="#" id="x2" data-type="checklist" data-pk="1" data-title="Select"></a></div>
         </div> <!-- /row -->
       </div> <!-- /dataPurposeGrid -->
-
-
     </div> <!-- /dataPurpose row -->
+
+    <p>&nbsp;</p>
+
+    <div class="row col-md-12" role="orgImpactQ">
+      <div><strong>5) What is the most important way in which your company or organization has a positive impact, and how does open government data help you achieve it?</strong><br /><br /></div>
+    </div>
+    <div class="row col-md-12" id="orgImpact">
+      <div class="row col-md-12" id="orgImpactGrid">
+        <div class="row col-md-12 orgImpactGridRow" style="">
+          <div class="col-md-12" style=""><a href="#" id="orgImpactResponse" data-type="textarea" data-pk="1" data-title="Select" style=""></a></div>
+        </div> <!-- /row -->
+      </div> <!-- /dataPurposeGrid -->
+    </div> <!-- /dataPurpose row -->
+
 
   </div> <!-- /dataUse Section -->
 
@@ -99,7 +119,7 @@
  <div class="col-md-9 controlsec" role="contact">
   	<div class="row">
  		<div class="col-md-10">
- 			<h3>Sec 3</h3>
+ 			<h3>Contact</h3>
  		</div>
 
  	</div>
