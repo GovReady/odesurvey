@@ -222,6 +222,26 @@
                     {value: 4, text: 'Other countries below this'}
                  ]
               });
+
+            // Data purpose
+
+            $('#x1').editable({
+              source: [
+                    {value: 'ma', text: 'mobile applications'},
+                    {value: 'wa', text: 'web-based applications'},
+                    {value: 'pl', text: 'product line'},
+                    {value: 'sl', text: 'service line'}
+                 ]
+            });
+
+
+            $('#x2').editable({
+              source: [
+                    {value: 'ieps', text: 'Improve existing products and services'},
+                    {value: 'ieo', text: 'Increase efficiency of operations'},
+                    {value: 'ikmt', text: 'Increase knowledge of markets and trends'}
+                 ]
+            });        
         }
         /*
       <div class="row" style="border-bottom:1px solid #eee;">
