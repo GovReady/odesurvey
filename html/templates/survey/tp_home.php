@@ -3,9 +3,9 @@
   <!-- Start main content section -->
 
         <div class="col-md-9" role="main">
-
+<!--
         <h2><?php echo $content['title']; ?><br /><small>helper text</small></h2>
-
+-->
  </div> <!--/end main -->
 
 <!-- exploration -->
@@ -21,6 +21,10 @@
   }
 
   .myeditableshow {
+  }
+
+  h3 {
+    border-bottom: 1px dotted #ddd;
   }
 
 
@@ -43,35 +47,43 @@
  	</div>
 
  	<div class="row col-md-12 ">
-      <div><strong>1) Name of organization</strong></div>
-      <a href="#" id="orgName" data-type="text" data-pk="1">  </a>
+      <div><strong>1) Official organization name</strong></div>
+      <a href="#" id="orgNameOfficial" data-type="text" data-pk="1"></a>
 
       <br /><br />
- 			<div><strong>2) What type of organziation is it? (select 1)</strong></div>
+       <div><strong>2) Common organization name</strong></div>
+      <a href="#" id="orgNameCommon" data-type="text" data-pk="1"> </a>
+
+      <br /><br />
+			<div><strong>2) What type of organization is it? (select 1)</strong></div>
       <a href="#" id="orgType" data-type="select" data-pk="1" data-title="Select org type"></a>
 		</div>	
 	</div>
 
+
+
   <div class="col-md-9 controlsec" role="dataUse">
   	<div class="row col-md-12" role="dataTypes">
  			<h3>Open data use</h3>
-      <div><strong>3) Please tell us what kinds of open government data are most relevant for your organization. In each case tell us the country that supplies the data, and whether the data is local, regional or national.</strong><br /><br /></div>
+      <div><strong>4) Please tell us what kinds of open government data are most relevant for your organization.<br />
+        In each case tell us the country that supplies the data, and whether the data is local, regional or national.</strong><br /><br /></div>
  		</div>
 
  	  <div class="row col-md-12" id="dataUse">
       <div class="row col-md-12" id="dataUseHeading" style="border-bottom:1px solid #eee;">
-        <div class="col-md-1">#</div>
-        <div class="col-md-5">Most relevant of data</div>
-        <div class="col-md-3">Level of data source<br />select all that apply</div>
-        <div class="col-md-3">Data Source - Country<br />select all that apply</div>
+        <div class="col-md-1">&nbsp;</div>
+        <div class="col-md-3">Relevant kind of data<br /><small>select one</small></div>
+        <div class="col-md-4">From country supplying data<br /><small>select all that apply</small></div>
+        <div class="col-md-3">From government level<br /><small>select all that apply</small></div>
       </div>
 
       <div class="row col-md-12" id="dataUseGrid">
         <div class="row col-md-12 dataUseGridRow" style="border-bottom:1px solid #eee;">
           <div class="col-md-1">(1)</div>
-          <div class="col-md-5"><a href="#" id="dataType1" data-type="select" data-pk="1" data-title="Select data type"></a></div>
+          <div class="col-md-3"><a href="#" id="dataType1" data-type="select" data-pk="1" data-title="Select data type"></a></div>
+          <div class="col-md-4"><a href="#" id="srcCountry1" data-type="checklist" data-pk="1" data-title="Select source Country"></a></div>
           <div class="col-md-3"><a href="#" id="srcGovLevel1" data-type="checklist" data-pk="1" data-title="Select source government level"></a></div>
-          <div class="col-md-2"><a href="#" id="srcCountry1" data-type="checklist" data-pk="1" data-title="Select source Country"></a></div>
+      
         </div> <!-- /row -->
       </div> <!-- /dataUseGrid -->
 
@@ -80,28 +92,29 @@
       </div>
 
     </div> <!-- /dataUse row -->
-    <p>&nbsp;</p>
+    <br />
     
     <div class="row col-md-12" role="dataPurposes">
-      <div><strong>4) What purpose does open data serve for your company or organization? - select all that apply</strong><br /><br /></div>
+      <div><strong>5) What purpose does open data serve for your company or organization? - select all that apply</strong><br /><br /></div>
     </div>
     <div class="row col-md-12" id="dataPurpose">
       <div class="row col-md-12" id="dataPurposeGridHeading" style="border-bottom:0px solid #eee;">
-        <div class="col-md-8"><small>Build new products/services with open government data</small></div>
-        <div class="col-md-4"><small>Organizaton optimization</small></div>
+        <div class="col-md-12">Build new products/services with open government data</div>
+        <div class="col-md-12"><a href="#" id="x1" data-type="checklist" data-pk="1" data-title="Select"></a></div>
+      <br />
       </div>
       <div class="row col-md-12" id="dataPurposeGrid">
         <div class="row col-md-12 dataPurposeGridRow" style="border-bottom:0px solid #eee;">
-          <div class="col-md-8"><a href="#" id="x1" data-type="checklist" data-pk="1" data-title="Select"></a></div>
-          <div class="col-md-4"><a href="#" id="x2" data-type="checklist" data-pk="1" data-title="Select"></a></div>
+          <div class="col-md-12">Organizaton optimization</div>
+          <div class="col-md-12"><a href="#" id="x2" data-type="checklist" data-pk="1" data-title="Select"></a></div>
         </div> <!-- /row -->
       </div> <!-- /dataPurposeGrid -->
     </div> <!-- /dataPurpose row -->
 
-    <p>&nbsp;</p>
+    <br />
 
     <div class="row col-md-12" role="orgImpactQ">
-      <div><strong>5) What is the most important way in which your company or organization has a positive impact, and how does open government data help you achieve it?</strong><br /><br /></div>
+      <div><strong>6) What is the most important way in which your company or organization has a positive impact, and how does open government data help you achieve it?</strong><br /><br /></div>
     </div>
     <div class="row col-md-12" id="orgImpact">
       <div class="row col-md-12" id="orgImpactGrid">

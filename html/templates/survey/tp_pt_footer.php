@@ -75,11 +75,14 @@
 
           // Editable areas
 
+          // Org information
+          $("#orgNameOfficial").editable({
+            placeholder: "e.g., IBM Corporation"
+          });
 
-          $("#comments").editable();
-          
-          // org information
-          $("#orgName").editable();
+          $("#orgNameCommon").editable({
+            placeholder: "e.g., IBM"
+          });
 
           $('#orgType').editable({
               prepend: 'select',
@@ -164,9 +167,9 @@
 
           var x = '<div class="row col-md-12 dataUseGridRow" style="border-bottom:1px solid #eee;">' +
            '<div class="col-md-1">('+idSuffixNum.toString()+')</div>'+
-           '<div class="col-md-5"><a href="#" id="dataType'+idSuffixNum.toString()+'"></a></div>'+
+           '<div class="col-md-3"><a href="#" id="dataType'+idSuffixNum.toString()+'"></a></div>'+
+           '<div class="col-md-4"><a href="#" id="srcCountry'+idSuffixNum.toString()+'"></a></div>' +
            '<div class="col-md-3"><a href="#" id="srcGovLevel'+idSuffixNum.toString()+'"></a></div>' +
-           '<div class="col-md-2"><a href="#" id="srcCountry'+idSuffixNum.toString()+'"></a></div>' +
            '</div><!-- /row -->';
 
            $('#dataUseGrid').append(x);
@@ -235,7 +238,8 @@
                     {value: 'ma', text: 'mobile applications'},
                     {value: 'wa', text: 'web-based applications'},
                     {value: 'pl', text: 'product line'},
-                    {value: 'sl', text: 'service line'}
+                    {value: 'sl', text: 'service line'},
+                    {value: 'na', text: 'not applicable'}
                  ]
             });
 
@@ -244,7 +248,8 @@
               source: [
                     {value: 'ieps', text: 'Improve existing products and services'},
                     {value: 'ieo', text: 'Increase efficiency of operations'},
-                    {value: 'ikmt', text: 'Increase knowledge of markets and trends'}
+                    {value: 'ikmt', text: 'Increase knowledge of markets and trends'},
+                    {value: 'na', text: 'not applicable'}
                  ]
             });    
 
@@ -257,16 +262,7 @@
             });    
 
         }
-        /*
-      <div class="row" style="border-bottom:1px solid #eee;">
-
-        <div class="col-md-1">a.</div>
-        <div class="col-md-5"><a href="#" id="dataType1" data-type="select" data-pk="1" data-title="Select data type"></a></div>
-        <div class="col-md-3"><a href="#" id="srcGovLevel1" data-type="checklist" data-pk="1" data-title="Select source government level"></a></div>
-        <div class="col-md-2"><a href="#" id="srcCountry1" data-type="checklist" data-pk="1" data-title="Select source Country"></a></div>
-
-      </div> <!-- /row -->
-        */
+        
 
      </script>
  </body>
