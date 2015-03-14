@@ -93,9 +93,27 @@
           $('#dataType1').editable({
               source: [
                     {value: 1, text: 'Agriculture'},
-                    {value: 2, text: 'Arts & Culture'},
-                    {value: 3, text: 'Business and Legal Services'},
-                    {value: 4, text: 'Consumer Services'}
+                    {value: 2, text: 'Arts and Culture'},
+                    {value: 3, text: 'Business'},
+                    {value: 4, text: 'Consumer'},
+                    {value: 5, text: 'Demographics and Social'},
+                    {value: 6, text: 'Economics '},
+                    {value: 7, text: 'Education'},
+                    {value: 8, text: 'Energy'},
+                    {value: 9, text: 'Environment'},
+                    {value: 10, text: 'Finance'},
+                    {value: 11, text: 'Geospatial/Mapping'},
+                    {value: 12, text: 'Government Operations'},
+                    {value: 13, text: 'Health/Healthcare'},
+                    {value: 14, text: 'Housing'},
+                    {value: 15, text: 'International/Global Development'},
+                    {value: 16, text: 'Legal'},
+                    {value: 17, text: 'Manufacturing'},
+                    {value: 18, text: 'Science and Research'},
+                    {value: 19, text: 'Public Safety'},
+                    {value: 20, text: 'Tourism'},
+                    {value: 21, text: 'Transportation'},
+                    {value: 22, text: 'Weather'}
                  ]
           });
 
@@ -156,9 +174,27 @@
               showbuttons: false,
               source: [
                     {value: 1, text: 'Agriculture'},
-                    {value: 2, text: 'Arts & Culture'},
-                    {value: 3, text: 'Business and Legal Services'},
-                    {value: 4, text: 'Consumer Services'}
+                    {value: 2, text: 'Arts and Culture'},
+                    {value: 3, text: 'Business'},
+                    {value: 4, text: 'Consumer'},
+                    {value: 5, text: 'Demographics and Social'},
+                    {value: 6, text: 'Economics '},
+                    {value: 7, text: 'Education'},
+                    {value: 8, text: 'Energy'},
+                    {value: 9, text: 'Environment'},
+                    {value: 10, text: 'Finance'},
+                    {value: 11, text: 'Geospatial/Mapping'},
+                    {value: 12, text: 'Government Operations'},
+                    {value: 13, text: 'Health/Healthcare'},
+                    {value: 14, text: 'Housing'},
+                    {value: 15, text: 'International/Global Development'},
+                    {value: 16, text: 'Legal'},
+                    {value: 17, text: 'Manufacturing'},
+                    {value: 18, text: 'Science and Research'},
+                    {value: 19, text: 'Public Safety'},
+                    {value: 20, text: 'Tourism'},
+                    {value: 21, text: 'Transportation'},
+                    {value: 22, text: 'Weather'}
                  ]
               });
 
