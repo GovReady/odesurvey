@@ -76,6 +76,7 @@
           // Editable areas
 
           // Org information
+          
           $("#orgNameOfficial").editable({
             placeholder: "e.g., IBM Corporation"
           });
@@ -260,6 +261,16 @@
               placeholder: 'placeholder text',
               cols: 80
             });    
+
+            // Contact
+
+            $("#contactName").editable({
+              placeholder: "e.g., Chris Jones"
+            });
+
+            $("#contactEmail").editable({
+                placeholder: "e.g., chris.jones@ibm.com"
+              });
 
         }
         

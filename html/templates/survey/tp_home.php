@@ -130,19 +130,29 @@
 
 
  <div class="col-md-9 controlsec" role="contact">
-  	<div class="row">
- 		<div class="col-md-10">
- 			<h3>Contact</h3>
- 		</div>
+  <div class="row col-md-12">
+      <h3>Contact</h3>
+  </div>
 
- 	</div>
+    <div class="row col-md-12" role="dataPurposes">
+      <div><strong>Contact information</strong><br /><br /></div>
+    </div>
+    <div class="row col-md-12" id="dataPurpose">
+      <div class="row col-md-12" id="dataPurposeGridHeading" style="border-bottom:0px solid #eee;">
+        <div class="col-md-12">Name</div>
+        <div class="col-md-12"><a href="#" id="contactName" data-type="text" data-pk="1"> </a></div>
+      <br />
+      </div>
+      <div class="row col-md-12" id="dataPurposeGrid">
+        <div class="row col-md-12 dataPurposeGridRow" style="border-bottom:0px solid #eee;">
+          <div class="col-md-12">Email</div>
+          <div class="col-md-12"><a href="#" id="contactEmail" data-type="text" data-pk="1"> </a></div>
+        </div> <!-- /row -->
+      </div> <!-- /dataPurposeGrid -->
+    </div> <!-- /dataPurpose row -->
 
- 	<div class="row">
- 		<div class="col-md-12">
- 			<div id="#">Blah, blah 3</div>
- 			</p>
-		</div>	
-	</div>
+
+
 
 
  </div>
