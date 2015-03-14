@@ -82,6 +82,8 @@
           $("#orgName").editable();
 
           $('#orgType').editable({
+              prepend: 'select',
+              showbuttons: false,
               source: [
                     {value: 1, text: 'for-profit'},
                     {value: 2, text: 'nonprofit'},
@@ -91,6 +93,8 @@
 
           // Data use
           $('#dataType1').editable({
+              prepend: 'select',
+              showbuttons: false,
               source: [
                     {value: 1, text: 'Agriculture'},
                     {value: 2, text: 'Arts and Culture'},
@@ -172,6 +176,7 @@
               pk: idSuffixNum,
               title: 'Select data type',
               showbuttons: false,
+              prepend: 'select',
               source: [
                     {value: 1, text: 'Agriculture'},
                     {value: 2, text: 'Arts and Culture'},
