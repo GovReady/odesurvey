@@ -142,14 +142,11 @@ body {
     <br />
 
     <div class="row col-md-12" role="orgImpactQ">
-      <div>6) What is the most important way in which your company or organization has a positive impact, and how does open government data help you achieve it?<br /><br /></div>
+      <div>6) What is the most important way in which your company or organization has a positive impact, and how does open government data help you achieve it?</div>
+      <a href="#" id="orgImpactResponse" data-type="textarea" data-pk="1" data-title="Select" style=""></a>
     </div>
     <div class="row col-md-12" id="orgImpact">
-      <div class="row col-md-12" id="orgImpactGrid">
-        <div class="row col-md-12 orgImpactGridRow" style="">
-          <div class="col-md-12" style=""><a href="#" id="orgImpactResponse" data-type="textarea" data-pk="1" data-title="Select" style=""></a></div>
-        </div> <!-- /row -->
-      </div> <!-- /dataPurposeGrid -->
+        
     </div> <!-- /dataPurpose row -->
 
 
@@ -163,7 +160,7 @@ body {
   </div>
 
     <div class="row col-md-12" role="dataPurposes">
-      <div>Contact information<br /><br /></div>
+      <div>7) Contact information<br /><br /></div>
     </div>
     <div class="row col-md-12" id="dataPurpose">
       <div class="row col-md-12" id="dataPurposeGridHeading" style="border-bottom:0px solid #eee;">
