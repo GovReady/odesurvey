@@ -58,10 +58,11 @@ body {
         The Open Data Impact Map includes organizations that:
           <ul>
                 <li>are companies, non-profits, or developer communities</li>
-                <li>use open government data to develop products and services, or operations,and  strategy</li>
+                <li>use open government data to develop products and services, or operations, and  strategy</li>
             </ul>
         <br />
-        We define <i>open government data</i> as publicly available data that is produced or commissioned by governments (or government-controlled entities) that can be accessed and reused by anyone, free of charge or at marginal cost. 
+        We define <i>open government data</i> as publicly available data that is produced or commissioned by governments 
+        (or government-controlled entities) that can be accessed and reused by anyone, free of charge or at marginal cost. 
       </div>
       
     </div>  
@@ -74,15 +75,15 @@ body {
  	</div>
 
  	<div class="row col-md-12 ">
-      <div><strong>1) Official organization name</strong></div>
+      <div>1) Official organization name</div>
       <a href="#" id="orgNameOfficial" data-type="text" data-pk="1"></a>
 
       <br /><br />
-       <div><strong>2) Common organization name</strong></div>
+       <div>2) Common organization name</div>
       <a href="#" id="orgNameCommon" data-type="text" data-pk="1"> </a>
 
       <br /><br />
-			<div><strong>2) What type of organization is it? (select 1)</strong></div>
+			<div>2) What type of organization is it? (select 1)</div>
       <a href="#" id="orgType" data-type="select" data-pk="1" data-title="Select org type"></a>
 		</div>	
 	</div>
@@ -92,8 +93,8 @@ body {
   <div class="col-md-9 controlsec" role="dataUse">
   	<div class="row col-md-12" role="dataTypes">
  			<h3>Open data use</h3>
-      <div><strong>4) Please tell us what kinds of open government data are most relevant for your organization.<br />
-        In each case tell us the country that supplies the data, and whether the data is local, regional or national.</strong><br /><br /></div>
+      <div>4) Please tell us what kinds of open government data are most relevant for your organization.<br />
+        In each case tell us the country that supplies the data, and whether the data is local, regional or national.<br /><br /></div>
  		</div>
 
  	  <div class="row col-md-12" id="dataUse">
@@ -122,7 +123,7 @@ body {
     <br />
     
     <div class="row col-md-12" role="dataPurposes">
-      <div><strong>5) What purpose does open data serve for your company or organization? - select all that apply</strong><br /><br /></div>
+      <div>5) What purpose does open data serve for your company or organization? - select all that apply<br /><br /></div>
     </div>
     <div class="row col-md-12" id="dataPurpose">
       <div class="row col-md-12" id="dataPurposeGridHeading" style="border-bottom:0px solid #eee;">
@@ -141,7 +142,7 @@ body {
     <br />
 
     <div class="row col-md-12" role="orgImpactQ">
-      <div><strong>6) What is the most important way in which your company or organization has a positive impact, and how does open government data help you achieve it?</strong><br /><br /></div>
+      <div>6) What is the most important way in which your company or organization has a positive impact, and how does open government data help you achieve it?<br /><br /></div>
     </div>
     <div class="row col-md-12" id="orgImpact">
       <div class="row col-md-12" id="orgImpactGrid">
@@ -162,7 +163,7 @@ body {
   </div>
 
     <div class="row col-md-12" role="dataPurposes">
-      <div><strong>Contact information</strong><br /><br /></div>
+      <div>Contact information<br /><br /></div>
     </div>
     <div class="row col-md-12" id="dataPurpose">
       <div class="row col-md-12" id="dataPurposeGridHeading" style="border-bottom:0px solid #eee;">
