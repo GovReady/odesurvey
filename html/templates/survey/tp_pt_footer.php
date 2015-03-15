@@ -95,6 +95,62 @@
                  ]
           });
 
+
+          $("#orgUrl").editable({
+            placeholder: "e.g., http://ibm.com"
+          });
+
+          $("#orgDesc").editable({
+            placeholder: ""
+          });
+
+          $("#orgCity").editable({
+            placeholder: "e.g., New York"
+          });
+
+          $("#orgStateProvince").editable({
+            placeholder: "e.g., NY"
+          });
+
+          $("#orgCountry").editable({
+            placeholder: "e.g., USA"
+          });
+
+          $("#orgPostalCode").editable({
+            placeholder: "e.g., 101011"
+          });
+
+          $("#orgCategory").editable({
+              showbuttons: true,
+              source: [
+                {value: 'ag', text: 'Agriculture'},
+                {value: 'art', text: 'Arts and culture'},
+                {value: 'bus', text: 'Business and legal services'},
+                {value: 'cons', text: 'Consumer services'},
+                {value: 'dat', text: 'Data/information technology'},
+                {value: 'edu', text: 'Education'},
+                {value: 'eny', text: 'Energy'},
+                {value: 'env', text: 'Environment'},
+                {value: 'fin', text: 'Finance and investment'},
+                {value: 'geo', text: 'Geospatial/mapping'},
+                {value: 'gov', text: 'Governance'},
+                {value: 'heal', text: 'Healthcare'},
+                {value: 'hous', text: 'Housing and real estate'},
+                {value: 'ins', text: 'Insurance'},
+                {value: 'comm', text: 'Media and communications'},
+                {value: 'manu', text: 'Mining/manufacturing'},
+                {value: 'res', text: 'Research and consulting'},
+                {value: 'sec', text: 'Security and public safety'},
+                {value: 'sci', text: 'Scientific research'},
+                {value: 'tel', text: 'Telecommunication/internet service providers (ISPs)'},
+                {value: 'tour', text: 'Tourism'},
+                {value: 'tran', text: 'Transportation and logistics'},
+                {value: 'wat', text: 'Water and sanitation'},
+                {value: 'weat', text: 'Weather'},
+                {value: 'othr', text: 'Other'}
+                 ]
+          });
+
           // Data use
           $('#dataType1').editable({
               prepend: 'select',

@@ -75,25 +75,51 @@ body {
  	</div>
 
  	<div class="row col-md-12 ">
-      <div>1) Official organization name</div>
+      
+      <div>Official organization name</div>
       <a href="#" id="orgNameOfficial" data-type="text" data-pk="1"></a>
 
       <br /><br />
-       <div>2) Common organization name</div>
+      <div>Common organization name</div>
       <a href="#" id="orgNameCommon" data-type="text" data-pk="1"> </a>
 
       <br /><br />
-			<div>2) What type of organization is it? (select 1)</div>
+			<div>What type of organization is it? (select 1)</div>
       <a href="#" id="orgType" data-type="select" data-pk="1" data-title="Select org type"></a>
+
+      <br /><br />
+      <div>Website URL of the organization</div>
+      <a href="#" id="orgUrl" data-type="text" data-pk="1">http://</a>
+
+      <br /><br />
+      <div>Description of organization (500 characters or less) </div>
+      <a href="#" id="orgDesc" data-type="textarea" data-pk="1"> </a>
+
+      <br /><br />
+      <div>Location (Headquarters) </div>
+      <div class="row col-md-12">
+        <div class="row col-md-4">City<br><a href="#" id="orgCity" data-type="text" data-pk="1"> </a><br /></div>
+        <div class="row col-md-4">State/Province<br><a href="#" id="orgStateProvince" data-type="text" data-pk="1"> </a></div>
+        <div class="row col-md-4">Country<br><a href="#" id="orgCountry" data-type="text" data-pk="1"> </a></div>
+      </div>
+      <br />
+      <div class="row col-md-12">
+        <div class="row col-md-5">PostalCode (optional)<br><a href="#" id="orgPostalCode" data-type="text" data-pk="1"> </a></div>
+      </div>
+
+      <br />
+      <div>Industry/category (choose up to 3) </div>
+      <a href="#" id="orgCategory" data-type="checklist" data-pk="1"> </a>
+
 		</div>	
 	</div>
 
 
-
   <div class="col-md-9 controlsec" role="dataUse">
   	<div class="row col-md-12" role="dataTypes">
- 			<h3>Open data use</h3>
-      <div>4) Please tell us what kinds of open government data are most relevant for your organization.<br />
+ 			<h3>How Do You Use Open Government Data?</h3>
+
+      <div>Please tell us what kinds of open government data are most relevant for your organization.<br />
         In each case tell us the country that supplies the data, and whether the data is local, regional or national.<br /><br /></div>
  		</div>
 
@@ -123,7 +149,7 @@ body {
     <br />
     
     <div class="row col-md-12" role="dataPurposes">
-      <div>5) What purpose does open data serve for your company or organization? - select all that apply<br /><br /></div>
+      <div>What purpose does open data serve for your company or organization? - select all that apply<br /><br /></div>
     </div>
     <div class="row col-md-12" id="dataPurpose">
       <div class="row col-md-12" id="dataPurposeGridHeading" style="border-bottom:0px solid #eee;">
@@ -142,7 +168,7 @@ body {
     <br />
 
     <div class="row col-md-12" role="orgImpactQ">
-      <div>6) What is the most important way in which your company or organization has a positive impact, and how does open government data help you achieve it?</div>
+      <div>What is the most important way in which your company or organization has a positive impact, and how does open government data help you achieve it?</div>
       <a href="#" id="orgImpactResponse" data-type="textarea" data-pk="1" data-title="Select" style=""></a>
     </div>
     <div class="row col-md-12" id="orgImpact">
@@ -160,7 +186,7 @@ body {
   </div>
 
     <div class="row col-md-12" role="dataPurposes">
-      <div>7) Contact information<br /><br /></div>
+      <div>Contact information<br /><small>This information will not be made public</small><br /><br /></div>
     </div>
     <div class="row col-md-12" id="dataPurpose">
       <div class="row col-md-12" id="dataPurposeGridHeading" style="border-bottom:0px solid #eee;">
