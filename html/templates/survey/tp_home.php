@@ -195,24 +195,6 @@ body {
   </div>
   <!--/end container-->
 
-<!-- confirm destroy bootstrap modal -->
-<div class="modal" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" style="width:800px;">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Edit Section</h3>
-            </div>
-            <div class="modal-body" style="height:360px;">
-                <textarea rows=16 cols=120>The Defense Security Cooperation Agency’s (DSCA) GlobalNET is a key tool to promote communication between Regional International Outreach (RIO) education centers and institutions, Partnership for Peace (PfP) partners and the communities they engage. RIO-PIMS must provide a secure, extensible, and scalable IT platform for outreach and communication. The system must also encourage engagement via superior usability practices to fulfill its outreach and collaboration missions.
- 			</textarea>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <a href="/controls/audits/destroy" class="btn btn-primary btn-ok">Update</a>
-            </div>
-        </div>
-    </div>
-</div>
 <script>
 
     // $('#confirm-delete').on('show.bs.modal', function(e) {
