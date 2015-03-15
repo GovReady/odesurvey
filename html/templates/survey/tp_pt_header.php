@@ -61,18 +61,7 @@
 </header>
 <div class="w-section section hero interior option-5 what-we-do-pic">
     <h1 class="hero-heading contact-us what-we-do-text">
-        Open Data Enterprise <strong>Survey</strong>
+        Open Data Impact Map <strong>Survey</strong>
     </h1>
 </div>
 
-
-<!-- Main Content Section -->
-<div class="container lg-font col-md-12" style="padding-top:0px;border:0px solid black;">
-
-<!-- Vertical Nav Section -->
-<div class="row" style="border:0px solid gray;">
-
- 
-
-
-    

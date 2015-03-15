@@ -25,8 +25,8 @@
 
   h3 {
     border-bottom: 1px dotted #ddd;
+    margin: 24px 0px 16px 0px;
   }
-
 
  /* Important to get editable to be full width (see: https://github.com/vitalets/x-editable/issues/361#issuecomment-74871125) */
   .editable-container.editable-inline,
@@ -39,7 +39,34 @@
     width: 85%!important;
 }
 
+body {
+  font-size: 11pt;
+}
+
 </style>
+
+<!-- Main Content Section -->
+<div class="container lg-font col-md-12" style="border:0px solid black;">
+
+ <div class="row col-md-12 controlsec row-fluid" role="Intro">
+  <div class="row col-md-12">
+      <h3>Introduction</h3>
+  </div>
+
+  <div class="row col-md-12 ">
+      <div>
+        The Open Data Impact Map includes organizations that:
+          <ul>
+                <li>are companies, non-profits, or developer communities</li>
+                <li>use open government data to develop products and services, or operations,and  strategy</li>
+            </ul>
+        <br />
+        We define <i>open government data</i> as publicly available data that is produced or commissioned by governments (or government-controlled entities) that can be accessed and reused by anyone, free of charge or at marginal cost. 
+      </div>
+      
+    </div>  
+  </div>
+
 
  <div class="row col-md-9 controlsec" role="orgInfo">
  	<div class="row col-md-12">
