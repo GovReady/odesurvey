@@ -77,11 +77,7 @@ body {
  	<div class="row col-md-12 ">
       
       <div>Official organization name</div>
-      <a href="#" id="orgNameOfficial" data-type="text" data-pk="1"></a>
-
-      <br /><br />
-      <div>Common organization name</div>
-      <a href="#" id="orgNameCommon" data-type="text" data-pk="1"> </a>
+      <a href="#" id="orgName" data-type="text" data-pk="1"></a>
 
       <br /><br />
 			<div>What type of organization is it? (select 1)</div>

@@ -77,12 +77,8 @@
 
           // Org information
           
-          $("#orgNameOfficial").editable({
+          $("#orgName").editable({
             placeholder: "e.g., IBM Corporation"
-          });
-
-          $("#orgNameCommon").editable({
-            placeholder: "e.g., IBM"
           });
 
           $('#orgType').editable({
