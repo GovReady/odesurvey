@@ -56,6 +56,15 @@ HTML;
 
 });
 
+// ************
+$app->get('/gettext/', function () use ($app) {
+
+	$content['title'] = "Open Data Enterprise Survey"; 
+	
+	$app->view()->setData(array('content' => $content));
+	$app->render('gettext/tp_home.php');
+});
+
 
 // ************
 $app->get('/:surveyName/survey1/', function ($surveyName) use ($app) {
