@@ -5,6 +5,7 @@ assets/*
 
 # application
 credentials.inc.php
+phpinfo.php
 
 # apple
 .DS_Store

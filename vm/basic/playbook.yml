@@ -47,11 +47,20 @@
         - php-tidy
         - php-pear
 
+   - name: gettext
+     yum: pkg={{ item }} state=installed
+     with_items:
+        - gettext
+
    - name: Ensure Apache running
      service: name=httpd state=started enabled=yes
 
    - name: Copy Apache vhost config file for default web pages 
      copy: src=templates/etc/httpd/conf.d/15-default.conf dest=/etc/httpd/conf.d/15-default.conf
+     notify: restart httpd
+
+   - name: Copy gettext.ini file 
+     copy: src=templates/etc/php.d/gettext.ini dest=/etc/php.d/gettext.ini
      notify: restart httpd
 
    - name: Install git
