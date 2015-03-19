@@ -204,128 +204,126 @@
             addDataUseRow();
           });
           
+          // Data purpose
+
+          $('#x1').editable({
+            source: [
+                  {value: 'ma', text: 'mobile applications'},
+                  {value: 'wa', text: 'web-based applications'},
+                  {value: 'pl', text: 'product line'},
+                  {value: 'sl', text: 'service line'},
+                  {value: 'na', text: 'not applicable'}
+               ]
+          });
+
+
+          $('#x2').editable({
+            source: [
+                  {value: 'ieps', text: 'Improve existing products and services'},
+                  {value: 'ieo', text: 'Increase efficiency of operations'},
+                  {value: 'ikmt', text: 'Increase knowledge of markets and trends'},
+                  {value: 'na', text: 'not applicable'}
+               ]
+          });    
+
+          // Org impact
+
+          $('#orgImpactResponse').editable({
+            rows: 6,
+            placeholder: 'placeholder text',
+            cols: 80
+          });    
+
+          // Contact
+
+          $("#contactName").editable({
+            placeholder: "e.g., Chris Jones"
+          });
+
+          $("#contactEmail").editable({
+              placeholder: "e.g., chris.jones@ibm.com"
+            });
 
 
          }); // End Document Ready function
 
-        /* Declare the function 'addDataUseRow' 
-           Add a row to data use question
-        */
-        function addDataUseRow(){
-          console.log('addDataUseRow called');
+/* Declare the function 'addDataUseRow' 
+   Add a row to data use question
+*/
+function addDataUseRow(){
+  console.log('addDataUseRow called');
 
-          var rows = $('.dataUseGridRow').length;
-          console.log('rows: '+rows);
-          var idSuffixNum = rows + 1;
+  var rows = $('.dataUseGridRow').length;
+  console.log('rows: '+rows);
+  var idSuffixNum = rows + 1;
 
-          var x = '<div class="row col-md-12 dataUseGridRow" style="border-bottom:1px solid #eee;">' +
-           '<div class="col-md-1">('+idSuffixNum.toString()+')</div>'+
-           '<div class="col-md-3"><a href="#" id="dataType'+idSuffixNum.toString()+'"></a></div>'+
-           '<div class="col-md-4"><a href="#" id="srcCountry'+idSuffixNum.toString()+'"></a></div>' +
-           '<div class="col-md-3"><a href="#" id="srcGovLevel'+idSuffixNum.toString()+'"></a></div>' +
-           '</div><!-- /row -->';
+  var x = '<div class="row col-md-12 dataUseGridRow" style="border-bottom:1px solid #eee;">' +
+   '<div class="col-md-1">('+idSuffixNum.toString()+')</div>'+
+   '<div class="col-md-3"><a href="#" id="dataType'+idSuffixNum.toString()+'"></a></div>'+
+   '<div class="col-md-4"><a href="#" id="srcCountry'+idSuffixNum.toString()+'"></a></div>' +
+   '<div class="col-md-3"><a href="#" id="srcGovLevel'+idSuffixNum.toString()+'"></a></div>' +
+   '</div><!-- /row -->';
 
-           $('#dataUseGrid').append(x);
+   $('#dataUseGrid').append(x);
 
-           $('#dataType'+idSuffixNum.toString()).editable({
-              type: 'select',
-              pk: idSuffixNum,
-              title: 'Select data type',
-              showbuttons: false,
-              prepend: 'select',
-              source: [
-                    {value: 1, text: 'Agriculture'},
-                    {value: 2, text: 'Arts and Culture'},
-                    {value: 3, text: 'Business'},
-                    {value: 4, text: 'Consumer'},
-                    {value: 5, text: 'Demographics and Social'},
-                    {value: 6, text: 'Economics '},
-                    {value: 7, text: 'Education'},
-                    {value: 8, text: 'Energy'},
-                    {value: 9, text: 'Environment'},
-                    {value: 10, text: 'Finance'},
-                    {value: 11, text: 'Geospatial/Mapping'},
-                    {value: 12, text: 'Government Operations'},
-                    {value: 13, text: 'Health/Healthcare'},
-                    {value: 14, text: 'Housing'},
-                    {value: 15, text: 'International/Global Development'},
-                    {value: 16, text: 'Legal'},
-                    {value: 17, text: 'Manufacturing'},
-                    {value: 18, text: 'Science and Research'},
-                    {value: 19, text: 'Public Safety'},
-                    {value: 20, text: 'Tourism'},
-                    {value: 21, text: 'Transportation'},
-                    {value: 22, text: 'Weather'}
-                 ]
-              });
+   $('#dataType'+idSuffixNum.toString()).editable({
+      type: 'select',
+      pk: idSuffixNum,
+      title: 'Select data type',
+      showbuttons: false,
+      prepend: 'select',
+      source: [
+            {value: 1, text: 'Agriculture'},
+            {value: 2, text: 'Arts and Culture'},
+            {value: 3, text: 'Business'},
+            {value: 4, text: 'Consumer'},
+            {value: 5, text: 'Demographics and Social'},
+            {value: 6, text: 'Economics '},
+            {value: 7, text: 'Education'},
+            {value: 8, text: 'Energy'},
+            {value: 9, text: 'Environment'},
+            {value: 10, text: 'Finance'},
+            {value: 11, text: 'Geospatial/Mapping'},
+            {value: 12, text: 'Government Operations'},
+            {value: 13, text: 'Health/Healthcare'},
+            {value: 14, text: 'Housing'},
+            {value: 15, text: 'International/Global Development'},
+            {value: 16, text: 'Legal'},
+            {value: 17, text: 'Manufacturing'},
+            {value: 18, text: 'Science and Research'},
+            {value: 19, text: 'Public Safety'},
+            {value: 20, text: 'Tourism'},
+            {value: 21, text: 'Transportation'},
+            {value: 22, text: 'Weather'}
+         ]
+      });
 
-            $('#srcGovLevel'+idSuffixNum.toString()).editable({
-              type: 'checklist',
-              pk: idSuffixNum,
-              title: 'Select source government',
-              showbuttons: true,
-              source: [
-                    {value: 1, text: 'local'},
-                    {value: 2, text: 'regional'},
-                    {value: 3, text: 'national'}
-                 ]
-              });
+    $('#srcGovLevel'+idSuffixNum.toString()).editable({
+      type: 'checklist',
+      pk: idSuffixNum,
+      title: 'Select source government',
+      showbuttons: true,
+      source: [
+            {value: 1, text: 'local'},
+            {value: 2, text: 'regional'},
+            {value: 3, text: 'national'}
+         ]
+      });
 
-            $('#srcCountry'+idSuffixNum.toString()).editable({
-              type: 'checklist',
-              pk: idSuffixNum,
-              title: 'Select source government',
-              showbuttons: true,
-              source: [
-                    {value: 1, text: 'Mexico'},
-                    {value: 2, text: 'Russia'},
-                    {value: 3, text: 'United States'},
-                    {value: 4, text: 'Other countries below this'}
-                 ]
-              });
-
-            // Data purpose
-
-            $('#x1').editable({
-              source: [
-                    {value: 'ma', text: 'mobile applications'},
-                    {value: 'wa', text: 'web-based applications'},
-                    {value: 'pl', text: 'product line'},
-                    {value: 'sl', text: 'service line'},
-                    {value: 'na', text: 'not applicable'}
-                 ]
-            });
-
-
-            $('#x2').editable({
-              source: [
-                    {value: 'ieps', text: 'Improve existing products and services'},
-                    {value: 'ieo', text: 'Increase efficiency of operations'},
-                    {value: 'ikmt', text: 'Increase knowledge of markets and trends'},
-                    {value: 'na', text: 'not applicable'}
-                 ]
-            });    
-
-            // Org impact
-
-            $('#orgImpactResponse').editable({
-              rows: 6,
-              placeholder: 'placeholder text',
-              cols: 80
-            });    
-
-            // Contact
-
-            $("#contactName").editable({
-              placeholder: "e.g., Chris Jones"
-            });
-
-            $("#contactEmail").editable({
-                placeholder: "e.g., chris.jones@ibm.com"
-              });
-
-        }
-        
+    $('#srcCountry'+idSuffixNum.toString()).editable({
+      type: 'checklist',
+      pk: idSuffixNum,
+      title: 'Select source government',
+      showbuttons: true,
+      source: [
+            {value: 1, text: 'Mexico'},
+            {value: 2, text: 'Russia'},
+            {value: 3, text: 'United States'},
+            {value: 4, text: 'Other countries below this'}
+         ]
+      });
+}
+      
 
      </script>
  </body>
