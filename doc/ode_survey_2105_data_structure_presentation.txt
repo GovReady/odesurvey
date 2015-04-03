@@ -2,7 +2,7 @@
 -- Copyright 2015 Center for Open Data Enterprise. All Rights Reserved.
 -- Prepared by Greg Elin (greg@odenterprise.org)
 -- filename: ode_survey_2015_data_structure_presentation.txt
-
+-- version: 0.5.1
 
 -- NOTES
 -- This is a description of the data tables for the 2015 Survey PRESENTATION LAYER.
@@ -26,11 +26,8 @@ org_size_id              varchar(8) NULL,          -- code for organization side
 industry_id              varchar(20) NULL,         -- industry identifier (see: table industry)
 org_greatest_impact      varchar(50) NULL,         -- (Economic, Environmental, Governance, Social, other)
 use_prod_srvc            boolean NULL,
-use_prod_srvc_desc       varchar(75) NULL,         -- 
-use_org_opt              boolean NULL,
 use_org_opt_desc         varchar(401) NULL,        -- 400 character description
 use_research             boolean NULL,
-use_research_desc        varchar(401) NULL,        -- 400 character description
 use_other                boolean NULL,
 use_other_desc           varchar(401) NULL,        -- 400 character description
 org_hq_city              varchar(124) NULL,        --  
@@ -40,8 +37,8 @@ org_hq_lat               float(13,6) NULL,         -- default lat for org's head
 org_hq_lon               float(13,6) NULL,         -- default long for org's headquater city
 org_hq_city_locode       varchar(8) NULL,          -- UN Locode for city if exists
 org_hq_country_locode    varchar(8) NULL,          -- UN Locode for country
-org_wb_country_locode    varchar(3) NULL,          -- Worldbank country code
-date_modified                  timestamp
+org_wb_country_code      varchar(3) NULL,          -- Worldbank country code
+date_modified            timestamp
 );
 
 -- organization data use table

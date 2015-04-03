@@ -1,7 +1,8 @@
 -- Center for Open Data Enterprise Survey 2015 Data Structure
 -- Copyright 2015 Center for Open Data Enterprise. All Rights Reserved.
 -- Prepared by Greg Elin (greg@odenterprise.org)
-
+-- filename: ode_survey_2015_data_structure.txt
+-- version: 0.5.1
 
 -- NOTES
 -- This is a description of the data tables for the 2015 Survey.
