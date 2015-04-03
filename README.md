@@ -16,7 +16,7 @@ cd vm/basic
 vagrant up
 ```
 
-2. Open browser and go to location `http://127.0.0.1:8081/s/survey`
+2. Open browser and go to location `http://127.0.0.1:8081/s/survey1/`
 
 If the URL does not work check `vm/basic/Vagrantfile` and check file Vagrant configuration.
 
