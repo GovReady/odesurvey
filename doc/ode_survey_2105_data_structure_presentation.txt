@@ -1,0 +1,114 @@
+-- Center for Open Data Enterprise Survey 2015 Data Structure
+-- Copyright 2015 Center for Open Data Enterprise. All Rights Reserved.
+-- Prepared by Greg Elin (greg@odenterprise.org)
+-- filename: ode_survey_2015_data_structure_presentation.txt
+
+
+-- NOTES
+-- This is a description of the data tables for the 2015 Survey PRESENTATION LAYER.
+-- This data structure represents a flattened version of the survey data for eaiser presentation.
+--
+-- Tables are expressed as DDL for MySQL
+-- Plan is to use ESRI place finder to gather organization's headquarter city, subdivision, country
+-- Codes/IDs are used in field `industry_id` to make easier to deal with multiple languages
+
+-- organization profile table
+-- --------------------------------------------
+drop table if exists org_profile;
+create table org_profile (
+profile_id               varchar(24) NOT NULL KEY, -- unique profile id
+org_name                 varchar(250) NULL,        -- profile is about this organization (note: ODE will manually insure name disambiguation initially)
+org_type                 varchar(24) NULL,         -- (For-profit, Nonprofit, Developer group)
+org_url                  varchar(200) NULL,        -- primary url for organization
+org_year_founded         int NULL,                 -- year organization founded
+org_description          varchar(401) NULL,        -- 400 character description of organization
+org_size_id              varchar(8) NULL,          -- code for organization side (see: table org_size)
+industry_id              varchar(20) NULL,         -- industry identifier (see: table industry)
+org_greatest_impact      varchar(50) NULL,         -- (Economic, Environmental, Governance, Social, other)
+use_prod_srvc            boolean NULL,
+use_prod_srvc_desc       varchar(75) NULL,         -- 
+use_org_opt              boolean NULL,
+use_org_opt_desc         varchar(401) NULL,        -- 400 character description
+use_research             boolean NULL,
+use_research_desc        varchar(401) NULL,        -- 400 character description
+use_other                boolean NULL,
+use_other_desc           varchar(401) NULL,        -- 400 character description
+org_hq_city              varchar(124) NULL,        --  
+org_hq_st_prov           varchar(250) NULL,        -- 
+org_hq_country           varchar(250) NULL,        -- 
+org_hq_lat               float(13,6) NULL,         -- default lat for org's headquater city
+org_hq_lon               float(13,6) NULL,         -- default long for org's headquater city
+org_hq_city_locode       varchar(8) NULL,          -- UN Locode for city if exists
+org_hq_country_locode    varchar(8) NULL,          -- UN Locode for country
+org_wb_country_locode    varchar(3) NULL,          -- Worldbank country code
+date_modified                  timestamp
+);
+
+-- organization data use table
+-- --------------------------------------------
+drop table if exists org_data_use;
+create table org_data_use (
+data_use_id               mediumint NOT NULL AUTO_INCREMENT KEY,
+profile_id                varchar(24) NOT NULL,
+data_type_id              varchar(8) NOT NULL,
+data_src_country_locode   varchar(2) NOT NULL,
+data_src_gov_level_id     varchar(3) NOT NULL
+);
+
+-- data type reference table
+-- --------------------------------------------
+drop table if exists data_type;
+create table data_type (
+data_type_id             varchar(8) NOT NULL KEY,
+data_type_name           varchar(200) NOT NULL
+);
+-- need to adjust to deal with languages 
+
+-- country reference table
+-- --------------------------------------------
+-- ISO 3166-1 http://www.unece.org/cefact/locode/service/location.html
+drop table if exists country_locode;
+create table country_locode (
+country_locode           varchar(2) NOT NULL KEY,
+country_name             varchar(200) NOT NULL
+);
+-- need to adjust to deal with languages 
+
+-- country demographics table
+-- --------------------------------------------
+-- World bank demographic data
+-- Example: see 'Metadata_Country_afg_Country_en_csv_v2.csv' from http://data.worldbank.org/country/afghanistan
+drop table if exists worldbank_country_metadata;
+create table worldbank_country_metadata (
+	country_code          varchar(3) NOT NULL,          -- Worldbank country code
+	country_name          varchar(124) NOT NULL, 
+	Regional              varchar(124) NOT NULL,
+	income_group          varchar(20) NOT NULL,
+	special_notes         varchar(1000) NULL
+);
+
+-- government level reference table
+-- --------------------------------------------
+drop table if exists gov_level;
+create table gov_level (
+gov_level_id             varchar(3) NOT NULL KEY,
+gov_level_name           varchar(200) NOT NULL      -- (Local, Regional, National)
+);
+-- need to adjust to deal with languages 
+
+-- size reference table
+-- --------------------------------------------
+drop table if exists org_size;
+create table org_size (
+org_size_id              varchar(8) NOT NULL KEY,
+min_employees            mediumint NOT NULL,
+max_employees            mediumint NOT NULL
+);
+
+-- industry/category reference table
+-- --------------------------------------------
+drop table if exists industry;
+create table industry (
+industry_id             varchar(12) NOT NULL KEY,
+industry_name           varchar(124) NOT NULL
+);
