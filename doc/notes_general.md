@@ -20,3 +20,10 @@ For city level data, you can either use a Placefinder – Esri has one built int
 - https://developers.arcgis.com/javascript/jssamples/index.html#search
 - http://www.geonames.org
 
+
+# How to use
+
+http://192.168.56.101/survey/opendata/ will taky user to http://192.168.56.101/survey/opendata/start/
+will create a record and direct them to survey.
+
+
