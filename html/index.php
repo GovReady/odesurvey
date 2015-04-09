@@ -74,19 +74,6 @@ $app->get('/:surveyName/survey1/', function ($surveyName) use ($app) {
 	    'restkey' => PARSE_API_KEY
 	));
 
-	// # Let's try
-	// $params = array(
-	//     'className' => 'Audit',
-	//     'query' => array(
- //        	'systemId' => $system['objectId']
-        	
- //    	),
- //    	'order' => 'securityCategory'
-	// );
-	// $request = $parse->query($params);
-	// $response = json_decode($request, true);
-	// $audits = $response['results'];
-
 	$content['surveyName'] = $surveyName;
 	$content['title'] = "Open Data Enterprise Survey";
 	$content['intro'] = <<<HTML
@@ -107,19 +94,6 @@ $app->get('/survey/opendata/:surveyId', function ($surveyId) use ($app) {
 	    'appid' => PARSE_APPLICATION_ID,
 	    'restkey' => PARSE_API_KEY
 	));
-
-	// # Let's try
-	// $params = array(
-	//     'className' => 'Audit',
-	//     'query' => array(
- //        	'systemId' => $system['objectId']
-        	
- //    	),
- //    	'order' => 'securityCategory'
-	// );
-	// $request = $parse->query($params);
-	// $response = json_decode($request, true);
-	// $audits = $response['results'];
 
 	$content['surveyId'] = $surveyId;
 	$content['surveyName'] = "opendata";
