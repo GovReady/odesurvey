@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>jQuery Bootgrid Demo</title>
+        <title>Open Data Survey 2015 - List</title>
         <link href="/css3/bootstrap.css" rel="stylesheet" />
         <link href="/dist/jquery.bootgrid.css" rel="stylesheet" />
         <script src="/js3/modernizr-2.8.1.js"></script>
