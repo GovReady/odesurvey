@@ -72,9 +72,19 @@ body {
      	</div>
 
         <div class="form-group col-md-12">
-          <div class="form-group col-md-7">
+          <div class="form-group col-md-9">
             <label for="org_name">Official organization name</label>
             <?php echo $org_profile['org_name']; ?>
+            <label class="control-label">What type of organization is it? (select 1)</label>
+            <?php echo $org_profile['org_type']; ?>
+
+            <label for="org_url">Website URL of the organization</label>
+            <?php echo $org_profile['org_url']; ?>
+
+            <label for="org_description">Description of organization (400 characters or less) </label>
+            <?php echo $org_profile['org_description']; ?>
+
+
         </div>
         </div>
 

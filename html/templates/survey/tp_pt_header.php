@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Survey Prototype 1</title>
+        <title>Open Data Survey 2015 - New</title>
         <meta name="description" content="Prototype of representing audit controls.">
         <meta name="viewport" content="width=device-width">
 
