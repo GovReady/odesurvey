@@ -43,3 +43,6 @@ See: https://github.com/apotropaic/parse.com-php-library/blob/parse.com-php-libr
 1. [x-editable mock ajax and console](http://vitalets.github.io/x-editable/assets/demo-mock.js)
 
 # Notes
+1. Using jQuery Bootgrid
+1.1 http://www.jquery-bootgrid.com
+1.1 
