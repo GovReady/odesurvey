@@ -7,7 +7,7 @@
 		 <a href="http://https://github.com/GovReady/GovReady.github.io"><img src="/img/github-wrap.png" alt="Github Logo" class="social-icon"></a>
      <p>&copy; GovReady, Greg Elin 2014</p>
    -->
-   <p>&copy; GovReady PBC 2015</p>
+   <p>&copy;</p>
    </footer>
  </div>
 
@@ -76,76 +76,6 @@
           // Editable areas
 
           // Org information
-          
-          $("#orgName").editable({
-            placeholder: "e.g., IBM Corporation"
-          });
-
-          $('#orgType').editable({
-              prepend: 'select',
-              showbuttons: false,
-              source: [
-                    {value: 1, text: 'for-profit'},
-                    {value: 2, text: 'nonprofit'},
-                    {value: 3, text: 'developer community'}
-                 ]
-          });
-
-
-          $("#orgUrl").editable({
-            placeholder: "e.g., http://ibm.com"
-          });
-
-          $("#orgDesc").editable({
-            placeholder: ""
-          });
-
-          $("#orgCity").editable({
-            placeholder: "e.g., New York"
-          });
-
-          $("#orgStateProvince").editable({
-            placeholder: "e.g., NY"
-          });
-
-          $("#orgCountry").editable({
-            placeholder: "e.g., USA"
-          });
-
-          $("#orgPostalCode").editable({
-            placeholder: "e.g., 101011"
-          });
-
-          $("#orgCategory").editable({
-              showbuttons: true,
-              source: [
-                {value: 'ag', text: 'Agriculture'},
-                {value: 'art', text: 'Arts and culture'},
-                {value: 'bus', text: 'Business and legal services'},
-                {value: 'cons', text: 'Consumer services'},
-                {value: 'dat', text: 'Data/information technology'},
-                {value: 'edu', text: 'Education'},
-                {value: 'eny', text: 'Energy'},
-                {value: 'env', text: 'Environment'},
-                {value: 'fin', text: 'Finance and investment'},
-                {value: 'geo', text: 'Geospatial/mapping'},
-                {value: 'gov', text: 'Governance'},
-                {value: 'heal', text: 'Healthcare'},
-                {value: 'hous', text: 'Housing and real estate'},
-                {value: 'ins', text: 'Insurance'},
-                {value: 'comm', text: 'Media and communications'},
-                {value: 'manu', text: 'Mining/manufacturing'},
-                {value: 'res', text: 'Research and consulting'},
-                {value: 'sec', text: 'Security and public safety'},
-                {value: 'sci', text: 'Scientific research'},
-                {value: 'tel', text: 'Telecommunication/internet service providers (ISPs)'},
-                {value: 'tour', text: 'Tourism'},
-                {value: 'tran', text: 'Transportation and logistics'},
-                {value: 'wat', text: 'Water and sanitation'},
-                {value: 'weat', text: 'Weather'},
-                {value: 'othr', text: 'Other'}
-                 ]
-          });
 
           // Data use
           $('#dataType1').editable({
@@ -225,25 +155,6 @@
                   {value: 'na', text: 'not applicable'}
                ]
           });    
-
-          // Org impact
-
-          $('#orgImpactResponse').editable({
-            rows: 6,
-            placeholder: 'placeholder text',
-            cols: 80
-          });    
-
-          // Contact
-
-          $("#contactName").editable({
-            placeholder: "e.g., Chris Jones"
-          });
-
-          $("#contactEmail").editable({
-              placeholder: "e.g., chris.jones@ibm.com"
-            });
-
 
          }); // End Document Ready function
 

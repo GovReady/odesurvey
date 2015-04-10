@@ -48,78 +48,175 @@ body {
 <!-- Main Content Section -->
 <div class="container lg-font col-md-12" style="border:0px solid black;">
 
- <div class="row col-md-12 controlsec row-fluid" role="Intro">
-  <div class="row col-md-12">
-      <h3>Introduction</h3>
-  </div>
+ <form class="form-horizontal" action="/survey/opendata/<?php echo $content['surveyId']; ?>" method="post">
 
-  <div class="row col-md-12 ">
-      <div>
-        The Open Data Impact Map includes organizations that:
-          <ul>
-                <li>are companies, non-profits, or developer communities</li>
-                <li>use open government data to develop products and services, or operations, and  strategy</li>
-            </ul>
-        <br />
-        We define <i>open government data</i> as publicly available data that is produced or commissioned by governments 
-        (or government-controlled entities) that can be accessed and reused by anyone, free of charge or at marginal cost. 
-      </div>
-      
-    </div>  
-  </div>
-
-
- <div class="row col-md-9 controlsec" role="orgInfo">
- 	<div class="row col-md-12">
- 			<h3>Organization information</h3>
- 	</div>
-
- 	<div class="row col-md-12 ">
-      
-      <div>Official organization name</div>
-      <a href="#" id="orgName" data-type="text" data-pk="1"></a>
-
-      <br /><br />
-			<div>What type of organization is it? (select 1)</div>
-      <a href="#" id="orgType" data-type="select" data-pk="1" data-title="Select org type"></a>
-
-      <br /><br />
-      <div>Website URL of the organization</div>
-      <a href="#" id="orgUrl" data-type="text" data-pk="1">http://</a>
-
-      <br /><br />
-      <div>Description of organization (500 characters or less) </div>
-      <a href="#" id="orgDesc" data-type="textarea" data-pk="1"> </a>
-
-      <br /><br />
-      <div>Location (Headquarters) </div>
+    <div class="row col-md-12 controlsec row-fluid" role="Intro">
       <div class="row col-md-12">
-        <div class="row col-md-4">City<br><a href="#" id="orgCity" data-type="text" data-pk="1"> </a><br /></div>
-        <div class="row col-md-4">State/Province<br><a href="#" id="orgStateProvince" data-type="text" data-pk="1"> </a></div>
-        <div class="row col-md-4">Country<br><a href="#" id="orgCountry" data-type="text" data-pk="1"> </a></div>
-      </div>
-      <br />
-      <div class="row col-md-12">
-        <div class="row col-md-5">PostalCode (optional)<br><a href="#" id="orgPostalCode" data-type="text" data-pk="1"> </a></div>
+          <h3>Introduction</h3>
       </div>
 
-      <br />
-      <div>Industry/category (choose up to 3) </div>
-      <a href="#" id="orgCategory" data-type="checklist" data-pk="1"> </a>
+      <div class="row col-md-8">
+          <div>
+            The Open Data Impact Map includes organizations that:
+              <ul>
+                  <li>are companies, non-profits, or developer communities</li>
+                  <li>use open government data to develop products and services, or operations, and  strategy</li>
+                </ul>
+            <br />
+            We define <i>open government data</i> as publicly available data that is produced or commissioned by governments 
+            (or government-controlled entities) that can be accessed and reused by anyone, free of charge or at marginal cost. 
+          </div>
+        </div>
 
-		</div>	
-	</div>
+    </div><!--/Intro-->
+
+    <div class="row col-md-9 controlsec" role="orgInfo">
+     	<div class="row col-md-12">
+     			<h3>Organization information</h3>
+     	</div>
+
+     	<div class="row col-md-12">
+        <div class="form-group col-md-12">
+          <div class="form-group col-md-7">
+            <label for="org_name">Official organization name</label>
+            <input type="text" class="form-control" id="org_name" name="org_name" placeholder="e.g., IBM Corporation">
+        </div>
+        </div>
+      </div>
+
+      <div class="form-group col-md-12">
+          <label class="control-label">What type of organization is it? (select 1)</label>
+        <div class="col-xs-9">
+          <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-default">
+                <input type="radio" name="org_type" value="For-profit" /> For-profit
+            </label>
+            <label class="btn btn-default">
+                <input type="radio" name="org_type" value="Nonprofit" /> Nonprofit
+            </label>
+            <label class="btn btn-default">
+                <input type="radio" name="org_type" value="Developer community" /> Developer community
+            </label>
+          </div>
+        </div>
+      </div>
 
 
-  <div class="col-md-9 controlsec" role="dataUse">
-  	<div class="row col-md-12" role="dataTypes">
- 			<h3>How Do You Use Open Government Data?</h3>
+      <div class="form-group col-md-12">
+      <div class="form-group col-md-7">
+        <label for="org_url">Website URL of the organization</label>
+        <input type="text" class="form-control" id="org_url" name="org_url" placeholder="http://" value="http://">
+      </div>
+    </div>
 
-      <div>Please tell us what kinds of open government data are most relevant for your organization.<br />
-        In each case tell us the country that supplies the data, and whether the data is local, regional or national.<br /><br /></div>
- 		</div>
 
- 	  <div class="row col-md-12" id="dataUse">
+    <div class="form-group col-md-12">
+      <div class="form-group col-md-7">
+        <label for="org_year_founded">Year founded</label>
+        <input type="text" class="form-control" id="org_year_founded" name="org_year_founded" placeholder="e.g., 2004">
+      </div>
+    </div>
+
+    <div class="form-group col-md-12">
+      <div class="form-group col-md-8">
+        <label for="org_description">Description of organization (400 characters or less) </label>
+        <textarea type="text" class="form-control " id="org_description" name="org_description" style="height:160px; min-height:160px;  max-height:160px;"></textarea>
+      </div>
+    </div>
+    
+    <!--div class="form-group">
+      <label for="org_size_id">Number of employees (select 1)</label>
+      <select class="form-control" name="org_size_id">
+        <option value="0">Select</option>
+        <option value="1">1-10</option>
+        <option value="2">11-50</option>
+        <option value="3">51-200</option>
+        <option value="4">201-1000</option>
+        <option value="5">1000+</option>
+      </select>
+    </div-->
+
+    <div class="form-group col-md-12">
+      <label class="control-label">Number of employees (select 1)</label>
+      <div class="col-xs-9">
+        <div class="btn-group" data-toggle="buttons">
+          <label class="btn btn-default">
+              <input type="radio" name="org_size_id" value="1 - 10" /> 1 - 10
+          </label>
+          <label class="btn btn-default">
+              <input type="radio" name="org_size_id" value="11 - 50" /> 11 - 50
+          </label>
+          <label class="btn btn-default">
+              <input type="radio" name="org_size_id" value="51 - 200" /> 51 - 200
+          </label>
+          <label class="btn btn-default">
+              <input type="radio" name="org_size_id" value="201 - 1000" /> 201 - 1000
+          </label>
+          <label class="btn btn-default">
+              <input type="radio" name="org_size_id" value="1000+" /> 1000+
+          </label>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="form-group col-md-12">
+      <div class="form-group col-md-7">
+      <label for="industry_id">Industry/category (select 1)</label>
+        <select class="form-control" name="industry_id">
+          <option value="0">Select</option>
+          <option value="bus">business &amp; legal services</option>
+          <option value="cul">culture/leisure</option>
+          <option value="dat">data/technology</option>
+          <option value="edu">education</option>
+          <option value="ngy">energy</option>
+          <option value="env">environment &amp; weather</option>
+          <option value="fin">finance &amp; investment</option>
+          <option value="agr">food &amp; agriculture</option>
+          <option value="geo">geospatial/mapping</option>
+          <option value="gov">governance</option>
+          <option value="hlt">healthcare</option>
+          <option value="est">housing/real estate</option>
+          <option value="hum">human rights</option>
+          <option value="ins">insurance</option>
+          <option value="lif">lifestyle &amp; consumer</option>
+          <option value="med">media &amp; communications</option>
+          <option value="man">mining/manufacturing</option>
+          <option value="rsh">research &amp; consulting</option>
+          <option value="sci">scientific research</option>
+          <option value="tel">telecommunication/ISPs</option>
+          <option value="trm">tourism</option>
+          <option value="trd">trade &amp; commodities</option>
+          <option value="trn">transportation</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group col-md-12">
+      <div class="form-group col-md-7">
+        <label for="org_hq_city">City</label>
+        <input type="text" class="form-control" id="org_hq_city" name="org_hq_city" placeholder="">
+
+        <label for="org_hq_st_prov">State/Province</label>
+        <input type="text" class="form-control" id="org_hq_st_prov" name="org_hq_st_prov" placeholder="">
+
+        <label for="org_hq_country">Country</label>
+        <input type="text" class="form-control" id="org_hq_country" name="org_hq_country" placeholder="">
+      </div>
+    </div>
+
+
+    </div><!--/OrgInfo-->
+
+    <div class="col-md-9 controlsec" role="dataUse">
+      <div class="row col-md-12" role="dataTypes">
+        <h3>How Do You Use Open Government Data?</h3>
+
+        <div>Please tell us what kinds of open government data are most relevant for your organization.<br />
+          In each case tell us the country that supplies the data, and whether the data is local, regional or national.<br /><br /></div>
+      </div>
+
+    <div class="row col-md-12" id="dataUse">
       <div class="row col-md-12" id="dataUseHeading" style="border-bottom:1px solid #eee;">
         <div class="col-md-1">&nbsp;</div>
         <div class="col-md-3">Relevant kind of data<br /><small>select one</small></div>
@@ -143,85 +240,100 @@ body {
 
     </div> <!-- /dataUse row -->
     <br />
+    <div class="row col-md-12" role="dataPurposes">
+      <label>
+        What purpose does open data serve for your company or organization? - select all that apply
+      </label>
+
+      <div class="form-group col-md-12">
+        <div class="form-group col-md-7">
+          <div class="checkbox">
+            <label> Develop product services
+              <input type="checkbox" name="use_prod_srvc" id="use_prod_srvc" value="True"> 
+              <input type="text" class="form-control" id="use_prod_srvc_desc" name="use_prod_srvc_desc">
+                
+            </label>
+          </div>
+
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" name="use_org_opt" id="use_prod" value="True">
+              Organization optimization
+            </label>
+          </div>
+          <div>
+            <input type="text" class="form-control" id="use_org_opt_desc" name="use_org_opt_desc">
+          </div>
+
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" name="use_research" id="use_research" value="True">
+              Use Research
+            </label>
+          </div>
+          <div>
+            <input type="text" class="form-control" id="use_research_desc" name="use_research_desc">
+          </div>
+
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" name="use_other" id="use_other" value="True">
+              Other
+            </label>
+          </div>
+          <div>
+            <input type="text" class="form-control" id="use_other_desc" name="use_other_desc">
+          </div>
     
-    <div class="row col-md-12" role="dataPurposes">
-      <div>What purpose does open data serve for your company or organization? - select all that apply<br /><br /></div>
-    </div>
-    <div class="row col-md-12" id="dataPurpose">
-      <div class="row col-md-12" id="dataPurposeGridHeading" style="border-bottom:0px solid #eee;">
-        <div class="col-md-12">Build new products/services with open government data</div>
-        <div class="col-md-12"><a href="#" id="x1" data-type="checklist" data-pk="1" data-title="Select"></a></div>
-      <br />
+          </div>
+        </div>
+
+
+    <div class="form-group col-md-12">
+      <div class="form-group col-md-8">
+        <label for="org_description">What is the most important way in which your company or organization has a positive impact, and how does open government data help you achieve it? (400 characters or less) </label>
+          <textarea type="text" class="form-control" id="org_greatest_impact" name="org_greatest_impact" style="height:160px; min-height:160px;  max-height:160px;"></textarea>
       </div>
-      <div class="row col-md-12" id="dataPurposeGrid">
-        <div class="row col-md-12 dataPurposeGridRow" style="border-bottom:0px solid #eee;">
-          <div class="col-md-12">Organizaton optimization</div>
-          <div class="col-md-12"><a href="#" id="x2" data-type="checklist" data-pk="1" data-title="Select"></a></div>
-        </div> <!-- /row -->
-      </div> <!-- /dataPurposeGrid -->
-    </div> <!-- /dataPurpose row -->
-
-    <br />
-
-    <div class="row col-md-12" role="orgImpactQ">
-      <div>What is the most important way in which your company or organization has a positive impact, and how does open government data help you achieve it?</div>
-      <a href="#" id="orgImpactResponse" data-type="textarea" data-pk="1" data-title="Select" style=""></a>
     </div>
-    <div class="row col-md-12" id="orgImpact">
+
+    <div class="" role="Contact">
+      <div class="row col-md-12">
+          <h3>Contact</h3>
+      </div>
+
+      <div class="">
+        <div class="row col-md-7">
+          <label for="survey_contact_name">Your full name</label>
+          <input type="text" class="form-control" id="survey_contact_name" name="survey_contact_name" placeholder="">
+
+          <label for="survey_contact_title">Your title at organization</label>
+          <input type="text" class="form-control" id="survey_contact_title" name="survey_contact_title" placeholder="">
+
+          <label for="survey_contact_email">Your email</label>
+          <input type="text" class="form-control" id="survey_contact_email" name="survey_contact_email" placeholder="">
+
+          <input type="hidden" class="form-control" id="org_profile_year" name="org_profile_year" value="2015">
+          <input type="hidden" class="form-control" id="org_profile_status" name="org_profile_status" value="submitted">
+          <input type="hidden" class="form-control" id="org_profile_src" name="org_profile_src" value="survey">
+        </div>
         
-    </div> <!-- /dataPurpose row -->
+        <div>
+          <div class="row col-md-7"><br />
+            <button class="btn btn-primary col-md-3" id="btnSubmit" type="submit">SEND</button>
+          </div>
+        </div>
 
-
-  </div> <!-- /dataUse Section -->
-
-
-
- <div class="col-md-9 controlsec" role="contact">
-  <div class="row col-md-12">
-      <h3>Contact</h3>
-  </div>
-
-    <div class="row col-md-12" role="dataPurposes">
-      <div>Contact information<br /><small>This information will not be made public</small><br /><br /></div>
-    </div>
-    <div class="row col-md-12" id="dataPurpose">
-      <div class="row col-md-12" id="dataPurposeGridHeading" style="border-bottom:0px solid #eee;">
-        <div class="col-md-12">Name</div>
-        <div class="col-md-12"><a href="#" id="contactName" data-type="text" data-pk="1"> </a></div>
-      <br />
       </div>
-      <div class="row col-md-12" id="dataPurposeGrid">
-        <div class="row col-md-12 dataPurposeGridRow" style="border-bottom:0px solid #eee;">
-          <div class="col-md-12">Email</div>
-          <div class="col-md-12"><a href="#" id="contactEmail" data-type="text" data-pk="1"> </a></div>
-        </div> <!-- /row -->
-      </div> <!-- /dataPurposeGrid -->
-    </div> <!-- /dataPurpose row -->
+      
+    </div>
 
-    <br /><br />
-  <button class="btn btn-primary col-md-3" id="btnSubmit" type="submit">SEND</button>
+</div><!--/???? this should close datause tag - something must be wrong with data grid-->
 
 
- </div>
+</form>
 
-<!-- /exploration -->
-
-
-
-
-
-
-  </div>
-  <!--/end container-->
-
-<script>
-
-    // $('#confirm-delete').on('show.bs.modal', function(e) {
-    //     $(this).find('.btn-ok').attr('href', $(e.relatedTarget).attr('href'));
-    // });
-
-</script>
-
+<!-- I think I am missing a closing </div> gut things are working.
+<!--/end container - where is the tag?-->
 
 <?php include __DIR__.'/'.'tp_pt_footer.php'; ?>
 
