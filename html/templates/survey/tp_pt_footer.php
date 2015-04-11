@@ -30,6 +30,8 @@
       <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/css/select2.min.css" rel="stylesheet" />
       <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/js/select2.min.js"></script>
 
+      <script src="/dist/jquery.validate.min.js"></script>
+
      <script>
 
        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
@@ -93,6 +95,9 @@
           event.preventDefault(); // To prevent following the link (optional)
           addDataUseRow();
         });
+
+        $("#survey_form").validate();
+
 
           
   }); // End Document Ready function
