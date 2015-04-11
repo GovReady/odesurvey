@@ -147,7 +147,7 @@ $app->post('/survey/opendata/:surveyId/', function ($surveyId) use ($app) {
 	// Access post variables
 	$allPostVars = $app->request->post();
 	// $allPostVars = $app->request();
-	// echo "<pre>"; print_r($allPostVars); echo "</pre>";
+	echo "<pre>"; print_r($allPostVars); echo "</pre>";
 
 
 	if (! array_key_exists('use_prod_srvc', $allPostVars)) {
@@ -174,7 +174,48 @@ $app->post('/survey/opendata/:surveyId/', function ($surveyId) use ($app) {
 	// echo "<pre>"; print_r($allPostVars); echo "</pre>";
 	// echo "<pre>"; print_r($object); echo "</pre>";
 
-	// Update Parse object and save
+    // create data use object
+    // does field exist?
+
+    /*
+     * Intense loop to store multiple values from multiple possible data use examples
+    */
+    $idSuffixNum = 1;
+    while (array_key_exists('data_type-'.$idSuffixNum, $allPostVars)) {
+
+	    echo "<br>$idSuffixNum";
+	    echo "<br>surveyId: $surveyId";
+	    echo "<br>data_type: ".$allPostVars['data_type-'.$idSuffixNum];
+		echo "<br> data_src_country_locode: ".$allPostVars['data_src_country_locode-'.$idSuffixNum];
+	    echo "<br>data_src_gov_level: ".$allPostVars['data_src_gov_level-'.$idSuffixNum];
+
+	    $object_data_use['profile_id'] = $surveyId;
+	    $object_data_use['data_type'] = $allPostVars['data_type-'.$idSuffixNum];
+	    $object_data_use['data_src_country_locode'] = implode(",", $allPostVars['data_src_country_locode-'.$idSuffixNum]);
+	    $object_data_use['data_src_gov_level'] = implode(",", $allPostVars['data_src_gov_level-'.$idSuffixNum]);
+
+	    echo "<pre>"; print_r($object_data_use); echo "</pre>";
+	    echo "<br>creating data use records";
+	    $parse_params = array(
+	        'className' => 'org_data_use',
+	        'object' => $object_data_use 	// contains data for org_data_use row
+	    );
+
+	    $request = $parse->create($parse_params);
+    	$response = json_decode($request, true);
+
+    	if(isset($response['createdAt'])) {
+	    	echo "<br>saved.";
+	    } else {
+	    	// Failure
+	    	echo "<br>Problem. Problem with org_data_use create not yet handled.";
+	    	exit;
+	    }
+	    // Increment suffix counter to look for more data use rows
+	    $idSuffixNum++;
+	}
+
+	// Update Parse org_profile object and save
     $parse_params = array(
         'className' => 'org_profile',
 	    'objectId' => $surveyId,
@@ -182,7 +223,10 @@ $app->post('/survey/opendata/:surveyId/', function ($surveyId) use ($app) {
     );
     $request = $parse->update($parse_params);
     $response = json_decode($request, true);
-    // echo "<pre>";print_r($response);
+    echo "<pre>";print_r($response);
+
+    // exit;
+
     if(isset($response['updatedAt'])) {
     	// Success
     	$app->redirect("/survey/opendata/".$surveyId."/submitted/");

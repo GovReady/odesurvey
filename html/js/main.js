@@ -2,13 +2,12 @@
    Add a row to data use question
 */
 function addDataUseRow(){
-  // alert('addDataUseRow called');
   console.log('addDataUse called');
 
   var rows = $('.data-use-row').length;
   console.log('rows: '+rows);
   var idSuffixNum = rows + 1;
-  alert( idSuffixNum);
+  // alert( idSuffixNum);
 
   // var x = '<div class="row col-md-12 dataUseGridRow" style="border-bottom:1px solid #eee;">' +
   //  '<div class="col-md-1">('+idSuffixNum.toString()+')</div>'+
@@ -51,7 +50,7 @@ function addDataUseRow(){
             <div class="row col-md-12" id="dataUseHeading" style="border-bottom:1px solid #eee;"> \
         <div class="col-md-4">From country supplying data<br /><small>select all that apply</small></div> \
         <div class="col-md-5"> \
-<select name="data_src_country_locode-'+idSuffixNum.toString()+'" class="country-basic-multiple"  multiple="multiple"> \
+<select name="data_src_country_locode-'+idSuffixNum.toString()+'[]" class="country-basic-multiple"  multiple="multiple"> \
 <option value="AF">Afghanistan</option> \
 <option value="AX">Åland Islands</option> \
 <option value="AL">Albania</option> \
@@ -307,7 +306,7 @@ function addDataUseRow(){
       <div class="row col-md-12" id="dataUseHeading" style="border-bottom:1px solid #eee;"> \
         <div class="col-md-4">From government level<br /><small>select all that apply</small></div> \
         <div class="col-md-5"> \
-<select name="data_src_gov_level-'+idSuffixNum.toString()+'" class="basic-multiple"  multiple="multiple" style="width:336px;"> \
+<select name="data_src_gov_level-'+idSuffixNum.toString()+'[]" class="basic-multiple"  multiple="multiple" style="width:336px;"> \
   <option value="Federal">Federal</option> \
   <option value="Regional">Regional</option> \
   <option value="Local">Local</option> \

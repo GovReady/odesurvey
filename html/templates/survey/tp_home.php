@@ -1,14 +1,5 @@
 <?php include __DIR__.'/'.'tp_pt_header.php'; ?>
 
-  <!-- Start main content section -->
-
-        <div class="col-md-9" role="main">
-<!--
-        <h2><?php echo $content['title']; ?><br /><small>helper text</small></h2>
--->
- </div> <!--/end main -->
-
-<!-- exploration -->
 <style>
 	.controlsec {
 		border:0px solid #eee; 
@@ -28,13 +19,6 @@
     margin: 24px 0px 16px 0px;
   }
 
- /* Important to get editable to be full width (see: https://github.com/vitalets/x-editable/issues/361#issuecomment-74871125) */
-  .editable-container.editable-inline,
-  .editable-container.editable-inline .control-group.form-group,
-  .editable-container.editable-inline .control-group.form-group .editable-input,
-  .editable-container.editable-inline .control-group.form-group .editable-input textarea,
-  .editable-container.editable-inline .control-group.form-group .editable-input select,
-  .editable-container.editable-inline .control-group.form-group .editable-input input:not([type=radio]):not([type=checkbox]):not([type=submit])
 {
     width: 85%!important;
 }
@@ -228,7 +212,7 @@ body {
         <div class="col-md-4">Relevant kind of data<br /><small>select one</small></div>
         <div class="col-md-5">
 
-          <select name="data_type_id-1" class="js-example-basic-single">
+          <select name="data_type-1" class="js-example-basic-single">
             <option value="">Select</option>
             <option value="Agriculture">Agriculture</option>
             <option value="Arts and culture">Arts and culture</option>
@@ -262,7 +246,7 @@ body {
         <div class="col-md-4">From country supplying data<br /><small>select all that apply</small></div>
         <div class="col-md-5">
 
-<select name="data_src_country_locode-1" class="country-basic-multiple"  multiple="multiple">
+<select name="data_src_country_locode-1[]" class="country-basic-multiple" multiple="multiple">
 <option value="AF">Afghanistan</option>
 <option value="AX">Åland Islands</option>
 <option value="AL">Albania</option>
@@ -521,7 +505,7 @@ body {
         <div class="col-md-4">From government level<br /><small>select all that apply</small></div>
         <div class="col-md-5">
 
-<select name="data_src_country_locode-1" class="basic-multiple"  multiple="multiple" style="width:336px;">
+<select name="data_src_gov_level-1[]" class="basic-multiple"  multiple="multiple" style="width:336px;">
   <option value="Federal">Federal</option>
   <option value="Regional">Regional</option>
   <option value="Local">Local</option>
@@ -536,7 +520,7 @@ body {
 
 
       <div class="row col-md-12" style="margin: 12px 0px 0px 0px">
-        <button class="btn btn-default btn-xs" id="addDataUseBtn" type="">Add data use</button>
+        <button class="btn btn-default btn-md" id="addDataUseBtn" type="">Add data use</button>
       </div>
     <br />
     <br />
@@ -627,8 +611,9 @@ body {
       
     </div>
 
-</div><!--/???? this should close datause tag - something must be wrong with data grid-->
-
+</div><!--/???? closes data purpose this should close datause tag - something must be wrong with data grid-->
+</div><!-- /closes data use -->
+</div><!-- /closes comtainer  -->
 
 </form>
 
