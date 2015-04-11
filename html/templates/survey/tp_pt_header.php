@@ -13,7 +13,17 @@
         <link rel="stylesheet" href="/css/bootstrap.min.css">
         <link rel="icon" type="image/png" href="/favicon.png">
         <link REL="apple-touch-icon" HREF="/apple-touch-icon.png" />
-        <style>
+
+        <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="/css/main.css">
+
+        <link rel="stylesheet" type="text/css" href="https://daks2k3a4ib2z.cloudfront.net/54c24a0650f1708e4c8232a0/css/opendataenterprise.webflow.02ce61403.css">
+        <!-- FormValidation CSS file -->
+        <link rel="stylesheet" href="/vendor/formvalidation/dist/css/formValidation.min.css">
+
+        <script src="/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+
+        <style media="screen" type="text/css">
             body {
                 padding-top: 30px;
                 padding-bottom: 20px;
@@ -23,22 +33,12 @@
                 color: red;
             }
             
-        </style>
-        <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="/css/main.css">
-
-        <link rel="stylesheet" type="text/css" href="https://daks2k3a4ib2z.cloudfront.net/54c24a0650f1708e4c8232a0/css/opendataenterprise.webflow.02ce61403.css">
-<!-- FormValidation CSS file -->
-<link rel="stylesheet" href="/vendor/formvalidation/dist/css/formValidation.min.css">
-
-        <style media="screen" type="text/css">
             .form-horizontal .control-label{
                 /* text-align:right; */
                 text-align:left;
             }
         </style>
 
-        <script src="/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
