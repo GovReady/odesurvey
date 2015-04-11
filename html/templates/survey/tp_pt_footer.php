@@ -20,8 +20,6 @@
      <script src="/js/plugins.js"></script>
      <script src="/js/main.js"></script>
 
-     <script src="/js/vendor/bootstrap-editable.min.js"></script>
-
      <link href="/js/vendor/inputs-ext/wysihtml5/bootstrap-wysihtml5-0.0.2/bootstrap-wysihtml5-0.0.2.css" rel="stylesheet" type="text/css"></link>  
       <script src="/js/vendor/inputs-ext/wysihtml5/bootstrap-wysihtml5-0.0.2/wysihtml5-0.3.0.min.js"></script>  
       <script src="/js/vendor/inputs-ext/wysihtml5/bootstrap-wysihtml5-0.0.2/bootstrap-wysihtml5-0.0.2.min.js"></script>

@@ -2,7 +2,7 @@
 -- Copyright 2015 Center for Open Data Enterprise. All Rights Reserved.
 -- Prepared by Greg Elin (greg@odenterprise.org)
 -- filename: ode_survey_2015_data_structure_presentation.txt
--- version: 0.5.1
+-- version: 0.6.0
 
 -- NOTES
 -- This is a description of the data tables for the 2015 Survey PRESENTATION LAYER.
@@ -11,6 +11,9 @@
 -- Tables are expressed as DDL for MySQL
 -- Plan is to use ESRI place finder to gather organization's headquarter city, subdivision, country
 -- Codes/IDs are used in field `industry_id` to make easier to deal with multiple languages
+
+-- CHANGE LOG
+-- 0.6.0		Remove data_type and gov_level tables to just use response names as values 
 
 -- organization profile table
 -- --------------------------------------------
@@ -47,19 +50,10 @@ drop table if exists org_data_use;
 create table org_data_use (
 data_use_id               mediumint NOT NULL AUTO_INCREMENT KEY,
 profile_id                varchar(24) NOT NULL,
-data_type_id              varchar(8) NOT NULL,
+data_type                 varchar(75) NOT NULL,
 data_src_country_locode   varchar(2) NOT NULL,
-data_src_gov_level_id     varchar(3) NOT NULL
+data_src_gov_level        varchar(75) NOT NULL
 );
-
--- data type reference table
--- --------------------------------------------
-drop table if exists data_type;
-create table data_type (
-data_type_id             varchar(8) NOT NULL KEY,
-data_type_name           varchar(200) NOT NULL
-);
--- need to adjust to deal with languages 
 
 -- country reference table
 -- --------------------------------------------
@@ -83,15 +77,6 @@ create table worldbank_country_metadata (
 	income_group          varchar(20) NOT NULL,
 	special_notes         varchar(1000) NULL
 );
-
--- government level reference table
--- --------------------------------------------
-drop table if exists gov_level;
-create table gov_level (
-gov_level_id             varchar(3) NOT NULL KEY,
-gov_level_name           varchar(200) NOT NULL      -- (Local, Regional, National)
-);
--- need to adjust to deal with languages 
 
 -- size reference table
 -- --------------------------------------------
