@@ -32,7 +32,7 @@ body {
 <!-- Main Content Section -->
 <div class="container lg-font col-md-12" style="border:0px solid black;">
 
- <form class="form-horizontal" action="/survey/opendata/<?php echo $content['surveyId']; ?>" method="post">
+ <form id="survey_form" class="form-horizontal" action="/survey/opendata/<?php echo $content['surveyId']; ?>" method="post">
 
     <div class="row col-md-12 controlsec row-fluid" role="Intro">
       <div class="row col-md-12">
@@ -63,7 +63,7 @@ body {
         <div class="form-group col-md-12">
           <div class="form-group col-md-7">
             <label for="org_name">Official organization name</label>
-            <input type="text" class="form-control" id="org_name" name="org_name" placeholder="e.g., IBM Corporation">
+            <input type="text" class="form-control" id="org_name" name="org_name" placeholder="e.g., IBM Corporation" required minlength="2">
         </div>
         </div>
       </div>
@@ -89,7 +89,7 @@ body {
       <div class="form-group col-md-12">
       <div class="form-group col-md-7">
         <label for="org_url">Website URL of the organization</label>
-        <input type="text" class="form-control" id="org_url" name="org_url" placeholder="http://" value="http://">
+        <input type="url" class="form-control" id="org_url" name="org_url" placeholder="http://" value="http://" required>
       </div>
     </div>
 
@@ -97,14 +97,14 @@ body {
     <div class="form-group col-md-12">
       <div class="form-group col-md-7">
         <label for="org_year_founded">Year founded</label>
-        <input type="text" class="form-control" id="org_year_founded" name="org_year_founded" placeholder="e.g., 2004">
+        <input type="text" class="form-control" id="org_year_founded" name="org_year_founded" placeholder="e.g., 2004" required>
       </div>
     </div>
 
     <div class="form-group col-md-12">
       <div class="form-group col-md-8">
         <label for="org_description">Description of organization (400 characters or less) </label>
-        <textarea type="text" class="form-control " id="org_description" name="org_description" style="height:160px; min-height:160px;  max-height:160px;"></textarea>
+        <textarea type="text" class="form-control " id="org_description" name="org_description" style="height:160px; min-height:160px;  max-height:160px;" required></textarea>
       </div>
     </div>
     
@@ -147,7 +147,7 @@ body {
     <div class="form-group col-md-12">
       <div class="form-group col-md-7">
       <label for="industry_id">Industry/category (select 1)</label>
-        <select class="basic-single-industry" name="industry_id" style="width:336px;">
+        <select class="basic-single-industry required" name="industry_id" id="industry_id" style="width:336px;" >
           <option value="">Select</option>
           <option value="bus">Business &amp; legal services</option>
           <option value="cul">Culture/Leisure</option>
@@ -179,13 +179,13 @@ body {
     <div class="form-group col-md-12">
       <div class="form-group col-md-7">
         <label for="org_hq_city">City</label>
-        <input type="text" class="form-control" id="org_hq_city" name="org_hq_city" placeholder="">
+        <input type="text" class="form-control" id="org_hq_city" name="org_hq_city" required>
 
         <label for="org_hq_st_prov">State/Province</label>
-        <input type="text" class="form-control" id="org_hq_st_prov" name="org_hq_st_prov" placeholder="">
+        <input type="text" class="form-control" id="org_hq_st_prov" name="org_hq_st_prov" required>
 
         <label for="org_hq_country">Country</label>
-        <input type="text" class="form-control" id="org_hq_country" name="org_hq_country" placeholder="">
+        <input type="text" class="form-control" id="org_hq_country" name="org_hq_country" required>
       </div>
     </div>
 
@@ -576,7 +576,7 @@ body {
     <div class="form-group col-md-12">
       <div class="form-group col-md-8">
         <label for="org_description">What is the most important way in which your company or organization has a positive impact, and how does open government data help you achieve it? (400 characters or less) </label>
-          <textarea type="text" class="form-control" id="org_greatest_impact" name="org_greatest_impact" style="height:160px; min-height:160px;  max-height:160px;"></textarea>
+          <textarea type="text" class="form-control" id="org_greatest_impact" name="org_greatest_impact" style="height:160px; min-height:160px;  max-height:160px;" required></textarea>
       </div>
     </div>
 
@@ -588,13 +588,13 @@ body {
       <div class="">
         <div class="row col-md-7">
           <label for="survey_contact_name">Your full name</label>
-          <input type="text" class="form-control" id="survey_contact_name" name="survey_contact_name" placeholder="">
+          <input type="text" class="form-control" id="survey_contact_name" name="survey_contact_name" required>
 
           <label for="survey_contact_title">Your title at organization</label>
-          <input type="text" class="form-control" id="survey_contact_title" name="survey_contact_title" placeholder="">
+          <input type="text" class="form-control" id="survey_contact_title" name="survey_contact_title" required>
 
           <label for="survey_contact_email">Your email</label>
-          <input type="text" class="form-control" id="survey_contact_email" name="survey_contact_email" placeholder="">
+          <input type="email" class="form-control" id="survey_contact_email" name="survey_contact_email" required>
 
           <input type="hidden" class="form-control" id="org_profile_year" name="org_profile_year" value="2015">
           <input type="hidden" class="form-control" id="org_profile_status" name="org_profile_status" value="submitted">
