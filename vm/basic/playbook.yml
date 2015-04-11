@@ -47,6 +47,10 @@
         - php-tidy
         - php-pear
 
+   # httpd.conf update necessary to address vagrant/virtualbox issue so changes to synched folder static html files work 
+   - name: Set 'EnableSendfile off' in Apache2 httpd.conf 
+     lineinfile: dest=/etc/httpd/conf/httpd.conf regexp="^EnableSendfile off" insertafter="^#EnableSendfile " line="EnableSendfile off"
+
    - name: gettext
      yum: pkg={{ item }} state=installed
      with_items:
