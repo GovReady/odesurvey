@@ -294,6 +294,66 @@ $app->get('/survey/opendata/list/new/', function () use ($app) {
 
 });
 
+// *****************
+$app->get('/argis/auth/', function () use ($app) {
+
+$params = array(
+    'client_id' => ArcGIS_CLIENT_ID,
+    'client_secret' => ArcGIS_CLIENT_SECRET,
+    'grant_type' => 'client_credentials',
+    'f' => 'json'
+);
+
+try {
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, "https://www.arcgis.com/sharing/oauth2/token/");
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($params));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HEADER, true);
+    $response = curl_exec($ch);
+} catch (Exception $e) {
+    error_log($e->getMessage(), 0);
+}
+
+$header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
+$body = substr($response, $header_size);
+$json = json_decode($body, true);
+$token = $json['access_token'];
+echo $token;
+
+});
+
+// *****************
+$app->get('/argis/geoservice/', function () use ($app) {
+
+$params = array(
+    'client_id' => ArcGIS_CLIENT_ID,
+    'client_secret' => ArcGIS_CLIENT_SECRET,
+    'grant_type' => 'client_credentials',
+    'f' => 'json'
+);
+
+try {
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, "https://www.arcgis.com/sharing/oauth2/token/");
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($params));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HEADER, true);
+    $response = curl_exec($ch);
+} catch (Exception $e) {
+    error_log($e->getMessage(), 0);
+}
+
+$header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
+$body = substr($response, $header_size);
+$json = json_decode($body, true);
+$token = $json['access_token'];
+echo $token;
+
+});
+
 
 $app->run();
 
