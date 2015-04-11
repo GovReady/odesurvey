@@ -23,9 +23,6 @@ class ComposerAutoloaderInitcc60b8f6ad9f1013f91e3d65192a3491
         self::$loader = $loader = new \Composer\Autoload\ClassLoader();
         spl_autoload_unregister(array('ComposerAutoloaderInitcc60b8f6ad9f1013f91e3d65192a3491', 'loadClassLoader'));
 
-        $vendorDir = dirname(__DIR__);
-        $baseDir = dirname($vendorDir);
-
         $map = require __DIR__ . '/autoload_namespaces.php';
         foreach ($map as $namespace => $path) {
             $loader->set($namespace, $path);
