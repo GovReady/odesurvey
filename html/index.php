@@ -21,6 +21,8 @@ require 'credentials.inc.php';
 require ('vendor/parse.com-php-library_v1/parse.php');
 // Include application functions
 require 'functions.inc.php';
+// Use Mailgun
+use Mailgun\Mailgun;
 
 # Use Amazon Web Services Ec2 SDK to interact with EC2 instances
 # use Aws\Ec2\Ec2Client;
@@ -144,6 +146,10 @@ $app->post('/survey/opendata/:surveyId/', function ($surveyId) use ($app) {
 	    'restkey' => PARSE_API_KEY
 	));
 
+	# Instantiate the client.
+	$mgClient = new Mailgun(MAILGUN_APIKEY);
+	$domain = MAILGUN_SERVER;
+
 	// Access post variables
 	$allPostVars = $app->request->post();
 	// $allPostVars = $app->request();
@@ -223,9 +229,26 @@ $app->post('/survey/opendata/:surveyId/', function ($surveyId) use ($app) {
     );
     $request = $parse->update($parse_params);
     $response = json_decode($request, true);
-    echo "<pre>";print_r($response);
+    echo "<pre>";print_r($response); echo "</pre>";
 
-    // exit;
+    echo "<pre>";print_r(array(
+    'from'    => 'Center for Open Data Enterprise <mailgun@sandboxc1675fc5cc30472ca9bd4af8028cbcdf.mailgun.org>',
+    'to'      => $allPostVars['survey_contact_name'].' <'.$allPostVars['survey_contact_email'].'>',
+    'subject' => 'Thank you for submitting open data survey!',
+    'text'    => 'Thank you for completing the 2015 open data survery. \n\n You can view your submitted survey at http://'.$_SERVER['HTTP_HOST'].'/survey/opendata/'.$surveyId.'/submitted'
+)); echo "</pre>";
+
+	// Send email with mailgun
+	$result = $mgClient->sendMessage($domain, array(
+	    'from'    => 'Center for Open Data Enterprise <mailgun@sandboxc1675fc5cc30472ca9bd4af8028cbcdf.mailgun.org>',
+	    'to'      => $allPostVars['survey_contact_name'].' <'.$allPostVars['survey_contact_email'].'>',
+	    'subject' => '[Open Data Enterprise] Thank you for submitting open data survey!',
+	    'text'    => 'Thank you for completing the 2015 open data survery. You can view your submitted survey at http://'.$_SERVER['HTTP_HOST'].'/survey/opendata/'.$surveyId.'/submitted'
+	));
+
+	echo "<pre>";print_r($result); echo "</pre>";
+
+	// exit;
 
     if(isset($response['updatedAt'])) {
     	// Success
