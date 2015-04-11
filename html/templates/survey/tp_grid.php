@@ -46,6 +46,8 @@
                     <div class="affix">
                         view recent
                         <br />
+                        <a href="/survey/opendata/" target="_blank">new survey</a>
+                        <br />
                         <!--a href="">all</a-->
                     </div>
                 </div>
@@ -70,13 +72,15 @@
                                 <?php
     foreach ($org_profiles as $org_profile) {
         // echo "<pre>"; print_r($org_profile); echo "..".$org_profile['org_name']."</pre>";
-        echo "<tr>";
-        echo "<td>".$org_profile['objectId']."</td>";
-        echo "<td>".$org_profile['org_name']."</td>";
-        echo "<td>".$org_profile['org_type']."</td>";
-        echo "<td>${org_profile['org_year_founded']}</td>";
-        echo "<td><a href='/survey/opendata/".$org_profile['objectId']."/submitted'>".$org_profile['objectId']."</a></td>";
-        echo "</tr>";
+        if ( array_key_exists('org_name', $org_profile) && $org_profile['org_profile_status'] == 'submitted') { 
+            echo "<tr>";
+            echo "<td>".$org_profile['objectId']."</td>";
+            echo "<td>".$org_profile['org_name']."</td>";
+            echo "<td>".$org_profile['org_type']."</td>";
+            echo "<td>${org_profile['org_year_founded']}</td>";
+            echo "<td><a href='/survey/opendata/".$org_profile['objectId']."/submitted'>".$org_profile['objectId']."</a></td>";
+            echo "</tr>";
+        }
     }
 ?>
                             </tbody>
