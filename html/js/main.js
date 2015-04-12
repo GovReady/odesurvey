@@ -1,4 +1,25 @@
-/* Declare the function 'addDataUseRow' 
+/* Declare the function 'addDataUseOther'
+   Add a row to data use question
+*/
+function addDataUseOther(myId){
+  console.log('addDataUseOther called with myid: '+myId);
+  // alert('addDataUseOther called with myid: '+myId);
+  var data_use_other = '<input type="text" class="form-control" id="data_type_other-'+myId+'" name="data_type_other-'+myId+'" placeholder="Describe other" required>';
+  $('#data_type_col-'+myId).append(data_use_other);
+}
+
+/* Declare the function 'removeDataUseOther'
+   Add a row to data use question
+*/
+function removeDataUseOther(myId){
+  console.log('removeDataUseOther called ');
+  // alert('removeDataUseOther called with myid: '+myId);
+  if ( $('#data_type_other-'+myId).length > 0 ) {
+    $('#data_type_other-'+myId).remove();
+  }
+}
+
+/* Declare the function 'addDataUseRow'
    Add a row to data use question
 */
 function addDataUseRow(){
@@ -18,8 +39,8 @@ function addDataUseRow(){
 
   var data_row = '<div class="row col-md-12 data-use-row" id="dataUseHeading'+idSuffixNum.toString()+'" style="border-bottom:1px solid #eee;"> \
         <div class="col-md-4">Relevant kind of data<br /><small>select one</small></div> \
-        <div class="col-md-5"> \
-          <select name="data_type-'+idSuffixNum.toString()+'" class="js-example-basic-single"> \
+        <div class="col-md-5" id="data_type_col-'+idSuffixNum.toString()+'"> \
+          <select name="data_type-'+idSuffixNum.toString()+'" id="data_type-'+idSuffixNum.toString()+'" class="js-example-basic-single data_type"> \
             <option value="">Select</option> \
             <option value="Agriculture">Agriculture</option> \
             <option value="Arts and culture">Arts and culture</option> \
@@ -43,7 +64,7 @@ function addDataUseRow(){
             <option value="Tourism">Tourism</option> \
             <option value="Transportation">Transportation</option> \
             <option value="Weather">Weather</option> \
-            <option value="Other">Other:________</option> \
+            <option value="Other">Other</option> \
           </select> \
         </div> \
       </div> \
@@ -316,8 +337,23 @@ function addDataUseRow(){
       <br /> <!-- new row id: '+idSuffixNum.toString()+' -->';
 
 
-   $('#dataUse').append(data_row);
+    $('#dataUse').append(data_row);
 
+    // Clear change actions on .data_type
+    $('.data_type').off("change");
+    // Set change action on .data_type
+    $('.data_type').on("change", function(e) {
+      // Split id to get iteration of data_use
+      myId = this.id.split("-")[1];
+      // alert("myId: "+myId);
+      var sel_val = $('#'+this.id).select2().val();
+      // alert('sel_val: '+sel_val);
+      if (sel_val == "Other") {
+        addDataUseOther(myId);
+      } else {
+        removeDataUseOther(myId);
+      }
+    });
 
     $(".basic-single-industry").select2( 
       { placeholder: "Select an industry",
@@ -337,5 +373,7 @@ function addDataUseRow(){
       {placeholder: "Select levels",
       allowClear: true}
     );
+
+
     
 }
