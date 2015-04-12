@@ -83,10 +83,13 @@ body {
 
             <label for="org_description">Description of organization (400 characters or less) </label>
             <?php echo $org_profile['org_description']; ?>
-
+            <br />
+            <label for="org_url">City, State/Province, Country</label>
+            <?php echo $org_profile['org_hq_city'].", ".$org_profile['org_hq_st_prov'].", ".$org_profile['org_hq_country']; ?>
 
         </div>
         </div>
+      </div>
 
     </div><!--/OrgInfo-->
 

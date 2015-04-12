@@ -26,6 +26,24 @@ For city level data, you can either use a Placefinder – Esri has one built int
 http://192.168.56.101/survey/opendata/ will taky user to http://192.168.56.101/survey/opendata/start/
 will create a record and direct them to survey.
 
-# Links
+# Links 
 - [Final question text](https://docs.google.com/a/odenterprise.org/document/d/1kULpKCE5lIuQ3oWBKzWOYFnGgudKPE3R9xeeix86zrs/edit)
 - [Sample data](https://docs.google.com/a/odenterprise.org/spreadsheets/d/1I7rVX0y-ligniOMlFFZG4jYTiOML7DEACk_ARrbExjk/edit#gid=1692297685)
+
+# Snippets
+
+## Mailgun
+
+```
+curl -s --user 'api:key-c70b6xxxxxxxxxxxx' \
+https://api.mailgun.net/v3/sandboxc1675fc5cc30472ca9bd4af8028cbcdf.mailgun.org/messages \
+-F from='Excited User <mailgun@sandboxc1675fc5cc30472ca9bd4af8028cbcdf.mailgun.org>' \
+-F to=greg@odenterprise.org \
+-F subject='Hello' \
+-F text='Testing some Mailgun awesomness!'
+```
+
+## ArcGIS Online
+```
+http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/find?f=pjson&text=Raleigh, NC, USA
+```
