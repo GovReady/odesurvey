@@ -34,7 +34,7 @@
                 <nav id="menu" class="navbar-collapse collapse" role="navigation">
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Recently submitted surveys</a></li>
+                        <li><a href="#">Start page</a></li>
                     </ul>
                 </nav>
             </div>
@@ -44,53 +44,27 @@
             <div class="row">
                 <div class="col-md-1 visible-md visible-lg" style="border:0px solid green;">
                     <div class="affix">
+                        <!--
                         view recent
                         <br />
                         <a href="/survey/opendata/" target="_blank">new survey</a>
                         <br />
+                        -->
                         <!--a href="">all</a-->
                     </div>
                 </div>
                 <div class="col-md-10" style="border:0px solid blue;">
-                    <div style="text-align:center;margin-bottom:60px;">
+                    <div style="text-align:center;">
                         <img class="logo" src="http://uploads.webflow.com/54c24a0650f1708e4c8232a0/54c24f1f6631ca2737e86a02_Logo-Mark.png" width="60" alt="54c24f1f6631ca2737e86a02_Logo-Mark.png">
                         <img class="logo" src="http://uploads.webflow.com/54c24a0650f1708e4c8232a0/54c24fc57bbf1d8c4cfd6581_Logo-Text.png" width="400" alt="54c24fc57bbf1d8c4cfd6581_Logo-Text.png"></a>
                     </div>
 
-                    <button id="removeSelected" type="button" class="btn btn-default">Remove Selected</button>
-                    <button id="clear" type="button" class="btn btn-default">Clear</button>
-                    <button id="init" type="button" class="btn btn-default">Init</button>
-                    <!--div class="table-responsive"-->
-                        <table id="grid" class="table table-condensed table-hover table-striped" data-selection="true" data-multi-select="true" data-row-select="true" data-keep-selection="true">
-                            <thead>
-                                <tr>
-                                    <th data-column-id="id" data-identifier="true">ID</th>
-                                    <th data-column-id="organization" data-order="asc" data-align="left" data-header-align="left">Organization</th>
-                                    <th data-column-id="type" data-order="asc" data-align="left" data-header-align="left">Type</th>
-                                    
-                                    <th data-column-id="founded" data-css-class="cell" data-filterable="true">Year founded</th>
-                                    <th data-column-id="survey" data-formatter="link" data-sortable="false">Survey</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                
-                                <?php
-    foreach ($org_profiles as $org_profile) {
-        // echo "<pre>"; print_r($org_profile); echo "..".$org_profile['org_name']."</pre>";
-        if ( array_key_exists('org_name', $org_profile) && $org_profile['org_profile_status'] == 'submitted') { 
-            echo "<tr>";
-            echo "<td>".$org_profile['objectId']."</td>";
-            echo "<td>".$org_profile['org_name']."</td>";
-            echo "<td>".$org_profile['org_type']."</td>";
-            echo "<td>${org_profile['org_year_founded']}</td>";
-            echo "<td><a href='/survey/opendata/".$org_profile['objectId']."/submitted'>".$org_profile['objectId']."</a></td>";
-            echo "</tr>";
-        }
-    }
-?>
-                            </tbody>
-                        </table>
-                    <!--/div-->
+                    <div style="margin:10% 30% 0 30%;height:300px;text-align:center;">
+                        <h3><a href="/survey/opendata/">Take survey</a></h3>
+                        
+                        <h3><a href="/survey/opendata/list/new">View submitted surveys</a></h3>
+                    </div>
+
                 </div>
             </div>
         </div>
