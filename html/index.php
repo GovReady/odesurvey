@@ -54,7 +54,7 @@ HTML;
 	// return $app->response->setBody($response);
 	// Render content with simple bespoke templates
 	$app->view()->setData(array('content' => $content));
-	$app->render('tp_default.php');
+	$app->render('survey/tp_start.php');
 
 });
 

@@ -52,6 +52,11 @@
                     </div>
                 </div>
                 <div class="col-md-10" style="border:0px solid blue;">
+                    <div style="text-align:center;margin-bottom:60px;">
+                        <img class="logo" src="http://uploads.webflow.com/54c24a0650f1708e4c8232a0/54c24f1f6631ca2737e86a02_Logo-Mark.png" width="60" alt="54c24f1f6631ca2737e86a02_Logo-Mark.png">
+                        <img class="logo" src="http://uploads.webflow.com/54c24a0650f1708e4c8232a0/54c24fc57bbf1d8c4cfd6581_Logo-Text.png" width="400" alt="54c24fc57bbf1d8c4cfd6581_Logo-Text.png"></a>
+                    </div>
+
                     <button id="removeSelected" type="button" class="btn btn-default">Remove Selected</button>
                     <button id="clear" type="button" class="btn btn-default">Clear</button>
                     <button id="init" type="button" class="btn btn-default">Init</button>
