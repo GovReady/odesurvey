@@ -210,9 +210,9 @@ body {
 
       <div class="row col-md-12 data-use-row" id="dataUseHeading" style="border-bottom:1px solid #eee;">
         <div class="col-md-4">Relevant kind of data<br /><small>select one</small></div>
-        <div class="col-md-5">
+        <div class="col-md-5" id="data_type_col-1">
 
-          <select name="data_type-1" class="js-example-basic-single">
+          <select name="data_type-1" id="data_type-1" class="js-example-basic-single data_type">
             <option value="">Select</option>
             <option value="Agriculture">Agriculture</option>
             <option value="Arts and culture">Arts and culture</option>
@@ -236,7 +236,7 @@ body {
             <option value="Tourism">Tourism</option>
             <option value="Transportation">Transportation</option>
             <option value="Weather">Weather</option>
-            <option value="Other">Other:________</option>
+            <option value="Other">Other</option>
           </select>
 
         </div>

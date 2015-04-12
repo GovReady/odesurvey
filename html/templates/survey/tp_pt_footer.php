@@ -71,12 +71,12 @@
         //   $('<img src="' + src + '" alt="' + $(this).data('alt') + '" />').insertAfter($(this));
         // });
 
-        $(".basic-single-industry").select2( 
+        $(".basic-single-industry").select2(
           { placeholder: "Select an industry",
           allowClear: true }
         );
 
-        $(".js-example-basic-single").select2( 
+        $(".js-example-basic-single").select2(
           { placeholder: "Select a data type",
           allowClear: true }
         );
@@ -97,11 +97,20 @@
         });
 
         $("#survey_form").validate();
-
-
           
   }); // End Document Ready function
       
+      $('.data_type').on("change", function(e) {
+        myId = this.id.split("-")[1];
+        var sel_val = $('#'+this.id).select2().val();
+        // alert('sel_val: '+sel_val);
+        if (sel_val == "Other") {
+          addDataUseOther(myId);
+        } else {
+          removeDataUseOther(myId);
+        }
+
+      });
 
      </script>
  </body>
