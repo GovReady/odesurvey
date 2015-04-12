@@ -2,7 +2,7 @@
 -- Copyright 2015 Center for Open Data Enterprise. All Rights Reserved.
 -- Prepared by Greg Elin (greg@odenterprise.org)
 -- filename: ode_survey_2015_data_structure_presentation.txt
--- version: 0.6.0
+-- version: 0.7.0
 
 -- NOTES
 -- This is a description of the data tables for the 2015 Survey PRESENTATION LAYER.
@@ -14,6 +14,7 @@
 
 -- CHANGE LOG
 -- 0.6.0		Remove data_type and gov_level tables to just use response names as values 
+-- 0.7.0		Change lat, long field names to latitude, longitude
 
 -- organization profile table
 -- --------------------------------------------
@@ -36,8 +37,8 @@ use_other_desc           varchar(401) NULL,        -- 400 character description
 org_hq_city              varchar(124) NULL,        --  
 org_hq_st_prov           varchar(250) NULL,        -- 
 org_hq_country           varchar(250) NULL,        -- 
-org_hq_lat               float(13,6) NULL,         -- default lat for org's headquater city
-org_hq_lon               float(13,6) NULL,         -- default long for org's headquater city
+latitude  	             float(13,6) NULL,         -- default lat for org's headquater city
+longitude                float(13,6) NULL,         -- default long for org's headquater city
 org_hq_city_locode       varchar(8) NULL,          -- UN Locode for city if exists
 org_hq_country_locode    varchar(8) NULL,          -- UN Locode for country
 org_wb_country_code      varchar(3) NULL,          -- Worldbank country code
