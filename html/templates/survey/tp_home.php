@@ -540,13 +540,17 @@ body {
 
       <div class="form-group col-md-12">
         <div class="form-group col-md-7">
+
           <div class="checkbox">
-            <label> develop new products or services : 
-              <input type="checkbox" name="use_prod_srvc" id="use_prod_srvc" value="True"> 
-              <input type="text" class="form-control" id="use_prod_srvc_desc" name="use_prod_srvc_desc">
-                
+            <label>
+              <input type="checkbox" name="use_prod_srvc" id="use_prod_srvc" value="True">
+              develop new products or services : 
             </label>
           </div>
+          <div>
+            <input type="text" class="form-control" id="use_prod_srvc_desc" name="use_prod_srvc_desc">
+          </div>          
+
 
           <div class="checkbox">
             <label>
