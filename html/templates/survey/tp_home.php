@@ -63,7 +63,7 @@ body {
         <div class="form-group col-md-12">
           <div class="form-group col-md-7">
             <label for="org_name">Official organization name</label>
-            <input type="text" class="form-control" id="org_name" name="org_name" placeholder="e.g., IBM Corporation" required minlength="2">
+            <input type="text" class="form-control" id="org_name" name="org_name" placeholder="" required minlength="2">
         </div>
         </div>
       </div>
@@ -97,7 +97,7 @@ body {
     <div class="form-group col-md-12">
       <div class="form-group col-md-7">
         <label for="org_year_founded">Year founded</label>
-        <input type="text" class="form-control" id="org_year_founded" name="org_year_founded" placeholder="e.g., 2004" required>
+        <input type="text" class="form-control" id="org_year_founded" name="org_year_founded" placeholder="" required>
       </div>
     </div>
 
