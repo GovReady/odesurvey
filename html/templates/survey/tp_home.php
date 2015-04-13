@@ -592,6 +592,8 @@ body {
     <div class="" role="Contact">
       <div class="row col-md-12">
           <h3>Contact</h3>
+          Contact information will not be publicly displayed.
+          <br /><br />
       </div>
 
       <div class="">
