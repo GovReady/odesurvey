@@ -141,10 +141,13 @@
       "esri/symbols/SimpleFillSymbol",
       "esri/symbols/SimpleLineSymbol",
       "esri/symbols/SimpleMarkerSymbol",
+      "esri/layers/CSVLayer",
+      "esri/renderers/SimpleRenderer",
+        "esri/InfoTemplate",
       "dojo/domReady!"
     ],
     function (dom, on, Color, esriConfig, webMercatorUtils, Graphic, lang, Map, SimpleFillSymbol, SimpleLineSymbol,
-      SimpleMarkerSymbol){
+      SimpleMarkerSymbol, CSVLayer, SimpleRenderer, InfoTemplate){
 
       var zoomSymbol = new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID,
         new SimpleLineSymbol(SimpleLineSymbol.STYLE_SOLID,
@@ -154,13 +157,26 @@
 
       map = new Map("map", {
         basemap: "national-geographic", // https://developers.arcgis.com/javascript/jsapi/esri.basemaps-amd.html
-        center: [2.352, 48.87],
+        center: [-44.55, 40.87],
         zoom: 3,
         slider: false
       });
 
+var csv = new CSVLayer("http://192.168.56.101/survey/opendata/list/new/csv", {
+  fields: [{name: "org_name", type: "String"}]
+});
+
+        var orangeRed = new Color([238, 69, 0, 0.5]); // hex is #ff4500
+        var marker = new SimpleMarkerSymbol("solid", 10, null, orangeRed);
+        var renderer = new SimpleRenderer(marker);
+        csv.setRenderer(renderer);
+        var template = new InfoTemplate("${type}", "${place}");
+        csv.setInfoTemplate(template);
+        map.addLayer(csv);
+
       on(map, "load", function (){
         console.log("Map load event");
+
         // Hook up jQuery
         $(document).ready(jQueryReady);
       });
@@ -200,9 +216,12 @@
           console.log("Map click event");
           // Add a graphic at the clicked location
           if (graphic) {
+             alert('1');
             graphic.setGeometry(event.mapPoint);
+
           }
           else {
+             alert('2');
             graphic = new Graphic(event.mapPoint, markerSymbol);
             map.graphics.add(graphic);
           }
@@ -217,7 +236,9 @@
 
           map.infoWindow.setTitle("Location:");
           map.infoWindow.setContent(infoContent);
-          map.infoWindow.show(event.mapPoint);
+          // map.infoWindow.show(event.mapPoint);
+
+          csv.template.show(event.mapPoint);
         });
       }
 
