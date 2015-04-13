@@ -245,7 +245,7 @@ $app->post('/survey/opendata/:surveyId/', function ($surveyId) use ($app) {
 	$result = $mgClient->sendMessage($domain, array(
 	    'from'    => 'Center for Open Data Enterprise <mailgun@sandboxc1675fc5cc30472ca9bd4af8028cbcdf.mailgun.org>',
 	    'to'      => $allPostVars['survey_contact_name'].' <'.$allPostVars['survey_contact_email'].'>',
-	    'subject' => '[Open Data Enterprise] Thank you for submitting open data survey!',
+	    'subject' => 'Thank you for submitting open data survey!',
 	    'text'    => 'Thank you for completing the 2015 open data survery. You can view your submitted survey at http://'.$_SERVER['HTTP_HOST'].'/survey/opendata/'.$surveyId.'/submitted'
 	));
 
