@@ -217,12 +217,9 @@
           console.log("Map click event");
           // Add a graphic at the clicked location
           if (graphic) {
-             alert('1');
             graphic.setGeometry(event.mapPoint);
-
           }
           else {
-             alert('2');
             graphic = new Graphic(event.mapPoint, markerSymbol);
             map.graphics.add(graphic);
           }
@@ -237,9 +234,7 @@
 
           map.infoWindow.setTitle("Location:");
           map.infoWindow.setContent(infoContent);
-          // map.infoWindow.show(event.mapPoint);
-
-          csv.template.show(event.mapPoint);
+          map.infoWindow.show(event.mapPoint);
         });
       }
 
