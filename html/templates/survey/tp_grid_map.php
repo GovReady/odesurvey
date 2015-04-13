@@ -143,7 +143,7 @@
       "esri/symbols/SimpleMarkerSymbol",
       "esri/layers/CSVLayer",
       "esri/renderers/SimpleRenderer",
-        "esri/InfoTemplate",
+      "esri/InfoTemplate",
       "dojo/domReady!"
     ],
     function (dom, on, Color, esriConfig, webMercatorUtils, Graphic, lang, Map, SimpleFillSymbol, SimpleLineSymbol,
@@ -289,11 +289,12 @@ var csv = new CSVLayer("http://192.168.56.101/survey/opendata/list/new/csv", {
             <div class="row">
                 <div class="col-md-1 visible-md visible-lg" style="border:0px solid green;">
                     <div class="affix">
-                        <a href="/survey/opendata/list/new/">view recent</a>
+                        <!--a href="/survey/opendata/list/new/">view recent</a-->
+                        view recent
                         <br />
                         <a href="/survey/opendata/" target="_blank">new survey</a>
                         <br />
-                        map
+                        
                         <!--a href="">all</a-->
                     </div>
                 </div>
