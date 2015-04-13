@@ -36,19 +36,19 @@ body {
 
     <div class="row col-md-12 controlsec row-fluid" role="Intro">
       <div class="row col-md-12">
-          <h3>Introduction</h3>
+          <h3>Eligibility</h3>
       </div>
 
       <div class="row col-md-8">
           <div>
-            The Open Data Impact Map includes organizations that:
+            The Open Data Impact Map includes organizations that:<br /><br />
               <ul>
-                  <li>are companies, non-profits, or developer communities</li>
-                  <li>use open government data to develop products and services, or operations, and  strategy</li>
+                  <li>are companies, non-profits, or developer groups; and</li>
+                  <li>use <i>open government data</i> to develop products and services, improve operations, inform strategy and/or conduct research.</li>
                 </ul>
             <br />
             We define <i>open government data</i> as publicly available data that is produced or commissioned by governments 
-            (or government-controlled entities) that can be accessed and reused by anyone, free of charge or at marginal cost. 
+            and that can be accessed and reused by anyone, free of charge. 
           </div>
         </div>
 
