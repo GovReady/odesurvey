@@ -541,7 +541,7 @@ body {
       <div class="form-group col-md-12">
         <div class="form-group col-md-7">
           <div class="checkbox">
-            <label> Develop product services
+            <label> develop new products or services : 
               <input type="checkbox" name="use_prod_srvc" id="use_prod_srvc" value="True"> 
               <input type="text" class="form-control" id="use_prod_srvc_desc" name="use_prod_srvc_desc">
                 
@@ -551,7 +551,7 @@ body {
           <div class="checkbox">
             <label>
               <input type="checkbox" name="use_org_opt" id="use_prod" value="True">
-              Organization optimization
+              organizational optimization :
             </label>
           </div>
           <div>
@@ -561,7 +561,7 @@ body {
           <div class="checkbox">
             <label>
               <input type="checkbox" name="use_research" id="use_research" value="True">
-              Use Research
+              research :
             </label>
           </div>
           <div>
@@ -571,7 +571,7 @@ body {
           <div class="checkbox">
             <label>
               <input type="checkbox" name="use_other" id="use_other" value="True">
-              Other
+              other: 
             </label>
           </div>
           <div>
