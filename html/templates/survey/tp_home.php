@@ -205,7 +205,7 @@ body {
       <div class="row col-md-12" role="dataTypes">
         <h3>Use of open government data</h3>
 
-        <div>Please tell us what kinds of open government data are most relevant for your organization.<br />
+        <div>Please tell us what types of open government data are most relevant for your organization.<br />
           In each case tell us the country that supplies the data, and whether the data is local, regional or national.<br /><br /></div>
       </div>
 
@@ -218,7 +218,7 @@ body {
 
 
       <div class="row col-md-12 data-use-row" id="dataUseHeading" style="border-bottom:1px solid #eee;">
-        <div class="col-md-4">Relevant kind of data<br /><small>select one</small></div>
+        <div class="col-md-4">Relevant type of data<br /><small>select one</small></div>
         <div class="col-md-5" id="data_type_col-1">
 
           <select name="data_type-1" id="data_type-1" class="js-example-basic-single data_type">
@@ -529,7 +529,7 @@ body {
 
 
       <div class="row col-md-12" style="margin: 12px 0px 0px 0px">
-        <button class="btn btn-default btn-md" id="addDataUseBtn" type="">Add data use</button>
+        <button class="btn btn-default btn-md" id="addDataUseBtn" type="">Add more data types</button>
       </div>
     <br />
     <br />
