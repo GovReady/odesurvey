@@ -345,6 +345,59 @@ $app->get('/survey/opendata/list/map/', function () use ($app) {
 
 });
 
+// **************
+$app->get('/survey/opendata/list/arcgis1/', function () use ($app) {
+
+	$parse = new parseRestClient(array(
+	    'appid' => PARSE_APPLICATION_ID,
+	    'restkey' => PARSE_API_KEY
+	));
+
+	$params = array(
+	    'className' => 'org_profile'
+	);
+
+	$request = $parse->query($params);
+	$request_array = json_decode($request, true);
+	$org_profiles = $request_array['results'];
+
+	// echo "<pre>"; print_r($org_profiles); echo "</pre>"; 
+
+	$content['HTTP_HOST'] = $_SERVER['HTTP_HOST'];
+	$content['surveyName'] = "opendata";
+	$content['title'] = "Open Data Enterprise Survey - Recently Submitted";
+
+	$app->view()->setData(array('content' => $content, 'org_profiles' => $org_profiles));
+	$app->render('survey/tp_arcgis1.php');
+
+});
+
+// **************
+$app->get('/survey/opendata/list/arcgis2/', function () use ($app) {
+
+	$parse = new parseRestClient(array(
+	    'appid' => PARSE_APPLICATION_ID,
+	    'restkey' => PARSE_API_KEY
+	));
+
+	$params = array(
+	    'className' => 'org_profile'
+	);
+
+	$request = $parse->query($params);
+	$request_array = json_decode($request, true);
+	$org_profiles = $request_array['results'];
+
+	// echo "<pre>"; print_r($org_profiles); echo "</pre>"; 
+
+	$content['HTTP_HOST'] = $_SERVER['HTTP_HOST'];
+	$content['surveyName'] = "opendata";
+	$content['title'] = "Open Data Enterprise Survey - Recently Submitted";
+
+	$app->view()->setData(array('content' => $content, 'org_profiles' => $org_profiles));
+	$app->render('survey/tp_arcgis2.php');
+
+});
 
 // *****************
 $app->get('/argis/auth/', function () use ($app) {
