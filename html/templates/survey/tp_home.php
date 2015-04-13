@@ -177,15 +177,24 @@ body {
     </div>
 
     <div class="form-group col-md-12">
-      <div class="form-group col-md-7">
-        <label for="org_hq_city">City</label>
-        <input type="text" class="form-control" id="org_hq_city" name="org_hq_city" required>
+      <div class="form-group col-md-7 details">
 
-        <label for="org_hq_st_prov">State/Province</label>
-        <input type="text" class="form-control" id="org_hq_st_prov" name="org_hq_st_prov" required>
+        <label for="org_hq_city_all">City, State/Province, Country</label>
+        <input type="text" class="form-control" id="org_hq_city_all" name="org_hq_city_all" required>
 
-        <label for="org_hq_country">Country</label>
-        <input type="text" class="form-control" id="org_hq_country" name="org_hq_country" required>
+        <!--label for="org_hq_city">City</label -->
+        <input type="hidden" class="form-control" id="org_hq_city" name="org_hq_city" required data-geo="locality">
+
+        <!--label for="org_hq_st_prov">State/Province</label -->
+        <input type="hidden" class="form-control" id="org_hq_st_prov" name="org_hq_st_prov" required data-geo="administrative_area_level_1">
+
+        <!--label for="org_hq_country">Country</label -->
+        <input type="hidden" class="form-control" id="org_hq_country" name="org_hq_country" required data-geo="country_short">
+
+        <!--label for="latitude">lat</label -->
+        <input type="hidden" class="form-control" id="latitude" name="latitude" required data-geo="lat">
+        <!--label for="longitude">lng</label -->
+        <input type="hidden" class="form-control" id="longitude" name="longitude" required data-geo="lng">
       </div>
     </div>
 

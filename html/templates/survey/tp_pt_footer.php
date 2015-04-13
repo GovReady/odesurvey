@@ -26,6 +26,11 @@
 
       <script src="/dist/jquery.validate.min.js"></script>
 
+      <!-- geocomplete -->
+      
+      <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+      <script src="/js/vendor/ubilabs-geocomplete-eb38f45/jquery.geocomplete.js"></script>
+
      <script>
 
        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
@@ -91,6 +96,11 @@
         });
 
         $("#survey_form").validate();
+
+        $('#org_hq_city_all').geocomplete({ 
+          details: ".details",
+          detailsAttribute: "data-geo"
+        });
           
   }); // End Document Ready function
       
