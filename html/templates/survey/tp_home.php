@@ -203,7 +203,7 @@ body {
 
     <div class="col-md-9 controlsec" role="dataUse">
       <div class="row col-md-12" role="dataTypes">
-        <h3>How Do You Use Open Government Data?</h3>
+        <h3>Use of open government data</h3>
 
         <div>Please tell us what kinds of open government data are most relevant for your organization.<br />
           In each case tell us the country that supplies the data, and whether the data is local, regional or national.<br /><br /></div>
