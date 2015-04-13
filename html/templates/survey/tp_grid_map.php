@@ -162,9 +162,10 @@
         slider: false
       });
 
-var csv = new CSVLayer("http://192.168.56.101/survey/opendata/list/new/csv", {
-  fields: [{name: "org_name", type: "String"}]
-});
+      var data_url = 'http://<?php echo $content["HTTP_HOST"];?>/survey/opendata/list/new/csv';
+      var csv = new CSVLayer(data_url, {
+        fields: [{name: "org_name", type: "String"}]
+      });
 
         var orangeRed = new Color([238, 69, 0, 0.5]); // hex is #ff4500
         var marker = new SimpleMarkerSymbol("solid", 10, null, orangeRed);
