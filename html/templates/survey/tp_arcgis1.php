@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport"
+  content="width=device-width, initial-scale=1.0, maximum-scale=1.0:, user-scalable=no">
+
         <title>Open Data Survey 2015 - List</title>
         <link href="/css3/bootstrap.css" rel="stylesheet" />
         <link href="/dist/jquery.bootgrid.css" rel="stylesheet" />
@@ -20,30 +22,30 @@
             .cell { font-weight: bold; }
         </style>
 
+
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.min.css">
 <link rel="stylesheet" href="//js.arcgis.com/3.13/esri/css/esri.css">
 <style>
-  /*html, body {
+  html, body {
     padding: 0;
     margin: 0;
     width: 100%;
     height: 100%;
     font-size: 1em;
     font-family: Roboto, "Helvetica Neue", Verdana, Geneva, Arial, Helvetica, sans-serif;
-  }*/
+  }
+
+  body {
+    padding-top: 70px;
+  }
 
   #map {
-/*    position: absolute;
-    top:60px;
-    left:200px;*/
-    /*width: 100%;*/
-    /*height: 100%;*/
-    width:100%;
-    height:400px;
-    z-index: 1;   
-    border: 1px solid gray;
-    margin: auto;
-    margin-bottom: 12px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    margin: 0 auto;
+    border: 0px solid green;
   }
 
   #jqSlider {
@@ -57,7 +59,8 @@
 
   #ui-sample-description {
     position: absolute;
-    top: 1.25em;
+    top: 100px;
+    /*top: 1.25em;*/
     left: 1.25em;
     right: 1.25em;
     z-index: 2;
@@ -141,10 +144,12 @@
       "esri/symbols/SimpleFillSymbol",
       "esri/symbols/SimpleLineSymbol",
       "esri/symbols/SimpleMarkerSymbol",
+      "esri/geometry/Point",
+      "esri/layers/GraphicsLayer",
       "dojo/domReady!"
     ],
     function (dom, on, Color, esriConfig, webMercatorUtils, Graphic, lang, Map, SimpleFillSymbol, SimpleLineSymbol,
-      SimpleMarkerSymbol){
+      SimpleMarkerSymbol, Point, GraphicsLayer){
 
       var zoomSymbol = new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID,
         new SimpleLineSymbol(SimpleLineSymbol.STYLE_SOLID,
@@ -153,13 +158,24 @@
       esriConfig.defaults.map.zoomSymbol = zoomSymbol.toJson();
 
       map = new Map("map", {
-        basemap: "national-geographic", // https://developers.arcgis.com/javascript/jsapi/esri.basemaps-amd.html
-        center: [2.352, 48.87],
-        zoom: 3,
+        basemap: "gray",
+        center: [2.352, 31.00],
+        zoom: 2,
         slider: false
       });
 
       on(map, "load", function (){
+
+
+  var gl = new GraphicsLayer();
+            var p = new Point(-88.380801, 42.10560);
+            var s = new SimpleMarkerSymbol().setSize(10);
+            var g = new Graphic(p, s);
+            gl.add(g);
+            map.addLayer(gl);
+
+
+
         console.log("Map load event");
         // Hook up jQuery
         $(document).ready(jQueryReady);
@@ -239,11 +255,9 @@
       }
     });
 </script>
+</head>
+<body>
 
-
-
-    </head>
-    <body>
         <header id="header" class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -282,12 +296,16 @@
                         <img class="logo" src="http://uploads.webflow.com/54c24a0650f1708e4c8232a0/54c24fc57bbf1d8c4cfd6581_Logo-Text.png" width="400" alt="54c24fc57bbf1d8c4cfd6581_Logo-Text.png"></a>
                     </div>
 
+               
 
-<!-- Map canvas -->
-  <div id="map"></div>
+
+  <!-- Map canvas -->
+  <div id="mapcontainer" style="">
+    <div id="map"></div>
+  </div>
   <!-- Div that will render jQuery Slider -->
   <div id="jqSlider"></div>
-  <!--div id="ui-sample-description" class="ui-drop-shadow">
+  <div id="ui-sample-description" class="ui-drop-shadow hidden">
     <div class="ui-header">Description</div>
     <div class="ui-content">
       This sample demonstrates the use of <a href=" http://jquery.com/" target="_blank">jQuery</a> library with
@@ -295,88 +313,31 @@
       target="_blank">Slider</a> UI widget.
       Click on the map for location info.
     </div>
-  </div-->
+  </div>
   <div id="ui-sample-feedback" class="ui-drop-shadow hidden">
     <div class="ui-header">Current extent</div>
     <div id="info" class="ui-content"></div>
-  </div
+  </div>
+  <!-- /Map stuff -->
 
 
-                    <button id="removeSelected" type="button" class="btn btn-default">Remove Selected</button>
-                    <button id="clear" type="button" class="btn btn-default">Clear</button>
-                    <button id="init" type="button" class="btn btn-default">Init</button>
-                    <!--div class="table-responsive"-->
-                        <table id="grid" class="table table-condensed table-hover table-striped" data-selection="true" data-multi-select="true" data-row-select="true" data-keep-selection="true">
-                            <thead>
-                                <tr>
-                                    <th data-column-id="id" data-identifier="true">ID</th>
-                                    <th data-column-id="organization" data-order="asc" data-align="left" data-header-align="left">Organization</th>
-                                    <th data-column-id="type" data-order="asc" data-align="left" data-header-align="left">Type</th>
-                                    
-                                    <th data-column-id="founded" data-css-class="cell" data-filterable="true">Year founded</th>
-                                    <th data-column-id="survey" data-formatter="link" data-sortable="false">Survey</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                
-                                <?php
-    foreach ($org_profiles as $org_profile) {
-        // echo "<pre>"; print_r($org_profile); echo "..".$org_profile['org_name']."</pre>";
-        if ( array_key_exists('org_name', $org_profile) && $org_profile['org_profile_status'] == 'submitted') { 
-            echo "<tr>";
-            echo "<td>".$org_profile['objectId']."</td>";
-            echo "<td>".$org_profile['org_name']."</td>";
-            echo "<td>".$org_profile['org_type']."</td>";
-            echo "<td>${org_profile['org_year_founded']}</td>";
-            echo "<td><a href='/survey/opendata/".$org_profile['objectId']."/submitted'>".$org_profile['objectId']."</a></td>";
-            echo "</tr>";
-        }
-    }
-?>
-                            </tbody>
-                        </table>
-                    <!--/div-->
-                </div>
+<!-- grid stuff -->
+
+ </div>
+                
             </div>
         </div>
 
-        <footer id="footer" style="margin-top:50px;text-align:center;">
+ <footer id="footer" style="margin-top:50px;text-align:center;">
             © Copyright 2015, Center for Open Data Enterprise
         </footer>
 
         <!--script src="/lib/jquery-1.11.1.min.js"></script-->
         <script src="/js3/bootstrap.js"></script>
         <script src="/dist/jquery.bootgrid.js"></script>
-        <script>
-            $(function()
-            {
-                function init()
-                {
-                    $("#grid").bootgrid({
-                        formatters: {
-                            "link": function(column, row)
-                            {
-                                return "<a href=\"/survey/opendata/" + row.id + "/submitted/\">" + row.organization + " survey</a>";
-                            }
-                        }
-                    });
-                }
-                
-                init();
-                
-                
-                $("#clear").on("click", function ()
-                {
-                    $("#grid").bootgrid("clear");
-                });
-                
-                $("#removeSelected").on("click", function ()
-                {
-                    $("#grid").bootgrid("remove");
-                });
-                
-                $("#init").on("click", init);
-            });
-        </script>
-    </body>
+
+
+
+</body>
 </html>
+ 
