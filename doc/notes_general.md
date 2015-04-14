@@ -47,3 +47,13 @@ https://api.mailgun.net/v3/sandboxc1675fc5cc30472ca9bd4af8028cbcdf.mailgun.org/m
 ```
 http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/find?f=pjson&text=Raleigh, NC, USA
 ```
+
+### Placefinder
+
+Country Codes
+·         http://en.wikipedia.org/wiki/ISO_3166-1
+
+For city level data, you can either use a Placefinder – Esri has one built into ArcGIS Online
+·         http://www.arcgis.com/home/webmap/viewer.html?useExisting=1 (top right)
+
+·         https://developers.arcgis.com/javascript/jssamples/index.html#search
