@@ -138,6 +138,28 @@ HTML;
 });
 
 // ************
+$app->get('/survey/opendata/:surveyId/alt/', function ($surveyId) use ($app) {
+	
+	$parse = new parseRestClient(array(
+	    'appid' => PARSE_APPLICATION_ID,
+	    'restkey' => PARSE_API_KEY
+	));
+
+	$content['surveyId'] = $surveyId;
+	$content['surveyName'] = "opendata";
+	$content['title'] = "Open Data Enterprise Survey";
+	$content['intro'] = <<<HTML
+
+        <blockquote>Second Survey Study
+        </blockquote>
+HTML;
+
+	$app->view()->setData(array('content' => $content ));
+	$app->render('survey/tp_survey.php');
+
+});
+
+// ************
 $app->post('/survey/opendata/:surveyId/', function ($surveyId) use ($app) {
 
 	$parse = new parseRestClient(array(
