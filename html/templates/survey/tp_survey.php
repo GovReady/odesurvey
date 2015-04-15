@@ -222,7 +222,7 @@ body {
         <div class="col-md-4">From government level<br /><small>select all that apply</small></div>
       </div>
 
-      <div class="row col-md-12 data-use-row" id="dataUseData-1" style="border-bottom:1px solid #eee;">
+      <div class="row col-md-12 data-use-row" id="dataUseData-1" style="">
         <div class="col-md-4" id="data_type_col-1">
 
           <select name="data_type-1" id="data_type-1" class="js-example-basic-single data_type">
@@ -290,17 +290,15 @@ body {
 
   </div> <!-- /dataUseData-1 -->
 
-    <div class="row col-md-12" id="add_data_src_btn_row-1">
+    <div class="row col-md-12" id="add_data_src_btn_row-1" style="border-bottom:1px solid #eee;">
     <div class="col-md-4">&nbsp;</div>
     <div class="col-md-4">
-      <button class="btn btn-default btn-md" id="add_data_src_btn-1" type="">Add data source</button>
+      <button class="btn btn-default btn-xs" id="add_data_src_btn-1" type="" style="font-size:0.75em;">Add data source</button>
     </div>
     <div class="col-md-4">&nbsp;</div>
   </div>
 
       <br /><!-- new row -->
-
-
 
     </div> <!-- /dataUse row -->
 
