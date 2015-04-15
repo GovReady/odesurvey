@@ -1,3 +1,24 @@
+/* Declare the function 'addDataSrc'
+   Add a data source row
+*/
+function addDataSrc(myId){
+  console.log('addDataSrc called with myid: '+myId);
+  // alert('addDataUseOther called with myid: '+myId);
+  // var data_use_other = '<input type="text" class="form-control" id="data_type_other-'+myId+'" name="data_type_other-'+myId+'" placeholder="Describe other" required>';
+  
+  var new_html = '<div class="row col-md-12" id=""> \
+  <div class="col-md-4">..</div> \
+    <div class="col-md-4"> \
+      field \
+    </div> \
+    <div class="col-md-4">..</div> \
+  </div>'
+
+  $('#add_data_src_btn_row-'+myId).before(new_html);
+  return false;
+}
+
+
 /* Declare the function 'addDataUseOther'
    Add a row to data use question
 */
