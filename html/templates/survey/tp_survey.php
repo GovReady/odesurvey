@@ -510,15 +510,21 @@ body {
 
         </div>
 
-        <div class="col-md-4">
-<select name="data_src_gov_level-1[]" class="basic-multiple"  multiple="multiple" style="width:160px;">
-  <option value="National">National</option>
-  <option value="State/Province">State/Province</option>
-  <option value="Local">Local</option>
-</select>
-
-        </div>
+  <div class="col-md-4">
+      <div class="btn-group" data-toggle="buttons">
+        <label class="btn btn-default" style="font-size:0.6em">
+            <input type="checkbox" name="data_src_gov_level-1[]" value="National" />National
+        </label>
+        <label class="btn btn-default" style="font-size:0.6em">
+            <input type="checkbox" name="data_src_gov_level-1[]" value="State/Province" />State/Province
+        </label>
+        <label class="btn btn-default" style="font-size:0.6em">
+            <input type="checkbox" name="data_src_gov_level-1[]" value="Local" />Local
+        </label>
       </div>
+  </div>
+
+  </div>
 
       <br /><!-- new row -->
 
