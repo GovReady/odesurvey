@@ -23,19 +23,26 @@ function addDataSrc(myId){
   <div class="col-md-4"> \
       <div class="btn-group" data-toggle="buttons"> \
         <label class="btn btn-default" style="font-size:0.6em"> \
-            <input type="checkbox" name="data_src_gov_level-1[]" value="National" />National \
+            <input type="checkbox" name="data_src_gov_level-'+myId.toString()+'[]" value="National" />National \
         </label> \
         <label class="btn btn-default" style="font-size:0.6em"> \
-            <input type="checkbox" name="data_src_gov_level-1[]" value="State/Province" />State/Province \
+            <input type="checkbox" name="data_src_gov_level-'+myId.toString()+'[]" value="State/Province" />State/Province \
         </label> \
         <label class="btn btn-default" style="font-size:0.6em"> \
-            <input type="checkbox" name="data_src_gov_level-1[]" value="Local" />Local \
+            <input type="checkbox" name="data_src_gov_level-'+myId.toString()+'[]" value="Local" />Local \
         </label> \
       </div> \
   </div> \
   </div>'
 
   $('#add_data_src_btn_row-'+myId).before(new_html);
+
+  $(".js-example-basic-single").select2( 
+    { placeholder: "Select a data type",
+    allowClear: true }
+  );
+
+
   return false;
 }
 
