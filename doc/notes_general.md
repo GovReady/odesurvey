@@ -51,9 +51,19 @@ http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/find?f=pjson&
 ### Placefinder
 
 Country Codes
-·         http://en.wikipedia.org/wiki/ISO_3166-1
+- http://en.wikipedia.org/wiki/ISO_3166-1
 
 For city level data, you can either use a Placefinder – Esri has one built into ArcGIS Online
-·         http://www.arcgis.com/home/webmap/viewer.html?useExisting=1 (top right)
+- http://www.arcgis.com/home/webmap/viewer.html?useExisting=1 (top right)
+- https://developers.arcgis.com/javascript/jssamples/index.html#search
 
-·         https://developers.arcgis.com/javascript/jssamples/index.html#search
+
+# Miscellaneous Working Notes
+
+## (Temp) Trying alternate data use interface.
+- http://192.168.56.101/survey/opendata/TAiZivoKDE/alt
+Trying to put everything in a line.
+
+
+
+

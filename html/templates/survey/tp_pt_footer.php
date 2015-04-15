@@ -76,7 +76,7 @@
         );
 
         $(".js-example-basic-single").select2(
-          { placeholder: "Select a data type",
+          { placeholder: "Select",
           allowClear: true }
         );
 

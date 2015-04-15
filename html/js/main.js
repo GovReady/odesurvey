@@ -37,9 +37,14 @@ function addDataUseRow(){
   //  '<div class="col-md-3"><a href="#" id="srcGovLevel'+idSuffixNum.toString()+'"></a></div>' +
   //  '</div><!-- /row -->';
 
-  var data_row = '<div class="row col-md-12 data-use-row" id="dataUseHeading'+idSuffixNum.toString()+'" style="border-bottom:1px solid #eee;"> \
-        <div class="col-md-4">Relevant kind of data<br /><small>select one</small></div> \
-        <div class="col-md-5" id="data_type_col-'+idSuffixNum.toString()+'"> \
+  var data_row = '<div class="row col-md-12 data-use-row" id="dataUseHeading" style="border-bottom:1px solid #eee;"> \
+        <div class="col-md-4">Relevant type of data<br /><small>select one</small></div> \
+        <div class="col-md-4">From country supplying data<br /><small>select all that apply</small></div> \
+        <div class="col-md-4">From government level<br /><small>select all that apply</small></div> \
+      </div> \
+ \
+        <div class="row col-md-12 data-use-row" id="dataUseData'+idSuffixNum.toString()+'" style="border-bottom:1px solid #eee;"> \
+        <div class="col-md-4" id="data_type_col-'+idSuffixNum.toString()+'"> \
           <select name="data_type-'+idSuffixNum.toString()+'" id="data_type-'+idSuffixNum.toString()+'" class="js-example-basic-single data_type"> \
             <option value="">Select</option> \
             <option value="Agriculture">Agriculture</option> \
@@ -67,11 +72,10 @@ function addDataUseRow(){
             <option value="Other">Other</option> \
           </select> \
         </div> \
-      </div> \
-            <div class="row col-md-12" id="dataUseHeading" style="border-bottom:1px solid #eee;"> \
-        <div class="col-md-4">From country supplying data<br /><small>select all that apply</small></div> \
-        <div class="col-md-5"> \
-<select name="data_src_country_locode-'+idSuffixNum.toString()+'[]" class="country-basic-multiple"  multiple="multiple"> \
+ \
+        <div class="col-md-4"> \
+<select name="data_src_country_locode-'+idSuffixNum.toString()+'[]" class="js-example-basic-single" style="width:240px;"> \
+<option value="">Select</option> \
 <option value="AF">Afghanistan</option> \
 <option value="AX">Åland Islands</option> \
 <option value="AL">Albania</option> \
@@ -323,13 +327,11 @@ function addDataUseRow(){
 <option value="ZW">Zimbabwe</option> \
 </select> \
         </div> \
-      </div> \
-      <div class="row col-md-12" id="dataUseHeading" style="border-bottom:1px solid #eee;"> \
-        <div class="col-md-4">From government level<br /><small>select all that apply</small></div> \
-        <div class="col-md-5"> \
-<select name="data_src_gov_level-'+idSuffixNum.toString()+'[]" class="basic-multiple"  multiple="multiple" style="width:336px;"> \
-  <option value="Federal">Federal</option> \
-  <option value="Regional">Regional</option> \
+ \
+         <div class="col-md-4"> \
+<select name="data_src_gov_level-'+idSuffixNum.toString()+'[]" class="basic-multiple"  multiple="multiple" style="width:160px;"> \
+  <option value="National">National</option> \
+  <option value="State/Province">State/Province</option> \
   <option value="Local">Local</option> \
 </select> \
         </div> \
