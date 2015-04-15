@@ -116,6 +116,18 @@
 
       });
 
+        // Add data use row
+        $('#add_data_src_btn-1').on('click', function(event) {
+          event.preventDefault(); // To prevent following the link (optional)
+
+          var msg = "add_data_src_btn-1 clicked";
+          // alert(msg);
+          myId = this.id.split("-")[1];
+          addDataSrc(myId);
+          // addDataUseRow();
+          return false;
+        });
+
      </script>
  </body>
 </html>
