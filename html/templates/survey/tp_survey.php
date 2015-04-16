@@ -214,7 +214,7 @@ body {
 
 </div>
 
-    <div class="row col-md-12" id="dataUse"><small>datause (alt)</small>
+    <div class="row col-md-12" id="dataUse">
 
       <div class="row col-md-12 data-use-row" id="dataUseHeading" style="border-bottom:1px solid #eee;">
         <div class="col-md-4">Relevant type of data<br /><small>select one</small></div>
