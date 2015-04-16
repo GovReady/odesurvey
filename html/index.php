@@ -133,12 +133,12 @@ $app->get('/survey/opendata/:surveyId', function ($surveyId) use ($app) {
 HTML;
 
 	$app->view()->setData(array('content' => $content ));
-	$app->render('survey/tp_home.php');
+	$app->render('survey/tp_survey.php');
 
 });
 
 // ************
-$app->get('/survey/opendata/:surveyId/alt/', function ($surveyId) use ($app) {
+$app->get('/survey/opendata/:surveyId/old/', function ($surveyId) use ($app) {
 	
 	$parse = new parseRestClient(array(
 	    'appid' => PARSE_APPLICATION_ID,
@@ -155,7 +155,7 @@ $app->get('/survey/opendata/:surveyId/alt/', function ($surveyId) use ($app) {
 HTML;
 
 	$app->view()->setData(array('content' => $content ));
-	$app->render('survey/tp_survey.php');
+	$app->render('survey/tp_home.php');
 
 });
 
