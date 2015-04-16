@@ -39,7 +39,7 @@ function addDataSrc(myId){
   $('#add_data_src_btn_row-'+myId).before(new_html);
 
   $(".js-example-basic-single").select2( 
-    { placeholder: "Select a data type",
+    { placeholder: "Select",
     allowClear: true }
   );
 
