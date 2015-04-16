@@ -114,7 +114,16 @@
         } else {
           removeDataUseOther(myId);
         }
+      });
 
+      $('#industry_id').on("change", function(e) {
+        myId = this.id.split("-")[1];
+        var sel_val = $('#'+this.id).select2().val();
+        if (sel_val == "otr") {
+          addIndustryOther();
+        } else {
+          removeIndustryOther();
+        }
       });
 
       // Add data use row

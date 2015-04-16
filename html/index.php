@@ -192,7 +192,7 @@ $app->post('/survey/opendata/:surveyId/', function ($surveyId) use ($app) {
 	$allPostVars["use_other"] = settype($allPostVars["use_other"],'boolean');
 
 	// Initialize any empty parameters
-    $params = array("org_name", "org_open_corporates_id", "org_type", "org_url", "org_year_founded", "org_description", "org_size_id", "industry_id", "org_greatest_impact", "use_prod_srvc", "use_prod_srvc_desc", "use_org_opt", "use_org_opt_desc", "use_research", "use_research_desc", "use_other", "use_other_desc", "org_hq_city", "org_hq_st_prov", "org_hq_country", "latitude", "longitude", "org_hq_city_locode", "org_hq_country_locode", "org_profile_year", "org_profile_status", "org_profile_src", "survey_contact_name", "survey_contact_title", "survey_contact_email", "survey_loc_lat", "survey_loc_lon");
+    $params = array("org_name", "org_open_corporates_id", "org_type", "org_url", "org_year_founded", "org_description", "org_size_id", "industry_id", "industry_other", "org_greatest_impact", "use_prod_srvc", "use_prod_srvc_desc", "use_org_opt", "use_org_opt_desc", "use_research", "use_research_desc", "use_other", "use_other_desc", "org_hq_city", "org_hq_st_prov", "org_hq_country", "latitude", "longitude", "org_hq_city_locode", "org_hq_country_locode", "org_profile_year", "org_profile_status", "org_profile_src", "survey_contact_name", "survey_contact_title", "survey_contact_email", "survey_loc_lat", "survey_loc_lon");
     $object = array();
     foreach ($params as $param) {
     	if (!isset($allPostVars[$param])) {
