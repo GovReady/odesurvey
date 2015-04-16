@@ -172,6 +172,7 @@ body {
           <option value="trm">Tourism</option>
           <option value="trd">Trade &amp; commodities</option>
           <option value="trn">Transportation</option>
+          <option value="otr">Other</option>
         </select>
       </div>
     </div>

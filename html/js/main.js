@@ -317,6 +317,27 @@ function removeDataUseOther(myId){
   }
 }
 
+/* Declare the function 'addDataUseOther'
+   Add a row to data use question
+*/
+function addIndustryOther(){
+  console.log('addIndustryOther called');
+  // alert('addDataUseOther called');
+  var new_html = '<input type="text" class="form-control" id="industry_other" name="industry_other" placeholder="Describe other" required>';
+  $('#industry_id').parent().append(new_html);
+}
+
+/* Declare the function 'removeDataUseOther'
+   Add a row to data use question
+*/
+function removeIndustryOther(){
+  console.log('removeIndustryOther called ');
+  // alert('removeDataUseOther called');
+  if ( $('#industry_id_other').length > 0 ) {
+    $('#industry_id_other').remove();
+  }
+}
+
 /* Declare the function 'addDataUseRow'
    Add a row to data use question
 */
@@ -695,6 +716,5 @@ function addDataUseRow(){
       // addDataUseRow();
       return false;
     });
-
-    
+ 
 }
