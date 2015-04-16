@@ -75,19 +75,20 @@
           allowClear: true }
         );
 
-        $(".js-example-basic-single").select2(
+        $(".js-example-basic-single").select2( 
           { placeholder: "Select",
           allowClear: true }
         );
 
-        $(".country-basic-multiple").select2(
-          { placeholder: "Select country sources",
-          allowClear: true }
-        );
-        $(".basic-multiple").select2(
-          {placeholder: "Select levels",
-          allowClear: true}
-        );
+        // $(".country-basic-multiple").select2(
+        //   { placeholder: "Select country sources",
+        //   allowClear: true }
+        // );
+        
+        // $(".basic-multiple").select2(
+        //   {placeholder: "Select levels",
+        //   allowClear: true}
+        // );
 
         // Add data use row
         $('#addDataUseBtn').on('click', function(event) {
@@ -116,17 +117,17 @@
 
       });
 
-        // Add data use row
-        $('#add_data_src_btn-1').on('click', function(event) {
-          event.preventDefault(); // To prevent following the link (optional)
+      // Add data use row
+      $('#add_data_src_btn-1').on('click', function(event) {
+        event.preventDefault(); // To prevent following the link (optional)
 
-          var msg = "add_data_src_btn-1 clicked";
-          // alert(msg);
-          myId = this.id.split("-")[1];
-          addDataSrc(myId);
-          // addDataUseRow();
-          return false;
-        });
+        var msg = "add_data_src_btn-1 clicked";
+        // alert(msg);
+        myId = this.id.split("-")[1];
+        addDataSrc(myId);
+        // addDataUseRow();
+        return false;
+      });
 
 
      </script>
