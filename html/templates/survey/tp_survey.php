@@ -36,7 +36,7 @@ body {
 
     <div class="row col-md-12 controlsec row-fluid" role="Intro">
       <div class="row col-md-12">
-          <h3>Eligibility <small>tp_survey.php</small></h3>
+          <h3>Eligibility</h3>
       </div>
 
       <div class="row col-md-8">
