@@ -9,3 +9,17 @@
 .lg-font p {
   font-size: 1.2em;
 }
+
+.dataUseData__clear {
+	font-weight: bold;
+	cursor: pointer; cursor: hand;
+}
+
+.data-src-row, .data-use-row {
+	margin-bottom: 2px;
+}
+
+.add_data_src_btn_row {
+	padding-bottom: 2px;
+	border-bottom: 1px solid #eee;
+}

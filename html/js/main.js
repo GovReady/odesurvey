@@ -6,7 +6,7 @@ function addDataSrc(myId){
   // alert('addDataUseOther called with myid: '+myId);
   // var data_use_other = '<input type="text" class="form-control" id="data_type_other-'+myId+'" name="data_type_other-'+myId+'" placeholder="Describe other" required>';
   
-  var new_html = '<div class="row col-md-12" id=""> \
+  var new_html = '<div class="row col-md-12 data-src-row" id=""> \
   <div class="col-md-4">&nbsp;</div> \
     <div class="col-md-4"> \
 <select name="data_src_country_locode-'+myId.toString()+'[]" class="js-example-basic-single" style="width:240px;"> \
@@ -32,6 +32,7 @@ function addDataSrc(myId){
             <input type="checkbox" name="data_src_gov_level-'+myId.toString()+'[]" value="Local" />Local \
         </label> \
       </div> \
+      <span class="dataUseData__clear">×</span> \
   </div> \
   </div>'
 
@@ -42,6 +43,12 @@ function addDataSrc(myId){
     allowClear: true }
   );
 
+  $('.dataUseData__clear').on('click', function(e) {
+    var msg = "clear dataUse row";
+    console.log;
+    $(this).parent().parent().remove();
+    return false;
+  });
 
   return false;
 }
