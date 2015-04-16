@@ -93,12 +93,7 @@ function addDataUseRow(){
   //  '<div class="col-md-3"><a href="#" id="srcGovLevel'+idSuffixNum.toString()+'"></a></div>' +
   //  '</div><!-- /row -->';
 
-  var data_row = '<div class="row col-md-12 data-use-row" id="dataUseHeading" style="border-bottom:1px solid #eee;"> \
-        <div class="col-md-4">Relevant type of data<br /><small>select one</small></div> \
-        <div class="col-md-4">From country supplying data<br /><small>select all that apply</small></div> \
-        <div class="col-md-4">From government level<br /><small>select all that apply</small></div> \
-      </div> \
- \
+  var data_row = ' \
         <div class="row col-md-12 data-use-row" id="dataUseData'+idSuffixNum.toString()+'" style="border-bottom:1px solid #eee;"> \
         <div class="col-md-4" id="data_type_col-'+idSuffixNum.toString()+'"> \
           <select name="data_type-'+idSuffixNum.toString()+'" id="data_type-'+idSuffixNum.toString()+'" class="js-example-basic-single data_type"> \
@@ -398,9 +393,17 @@ function addDataUseRow(){
       </div> \
   </div> \
  \
+      </div> <!-- /dataUseData-1 --> \
+ \
+    <div class="row col-md-12 add_data_src_btn_row" id="add_data_src_btn_row-'+idSuffixNum.toString()+'"> \
+      <div class="col-md-4">&nbsp;</div> \
+      <div class="col-md-4"> \
+        <button class="btn btn-default btn-xs" id="add_data_src_btn-'+idSuffixNum.toString()+'" type="" style="font-size:0.75em;">Add data source</button> \
       </div> \
+      <div class="col-md-4">&nbsp;</div> \
+    </div> \
+ \
       <br /> <!-- new row id: '+idSuffixNum.toString()+' -->';
-
 
     $('#dataUse').append(data_row);
 
@@ -426,7 +429,7 @@ function addDataUseRow(){
     );
 
     $(".js-example-basic-single").select2( 
-      { placeholder: "Select a data type",
+      { placeholder: "Select",
       allowClear: true }
     );
 
@@ -439,6 +442,17 @@ function addDataUseRow(){
       allowClear: true}
     );
 
+    // Add data use row
+    $('#add_data_src_btn-'+idSuffixNum.toString()).on('click', function(event) {
+      event.preventDefault(); // To prevent following the link (optional)
+      var msg = "add_data_src_btn-x clicked";
+      // alert(msg);
+      myId = this.id.split("-")[1];
+      // alert(myId);
+      addDataSrc(myId);
+      // addDataUseRow();
+      return false;
+    });
 
     
 }

@@ -84,7 +84,7 @@
         //   { placeholder: "Select country sources",
         //   allowClear: true }
         // );
-        
+
         // $(".basic-multiple").select2(
         //   {placeholder: "Select levels",
         //   allowClear: true}
@@ -120,7 +120,6 @@
       // Add data use row
       $('#add_data_src_btn-1').on('click', function(event) {
         event.preventDefault(); // To prevent following the link (optional)
-
         var msg = "add_data_src_btn-1 clicked";
         // alert(msg);
         myId = this.id.split("-")[1];
