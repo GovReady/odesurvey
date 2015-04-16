@@ -333,8 +333,8 @@ function addIndustryOther(){
 function removeIndustryOther(){
   console.log('removeIndustryOther called ');
   // alert('removeDataUseOther called');
-  if ( $('#industry_id_other').length > 0 ) {
-    $('#industry_id_other').remove();
+  if ( $('#industry_other').length > 0 ) {
+    $('#industry_other').remove();
   }
 }
 
