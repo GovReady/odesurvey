@@ -287,16 +287,15 @@ body {
       </div>
   </div>
 
-
   </div> <!-- /dataUseData-1 -->
 
     <div class="row col-md-12 add_data_src_btn_row" id="add_data_src_btn_row-1">
-    <div class="col-md-4">&nbsp;</div>
-    <div class="col-md-4">
-      <button class="btn btn-default btn-xs" id="add_data_src_btn-1" type="" style="font-size:0.75em;">Add data source</button>
+      <div class="col-md-4">&nbsp;</div>
+      <div class="col-md-4">
+        <button class="btn btn-default btn-xs" id="add_data_src_btn-1" type="" style="font-size:0.75em;">Add data source</button>
+      </div>
+      <div class="col-md-4">&nbsp;</div>
     </div>
-    <div class="col-md-4">&nbsp;</div>
-  </div>
 
       <br /><!-- new row -->
 
