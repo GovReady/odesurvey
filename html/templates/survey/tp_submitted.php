@@ -111,19 +111,19 @@ body {
             <p class="muted">Purpose open data serves in organization</p>
 
             <div class="col-md-3">Develop new products or services
-              <?php if (is_null($org_profile['use_prod_srvc'])) { echo "<br />No" ;} else { echo "<br />Yes<br />"; } ?>
+              <?php if ($org_profile['use_prod_srvc']) { echo "<br />Yes, ".$org_profile["use_prod_srvc_desc"] ;} else { echo "<br />No<br />"; } ?>
             </div>
 
             <div class="col-md-3">Organizational optimization
-              <?php if (is_null($org_profile['use_org_opt'])) { echo "<br />No" ;} else { echo "<br />Yes<br />"; } ?>
+              <?php if ($org_profile['use_org_opt']) { echo "<br />Yes, ".$org_profile["use_org_opt_desc"] ;} else { echo "<br />No<br />"; } ?>
             </div>
 
              <div class="col-md-3">Research
-              <?php if (is_null($org_profile['use_research'])) { echo "<br />No" ;} else { echo "<br />Yes<br />"; } ?>
+              <?php if ($org_profile['use_research']) { echo "<br />Yes, ".$org_profile["use_research_desc"] ;} else { echo "<br />No<br />"; } ?>
             </div>
 
             <div class="col-md-3">Other
-              <?php if (is_null($org_profile['use_other'])) { echo "<br />No" ;} else { echo "<br />Yes<br />"; } ?>
+              <?php if ($org_profile['use_other']) { echo "<br />Yes, ".$org_profile["use_other_desc"] ;} else { echo "<br />No<br />"; } ?>
             </div>
 
 

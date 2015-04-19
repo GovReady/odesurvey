@@ -185,12 +185,6 @@ $app->post('/survey/opendata/:surveyId/', function ($surveyId) use ($app) {
     $allPostVars["org_year_founded"] = intval($allPostVars["org_year_founded"]);
     $allPostVars["latitude"] = floatval($allPostVars["latitude"]);
     $allPostVars["longitude"] = floatval($allPostVars["longitude"]);
-
-	$allPostVars["use_prod_srvc"] = settype($allPostVars["use_prod_srvc"],'boolean');
-	$allPostVars["use_org_opt"] = settype($allPostVars["use_org_opt"],'boolean');
-	$allPostVars["use_research"] = settype($allPostVars["use_research"],'boolean');
-	$allPostVars["use_other"] = settype($allPostVars["use_other"],'boolean');
-
 	// Initialize any empty parameters
     $params = array("org_name", "org_open_corporates_id", "org_type", "org_url", "org_year_founded", "org_description", "org_size_id", "industry_id", "industry_other", "org_greatest_impact", "use_prod_srvc", "use_prod_srvc_desc", "use_org_opt", "use_org_opt_desc", "use_research", "use_research_desc", "use_other", "use_other_desc", "org_hq_city", "org_hq_st_prov", "org_hq_country", "latitude", "longitude", "org_hq_city_locode", "org_hq_country_locode", "org_profile_year", "org_profile_status", "org_profile_src", "survey_contact_name", "survey_contact_title", "survey_contact_email", "survey_loc_lat", "survey_loc_lon");
     $object = array();
@@ -201,8 +195,19 @@ $app->post('/survey/opendata/:surveyId/', function ($surveyId) use ($app) {
 
     	$object[$param] = $allPostVars[$param];
     }
+	// Set boolean values
+	$params = array("use_prod_srvc", "use_org_opt", "use_research", "use_other");
+	foreach ($params as $param) {
+		if (is_null($object[$param])) {
+			echo "<br>FALSE";
+			$object[$param] = false;
+		} else {
+			$object[$param] = true;
+		}
+	}
+
 	// echo "<pre>"; print_r($allPostVars); echo "</pre>";
-	// echo "<pre>"; print_r($object); echo "</pre>";
+	echo "<pre>"; print_r($object); echo "</pre>";
 
     // create data use object
     // does field exist?
