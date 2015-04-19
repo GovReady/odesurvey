@@ -216,11 +216,16 @@ $app->post('/survey/opendata/:surveyId/', function ($surveyId) use ($app) {
 	    echo "<br>$idSuffixNum";
 	    echo "<br>surveyId: $surveyId";
 	    echo "<br>data_type: ".$allPostVars['data_type-'.$idSuffixNum];
-		echo "<br> data_src_country_locode: ".$allPostVars['data_src_country_locode-'.$idSuffixNum];
+		echo "<br>data_src_country_locode: ".$allPostVars['data_src_country_locode-'.$idSuffixNum];
 	    echo "<br>data_src_gov_level: ".$allPostVars['data_src_gov_level-'.$idSuffixNum];
 
 	    $object_data_use['profile_id'] = $surveyId;
 	    $object_data_use['data_type'] = $allPostVars['data_type-'.$idSuffixNum];
+	    if ($object_data_use['data_type'] == "Other") {
+		    $object_data_use['data_type_other'] = $allPostVars['data_type_other-'.$idSuffixNum];
+	    } else {
+			$object_data_use['data_type_other'] = null;
+	    }
 	    $object_data_use['data_src_country_locode'] = implode(",", $allPostVars['data_src_country_locode-'.$idSuffixNum]);
 	    $object_data_use['data_src_gov_level'] = implode(",", $allPostVars['data_src_gov_level-'.$idSuffixNum]);
 
