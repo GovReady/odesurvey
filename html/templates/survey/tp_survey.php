@@ -225,7 +225,7 @@ body {
 
       <div class="row col-md-12 data-use-row" id="dataUseData-1">
         
-        <div class="col-md-4">
+        <div class="col-md-4" id="data_type_col-1">
           <select name="data_type-1" id="data_type-1" class="js-example-basic-single data_type">
             <option value="">Select</option>
             <option value="Agriculture">Agriculture</option>
