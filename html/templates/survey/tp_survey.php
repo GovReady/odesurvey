@@ -217,15 +217,15 @@ body {
 
     <div class="row col-md-12" id="dataUse">
 
-      <div class="row col-md-12" id="dataUseHeading" style="border-bottom:1px solid #eee;">
+      <div class="row col-md-12" id="dataUseHeading">
         <div class="col-md-4">Relevant type of data<br /><small>select one</small></div>
         <div class="col-md-4">From country supplying data<br /><small>select all that apply</small></div>
         <div class="col-md-4">From government level<br /><small>select all that apply</small></div>
       </div>
 
-      <div class="row col-md-12 data-use-row" id="dataUseData-1" style="">
-        <div class="col-md-4" id="data_type_col-1">
-
+      <div class="row col-md-12 data-use-row" id="dataUseData-1">
+        
+        <div class="col-md-4">
           <select name="data_type-1" id="data_type-1" class="js-example-basic-single data_type">
             <option value="">Select</option>
             <option value="Agriculture">Agriculture</option>
@@ -233,7 +233,7 @@ body {
             <option value="Business">Business</option>
             <option value="Consumer">Consumer</option>
             <option value="Demographics and social">Demographics and social</option>
-            <option value="Economics ">Economics</option>
+            <option value="Economics">Economics</option>
             <option value="Education">Education</option>
             <option value="Energy">Energy</option>
             <option value="Environment">Environment</option>
@@ -252,12 +252,12 @@ body {
             <option value="Weather">Weather</option>
             <option value="Other">Other</option>
           </select>
-
         </div>
 
-        <div class="col-md-4 data-src-row">
-<select name="dataUseData-1['src_country'][1]['src_country_locode']" class="js-example-basic-single" style="width:240px;">
-<option value="">Select</option>
+        <div class="data-src-row" id="data-src-row-1">
+          <div class="col-md-4">
+            <select name="dataUseData-1['src_country'][1]['src_country_locode']" class="js-example-basic-single" style="width:240px;">
+            <option value="">Select</option>
 <option value="AF">Afghanistan</option>
 <option value="AX">Åland Islands</option>
 <option value="AL">Albania</option>
@@ -507,36 +507,44 @@ body {
 <option value="YE">Yemen</option>
 <option value="ZM">Zambia</option>
 <option value="ZW">Zimbabwe</option>
-</select>
-        </div>
+            </select>
+          </div>
 
-  <div class="col-md-4">
-      <div class="btn-group" data-toggle="buttons">
-        <label class="btn btn-default" style="font-size:0.6em">
-            <input type="checkbox" name="dataUseData-1['src_country'][1]['src_gov_level'][]" value="National" />National
-        </label>
-        <label class="btn btn-default" style="font-size:0.6em">
-            <input type="checkbox" name="dataUseData-1['src_country'][1]['src_gov_level'][]" value="State/Province" />State/Province
-        </label>
-        <label class="btn btn-default" style="font-size:0.6em">
-            <input type="checkbox" name="dataUseData-1['src_country'][1]['src_gov_level'][]" value="Local" />Local
-        </label>
-      </div>
-  </div>
+          <div class="col-md-4">
+              <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-default" style="font-size:0.6em">
+                    <input type="checkbox" name="dataUseData-1['src_country'][1]['src_gov_level'][]" value="National" />National
+                </label>
+                <label class="btn btn-default" style="font-size:0.6em">
+                    <input type="checkbox" name="dataUseData-1['src_country'][1]['src_gov_level'][]" value="State/Province" />State/Province
+                </label>
+                <label class="btn btn-default" style="font-size:0.6em">
+                    <input type="checkbox" name="dataUseData-1['src_country'][1]['src_gov_level'][]" value="Local" />Local
+                </label>
+              </div>
+          </div>
+        </div> <!-- /data-src-row -->
+        <br />
 
   </div> <!-- /dataUseData-1 -->
 
-    <div class="row col-md-12 add_data_src_btn_row" id="add_data_src_btn_row-1">
-      <div class="col-md-4">&nbsp;</div>
+    <div class="row add_data_src_btn_row" id="add_data_src_btn_row-1">
+      <div class="col-md-4">
+        &nbsp;
+      </div>
       <div class="col-md-4">
         <button class="btn btn-default btn-xs" id="add_data_src_btn-1" type="" style="font-size:0.75em;">Add data source</button>
       </div>
-      <div class="col-md-4">&nbsp;</div>
+      <div class="col-md-4">
+        &nbsp;
+      </div>
     </div>
 
       <br /><!-- new row -->
 
     </div> <!-- /dataUse row -->
+
+
 
 
       <div class="row col-md-12" style="margin: 12px 0px 0px 0px">

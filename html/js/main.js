@@ -7,15 +7,14 @@ function addDataSrc(myId){
   // var data_use_other = '<input type="text" class="form-control" id="data_type_other-'+myId+'" name="data_type_other-'+myId+'" placeholder="Describe other" required>';
   // alert(+myId);
 
-  var rows = $('.data-src-row').length;
+  var rows = $('#dataUseData-'+myId+' .data-src-row').length;
   console.log('rows: '+rows);
   var idSuffixNum = rows + 1;
   console.log('idSuffixNum: '+idSuffixNum);
-  // var newId = +myId + 1;
-  var new_html = '<div class="row col-md-12 data-src-row" id=""> \
-  <div class="col-md-4">&nbsp;</div> \
-    <div class="col-md-4"> dataUseData-1[\'src_country\']['+ idSuffixNum.toString() +']\
-<select name="dataUseData-1[\'src_country\']['+ idSuffixNum.toString()+'][\'src_country_locode\']" class="js-example-basic-single" style="width:240px;"> \
+
+  var data_src_html = '<div class="col-md-4">&nbsp;</div> \
+    <div class="col-md-4"> \
+<select name="dataUseData-'+myId+'[\'src_country\']['+ idSuffixNum.toString()+'][\'src_country_locode\']" class="js-example-basic-single" style="width:240px;"> \
 <option value="">Select</option> \
 <option value="AF">Afghanistan</option> \
 <option value="AX">Åland Islands</option> \
@@ -270,21 +269,23 @@ function addDataSrc(myId){
     </div> \
   <div class="col-md-4"> \
       <div class="btn-group" data-toggle="buttons"> \
-        <label class="btn btn-default" style="font-size:0.6em"> name="dataUseData-1[\'src_country\']['+ idSuffixNum.toString()+'][\'src_gov_level\'][]"\
-            <input type="checkbox" name="dataUseData-1[\'src_country\']['+ idSuffixNum.toString()+'][\'src_gov_level\'][]" value="National" />National \
+        <label class="btn btn-default" style="font-size:0.6em"> \
+            <input type="checkbox" name="dataUseData-'+myId+'[\'src_country\']['+ idSuffixNum.toString()+'][\'src_gov_level\'][]" value="National" />National \
         </label> \
         <label class="btn btn-default" style="font-size:0.6em"> \
-            <input type="checkbox" name="dataUseData-1[\'src_country\']['+ idSuffixNum.toString()+'][\'src_gov_level\'][]" value="State/Province" />State/Province \
+            <input type="checkbox" name="dataUseData-'+myId+'[\'src_country\']['+ idSuffixNum.toString()+'][\'src_gov_level\'][]" value="State/Province" />State/Province \
         </label> \
         <label class="btn btn-default" style="font-size:0.6em"> \
-            <input type="checkbox" name="dataUseData-1[\'src_country\']['+ idSuffixNum.toString()+'][\'src_gov_level\'][]" value="Local" />Local \
+            <input type="checkbox" name="dataUseData-'+myId+'[\'src_country\']['+ idSuffixNum.toString()+'][\'src_gov_level\'][]" value="Local" />Local \
         </label> \
       </div> \
       <span class="dataUseData__clear">×</span> \
-  </div> \
-  </div>'
+  </div> '
 
-  $('#add_data_src_btn_row-'+myId.toString()).before(new_html);
+  var $div = $("<div>", {class: "row col-md-12 data-src-row", html: data_src_html});
+
+  $('#dataUseData-'+myId.toString()).append($div);
+
   console.log('#add_data_src_btn_row-'+idSuffixNum);
   $(".js-example-basic-single").select2( 
     { placeholder: "Select",
@@ -363,7 +364,7 @@ function addDataUseRow(){
   //  '</div><!-- /row -->';
 
   var data_row = ' \
-        <div class="row col-md-12 data-use-row" id="dataUseData'+idSuffixNum.toString()+'" style="border-bottom:1px solid #eee;"> \
+        <div class="row col-md-12 data-use-row" id="dataUseData-'+idSuffixNum.toString()+'" style="border-bottom:1px solid #eee;"> \
         <div class="col-md-4" id="data_type_col-'+idSuffixNum.toString()+'"> \
           <select name="data_type-'+idSuffixNum.toString()+'" id="data_type-'+idSuffixNum.toString()+'" class="js-example-basic-single data_type"> \
             <option value="">Select</option> \
@@ -393,7 +394,7 @@ function addDataUseRow(){
           </select> \
         </div> \
  \
-        <div class="col-md-4"> \
+        <div class="col-md-4 data-src-row">\
 <select name="dataUseData-'+idSuffixNum.toString()+'[\'src_country\'][1][\'src_country_locode\']" class="js-example-basic-single" style="width:240px;"> \
 <option value="">Select</option> \
 <option value="AF">Afghanistan</option> \
@@ -663,13 +664,17 @@ function addDataUseRow(){
   </div> \
  \
       </div> <!-- /dataUseData-1 --> \
- \
-    <div class="row col-md-12 add_data_src_btn_row" id="add_data_src_btn_row-'+idSuffixNum.toString()+'"> \
-      <div class="col-md-4">&nbsp;</div> \
+      \
+    <div class="row add_data_src_btn_row" id="add_data_src_btn_row-'+idSuffixNum.toString()+'"> \
+      <div class="col-md-4"> \
+        &nbsp; \
+      </div> \
       <div class="col-md-4"> \
         <button class="btn btn-default btn-xs" id="add_data_src_btn-'+idSuffixNum.toString()+'" type="" style="font-size:0.75em;">Add data source</button> \
       </div> \
-      <div class="col-md-4">&nbsp;</div> \
+      <div class="col-md-4"> \
+        &nbsp; \
+      </div> \
     </div> \
  \
       <br /> <!-- new row id: '+idSuffixNum.toString()+' -->';
