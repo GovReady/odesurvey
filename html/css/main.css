@@ -46,3 +46,10 @@ p.muted {
 small.required {
 	color: red;
 }
+
+/* Bootstrap overrides */
+/* darken selected buttons */
+
+label.btn.active {
+	background-color: #bfbfbf;
+}
