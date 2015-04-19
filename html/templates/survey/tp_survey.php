@@ -255,8 +255,8 @@ body {
 
         </div>
 
-        <div class="col-md-4">
-<select name="data_src_country_locode-1[]" class="js-example-basic-single" style="width:240px;">
+        <div class="col-md-4 data-src-row">
+<select name="dataUseData-1['src_country'][1]['src_country_locode']" class="js-example-basic-single" style="width:240px;">
 <option value="">Select</option>
 <option value="AF">Afghanistan</option>
 <option value="AX">Åland Islands</option>
@@ -513,13 +513,13 @@ body {
   <div class="col-md-4">
       <div class="btn-group" data-toggle="buttons">
         <label class="btn btn-default" style="font-size:0.6em">
-            <input type="checkbox" name="data_src_gov_level-1[]" value="National" />National
+            <input type="checkbox" name="dataUseData-1['src_country'][1]['src_gov_level'][]" value="National" />National
         </label>
         <label class="btn btn-default" style="font-size:0.6em">
-            <input type="checkbox" name="data_src_gov_level-1[]" value="State/Province" />State/Province
+            <input type="checkbox" name="dataUseData-1['src_country'][1]['src_gov_level'][]" value="State/Province" />State/Province
         </label>
         <label class="btn btn-default" style="font-size:0.6em">
-            <input type="checkbox" name="data_src_gov_level-1[]" value="Local" />Local
+            <input type="checkbox" name="dataUseData-1['src_country'][1]['src_gov_level'][]" value="Local" />Local
         </label>
       </div>
   </div>

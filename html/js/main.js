@@ -5,11 +5,17 @@ function addDataSrc(myId){
   console.log('addDataSrc called with myid: '+myId);
   // alert('addDataUseOther called with myid: '+myId);
   // var data_use_other = '<input type="text" class="form-control" id="data_type_other-'+myId+'" name="data_type_other-'+myId+'" placeholder="Describe other" required>';
-  
+  // alert(+myId);
+
+  var rows = $('.data-src-row').length;
+  console.log('rows: '+rows);
+  var idSuffixNum = rows + 1;
+  console.log('idSuffixNum: '+idSuffixNum);
+  // var newId = +myId + 1;
   var new_html = '<div class="row col-md-12 data-src-row" id=""> \
   <div class="col-md-4">&nbsp;</div> \
-    <div class="col-md-4"> \
-<select name="data_src_country_locode-'+myId.toString()+'[]" class="js-example-basic-single" style="width:240px;"> \
+    <div class="col-md-4"> dataUseData-1[\'src_country\']['+ idSuffixNum.toString() +']\
+<select name="dataUseData-1[\'src_country\']['+ idSuffixNum.toString()+'][\'src_country_locode\']" class="js-example-basic-single" style="width:240px;"> \
 <option value="">Select</option> \
 <option value="AF">Afghanistan</option> \
 <option value="AX">Åland Islands</option> \
@@ -264,22 +270,22 @@ function addDataSrc(myId){
     </div> \
   <div class="col-md-4"> \
       <div class="btn-group" data-toggle="buttons"> \
-        <label class="btn btn-default" style="font-size:0.6em"> \
-            <input type="checkbox" name="data_src_gov_level-'+myId.toString()+'[]" value="National" />National \
+        <label class="btn btn-default" style="font-size:0.6em"> name="dataUseData-1[\'src_country\']['+ idSuffixNum.toString()+'][\'src_gov_level\'][]"\
+            <input type="checkbox" name="dataUseData-1[\'src_country\']['+ idSuffixNum.toString()+'][\'src_gov_level\'][]" value="National" />National \
         </label> \
         <label class="btn btn-default" style="font-size:0.6em"> \
-            <input type="checkbox" name="data_src_gov_level-'+myId.toString()+'[]" value="State/Province" />State/Province \
+            <input type="checkbox" name="dataUseData-1[\'src_country\']['+ idSuffixNum.toString()+'][\'src_gov_level\'][]" value="State/Province" />State/Province \
         </label> \
         <label class="btn btn-default" style="font-size:0.6em"> \
-            <input type="checkbox" name="data_src_gov_level-'+myId.toString()+'[]" value="Local" />Local \
+            <input type="checkbox" name="dataUseData-1[\'src_country\']['+ idSuffixNum.toString()+'][\'src_gov_level\'][]" value="Local" />Local \
         </label> \
       </div> \
       <span class="dataUseData__clear">×</span> \
   </div> \
   </div>'
 
-  $('#add_data_src_btn_row-'+myId).before(new_html);
-
+  $('#add_data_src_btn_row-'+myId.toString()).before(new_html);
+  console.log('#add_data_src_btn_row-'+idSuffixNum);
   $(".js-example-basic-single").select2( 
     { placeholder: "Select",
     allowClear: true }
