@@ -42,3 +42,7 @@ p.muted {
 #industry_id_other {
 	margin-top: 2px;
 }
+
+small.required {
+	color: red;
+}

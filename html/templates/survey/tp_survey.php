@@ -62,14 +62,14 @@ body {
      	<div class="row col-md-12">
         <div class="form-group col-md-12">
           <div class="form-group col-md-7">
-            <label for="org_name">Official organization name</label>
+            <label for="org_name">Official organization name <small class="required">*</small></label>
             <input type="text" class="form-control" id="org_name" name="org_name" placeholder="" required minlength="2">
         </div>
         </div>
       </div>
 
       <div class="form-group col-md-12">
-          <label class="control-label">What type of organization is it? (select 1)</label>
+          <label class="control-label">What type of organization is it? (select 1) <small class="required">*</small></label>
         <div class="col-xs-9">
           <div class="btn-group" data-toggle="buttons">
             <label class="btn btn-default">
@@ -88,7 +88,7 @@ body {
 
       <div class="form-group col-md-12">
       <div class="form-group col-md-7">
-        <label for="org_url">Website URL of the organization</label>
+        <label for="org_url">Website URL of the organization <small class="required">*</small></label>
         <input type="url" class="form-control" id="org_url" name="org_url" placeholder="http://" value="http://" required>
       </div>
     </div>
@@ -96,14 +96,14 @@ body {
 
     <div class="form-group col-md-12">
       <div class="form-group col-md-7">
-        <label for="org_year_founded">Year founded</label>
+        <label for="org_year_founded">Year founded <small class="required">*</small></label>
         <input type="text" class="form-control" id="org_year_founded" name="org_year_founded" placeholder="" required>
       </div>
     </div>
 
     <div class="form-group col-md-12">
       <div class="form-group col-md-8">
-        <label for="org_description">Description of organization (400 characters or less) </label>
+        <label for="org_description">Description of organization (400 characters or less) <small class="required">*</small></label>
         <textarea type="text" class="form-control " id="org_description" name="org_description" style="height:160px; min-height:160px;  max-height:160px;" required></textarea>
       </div>
     </div>
@@ -121,7 +121,7 @@ body {
     </div-->
 
     <div class="form-group col-md-12">
-      <label class="control-label">Number of employees (select 1)</label>
+      <label class="control-label">Number of employees (select 1) <small class="required">*</small></label>
       <div class="col-xs-9">
         <div class="btn-group" data-toggle="buttons">
           <label class="btn btn-default">
@@ -146,7 +146,7 @@ body {
 
     <div class="form-group col-md-12">
       <div class="form-group col-md-7">
-      <label for="industry_id">Industry/category (select 1)</label>
+      <label for="industry_id">Industry/category (select 1) <small class="required">*</small></label>
         <select class="basic-single-industry required" name="industry_id" id="industry_id" style="width:336px;" >
           <option value="">Select</option>
           <option value="bus">Business &amp; legal services</option>
@@ -180,7 +180,7 @@ body {
     <div class="form-group col-md-12">
       <div class="form-group col-md-7 details">
 
-        <label for="org_hq_city_all">City, State/Province, Country</label>
+        <label for="org_hq_city_all">City, State/Province, Country <small class="required">*</small></label>
         <input type="text" class="form-control" id="org_hq_city_all" name="org_hq_city_all" required>
 
         <!--label for="org_hq_city">City</label -->
@@ -195,7 +195,7 @@ body {
         <!--label for="latitude">lat</label -->
         <input type="hidden" class="form-control" id="latitude" name="latitude" required data-geo="lat">
         <!--label for="longitude">lng</label -->
-        <input type="hidden" class="form-control" id="longitude" name="longitude" required data-geo="lng">
+        <input type="hidden" class="form-control" id="`" name="longitude" required data-geo="lng">
       </div>
     </div>
 
@@ -206,8 +206,8 @@ body {
       <div class="row col-md-12" role="dataTypes">
         <h3>Use of open government data</h3>
 
-        <div>Please tell us what types of open government data are most relevant for your organization.<br />
-          In each case tell us the country that supplies the data, and whether the data is local, regional or national.<br /><br /></div>
+        <div><b>Please tell us what types of open government data are most relevant for your organization. <small class="required">*</small><br />
+          In each case tell us the country that supplies the data, and whether the data is local, regional or national. </b> <br /><br /></div>
       </div>
 
 <div>
@@ -546,7 +546,7 @@ body {
     <br />
     <div class="row col-md-12" role="dataPurposes">
       <label>
-        What purpose does open data serve for your company or organization? - select all that apply
+        What purpose does open data serve for your company or organization? - select all that apply  <small class="required">*</small>
       </label>
 
       <div class="form-group col-md-12">
@@ -599,7 +599,7 @@ body {
 
     <div class="form-group col-md-12">
       <div class="form-group col-md-8">
-        <label for="org_greatest_impact">What is the most important way in which your company or organization has a positive impact, and how does open government data help you achieve it? (400 characters or less) </label>
+        <label for="org_greatest_impact">What is the most important way in which your company or organization has a positive impact, and how does open government data help you achieve it? (400 characters or less)  <small class="required">*</small></label>
           <textarea type="text" class="form-control" id="org_greatest_impact" name="org_greatest_impact" style="height:160px; min-height:160px;  max-height:160px;" required></textarea>
       </div>
     </div>
@@ -613,13 +613,13 @@ body {
 
       <div class="">
         <div class="row col-md-7">
-          <label for="survey_contact_name">Your full name</label>
+          <label for="survey_contact_name">Your full name <small class="required">*</small></label>
           <input type="text" class="form-control" id="survey_contact_name" name="survey_contact_name" required>
 
-          <label for="survey_contact_title">Your title at organization</label>
+          <label for="survey_contact_title">Your title at organization <small class="required">*</small></label>
           <input type="text" class="form-control" id="survey_contact_title" name="survey_contact_title" required>
 
-          <label for="survey_contact_email">Your email</label>
+          <label for="survey_contact_email">Your email <small class="required">*</small></label>
           <input type="email" class="form-control" id="survey_contact_email" name="survey_contact_email" required>
 
           <input type="hidden" class="form-control" id="org_profile_year" name="org_profile_year" value="2015">
