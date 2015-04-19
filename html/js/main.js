@@ -309,7 +309,7 @@ function addDataSrc(myId){
 function addDataUseOther(myId){
   console.log('addDataUseOther called with myid: '+myId);
   // alert('addDataUseOther called with myid: '+myId);
-  var data_use_other = '<input type="text" class="form-control" id="data_type_other-'+myId+'" name="data_type_other-'+myId+'" placeholder="Describe other" required>';
+  var data_use_other = '<input type="text" class="form-control" id="data_type_other-'+myId+'" name="data_type_other-'+myId+'" placeholder="Describe other" style="width:180px;" required>';
   $('#data_type_col-'+myId).append(data_use_other);
 }
 
@@ -331,6 +331,7 @@ function addIndustryOther(){
   console.log('addIndustryOther called');
   // alert('addDataUseOther called');
   var new_html = '<input type="text" class="form-control" id="industry_other" name="industry_other" placeholder="Describe other" required>';
+  console.log($('#industry_id').parent());
   $('#industry_id').parent().append(new_html);
 }
 
@@ -394,7 +395,8 @@ function addDataUseRow(){
           </select> \
         </div> \
  \
-        <div class="col-md-4 data-src-row">\
+        <div class="data-src-row" id="data-src-row-'+idSuffixNum.toString()+'"> \
+        <div class="col-md-4">\
 <select name="dataUseData-'+idSuffixNum.toString()+'[\'src_country\'][1][\'src_country_locode\']" class="js-example-basic-single" style="width:240px;"> \
 <option value="">Select</option> \
 <option value="AF">Afghanistan</option> \
@@ -662,7 +664,9 @@ function addDataUseRow(){
         </label> \
       </div> \
   </div> \
- \
+         </div> <!-- /data-src-row --> \
+        <br /> \
+  \
       </div> <!-- /dataUseData-1 --> \
       \
     <div class="row add_data_src_btn_row" id="add_data_src_btn_row-'+idSuffixNum.toString()+'"> \

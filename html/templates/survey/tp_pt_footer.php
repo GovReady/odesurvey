@@ -106,6 +106,7 @@
   }); // End Document Ready function
       
       $('.data_type').on("change", function(e) {
+        // alert('running');
         myId = this.id.split("-")[1];
         var sel_val = $('#'+this.id).select2().val();
         // alert('sel_val: '+sel_val);

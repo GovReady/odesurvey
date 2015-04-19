@@ -90,8 +90,8 @@ $app->get('/survey/opendata/start/', function () use ($app) {
     
 	# store new information as new record 
     $parse_params = array(
-        'className' => 'org_profile',
-        'object' => $object
+		'className' => 'org_profile',
+		'object' => $object
     );
 	// Create Parse object and save
     $request = $parse->create($parse_params);
@@ -128,8 +128,8 @@ $app->get('/survey/opendata/:surveyId', function ($surveyId) use ($app) {
 	$content['title'] = "Open Data Enterprise Survey";
 	$content['intro'] = <<<HTML
 
-        <blockquote>Second Survey Study
-        </blockquote>
+		<blockquote>Second Survey Study
+		</blockquote>
 HTML;
 
 	$app->view()->setData(array('content' => $content ));
@@ -150,8 +150,8 @@ $app->get('/survey/opendata/:surveyId/old/', function ($surveyId) use ($app) {
 	$content['title'] = "Open Data Enterprise Survey";
 	$content['intro'] = <<<HTML
 
-        <blockquote>Second Survey Study
-        </blockquote>
+		<blockquote>Second Survey Study
+		</blockquote>
 HTML;
 
 	$app->view()->setData(array('content' => $content ));
@@ -174,7 +174,7 @@ $app->post('/survey/opendata/:surveyId/', function ($surveyId) use ($app) {
 	// Access post variables
 	$allPostVars = $app->request->post();
 	// $allPostVars = $app->request();
-	echo "<pre>"; print_r($allPostVars); echo "</pre>";
+	// echo "<pre>"; print_r($allPostVars); echo "</pre>";
 
 
 	if (! array_key_exists('use_prod_srvc', $allPostVars)) {
@@ -199,16 +199,16 @@ $app->post('/survey/opendata/:surveyId/', function ($surveyId) use ($app) {
 	$params = array("use_prod_srvc", "use_org_opt", "use_research", "use_other");
 	foreach ($params as $param) {
 		if (is_null($object[$param])) {
-			echo "<br>FALSE";
+			// echo "<br>FALSE";
 			$object[$param] = false;
 		} else {
 			$object[$param] = true;
 		}
 	}
 
-	// echo "<pre>"; print_r($allPostVars); echo "</pre>";
-	echo "<pre>"; print_r($object); echo "</pre>";
-
+	echo "<pre>"; print_r($allPostVars); echo "</pre>";
+	// echo "<pre>"; print_r($object); echo "</pre>";
+	echo "<br>===================";
     // create data use object
     // does field exist?
 
@@ -219,66 +219,87 @@ $app->post('/survey/opendata/:surveyId/', function ($surveyId) use ($app) {
     while (array_key_exists('data_type-'.$idSuffixNum, $allPostVars)) {
 
 	    echo "<br>$idSuffixNum";
-	    echo "<br>surveyId: $surveyId";
-	    echo "<br>data_type: ".$allPostVars['data_type-'.$idSuffixNum];
-		echo "<br>data_src_country_locode: ".$allPostVars['data_src_country_locode-'.$idSuffixNum];
-	    echo "<br>data_src_gov_level: ".$allPostVars['data_src_gov_level-'.$idSuffixNum];
+	    if (is_null($allPostVars['data_type-'.$idSuffixNum])) { continue; }
+	    // echo "<br>surveyId: $surveyId";
+	    $data_use_type = $allPostVars['data_type-'.$idSuffixNum];
+	    // echo "<br>** $data_use_type";
+	    $data_use_src = 'dataUseData-'.$idSuffixNum;
+	    // echo "<br>data_use_src: ".$data_use_src;
+	    // echo "<br>dataUseData-".$idSuffixNum;
 
-	    $object_data_use['profile_id'] = $surveyId;
-	    $object_data_use['data_type'] = $allPostVars['data_type-'.$idSuffixNum];
-	    if ($object_data_use['data_type'] == "Other") {
-		    $object_data_use['data_type_other'] = $allPostVars['data_type_other-'.$idSuffixNum];
-	    } else {
-			$object_data_use['data_type_other'] = null;
+	    // echo "<pre>"; echo print_r($allPostVars[$data_use_src]); echo "</pre>";
+	    $ma = $allPostVars[$data_use_src];
+	    // echo "<pre>"; echo print_r($ma["'src_country'"]); echo "</pre>";
+
+	    foreach ($ma["'src_country'"] as $src_country) {
+
+	    	// echo "<br/>".$src_country["'src_country_locode'"];
+	    	$src_locode = $src_country["'src_country_locode'"];
+
+	    	// if (is_null($src_country[])) { continue; }
+	    	if (!array_key_exists("'src_gov_level'", $src_country)) { continue; }
+
+	    	foreach ($src_country["'src_gov_level'"] as $gov_level) {
+	    		echo "<br />$surveyId | $data_use_type | $src_locode | $gov_level ";
+	    		$object_data_use['profile_id'] = $surveyId;
+	    		$object_data_use['data_type'] = $data_use_type;
+			    if ($object_data_use['data_type'] == "Other") {
+				    $object_data_use['data_type_other'] = $allPostVars['data_type_other-'.$idSuffixNum];
+			    } else {
+					$object_data_use['data_type_other'] = null;
+			    }
+			    $object_data_use['data_src_country_locode'] = $src_locode;
+			    $object_data_use['data_src_gov_level'] = $gov_level;
+
+			    echo "<pre>"; echo print_r($object_data_use); echo "</pre>";
+
+	    		// save data to Parse
+	    		$parse_params = array(
+					'className' => 'org_data_use',
+					'object' => $object_data_use 	// contains data for org_data_use row
+	    		);
+
+	    		$request = $parse->create($parse_params);
+		    	$response = json_decode($request, true);
+
+		    	if(isset($response['createdAt'])) {
+			    	echo "<br>saved.";
+			    } else {
+			    	// Failure
+			    	echo "<br>Problem. Problem with org_data_use create not yet handled.";
+			    	exit;
+			    }
+	    	}
+
 	    }
-	    $object_data_use['data_src_country_locode'] = implode(",", $allPostVars['data_src_country_locode-'.$idSuffixNum]);
-	    $object_data_use['data_src_gov_level'] = implode(",", $allPostVars['data_src_gov_level-'.$idSuffixNum]);
 
-	    echo "<pre>"; print_r($object_data_use); echo "</pre>";
-	    echo "<br>creating data use records";
-	    $parse_params = array(
-	        'className' => 'org_data_use',
-	        'object' => $object_data_use 	// contains data for org_data_use row
-	    );
-
-exit;
-	    $request = $parse->create($parse_params);
-    	$response = json_decode($request, true);
-
-    	if(isset($response['createdAt'])) {
-	    	echo "<br>saved.";
-	    } else {
-	    	// Failure
-	    	echo "<br>Problem. Problem with org_data_use create not yet handled.";
-	    	exit;
-	    }
-	    // Increment suffix counter to look for more data use rows
 	    $idSuffixNum++;
+	    echo "<br>===================";
 	}
 
 	// Update Parse org_profile object and save
     $parse_params = array(
-        'className' => 'org_profile',
-	    'objectId' => $surveyId,
-        'object' => $object 	// contains data for org_profile
+		'className' => 'org_profile',
+		'objectId' => $surveyId,
+		'object' => $object 	// contains data for org_profile
     );
     $request = $parse->update($parse_params);
     $response = json_decode($request, true);
     echo "<pre>";print_r($response); echo "</pre>";
 
     echo "<pre>";print_r(array(
-    'from'    => 'Center for Open Data Enterprise <mailgun@sandboxc1675fc5cc30472ca9bd4af8028cbcdf.mailgun.org>',
-    'to'      => $allPostVars['survey_contact_name'].' <'.$allPostVars['survey_contact_email'].'>',
-    'subject' => 'Thank you for submitting open data survey!',
-    'text'    => 'Thank you for completing the 2015 open data survery. \n\n You can view your submitted survey at http://'.$_SERVER['HTTP_HOST'].'/survey/opendata/'.$surveyId.'/submitted'
+		'from'    => 'Center for Open Data Enterprise <mailgun@sandboxc1675fc5cc30472ca9bd4af8028cbcdf.mailgun.org>',
+		'to'      => $allPostVars['survey_contact_name'].' <'.$allPostVars['survey_contact_email'].'>',
+		'subject' => 'Thank you for submitting open data survey!',
+		'text'    => 'Thank you for completing the 2015 open data survery. \n\n You can view your submitted survey at http://'.$_SERVER['HTTP_HOST'].'/survey/opendata/'.$surveyId.'/submitted'
 )); echo "</pre>";
 
 	// Send email with mailgun
 	$result = $mgClient->sendMessage($domain, array(
-	    'from'    => 'Center for Open Data Enterprise <mailgun@sandboxc1675fc5cc30472ca9bd4af8028cbcdf.mailgun.org>',
-	    'to'      => $allPostVars['survey_contact_name'].' <'.$allPostVars['survey_contact_email'].'>',
-	    'subject' => 'Thank you for submitting open data survey!',
-	    'text'    => 'Thank you for completing the 2015 open data survery. You can view your submitted survey at http://'.$_SERVER['HTTP_HOST'].'/survey/opendata/'.$surveyId.'/submitted'
+	 	'from'    => 'Center for Open Data Enterprise <mailgun@sandboxc1675fc5cc30472ca9bd4af8028cbcdf.mailgun.org>',
+		'to'      => $allPostVars['survey_contact_name'].' <'.$allPostVars['survey_contact_email'].'>',
+		'subject' => 'Thank you for submitting open data survey!',
+		'text'    => 'Thank you for completing the 2015 open data survery. You can view your submitted survey at http://'.$_SERVER['HTTP_HOST'].'/survey/opendata/'.$surveyId.'/submitted'
 	));
 
 	echo "<pre>";print_r($result); echo "</pre>";
