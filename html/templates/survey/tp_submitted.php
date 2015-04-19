@@ -66,34 +66,86 @@ body {
 
     </div><!--/Intro-->
 
-    <div class="row col-md-9 controlsec" role="orgInfo">
+    <div class="row col-md-12 controlsec" role="orgInfo">
      	<div class="row col-md-12">
      			<h3>Organization information</h3>
      	</div>
 
         <div class="form-group col-md-12">
           <div class="form-group col-md-9">
-            <label for="org_name">Official organization name</label>
+
             <?php echo $org_profile['org_name']; ?>
-            <label class="control-label">What type of organization is it? (select 1)</label>
-            <?php echo $org_profile['org_type']; ?>
-
-            <label for="org_url">Website URL of the organization</label>
-            <?php echo $org_profile['org_url']; ?>
-
-            <label for="org_description">Description of organization (400 characters or less) </label>
-            <?php echo $org_profile['org_description']; ?>
             <br />
-            <label for="org_url">City, State/Province, Country</label>
+            <?php echo $org_profile['org_type']; ?>, 
+            <?php 
+              $industries = array("bus" => "Business &amp; legal services", "cul" => "Culture/Leisure", "dat" => "Data/Technology", "edu" => "Education", "ngy" => "Energy", "env" => "Environment &amp; weather", "fin" => "Finance &amp; investment", "agr" => "Food &amp; agriculture", "geo" => "Geospatial/Mapping", "gov" => "Governance", "hlt" => "Healthcare", "est" => "Housing/Real estate", "hum" => "Human rights", "ins" => "Insurance", "lif" => "Lifestyle &amp; consumer", "med" => "Media &amp; communications", "man" => "Mining/Manufacturing", "rsh" => "Research &amp; consulting", "sci" => "Scientific research", "tel" => "Telecommunication/ISPs", "trm" => "Tourism", "trd" => "Trade &amp; commodities", "trn" => "Transportation", "otr" => "Other");
+              echo $industries[$org_profile['industry_id']];
+              if ($org_profile['industry_id'] == 'otr' ) {
+                echo $org_profile['industry_other'];
+              }
+            ?>
+            <br />
+            <a href="<?php echo $org_profile['org_url']; ?>"><?php echo $org_profile['org_url']; ?></a>
+            <br />
+            <?php echo $org_profile['org_size_id']; ?> employees
+            <br />
+            Founded: <?php echo $org_profile['org_year_founded']; ?>
+            
+            <br />
             <?php echo $org_profile['org_hq_city'].", ".$org_profile['org_hq_st_prov'].", ".$org_profile['org_hq_country']; ?>
-
+            <br />
+            <br />
+            <p class="muted">Description</p>
+            <?php echo strip_tags($org_profile['org_description']); ?>
+            <br />
+            
         </div>
         </div>
-      </div>
 
-    </div><!--/OrgInfo-->
+      <div class="row col-md-12" role="dataTypes">
+        <div class="row col-md-12">
+          <h3>Use of open government data</h3>
+        </div>
+
+          
+            <p class="muted">Purpose open data serves in organization</p>
+
+            <div class="col-md-3">Develop new products or services
+              <?php if (is_null($org_profile['use_prod_srvc'])) { echo "<br />No" ;} else { echo "<br />Yes<br />"; } ?>
+            </div>
+
+            <div class="col-md-3">Organizational optimization
+              <?php if (is_null($org_profile['use_org_opt'])) { echo "<br />No" ;} else { echo "<br />Yes<br />"; } ?>
+            </div>
+
+             <div class="col-md-3">Research
+              <?php if (is_null($org_profile['use_research'])) { echo "<br />No" ;} else { echo "<br />Yes<br />"; } ?>
+            </div>
+
+            <div class="col-md-3">Other
+              <?php if (is_null($org_profile['use_other'])) { echo "<br />No" ;} else { echo "<br />Yes<br />"; } ?>
+            </div>
+
+
+
+            <br />
+            <br />
+            <br />
+            <p class="muted">Most important way in which organization has a positive impact</p>
+            <?php echo strip_tags($org_profile['org_greatest_impact']); ?>
+            <br />
+
+      </div><!-- /dataTypes -->
+
+
+
+      </div><!--/OrgInfo-->
+
+
 
 </form>
+
+</div>
 
 <!-- I think I am missing a closing </div> gut things are working.
 <!--/end container - where is the tag?-->

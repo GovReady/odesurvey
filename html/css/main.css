@@ -10,6 +10,21 @@
   font-size: 1.2em;
 }
 
+p, p.muted {
+	text-align: left;
+	font-weight: normal;
+	line-height: 1em;
+	margin-bottom: 0px;
+	margin-top: 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	color: black;
+}
+
+p.muted {
+	color: #999999;
+}
+
 .dataUseData__clear {
 	font-weight: bold;
 	cursor: pointer; cursor: hand;

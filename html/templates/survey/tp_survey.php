@@ -565,7 +565,7 @@ body {
 
           <div class="checkbox">
             <label>
-              <input type="checkbox" name="use_org_opt" id="use_prod" value="True">
+              <input type="checkbox" name="use_org_opt" id="use_org_opt" value="True">
               organizational optimization :
             </label>
           </div>
@@ -599,7 +599,7 @@ body {
 
     <div class="form-group col-md-12">
       <div class="form-group col-md-8">
-        <label for="org_description">What is the most important way in which your company or organization has a positive impact, and how does open government data help you achieve it? (400 characters or less) </label>
+        <label for="org_greatest_impact">What is the most important way in which your company or organization has a positive impact, and how does open government data help you achieve it? (400 characters or less) </label>
           <textarea type="text" class="form-control" id="org_greatest_impact" name="org_greatest_impact" style="height:160px; min-height:160px;  max-height:160px;" required></textarea>
       </div>
     </div>
