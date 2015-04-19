@@ -241,6 +241,7 @@ $app->post('/survey/opendata/:surveyId/', function ($surveyId) use ($app) {
 	        'object' => $object_data_use 	// contains data for org_data_use row
 	    );
 
+exit;
 	    $request = $parse->create($parse_params);
     	$response = json_decode($request, true);
 
