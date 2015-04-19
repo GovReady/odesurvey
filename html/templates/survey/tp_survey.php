@@ -73,13 +73,13 @@ body {
         <div class="col-xs-9">
           <div class="btn-group" data-toggle="buttons">
             <label class="btn btn-default">
-                <input type="radio" name="org_type" value="For-profit" /> For-profit
+                <input type="radio" name="org_type" id="For-profit" value="For-profit" /> For-profit
             </label>
             <label class="btn btn-default">
-                <input type="radio" name="org_type" value="Nonprofit" /> Nonprofit
+                <input type="radio" name="org_type" id="Nonprofit" value="Nonprofit" /> Nonprofit
             </label>
             <label class="btn btn-default">
-                <input type="radio" name="org_type" value="Developer community" /> Developer community
+                <input type="radio" name="org_type" id="Developer community" value="Developer community" /> Developer community
             </label>
           </div>
         </div>
@@ -217,7 +217,7 @@ body {
 
     <div class="row col-md-12" id="dataUse">
 
-      <div class="row col-md-12 data-use-row" id="dataUseHeading" style="border-bottom:1px solid #eee;">
+      <div class="row col-md-12" id="dataUseHeading" style="border-bottom:1px solid #eee;">
         <div class="col-md-4">Relevant type of data<br /><small>select one</small></div>
         <div class="col-md-4">From country supplying data<br /><small>select all that apply</small></div>
         <div class="col-md-4">From government level<br /><small>select all that apply</small></div>

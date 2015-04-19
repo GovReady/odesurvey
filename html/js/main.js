@@ -394,7 +394,7 @@ function addDataUseRow(){
         </div> \
  \
         <div class="col-md-4"> \
-<select name="data_src_country_locode-'+idSuffixNum.toString()+'[]" class="js-example-basic-single" style="width:240px;"> \
+<select name="dataUseData-'+idSuffixNum.toString()+'[\'src_country\'][1][\'src_country_locode\']" class="js-example-basic-single" style="width:240px;"> \
 <option value="">Select</option> \
 <option value="AF">Afghanistan</option> \
 <option value="AX">Åland Islands</option> \
@@ -651,13 +651,13 @@ function addDataUseRow(){
   <div class="col-md-4"> \
       <div class="btn-group" data-toggle="buttons"> \
         <label class="btn btn-default" style="font-size:0.6em"> \
-            <input type="checkbox" name="data_src_gov_level-1[]" value="National" />National \
+            <input type="checkbox" name="dataUseData-'+idSuffixNum.toString()+'[\'src_country\'][1][\'src_gov_level\'][]" value="National" />National \
         </label> \
         <label class="btn btn-default" style="font-size:0.6em"> \
-            <input type="checkbox" name="data_src_gov_level-1[]" value="State/Province" />State/Province \
+            <input type="checkbox" name="dataUseData-'+idSuffixNum.toString()+'[\'src_country\'][1][\'src_gov_level\'][]" value="State/Province" />State/Province \
         </label> \
         <label class="btn btn-default" style="font-size:0.6em"> \
-            <input type="checkbox" name="data_src_gov_level-1[]" value="Local" />Local \
+            <input type="checkbox" name="dataUseData-'+idSuffixNum.toString()+'[\'src_country\'][1][\'src_gov_level\'][]" value="Local" />Local \
         </label> \
       </div> \
   </div> \
@@ -723,4 +723,18 @@ function addDataUseRow(){
       return false;
     });
  
+}
+
+// testing methods
+function fillForm() {
+  // fill survey form
+  $('input#org_name').val("Test Company");
+  // $("input[id=Nonprofit]").prop('checked', true);
+  $('input#org_url').val("http://www.testcompany.com"); 
+  $('input#org_year_founded').val("2009");
+  $('textarea#org_description').val("This is a test description");
+  $('textarea#org_greatest_impact').val("This organization has a big impact...");
+  $('input#survey_contact_name').val("Greg Elin");
+  $('input#survey_contact_title').val("Director of Surveys");
+  $('input#survey_contact_email').val("greg@odesurvey.org");
 }
