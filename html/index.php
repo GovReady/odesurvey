@@ -70,8 +70,8 @@ $app->get('/gettext/', function () use ($app) {
 $app->get('/survey/opendata/start/', function () use ($app) {
 	
 	$parse = new parseRestClient(array(
-	    'appid' => PARSE_APPLICATION_ID,
-	    'restkey' => PARSE_API_KEY
+		'appid' => PARSE_APPLICATION_ID,
+		'restkey' => PARSE_API_KEY
 	));
 	
 	$params = array("orgName", "orgType", "orgURL");
@@ -119,8 +119,8 @@ $app->get('/survey/opendata/', function () use ($app) {
 $app->get('/survey/opendata/:surveyId', function ($surveyId) use ($app) {
 	
 	$parse = new parseRestClient(array(
-	    'appid' => PARSE_APPLICATION_ID,
-	    'restkey' => PARSE_API_KEY
+		'appid' => PARSE_APPLICATION_ID,
+		'restkey' => PARSE_API_KEY
 	));
 
 	$content['surveyId'] = $surveyId;
@@ -141,8 +141,8 @@ HTML;
 $app->get('/survey/opendata/:surveyId/old/', function ($surveyId) use ($app) {
 	
 	$parse = new parseRestClient(array(
-	    'appid' => PARSE_APPLICATION_ID,
-	    'restkey' => PARSE_API_KEY
+		'appid' => PARSE_APPLICATION_ID,
+		'restkey' => PARSE_API_KEY
 	));
 
 	$content['surveyId'] = $surveyId;
@@ -163,8 +163,8 @@ HTML;
 $app->post('/survey/opendata/:surveyId/', function ($surveyId) use ($app) {
 
 	$parse = new parseRestClient(array(
-	    'appid' => PARSE_APPLICATION_ID,
-	    'restkey' => PARSE_API_KEY
+		'appid' => PARSE_APPLICATION_ID,
+		'restkey' => PARSE_API_KEY
 	));
 
 	# Instantiate the client.
@@ -218,63 +218,63 @@ $app->post('/survey/opendata/:surveyId/', function ($surveyId) use ($app) {
     $idSuffixNum = 1;
     while (array_key_exists('data_type-'.$idSuffixNum, $allPostVars)) {
 
-	    echo "<br>$idSuffixNum";
-	    if (is_null($allPostVars['data_type-'.$idSuffixNum])) { continue; }
-	    // echo "<br>surveyId: $surveyId";
-	    $data_use_type = $allPostVars['data_type-'.$idSuffixNum];
-	    // echo "<br>** $data_use_type";
-	    $data_use_src = 'dataUseData-'.$idSuffixNum;
-	    // echo "<br>data_use_src: ".$data_use_src;
-	    // echo "<br>dataUseData-".$idSuffixNum;
+		echo "<br>$idSuffixNum";
+		if (is_null($allPostVars['data_type-'.$idSuffixNum])) { continue; }
+		// echo "<br>surveyId: $surveyId";
+		$data_use_type = $allPostVars['data_type-'.$idSuffixNum];
+		// echo "<br>** $data_use_type";
+		$data_use_src = 'dataUseData-'.$idSuffixNum;
+		// echo "<br>data_use_src: ".$data_use_src;
+		// echo "<br>dataUseData-".$idSuffixNum;
 
-	    // echo "<pre>"; echo print_r($allPostVars[$data_use_src]); echo "</pre>";
-	    $ma = $allPostVars[$data_use_src];
-	    // echo "<pre>"; echo print_r($ma["'src_country'"]); echo "</pre>";
+		// echo "<pre>"; echo print_r($allPostVars[$data_use_src]); echo "</pre>";
+		$ma = $allPostVars[$data_use_src];
+		// echo "<pre>"; echo print_r($ma["'src_country'"]); echo "</pre>";
 
-	    foreach ($ma["'src_country'"] as $src_country) {
+		foreach ($ma["'src_country'"] as $src_country) {
 
-	    	// echo "<br/>".$src_country["'src_country_locode'"];
-	    	$src_locode = $src_country["'src_country_locode'"];
+			// echo "<br/>".$src_country["'src_country_locode'"];
+			$src_locode = $src_country["'src_country_locode'"];
 
-	    	// if (is_null($src_country[])) { continue; }
-	    	if (!array_key_exists("'src_gov_level'", $src_country)) { continue; }
+			// if (is_null($src_country[])) { continue; }
+			if (!array_key_exists("'src_gov_level'", $src_country)) { continue; }
 
-	    	foreach ($src_country["'src_gov_level'"] as $gov_level) {
-	    		echo "<br />$surveyId | $data_use_type | $src_locode | $gov_level ";
-	    		$object_data_use['profile_id'] = $surveyId;
-	    		$object_data_use['data_type'] = $data_use_type;
-			    if ($object_data_use['data_type'] == "Other") {
-				    $object_data_use['data_type_other'] = $allPostVars['data_type_other-'.$idSuffixNum];
-			    } else {
+			foreach ($src_country["'src_gov_level'"] as $gov_level) {
+				echo "<br />$surveyId | $data_use_type | $src_locode | $gov_level ";
+				$object_data_use['profile_id'] = $surveyId;
+				$object_data_use['data_type'] = $data_use_type;
+				if ($object_data_use['data_type'] == "Other") {
+					$object_data_use['data_type_other'] = $allPostVars['data_type_other-'.$idSuffixNum];
+				} else {
 					$object_data_use['data_type_other'] = null;
-			    }
-			    $object_data_use['data_src_country_locode'] = $src_locode;
-			    $object_data_use['data_src_gov_level'] = $gov_level;
+				}
+				$object_data_use['data_src_country_locode'] = $src_locode;
+				$object_data_use['data_src_gov_level'] = $gov_level;
 
-			    echo "<pre>"; echo print_r($object_data_use); echo "</pre>";
+				echo "<pre>"; echo print_r($object_data_use); echo "</pre>";
 
-	    		// save data to Parse
-	    		$parse_params = array(
+				// save data to Parse
+				$parse_params = array(
 					'className' => 'org_data_use',
 					'object' => $object_data_use 	// contains data for org_data_use row
-	    		);
+				);
 
-	    		$request = $parse->create($parse_params);
-		    	$response = json_decode($request, true);
+				$request = $parse->create($parse_params);
+				$response = json_decode($request, true);
 
-		    	if(isset($response['createdAt'])) {
-			    	echo "<br>saved.";
-			    } else {
-			    	// Failure
-			    	echo "<br>Problem. Problem with org_data_use create not yet handled.";
-			    	exit;
-			    }
-	    	}
+				if(isset($response['createdAt'])) {
+					echo "<br>saved.";
+				} else {
+					// Failure
+					echo "<br>Problem. Problem with org_data_use create not yet handled.";
+					exit;
+				}
+			}
 
-	    }
+		}
 
-	    $idSuffixNum++;
-	    echo "<br>===================";
+		$idSuffixNum++;
+		echo "<br>===================";
 	}
 
 	// Update Parse org_profile object and save
@@ -322,13 +322,13 @@ $app->post('/survey/opendata/:surveyId/', function ($surveyId) use ($app) {
 $app->get('/survey/opendata/:surveyId/submitted/', function ($surveyId) use ($app) {
 	
 	$parse = new parseRestClient(array(
-	    'appid' => PARSE_APPLICATION_ID,
-	    'restkey' => PARSE_API_KEY
+		'appid' => PARSE_APPLICATION_ID,
+		'restkey' => PARSE_API_KEY
 	));
 
 	$params = array(
-	    'className' => 'org_profile',
-	    'objectId' => $surveyId
+		'className' => 'org_profile',
+		'objectId' => $surveyId
 	);
 
 	$request = $parse->get($params);
@@ -349,12 +349,12 @@ $app->get('/survey/opendata/:surveyId/submitted/', function ($surveyId) use ($ap
 $app->get('/survey/opendata/list/new/', function () use ($app) {
 
 	$parse = new parseRestClient(array(
-	    'appid' => PARSE_APPLICATION_ID,
-	    'restkey' => PARSE_API_KEY
+		'appid' => PARSE_APPLICATION_ID,
+		'restkey' => PARSE_API_KEY
 	));
 
 	$params = array(
-	    'className' => 'org_profile'
+		'className' => 'org_profile'
 	);
 
 	$request = $parse->query($params);
@@ -376,12 +376,12 @@ $app->get('/survey/opendata/list/new/', function () use ($app) {
 $app->get('/survey/opendata/list/map/', function () use ($app) {
 
 	$parse = new parseRestClient(array(
-	    'appid' => PARSE_APPLICATION_ID,
-	    'restkey' => PARSE_API_KEY
+		'appid' => PARSE_APPLICATION_ID,
+		'restkey' => PARSE_API_KEY
 	));
 
 	$params = array(
-	    'className' => 'org_profile'
+		'className' => 'org_profile'
 	);
 
 	$request = $parse->query($params);
@@ -403,12 +403,12 @@ $app->get('/survey/opendata/list/map/', function () use ($app) {
 $app->get('/survey/opendata/list/new/csv', function () use ($app) {
 
 	$parse = new parseRestClient(array(
-	    'appid' => PARSE_APPLICATION_ID,
-	    'restkey' => PARSE_API_KEY
+		'appid' => PARSE_APPLICATION_ID,
+		'restkey' => PARSE_API_KEY
 	));
 
 	$params = array(
-	    'className' => 'org_profile'
+		'className' => 'org_profile'
 	);
 
 	$request = $parse->query($params);
