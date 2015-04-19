@@ -2,7 +2,7 @@
 -- Copyright 2015 Center for Open Data Enterprise. All Rights Reserved.
 -- Prepared by Greg Elin (greg@odenterprise.org)
 -- filename: ode_survey_2015_data_structure.txt
--- version: 0.7.0
+-- version: 0.8.0
 
 -- NOTES
 -- This is a description of the data tables for the 2015 Survey.
@@ -11,8 +11,9 @@
 -- Codes/IDs are used in field `industry_id` to make easier to deal with multiple languages
 
 -- CHANGE LOG
--- 0.6.0		Remove data_type and gov_level tables to just use response names as values 
+-- 0.8.0		Added datatype_other to org_data_use
 -- 0.7.0		Change lat, long field names to latitude, longitude
+-- 0.6.0		Remove data_type and gov_level tables to just use response names as values 
 
 -- organization profile table
 -- --------------------------------------------
@@ -62,6 +63,7 @@ create table org_data_use (
 data_use_id               mediumint NOT NULL AUTO_INCREMENT KEY,
 profile_id                varchar(24) NOT NULL,
 data_type                 varchar(75) NOT NULL,
+data_type_other           varchar(150) NOT NULL,
 data_src_country_locode   varchar(2) NOT NULL,
 data_src_gov_level        varchar(75) NOT NULL
 );
