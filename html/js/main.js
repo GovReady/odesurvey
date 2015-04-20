@@ -743,7 +743,8 @@ function fillForm() {
   $('input#org_year_founded').val("2009");
   $('textarea#org_description').val("This is a test description");
   $('textarea#org_greatest_impact').val("This organization has a big impact...");
-  $('input#survey_contact_name').val("Greg Elin");
+  $('input#survey_contact_first').val("Greg");
+  $('input#survey_contact_last').val("Elin");
   $('input#survey_contact_title').val("Director of Surveys");
   $('input#survey_contact_email').val("greg@odesurvey.org");
 }
