@@ -631,7 +631,7 @@ body {
           <label for="survey_contact_title">Title</label>
           <input type="text" class="form-control" id="survey_contact_title" name="survey_contact_title">
 
-          <label for="survey_contact_email">Your email</label>
+          <label for="survey_contact_email">Email</label>
           <input type="email" class="form-control" id="survey_contact_email" name="survey_contact_email">
 
           <input type="hidden" class="form-control" id="org_profile_year" name="org_profile_year" value="2015">
