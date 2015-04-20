@@ -107,6 +107,28 @@ body {
           <h3>Use of open government data</h3>
         </div>
 
+            <div class=" col-md-12">
+              <div class="row">
+                <p class="muted">Data uses and sources</p>
+                <label class="col-md-4">Data type</label>
+                <label class="col-md-4">Country code</label>
+                <label class="col-md-4">Government level </label>
+              </div>
+              <div class="row">
+                <?php 
+                  foreach($org_data_use as $data_use) {
+                    echo '<div class="col-md-4">'.$data_use['data_type'];
+                    if ($data_use['data_type'] == "Other") {
+                      echo ': '.$data_use['data_type_other'];
+                    }
+                    echo "</div>";
+                    echo '<div class="col-md-4">'.$data_use['data_src_country_locode']."</div>";
+                    echo '<div class="col-md-4">'.$data_use['data_src_gov_level']."</div>";
+                  }
+                ?>
+              </div>
+            </div>
+            <br />
           
             <p class="muted">Purpose open data serves in organization</p>
 
@@ -125,8 +147,6 @@ body {
             <div class="col-md-3">Other
               <?php if ($org_profile['use_other']) { echo "<br />Yes, ".$org_profile["use_other_desc"] ;} else { echo "<br />No<br />"; } ?>
             </div>
-
-
 
             <br />
             <br />
