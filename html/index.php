@@ -325,7 +325,7 @@ $app->get('/survey/opendata/:surveyId/submitted/', function ($surveyId) use ($ap
 		'appid' => PARSE_APPLICATION_ID,
 		'restkey' => PARSE_API_KEY
 	));
-
+	// Retrieve org_profile
 	$params = array(
 		'className' => 'org_profile',
 		'objectId' => $surveyId
@@ -334,13 +334,27 @@ $app->get('/survey/opendata/:surveyId/submitted/', function ($surveyId) use ($ap
 	$request = $parse->get($params);
 	$org_profile = json_decode($request, true);
 
+
+
+	// Retrieve org_data_use
+	$params = array(
+		'className' => 'org_data_use',
+		'query' => array(
+	        'profile_id' => $surveyId
+	        )
+	);
+
+	$request = $parse->query($params);
+	$request_decoded = json_decode($request, true);
+	$org_data_use = $request_decoded['results'];
+
 	$content['surveyId'] = $surveyId;
 
 	$content['HTTP_HOST'] = $_SERVER['HTTP_HOST'];
 	$content['surveyName'] = "opendata";
 	$content['title'] = "Open Data Enterprise Survey - Submitted";
 	
-	$app->view()->setData(array('content' => $content, 'org_profile' => $org_profile ));
+	$app->view()->setData(array('content' => $content, 'org_profile' => $org_profile, 'org_data_use' => $org_data_use ));
 	$app->render('survey/tp_submitted.php');
 
 });
