@@ -615,20 +615,24 @@ body {
     <div class="" role="Contact">
       <div class="row col-md-12">
           <h3>Contact</h3>
-          Contact information will not be publicly displayed.
+          (This information will not be made public)
           <br /><br />
+           <h4>Contact information (optional)</h4>
       </div>
 
       <div class="">
         <div class="row col-md-7">
-          <label for="survey_contact_name">Your full name <small class="required">*</small></label>
-          <input type="text" class="form-control" id="survey_contact_name" name="survey_contact_name" required>
+          <label for="survey_contact_first">First name</label>
+          <input type="text" class="form-control" id="survey_contact_first" name="survey_contact_first">
 
-          <label for="survey_contact_title">Your title at organization <small class="required">*</small></label>
-          <input type="text" class="form-control" id="survey_contact_title" name="survey_contact_title" required>
+          <label for="survey_contact_last">Last name</label>
+          <input type="text" class="form-control" id="survey_contact_last" name="survey_contact_last">
 
-          <label for="survey_contact_email">Your email <small class="required">*</small></label>
-          <input type="email" class="form-control" id="survey_contact_email" name="survey_contact_email" required>
+          <label for="survey_contact_title">Title</label>
+          <input type="text" class="form-control" id="survey_contact_title" name="survey_contact_title">
+
+          <label for="survey_contact_email">Your email</label>
+          <input type="email" class="form-control" id="survey_contact_email" name="survey_contact_email">
 
           <input type="hidden" class="form-control" id="org_profile_year" name="org_profile_year" value="2015">
           <input type="hidden" class="form-control" id="org_profile_status" name="org_profile_status" value="submitted">

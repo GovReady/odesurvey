@@ -186,7 +186,7 @@ $app->post('/survey/opendata/:surveyId/', function ($surveyId) use ($app) {
     $allPostVars["latitude"] = floatval($allPostVars["latitude"]);
     $allPostVars["longitude"] = floatval($allPostVars["longitude"]);
 	// Initialize any empty parameters
-    $params = array("org_name", "org_open_corporates_id", "org_type", "org_url", "org_year_founded", "org_description", "org_size_id", "industry_id", "industry_other", "org_greatest_impact", "use_prod_srvc", "use_prod_srvc_desc", "use_org_opt", "use_org_opt_desc", "use_research", "use_research_desc", "use_other", "use_other_desc", "org_hq_city", "org_hq_st_prov", "org_hq_country", "latitude", "longitude", "org_hq_city_locode", "org_hq_country_locode", "org_profile_year", "org_profile_status", "org_profile_src", "survey_contact_name", "survey_contact_title", "survey_contact_email", "survey_loc_lat", "survey_loc_lon");
+    $params = array("org_name", "org_open_corporates_id", "org_type", "org_url", "org_year_founded", "org_description", "org_size_id", "industry_id", "industry_other", "org_greatest_impact", "use_prod_srvc", "use_prod_srvc_desc", "use_org_opt", "use_org_opt_desc", "use_research", "use_research_desc", "use_other", "use_other_desc", "org_hq_city", "org_hq_st_prov", "org_hq_country", "latitude", "longitude", "org_hq_city_locode", "org_hq_country_locode", "org_profile_year", "org_profile_status", "org_profile_src", "survey_contact_first", "survey_contact_last", "survey_contact_title", "survey_contact_email", "survey_loc_lat", "survey_loc_lon");
     $object = array();
     foreach ($params as $param) {
     	if (!isset($allPostVars[$param])) {
@@ -287,23 +287,17 @@ $app->post('/survey/opendata/:surveyId/', function ($surveyId) use ($app) {
     $response = json_decode($request, true);
     echo "<pre>";print_r($response); echo "</pre>";
 
-    echo "<pre>";print_r(array(
-		'from'    => 'Center for Open Data Enterprise <mailgun@sandboxc1675fc5cc30472ca9bd4af8028cbcdf.mailgun.org>',
-		'to'      => $allPostVars['survey_contact_name'].' <'.$allPostVars['survey_contact_email'].'>',
-		'subject' => 'Thank you for submitting open data survey!',
-		'text'    => 'Thank you for completing the 2015 open data survery. \n\n You can view your submitted survey at http://'.$_SERVER['HTTP_HOST'].'/survey/opendata/'.$surveyId.'/submitted'
-)); echo "</pre>";
+    if ( strlen($allPostVars['survey_contact_email']) > 0 ) {
+		// Send email with mailgun
+		$result = $mgClient->sendMessage($domain, array(
+		 	'from'    => 'Center for Open Data Enterprise <mailgun@sandboxc1675fc5cc30472ca9bd4af8028cbcdf.mailgun.org>',
+			'to'      => '<'.$allPostVars['survey_contact_email'].'>',
+			'subject' => 'Thank you for submitting open data survey!',
+			'text'    => 'Thank you for completing the 2015 open data survery. You can view your submitted survey at http://'.$_SERVER['HTTP_HOST'].'/survey/opendata/'.$surveyId.'/submitted'
+		));
 
-	// Send email with mailgun
-	$result = $mgClient->sendMessage($domain, array(
-	 	'from'    => 'Center for Open Data Enterprise <mailgun@sandboxc1675fc5cc30472ca9bd4af8028cbcdf.mailgun.org>',
-		'to'      => $allPostVars['survey_contact_name'].' <'.$allPostVars['survey_contact_email'].'>',
-		'subject' => 'Thank you for submitting open data survey!',
-		'text'    => 'Thank you for completing the 2015 open data survery. You can view your submitted survey at http://'.$_SERVER['HTTP_HOST'].'/survey/opendata/'.$surveyId.'/submitted'
-	));
-
-	echo "<pre>";print_r($result); echo "</pre>";
-
+		echo "<pre>";print_r($result); echo "</pre>";    	
+    }
 	// exit;
 
     if(isset($response['updatedAt'])) {

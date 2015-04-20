@@ -2,7 +2,7 @@
 -- Copyright 2015 Center for Open Data Enterprise. All Rights Reserved.
 -- Prepared by Greg Elin (greg@odenterprise.org)
 -- filename: ode_survey_2015_data_structure.txt
--- version: 0.8.0
+-- version: 0.9.0
 
 -- NOTES
 -- This is a description of the data tables for the 2015 Survey.
@@ -11,6 +11,7 @@
 -- Codes/IDs are used in field `industry_id` to make easier to deal with multiple languages
 
 -- CHANGE LOG
+-- 0.9.0		Change full name to first, last in org_profile
 -- 0.8.0		Added datatype_other to org_data_use
 -- 0.7.0		Change lat, long field names to latitude, longitude
 -- 0.6.0		Remove data_type and gov_level tables to just use response names as values 
@@ -47,7 +48,8 @@ org_hq_country_locode    varchar(8) NULL,          -- UN Locode for country
 org_profile_year         int,                      -- year for this profile is relevent
 org_profile_status       varchar(20) NULL,         -- (new, vetted, published)
 org_profile_src          varchar(20) NULL,         -- (survey, researched, OD500)
-survey_contact_name	     varchar(250) NULL,
+survey_contact_first	 varchar(124) NULL,        -- contact first name
+survey_contact_last	     varchar(124) NULL,        -- contact last name
 survey_contact_title     varchar(250) NULL,
 survey_contact_email     varchar(250) NULL,
 survey_loc_lat           float(13,6) NULL,         -- location from where survey was completed
