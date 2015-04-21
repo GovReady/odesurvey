@@ -174,22 +174,22 @@ body {
       <!-- Size -->
       <div class="form-group col-md-12">
         <label class="control-label">Size <i>(select 1)</i> <small class="required">*</small></label>
-        <div class="col-xs-9">
+        <div class="col-md-12">
           <div class="btn-group" data-toggle="buttons">
             <label class="btn btn-default">
-                <input type="radio" name="org_size_id" value="1 - 10" /> 1 - 10
+                <input type="radio" name="org_size_id" value="1 - 10" /> 1-10 employees
             </label>
             <label class="btn btn-default">
-                <input type="radio" name="org_size_id" value="11 - 50" /> 11 - 50
+                <input type="radio" name="org_size_id" value="11 - 50" /> 11-50 employees
             </label>
             <label class="btn btn-default">
-                <input type="radio" name="org_size_id" value="51 - 200" /> 51 - 200
+                <input type="radio" name="org_size_id" value="51 - 200" /> 51-200 employees
             </label>
             <label class="btn btn-default">
-                <input type="radio" name="org_size_id" value="201 - 1000" /> 201 - 1000
+                <input type="radio" name="org_size_id" value="201 - 1000" /> 201-1000 employees
             </label>
             <label class="btn btn-default">
-                <input type="radio" name="org_size_id" value="1000+" /> 1000+
+                <input type="radio" name="org_size_id" value="1000+" /> 1000+ employees
             </label>
           </div>
         </div>

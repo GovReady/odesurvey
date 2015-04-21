@@ -742,9 +742,10 @@ function fillForm() {
   $('input#org_url').val("http://www.testcompany.com"); 
   $('input#org_year_founded').val("2009");
   $('textarea#org_description').val("This is a test description");
-  $('textarea#org_greatest_impact').val("This organization has a big impact...");
+  $('textarea#org_additional').val("This organization has a big impact...");
   $('input#survey_contact_first').val("Greg");
   $('input#survey_contact_last').val("Elin");
   $('input#survey_contact_title').val("Director of Surveys");
   $('input#survey_contact_email').val("greg@odesurvey.org");
+  $('input#survey_contact_phone').val("505-555-1212");
 }
