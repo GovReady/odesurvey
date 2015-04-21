@@ -47,6 +47,11 @@ small.required {
 	color: red;
 }
 
+div.od-purpose {
+	margin-left: 24px;
+}
+
+
 /* Bootstrap overrides */
 /* darken selected buttons */
 

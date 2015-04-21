@@ -59,17 +59,19 @@ body {
      			<h3>Organization information</h3>
      	</div>
 
+      <!-- Name of organization -->
      	<div class="row col-md-12">
         <div class="form-group col-md-12">
           <div class="form-group col-md-7">
-            <label for="org_name">Official organization name <small class="required">*</small></label>
+            <label for="org_name">Name of the organization <small class="required">*</small></label>
             <input type="text" class="form-control" id="org_name" name="org_name" placeholder="" required minlength="2">
         </div>
         </div>
       </div>
 
+      <!-- Type of organization -->
       <div class="form-group col-md-12">
-          <label class="control-label">What type of organization is it? (select 1) <small class="required">*</small></label>
+          <label class="control-label">Type of organization <i>(select 1)</i> <small class="required">*</small></label>
         <div class="col-xs-9">
           <div class="btn-group" data-toggle="buttons">
             <label class="btn btn-default">
@@ -85,119 +87,134 @@ body {
         </div>
       </div>
 
-
+      <!-- Website URL -->
       <div class="form-group col-md-12">
-      <div class="form-group col-md-7">
-        <label for="org_url">Website URL of the organization <small class="required">*</small></label>
-        <input type="url" class="form-control" id="org_url" name="org_url" placeholder="http://" value="http://" required>
-      </div>
-    </div>
-
-
-    <div class="form-group col-md-12">
-      <div class="form-group col-md-7">
-        <label for="org_year_founded">Year founded <small class="required">*</small></label>
-        <input type="text" class="form-control" id="org_year_founded" name="org_year_founded" placeholder="" required>
-      </div>
-    </div>
-
-    <div class="form-group col-md-12">
-      <div class="form-group col-md-8">
-        <label for="org_description">Description of organization (400 characters or less) <small class="required">*</small></label>
-        <textarea type="text" class="form-control " id="org_description" name="org_description" style="height:160px; min-height:160px;  max-height:160px;" required></textarea>
-      </div>
-    </div>
-    
-    <!--div class="form-group">
-      <label for="org_size_id">Number of employees (select 1)</label>
-      <select class="form-control" name="org_size_id">
-        <option value="0">Select</option>
-        <option value="1">1-10</option>
-        <option value="2">11-50</option>
-        <option value="3">51-200</option>
-        <option value="4">201-1000</option>
-        <option value="5">1000+</option>
-      </select>
-    </div-->
-
-    <div class="form-group col-md-12">
-      <label class="control-label">Number of employees (select 1) <small class="required">*</small></label>
-      <div class="col-xs-9">
-        <div class="btn-group" data-toggle="buttons">
-          <label class="btn btn-default">
-              <input type="radio" name="org_size_id" value="1 - 10" /> 1 - 10
-          </label>
-          <label class="btn btn-default">
-              <input type="radio" name="org_size_id" value="11 - 50" /> 11 - 50
-          </label>
-          <label class="btn btn-default">
-              <input type="radio" name="org_size_id" value="51 - 200" /> 51 - 200
-          </label>
-          <label class="btn btn-default">
-              <input type="radio" name="org_size_id" value="201 - 1000" /> 201 - 1000
-          </label>
-          <label class="btn btn-default">
-              <input type="radio" name="org_size_id" value="1000+" /> 1000+
-          </label>
+        <div class="form-group col-md-7">
+          <label for="org_url">Website URL</label>
+          <input type="url" class="form-control" id="org_url" name="org_url" placeholder="http://" value="http://">
         </div>
       </div>
-    </div>
 
-
-    <div class="form-group col-md-12">
-      <div class="form-group col-md-7">
-      <label for="industry_id">Industry/category (select 1) <small class="required">*</small></label>
-        <select class="basic-single-industry required" name="industry_id" id="industry_id" style="width:336px;" >
-          <option value="">Select</option>
-          <option value="bus">Business &amp; legal services</option>
-          <option value="cul">Culture/Leisure</option>
-          <option value="dat">Data/Technology</option>
-          <option value="edu">Education</option>
-          <option value="ngy">Energy</option>
-          <option value="env">Environment &amp; weather</option>
-          <option value="fin">Finance &amp; investment</option>
-          <option value="agr">Food &amp; agriculture</option>
-          <option value="geo">Geospatial/Mapping</option>
-          <option value="gov">Governance</option>
-          <option value="hlt">Healthcare</option>
-          <option value="est">Housing/Real estate</option>
-          <option value="hum">Human rights</option>
-          <option value="ins">Insurance</option>
-          <option value="lif">Lifestyle &amp; consumer</option>
-          <option value="med">Media &amp; communications</option>
-          <option value="man">Mining/Manufacturing</option>
-          <option value="rsh">Research &amp; consulting</option>
-          <option value="sci">Scientific research</option>
-          <option value="tel">Telecommunication/ISPs</option>
-          <option value="trm">Tourism</option>
-          <option value="trd">Trade &amp; commodities</option>
-          <option value="trn">Transportation</option>
-          <option value="otr">Other</option>
-        </select>
+      <!-- Description of organization -->
+      <div class="form-group col-md-12">
+        <div class="form-group col-md-8">
+          <label for="org_description">Description of organization <i>(400 characters or less)</i> <small class="required">*</small></label>
+          <textarea type="text" class="form-control " id="org_description" name="org_description" style="height:160px; min-height:160px;  max-height:160px;" required></textarea>
+        </div>
       </div>
-    </div>
 
-    <div class="form-group col-md-12">
-      <div class="form-group col-md-7 details">
+      <!-- Location -->  
+      <div class="form-group col-md-12">
+        <div class="form-group col-md-7 details">
 
-        <label for="org_hq_city_all">City, State/Province, Country <small class="required">*</small></label>
-        <input type="text" class="form-control" id="org_hq_city_all" name="org_hq_city_all" required>
+          <label for="org_hq_city_all">Location <i>(city, region/state, country)</i> <small class="required">*</small></label>
+          <input type="text" class="form-control" id="org_hq_city_all" name="org_hq_city_all" required>
 
-        <!--label for="org_hq_city">City</label -->
-        <input type="hidden" class="form-control" id="org_hq_city" name="org_hq_city" required data-geo="locality">
+          <!--label for="org_hq_city">City</label -->
+          <input type="hidden" class="form-control" id="org_hq_city" name="org_hq_city" required data-geo="locality">
 
-        <!--label for="org_hq_st_prov">State/Province</label -->
-        <input type="hidden" class="form-control" id="org_hq_st_prov" name="org_hq_st_prov" required data-geo="administrative_area_level_1">
+          <!--label for="org_hq_st_prov">State/Province</label -->
+          <input type="hidden" class="form-control" id="org_hq_st_prov" name="org_hq_st_prov" required data-geo="administrative_area_level_1">
 
-        <!--label for="org_hq_country">Country</label -->
-        <input type="hidden" class="form-control" id="org_hq_country" name="org_hq_country" required data-geo="country_short">
+          <!--label for="org_hq_country">Country</label -->
+          <input type="hidden" class="form-control" id="org_hq_country" name="org_hq_country" required data-geo="country_short">
 
-        <!--label for="latitude">lat</label -->
-        <input type="hidden" class="form-control" id="latitude" name="latitude" required data-geo="lat">
-        <!--label for="longitude">lng</label -->
-        <input type="hidden" class="form-control" id="`" name="longitude" required data-geo="lng">
+          <!--label for="latitude">lat</label -->
+          <input type="hidden" class="form-control" id="latitude" name="latitude" required data-geo="lat">
+          <!--label for="longitude">lng</label -->
+          <input type="hidden" class="form-control" id="`" name="longitude" required data-geo="lng">
+        </div>
       </div>
-    </div>
+  
+      <!-- Industry/category of organization -->
+      <div class="form-group col-md-12">
+        <div class="form-group col-md-7">
+        <label for="industry_id">Industry/category of the organization <i>(select 1)</i> <small class="required">*</small></label>
+          <select class="basic-single-industry required" name="industry_id" id="industry_id" style="width:336px;" >
+            <option value="">Select</option>
+            <option value="bus">Business &amp; legal services</option>
+            <option value="cul">Culture/Leisure</option>
+            <option value="dat">Data/Technology</option>
+            <option value="edu">Education</option>
+            <option value="ngy">Energy</option>
+            <option value="env">Environment &amp; weather</option>
+            <option value="fin">Finance &amp; investment</option>
+            <option value="agr">Food &amp; agriculture</option>
+            <option value="geo">Geospatial/Mapping</option>
+            <option value="gov">Governance</option>
+            <option value="hlt">Healthcare</option>
+            <option value="est">Housing/Real estate</option>
+            <option value="hum">Human rights</option>
+            <option value="ins">Insurance</option>
+            <option value="lif">Lifestyle &amp; consumer</option>
+            <option value="med">Media &amp; communications</option>
+            <option value="man">Mining/Manufacturing</option>
+            <option value="rsh">Research &amp; consulting</option>
+            <option value="sci">Scientific research</option>
+            <option value="tel">Telecommunication/ISPs</option>
+            <option value="trm">Tourism</option>
+            <option value="trd">Trade &amp; commodities</option>
+            <option value="trn">Transportation</option>
+            <option value="otr">Other</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Year organization was founded -->    
+      <div class="form-group col-md-12">
+        <div class="form-group col-md-7">
+          <label for="org_year_founded">Year organization was founded <small class="required">*</small></label>
+          <input type="text" class="form-control" id="org_year_founded" name="org_year_founded" placeholder="" required>
+        </div>
+      </div>
+
+      <!-- Size -->
+      <div class="form-group col-md-12">
+        <label class="control-label">Size <i>(select 1)</i> <small class="required">*</small></label>
+        <div class="col-xs-9">
+          <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-default">
+                <input type="radio" name="org_size_id" value="1 - 10" /> 1 - 10
+            </label>
+            <label class="btn btn-default">
+                <input type="radio" name="org_size_id" value="11 - 50" /> 11 - 50
+            </label>
+            <label class="btn btn-default">
+                <input type="radio" name="org_size_id" value="51 - 200" /> 51 - 200
+            </label>
+            <label class="btn btn-default">
+                <input type="radio" name="org_size_id" value="201 - 1000" /> 201 - 1000
+            </label>
+            <label class="btn btn-default">
+                <input type="radio" name="org_size_id" value="1000+" /> 1000+
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- What is the greatest type of impact your organization has? -->
+      <div class="form-group col-md-12">
+          <label class="control-label">What is the greatest type of impact your organization has? <i>(select 1)</i> <small class="required">*</small></label>
+        <div class="col-xs-9">
+          <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-default">
+                <input type="radio" name="org_greatest_impact" id="Economic" value="Economic" /> Economic
+            </label>
+            <label class="btn btn-default">
+                <input type="radio" name="org_greatest_impact" id="Environmental" value="Environmental" /> Environmental
+            </label>
+            <label class="btn btn-default">
+                <input type="radio" name="org_greatest_impact" id="Governance" value="Governance" /> Governance
+            </label>
+            <label class="btn btn-default">
+                <input type="radio" name="org_greatest_impact" id="Social" value="Social" /> Social
+            </label>
+            <label class="btn btn-default">
+                <input type="radio" name="org_greatest_impact" id="Other" value="Other" /> Other
+            </label>
+          </div>
+        </div>
+      </div>
 
 
     </div><!--/OrgInfo-->
@@ -218,9 +235,9 @@ body {
     <div class="row col-md-12" id="dataUse">
 
       <div class="row col-md-12" id="dataUseHeading">
-        <div class="col-md-4">Relevant type of data<br /><small>select one</small></div>
-        <div class="col-md-4">From country supplying data<br /><small>select all that apply</small></div>
-        <div class="col-md-4">From government level<br /><small>select all that apply</small></div>
+        <div class="col-md-4"><b>Most relevant data</b><br /></div>
+        <div class="col-md-4"><b>Data source - Country</b><br /><small>select all that apply</small></div>
+        <div class="col-md-4"><b>Level of data source</b><br /><small>select all that apply</small></div>
       </div>
 
       <div class="row col-md-12 data-use-row" id="dataUseData-1">
@@ -554,7 +571,7 @@ body {
     <br />
     <div class="row col-md-12" role="dataPurposes">
       <label>
-        What purpose does open data serve for your company or organization? - select all that apply  <small class="required">*</small>
+        What purpose does open data serve for your company or organization? <i>(select all that apply)</i> <small class="required">*</small>
       </label>
 
       <div class="form-group col-md-12">
@@ -566,8 +583,8 @@ body {
               develop new products or services : 
             </label>
           </div>
-          <div>
-            <input type="text" class="form-control" id="use_prod_srvc_desc" name="use_prod_srvc_desc">
+          <div class="od-purpose">
+            Please provide us with details: <input type="text" class="form-control" id="use_prod_srvc_desc" name="use_prod_srvc_desc">
           </div>          
 
 
@@ -577,8 +594,8 @@ body {
               organizational optimization :
             </label>
           </div>
-          <div>
-            <input type="text" class="form-control" id="use_org_opt_desc" name="use_org_opt_desc">
+          <div class="od-purpose">
+            Please provide us with details: <input type="text" class="form-control" id="use_org_opt_desc" name="use_org_opt_desc">
           </div>
 
           <div class="checkbox">
@@ -587,8 +604,8 @@ body {
               research :
             </label>
           </div>
-          <div>
-            <input type="text" class="form-control" id="use_research_desc" name="use_research_desc">
+          <div class="od-purpose">
+            Please provide us with details: <input type="text" class="form-control" id="use_research_desc" name="use_research_desc">
           </div>
 
           <div class="checkbox">
@@ -597,18 +614,17 @@ body {
               other: 
             </label>
           </div>
-          <div>
-            <input type="text" class="form-control" id="use_other_desc" name="use_other_desc">
+          <div class="od-purpose">
+            Please provide us with details: <input type="text" class="form-control" id="use_other_desc" name="use_other_desc">
           </div>
     
           </div>
         </div>
 
-
     <div class="form-group col-md-12">
       <div class="form-group col-md-8">
-        <label for="org_greatest_impact">What is the most important way in which your company or organization has a positive impact, and how does open government data help you achieve it? (400 characters or less)  <small class="required">*</small></label>
-          <textarea type="text" class="form-control" id="org_greatest_impact" name="org_greatest_impact" style="height:160px; min-height:160px;  max-height:160px;" required></textarea>
+        <label for="org_greatest_impact">Additional information <i>(400 characters or less)</i>  <small class="required">*</small></label>
+          <textarea type="text" class="form-control" id="org_additional" name="org_additional" style="height:160px; min-height:160px;  max-height:160px;" required></textarea>
       </div>
     </div>
 
