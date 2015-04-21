@@ -71,7 +71,7 @@ body {
 
       <!-- Type of organization -->
       <div class="form-group col-md-12" id="org_type">
-          <label class="control-label">Type of organization <i>(select 1)</i> <small class="required">*</small></label>
+          <label class="control-label">Type of organization <small class="required">*</small></label>
         <div class="col-xs-9">
           <div class="btn-group" data-toggle="buttons">
             <label class="btn btn-default">
@@ -173,7 +173,7 @@ body {
 
       <!-- Size -->
       <div class="form-group col-md-12">
-        <label class="control-label">Size <i>(select 1)</i> <small class="required">*</small></label>
+        <label class="control-label">Size <small class="required">*</small></label>
         <div class="col-md-12">
           <div class="btn-group" data-toggle="buttons">
             <label class="btn btn-default">
@@ -197,7 +197,7 @@ body {
 
       <!-- What is the greatest type of impact your organization has? -->
       <div class="form-group col-md-12" id="org_greatest_impact">
-          <label class="control-label">What is the greatest type of impact your organization has? <i>(select 1)</i> <small class="required">*</small></label>
+          <label class="control-label">What is the greatest type of impact your organization has? <small class="required">*</small></label>
         <div class="col-xs-9">
           <div class="btn-group" data-toggle="buttons">
             <label class="btn btn-default">
@@ -574,7 +574,7 @@ body {
     <br />
     <div class="row col-md-12" role="dataPurposes">
       <label>
-        What purpose does open data serve for your company or organization? <i>(select all that apply)</i> <small class="required">*</small>
+        What purpose does open data serve for your company or organization? <small class="required">*</small>
       </label>
 
       <div class="form-group col-md-12">
@@ -641,17 +641,17 @@ body {
 
       <div class="">
         <div class="row col-md-7">
-          <div for="survey_contact_first">first name</div>
-          <input type="text" class="form-control" id="survey_contact_first" name="survey_contact_first">
+          <div for="survey_contact_first">first name <small class="required">*</small></div>
+          <input type="text" class="form-control" id="survey_contact_first" name="survey_contact_first" required>
 
-          <div for="survey_contact_last">last name</div>
-          <input type="text" class="form-control" id="survey_contact_last" name="survey_contact_last">
+          <div for="survey_contact_last">last name <small class="required">*</small></div>
+          <input type="text" class="form-control" id="survey_contact_last" name="survey_contact_last" required>
 
-          <div for="survey_contact_title">title</div>
-          <input type="text" class="form-control" id="survey_contact_title" name="survey_contact_title">
+          <div for="survey_contact_title">title <small class="required">*</small></div>
+          <input type="text" class="form-control" id="survey_contact_title" name="survey_contact_title" required>
 
-          <div for="survey_contact_email">email</div>
-          <input type="email" class="form-control" id="survey_contact_email" name="survey_contact_email">
+          <div for="survey_contact_email">email <small class="required">*</small></div>
+          <input type="email" class="form-control" id="survey_contact_email" name="survey_contact_email" required>
 
           <div for="survey_contact_email">phone (optional)</div>
           <input type="text" class="form-control" id="survey_contact_phone" name="survey_contact_phone">
