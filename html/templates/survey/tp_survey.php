@@ -654,7 +654,7 @@ body {
           <input type="email" class="form-control" id="survey_contact_email" name="survey_contact_email">
 
           <div for="survey_contact_email">phone (optional)</div>
-          <input type="email" class="form-control" id="survey_contact_phone" name="survey_contact_phone">
+          <input type="text" class="form-control" id="survey_contact_phone" name="survey_contact_phone">
 
           <input type="hidden" class="form-control" id="org_profile_year" name="org_profile_year" value="2015">
           <input type="hidden" class="form-control" id="org_profile_status" name="org_profile_status" value="submitted">
