@@ -2,7 +2,7 @@
 -- Copyright 2015 Center for Open Data Enterprise. All Rights Reserved.
 -- Prepared by Greg Elin (greg@odenterprise.org)
 -- filename: ode_survey_2015_data_structure.txt
--- version: 0.9.0
+-- version: 0.10.0
 
 -- NOTES
 -- This is a description of the data tables for the 2015 Survey.
@@ -11,6 +11,7 @@
 -- Codes/IDs are used in field `industry_id` to make easier to deal with multiple languages
 
 -- CHANGE LOG
+-- 0.10.0       Add fields to org_profile (org_type_other, survey_contact_phone, org_greatest_impact_other, org_addtional)
 -- 0.9.0		Change full name to first, last in org_profile
 -- 0.8.0		Added datatype_other to org_data_use
 -- 0.7.0		Change lat, long field names to latitude, longitude
@@ -23,39 +24,43 @@ create table org_profile (
 profile_id               varchar(24) NOT NULL KEY, -- unique profile id
 org_name                 varchar(250) NULL,        -- profile is about this organization (note: ODE will manually insure name disambiguation initially)
 org_open_corporates_id   varchar(250) NULL,        -- optional open corporates id
-org_type                 varchar(24) NULL,         -- (For-profit, Nonprofit, Developer group)
+org_type                 varchar(48) NULL,         -- (For-profit, Nonprofit, Developer community)
+org_type_other           varchar(200) NULL,        -- optional other value for org_type
 org_url                  varchar(200) NULL,        -- primary url for organization
 org_year_founded         int NULL,                 -- year organization founded
 org_description          varchar(401) NULL,        -- 400 character description of organization
 org_size_id              varchar(8) NULL,          -- code for organization side (see: table org_size)
 industry_id              varchar(20) NULL,         -- industry identifier (see: table industry)
 org_greatest_impact      varchar(50) NULL,         -- (Economic, Environmental, Governance, Social, other)
+org_greatest_impact_other varchar(200) NULL,       -- optional other value for org_greatest_impact
 use_prod_srvc            boolean NULL,
-use_prod_srvc_desc       varchar(75) NULL,         -- 
+use_prod_srvc_desc       varchar(75) NULL,         
 use_org_opt              boolean NULL,
 use_org_opt_desc         varchar(401) NULL,        -- 400 character description
 use_research             boolean NULL,
 use_research_desc        varchar(401) NULL,        -- 400 character description
 use_other                boolean NULL,
 use_other_desc           varchar(401) NULL,        -- 400 character description
-org_hq_city              varchar(124) NULL,        --  
-org_hq_st_prov           varchar(250) NULL,        -- 
-org_hq_country           varchar(250) NULL,        -- 
+org_hq_city              varchar(124) NULL,        -- organization headquarters city 
+org_hq_st_prov           varchar(250) NULL,        -- organization headquarters region/stated
+org_hq_country           varchar(250) NULL,        -- organization headquarters country
 latitude  	             float(13,6) NULL,         -- default lat for org's headquater city
 longitude                float(13,6) NULL,         -- default long for org's headquater city
 org_hq_city_locode       varchar(8) NULL,          -- UN Locode for city if exists
 org_hq_country_locode    varchar(8) NULL,          -- UN Locode for country
 org_profile_year         int,                      -- year for this profile is relevent
+org_additional           varchar(401) NULL,        -- Aditional optional field for survey
 org_profile_status       varchar(20) NULL,         -- (new, vetted, published)
 org_profile_src          varchar(20) NULL,         -- (survey, researched, OD500)
 survey_contact_first	 varchar(124) NULL,        -- contact first name
 survey_contact_last	     varchar(124) NULL,        -- contact last name
-survey_contact_title     varchar(250) NULL,
-survey_contact_email     varchar(250) NULL,
+survey_contact_title     varchar(250) NULL,        -- contact title
+survey_contact_email     varchar(250) NULL,        -- contact email
+survey_contact_phone     varchar(120 NULL,         -- contact phone
 survey_loc_lat           float(13,6) NULL,         -- location from where survey was completed
 survey_loc_lon           float(13,6) NULL,         -- location from where survey was completed
-date_created             datetime,
-date_modified            timestamp
+date_created             datetime,                 -- date survey created (e.g., started)
+date_modified            timestamp                 -- date and time survey record modified
 );
 
 -- organization data use table

@@ -626,8 +626,8 @@ body {
 
     <div class="form-group col-md-12">
       <div class="form-group col-md-8">
-        <label for="org_greatest_impact">Additional information <i>(400 characters or less)</i>  <small class="required">*</small></label>
-          <textarea type="text" class="form-control" id="org_additional" name="org_additional" style="height:160px; min-height:160px;  max-height:160px;" required></textarea>
+        <label for="org_greatest_impact">Additional information <i>(400 characters or less)</i>  </label>
+          <textarea type="text" class="form-control" id="org_additional" name="org_additional" style="height:160px; min-height:160px;  max-height:160px;"></textarea>
       </div>
     </div>
 
