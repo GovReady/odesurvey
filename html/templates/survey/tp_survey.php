@@ -81,7 +81,7 @@ body {
                 <input type="radio" name="org_type" id="Nonprofit" value="Nonprofit" /> Nonprofit
             </label>
             <label class="btn btn-default">
-                <input type="radio" name="org_type" id="Developer community" value="Developer community" /> Developer community
+                <input type="radio" name="org_type" id="Developer group" value="Developer group" /> Developer group
             </label>
             <label class="btn btn-default">
                 <input type="radio" name="org_type" id="Other" value="Other" /> Other
