@@ -70,7 +70,7 @@ body {
       </div>
 
       <!-- Type of organization -->
-      <div class="form-group col-md-12">
+      <div class="form-group col-md-12" id="org_type">
           <label class="control-label">Type of organization <i>(select 1)</i> <small class="required">*</small></label>
         <div class="col-xs-9">
           <div class="btn-group" data-toggle="buttons">
@@ -196,7 +196,7 @@ body {
       </div>
 
       <!-- What is the greatest type of impact your organization has? -->
-      <div class="form-group col-md-12">
+      <div class="form-group col-md-12" id="org_greatest_impact">
           <label class="control-label">What is the greatest type of impact your organization has? <i>(select 1)</i> <small class="required">*</small></label>
         <div class="col-xs-9">
           <div class="btn-group" data-toggle="buttons">
