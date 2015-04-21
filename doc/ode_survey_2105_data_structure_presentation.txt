@@ -27,6 +27,7 @@ org_name                 varchar(250) NULL,        -- profile is about this orga
 org_type                 varchar(24) NULL,         -- (For-profit, Nonprofit, Developer group)
 org_type_other           varchar(200) NULL,        -- optional other value for org_type
 org_url                  varchar(200) NULL,        -- primary url for organization
+org_no_website           boolean NULL
 org_year_founded         int NULL,                 -- year organization founded
 org_description          varchar(401) NULL,        -- 400 character description of organization
 org_size_id              varchar(8) NULL,          -- code for organization side (see: table org_size)
