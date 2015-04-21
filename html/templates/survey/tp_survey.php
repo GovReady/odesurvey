@@ -83,6 +83,9 @@ body {
             <label class="btn btn-default">
                 <input type="radio" name="org_type" id="Developer community" value="Developer community" /> Developer community
             </label>
+            <label class="btn btn-default">
+                <input type="radio" name="org_type" id="Other" value="Other" /> Other
+            </label>
           </div>
         </div>
       </div>
@@ -611,15 +614,15 @@ body {
           <div class="checkbox">
             <label>
               <input type="checkbox" name="use_other" id="use_other" value="True">
-              other: 
+              other : 
             </label>
           </div>
           <div class="od-purpose">
             Please provide us with details: <input type="text" class="form-control" id="use_other_desc" name="use_other_desc">
           </div>
     
-          </div>
         </div>
+      </div>
 
     <div class="form-group col-md-12">
       <div class="form-group col-md-8">
@@ -633,22 +636,25 @@ body {
           <h3>Contact</h3>
           (This information will not be made public)
           <br /><br />
-           <h4>Contact information (optional)</h4>
+           <h4>Contact information</h4>
       </div>
 
       <div class="">
         <div class="row col-md-7">
-          <label for="survey_contact_first">First name</label>
+          <div for="survey_contact_first">first name</div>
           <input type="text" class="form-control" id="survey_contact_first" name="survey_contact_first">
 
-          <label for="survey_contact_last">Last name</label>
+          <div for="survey_contact_last">last name</div>
           <input type="text" class="form-control" id="survey_contact_last" name="survey_contact_last">
 
-          <label for="survey_contact_title">Title</label>
+          <div for="survey_contact_title">title</div>
           <input type="text" class="form-control" id="survey_contact_title" name="survey_contact_title">
 
-          <label for="survey_contact_email">Email</label>
+          <div for="survey_contact_email">email</div>
           <input type="email" class="form-control" id="survey_contact_email" name="survey_contact_email">
+
+          <div for="survey_contact_email">phone (optional)</div>
+          <input type="email" class="form-control" id="survey_contact_phone" name="survey_contact_phone">
 
           <input type="hidden" class="form-control" id="org_profile_year" name="org_profile_year" value="2015">
           <input type="hidden" class="form-control" id="org_profile_status" name="org_profile_status" value="submitted">
