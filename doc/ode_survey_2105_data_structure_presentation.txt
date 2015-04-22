@@ -2,7 +2,7 @@
 -- Copyright 2015 Center for Open Data Enterprise. All Rights Reserved.
 -- Prepared by Greg Elin (greg@odenterprise.org)
 -- filename: ode_survey_2015_data_structure_presentation.txt
--- version: 0.10.0
+-- version: 0.11.0
 
 -- NOTES
 -- This is a description of the data tables for the 2015 Survey PRESENTATION LAYER.
@@ -13,21 +13,23 @@
 -- Codes/IDs are used in field `industry_id` to make easier to deal with multiple languages
 
 -- CHANGE LOG
+-- 0.11.0       Create tables survey, org_contact, and arcgis_flatfile; generating arcgis_flatfile as combined data_use and org_profile
 -- 0.10.0       Add fields to org_profile (org_type_other, survey_contact_phone, org_greatest_impact_other, org_addtional)
 -- 0.8.0		Added datatype_other to org_data_use
 -- 0.7.0		Change lat, long field names to latitude, longitude
 -- 0.6.0		Remove data_type and gov_level tables to just use response names as values 
 
--- organization profile table
+-- arcgis flat file 
 -- --------------------------------------------
 drop table if exists org_profile;
-create table org_profile (
-profile_id               varchar(24) NOT NULL KEY, -- unique profile id
+create table arcgis_flatfile (
+objectId                 varchar(24) NOT NULL KEY, -- unique record id
+profile_id               varchar(24) NOT NULL,     -- profile id
 org_name                 varchar(250) NULL,        -- profile is about this organization (note: ODE will manually insure name disambiguation initially)
-org_type                 varchar(24) NULL,         -- (For-profit, Nonprofit, Developer group)
+org_open_corporates_id   varchar(250) NULL,        -- optional open corporates id
+org_type                 varchar(48) NULL,         -- (For-profit, Nonprofit, Developer community)
 org_type_other           varchar(200) NULL,        -- optional other value for org_type
 org_url                  varchar(200) NULL,        -- primary url for organization
-org_no_website           boolean NULL
 org_year_founded         int NULL,                 -- year organization founded
 org_description          varchar(401) NULL,        -- 400 character description of organization
 org_size_id              varchar(8) NULL,          -- code for organization side (see: table org_size)
@@ -35,8 +37,11 @@ industry_id              varchar(20) NULL,         -- industry identifier (see: 
 org_greatest_impact      varchar(50) NULL,         -- (Economic, Environmental, Governance, Social, other)
 org_greatest_impact_other varchar(200) NULL,       -- optional other value for org_greatest_impact
 use_prod_srvc            boolean NULL,
+use_prod_srvc_desc       varchar(75) NULL,         
+use_org_opt              boolean NULL,
 use_org_opt_desc         varchar(401) NULL,        -- 400 character description
 use_research             boolean NULL,
+use_research_desc        varchar(401) NULL,        -- 400 character description
 use_other                boolean NULL,
 use_other_desc           varchar(401) NULL,        -- 400 character description
 org_hq_city              varchar(124) NULL,        -- organization headquarters city 
@@ -46,22 +51,23 @@ latitude  	             float(13,6) NULL,         -- default lat for org's headq
 longitude                float(13,6) NULL,         -- default long for org's headquater city
 org_hq_city_locode       varchar(8) NULL,          -- UN Locode for city if exists
 org_hq_country_locode    varchar(8) NULL,          -- UN Locode for country
-org_wb_country_code      varchar(3) NULL,          -- Worldbank country code
+org_profile_year         int,                      -- year for this profile is relevent
 org_additional           varchar(401) NULL,        -- Aditional optional field for survey
-date_modified            timestamp
+org_profile_status       varchar(20) NULL,         -- (new, vetted, published)
+org_profile_src          varchar(20) NULL,         -- (survey, researched, OD500)
+data_type                varchar(75) NOT NULL,
+data_type_other          varchar(150) NOT NULL,
+data_src_country_locode  varchar(2) NOT NULL,
+data_src_gov_level       varchar(75) NOT NULL
+row_type                 varchar(20) NULL,         -- identify if row is org_profile for easier querying
+date_created             datetime,                 -- date survey created (e.g., started)
+date_modified            timestamp                 -- date and time survey record modified
 );
 
--- organization data use table
--- --------------------------------------------
-drop table if exists org_data_use;
-create table org_data_use (
-data_use_id               mediumint NOT NULL AUTO_INCREMENT KEY,
-profile_id                varchar(24) NOT NULL,
-data_type                 varchar(75) NOT NULL,
-data_type_other           varchar(150) NOT NULL,
-data_src_country_locode   varchar(2) NOT NULL,
-data_src_gov_level        varchar(75) NOT NULL
-);
+-- 
+-- Tables below here may not actually be needed
+--
+--
 
 -- country reference table
 -- --------------------------------------------

@@ -79,9 +79,11 @@ body {
             <?php echo $org_profile['org_type']; ?>, 
             <?php 
               $industries = array("bus" => "Business &amp; legal services", "cul" => "Culture/Leisure", "dat" => "Data/Technology", "edu" => "Education", "ngy" => "Energy", "env" => "Environment &amp; weather", "fin" => "Finance &amp; investment", "agr" => "Food &amp; agriculture", "geo" => "Geospatial/Mapping", "gov" => "Governance", "hlt" => "Healthcare", "est" => "Housing/Real estate", "hum" => "Human rights", "ins" => "Insurance", "lif" => "Lifestyle &amp; consumer", "med" => "Media &amp; communications", "man" => "Mining/Manufacturing", "rsh" => "Research &amp; consulting", "sci" => "Scientific research", "tel" => "Telecommunication/ISPs", "trm" => "Tourism", "trd" => "Trade &amp; commodities", "trn" => "Transportation", "otr" => "Other");
-              echo $industries[$org_profile['industry_id']];
-              if ($org_profile['industry_id'] == 'otr' ) {
-                echo $org_profile['industry_other'];
+              if ( array_key_exists('industry_id', $org_profile) && array_key_exists($org_profile['industry_id'], $industries) ) {
+                echo $industries[$org_profile['industry_id']];
+                if ( $org_profile['industry_id'] == 'otr' ) {
+                  echo $org_profile['industry_other'];
+                }
               }
             ?>
             <br />
