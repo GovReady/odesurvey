@@ -290,6 +290,8 @@
                         <br />
                         <a href="/survey/opendata/" target="_blank">new survey</a>
                         <br />
+                        <a href="/survey/opendata/data/flatfile.json">flatfile (json)</a>
+                        <br />
                         
                         <!--a href="">all</a-->
                     </div>

@@ -63,6 +63,8 @@
                         <h3><a href="/survey/opendata/">Take survey</a></h3>
                         
                         <h3><a href="/survey/opendata/list/new">View submitted surveys</a></h3>
+
+                        <h3><a href="/survey/opendata/data/flatfile.json">Combined flatfile (json)</a></h3>
                     </div>
 
                 </div>
