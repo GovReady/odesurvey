@@ -342,11 +342,11 @@
         // echo "<pre>"; print_r($org_profile); echo "..".$org_profile['org_name']."</pre>";
         if ( array_key_exists('org_name', $org_profile) && $org_profile['org_profile_status'] == 'submitted') { 
             echo "<tr>";
-            echo "<td>".$org_profile['objectId']."</td>";
+            echo "<td>".$org_profile['profile_id']."</td>";
             echo "<td>".$org_profile['org_name']."</td>";
             echo "<td>".$org_profile['org_type']."</td>";
             echo "<td>${org_profile['org_year_founded']}</td>";
-            echo "<td><a href='/survey/opendata/".$org_profile['objectId']."/submitted'>".$org_profile['objectId']."</a></td>";
+            echo "<td><a href='/survey/opendata/".$org_profile['profile_id']."/submitted'>".$org_profile['profile_id']."</a></td>";
             echo "</tr>";
         }
     }
