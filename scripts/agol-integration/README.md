@@ -9,6 +9,7 @@ Running this job requires credentials for ArcGIS Online with at minimum `publish
 Set credentials by either:
 
 - Add directly to settings.py file:
+
     import os
 
     class BaseSettings(object):
@@ -18,6 +19,7 @@ Set credentials by either:
             self.agol_pass = os.environ('AGOL_PASS','<my user password>')  # - add ArcGIS Online User Pass or set environment variable
 
 - Set environment variables
+
     export AGOL_USER=<my user name>
     export AGOL_PASS=<my user password>
 
