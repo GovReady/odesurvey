@@ -2,7 +2,7 @@
 -- Copyright 2015 Center for Open Data Enterprise. All Rights Reserved.
 -- Prepared by Greg Elin (greg@odenterprise.org)
 -- filename: ode_survey_2015_data_structure_presentation.txt
--- version: 0.11.0
+-- version: 0.12.0
 
 -- NOTES
 -- This is a description of the data tables for the 2015 Survey PRESENTATION LAYER.
@@ -13,6 +13,7 @@
 -- Codes/IDs are used in field `industry_id` to make easier to deal with multiple languages
 
 -- CHANGE LOG
+-- 0.12.0       Remove use_*_desc fields from arcgis_flatfile, org_additional
 -- 0.11.0       Create tables survey, org_contact, and arcgis_flatfile; generating arcgis_flatfile as combined data_use and org_profile
 -- 0.10.0       Add fields to org_profile (org_type_other, survey_contact_phone, org_greatest_impact_other, org_addtional)
 -- 0.8.0		Added datatype_other to org_data_use
@@ -37,13 +38,9 @@ industry_id              varchar(20) NULL,         -- industry identifier (see: 
 org_greatest_impact      varchar(50) NULL,         -- (Economic, Environmental, Governance, Social, other)
 org_greatest_impact_other varchar(200) NULL,       -- optional other value for org_greatest_impact
 use_prod_srvc            boolean NULL,
-use_prod_srvc_desc       varchar(75) NULL,         
 use_org_opt              boolean NULL,
-use_org_opt_desc         varchar(401) NULL,        -- 400 character description
 use_research             boolean NULL,
-use_research_desc        varchar(401) NULL,        -- 400 character description
 use_other                boolean NULL,
-use_other_desc           varchar(401) NULL,        -- 400 character description
 org_hq_city              varchar(124) NULL,        -- organization headquarters city 
 org_hq_st_prov           varchar(250) NULL,        -- organization headquarters region/stated
 org_hq_country           varchar(250) NULL,        -- organization headquarters country
@@ -52,7 +49,6 @@ longitude                float(13,6) NULL,         -- default long for org's hea
 org_hq_city_locode       varchar(8) NULL,          -- UN Locode for city if exists
 org_hq_country_locode    varchar(8) NULL,          -- UN Locode for country
 org_profile_year         int,                      -- year for this profile is relevent
-org_additional           varchar(401) NULL,        -- Aditional optional field for survey
 org_profile_status       varchar(20) NULL,         -- (new, vetted, published)
 org_profile_src          varchar(20) NULL,         -- (survey, researched, OD500)
 data_type                varchar(75) NOT NULL,

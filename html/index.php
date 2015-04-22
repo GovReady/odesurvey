@@ -202,6 +202,13 @@ $app->post('/survey/opendata/2/:surveyId/', function ($surveyId) use ($app) {
 	// Prepare and save org_object into arcgis_flatfile as row_type = org_profile
 	// ============================================================================
 	/* Saves once per survey submission */
+	// remove certain fields from org_profile
+	$remove_keys = array ("use_prod_srvc_desc", "use_org_opt_desc", "use_research_desc", "use_other_desc", "org_additional");
+	foreach ( $remove_keys as $key) {
+		if (array_key_exists($key, $org_object)) {
+			unset($org_object[$key]);
+		}
+	}
 	$org_object['row_type'] = 'org_profile';
 	$parse_params = array(
 		'className' => 'arcgis_flatfile',

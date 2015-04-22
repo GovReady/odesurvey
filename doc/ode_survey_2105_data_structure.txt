@@ -2,7 +2,7 @@
 -- Copyright 2015 Center for Open Data Enterprise. All Rights Reserved.
 -- Prepared by Greg Elin (greg@odenterprise.org)
 -- filename: ode_survey_2015_data_structure.txt
--- version: 0.11.0
+-- version: 0.12.0
 
 -- NOTES
 -- This is a description of the data tables for the 2015 Survey.
@@ -11,6 +11,7 @@
 -- Codes/IDs are used in field `industry_id` to make easier to deal with multiple languages
 
 -- CHANGE LOG
+-- 0.12.0       Remove use_*_desc fields from arcgis_flatfile, org_additional
 -- 0.11.0       Create tables survey, org_contact, and arcgis_flatfile; generating arcgis_flatfile as combined data_use and org_profile; removed survey_lat, survey_lon
 -- 0.10.0       Add fields to org_profile (org_type_other, survey_contact_phone, org_greatest_impact_other, org_addtional)
 -- 0.9.0		Change full name to first, last in org_profile
