@@ -32,7 +32,7 @@ body {
 <!-- Main Content Section -->
 <div class="container lg-font col-md-12" style="border:0px solid black;">
 
- <form id="survey_form" class="form-horizontal" action="/survey/opendata/<?php echo $content['surveyId']; ?>" method="post">
+ <form id="survey_form" class="form-horizontal" action="/survey/opendata/2/<?php echo $content['surveyId']; ?>" method="post">
 
     <div class="row col-md-12 controlsec row-fluid" role="Intro">
       <div class="row col-md-12">
