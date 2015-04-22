@@ -10,18 +10,18 @@ Set credentials by either:
 
 - Add directly to settings.py file:
 
-    import os
+        import os
 
-    class BaseSettings(object):
+        class BaseSettings(object):
 
-        def __init__(self):
-            self.agol_user = os.environ.get('AGOL_USER', '<my user name>') # - add ArcGIS Online User ID or set environment variable
-            self.agol_pass = os.environ('AGOL_PASS','<my user password>')  # - add ArcGIS Online User Pass or set environment variable
+            def __init__(self):
+                self.agol_user = os.environ.get('AGOL_USER', '<my user name>') # - add ArcGIS Online User ID or set environment variable
+                self.agol_pass = os.environ('AGOL_PASS','<my user password>')  # - add ArcGIS Online User Pass or set environment variable
 
 - Set environment variables
 
-    export AGOL_USER=<my user name>
-    export AGOL_PASS=<my user password>
+        export AGOL_USER=<my user name>
+        export AGOL_PASS=<my user password>
 
 ###Testing
 To run associated tests:
