@@ -22,7 +22,7 @@ Running this job requires user credentials for ArcGIS Online with at minimum `pu
 
 Set credentials by either:
 
-- Add directly to settings.py file:
+- Adding credentials directly to `settings.py` file:
 
         import os
 
@@ -30,9 +30,9 @@ Set credentials by either:
 
             def __init__(self):
                 self.agol_user = os.environ.get('AGOL_USER', '<my user name>') # - add ArcGIS Online User ID or set environment variable
-                self.agol_pass = os.environ('AGOL_PASS','<my user password>')  # - add ArcGIS Online User Pass or set environment variable
+                self.agol_pass = os.environ.get('AGOL_PASS','<my user password>')  # - add ArcGIS Online User Pass or set environment variable
 
-- Set environment variables
+- Setting environment variables (edit `/etc/profile.d`):
 
         export AGOL_USER=<my user name>
         export AGOL_PASS=<my user password>
