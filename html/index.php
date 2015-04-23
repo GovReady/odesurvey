@@ -12,6 +12,8 @@ if (!file_exists('credentials.inc.php')) {
    echo "My credentials are missing!";
    exit;
 }
+// Set if sending email is on
+define("SEND_MAIL", false);
 
 // Include libraries added with composer
 require 'vendor/autoload.php';
@@ -329,7 +331,7 @@ $app->post('/survey/opendata/2/:surveyId/', function ($surveyId) use ($app) {
 	// Instantiate the client.
 	$mgClient = new Mailgun(MAILGUN_APIKEY);
 	$domain = MAILGUN_SERVER;
-    if ( strlen($allPostVars['survey_contact_email']) > 0 ) {
+    if ( strlen($allPostVars['survey_contact_email']) > 0 && SEND_MAIL) {
 		// Send email with mailgun
 		$result = $mgClient->sendMessage($domain, array(
 		 	'from'    => 'Center for Open Data Enterprise <mailgun@sandboxc1675fc5cc30472ca9bd4af8028cbcdf.mailgun.org>',
