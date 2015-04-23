@@ -126,6 +126,28 @@ HTML;
 });
 
 // ************
+$app->get('/survey/opendata/:surveyId/colors/', function ($surveyId) use ($app) {
+	
+	$parse = new parseRestClient(array(
+		'appid' => PARSE_APPLICATION_ID,
+		'restkey' => PARSE_API_KEY
+	));
+
+	$content['surveyId'] = $surveyId;
+	$content['surveyName'] = "opendata";
+	$content['title'] = "Open Data Enterprise Survey";
+	$content['intro'] = <<<HTML
+
+		<blockquote>Second Survey Study
+		</blockquote>
+HTML;
+
+	$app->view()->setData(array('content' => $content ));
+	$app->render('survey/tp_survey_colorsf.php');
+
+});
+
+// ************
 $app->get('/survey/opendata/:surveyId/old/', function ($surveyId) use ($app) {
 	
 	$parse = new parseRestClient(array(
@@ -329,7 +351,7 @@ $app->post('/survey/opendata/2/:surveyId/', function ($surveyId) use ($app) {
 	// Instantiate the client.
 	$mgClient = new Mailgun(MAILGUN_APIKEY);
 	$domain = MAILGUN_SERVER;
-    if ( strlen($allPostVars['survey_contact_email']) > 0 ) {
+    if ( strlen($allPostVars['survey_contact_email']) > 0) {
 		// Send email with mailgun
 		$result = $mgClient->sendMessage($domain, array(
 		 	'from'    => 'Center for Open Data Enterprise <mailgun@sandboxc1675fc5cc30472ca9bd4af8028cbcdf.mailgun.org>',
