@@ -6,9 +6,7 @@ import sys
 import pandas
 import requests
 
-# - local mods
-from settings import env
-
+# - local
 import agol
 
 def get_parse_content(url):
@@ -25,15 +23,12 @@ def refresh_agol(source_df, destination_feature_service_layer, token):
     return True
 
 def main(environment):
-    agol_token = agol.generate_token(env.agol_user, environment.agol_pass)
+    agol_token = agol.generate_token(environment.agol_user, environment.agol_pass)
     df = get_parse_content(environment.parse_data_endpoint)
     refresh_agol(df, environment.agol_feature_service_url, token=agol_token)
     return True
 
 if __name__ == '__main__':
 
+    from settings import env
     main(env)
-
-
-
-
