@@ -20,6 +20,24 @@ For city level data, you can either use a Placefinder – Esri has one built int
 - https://developers.arcgis.com/javascript/jssamples/index.html#search
 - http://www.geonames.org
 
+# Configuring a remote host using ansible playbook
+
+Note the `,` in the name of server to indicate the information is a list and not reference to an inventory file
+
+```
+# Dry run from local machine to remote machine
+ansible-playbook -i 'odetest.govready.org,' -u root --check playbook-digitalocean.yml 
+
+# Execute from local machine to remote machine
+ansible-playbook -i 'odetest.govready.org,' -u root --check playbook-digitalocean.yml 
+```
+
+After configuring server, do the following.
+- Create user with github access to repository (e.g., 'gregelin')
+- Grant user sudo privileges
+- CD into `~/.ssh` and create `rsa_id` key
+- Cat and copy `rsa_id.pub` to computer clipboard and add to deploy keys
+- Remember to create credentials.inc.php file
 
 # How to use
 
