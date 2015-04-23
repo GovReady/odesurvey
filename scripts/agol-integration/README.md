@@ -2,6 +2,14 @@
 
 The following code synchronizes data from the ODE Parse API to an ArcGIS Online hosted-feature-service.
 
+#####Development Version:
+- https://services5.arcgis.com/w1WEecz5ClslKH2Q/ArcGIS/rest/services/odesurvey_organizations_dev/FeatureServer/0
+
+#####Staging Version:
+- https://services5.arcgis.com/w1WEecz5ClslKH2Q/ArcGIS/rest/services/odesurvey_organizations_staging/FeatureServer/0
+
+#####Production Version:
+- https://services5.arcgis.com/w1WEecz5ClslKH2Q/ArcGIS/rest/services/odesurvey_organizations_production/FeatureServer/0
 
 ####Setup
 
