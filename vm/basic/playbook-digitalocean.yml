@@ -3,8 +3,8 @@
 
    # Playbook for configuring a DigitalOcean CentOS droplet.
 
-   #sudo_user: vagrant
-   #sudo: yes
+   su: yes
+   su_user: root
 
    vars:
      useComposer: true
