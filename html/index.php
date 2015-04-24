@@ -145,7 +145,7 @@ $app->get('/survey/opendata/:surveyId/colors/', function ($surveyId) use ($app) 
 HTML;
 
 	$app->view()->setData(array('content' => $content ));
-	$app->render('survey/tp_survey_colorsf.php');
+	$app->render('survey/tp_survey_colors.php');
 
 });
 
