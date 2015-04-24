@@ -51,6 +51,33 @@ div.od-purpose {
 	margin-left: 24px;
 }
 
+/* Theme section */
+
+#role-intro {
+	background-color: #fff;
+	padding: 0 0 8px 8px;
+}
+
+#role-eligibility {
+	background-color: #bbb;
+	padding: 0 0 8px 8px;
+}
+
+
+#role-orgInfo {
+	background-color: rgb(253,228,156);
+	padding: 0 0 8px 8px;
+}
+
+#role-dataUse {
+	background-color: rgb(170,208,145);
+	padding: 0 0 8px 8px;
+}
+
+#role-contact {
+	background-color: rgb(146,187,226);
+	padding: 0 0 8px 8px;
+}
 
 /* Bootstrap overrides */
 /* darken selected buttons */
