@@ -50,6 +50,7 @@
    - name: Install python
      yum: pkg={{ item }} state=installed 
      with_items:
+        - gcc
         - python
         - python-devel
         - python-pip
