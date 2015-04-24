@@ -1,10 +1,10 @@
 <?php include __DIR__.'/'.'tp_pt_header.php'; ?>
 
 <style>
-  .controlsec {
-    border:0px solid #eee; 
-    margin: 12px 0px 0px 0px; 
-  }
+	.controlsec {
+		border:0px solid #eee; 
+		margin: 12px 0px 0px 0px; 
+	}
 
   .myeditable {
     height: 200px;
@@ -61,12 +61,12 @@ body {
     </div><!--/Intro-->
 
     <div class="row col-md-9 controlsec" role="orgInfo"  id="role-orgInfo">
-      <div class="row col-md-12">
-          <h3>Organization information</h3>
-      </div>
+     	<div class="row col-md-12">
+     			<h3>Organization information</h3>
+     	</div>
 
       <!-- Name of organization -->
-      <div class="row col-md-12">
+     	<div class="row col-md-12">
         <div class="form-group col-md-12">
           <div class="form-group col-md-8">
             <label for="org_name">Name of the organization <small class="required">*</small></label>
