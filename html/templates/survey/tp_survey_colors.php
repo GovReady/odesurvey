@@ -35,22 +35,28 @@ body {
  <form id="survey_form" class="form-horizontal" action="/survey/opendata/2/<?php echo $content['surveyId']; ?>" method="post">
 
     <div class="row col-md-12 controlsec row-fluid" role="Intro" id="role-intro">
-      <div class="row col-md-12">
-          <h3>Eligibility</h3>
+      <div class="row col-md-8">
+        <div>
+          Thank you for participating in the Open Data Impact Map, the first centralized, searchable database of open data use cases from around the world. Your contribution makes it possible to better understand the value of open data and encourage its use globally. Information collected will be displayed on the Map [LINK] and will be made available as open data.
+        </div>
+        <br />
       </div>
 
-      <div class="row col-md-8">
-          <div>
-            The Open Data Impact Map includes organizations that:<br /><br />
-              <ul>
-                  <li>are companies, non-profits, or developer groups; and</li>
-                  <li>use <i>open government data</i> to develop products and services, improve operations, inform strategy and/or conduct research.</li>
-                </ul>
-            <br />
-            We define <i>open government data</i> as publicly available data that is produced or commissioned by governments 
-            and that can be accessed and reused by anyone, free of charge. 
-          </div>
+      <div class="row col-md-9" role="eligibility" id="role-eligibility">
+        <div class="row col-md-12">
+          <h3>Eligibility</h3>
         </div>
+        <div>
+          The Open Data Impact Map includes organizations that:<br /><br />
+            <ul>
+                <li>are companies, non-profits, or developer groups; and</li>
+                <li>use <i>open government data</i> to develop products and services, improve operations, inform strategy and/or conduct research.</li>
+              </ul>
+          <br />
+          We define <i>open government data</i> as publicly available data that is produced or commissioned by governments 
+          and that can be accessed and reused by anyone, free of charge. 
+        </div>
+      </div>
 
     </div><!--/Intro-->
 
@@ -62,7 +68,7 @@ body {
       <!-- Name of organization -->
      	<div class="row col-md-12">
         <div class="form-group col-md-12">
-          <div class="form-group col-md-7">
+          <div class="form-group col-md-8">
             <label for="org_name">Name of the organization <small class="required">*</small></label>
             <input type="text" class="form-control" id="org_name" name="org_name" placeholder="" required minlength="2">
         </div>
@@ -72,7 +78,7 @@ body {
       <!-- Type of organization -->
       <div class="form-group col-md-12" id="org_type">
           <label class="control-label">Type of organization <small class="required">*</small></label>
-        <div class="col-xs-9">
+        <div class="col-md-8">
           <div class="btn-group" data-toggle="buttons">
             <label class="btn btn-default">
                 <input type="radio" name="org_type" id="For-profit" value="For-profit" /> For-profit
@@ -623,6 +629,7 @@ body {
     
         </div>
       </div>
+    </div><!--/???? closes data purpose this should close datause tag - something must be wrong with data grid-->
 
     <div class="form-group col-md-12">
       <div class="form-group col-md-8">
@@ -631,7 +638,14 @@ body {
       </div>
     </div>
 
-    <div class="" role="Contact" id="role-contact">
+</div>
+</div>  <!-- /closes container (1st)  -->
+<br />
+<div class="container lg-font col-md-12" style="border:0px solid black;">
+  
+  <div class="row col-md-12" role="Contact" id="wrapper">
+
+    <div class="row col-md-9" role="Contact" id="role-contact">
       <div class="row col-md-12">
           <h3>Contact</h3>
           (This information will not be made public)
@@ -639,7 +653,7 @@ body {
            <h4>Contact information</h4>
       </div>
 
-      <div class="">
+      <div class="row col-md-8">
         <div class="row col-md-7">
           <div for="survey_contact_first">first name <small class="required">*</small></div>
           <input type="text" class="form-control" id="survey_contact_first" name="survey_contact_first" required>
@@ -660,20 +674,20 @@ body {
           <input type="hidden" class="form-control" id="org_profile_status" name="org_profile_status" value="submitted">
           <input type="hidden" class="form-control" id="org_profile_src" name="org_profile_src" value="survey">
         </div>
-        
-        <div>
-          <div class="row col-md-7"><br />
-            <button class="btn btn-primary col-md-3" id="btnSubmit" type="submit">SEND</button>
-          </div>
-        </div>
 
-      </div>
+      </div><!-- /closes div contact information. -->
       
     </div>
+  
+  </div><!-- /closes #wrapper -->
+  
+    <div class="row col-md-7"><br />
+      <button class="btn btn-primary col-md-3" id="btnSubmit" type="submit">SEND</button>
+    </div>
 
-</div><!--/???? closes data purpose this should close datause tag - something must be wrong with data grid-->
-</div><!-- /closes data use -->
-</div><!-- /closes comtainer  -->
+</div><!-- /closes container (2nd)  -->
+
+
 
 </form>
 
