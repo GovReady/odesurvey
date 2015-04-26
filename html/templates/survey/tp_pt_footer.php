@@ -119,9 +119,11 @@
 
       $('input[type=radio][name=org_type]').change(function() {
         if (this.value == 'Other') {
-          var new_html = '<div class="col-md-4" id="org_type_other_div"><input type="text" class="form-control" id="org_type_other" name="org_type_other" placeholder="Describe other" required></div>';
-          // console.log($('#industry_id').parent());
-          $('#org_type').append(new_html);
+          if ($('#org_type_other_div').length == 0) {
+            var new_html = '<div class="col-md-4" id="org_type_other_div"><input type="text" class="form-control" id="org_type_other" name="org_type_other" placeholder="Describe other" required></div>';
+            // console.log($('#industry_id').parent());
+            $('#org_type').append(new_html);
+          }
         }
         else {
           if ( $('#org_type_other_div').length > 0 ) {
@@ -132,9 +134,11 @@
 
       $('input[type=radio][name=org_greatest_impact]').change(function() {
         if (this.value == 'Other') {
-          var new_html = '<div class="col-md-4" id="org_greatest_impact_other_div"><input type="text" class="form-control" id="org_greatest_impact_other" name="org_greatest_impact_other" placeholder="Describe other" required></div>';
-          // console.log($('#industry_id').parent());
-          $('#org_greatest_impact').append(new_html);
+          if ( $('#org_greatest_impact_other_div').length == 0 ) {
+            var new_html = '<div class="col-md-4" id="org_greatest_impact_other_div"><input type="text" class="form-control" id="org_greatest_impact_other" name="org_greatest_impact_other" placeholder="Describe other" required></div>';
+            // console.log($('#industry_id').parent());
+            $('#org_greatest_impact').append(new_html);
+          }
         }
         else {
           if ( $('#org_greatest_impact_other_div').length > 0 ) {
