@@ -46,16 +46,6 @@
         - php-gd
         - php-tidy
         - php-pear
- 
-   - name: Install python
-     yum: pkg={{ item }} state=installed 
-     with_items:
-        - python
-        - python-devel
-        - python-pip
-
-   - name: Install python 3rd-party modules
-     pip: requirements=/opt/scripts/agol-integration/requirements.txt
 
    # httpd.conf update necessary to address vagrant/virtualbox issue so changes to synched folder static html files work 
    - name: Set 'EnableSendfile off' in Apache2 httpd.conf 
@@ -89,3 +79,14 @@
    #   shell: >
    #      mv /usr/local/bin/composer.phar /usr/local/bin/composer
    #   when: "useComposer == true"
+
+   # Install python tools for ArcGIS online processing
+   # - name: Install python
+   #   yum: pkg={{ item }} state=installed 
+   #   with_items:
+   #      - python
+   #      - python-devel
+   #      - python-pip
+
+   # - name: Install python 3rd-party modules
+   #   pip: requirements=/opt/scripts/agol-integration/requirements.txt
