@@ -658,7 +658,6 @@ body {
           <h3>Contact Information</h3>
           (This information will not be made public)
           <br /><br />
-           <h4>Contact information</h4>
       </div>
 
       <div class="row col-md-8">
