@@ -11,6 +11,7 @@
 -- Codes/IDs are used in field `industry_id` to make easier to deal with multiple languages
 
 -- CHANGE LOG
+-- 0.13.0       Add field no_org_url to arcgis_flatfile, org_profile
 -- 0.12.0       Remove use_*_desc fields from arcgis_flatfile, org_additional
 -- 0.11.0       Create tables survey, org_contact, and arcgis_flatfile; generating arcgis_flatfile as combined data_use and org_profile; removed survey_lat, survey_lon
 -- 0.10.0       Add fields to org_profile (org_type_other, survey_contact_phone, org_greatest_impact_other, org_addtional)
@@ -30,6 +31,7 @@ org_open_corporates_id   varchar(250) NULL,        -- optional open corporates i
 org_type                 varchar(48) NULL,         -- (For-profit, Nonprofit, Developer community)
 org_type_other           varchar(200) NULL,        -- optional other value for org_type
 org_url                  varchar(200) NULL,        -- primary url for organization
+no_org_url               boolean NULL,             -- org does not have a URL
 org_year_founded         int NULL,                 -- year organization founded
 org_description          varchar(401) NULL,        -- 400 character description of organization
 org_size_id              varchar(8) NULL,          -- code for organization side (see: table org_size)

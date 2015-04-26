@@ -98,9 +98,14 @@ body {
 
       <!-- Website URL -->
       <div class="form-group col-md-12">
-        <div class="form-group col-md-7">
-          <label for="org_url">Website URL</label>
-          <input type="url" class="form-control" id="org_url" name="org_url" placeholder="http://" value="http://">
+        <label for="org_url">Website URL</label>
+        <div class="row">      
+            <div class="col-md-6">
+              <input type="url" class="form-control" id="org_url" name="org_url" placeholder="http://" value="http://">
+            </div>
+            <div class="col-md-4">
+              <input type="checkbox" name="no_org_url" id="no_org_url" value="True"> No URL
+            </div>
         </div>
       </div>
 
