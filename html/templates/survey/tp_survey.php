@@ -174,10 +174,10 @@ body {
         </div>
       </div>
 
-      <!-- Year organization was founded -->    
+      <!-- Founding year -->    
       <div class="form-group col-md-12">
         <div class="form-group col-md-7">
-          <label for="org_year_founded">Year organization was founded <small class="required">*</small></label>
+          <label for="org_year_founded">Founding year <small class="required">*</small></label>
           <input type="text" class="form-control" id="org_year_founded" name="org_year_founded" placeholder="" required>
         </div>
       </div>
