@@ -588,7 +588,7 @@ body {
     <br />
     <div class="row col-md-12" role="dataPurposes">
       <label>
-        What purpose does open data serve for your company or organization? <small class="required">*</small>
+        How does your organization use open data? <small class="required">*</small>
       </label>
 
       <div class="form-group col-md-12">
