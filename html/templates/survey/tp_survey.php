@@ -655,7 +655,7 @@ body {
 
     <div class="row col-md-9" role="Contact" id="role-contact">
       <div class="row col-md-12">
-          <h3>Contact</h3>
+          <h3>Contact Information</h3>
           (This information will not be made public)
           <br /><br />
            <h4>Contact information</h4>
