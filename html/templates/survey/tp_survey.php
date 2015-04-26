@@ -689,7 +689,7 @@ body {
   </div><!-- /closes #wrapper -->
   
     <div class="row col-md-7"><br />
-      <button class="btn btn-primary col-md-3" id="btnSubmit" type="submit">SEND</button>
+      <button class="btn btn-primary col-md-3" id="btnSubmit" type="submit">SUBMIT</button>
     </div>
 
 </div><!-- /closes container (2nd)  -->
