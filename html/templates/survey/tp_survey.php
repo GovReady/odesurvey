@@ -237,9 +237,12 @@ body {
       <div class="row col-md-12" role="dataTypes">
         <h3>Use of open data</h3>
 
-        <div><b>Please tell us what types of open government data are most relevant for your organization. <small class="required">*</small><br />
-          In each case tell us the country that supplies the data, and whether the data is local, regional or national. </b> <br /><br /></div>
+        <div><b>What kinds of open data are <u>most relevant</u> for your organization? </b> <small class="required">*</small><br />
+          <i>In each case indicate the countries that provide the data, and whether the data is local, regional or national.</i> <br /><br /></div>
       </div>
+
+
+
 
 <div>
 
