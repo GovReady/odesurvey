@@ -36,7 +36,7 @@ body {
 
     <div class="row col-md-12 controlsec row-fluid" role="Intro" id="role-intro">
       <div class="row col-md-8">
-        <div>
+        <div style="text-align:center;font-size:1.1em;">
           Thank you for participating in the Open Data Impact Map, the first centralized, searchable database of open data use cases from around the world. Your contribution makes it possible to better understand the value of open data and encourage its use globally. Information collected will be displayed on the Map [LINK] and will be made available as open data.
         </div>
         <br />
