@@ -62,7 +62,7 @@ body {
 
     <div class="row col-md-9 controlsec" role="orgInfo"  id="role-orgInfo">
       <div class="row col-md-12">
-          <h3>Organization information</h3>
+          <h3>Organizational Information</h3>
       </div>
 
       <!-- Name of organization -->
