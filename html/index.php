@@ -60,12 +60,10 @@ HTML;
 });
 
 // ************
-$app->get('/gettext/', function () use ($app) {
-
-	$content['title'] = "Open Data Enterprise Survey"; 
+$app->get('/survey/opendata/', function () use ($app) {
 	
-	$app->view()->setData(array('content' => $content));
-	$app->render('gettext/tp_home.php');
+    $app->redirect("/survey/opendata/start/");
+
 });
 
 // ************
@@ -99,13 +97,6 @@ $app->get('/survey/opendata/start/', function () use ($app) {
 });
 
 // ************
-$app->get('/survey/opendata/', function () use ($app) {
-	
-    $app->redirect("/survey/opendata/start/");
-
-});
-
-// ************
 $app->get('/survey/opendata/:surveyId', function ($surveyId) use ($app) {
 	
 	$parse = new parseRestClient(array(
@@ -116,11 +107,6 @@ $app->get('/survey/opendata/:surveyId', function ($surveyId) use ($app) {
 	$content['surveyId'] = $surveyId;
 	$content['surveyName'] = "opendata";
 	$content['title'] = "Open Data Enterprise Survey";
-	$content['intro'] = <<<HTML
-
-		<blockquote>Second Survey Study
-		</blockquote>
-HTML;
 
 	$app->view()->setData(array('content' => $content ));
 	$app->render('survey/tp_survey.php');
@@ -138,11 +124,6 @@ $app->get('/survey/opendata/:surveyId/old/', function ($surveyId) use ($app) {
 	$content['surveyId'] = $surveyId;
 	$content['surveyName'] = "opendata";
 	$content['title'] = "Open Data Enterprise Survey";
-	$content['intro'] = <<<HTML
-
-		<blockquote>Second Survey Study
-		</blockquote>
-HTML;
 
 	$app->view()->setData(array('content' => $content ));
 	$app->render('survey/tp_home.php');
@@ -349,159 +330,6 @@ $app->post('/survey/opendata/2/:surveyId/', function ($surveyId) use ($app) {
 });
 
 // ************
-$app->post('/survey/opendata/:surveyId/', function ($surveyId) use ($app) {
-
-	$parse = new parseRestClient(array(
-		'appid' => PARSE_APPLICATION_ID,
-		'restkey' => PARSE_API_KEY
-	));
-
-	# Instantiate the client.
-	$mgClient = new Mailgun(MAILGUN_APIKEY);
-	$domain = MAILGUN_SERVER;
-
-	// Access post variables
-	$allPostVars = $app->request->post();
-	// $allPostVars = $app->request();
-	// echo "<pre>"; print_r($allPostVars); echo "</pre>";
-
-
-	if (! array_key_exists('use_prod_srvc', $allPostVars)) {
-		# need some code to fix booleens
-	}
-    // Correct data types
-    $allPostVars["org_profile_year"] = intval($allPostVars["org_profile_year"]);
-    $allPostVars["org_year_founded"] = intval($allPostVars["org_year_founded"]);
-    $allPostVars["latitude"] = floatval($allPostVars["latitude"]);
-    $allPostVars["longitude"] = floatval($allPostVars["longitude"]);
-	// Initialize any empty parameters
-    $params = array("org_name", "org_open_corporates_id", "org_type", "org_type_other", "org_url", "org_year_founded", "org_description", "org_size_id", "industry_id", "industry_other", "org_greatest_impact", "org_greatest_impact_other", "use_prod_srvc", "use_prod_srvc_desc", "use_org_opt", "use_org_opt_desc", "use_research", "use_research_desc", "use_other", "use_other_desc", "org_hq_city", "org_hq_st_prov", "org_hq_country", "latitude", "longitude", "org_hq_city_locode", "org_hq_country_locode", "org_profile_year", "org_additional", "org_profile_status", "org_profile_src", "survey_contact_first", "survey_contact_last", "survey_contact_title", "survey_contact_email", "survey_contact_phone", "survey_loc_lat", "survey_loc_lon");
-    $object = array();
-    foreach ($params as $param) {
-    	if (!isset($allPostVars[$param])) {
-    		$allPostVars[$param] = null;
-    	}
-
-    	$object[$param] = $allPostVars[$param];
-    }
-	// Set boolean values
-	$params = array("use_prod_srvc", "use_org_opt", "use_research", "use_other");
-	foreach ($params as $param) {
-		if (is_null($object[$param])) {
-			// echo "<br>FALSE";
-			$object[$param] = false;
-		} else {
-			$object[$param] = true;
-		}
-	}
-
-	echo "<pre>"; print_r($allPostVars); echo "</pre>";
-	// echo "<pre>"; print_r($object); echo "</pre>";
-	echo "<br>===================";
-    // create data use object
-    // does field exist?
-
-    /*
-     * Intense loop to store multiple values from multiple possible data use examples
-    */
-    $idSuffixNum = 1;
-    while (array_key_exists('data_type-'.$idSuffixNum, $allPostVars)) {
-
-		echo "<br>$idSuffixNum";
-		if (is_null($allPostVars['data_type-'.$idSuffixNum])) { continue; }
-		// echo "<br>surveyId: $surveyId";
-		$data_use_type = $allPostVars['data_type-'.$idSuffixNum];
-		// echo "<br>** $data_use_type";
-		$data_use_src = 'dataUseData-'.$idSuffixNum;
-		// echo "<br>data_use_src: ".$data_use_src;
-		// echo "<br>dataUseData-".$idSuffixNum;
-
-		// echo "<pre>"; echo print_r($allPostVars[$data_use_src]); echo "</pre>";
-		$ma = $allPostVars[$data_use_src];
-		// echo "<pre>"; echo print_r($ma["'src_country'"]); echo "</pre>";
-
-		foreach ($ma["'src_country'"] as $src_country) {
-
-			// echo "<br/>".$src_country["'src_country_locode'"];
-			$src_locode = $src_country["'src_country_locode'"];
-
-			// if (is_null($src_country[])) { continue; }
-			if (!array_key_exists("'src_gov_level'", $src_country)) { continue; }
-
-			foreach ($src_country["'src_gov_level'"] as $gov_level) {
-				echo "<br />$surveyId | $data_use_type | $src_locode | $gov_level ";
-				$object_data_use['profile_id'] = $surveyId;
-				$object_data_use['data_type'] = $data_use_type;
-				if ($object_data_use['data_type'] == "Other") {
-					$object_data_use['data_type_other'] = $allPostVars['data_type_other-'.$idSuffixNum];
-				} else {
-					$object_data_use['data_type_other'] = null;
-				}
-				$object_data_use['data_src_country_locode'] = $src_locode;
-				$object_data_use['data_src_gov_level'] = $gov_level;
-
-				echo "<pre>"; echo print_r($object_data_use); echo "</pre>";
-
-				// save data to Parse
-				$parse_params = array(
-					'className' => 'org_data_use',
-					'object' => $object_data_use 	// contains data for org_data_use row
-				);
-
-				$request = $parse->create($parse_params);
-				$response = json_decode($request, true);
-
-				if(isset($response['createdAt'])) {
-					echo "<br>saved.";
-				} else {
-					// Failure
-					echo "<br>Problem. Problem with org_data_use create not yet handled.";
-					exit;
-				}
-			}
-
-		}
-
-		$idSuffixNum++;
-		echo "<br>===================";
-	}
-
-	// Update Parse org_profile object and save
-    $parse_params = array(
-		'className' => 'org_profile',
-		'objectId' => $surveyId,
-		'object' => $object 	// contains data for org_profile
-    );
-    $request = $parse->update($parse_params);
-    $response = json_decode($request, true);
-    echo "<pre>";print_r($response); echo "</pre>";
-
-    if ( strlen($allPostVars['survey_contact_email']) > 0 ) {
-		// Send email with mailgun
-		$result = $mgClient->sendMessage($domain, array(
-		 	'from'    => 'Center for Open Data Enterprise <mailgun@sandboxc1675fc5cc30472ca9bd4af8028cbcdf.mailgun.org>',
-			'to'      => '<'.$allPostVars['survey_contact_email'].'>',
-			'subject' => 'Thank you for submitting open data survey!',
-			'text'    => 'Thank you for completing the 2015 open data survery. You can view your submitted survey at http://'.$_SERVER['HTTP_HOST'].'/survey/opendata/'.$surveyId.'/submitted'
-		));
-
-		echo "<pre>";print_r($result); echo "</pre>";    	
-    }
-	// exit;
-
-    if(isset($response['updatedAt'])) {
-    	// Success
-    	$app->redirect("/survey/opendata/".$surveyId."/submitted/");
-    } else {
-    	// Failure
-    	echo "Problem. Problem with record update not yet handled.";
-    	exit;
-    	$app->redirect("/error".$e);
-    }
-
-});
-
-// ************
 $app->get('/survey/opendata/:surveyId/submitted/', function ($surveyId) use ($app) {
 	
 	$parse = new parseRestClient(array(
@@ -647,16 +475,11 @@ $app->get('/survey/opendata/data/flatfile.json', function () use ($app) {
 
 	echo "<pre>"; print_r($org_combined); echo "</pre>"; 
 
-	// $content['HTTP_HOST'] = $_SERVER['HTTP_HOST'];
-	// $content['surveyName'] = "opendata";
-	// $content['title'] = "Open Data Enterprise Survey - Recently Submitted";
-
-
-
-	// $app->view()->setData(array('content' => $content, 'org_profiles' => $org_profiles));
-	// $app->render('survey/tp_csv.php');
-
 });
+
+/*
+ * ArcGIS Online routes
+ */
 // *****************
 $app->get('/argis/auth/', function () use ($app) {
 
@@ -717,7 +540,19 @@ echo $token;
 
 });
 
+/*
+ * Development routes
+ */
+// ************
+$app->get('/gettext/', function () use ($app) {
 
+	$content['title'] = "Open Data Enterprise Survey"; 
+	
+	$app->view()->setData(array('content' => $content));
+	$app->render('gettext/tp_home.php');
+});
+
+// ************
 $app->run();
 
 ?>
