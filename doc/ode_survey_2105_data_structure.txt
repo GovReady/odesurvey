@@ -2,7 +2,7 @@
 -- Copyright 2015 Center for Open Data Enterprise. All Rights Reserved.
 -- Prepared by Greg Elin (greg@odenterprise.org)
 -- filename: ode_survey_2015_data_structure.txt
--- version: 0.12.0
+-- version: 0.13.0
 
 -- NOTES
 -- This is a description of the data tables for the 2015 Survey.
@@ -99,6 +99,7 @@ org_open_corporates_id   varchar(250) NULL,        -- optional open corporates i
 org_type                 varchar(48) NULL,         -- (For-profit, Nonprofit, Developer community)
 org_type_other           varchar(200) NULL,        -- optional other value for org_type
 org_url                  varchar(200) NULL,        -- primary url for organization
+no_org_url               boolean NULL,             -- org does not have a URL
 org_year_founded         int NULL,                 -- year organization founded
 org_description          varchar(401) NULL,        -- 400 character description of organization
 org_size_id              varchar(8) NULL,          -- code for organization side (see: table org_size)
