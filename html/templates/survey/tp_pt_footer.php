@@ -168,7 +168,15 @@
         return false;
       });
 
+      // Improved data use profile
+      $('input[type=radio][name=data_type_count]').change(function() {
+        updateDataUseProfile();
+      });
 
+      $('input[type=radio][name=data_country_count]').change(function() {
+        updateDataUseProfile();
+      });
+      
      </script>
  </body>
 </html>
