@@ -114,6 +114,36 @@ $app->get('/survey/opendata/:surveyId', function ($surveyId) use ($app) {
 });
 
 // ************
+$app->get('/survey/opendata/start/du', function () use ($app) {
+	
+	$parse = new parseRestClient(array(
+		'appid' => PARSE_APPLICATION_ID,
+		'restkey' => PARSE_API_KEY
+	));
+	
+	$survey_object = array("survey_name" => "opendata", "action" => "start", "notes" => "");
+
+	# store new information as new record 
+    $parse_params = array(
+		'className' => 'survey',
+		'object' => $survey_object
+    );
+	// Create Parse object and save
+    $request = $parse->create($parse_params);
+    $response = json_decode($request, true);
+
+    if(isset($response['objectId'])) {
+    	// Success
+    	$app->redirect("/survey/opendata/".$response['objectId']."/du");
+    } else {
+    	// Failure
+    	echo "Problem. Promlem with record creation not yet handled.";
+    	exit;
+    	$app->redirect("/error".$response['objectId']);
+    }
+});
+
+// ************
 $app->get('/survey/opendata/:surveyId/du', function ($surveyId) use ($app) {
 	
 	$parse = new parseRestClient(array(
