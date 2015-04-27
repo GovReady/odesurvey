@@ -289,9 +289,13 @@ body {
         </div>
       </div>
 
+      <div id="data_use_details">
+      
+      </div>
 
 
       <br />
+
       <div class="row col-md-12" role="dataPurposes">
         <label>
           How does your organization use open data? <small class="required">*</small>
