@@ -734,6 +734,29 @@ function addDataUseRow(){
  
 }
 
+// Improved data use profile
+// $('input[type=radio][name=data_type_count]').change(function() {
+//   updateDataUseProfile();
+// });
+
+// $('input[type=radio][name=data_country_count]').change(function() {
+//   updateDataUseProfile();
+// });
+
+function updateDataUseProfile() {
+  // alert('updateDataUseProfile');
+  //$('input:checkbox[name=SOMENAME]')
+  var data_type_count = $('input[type=radio][name=data_type_count]:checked').val();
+  var data_country_count = $('input[type=radio][name=data_country_count]:checked').val();
+  if (typeof data_type_count !== 'undefined' && typeof data_country_count !== 'undefined') {
+    alert('types: '+data_type_count+'\ncountries: '+data_country_count)
+  }  
+
+
+}
+
+
+
 // testing methods
 function fillForm() {
   // fill survey form

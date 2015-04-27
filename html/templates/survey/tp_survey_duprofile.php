@@ -30,9 +30,9 @@ body {
 </style>
 
 <!-- Main Content Section -->
-<div class="container lg-font col-md-12" style="border:1px solid black;">
+<div class="container lg-font col-md-12" style="border:0px solid black;">
 
- <form id="survey_form" class="form-horizontal" style="border:1px dotted black;" action="/survey/opendata/2/<?php echo $content['surveyId']; ?>" method="post">
+ <form id="survey_form" class="form-horizontal" style="border:0px dotted black;" action="/survey/opendata/2/<?php echo $content['surveyId']; ?>" method="post">
 
     <div class="col-md-12" role="Intro" id="role-intro">
       <br />
