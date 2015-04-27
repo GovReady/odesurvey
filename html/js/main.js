@@ -749,9 +749,11 @@ function updateDataUseProfile() {
   var data_type_count = $('input[type=radio][name=data_type_count]:checked').val();
   var data_country_count = $('input[type=radio][name=data_country_count]:checked').val();
   if (typeof data_type_count !== 'undefined' && typeof data_country_count !== 'undefined') {
-    alert('types: '+data_type_count+'\ncountries: '+data_country_count)
+    alert('types: '+data_type_count+'\ncountries: '+data_country_count);
+    // role-dataUse
+    var content = "<h4>Connidtional questions based on type and country count appears here</h4>";
+    $('#data_use_details').append(content);
   }  
-
 
 }
 
