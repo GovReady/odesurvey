@@ -169,7 +169,7 @@
       });
 
       // Improved data use profile
-      $('input[type=radio][name=data_type_count]').change(function() {
+      $('input[type=checkbox][name=data_use_type]').change(function() {
         updateDataUseProfile();
       });
 

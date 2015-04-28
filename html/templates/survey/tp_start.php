@@ -60,9 +60,9 @@
                     </div>
 
                     <div style="margin:10% 30% 0 30%;height:300px;text-align:center;">
-                        <h3><a href="/survey/opendata/">Take survey</a></h3>
+                        <h3><a href="/survey/opendata/">Take survey (version A)</a></h3>
                         
-                        <!-- <h3><a href="/survey/opendata/start/du">Take survey (improved data use)<br /><small>[under development]</small></a></h3> -->
+                        <h3><a href="/survey/opendata/start/du">Take survey (version B)</a></h3>
 
                         <h3><a href="/survey/opendata/list/new">View submitted surveys</a></h3>
 
