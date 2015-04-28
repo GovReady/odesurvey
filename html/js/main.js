@@ -752,10 +752,10 @@ function fillForm() {
 }
 
 function truncate(string){
-   if (string.length > 12)
-      return string.substring(0,10)+'...';
+   if (string.length > 22)
+      return string.substring(0,20)+'...';
    else
-      if (string.length < 10)
+      if (string.length < 20)
         return string+"&nbsp;&nbsp;&nbsp;&nbsp;";
       else
         return string;
@@ -818,11 +818,14 @@ function getTypes(idSuffixNum, selectName) {
   data_use_type.forEach(function (entry) {
     console.log(entry);
     var gov_level = ' \
-    <span class="col-md-3" style="border:0px solid black;"> \
+    <span class="col-md-4" style="border:0px solid black;"> \
     <span class="" id="" style="font-size:0.8em;">'+truncate(entry)+'</span> \
       <div class="btn-group" data-toggle="buttons"> \
         <label class="btn btn-default active" style="font-size:0.6em"> \
             <input type="checkbox" name="dataUseData-'+idSuffixNum.toString()+'[\'src_country\'][1]['+entry+'][\'src_gov_level\'][]" value="National" checked>National \
+        </label> \
+        <label class="btn btn-default" style="font-size:0.6em"> \
+            <input type="checkbox" name="dataUseData-'+idSuffixNum.toString()+'[\'src_country\'][1]['+entry+'][\'src_gov_level\'][]" value="State">State \
         </label> \
         <label class="btn btn-default" style="font-size:0.6em"> \
             <input type="checkbox" name="dataUseData-'+idSuffixNum.toString()+'[\'src_country\'][1]['+entry+'][\'src_gov_level\'][]" value="Local" >Local \

@@ -397,6 +397,7 @@ $app->post('/survey/opendata/2du/:surveyId/', function ($surveyId) use ($app) {
     $allPostVars["longitude"] = floatval($allPostVars["longitude"]);
 
 echo "<pre>";print_r($allPostVars);echo "</pre>"; 
+// exit;
 
 	// ============================
 	// Prepare and save org_object
@@ -418,7 +419,73 @@ echo "<pre>";print_r($allPostVars);echo "</pre>";
 			$org_object[$param] = true;
 		}
 	}
+	// set profile_id
+	$org_object['profile_id'] = $surveyId;
+	// identify row type as org_profile
+	// echo "<pre>"; print_r($allPostVars); echo "</pre>";
+	// echo "<pre>"; print_r($object); echo "</pre>";
+	// save org_object to Parse
+	$parse_params = array(
+		'className' => 'org_profile',
+		'object' => $org_object
+	);
+	$request = $parse->create($parse_params);
+	$response = json_decode($request, true);
 
+	// ============================================================================
+	// Prepare and save org_object into arcgis_flatfile as row_type = org_profile
+	// ============================================================================
+	/* Saves once per survey submission */
+	// remove certain fields from org_profile
+	$remove_keys = array ("use_prod_srvc_desc", "use_org_opt_desc", "use_research_desc", "use_other_desc", "org_additional");
+	foreach ( $remove_keys as $key) {
+		if (array_key_exists($key, $org_object)) {
+			unset($org_object[$key]);
+		}
+	}
+	$org_object['row_type'] = 'org_profile';
+	$parse_params = array(
+		'className' => 'arcgis_flatfile',
+		'object' => $org_object
+	);
+	$request = $parse->create($parse_params);
+	$response = json_decode($request, true);
+	if(!isset($response['createdAt'])) {
+		echo "<br>Problem. Problem saving how data is used create not yet handled.";
+		// log error and generate email to admins
+		exit;
+	}
+
+	// ================================
+	// Prepare and save contact_object
+	// ================================
+	/* Saves once per survey submission */
+    $params = array("org_name", "org_profile_src", "survey_contact_first", "survey_contact_last", "survey_contact_title", "survey_contact_email", "survey_contact_phone");
+    $contact_object = array();
+    // Set all parameters to received value or null
+    foreach ($params as $param) {
+    	if (!isset($allPostVars[$param])) { $allPostVars[$param] = null; }
+    	$contact_object[$param] = $allPostVars[$param];
+    }
+    // set profile_id
+	$contact_object['profile_id'] = $surveyId;
+	// save contact_object to Parse
+	$parse_params = array(
+		'className' => 'org_contact',
+		'object' => $contact_object
+	);
+	$request = $parse->create($parse_params);
+	$response = json_decode($request, true);
+	if(!isset($response['createdAt'])) {
+		echo "<br>Problem. Problem saving how data is used create not yet handled.";
+		// log error and generate email to admins
+		exit;
+	}
+
+	// ============================================================================================
+	// Prepare and save data_use_object and arcgis_object combining data_use_object and org_object
+	// ============================================================================================
+	/* Saves multiple times per survey submission, once for each data use into two tables */
 	// If we made it here, everything worked.
 	$app->redirect("/survey/opendata/".$surveyId."/submitted/");
 
