@@ -811,8 +811,7 @@ function updateDataUseProfile() {
 // manage data use
 function getTypes(idSuffixNum, selectName) {
   // get array of selected items
-  // alert('here');
-  var data_use_type = $('input[type=checkbox][name='+selectName+']:checked').map(function(){ return $(this).val(); }).get();
+  var data_use_type = $('input[type=checkbox][class='+selectName+']:checked').map(function(){ return $(this).val(); }).get();
   console.log(data_use_type);
 
   var data_use_html = "";
@@ -823,10 +822,10 @@ function getTypes(idSuffixNum, selectName) {
     <span class="" id="" style="font-size:0.8em;">'+truncate(entry)+'</span> \
       <div class="btn-group" data-toggle="buttons"> \
         <label class="btn btn-default active" style="font-size:0.6em"> \
-            <input type="checkbox" name="dataUseData-'+idSuffixNum.toString()+'[\'src_country\'][1][\'src_gov_level\'][]" value="National" >National \
+            <input type="checkbox" name="dataUseData-'+idSuffixNum.toString()+'[\'src_country\'][1]['+entry+'][\'src_gov_level\'][]" value="National" checked>National \
         </label> \
         <label class="btn btn-default" style="font-size:0.6em"> \
-            <input type="checkbox" name="dataUseData-'+idSuffixNum.toString()+'[\'src_country\'][1][\'src_gov_level\'][]" value="Local" >Local \
+            <input type="checkbox" name="dataUseData-'+idSuffixNum.toString()+'[\'src_country\'][1]['+entry+'][\'src_gov_level\'][]" value="Local" >Local \
         </label> \
       </div> \
       </span>';

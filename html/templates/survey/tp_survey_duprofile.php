@@ -32,7 +32,7 @@ body {
 <!-- Main Content Section -->
 <div class="container lg-font col-md-12" style="border:0px solid black;">
 
- <form id="survey_form" class="form-horizontal" style="border:0px dotted black;" action="/survey/opendata/2/<?php echo $content['surveyId']; ?>" method="post">
+ <form id="survey_form" class="form-horizontal" style="border:0px dotted black;" action="/survey/opendata/2du/<?php echo $content['surveyId']; ?>" method="post">
 
     <div class="col-md-12" role="Intro" id="role-intro">
       <br />
@@ -266,36 +266,36 @@ body {
         <div class="row col-md-12 data-use-row" id="dataUseDataType">
         <label class="control-label">Types of open data used (Select all that apply) <small class="required">*</small></label>
         <div class="col-md-3" id="data_type_col-1">
-            <input type="checkbox" name="data_use_type" value="Agriculture"> Agriculture
-            <br /><input type="checkbox" name="data_use_type" value="Arts and culture"> Arts and culture
-            <br /><input type="checkbox" name="data_use_type" value="Business"> Business
-            <br /><input type="checkbox" name="data_use_type" value="Consumer"> Consumer
-            <br /><input type="checkbox" name="data_use_type" value="Demographics and social"> Demographics and social
-            <br /><input type="checkbox" name="data_use_type" value="Economics "> Economics
-            <br /><input type="checkbox" name="data_use_type" value="Education"> Education
-            <br /><input type="checkbox" name="data_use_type" value="Energy"> Energy
+            <input type="checkbox" name="data_use_type[]" class="data_use_type" value="Agriculture"> Agriculture
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Arts and culture"> Arts and culture
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Business"> Business
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Consumer"> Consumer
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Demographics and social"> Demographics and social
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Economics "> Economics
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Education"> Education
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Energy"> Energy
             
 </div>
         <div class="col-md-3" id="data_type_col-2"> 
 
-            <input type="checkbox" name="data_use_type" value="Environment"> Environment
-            <br /><input type="checkbox" name="data_use_type" value="Finance"> Finance
-            <br /><input type="checkbox" name="data_use_type" value="Geospatial/mapping"> Geospatial/mapping
-            <br /><input type="checkbox" name="data_use_type" value="Government operations"> Government operations
-            <br /><input type="checkbox" name="data_use_type" value="Health/healthcare"> Health/healthcare
-            <br /><input type="checkbox" name="data_use_type" value="Housing"> Housing
-            <br /><input type="checkbox" name="data_use_type" value="International/global development"> International/global development
-            <br /><input type="checkbox" name="data_use_type" value="Legal"> Legal
+            <input type="checkbox" name="data_use_type[]" class="data_use_type" value="Environment"> Environment
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Finance"> Finance
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Geospatial/mapping"> Geospatial/mapping
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Government operations"> Government operations
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Health/healthcare"> Health/healthcare
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Housing"> Housing
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="International/global development"> International/global development
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Legal"> Legal
             
 </div>
         <div class="col-md-3" id="data_type_col-3"> 
-            <input type="checkbox" name="data_use_type" value="Manufacturing"> Manufacturing
-            <br /><input type="checkbox" name="data_use_type" value="Science and research"> Science and research
-            <br /><input type="checkbox" name="data_use_type" value="Public safety"> Public safety
-            <br /><input type="checkbox" name="data_use_type" value="Tourism"> Tourism
-            <br /><input type="checkbox" name="data_use_type" value="Transportation"> Transportation
-            <br /><input type="checkbox" name="data_use_type" value="Weather"> Weather
-            <br /><input type="checkbox" name="data_use_type" value="Other"> Other
+            <input type="checkbox" name="data_use_type[]" class="data_use_type" value="Manufacturing"> Manufacturing
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Science and research"> Science and research
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Public safety"> Public safety
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Tourism"> Tourism
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Transportation"> Transportation
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Weather"> Weather
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Other"> Other
         </div>
       </div>
 
