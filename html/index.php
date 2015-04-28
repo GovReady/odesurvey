@@ -376,6 +376,55 @@ $app->post('/survey/opendata/2/:surveyId/', function ($surveyId) use ($app) {
 
 });
 
+// du new post here
+
+// ************
+$app->post('/survey/opendata/2du/:surveyId/', function ($surveyId) use ($app) {
+
+	$parse = new parseRestClient(array(
+		'appid' => PARSE_APPLICATION_ID,
+		'restkey' => PARSE_API_KEY
+	));
+
+	// Access post variables from submitted survey form
+	$allPostVars = $app->request->post();
+	// echo "<pre>"; print_r($allPostVars); echo "</pre>";
+
+    // Set string values to numeric values
+    $allPostVars["org_profile_year"] = intval($allPostVars["org_profile_year"]);
+    $allPostVars["org_year_founded"] = intval($allPostVars["org_year_founded"]);
+    $allPostVars["latitude"] = floatval($allPostVars["latitude"]);
+    $allPostVars["longitude"] = floatval($allPostVars["longitude"]);
+
+echo "<pre>";print_r($allPostVars);echo "</pre>"; 
+
+	// ============================
+	// Prepare and save org_object
+	// ============================
+	/* Saves once per survey submission */
+    $params = array("org_name", "org_open_corporates_id", "org_type", "org_type_other", "org_url", "no_org_url", "org_year_founded", "org_description", "org_size_id", "industry_id", "industry_other", "org_greatest_impact", "org_greatest_impact_other", "use_prod_srvc", "use_prod_srvc_desc", "use_org_opt", "use_org_opt_desc", "use_research", "use_research_desc", "use_other", "use_other_desc", "org_hq_city", "org_hq_st_prov", "org_hq_country", "latitude", "longitude", "org_hq_city_locode", "org_hq_country_locode", "org_profile_year", "org_additional", "org_profile_status", "org_profile_src");
+    $org_object = array();
+    // Set all parameters to received value or null
+    foreach ($params as $param) {
+    	if (!isset($allPostVars[$param])) { $allPostVars[$param] = null; }
+    	$org_object[$param] = $allPostVars[$param];
+    }
+	// Set string values to boolean values
+	$params = array("no_org_url", "use_prod_srvc", "use_org_opt", "use_research", "use_other");
+	foreach ($params as $param) {
+		if (is_null($org_object[$param])) {
+			$org_object[$param] = false;
+		} else {
+			$org_object[$param] = true;
+		}
+	}
+
+	// If we made it here, everything worked.
+	$app->redirect("/survey/opendata/".$surveyId."/submitted/");
+
+});
+// end du new post here
+
 // ************
 $app->get('/survey/opendata/:surveyId/submitted/', function ($surveyId) use ($app) {
 	
