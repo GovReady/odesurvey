@@ -775,7 +775,6 @@ function updateDataUseProfile() {
       content+
       '<div class="col-md-7">'+content_data_types+'</div>' +
       '</div></div>';
-
       $('#data_use_details').append(new_html);
     }    
   }
@@ -794,6 +793,10 @@ function getTypes(idSuffixNum, selectName) {
 
   var data_use_html = "";
   data_use_type.forEach(function (entry) {
+    // Use Other value if set
+    if (entry == "Other" && $('input[name="data_use_type_other"]').val() != '') {
+      entry = $('input[name="data_use_type_other"]').val();
+    }
     console.log(entry);
     var gov_level = ' \
     <span class="col-md-4" style="border:0px solid black;"> \

@@ -125,6 +125,21 @@
             $('input[name="industry_other"]').toggle();
           }
         });
+
+        // Toggle other choice for most relevant types of open data
+        $('input[value="Other"]').on('change', function(e) {
+          var choice = $('input[value="Other"]:checked').val();
+          // alert(choice);
+          if (choice != 'Other' && $('input[name="data_use_type_other"]').is(":visible")) {
+            $('input[name="data_use_type_other"]').val("");
+            $('input[name="data_use_type_other"]').toggle();
+          }
+          if (choice == 'Other' && $('input[name="data_use_type_other"]').is(":hidden")) {
+            $('input[name="data_use_type_other"]').val("");
+            $('input[name="data_use_type_other"]').toggle();
+          }
+        });
+
           
   }); // End Document Ready function
       
@@ -183,6 +198,10 @@
 
       // Improved data use profile
       $('input[type=checkbox][class=data_use_type]').change(function() {
+        updateDataUseProfile();
+      });
+      
+      $('input[name="data_use_type_other"]').change(function() {
         updateDataUseProfile();
       });
 
