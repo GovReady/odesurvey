@@ -269,6 +269,7 @@ body {
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Transportation"> Transportation
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Weather"> Weather
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Other"> Other
+                  <input type="text" class="form-control" style="display:none" id="data_use_type_other" name="data_use_type_other" placeholder="Provide details">
         </div>
       </div>
 
