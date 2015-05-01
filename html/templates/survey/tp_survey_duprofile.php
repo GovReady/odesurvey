@@ -171,6 +171,7 @@ body {
           <br /><input type="radio" name="industry_id" class="industry_id" value="trd"> Trade &amp; commodities
           <br /><input type="radio" name="industry_id" class="industry_id" value="trn"> Transportation
           <br /><input type="radio" name="industry_id" class="industry_id" value="otr"> Other
+                <input type="text" class="form-control" style="display:none" name="industry_other" placeholder="Describe other">
         </div>
       </div>
 
