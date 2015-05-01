@@ -110,6 +110,20 @@
             $('#'+this.id+'_desc').val("");
           }
         });
+
+        // Toggle other choice for industry/category
+        $('.industry_id').on('change', function(e) {
+          var choice = $('input[name="industry_id"]:checked').val();
+          // alert(choice)
+          if (choice != 'otr' && $('input[name="industry_other"]').is(":visible")) {
+            $('input[name="industry_other"]').val("");
+            $('input[name="industry_other"]').toggle();
+          }
+          if (choice == 'otr' && $('input[name="industry_other"]').is(":hidden")) {
+            $('input[name="industry_other"]').val("");
+            $('input[name="industry_other"]').toggle();
+          }
+        });
           
   }); // End Document Ready function
       
@@ -152,16 +166,6 @@
           if ( $('#org_greatest_impact_other_div').length > 0 ) {
             $('#org_greatest_impact_other_div').remove();
           }
-        }
-      });
-
-      $('#industry_id').on("change", function(e) {
-        myId = this.id.split("-")[1];
-        var sel_val = $('#'+this.id).select2().val();
-        if (sel_val == "otr") {
-          addIndustryOther();
-        } else {
-          removeIndustryOther();
         }
       });
 
