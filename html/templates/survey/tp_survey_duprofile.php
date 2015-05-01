@@ -300,7 +300,7 @@ body {
 
       <!-- Sources of open data -->
       <div class="form-group col-md-12">
-        <label class="control-label">Number of countries from which open data sourced <small class="required">*</small></label>
+        <label class="control-label">Number of countries from which open data is provided <small class="required">*</small></label>
         <div class="col-md-12">
           <div class="btn-group" data-toggle="buttons">
             <label class="btn btn-default">
