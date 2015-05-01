@@ -67,6 +67,10 @@ div.od-purpose {
 	margin: .5em 0 .5em 0 !important;
 }
 
+#org_description, #org_additional {
+	height:70px; 
+	min-height:70px;
+}
 
 #role-orgInfo {
 	background-color: rgb(253,228,156);

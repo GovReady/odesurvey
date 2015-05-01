@@ -74,6 +74,14 @@ body {
         </div>
       </div>
 
+      <!-- Description of organization -->
+      <div class="form-group col-md-12">
+        <div class="form-group col-md-8">
+          <label for="org_description">One sentence description of organization <i>(400 characters or less)</i> <small class="required">*</small></label>
+          <textarea type="text" class="form-control " id="org_description" name="org_description" required></textarea>
+        </div>
+      </div>
+
       <!-- Type of organization -->
       <div class="form-group col-md-12" id="org_type">
           <label class="control-label">Type of organization <small class="required">*</small></label>
@@ -105,14 +113,6 @@ body {
             <div class="col-md-4">
               <input type="checkbox" name="no_org_url" id="no_org_url" value="True"> No URL
             </div>
-        </div>
-      </div>
-
-      <!-- Description of organization -->
-      <div class="form-group col-md-12">
-        <div class="form-group col-md-8">
-          <label for="org_description">Description of organization <i>(400 characters or less)</i> <small class="required">*</small></label>
-          <textarea type="text" class="form-control " id="org_description" name="org_description" style="height:160px; min-height:160px;  max-height:160px;" required></textarea>
         </div>
       </div>
 
@@ -385,10 +385,11 @@ body {
         </div>
       </div><!--/???? closes data purpose this should close datause tag - something must be wrong with data grid-->
 
+      <!-- Additional description --> 
       <div class="form-group col-md-12">
         <div class="form-group col-md-8">
           <label for="org_greatest_impact">Additional information <i>(400 characters or less)</i>  </label>
-            <textarea type="text" class="form-control" id="org_additional" name="org_additional" style="height:160px; min-height:160px;  max-height:160px;"></textarea>
+            <textarea type="text" class="form-control" id="org_additional" name="org_additional"></textarea>
         </div>
       </div>
 
