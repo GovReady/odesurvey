@@ -9,6 +9,7 @@
         <title>Open Data Survey 2015 - New</title>
         <meta name="description" content="Open Data Impact Map Survey 2015">
         <meta name="viewport" content="width=device-width">
+        <meta name="format-detection" content="telephone=no">
 
         <link rel="stylesheet" href="/css/bootstrap.min.css">
         <link rel="icon" type="image/png" href="/favicon.png">
