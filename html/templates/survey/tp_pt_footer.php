@@ -103,6 +103,7 @@
           detailsAttribute: "data-geo"
         });
 
+        // Toggle detail fields for use of open data question
         $('.use_open_data').click(function(e) {
           // alert(this.id);
           $('#'+this.id+'_desc').toggle(this.checked);
