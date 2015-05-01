@@ -384,8 +384,8 @@ body {
           <div for="survey_contact_last">last name <small class="required">*</small></div>
           <input type="text" class="form-control" id="survey_contact_last" name="survey_contact_last" required>
 
-          <div for="survey_contact_title">title <small class="required">*</small></div>
-          <input type="text" class="form-control" id="survey_contact_title" name="survey_contact_title" required>
+          <div for="survey_contact_title">title (optional)</div>
+          <input type="text" class="form-control" id="survey_contact_title" name="survey_contact_title">
 
           <div for="survey_contact_email">email <small class="required">*</small></div>
           <input type="email" class="form-control" id="survey_contact_email" name="survey_contact_email" required>
