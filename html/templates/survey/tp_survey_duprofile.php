@@ -141,35 +141,36 @@ body {
   
       <!-- Industry/category of organization -->
       <div class="form-group col-md-12">
-        <div class="form-group col-md-7">
         <label for="industry_id">Industry/category of the organization <i>(select 1)</i> <small class="required">*</small></label>
-          <select class="basic-single-industry required" name="industry_id" id="industry_id" style="width:336px;" >
-            <option value="">Select</option>
-            <option value="bus">Business &amp; legal services</option>
-            <option value="cul">Culture/Leisure</option>
-            <option value="dat">Data/Technology</option>
-            <option value="edu">Education</option>
-            <option value="ngy">Energy</option>
-            <option value="env">Environment &amp; weather</option>
-            <option value="fin">Finance &amp; investment</option>
-            <option value="agr">Food &amp; agriculture</option>
-            <option value="geo">Geospatial/Mapping</option>
-            <option value="gov">Governance</option>
-            <option value="hlt">Healthcare</option>
-            <option value="est">Housing/Real estate</option>
-            <option value="hum">Human rights</option>
-            <option value="ins">Insurance</option>
-            <option value="lif">Lifestyle &amp; consumer</option>
-            <option value="med">Media &amp; communications</option>
-            <option value="man">Mining/Manufacturing</option>
-            <option value="rsh">Research &amp; consulting</option>
-            <option value="sci">Scientific research</option>
-            <option value="tel">Telecommunication/ISPs</option>
-            <option value="trm">Tourism</option>
-            <option value="trd">Trade &amp; commodities</option>
-            <option value="trn">Transportation</option>
-            <option value="otr">Other</option>
-          </select>
+        <div class="col-md-3" id="industry_id_col-1">
+          <input type="radio" name="industry_id" class="industry_id" value="bus"> Business &amp; legal services
+          <br /><input type="radio" name="industry_id" class="industry_id" value="cul"> Culture/Leisure
+          <br /><input type="radio" name="industry_id" class="industry_id" value="dat"> Data/Technology
+          <br /><input type="radio" name="industry_id" class="industry_id" value="edu"> Education
+          <br /><input type="radio" name="industry_id" class="industry_id" value="ngy"> Energy
+          <br /><input type="radio" name="industry_id" class="industry_id" value="env"> Environment &amp; weather
+          <br /><input type="radio" name="industry_id" class="industry_id" value="fin"> Finance &amp; investment
+          <br /><input type="radio" name="industry_id" class="industry_id" value="agr"> Food &amp; agriculture
+        </div>
+        <div class="col-md-3" id="industry_id_col-2">
+          <input type="radio" name="industry_id" class="industry_id" value="geo"> Geospatial/Mapping
+          <br /><input type="radio" name="industry_id" class="industry_id" value="gov"> Governance
+          <br /><input type="radio" name="industry_id" class="industry_id" value="hlt"> Healthcare
+          <br /><input type="radio" name="industry_id" class="industry_id" value="est"> Housing/Real estate
+          <br /><input type="radio" name="industry_id" class="industry_id" value="hum"> Human rights
+          <br /><input type="radio" name="industry_id" class="industry_id" value="ins"> Insurance
+          <br /><input type="radio" name="industry_id" class="industry_id" value="lif"> Lifestyle &amp; consumer
+          <br /><input type="radio" name="industry_id" class="industry_id" value="med"> Media &amp; communications
+        </div>
+        <div class="col-md-3" id="industry_id_col-3">
+          <input type="radio" name="industry_id" class="industry_id" value="man"> Mining/Manufacturing
+          <br /><input type="radio" name="industry_id" class="industry_id" value="rsh"> Research &amp; consulting
+          <br /><input type="radio" name="industry_id" class="industry_id" value="sci"> Scientific research
+          <br /><input type="radio" name="industry_id" class="industry_id" value="tel"> Telecommunication/ISPs
+          <br /><input type="radio" name="industry_id" class="industry_id" value="trm"> Tourism
+          <br /><input type="radio" name="industry_id" class="industry_id" value="trd"> Trade &amp; commodities
+          <br /><input type="radio" name="industry_id" class="industry_id" value="trn"> Transportation
+          <br /><input type="radio" name="industry_id" class="industry_id" value="otr"> Other
         </div>
       </div>
 
