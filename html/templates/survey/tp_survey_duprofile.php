@@ -302,7 +302,6 @@ body {
       
       </div>
 
-
       <br />
 
       <div class="row col-md-12" role="dataPurposes">
@@ -311,52 +310,29 @@ body {
         </label>
 
         <div class="form-group col-md-12">
-          <div class="form-group col-md-7">
+          <div class="col-md-6" id="use_open_data_col-1">
+            <div>
+              <input type="checkbox" class="use_open_data" name="use_prod_srvc" id="use_prod_srvc" value="True"> develop new products or services
+              <input type="text" class="form-control" style="display:none" id="use_prod_srvc_desc" name="use_prod_srvc_desc" placeholder="Provide details">
+            </div>
+            <div>
+              <input type="checkbox" class="use_open_data" name="use_org_opt" id="use_org_opt" value="True"> organizational optimization
+              <input type="text" class="form-control" style="display:none" id="use_org_opt_desc" name="use_org_opt_desc" placeholder="Provide details">
+            </div>
+          </div>
 
-            <div class="checkbox">
-              <label>
-                <input type="checkbox" name="use_prod_srvc" id="use_prod_srvc" value="True">
-                develop new products or services : 
-              </label>
+          <div class="col-md-6" id="use_open_data_col-2">
+            <div>
+              <input type="checkbox" class="use_open_data" name="use_research" id="use_research" value="True"> research
+              <input type="text" class="form-control" style="display:none" id="use_research_desc" name="use_research_desc" placeholder="Provide details">
             </div>
-            <div class="od-purpose">
-              Please provide us with details: <input type="text" class="form-control" id="use_prod_srvc_desc" name="use_prod_srvc_desc">
-            </div>          
-
-
-            <div class="checkbox">
-              <label>
-                <input type="checkbox" name="use_org_opt" id="use_org_opt" value="True">
-                organizational optimization :
-              </label>
+            <div>
+              <input type="checkbox" class="use_open_data" name="use_other" id="use_other" value="True"> other
+              <input type="text" class="form-control" style="display:none" id="use_other_desc" name="use_other_desc" placeholder="Provide details">
             </div>
-            <div class="od-purpose">
-              Please provide us with details: <input type="text" class="form-control" id="use_org_opt_desc" name="use_org_opt_desc">
-            </div>
-
-            <div class="checkbox">
-              <label>
-                <input type="checkbox" name="use_research" id="use_research" value="True">
-                research :
-              </label>
-            </div>
-            <div class="od-purpose">
-              Please provide us with details: <input type="text" class="form-control" id="use_research_desc" name="use_research_desc">
-            </div>
-
-            <div class="checkbox">
-              <label>
-                <input type="checkbox" name="use_other" id="use_other" value="True">
-                other : 
-              </label>
-            </div>
-            <div class="od-purpose">
-              Please provide us with details: <input type="text" class="form-control" id="use_other_desc" name="use_other_desc">
-            </div>
-      
           </div>
         </div>
-      </div><!--/???? closes data purpose this should close datause tag - something must be wrong with data grid-->
+      </div><!--/closes data purpose this should close datause tag -->
 
       <!-- Additional description --> 
       <div class="form-group col-md-12">
@@ -365,7 +341,6 @@ body {
             <textarea type="text" class="form-control" id="org_additional" name="org_additional"></textarea>
         </div>
       </div>
-
 
     </div>  <!-- /closes data use  -->
 <br />
@@ -404,12 +379,11 @@ body {
       <button class="btn btn-primary col-md-3" id="btnSubmit" type="submit">SUBMIT</button>
     </div>
 
-
 </form>
 
 </div> 
-<!-- I think I am missing a closing </div> gut things are working.
-<!--/end container - where is the tag?-->
+<!-- I think I am missing a closing </div> gut things are working. -->
+<!-- end container - where is the tag? -->
 
 <?php include __DIR__.'/'.'tp_pt_footer.php'; ?>
 
