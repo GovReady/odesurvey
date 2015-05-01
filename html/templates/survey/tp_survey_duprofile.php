@@ -47,12 +47,11 @@ body {
         <h3>Eligibility</h3>
       </div>
       <div>
-        The Open Data Impact Map includes organizations that:<br /><br />
-          <ul>
+        The Open Data Impact Map includes organizations that:
+          <ul id="xxx">
               <li>are companies, non-profits, or developer groups; and</li>
               <li>use <i>open government data</i> to develop products and services, improve operations, inform strategy and/or conduct research.</li>
             </ul>
-        <br />
         We define <i>open government data</i> as publicly available data that is produced or commissioned by governments 
         and that can be accessed and reused by anyone, free of charge. 
       </div>
@@ -69,7 +68,7 @@ body {
       <div class="row col-md-12">
         <div class="form-group col-md-12">
           <div class="form-group col-md-8">
-            <label for="org_name">Name of the organization <small class="required">*</small></label>
+            <label for="org_name">Name of organization <small class="required">*</small></label>
             <input type="text" class="form-control" id="org_name" name="org_name" placeholder="" required minlength="2">
         </div>
         </div>

@@ -63,6 +63,10 @@ div.od-purpose {
 	padding: 0 0 8px 8px;
 }
 
+#role-eligibility ul {
+	margin: .5em 0 .5em 0 !important;
+}
+
 
 #role-orgInfo {
 	background-color: rgb(253,228,156);
