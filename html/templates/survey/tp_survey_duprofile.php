@@ -85,7 +85,7 @@ body {
       <!-- Type of organization -->
       <div class="form-group col-md-12" id="org_type">
           <label class="control-label">Type of organization <small class="required">*</small></label>
-        <div class="col-md-8">
+        <div class="col-md-10">
           <div class="btn-group" data-toggle="buttons">
             <label class="btn btn-default">
                 <input type="radio" name="org_type" id="For-profit" value="For-profit" /> For-profit
