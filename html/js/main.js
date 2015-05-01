@@ -775,19 +775,19 @@ function updateDataUseProfile() {
         country_text = "country";
         break;
       case "2 - 5":
-        country_count = 5;
-        country_text = "countries";
+        country_count = 3;
+        country_text = "top 3 countries";
         break;
       case "6 - 10":
-        country_count = 10;
-        country_text = "countries";
+        country_count = 3;
+        country_text = "top 3 countries";
         break;
       default:
-      country_count = 10;
-        country_text = "top 10 countries";
+      country_count = 3;
+        country_text = "top 3 countries";
     }
 
-    var content_question =  '<div class=" col-md-12" style="border:0px solid black;" id="data_details">Indicate the '+country_text+' that provide the data, and whether the data is National or Local (state/province/city).</div>';
+    var content_question =  '<div class=" col-md-12" style="border:0px solid black;" id="data_details">Indicate the '+country_text+' that provide the data, and whether the data is National or State / Local (state/province/city).</div>';
     $('#data_use_details').append(content_question);
 
     for (var c = 1; c <= country_count; c++) {
@@ -821,14 +821,11 @@ function getTypes(idSuffixNum, selectName) {
     <span class="col-md-4" style="border:0px solid black;"> \
     <span class="" id="" style="font-size:0.8em;">'+truncate(entry)+'</span> \
       <div class="btn-group" data-toggle="buttons"> \
-        <label class="btn btn-default active" style="font-size:0.6em"> \
-            <input type="checkbox" name="dataUseData-'+idSuffixNum.toString()+'[\'src_country\'][1]['+entry+'][\'src_gov_level\'][]" value="National" checked>National \
+        <label class="btn btn-default" style="font-size:0.6em"> \
+            <input type="checkbox" name="dataUseData-'+idSuffixNum.toString()+'[\'src_country\'][1]['+entry+'][\'src_gov_level\'][]" value="National">National \
         </label> \
         <label class="btn btn-default" style="font-size:0.6em"> \
-            <input type="checkbox" name="dataUseData-'+idSuffixNum.toString()+'[\'src_country\'][1]['+entry+'][\'src_gov_level\'][]" value="State">State \
-        </label> \
-        <label class="btn btn-default" style="font-size:0.6em"> \
-            <input type="checkbox" name="dataUseData-'+idSuffixNum.toString()+'[\'src_country\'][1]['+entry+'][\'src_gov_level\'][]" value="Local" >Local \
+            <input type="checkbox" name="dataUseData-'+idSuffixNum.toString()+'[\'src_country\'][1]['+entry+'][\'src_gov_level\'][]" value="State/Local">State / Local \
         </label> \
       </div> \
       </span>';
