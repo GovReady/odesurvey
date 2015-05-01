@@ -120,7 +120,7 @@ body {
       <div class="form-group col-md-12">
         <div class="form-group col-md-7 details">
 
-          <label for="org_hq_city_all">Location <i>(city, region/state, country)</i> <small class="required">*</small></label>
+          <label for="org_hq_city_all">Location <i>(please provide as specific as possible)</i> <small class="required">*</small></label>
           <input type="text" class="form-control" id="org_hq_city_all" name="org_hq_city_all" required>
 
           <!--label for="org_hq_city">City</label -->
