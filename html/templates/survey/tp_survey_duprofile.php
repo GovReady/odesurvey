@@ -234,36 +234,11 @@ body {
 
     <div class="col-md-12" role="dataUse" id="role-dataUse">
       <div class="row col-md-12" role="dataTypes">
-        <h3>Use of open data</h3>
+        <h3>Use of Open Data</h3>
       </div>
       
-      <!-- Types of open data -->
-<!--       <div class="form-group col-md-12">
-        <label class="control-label">Number of different types of open data used (e.g. Housing, Finance, Public Safety, ...) <small class="required">*</small></label>
-        <div class="col-md-12">
-          <div class="btn-group" data-toggle="buttons">
-            <label class="btn btn-default">
-                <input type="radio" name="data_type_count" value="1" /> 1 type
-            </label>
-            <label class="btn btn-default">
-                <input type="radio" name="data_type_count" value="2 - 5" /> 2-5 types
-            </label>
-            <label class="btn btn-default">
-                <input type="radio" name="data_type_count" value="6 - 10" /> 6-10 types
-            </label>
-            <label class="btn btn-default">
-                <input type="radio" name="data_type_count" value="11 - 20" /> 11-20 types
-            </label>
-            <label class="btn btn-default">
-                <input type="radio" name="data_type_count" value="20+" /> 20+ types
-            </label>
-          </div>
-        </div>
-      </div> -->
-
-
-        <div class="row col-md-12 data-use-row" id="dataUseDataType">
-        <label class="control-label">Types of open data used (Select all that apply) <small class="required">*</small></label>
+      <div class="row col-md-12 data-use-row" id="dataUseDataType">
+        <label class="control-label">Types of <u>most relevant</u> open data your organization uses (select all that apply) <small class="required">*</small></label>
         <div class="col-md-3" id="data_type_col-1">
             <input type="checkbox" name="data_use_type[]" class="data_use_type" value="Agriculture"> Agriculture
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Arts and culture"> Arts and culture
@@ -273,10 +248,8 @@ body {
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Economics "> Economics
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Education"> Education
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Energy"> Energy
-            
-</div>
+        </div>
         <div class="col-md-3" id="data_type_col-2"> 
-
             <input type="checkbox" name="data_use_type[]" class="data_use_type" value="Environment"> Environment
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Finance"> Finance
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Geospatial/mapping"> Geospatial/mapping
@@ -285,8 +258,7 @@ body {
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Housing"> Housing
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="International/global development"> International/global development
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Legal"> Legal
-            
-</div>
+        </div>
         <div class="col-md-3" id="data_type_col-3"> 
             <input type="checkbox" name="data_use_type[]" class="data_use_type" value="Manufacturing"> Manufacturing
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Science and research"> Science and research
