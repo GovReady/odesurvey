@@ -102,6 +102,14 @@
           details: ".details",
           detailsAttribute: "data-geo"
         });
+
+        $('.use_open_data').click(function(e) {
+          // alert(this.id);
+          $('#'+this.id+'_desc').toggle(this.checked);
+          if ($('#'+this.id+'_desc').is(":hidden")) {
+            $('#'+this.id+'_desc').val("");
+          }
+        });
           
   }); // End Document Ready function
       
