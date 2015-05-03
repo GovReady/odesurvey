@@ -88,16 +88,16 @@ body {
         <div class="col-md-10">
           <div class="btn-group" data-toggle="buttons">
             <label class="btn btn-default">
-                <input type="radio" name="org_type" id="For-profit" value="For-profit" /> For-profit
+                <input type="radio" name="org_type" id="For-profit" value="For-profit" required="True"> For-profit
             </label>
             <label class="btn btn-default">
-                <input type="radio" name="org_type" id="Nonprofit" value="Nonprofit" /> Nonprofit
+                <input type="radio" name="org_type" id="Nonprofit" value="Nonprofit"> Nonprofit
             </label>
             <label class="btn btn-default">
-                <input type="radio" name="org_type" id="Developer group" value="Developer group" /> Developer group
+                <input type="radio" name="org_type" id="Developer group" value="Developer group"> Developer group
             </label>
             <label class="btn btn-default">
-                <input type="radio" name="org_type" id="Other" value="Other" /> Other
+                <input type="radio" name="org_type" id="Other" value="Other"> Other
             </label>
           </div>
         </div>
@@ -142,8 +142,11 @@ body {
       <!-- Industry/category of organization -->
       <div class="form-group col-md-12">
         <label for="industry_id">Industry/category of the organization <i>(select 1)</i> <small class="required">*</small></label>
+        <fieldset>
         <div class="col-md-3" id="industry_id_col-1">
-          <input type="radio" name="industry_id" class="industry_id" value="bus"> Business &amp; legal services
+          <label for="industry_id_cul">
+          <input id="industry_id_cul" type="radio" name="industry_id" class="industry_id" value="bus" required> Business &amp; legal services
+        
           <br /><input type="radio" name="industry_id" class="industry_id" value="cul"> Culture/Leisure
           <br /><input type="radio" name="industry_id" class="industry_id" value="dat"> Data/Technology
           <br /><input type="radio" name="industry_id" class="industry_id" value="edu"> Education
@@ -173,6 +176,7 @@ body {
           <br /><input type="radio" name="industry_id" class="industry_id" value="otr"> Other
                 <input type="text" class="form-control" style="display:none" name="industry_other" placeholder="Describe other">
         </div>
+        </fieldset>
       </div>
 
       <!-- Founding year -->    
@@ -189,19 +193,19 @@ body {
         <div class="col-md-12">
           <div class="btn-group" data-toggle="buttons">
             <label class="btn btn-default">
-                <input type="radio" name="org_size_id" value="1 - 10" /> 1-10 employees
+                <input type="radio" name="org_size_id" value="1 - 10" > 1-10 employees
             </label>
             <label class="btn btn-default">
-                <input type="radio" name="org_size_id" value="11 - 50" /> 11-50 employees
+                <input type="radio" name="org_size_id" value="11 - 50" > 11-50 employees
             </label>
             <label class="btn btn-default">
-                <input type="radio" name="org_size_id" value="51 - 200" /> 51-200 employees
+                <input type="radio" name="org_size_id" value="51 - 200" > 51-200 employees
             </label>
             <label class="btn btn-default">
-                <input type="radio" name="org_size_id" value="201 - 1000" /> 201-1000 employees
+                <input type="radio" name="org_size_id" value="201 - 1000" > 201-1000 employees
             </label>
             <label class="btn btn-default">
-                <input type="radio" name="org_size_id" value="1000+" /> 1000+ employees
+                <input type="radio" name="org_size_id" value="1000+" > 1000+ employees
             </label>
           </div>
         </div>
@@ -242,7 +246,7 @@ body {
       <div class="row col-md-12 data-use-row" id="dataUseDataType">
         <label class="control-label">Types of <u>most relevant</u> open data your organization uses (select all that apply) <small class="required">*</small></label>
         <div class="col-md-3" id="data_type_col-1">
-            <input type="checkbox" name="data_use_type[]" class="data_use_type" value="Agriculture"> Agriculture
+            <input type="checkbox" name="data_use_type[]" class="data_use_type" value="Agriculture" required> Agriculture
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Arts and culture"> Arts and culture
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Business"> Business
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Consumer"> Consumer

@@ -6,6 +6,10 @@
    Author's custom styles
    ========================================================================== */
 
+body {
+  font-size: 11pt;
+}
+
 .lg-font p {
   font-size: 1.2em;
 }
