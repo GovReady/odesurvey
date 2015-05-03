@@ -308,7 +308,7 @@ body {
 
       <div class="row col-md-12" role="dataPurposes">
         <label>
-          How does your organization use open data? <small class="required">*</small>
+          Organizational optimization: <small class="required">*</small> <span style="font-weight:normal"><i>Provide details: E.g. benchmarking, market analysis, improving efficiency, enhancing existing products and services</i></span>
         </label>
 
         <div class="form-group col-md-12">
