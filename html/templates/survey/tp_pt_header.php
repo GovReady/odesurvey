@@ -25,6 +25,10 @@
                 padding-top: 30px;
                 padding-bottom: 20px;
                 font-size: 11pt;
+                color: #333;
+                /*font-size: 12px;*/
+                /*line-height: 22px;*/
+                font-family: Lato, sans-serif;
             }
 
             .error {
@@ -35,6 +39,12 @@
                 /* text-align:right; */
                 text-align:left;
             }
+
+          h3 {
+            border-bottom: 1px dotted #ddd;
+            margin: 24px 0px 16px 0px;
+          }
+
         </style>
 
     </head>
