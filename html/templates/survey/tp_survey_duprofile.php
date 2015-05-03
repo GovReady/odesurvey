@@ -1,31 +1,11 @@
 <?php include __DIR__.'/'.'tp_pt_header.php'; ?>
 
 <style>
-  .controlsec {
-    border:0px solid #eee; 
-    margin: 12px 0px 0px 0px; 
-  }
-
-  .myeditable {
-    height: 200px;
-    width: 150%;
-  }
-
-  .myeditableshow {
-  }
 
   h3 {
     border-bottom: 1px dotted #ddd;
     margin: 24px 0px 16px 0px;
   }
-
-{
-    width: 85%!important;
-}
-
-body {
-  font-size: 11pt;
-}
 
 </style>
 
