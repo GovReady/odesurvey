@@ -78,10 +78,5 @@ For city level data, you can either use a Placefinder – Esri has one built int
 
 # Miscellaneous Working Notes
 
-## (Temp) Trying alternate data use interface.
-- http://192.168.56.101/survey/opendata/TAiZivoKDE/alt
-Trying to put everything in a line.
-
-
 
 
