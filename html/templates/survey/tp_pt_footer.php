@@ -1,157 +1,94 @@
 <a name="footer"></a>
 
- <div class="container col-sm-12 footer" style="padding-top:60px;">
-   <footer style="text-align:center;">
-	 <!--
+  <div class="container col-sm-12 footer" style="padding-top:60px;">
+    <footer style="text-align:center;">
+    <!--
      <a href="http://twitter.com/gitmachines"><img src="/img/twitter-wrap.png" alt="Twitter Logo" class="social-icon"></a>
-		 <a href="http://https://github.com/GovReady/GovReady.github.io"><img src="/img/github-wrap.png" alt="Github Logo" class="social-icon"></a>
+     <a href="http://https://github.com/GovReady/GovReady.github.io"><img src="/img/github-wrap.png" alt="Github Logo" class="social-icon"></a>
      <p>&copy; GovReady, Greg Elin 2014</p>
-   -->
-   <p>&copy; Center for Open Data Enterprise 2015. All Rights Reserved.</p>
-   </footer>
- </div>
+    -->
+    <p>&copy; Center for Open Data Enterprise 2015. All Rights Reserved.</p>
+    </footer>
+  </div>
 
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+  <script src="/js/vendor/bootstrap.min.js"></script>
+  <script src="/js/plugins.js"></script>
+  <script src="/js/main.js"></script>
 
-     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+  <!-- select2 library -->
+  <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/css/select2.min.css" rel="stylesheet" />
+  <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/js/select2.min.js"></script>
+  <script src="/dist/jquery.validate.min.js"></script>
 
-     <script src="/js/vendor/bootstrap.min.js"></script>
+  <!-- geocomplete -->
+  <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+  <script src="/js/vendor/ubilabs-geocomplete-eb38f45/jquery.geocomplete.js"></script>
+  
+  <!-- custom -->
+  <script>
 
-     <script src="/js/plugins.js"></script>
-     <script src="/js/main.js"></script>
+    // Google analytics
+    // var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+    // (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    // g.src='//www.google-analytics.com/ga.js';
+    // s.parentNode.insertBefore(g,s)}(document,'script'));
 
-      <!-- select2 library -->
-      <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/css/select2.min.css" rel="stylesheet" />
-      <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/js/select2.min.js"></script>
+    $( document ).ready(function() {
 
-      <script src="/dist/jquery.validate.min.js"></script>
+      // Select 2 selection boxes
+      $(".basic-single-industry").select2(
+        { placeholder: "Select an industry",
+        allowClear: true }
+      );
 
-      <!-- geocomplete -->
-      
-      <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
-      <script src="/js/vendor/ubilabs-geocomplete-eb38f45/jquery.geocomplete.js"></script>
+      $(".js-example-basic-single").select2( 
+        { placeholder: "Select",
+        allowClear: true }
+      );
 
-     <script>
+      // Form Data validation
+      $("#survey_form").validate();
 
-       var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-       (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-       g.src='//www.google-analytics.com/ga.js';
-       s.parentNode.insertBefore(g,s)}(document,'script'));
+      // Geocomplete
+      $('#org_hq_city_all').geocomplete({ 
+        details: ".details",
+        detailsAttribute: "data-geo"
+      });
 
-       $( document ).ready(function() {
+      // Toggle detail fields for use of open data question
+      $('.use_open_data').click(function(e) {
+        // alert(this.id);
+        $('#'+this.id+'_desc').toggle(this.checked);
+        if ($('#'+this.id+'_desc').is(":hidden")) {
+          $('#'+this.id+'_desc').val("");
+        }
+      });
 
-         // Adjust active button on click
-         // $("#menu-name").click( function () {
-         //   $( "#menu-home" ).toggleClass( "active", true );
-         //   $( "#menu-about" ).toggleClass( "active", false );
-         //   $( "#menu-contact" ).toggleClass( "active", false );
-         // });
+      // Toggle other choice for industry/category
+      $('.industry_id').on('change', function(e) {
+        var choice = $('input[name="industry_id"]:checked').val();
+        if (choice != 'otr' && $('input[name="industry_other"]').is(":visible")) {
+          $('input[name="industry_other"]').val("");
+          $('input[name="industry_other"]').toggle();
+        }
+        if (choice == 'otr' && $('input[name="industry_other"]').is(":hidden")) {
+          $('input[name="industry_other"]').val("");
+          $('input[name="industry_other"]').toggle();
+        }
+      });
 
-         // $("#menu-home").click( function () {
-         //   $( "#menu-home" ).toggleClass( "active", true );
-         //   $( "#menu-about" ).toggleClass( "active", false );
-         //   $( "#menu-contact" ).toggleClass( "active", false );
-         // });
-
-         // $("#menu-about").click( function () {
-         //   $( "#menu-home" ).toggleClass( "active", false );
-         //   $( "#menu-about" ).toggleClass( "active", true );
-         //   $( "#menu-contact" ).toggleClass( "active", false );
-         // });
-
-         // $("#menu-contact").click( function () {
-         //   $( "#menu-home" ).toggleClass( "active", false );
-         //   $( "#menu-about" ).toggleClass( "active", false );
-         //   $( "#menu-contact" ).toggleClass( "active", true );
-         // });
-
-        // $('noscript[data-large][data-small]').each(function() { 
-        //   var src = screen.width >= 500 ? $(this).data('large') : $(this).data('small');
-        //   $('<img src="' + src + '" alt="' + $(this).data('alt') + '" />').insertAfter($(this));
-        // });
-
-        $(".basic-single-industry").select2(
-          { placeholder: "Select an industry",
-          allowClear: true }
-        );
-
-        $(".js-example-basic-single").select2( 
-          { placeholder: "Select",
-          allowClear: true }
-        );
-
-        // $(".country-basic-multiple").select2(
-        //   { placeholder: "Select country sources",
-        //   allowClear: true }
-        // );
-
-        // $(".basic-multiple").select2(
-        //   {placeholder: "Select levels",
-        //   allowClear: true}
-        // );
-
-        // Add data use row
-        $('#addDataUseBtn').on('click', function(event) {
-          event.preventDefault(); // To prevent following the link (optional)
-          addDataUseRow();
-        });
-
-        $("#survey_form").validate();
-
-        $('#org_hq_city_all').geocomplete({ 
-          details: ".details",
-          detailsAttribute: "data-geo"
-        });
-
-        // Toggle detail fields for use of open data question
-        $('.use_open_data').click(function(e) {
-          // alert(this.id);
-          $('#'+this.id+'_desc').toggle(this.checked);
-          if ($('#'+this.id+'_desc').is(":hidden")) {
-            $('#'+this.id+'_desc').val("");
-          }
-        });
-
-        // Toggle other choice for industry/category
-        $('.industry_id').on('change', function(e) {
-          var choice = $('input[name="industry_id"]:checked').val();
-          // alert(choice)
-          if (choice != 'otr' && $('input[name="industry_other"]').is(":visible")) {
-            $('input[name="industry_other"]').val("");
-            $('input[name="industry_other"]').toggle();
-          }
-          if (choice == 'otr' && $('input[name="industry_other"]').is(":hidden")) {
-            $('input[name="industry_other"]').val("");
-            $('input[name="industry_other"]').toggle();
-          }
-        });
-
-        // Toggle other choice for most relevant types of open data
-        $('input[value="Other"]').on('change', function(e) {
-          var choice = $('input[value="Other"]:checked').val();
-          // alert(choice);
-          if (choice != 'Other' && $('input[name="data_use_type_other"]').is(":visible")) {
-            $('input[name="data_use_type_other"]').val("");
-            $('input[name="data_use_type_other"]').toggle();
-          }
-          if (choice == 'Other' && $('input[name="data_use_type_other"]').is(":hidden")) {
-            $('input[name="data_use_type_other"]').val("");
-            $('input[name="data_use_type_other"]').toggle();
-          }
-        });
-
-          
-  }); // End Document Ready function
-      
-      $('.data_type').on("change", function(e) {
-        // alert('running');
-        myId = this.id.split("-")[1];
-        var sel_val = $('#'+this.id).select2().val();
-        // alert('sel_val: '+sel_val);
-        if (sel_val == "Other") {
-          addDataUseOther(myId);
-        } else {
-          removeDataUseOther(myId);
+      // Toggle other choice for most relevant types of open data
+      $('input[value="Other"]').on('change', function(e) {
+        var choice = $('input[value="Other"]:checked').val();
+        if (choice != 'Other' && $('input[name="data_use_type_other"]').is(":visible")) {
+          $('input[name="data_use_type_other"]').val("");
+          $('input[name="data_use_type_other"]').toggle();
+        }
+        if (choice == 'Other' && $('input[name="data_use_type_other"]').is(":hidden")) {
+          $('input[name="data_use_type_other"]').val("");
+          $('input[name="data_use_type_other"]').toggle();
         }
       });
 
@@ -178,17 +115,6 @@
         }
       });
 
-      // Add data use row
-      $('#add_data_src_btn-1').on('click', function(event) {
-        event.preventDefault(); // To prevent following the link (optional)
-        var msg = "add_data_src_btn-1 clicked";
-        // alert(msg);
-        myId = this.id.split("-")[1];
-        addDataSrc(myId);
-        // addDataUseRow();
-        return false;
-      });
-
       // Improved data use profile
       $('input[type=checkbox][class=data_use_type]').change(function() {
         updateDataUseProfile();
@@ -201,9 +127,8 @@
       $('input[type=radio][name=data_country_count]').change(function() {
         updateDataUseProfile();
       });
-      
-     </script>
+    }); // End Document Ready function
+
+  </script>
  </body>
 </html>
-
-
