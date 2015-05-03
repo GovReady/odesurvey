@@ -64,7 +64,7 @@
 
       <!-- Type of organization -->
       <div class="form-group col-md-12" id="org_type">
-          <label class="control-label">Type of organization <small class="required">*</small></label>
+          <label for="org_type">Type of organization <small class="required">*</small></label>
         <div class="col-md-10">
           <div class="btn-group" data-toggle="buttons">
             <label class="btn btn-default">
@@ -169,7 +169,7 @@
 
       <!-- Size -->
       <div class="form-group col-md-12">
-        <label class="control-label">Size <small class="required">*</small></label>
+        <label for="org_size_id">Size <small class="required">*</small></label>
         <div class="col-md-12">
           <div class="btn-group" data-toggle="buttons">
             <label class="btn btn-default">
@@ -193,7 +193,7 @@
 
       <!-- What is the greatest type of impact your organization has? -->
       <div class="form-group col-md-12" id="org_greatest_impact">
-          <label class="control-label">What is the greatest type of impact your organization has? <small class="required">*</small></label>
+          <label for="org_greatest_impact">What is the greatest type of impact your organization has? <small class="required">*</small></label>
         <div class="col-xs-9">
           <div class="btn-group" data-toggle="buttons">
             <label class="btn btn-default">
@@ -224,7 +224,7 @@
       </div>
       
       <div class="row col-md-12 data-use-row" id="dataUseDataType">
-        <label class="control-label">Types of <u>most relevant</u> open data your organization uses (select all that apply) <small class="required">*</small></label>
+        <label for="data_use_type[]">Types of <u>most relevant</u> open data your organization uses (select all that apply) <small class="required">*</small></label>
         <div class="col-md-3" id="data_type_col-1">
             <input type="checkbox" name="data_use_type[]" class="data_use_type" value="Agriculture" required> Agriculture
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Arts and culture"> Arts and culture
@@ -259,7 +259,7 @@
 
       <!-- Sources of open data -->
       <div class="form-group col-md-12">
-        <label class="control-label">Number of countries from which open data is provided <small class="required">*</small></label>
+        <label for="data_country_count">Number of countries from which open data is provided <small class="required">*</small></label>
         <div class="col-md-12">
           <div class="btn-group" data-toggle="buttons">
             <label class="btn btn-default">

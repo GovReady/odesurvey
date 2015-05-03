@@ -21,29 +21,18 @@
         <script src="/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 
         <style media="screen" type="text/css">
-            body {
-                padding-top: 30px;
-                padding-bottom: 20px;
-                font-size: 11pt;
-                color: #333;
-                /*font-size: 12px;*/
-                /*line-height: 22px;*/
-                font-family: Lato, sans-serif;
-            }
+
 
             .error {
                 color: red;
             }
             
-            .form-horizontal .control-label{
-                /* text-align:right; */
-                text-align:left;
-            }
 
-          h3 {
-            border-bottom: 1px dotted #ddd;
-            margin: 24px 0px 16px 0px;
-          }
+
+            h3 {
+                border-bottom: 1px dotted #ddd;
+                margin: 24px 0px 16px 0px;
+            }
 
         </style>
 

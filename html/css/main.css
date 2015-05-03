@@ -7,7 +7,13 @@
    ========================================================================== */
 
 body {
-  font-size: 11pt;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    font-size: 11pt;
+    color: #333;
+    /*font-size: 12px;*/
+    /*line-height: 22px;*/
+    font-family: Lato, sans-serif;
 }
 
 .lg-font p {
