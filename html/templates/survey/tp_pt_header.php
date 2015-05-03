@@ -20,22 +20,6 @@
 
         <script src="/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 
-        <style media="screen" type="text/css">
-
-
-            .error {
-                color: red;
-            }
-            
-
-
-            h3 {
-                border-bottom: 1px dotted #ddd;
-                margin: 24px 0px 16px 0px;
-            }
-
-        </style>
-
     </head>
     <body>
         <!--[if lt IE 7]>

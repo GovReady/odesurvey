@@ -1,14 +1,5 @@
 <?php include __DIR__.'/'.'tp_pt_header.php'; ?>
 
-<style>
-
-  h3 {
-    border-bottom: 1px dotted #ddd;
-    margin: 24px 0px 16px 0px;
-  }
-
-</style>
-
 <!-- Main Content Section -->
 <div class="container lg-font col-md-12" style="border:0px solid black;">
 

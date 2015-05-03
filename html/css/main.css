@@ -105,6 +105,15 @@ div.od-purpose {
   background-color:rgb(170,220,145);
 }
 
+.error {
+    color: red;
+}
+
+h3 {
+    border-bottom: 1px dotted #ddd;
+    margin: 24px 0px 16px 0px;
+}
+
 
 /* Bootstrap overrides */
 /* darken selected buttons */
