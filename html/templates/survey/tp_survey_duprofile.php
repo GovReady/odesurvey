@@ -306,7 +306,7 @@ body {
 
       <br />
 
-      <div class="row col-md-12" role="dataPurposes">
+      <div class="row col-md-10" role="dataPurposes">
         <label>
           Organizational optimization: <small class="required">*</small> <span style="font-weight:normal"><i>Provide details: E.g. benchmarking, market analysis, improving efficiency, enhancing existing products and services</i></span>
         </label>
@@ -338,8 +338,12 @@ body {
 
       <!-- Additional description --> 
       <div class="form-group col-md-12">
+        <div class="form-group col-md-10">
+          <label for="org_greatest_impact">
+            Additional information <i>(400 characters or less)</i> <span style="font-weight:normal;"><i>E.g. How could the open data your organization uses be improved? Which datasets are most valuable to your organization? What other types of data does your organization use in addition to open government data?</i>
+          </label>
+        </div>
         <div class="form-group col-md-8">
-          <label for="org_greatest_impact">Additional information <i>(400 characters or less)</i>  </label>
             <textarea type="text" class="form-control" id="org_additional" name="org_additional"></textarea>
         </div>
       </div>
