@@ -487,10 +487,40 @@ echo "<pre>";print_r($allPostVars);echo "</pre>";
 	// ============================================================================================
 	/* Saves multiple times per survey submission, once for each data use into two tables */
 	// If we made it here, everything worked.
-	$app->redirect("/survey/opendata/".$surveyId."/submitted/");
+	$app->redirect("/survey/opendata/".$surveyId."/thankyou/");
 
 });
 // end du new post here
+
+// ************
+$app->get('/survey/opendata/:surveyId/thankyou/', function ($surveyId) use ($app) {
+	
+	$parse = new parseRestClient(array(
+		'appid' => PARSE_APPLICATION_ID,
+		'restkey' => PARSE_API_KEY
+	));
+	// Retrieve org_profile
+	$params = array(
+	    'className' => 'org_profile',
+	    'query' => array(
+	        'profile_id' => $surveyId
+	    	)
+	);
+
+	$request = $parse->query($params);
+	$request_decoded = json_decode($request, true);
+	$org_profile = $request_decoded['results'][0];
+
+	$content['surveyId'] = $surveyId;
+
+	$content['HTTP_HOST'] = $_SERVER['HTTP_HOST'];
+	$content['surveyName'] = "opendata";
+	$content['title'] = "Open Data Enterprise Survey - Submitted";
+	
+	$app->view()->setData(array('content' => $content, 'org_profile' => $org_profile ));
+	$app->render('survey/tp_thankyou.php');
+
+});
 
 // ************
 $app->get('/survey/opendata/:surveyId/submitted/', function ($surveyId) use ($app) {

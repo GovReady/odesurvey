@@ -7,7 +7,7 @@
 		 <a href="http://https://github.com/GovReady/GovReady.github.io"><img src="/img/github-wrap.png" alt="Github Logo" class="social-icon"></a>
      <p>&copy; GovReady, Greg Elin 2014</p>
    -->
-   <p>&copy;</p>
+   <p>&copy; Center for Open Data Enterprise 2015. All Rights Reserved.</p>
    </footer>
  </div>
 
