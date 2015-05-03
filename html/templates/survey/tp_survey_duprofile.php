@@ -300,15 +300,12 @@ body {
         </div>
       </div>
 
-      <div id="data_use_details">
-      
-      </div>
+      <div id="data_use_details"></div>
 
-      <br />
-
-      <div class="row col-md-10" role="dataPurposes">
-        <label>
-          Organizational optimization: <small class="required">*</small> <span style="font-weight:normal"><i>Provide details: E.g. benchmarking, market analysis, improving efficiency, enhancing existing products and services</i></span>
+      <div class="row col-md-12">
+        <label class="row col-md-10">
+          Organizational optimization: <small class="required">*</small> 
+          <span style="font-weight:normal"><i>Provide details: E.g. benchmarking, market analysis, improving efficiency, enhancing existing products and services</i></span>
         </label>
 
         <div class="form-group col-md-12">
@@ -334,21 +331,21 @@ body {
             </div>
           </div>
         </div>
-      </div><!--/closes data purpose this should close datause tag -->
+      </div>
 
       <!-- Additional description --> 
-      <div class="form-group col-md-12">
-        <div class="form-group col-md-10">
-          <label for="org_greatest_impact">
-            Additional information <i>(400 characters or less)</i> <span style="font-weight:normal;"><i>E.g. How could the open data your organization uses be improved? Which datasets are most valuable to your organization? What other types of data does your organization use in addition to open government data?</i>
-          </label>
-        </div>
-        <div class="form-group col-md-8">
-            <textarea type="text" class="form-control" id="org_additional" name="org_additional"></textarea>
+      <div class="row col-md-12">
+        <label class="row col-md-10">
+          Additional information <i>(400 characters or less)</i> <span style="font-weight:normal;"><i>E.g. How could the open data your organization uses be improved? Which datasets are most valuable to your organization? What other types of data does your organization use in addition to open government data?</i>
+        </label>
+
+        <div class="col-md-8">
+          <textarea type="text" class="form-control" id="org_additional" name="org_additional"></textarea>
         </div>
       </div>
 
-    </div>  <!-- /closes data use  -->
+    </div>
+
 <br />
   
     <div class="col-md-12" role="Contact" id="role-contact">
