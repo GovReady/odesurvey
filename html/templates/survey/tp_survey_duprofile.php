@@ -19,7 +19,7 @@
       </div>
       <div>
         The Open Data Impact Map includes organizations that:
-          <ul id="xxx">
+          <ul>
               <li>are companies, non-profits, or developer groups; and</li>
               <li>use <i>open government data</i> to develop products and services, improve operations, inform strategy and/or conduct research.</li>
             </ul>
