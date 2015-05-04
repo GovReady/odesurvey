@@ -423,7 +423,15 @@ $app->post('/survey/opendata/2du/:surveyId/', function ($surveyId) use ($app) {
 	// Prepare and save data_use_object and arcgis_object combining data_use_object and org_object
 	// ============================================================================================
 	/* Saves multiple times per survey submission, once for each data use into two tables */
+	$idSuffixNum = 1;
 
+	// dataUseData-2]
+	while (array_key_exists('dataUseData-'.$idSuffixNum, $allPostVars)) {
+		echo "============\n<br>";
+		echo "<pre>";print_r($allPostVars['dataUseData-'.$idSuffixNum]);echo "</pre>";
+		$idSuffixNum++;
+	}
+	exit;
 
 
 

@@ -20,6 +20,33 @@ function fillForm() {
   $('input#survey_contact_title').val("Director of Surveys");
   $('input#survey_contact_email').val("greg@odesurvey.org");
   $('input#survey_contact_phone').val("505-555-1212");
+  $('input[type=radio][value="For-profit"]').click();
+  $('input[type=radio][value="Economic"]').click();
+
+  $('input#org_greatest_impact_other').val("Economic details here");
+  
+  $('input[type=radio][value=dat]').prop("checked", true);
+  $('input[type=radio][value="1 - 10"]').click(); 
+
+  $('input[type=checkbox][name="use_prod_srvc"]').click(); 
+  $('input#use_prod_srvc_desc').val("we develop products and services");
+  $('input#org_hq_city_all').val("Chicago, Illinois, United States");
+  $('input#org_hq_city').val("Chicago");
+  $('input#org_hq_st_prov').val("Illinois");
+  $('input#org_hq_country').val("US");
+  $('input#latitude').val("41.8781136");
+  $('input#longitude').val("-87.62979819999998");
+  $('input[type=checkbox][value=Business]').prop("checked", true);
+  $('input[type=radio][value="2 - 5"]').click();
+
+  // Let's fill in the data use form
+  $('input[type=checkbox][value=Agriculture]').prop("checked", true);
+  $('input[type=checkbox][value="Arts and culture"]').prop("checked", true);
+  $('input[type=checkbox][name="dataUseData-1[\'src_country\'][1][Business][\'src_gov_level\'][]"]').click(); 
+  $('input[type=checkbox][name="dataUseData-2[\'src_country\'][1][Business][\'src_gov_level\'][]"]').click(); 
+  $('input[type=checkbox][name="dataUseData-3[\'src_country\'][1][Business][\'src_gov_level\'][]"]').click(); 
+  $('input[type=select][name="dataUseData-1[\'src_country\'][1][\'src_country_locode\']"]').val("US");
+
   return true;
 }
 
