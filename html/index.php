@@ -452,7 +452,7 @@ $app->get('/survey/opendata/:surveyId/thankyou/', function ($surveyId) use ($app
 
 	$content['HTTP_HOST'] = $_SERVER['HTTP_HOST'];
 	$content['surveyName'] = "opendata";
-	$content['title'] = "Open Data Enterprise Survey - Submitted";
+	$content['title'] = "Open Data Enterprise Survey - Thank You";
 	
 	$app->view()->setData(array('content' => $content, 'org_profile' => $org_profile ));
 	$app->render('survey/tp_thankyou.php');

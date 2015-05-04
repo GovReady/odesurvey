@@ -21,15 +21,24 @@ class TestSlimBasic extends UnitTestCase {
 		$this->assertFalse(1==2);
 	}
 
-	function testSlimHello() {
+	function testStartSurvey() {
 
-		$url = 'http://localhost/hello/test';
+		$url = 'http://'.$_SERVER['HTTP_HOST'].'/survey/opendata/start';
+		echo "$url</br>";
 		$expected = "Hello, test!\n";
 		$page = file_get_contents($url);
 		$this->assertTrue($expected == $page);
 
 	}
 
+}
 
+class TestOfAbout extends WebTestCase {
+    function testOurAboutPageGivesFreeReignToOurEgo() {
+        $this->get('http://test-server/index.php');
+        $this->click('About');
+        $this->assertTitle('About why we are so great');
+        $this->assertText('We are really great');
+    }
 }
 ?>
