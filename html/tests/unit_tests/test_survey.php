@@ -27,7 +27,8 @@ class TestOfSurvey extends WebTestCase {
         $this->assertResponse(200);
         
         $this->setField("org_name", "SimpleTestCo");
-    	$this->setField("org_url", "http://www.simpletestco.com");
+        // Simpletest doesn't like input type url
+    	// $this->setField("org_url", "http://www.simpletestco.com");
     	$this->setField("org_year_founded", "2004");
     	$this->setField("org_description", "This is a test description.");
     	$this->setField("org_additional", "This organization has a big impact...");
@@ -38,19 +39,21 @@ class TestOfSurvey extends WebTestCase {
     	$this->setField("survey_contact_phone", "505-555-1212");
 
 		$this->setField("org_hq_city_all", "Chicago, IL, USA");
-		$this->setField("org_hq_city", "Chicago");
-		$this->setField("org_hq_st_prov", "Illinois");
-		$this->setField("org_hq_country", "US");
-		$this->setField("latitude", "41.8781136");
-		$this->setField("longitude", "-87.62979819999998");
 
-    	// test a field
+    	// test fields
+    	$this->assertField("org_year_founded", "2004");
     	$this->assertField('survey_contact_first', 'Greg');
+    	// $this->assertField("org_url", "http://");
     	
+    	// Add in parameter values for hidden fields that we cannot seem to set with 'setField'
+    	$additional = array("org_hq_city"=>"Chicago", "org_hq_st_prov"=>"Illinois", "org_hq_country"=>"US", 
+    		"latitude"=>"41.8781136", "longitude"=>"-87.62979819999998",
+    		"org_size_id"=>"1 - 10", "org_type"=>"Other", "org_type_other"=>"Government",
+    		"industry_id"=>"cul", "org_url"=>"http://www.simpletestco.com");
     	// NOTE Form will submit without Javascript validation !!
-    	$this->clickSubmitById("btnSubmit");
+    	$this->clickSubmitById( "btnSubmit", $additional );
+    	// $this->clickSubmitById( "btnSubmit" );
     	$this->assertResponse(200);
-    	// $this->assertText('Additional information');
     	$this->assertTitle('Open Data Enterprise Survey - Thank You');
 
 
