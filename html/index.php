@@ -368,8 +368,6 @@ $app->post('/survey/opendata/2du/:surveyId/', function ($surveyId) use ($app) {
 	$request = $parse->create($parse_params);
 	$response = json_decode($request, true);
 	echo "<pre>"; print_r($response); echo "</pre>";
-	exit;
-
 
 	// ============================================================================
 	// Prepare and save org_object into arcgis_flatfile as row_type = org_profile
@@ -425,6 +423,10 @@ $app->post('/survey/opendata/2du/:surveyId/', function ($surveyId) use ($app) {
 	// Prepare and save data_use_object and arcgis_object combining data_use_object and org_object
 	// ============================================================================================
 	/* Saves multiple times per survey submission, once for each data use into two tables */
+
+
+
+
 	// If we made it here, everything worked.
 
 	/* NEEDS to BE SAVED HERE */
