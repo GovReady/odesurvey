@@ -331,7 +331,7 @@ $app->post('/survey/opendata/2du/:surveyId/', function ($surveyId) use ($app) {
     $allPostVars["latitude"] = floatval($allPostVars["latitude"]);
     $allPostVars["longitude"] = floatval($allPostVars["longitude"]);
 
-	// echo "<pre>";print_r($allPostVars);echo "</pre>"; 
+	echo "<pre>";print_r($allPostVars);echo "</pre>"; 
 	// exit;
 
 	// ============================
@@ -357,8 +357,9 @@ $app->post('/survey/opendata/2du/:surveyId/', function ($surveyId) use ($app) {
 	// set profile_id
 	$org_object['profile_id'] = $surveyId;
 	// identify row type as org_profile
-	// echo "<pre>"; print_r($allPostVars); echo "</pre>";
-	// echo "<pre>"; print_r($object); echo "</pre>";
+	echo "<pre>"; print_r($allPostVars); echo "</pre>";
+	echo "<pre>"; print_r($org_object); echo "</pre>";
+
 	// save org_object to Parse
 	$parse_params = array(
 		'className' => 'org_profile',
@@ -366,6 +367,9 @@ $app->post('/survey/opendata/2du/:surveyId/', function ($surveyId) use ($app) {
 	);
 	$request = $parse->create($parse_params);
 	$response = json_decode($request, true);
+	echo "<pre>"; print_r($response); echo "</pre>";
+	exit;
+
 
 	// ============================================================================
 	// Prepare and save org_object into arcgis_flatfile as row_type = org_profile
