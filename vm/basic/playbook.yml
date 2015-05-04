@@ -35,6 +35,11 @@
      copy: src=templates/etc/sysconfig/iptables dest=/etc/sysconfig/iptables owner=root group=root mode=0600
      notify: restart iptables
 
+   - name: gettext
+     yum: pkg={{ item }} state=installed
+     with_items:
+        - gettext
+
    - name: Install http and php etc
      yum: pkg={{ item }} state=installed
      with_items:
@@ -50,11 +55,6 @@
    # httpd.conf update necessary to address vagrant/virtualbox issue so changes to synched folder static html files work 
    - name: Set 'EnableSendfile off' in Apache2 httpd.conf 
      lineinfile: dest=/etc/httpd/conf/httpd.conf regexp="^EnableSendfile off" insertafter="^#EnableSendfile " line="EnableSendfile off"
-
-   - name: gettext
-     yum: pkg={{ item }} state=installed
-     with_items:
-        - gettext
 
    - name: Ensure Apache running
      service: name=httpd state=started enabled=yes

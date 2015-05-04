@@ -354,7 +354,7 @@
     </div><!-- /closes role contact -->
       
     <div class="row col-md-7"><br />
-      <button class="btn btn-primary col-md-3" id="btnSubmit" type="submit">SUBMIT</button>
+      <button class="btn btn-primary col-md-3" id="btnSubmit" type="submit" name="submit" value="submit">SUBMIT</button>
     </div>
 
 </form>

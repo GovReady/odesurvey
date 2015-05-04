@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Open Data Survey 2015 - New</title>
+        <title><?php echo $content['title'] ?></title>
         <meta name="description" content="Open Data Impact Map Survey 2015">
         <meta name="viewport" content="width=device-width">
         <meta name="format-detection" content="telephone=no">
