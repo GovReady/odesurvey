@@ -331,7 +331,7 @@ $app->post('/survey/opendata/2du/:surveyId/', function ($surveyId) use ($app) {
     $allPostVars["latitude"] = floatval($allPostVars["latitude"]);
     $allPostVars["longitude"] = floatval($allPostVars["longitude"]);
 
-	echo "<pre>";print_r($allPostVars);echo "</pre>"; 
+	// echo "<pre>";print_r($allPostVars);echo "</pre>"; 
 	// exit;
 
 	// ============================
@@ -357,8 +357,8 @@ $app->post('/survey/opendata/2du/:surveyId/', function ($surveyId) use ($app) {
 	// set profile_id
 	$org_object['profile_id'] = $surveyId;
 	// identify row type as org_profile
-	echo "<pre>"; print_r($allPostVars); echo "</pre>";
-	echo "<pre>"; print_r($org_object); echo "</pre>";
+	// echo "<pre>"; print_r($allPostVars); echo "</pre>";
+	// echo "<pre>"; print_r($org_object); echo "</pre>";
 
 	// save org_object to Parse
 	$parse_params = array(
@@ -367,7 +367,7 @@ $app->post('/survey/opendata/2du/:surveyId/', function ($surveyId) use ($app) {
 	);
 	$request = $parse->create($parse_params);
 	$response = json_decode($request, true);
-	echo "<pre>"; print_r($response); echo "</pre>";
+	// echo "<pre>"; print_r($response); echo "</pre>";
 
 	// ============================================================================
 	// Prepare and save org_object into arcgis_flatfile as row_type = org_profile
@@ -427,17 +427,81 @@ $app->post('/survey/opendata/2du/:surveyId/', function ($surveyId) use ($app) {
 
 	// dataUseData-2]
 	while (array_key_exists('dataUseData-'.$idSuffixNum, $allPostVars)) {
-		echo "============\n<br>";
-		echo "<pre>";print_r($allPostVars['dataUseData-'.$idSuffixNum]);echo "</pre>";
+		if (is_null($allPostVars['dataUseData-'.$idSuffixNum])) { continue; }
+
+		// echo "<br>$idSuffixNum";
+		// echo "============\n<br>";
+		$data_use_object = array();
+		foreach ($allPostVars['dataUseData-'.$idSuffixNum] as $row) {
+			// echo "<pre>";print_r($row);echo "</pre>";
+			$src_country = $row['src_country_locode'];
+
+			foreach ($row['type'] as $type => $details) {
+				foreach ($details['src_gov_level'] as $gov_level) {
+					// echo "<br>$src_country|$type|$gov_level";
+					$data_use_object['data_src_country_locode'] = $src_country;
+					$data_use_object['data_type'] = $type;
+					$data_use_object['data_src_gov_level'] = $gov_level;
+					// set profile_id
+					$data_use_object['profile_id'] = $surveyId;
+					// identify row as data use row
+					$data_use_object['row_type'] = 'data_use';
+					// echo "<pre>";print_r($data_use_object);echo "</pre>";
+
+					// save data_use_object to Parse
+					$parse_params = array(
+						'className' => 'org_data_use',
+						'object' => $data_use_object 	// contains data for org_data_use row
+					);
+					$request = $parse->create($parse_params);
+					$response = json_decode($request, true);
+					// print_r($response); echo "<br />";
+					if(!isset($response['createdAt'])) {
+						echo "<br>Problem. Problem saving how data is used create not yet handled.";
+						// log error and generate email to admins
+						exit;
+					}
+
+					// merge org_profile and data_use objects and save to parse for arcgis
+					$arcgis_object = array_merge($org_object, $data_use_object);
+					$parse_params = array(
+						'className' => 'arcgis_flatfile',
+						'object' => $arcgis_object 	// contains data for org_data_use row
+					);
+					$request = $parse->create($parse_params);
+					$response = json_decode($request, true);
+					// print_r($response); echo "<br />";
+					if(!isset($response['createdAt'])) {
+						echo "<br>Problem. Problem saving how data is used create not yet handled.";
+						// log error and generate email to admins
+						exit;
+					}
+				}
+			}
+		}
 		$idSuffixNum++;
 	}
-	exit;
 
+	// If we made it here, everything saved.
 
+	// ==========================================
+	// All data saved, send a confirmation email
+	// ==========================================
+	/* Send one per survey submission */
+	// Instantiate the client.
+	$mgClient = new Mailgun(MAILGUN_APIKEY);
+	$domain = MAILGUN_SERVER;
 
-	// If we made it here, everything worked.
-
-	/* NEEDS to BE SAVED HERE */
+    if ( strlen($allPostVars['survey_contact_email']) > 0 && SEND_MAIL) {
+		// Send email with mailgun
+		$result = $mgClient->sendMessage($domain, array(
+			'from'    => 'Center for Open Data Enterprise <mailgun@sandboxc1675fc5cc30472ca9bd4af8028cbcdf.mailgun.org>',
+			'to'      => '<'.$allPostVars['survey_contact_email'].'>',
+			'subject' => 'Thank you for submitting open data survey!',
+			'text'    => 'Thank you for completing the 2015 open data survery. You can view your submitted survey at http://'.$_SERVER['HTTP_HOST'].'/survey/opendata/'.$surveyId.'/submitted'
+		));
+		// echo "<pre>";print_r($result); echo "</pre>";
+    }
 
 	$app->redirect("/survey/opendata/".$surveyId."/thankyou/");
 });
