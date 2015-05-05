@@ -125,10 +125,10 @@ function getTypes(idSuffixNum, selectName) {
     <span class="" id="" style="font-size:0.8em;">'+truncate(entry)+'</span> \
       <div class="btn-group" data-toggle="buttons"> \
         <label class="btn btn-default" style="font-size:0.6em"> \
-            <input type="checkbox" name="dataUseData-'+idSuffixNum.toString()+'[\'src_country\'][1]['+entry+'][\'src_gov_level\'][]" value="National">National \
+            <input type="checkbox" name="dataUseData-'+idSuffixNum.toString()+'[src_country][type]['+entry+'][src_gov_level][]" value="National">National \
         </label> \
         <label class="btn btn-default" style="font-size:0.6em"> \
-            <input type="checkbox" name="dataUseData-'+idSuffixNum.toString()+'[\'src_country\'][1]['+entry+'][\'src_gov_level\'][]" value="State/Local">State / Local \
+            <input type="checkbox" name="dataUseData-'+idSuffixNum.toString()+'[src_country][type]['+entry+'][src_gov_level][]" value="State/Local">State / Local \
         </label> \
       </div> \
       </span>';
@@ -141,7 +141,7 @@ function getTypes(idSuffixNum, selectName) {
 function getCountries(idSuffixNum) {
   var select_countries = ' \
         <div class="data-src-row col-md-3" id="data-src-row-'+idSuffixNum.toString()+' style=""> Data source - Country\
-<select name="dataUseData-'+idSuffixNum.toString()+'[\'src_country\'][1][\'src_country_locode\']" class="js-example-basic-single" style="width:240px;"> \
+<select name="dataUseData-'+idSuffixNum.toString()+'[src_country][src_country_locode]" class="js-example-basic-single" style="width:240px;"> \
 <option value="">Select</option> \
 <option value="AF">Afghanistan</option> \
 <option value="AX">Åland Islands</option> \
