@@ -68,9 +68,6 @@
      copy: src=templates/etc/php.d/gettext.ini dest=/etc/php.d/gettext.ini
      notify: restart httpd
 
-   # - name: Create application log file
-   #   file: path=/var/log/odesurvey/odesurvey.log owner=apache group=apache state=touch
-
    - name: Create application log directory
      file: path=/var/log/odesurvey state=directory owner=apache group=apache
 
