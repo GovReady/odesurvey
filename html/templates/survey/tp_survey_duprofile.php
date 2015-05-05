@@ -115,35 +115,34 @@
         <label for="industry_id">Industry/category of the organization <i>(select 1)</i> <small class="required">*</small></label>
         <fieldset>
         <div class="col-md-3" id="industry_id_col-1">
-          <label for="industry_id_cul">
-          <input id="industry_id_cul" type="radio" name="industry_id" class="industry_id" value="bus" required> Business &amp; legal services
-        
-          <br /><input type="radio" name="industry_id" class="industry_id" value="cul"> Culture/Leisure
-          <br /><input type="radio" name="industry_id" class="industry_id" value="dat"> Data/Technology
+          <input type="radio" name="industry_id" class="industry_id" value="agr"> Agriculture
+          <br /><input type="radio" name="industry_id" class="industry_id" value="art"> Arts and culture
+          <br /><input id="industry_id_cul" type="radio" name="industry_id" class="industry_id" value="bus" required> Business &amp; legal services
+          <br /><input type="radio" name="industry_id" class="industry_id" value="con"> Consumer services
+          <br /><input type="radio" name="industry_id" class="industry_id" value="dat"> Data/information technology
           <br /><input type="radio" name="industry_id" class="industry_id" value="edu"> Education
           <br /><input type="radio" name="industry_id" class="industry_id" value="ngy"> Energy
-          <br /><input type="radio" name="industry_id" class="industry_id" value="env"> Environment &amp; weather
-          <br /><input type="radio" name="industry_id" class="industry_id" value="fin"> Finance &amp; investment
-          <br /><input type="radio" name="industry_id" class="industry_id" value="agr"> Food &amp; agriculture
+          <br /><input type="radio" name="industry_id" class="industry_id" value="env"> Environment
+          <br /><input type="radio" name="industry_id" class="industry_id" value="fin"> Finance and investment
         </div>
         <div class="col-md-3" id="industry_id_col-2">
-          <input type="radio" name="industry_id" class="industry_id" value="geo"> Geospatial/Mapping
+          <input type="radio" name="industry_id" class="industry_id" value="geo"> Geospatial/mapping
           <br /><input type="radio" name="industry_id" class="industry_id" value="gov"> Governance
           <br /><input type="radio" name="industry_id" class="industry_id" value="hlt"> Healthcare
-          <br /><input type="radio" name="industry_id" class="industry_id" value="est"> Housing/Real estate
-          <br /><input type="radio" name="industry_id" class="industry_id" value="hum"> Human rights
+          <br /><input type="radio" name="industry_id" class="industry_id" value="est"> Housing and real estate
           <br /><input type="radio" name="industry_id" class="industry_id" value="ins"> Insurance
-          <br /><input type="radio" name="industry_id" class="industry_id" value="lif"> Lifestyle &amp; consumer
-          <br /><input type="radio" name="industry_id" class="industry_id" value="med"> Media &amp; communications
+          <br /><input type="radio" name="industry_id" class="industry_id" value="med"> Media and communications
+          <br /><input type="radio" name="industry_id" class="industry_id" value="man"> Mining/Manufacturing
+          <br /><input type="radio" name="industry_id" class="industry_id" value="rsh"> Research and consulting
+          <br /><input type="radio" name="industry_id" class="industry_id" value="sec"> Security and public safety
         </div>
         <div class="col-md-3" id="industry_id_col-3">
-          <input type="radio" name="industry_id" class="industry_id" value="man"> Mining/Manufacturing
-          <br /><input type="radio" name="industry_id" class="industry_id" value="rsh"> Research &amp; consulting
-          <br /><input type="radio" name="industry_id" class="industry_id" value="sci"> Scientific research
-          <br /><input type="radio" name="industry_id" class="industry_id" value="tel"> Telecommunication/ISPs
+          <input type="radio" name="industry_id" class="industry_id" value="sci"> Scientific research
+          <br /><input type="radio" name="industry_id" class="industry_id" value="tel"> Telecommunication/internet service providers (ISPs)
           <br /><input type="radio" name="industry_id" class="industry_id" value="trm"> Tourism
-          <br /><input type="radio" name="industry_id" class="industry_id" value="trd"> Trade &amp; commodities
-          <br /><input type="radio" name="industry_id" class="industry_id" value="trn"> Transportation
+          <br /><input type="radio" name="industry_id" class="industry_id" value="trn"> Transportation and logistics
+          <br /><input type="radio" name="industry_id" class="industry_id" value="wat"> Water and sanitation
+          <br /><input type="radio" name="industry_id" class="industry_id" value="wea"> Weather
           <br /><input type="radio" name="industry_id" class="industry_id" value="otr"> Other
                 <input type="text" class="form-control" style="display:none" name="industry_other" placeholder="Describe other">
         </div>
@@ -247,7 +246,7 @@
                   <input type="text" class="form-control" style="display:none" id="data_use_type_other" name="data_use_type_other" placeholder="Provide details">
         </div>
       </div>
-
+<br />
       <!-- Sources of open data -->
       <div class="form-group col-md-12">
         <label for="data_country_count">Number of countries from which open data is provided <small class="required">*</small></label>
@@ -279,8 +278,7 @@
 
       <div class="row col-md-12">
         <label class="row col-md-10">
-          Organizational optimization: <small class="required">*</small> 
-          <span style="font-weight:normal"><i>Provide details: E.g. benchmarking, market analysis, improving efficiency, enhancing existing products and services</i></span>
+          How does your organization use open data? <small class="required">*</small> 
         </label>
 
         <div class="form-group col-md-12">
@@ -290,7 +288,7 @@
               <input type="text" class="form-control" style="display:none" id="use_prod_srvc_desc" name="use_prod_srvc_desc" placeholder="Provide details">
             </div>
             <div>
-              <input type="checkbox" class="use_open_data" name="use_org_opt" id="use_org_opt" value="True"> organizational optimization
+              <input type="checkbox" class="use_open_data" name="use_org_opt" id="use_org_opt" value="True"> organizational optimization <i>(e.g. benchmarking, market analysis, improving efficiency, enhancing existing products and services)</i>
               <input type="text" class="form-control" style="display:none" id="use_org_opt_desc" name="use_org_opt_desc" placeholder="Provide details">
             </div>
           </div>
@@ -311,17 +309,17 @@
       <!-- Additional description --> 
       <div class="row col-md-12">
         <label class="row col-md-10">
-          Additional information <i>(400 characters or less)</i> <span style="font-weight:normal;"><i>E.g. How could the open data your organization uses be improved? Which datasets are most valuable to your organization? What other types of data does your organization use in addition to open government data?</i>
+          Additional information <i>(400 characters or less)</i> <span style="font-weight:normal;"><br /><i>E.g. How could the open data your organization uses be improved? Which datasets are most valuable to your organization? What other types of data does your organization use in addition to open government data?</i>
         </label>
 
         <div class="col-md-8">
           <textarea type="text" class="form-control" id="org_additional" name="org_additional"></textarea>
         </div>
       </div>
-
+      <br />
     </div>
 
-<br />
+    <br />
   
     <div class="col-md-12" role="Contact" id="role-contact">
       <div class="row col-md-12">
@@ -331,19 +329,19 @@
 
       <div class="form-group col-md-12">
         <div class="col-md-7">
-          <div for="survey_contact_first">first name <small class="required">*</small></div>
+          <div for="survey_contact_first">First name <small class="required">*</small></div>
           <input type="text" class="form-control" id="survey_contact_first" name="survey_contact_first" required>
 
-          <div for="survey_contact_last">last name <small class="required">*</small></div>
+          <div for="survey_contact_last">Last name <small class="required">*</small></div>
           <input type="text" class="form-control" id="survey_contact_last" name="survey_contact_last" required>
 
-          <div for="survey_contact_title">title (optional)</div>
+          <div for="survey_contact_title">Title (optional)</div>
           <input type="text" class="form-control" id="survey_contact_title" name="survey_contact_title">
 
-          <div for="survey_contact_email">email <small class="required">*</small></div>
+          <div for="survey_contact_email">Email <small class="required">*</small></div>
           <input type="email" class="form-control" id="survey_contact_email" name="survey_contact_email" required>
 
-          <div for="survey_contact_email">phone (optional)</div>
+          <div for="survey_contact_email">Phone (optional)</div>
           <input type="text" class="form-control" id="survey_contact_phone" name="survey_contact_phone">
 
           <input type="hidden" class="form-control" id="org_profile_year" name="org_profile_year" value="2015">
