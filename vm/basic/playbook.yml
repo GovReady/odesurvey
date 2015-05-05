@@ -51,6 +51,7 @@
         - php-gd
         - php-tidy
         - php-pear
+        - php-posix
 
    # httpd.conf update necessary to address vagrant/virtualbox issue so changes to synched folder static html files work 
    - name: Set 'EnableSendfile off' in Apache2 httpd.conf 
@@ -66,6 +67,15 @@
    - name: Copy gettext.ini file 
      copy: src=templates/etc/php.d/gettext.ini dest=/etc/php.d/gettext.ini
      notify: restart httpd
+
+   # - name: Create application log file
+   #   file: path=/var/log/odesurvey/odesurvey.log owner=apache group=apache state=touch
+
+   - name: Create application log directory
+     file: path=/var/log/odesurvey state=directory owner=apache group=apache
+
+   - name: Set application log file permissions
+     file: path=/var/log/odesurvey/odesurvey.log state=touch owner=apache group=apache
 
    - name: Install git
      yum: pkg=git state=installed

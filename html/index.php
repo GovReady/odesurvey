@@ -12,6 +12,20 @@ if (!file_exists('credentials.inc.php')) {
    echo "My credentials are missing!";
    exit;
 }
+
+// make sure log directory exists and is owned by apache
+define(ODESURVEY_LOG, "/var/log/odesurvey/odesurvey.log");
+
+if (!file_exists(ODESURVEY_LOG)) {
+	echo "My log file directory ".ODESURVEY_LOG." is missing!";
+	exit;
+}
+$fileinfo = posix_getpwuid(fileowner(ODESURVEY_LOG));
+if ($fileinfo['name'] != "apache") {
+	echo "My log file ".ODESURVEY_LOG." is is not owned by Apache!";
+	exit;
+} 
+
 // Set if sending email is on
 define("SEND_MAIL", false);
 
@@ -34,12 +48,14 @@ use Mailgun\Mailgun;
 function TempLogger($message) {
 	error_log( "Logger $message" );
 }
-// Start Slim router
-//-------------------------------
-$app = new \Slim\Slim();
 
-// Reference router methods
+// Set up basic logging using slim built in logger
+// NOTE: Makes sure /var/log/odesurvey/ directory exists and owned by apache:apache
+$logWriter = new \Slim\LogWriter(fopen('/var/log/odesurvey/odesurvey.log', 'a'));
+
+// Start Slim instance
 //-------------------------------
+$app = new \Slim\Slim(array('log.writer' => $logWriter));
 
 //-----------------------------------------------------
 // display placeholder landing page
@@ -98,6 +114,8 @@ $app->get('/survey/opendata/start', function () use ($app) {
 
 // ************
 $app->get('/survey/opendata/:surveyId', function ($surveyId) use ($app) {
+	
+	$app->log->debug(date_format(date_create(), 'Y-m-d H:i:s')."; DEBUG; "."new survey created, ...");
 	
 	$parse = new parseRestClient(array(
 		'appid' => PARSE_APPLICATION_ID,
@@ -324,6 +342,9 @@ $app->post('/survey/opendata/2du/:surveyId/', function ($surveyId) use ($app) {
 	// Access post variables from submitted survey form
 	$allPostVars = $app->request->post();
 	// echo "<pre>"; print_r($allPostVars); echo "</pre>";
+
+	// writeDataLog($allPostVars);
+	$app->log->info(date_format(date_create(), 'Y-m-d H:i:s')."; INFO; ". str_replace("\n", "||", print_r($allPostVars, true)) );
 
     // Set string values to numeric values
     $allPostVars["org_profile_year"] = intval($allPostVars["org_profile_year"]);
