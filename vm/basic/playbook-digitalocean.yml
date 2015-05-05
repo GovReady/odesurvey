@@ -48,6 +48,7 @@
         - php-gd
         - php-tidy
         - php-pear
+        - php-posix
 
    - name: Ensure Apache running
      service: name=httpd state=started enabled=yes
@@ -55,6 +56,12 @@
    - name: Copy Apache vhost config file for default web pages 
      copy: src=templates/etc/httpd/conf.d/15-default.conf dest=/etc/httpd/conf.d/15-default.conf
      notify: restart httpd
+
+   - name: Create application log directory
+     file: path=/var/log/odesurvey state=directory owner=apache group=apache
+
+   - name: Set application log file permissions
+     file: path=/var/log/odesurvey/odesurvey.log state=touch owner=apache group=apache
 
    - name: Install git
      yum: pkg=git state=installed
