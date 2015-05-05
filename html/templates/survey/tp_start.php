@@ -59,7 +59,7 @@
                         <img class="logo" src="http://uploads.webflow.com/54c24a0650f1708e4c8232a0/54c24fc57bbf1d8c4cfd6581_Logo-Text.png" width="400" alt="54c24fc57bbf1d8c4cfd6581_Logo-Text.png"></a>
                     </div>
 
-                    <div style="margin:10% 30% 0 30%;height:300px;text-align:center;">
+                    <div style="margin:10% 30% 0 30%;height:600px;text-align:center;">
                         <h3><a href="/survey/opendata/start">Take survey</a></h3>
 
                         <h3><a href="/survey/opendata/list/new">View submitted surveys</a></h3>
@@ -72,6 +72,11 @@
                         <h4><a href="/tests/unit_tests/test_datalog.php">Test Data Log (in progress)</a></h4>
                         <h4><a href="/tests/unit_tests/test_survey.php">Test Survey (in progress)</a></h4>
                         <h4><a href="/tests/unit_tests/test_parse.php">Test Parse (in progress)</a></h4>
+                        <br />
+                        <h4><a href="https://github.com/GovReady/odesurvey">GitHub Code Repository</a><br><small>login required</small></h4>
+                        <h4><a href="https://github.com/notifications">GitHub Issue Notifications</a> <br><small>login required</small></h4>
+
+                        
                     </div>
 
                 </div>
