@@ -20,12 +20,20 @@ class TestOfSurvey extends WebTestCase {
         echo $this->getUrl();
     }
 
+    function testBasicLogging() {
+        $this->get('http://'.$_SERVER['HTTP_HOST'].'/survey/opendata/start');
+        $this->assertResponse(200);
+
+        echo "<br>should generate entry in slimroot/app/errors_slim.log<br>\n";
+    }
+
     function testSurveySubmitComplete() {
 
-
+        // Test getting getting blank survey page
     	$this->get('http://'.$_SERVER['HTTP_HOST'].'/survey/opendata/start');
         $this->assertResponse(200);
         
+        // Fill in survey fields
         $this->setField("org_name", "SimpleTestCo");
         // Simpletest doesn't like input type url
     	// $this->setField("org_url", "http://www.simpletestco.com");
@@ -37,10 +45,9 @@ class TestOfSurvey extends WebTestCase {
     	$this->setField("survey_contact_title", "Director of Surveys");
     	$this->setField("survey_contact_email", "greg@odesurvey.org");
     	$this->setField("survey_contact_phone", "505-555-1212");
-
 		$this->setField("org_hq_city_all", "Chicago, IL, USA");
 
-    	// test fields
+    	// spot check a couple survey fields
     	$this->assertField("org_year_founded", "2004");
     	$this->assertField('survey_contact_first', 'Greg');
     	// $this->assertField("org_url", "http://");
@@ -50,9 +57,14 @@ class TestOfSurvey extends WebTestCase {
     		"latitude"=>"41.8781136", "longitude"=>"-87.62979819999998",
     		"org_size_id"=>"1 - 10", "org_type"=>"Other", "org_type_other"=>"Government",
     		"industry_id"=>"cul", "org_url"=>"http://www.simpletestco.com");
-    	// NOTE Form will submit without Javascript validation !!
+    	
+        // SUBMIT SURVEY
+        // NOTE: Form submits bypasses Javascript validation
     	$this->clickSubmitById( "btnSubmit", $additional );
-    	// $this->clickSubmitById( "btnSubmit" );
+
+        // Test datalog written
+
+        // Test thank you page appears
     	$this->assertResponse(200);
     	$this->assertTitle('Open Data Enterprise Survey - Thank You');
 
