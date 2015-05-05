@@ -61,10 +61,8 @@ function truncate(string){
         return string;
 };
 
-// Improved data use profile
-function updateDataUseProfile() {
-  // empty holding div
-  $('#data_use_details').empty();
+// Use of Open Data Interactivity
+function updateDataUseProfile(e) {
 
   var data_country_count = $('input[type=radio][name=data_country_count]:checked').val();
   if (typeof data_country_count !== 'undefined') {
@@ -86,6 +84,9 @@ function updateDataUseProfile() {
       country_count = 3;
         country_text = "top 3 countries";
     }
+
+    // empty holding div
+    $('#data_use_details').empty();
 
     var content_question =  '<div class=" col-md-12" style="border:0px solid black;" id="data_details">Indicate the '+country_text+' that provide the data, and whether the data is National or State / Local (state/province/city).</div>';
     $('#data_use_details').append(content_question);

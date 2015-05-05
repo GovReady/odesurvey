@@ -115,17 +115,17 @@
         }
       });
 
-      // Improved data use profile
-      $('input[type=checkbox][class=data_use_type]').change(function() {
-        updateDataUseProfile();
+      // Use of Open Data Interactivity
+      $('input[type=checkbox][class=data_use_type]').change(function(e) {
+        updateDataUseProfile(e);
       });
       
-      $('input[name="data_use_type_other"]').change(function() {
-        updateDataUseProfile();
+      $('input[name="data_use_type_other"]').change(function(e) {
+        updateDataUseProfile(e);
       });
 
-      $('input[type=radio][name=data_country_count]').change(function() {
-        updateDataUseProfile();
+      $('input[type=radio][name=data_country_count]').change(function(e) {
+        updateDataUseProfile(e);
       });
     }); // End Document Ready function
 
