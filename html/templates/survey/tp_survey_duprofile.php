@@ -106,7 +106,7 @@
           <!--label for="latitude">lat</label -->
           <input type="hidden" class="form-control" id="latitude" name="latitude" required data-geo="lat">
           <!--label for="longitude">lng</label -->
-          <input type="hidden" class="form-control" id="`" name="longitude" required data-geo="lng">
+          <input type="hidden" class="form-control" id="longitude" name="longitude" required data-geo="lng">
         </div>
       </div>
   
