@@ -104,9 +104,9 @@
           <input type="hidden" class="form-control" id="org_hq_country" name="org_hq_country" required data-geo="country_short">
 
           <!--label for="latitude">lat</label -->
-          <input type="hidden" class="form-control" id="latitude" name="latitude" required data-geo="lat">
+          lat<input type="text" class="form-control" id="latitude" name="latitude" required data-geo="lat">
           <!--label for="longitude">lng</label -->
-          <input type="hidden" class="form-control" id="longitude" name="longitude" required data-geo="lng">
+          long<input type="text" class="form-control" id="longitude" name="longitude" required data-geo="lng">
         </div>
       </div>
   
@@ -163,19 +163,19 @@
         <div class="col-md-12">
           <div class="btn-group" data-toggle="buttons">
             <label class="btn btn-default">
-                <input type="radio" name="org_size_id" value="1 - 10" > 1-10 employees
+                <input type="radio" name="org_size_id" value="1-10"> 1-10 employees
             </label>
             <label class="btn btn-default">
-                <input type="radio" name="org_size_id" value="11 - 50" > 11-50 employees
+                <input type="radio" name="org_size_id" value="11-50"> 11-50 employees
             </label>
             <label class="btn btn-default">
-                <input type="radio" name="org_size_id" value="51 - 200" > 51-200 employees
+                <input type="radio" name="org_size_id" value="51-200"> 51-200 employees
             </label>
             <label class="btn btn-default">
-                <input type="radio" name="org_size_id" value="201 - 1000" > 201-1000 employees
+                <input type="radio" name="org_size_id" value="201-1000"> 201-1000 employees
             </label>
             <label class="btn btn-default">
-                <input type="radio" name="org_size_id" value="1000+" > 1000+ employees
+                <input type="radio" name="org_size_id" value="1000+"> 1000+ employees
             </label>
           </div>
         </div>
