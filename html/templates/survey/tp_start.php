@@ -29,7 +29,7 @@
                         <span class="icon-bar">t2</span>
                         <span class="icon-bar"></span>
                     </button>
-                    <span class="navbar-brand" data-i18n="title">Open Data Enpterprise 2015 Survey</span>
+                    <span class="navbar-brand" data-i18n="title">Open Data Enterprise 2015 Survey</span>
                 </div>
                 <nav id="menu" class="navbar-collapse collapse" role="navigation">
 
