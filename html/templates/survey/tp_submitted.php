@@ -50,22 +50,6 @@ body {
 
  <form class="form-horizontal"><!-- using form tag for moment to preserve left side alignment -->
 
-    <div class="row col-md-12 controlsec row-fluid" role="Intro">
-      <div class="row col-md-12">
-          <h3>Thank You!</h3>
-      </div>
-
-      <div class="row col-md-8">
-          <div>
-            Thank you for completing the 2015 Open Data Survey for <?php echo $org_profile['org_name']; ?>.
-          </div>
-          <div>
-            You can view your survey anytime at: <a href ="http://<?php echo $content['HTTP_HOST']; ?>/survey/opendata/<?php echo $content['surveyId'] ?>/submitted">http://<?php echo $content['HTTP_HOST']; ?>/survey/opendata/<?php echo $content['surveyId'] ?>/submitted</a>
-          </div>
-        </div>
-
-    </div><!--/Intro-->
-
     <div class="row col-md-12 controlsec" role="orgInfo">
      	<div class="row col-md-12">
      			<h3>Organization information</h3>

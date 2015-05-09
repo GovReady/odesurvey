@@ -62,12 +62,20 @@ class TestOfSurvey extends WebTestCase {
         // NOTE: Form submits bypasses Javascript validation
     	$this->clickSubmitById( "btnSubmit", $additional );
 
-        // Test datalog written
-
         // Test thank you page appears
     	$this->assertResponse(200);
     	$this->assertTitle('Open Data Enterprise Survey - Thank You');
 
+        // Get survey ID and test that survey cannot be re-completed
+
+        $url_path = explode("/", parse_url($this->getUrl(), PHP_URL_PATH));
+        $profile_id = $url_path[3];
+        echo "<br>Submitted profile_id: $profile_id";
+
+        // Test returning this submitted survey should take us to the submitted page instead of a blank survey
+        $this->get('http://'.$_SERVER['HTTP_HOST'].'/survey/opendata/'.$profile_id);
+        $this->assertResponse(200);
+        $this->assertTitle('Open Data Enterprise Survey - Submitted');
 
     }
 
