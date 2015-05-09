@@ -770,6 +770,31 @@ $app->get('/survey/opendata/list/new/csv', function () use ($app) {
 });
 
 // **************
+$app->get('/survey/opendata/data/org/:profile_id', function ($profile_id) use ($app) {
+
+	$parse = new parseRestClient(array(
+		'appid' => PARSE_APPLICATION_ID,
+		'restkey' => PARSE_API_KEY
+	));
+
+	// Retrieve org_data_use
+	$params = array(
+		'className' => 'org_profile',
+		'query' => array(
+	        'profile_id' => $profile_id
+			)
+	);
+
+	$request = $parse->query($params);
+
+	// Return results via json
+	header('Content-Type: application/json');
+	echo $request;
+	exit;
+
+});
+
+// **************
 $app->get('/survey/opendata/data/flatfile.json', function () use ($app) {
 
 	$parse = new parseRestClient(array(
