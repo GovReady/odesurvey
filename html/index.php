@@ -183,6 +183,31 @@ $app->get('/survey/opendata/:surveyId', function ($surveyId) use ($app) {
 		'restkey' => PARSE_API_KEY
 	));
 
+	// If survey submitted, handle differently
+	$params = array(
+	    'className' => 'org_profile',
+	    'object' => array(),
+	    'query' => array(
+	        'profile_id' => $surveyId
+	    ),
+	);
+
+	$request = $parse->query($params);
+	$request_decoded = json_decode($request, true);
+
+	// here is where we test
+	if (0 < sizeof($request_decoded['results'])) {
+		echo "This survey has already been started or submitted.";
+		print_r($request_decoded);
+		echo "len ". sizeof($request_decoded['results']);
+		$org_profile = $request_decoded['results'][0];
+			// $app->redirect("/survey/opendata/".$surveyId."/thankyou/");
+			//$app->get('/survey/opendata/:surveyId/submitted/', function ($surveyId) use ($app) {
+		$app->redirect("/survey/opendata/".$surveyId."/submitted/");
+	}
+
+	//HTylD69YaB
+	// bring up new blank survey
 	$content['surveyId'] = $surveyId;
 	$content['surveyName'] = "opendata";
 	$content['title'] = "Open Data Enterprise Survey";
@@ -413,7 +438,7 @@ $app->get('/survey/opendata/:surveyId/thankyou/', function ($surveyId) use ($app
 	    'className' => 'org_profile',
 	    'query' => array(
 	        'profile_id' => $surveyId
-	    	)
+	    )
 	);
 
 	$request = $parse->query($params);
