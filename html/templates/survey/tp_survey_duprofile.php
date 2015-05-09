@@ -283,6 +283,10 @@
 
         <div class="form-group col-md-12">
           <div class="col-md-6" id="use_open_data_col-1">
+             <div>
+              <input type="checkbox" class="use_open_data" name="use_advocacy" id="use_advocacy" value="True"> advocacy
+              <input type="text" class="form-control" style="display:none" id="use_advocacy_desc" name="use_advocacy_desc" placeholder="Provide details">
+            </div>
             <div>
               <input type="checkbox" class="use_open_data" name="use_prod_srvc" id="use_prod_srvc" value="True"> develop new products or services
               <input type="text" class="form-control" style="display:none" id="use_prod_srvc_desc" name="use_prod_srvc_desc" placeholder="Provide details">
