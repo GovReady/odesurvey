@@ -11,6 +11,7 @@
 -- Codes/IDs are used in field `industry_id` to make easier to deal with multiple languages
 
 -- CHANGE LOG
+-- 0.15.0       Add fields for world bank regions and country economic demorgraphic 
 -- 0.14.0       Replace field with org_greatest_impact_other org_greatest_impact_detail 
 -- 0.13.0       Add field no_org_url to arcgis_flatfile, org_profile
 -- 0.12.0       Remove use_*_desc fields from arcgis_flatfile, org_additional
@@ -54,6 +55,9 @@ latitude  	             float(13,6) NULL,         -- default lat for org's headq
 longitude                float(13,6) NULL,         -- default long for org's headquater city
 org_hq_city_locode       varchar(8) NULL,          -- UN Locode for city if exists
 org_hq_country_locode    varchar(8) NULL,          -- UN Locode for country
+org_hq_country_region    varchar(75) NULL,         -- Worldbank region
+org_hq_country_income    varchar(12) NULL,         -- Worldbank country income
+org_hq_country_income_code  varchar(3) NULL,       -- Worldbank country income code
 org_profile_year         int,                      -- year for this profile is relevent
 org_additional           varchar(401) NULL,        -- Aditional optional field for survey
 org_profile_status       varchar(20) NULL,         -- (new, vetted, published)
@@ -122,6 +126,9 @@ latitude  	             float(13,6) NULL,         -- default lat for org's headq
 longitude                float(13,6) NULL,         -- default long for org's headquater city
 org_hq_city_locode       varchar(8) NULL,          -- UN Locode for city if exists
 org_hq_country_locode    varchar(8) NULL,          -- UN Locode for country
+org_hq_country_region    varchar(75) NULL,         -- Worldbank region
+org_hq_country_income    varchar(12) NULL,         -- Worldbank country income
+org_hq_country_income_code  varchar(3) NULL,       -- Worldbank country income code
 org_profile_year         int,                      -- year for this profile is relevent
 org_additional           varchar(401) NULL,        -- Aditional optional field for survey
 org_profile_status       varchar(20) NULL,         -- (new, vetted, published)
