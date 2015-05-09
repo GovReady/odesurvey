@@ -10,6 +10,7 @@ phpinfo.php
 
 # data
 scripts/data-etl/Inventory - Country Classification.csv
+scripts/data-etl/data-backup/odesurvey-parse-prod-export-2015-07-08/*
 
 assets/*
 html/grid/*
