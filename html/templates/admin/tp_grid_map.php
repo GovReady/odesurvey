@@ -418,6 +418,12 @@
                         grid.find(".command-edit").on("click", function(e)
                         {
                             event.preventDefault();
+
+                            // Retrieve record information
+                            
+
+
+
                             // alert("You pressed edit on row: " + $(this).data("row-id"));
                             var content = "<p>You pressed edit on row: " + $(this).data("row-id")+"</p>";
                             // update modal content
