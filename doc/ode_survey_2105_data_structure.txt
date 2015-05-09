@@ -2,7 +2,7 @@
 -- Copyright 2015 Center for Open Data Enterprise. All Rights Reserved.
 -- Prepared by Greg Elin (greg@odenterprise.org)
 -- filename: ode_survey_2015_data_structure.txt
--- version: 0.16.0
+-- version: 0.17.0
 
 -- NOTES
 -- This is a description of the data tables for the 2015 Survey.
@@ -11,6 +11,7 @@
 -- Codes/IDs are used in field `industry_id` to make easier to deal with multiple languages
 
 -- CHANGE LOG
+-- 0.17.0       Add fields use_advocacy, use_advocacy_desc
 -- 0.16.0       Add fields for world bank regions code
 -- 0.15.0       Add fields for world bank regions and country economic demorgraphic 
 -- 0.14.0       Replace field with org_greatest_impact_other org_greatest_impact_detail 
@@ -41,6 +42,8 @@ org_size_id              varchar(8) NULL,          -- code for organization side
 industry_id              varchar(20) NULL,         -- industry identifier (see: table industry)
 org_greatest_impact      varchar(50) NULL,         -- (Economic, Environmental, Governance, Social, other)
 org_greatest_impact_detail varchar(400) NULL,       -- details of org_greatest_impact
+use_advocacy             boolean NULL,
+use_advocacy_desc        varchar(401) NULL,        -- 400 character description
 use_prod_srvc            boolean NULL,
 use_prod_srvc_desc       varchar(75) NULL,         
 use_org_opt              boolean NULL,
@@ -113,6 +116,8 @@ org_size_id              varchar(8) NULL,          -- code for organization side
 industry_id              varchar(20) NULL,         -- industry identifier (see: table industry)
 org_greatest_impact      varchar(50) NULL,         -- (Economic, Environmental, Governance, Social, other)
 org_greatest_impact_detail varchar(400) NULL,       -- details of org_greatest_impact
+use_advocacy             boolean NULL,
+use_advocacy_desc        varchar(401) NULL,        -- 400 character description
 use_prod_srvc            boolean NULL,
 use_prod_srvc_desc       varchar(75) NULL,         
 use_org_opt              boolean NULL,
