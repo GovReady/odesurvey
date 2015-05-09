@@ -309,11 +309,11 @@
       <!-- Additional description --> 
       <div class="row col-md-12">
         <label class="row col-md-10">
-          Additional information <i>(400 characters or less)</i> <span style="font-weight:normal;"><br /><i>E.g. How could the open data your organization uses be improved? Which datasets are most valuable to your organization? What other types of data does your organization use in addition to open government data?</i>
+          Additional information <i>(optional, 400 characters or less)</i> <span style="font-weight:normal;">
         </label>
 
         <div class="col-md-8">
-          <textarea type="text" class="form-control" id="org_additional" name="org_additional"></textarea>
+          <textarea type="text" class="form-control" id="org_additional" name="org_additional" placeholder="E.g. How could the open data your organization uses be improved? Which datasets are most valuable to your organization? What other types of data does your organization use in addition to open government data?"></textarea>
         </div>
       </div>
       <br />
