@@ -2,7 +2,7 @@
 -- Copyright 2015 Center for Open Data Enterprise. All Rights Reserved.
 -- Prepared by Greg Elin (greg@odenterprise.org)
 -- filename: ode_survey_2015_data_structure_presentation.txt
--- version: 0.15.0
+-- version: 0.16.0
 
 -- NOTES
 -- This is a description of the data tables for the 2015 Survey PRESENTATION LAYER.
@@ -13,6 +13,7 @@
 -- Codes/IDs are used in field `industry_id` to make easier to deal with multiple languages
 
 -- CHANGE LOG
+-- 0.16.0       Add fields for world bank regions code
 -- 0.15.0       Add fields for world bank regions and country economic demorgraphic 
 -- 0.14.0       Replace field with org_greatest_impact_other org_greatest_impact_detail 
 -- 0.13.0       Add field no_org_url to arcgis_flatfile, org_profile
@@ -53,6 +54,7 @@ longitude                float(13,6) NULL,         -- default long for org's hea
 org_hq_city_locode       varchar(8) NULL,          -- UN Locode for city if exists
 org_hq_country_locode    varchar(8) NULL,          -- UN Locode for country
 org_hq_country_region    varchar(75) NULL,         -- Worldbank region
+org_hq_country_region_code varchar(3) NULL,        -- Worldbank region code
 org_hq_country_income    varchar(12) NULL,         -- Worldbank country income
 org_hq_country_income_code  varchar(3) NULL,       -- Worldbank country income code
 org_profile_year         int,                      -- year for this profile is relevent
