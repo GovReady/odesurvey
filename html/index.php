@@ -214,6 +214,9 @@ $app->post('/survey/opendata/2du/:surveyId/', function ($surveyId) use ($app) {
     $allPostVars["latitude"] = floatval($allPostVars["latitude"]);
     $allPostVars["longitude"] = floatval($allPostVars["longitude"]);
 
+    // Copy country abbreviation to loc code
+    $allPostVars["org_hq_country_locode"] = $allPostVars["org_hq_country"];
+
 	// echo "<pre>";print_r($allPostVars);echo "</pre>"; 
 	// exit;
 
@@ -237,11 +240,17 @@ $app->post('/survey/opendata/2du/:surveyId/', function ($surveyId) use ($app) {
 			$org_object[$param] = true;
 		}
 	}
+
+	// Add Worldbank Region and Economic code data
+	echo "org_hq_country_locode".$org_object['org_hq_country_locode'];
+    $wb_region = addWbRegions($org_object['org_hq_country_locode']);
+    $org_object['org_hq_country_region'] = $wb_region['org_hq_country_region'];
+    $org_object['org_hq_country_region_code'] = $wb_region['org_hq_country_region_code'];
+    $org_object['org_hq_country_income'] = $wb_region['org_hq_country_income'];
+    $org_object['org_hq_country_income_code'] = $wb_region['org_hq_country_income_code'];
+
 	// set profile_id
 	$org_object['profile_id'] = $surveyId;
-	// identify row type as org_profile
-	// echo "<pre>"; print_r($allPostVars); echo "</pre>";
-	// echo "<pre>"; print_r($org_object); echo "</pre>";
 
 	// save org_object to Parse
 	$parse_params = array(
@@ -263,7 +272,9 @@ $app->post('/survey/opendata/2du/:surveyId/', function ($surveyId) use ($app) {
 			unset($org_object[$key]);
 		}
 	}
+	// Identify row as org profile in flattened file for ARC GIS
 	$org_object['row_type'] = 'org_profile';
+	// Prepare parse.com params
 	$parse_params = array(
 		'className' => 'arcgis_flatfile',
 		'object' => $org_object
@@ -327,7 +338,7 @@ $app->post('/survey/opendata/2du/:surveyId/', function ($surveyId) use ($app) {
 					$data_use_object['data_src_gov_level'] = $gov_level;
 					// set profile_id
 					$data_use_object['profile_id'] = $surveyId;
-					// identify row as data use row
+					// identify row as data use row for flattened file for ARC GIS
 					$data_use_object['row_type'] = 'data_use';
 					// echo "<pre>";print_r($data_use_object);echo "</pre>";
 
