@@ -1,5 +1,5 @@
-assets/*
-html/grid/*
+# apple
+.DS_Store
 
 # Vagrant
 **/.vagrant/**
@@ -8,5 +8,13 @@ html/grid/*
 credentials.inc.php
 phpinfo.php
 
-# apple
-.DS_Store
+# data
+scripts/data-etl/data-backup/odesurvey-parse-export-2015-05-07/arcgis_flatfile.json
+scripts/data-etl/data-backup/odesurvey-parse-export-2015-05-07/org_contact.json
+scripts/data-etl/data-backup/odesurvey-parse-export-2015-05-07/org_data_use.json
+scripts/data-etl/data-backup/odesurvey-parse-export-2015-05-07/org_profile.json
+scripts/data-etl/data-backup/odesurvey-parse-export-2015-05-07/survey.json
+scripts/data-etl/Inventory - Country Classification.csv
+
+assets/*
+html/grid/*
