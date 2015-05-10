@@ -1,11 +1,18 @@
-# Survey Studies
-Studies of doing custom survey
+# Open Data Impact Survey
+Version 1.0
+
+This is the first centralized, searchable database of open data use cases from around the world. Your contribution makes it possible to better understand the value of open data and encourage its use globally. Information collected will be displayed on http://www.opendataenterprise.org and will be made available as open data.
+
+# License
+
+TBD
 
 # Requirements
+
 - Virtualbox
 - Vagrant
 - Ansible
-- crendentials.inc.php file for parse.com
+- Parse.com account and/or crendentials.inc.php file for parse.com
 
 # Quickstart
 
@@ -16,21 +23,11 @@ cd vm/basic
 vagrant up
 ```
 
-2. Open browser and go to location `http://127.0.0.1:8081/s/survey1/`
+2. Open browser and go to location `http://192.168.56.101`
 
 If the URL does not work check `vm/basic/Vagrantfile` and check file Vagrant configuration.
 
-
-
-# About Parse Library
-
-See: https://github.com/apotropaic/parse.com-php-library/blob/parse.com-php-library_v1/README.md
-
 # Links
-
-## Project
-1. [Storyboard writeup](https://docs.google.com/a/odenterprise.org/document/d/1oE308On5KAvHvAO8iRzDA68hBWEdeC4rFCnmdMEDTbA/edit)
-1. [BlueRaster](http://www.blueraster.com)
 
 ## General
 1. [UN Locodes](http://www.unece.org/cefact/locode/welcome.html)
@@ -42,7 +39,15 @@ See: https://github.com/apotropaic/parse.com-php-library/blob/parse.com-php-libr
 1. [x-editable demo.js see validate](http://vitalets.github.io/x-editable/assets/demo.js)
 1. [x-editable mock ajax and console](http://vitalets.github.io/x-editable/assets/demo-mock.js)
 
-# Notes
-1. Using jQuery Bootgrid
-1.1 http://www.jquery-bootgrid.com
-1.1 
+# Credits
+
+- Survey content: Audrey Ariss, Gustavo Magalhaus and all of Center for Open Data Enterprise
+- Survey coding, CSS, Database and Adminstration: Greg Elin, GovReady.org
+- Design: Sumiko Carter, ThreeSpot.com
+- Map: BlueRaster
+- Using ArcGIS Online
+- Using SlimPHP Framework
+- Using Parse PHP API Library - https://github.com/apotropaic/parse.com-php-library/blob/parse.com-php-library_v1/README.md
+- Using jQuery Bootgrid - http://www.jquery-bootgrid.com
+
+
