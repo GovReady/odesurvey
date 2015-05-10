@@ -53,8 +53,10 @@ p.muted {
 	margin-top: 2px;
 }
 
-small.required {
+small.required, small.optional {
 	color: red;
+	font-weight: normal;
+	font-style: italic;
 }
 
 div.od-purpose {
@@ -78,11 +80,16 @@ div.od-purpose {
 
 #role-eligibility {
 	background-color: rgb(244, 245, 246);
-	color: rgb(85, 85, 85);
+	color: rgb(120, 120, 120);
 	border: 1px solid rgb(217, 217, 218);
 	padding: 12px 32px 32px 40px;
 	margin-bottom: 2.0em;
 }
+
+#role-eligibility h4, b {
+	color: rgb(85, 85, 85);
+}
+
 
 #role-eligibility ul {
 	margin: .5em 0 .5em 0 !important;
@@ -171,7 +178,7 @@ div.od-purpose {
 }
 
 .data_detail_row:nth-of-type(even){
-  background-color:rgb(170,220,145);
+  background-color:rgb(240,240,240);
 }
 
 .error {
