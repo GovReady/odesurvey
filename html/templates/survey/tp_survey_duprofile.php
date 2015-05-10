@@ -31,11 +31,11 @@
 
 <br />
 
-    <div class="col-md-12" role="orgInfo"  id="role-orgInfo">
-      <div class="row col-md-12">
-          <h3>Organizational Information</h3>
-      </div>
+    <div class="col-md-12" role="orgInfo-titlebar"  id="role-orgInfo-titlebar">
+      <div class="section-title"><h3>1. Organizational Information</h3></div>
+    </div>
 
+    <div class="col-md-12" role="orgInfo"  id="role-orgInfo">
       <!-- Name of organization -->
       <div class="row col-md-12">
         <div class="form-group col-md-12">
@@ -209,10 +209,11 @@
 
 <br />
 
+    <div class="col-md-12" role="dataUse-titlebar"  id="role-dataUse-titlebar">
+      <div class="section-title"><h3>2. Use of Open Data</h3></div>
+    </div>
+
     <div class="col-md-12" role="dataUse" id="role-dataUse">
-      <div class="row col-md-12" role="dataTypes">
-        <h3>Use of Open Data</h3>
-      </div>
       
       <div class="row col-md-12 data-use-row" id="dataUseDataType">
         <label for="data_use_type[]">Types of <u>most relevant</u> open data your organization uses (select all that apply) <small class="required">*</small></label>
@@ -325,21 +326,25 @@
     </div>
 
     <br />
-  
-    <div class="col-md-12" role="Contact" id="role-contact">
-      <div class="row col-md-12">
-          <h3>Contact Information</h3>
-          (This information will not be made public)
-      </div>
+ 
+    <div class="col-md-12" role="contact-titlebar"  id="role-contact-titlebar">
+      <div class="section-title"><h3>3. Contact Information <small>(This information will not be made public)</small></h3></div>
+    </div>
+
+    <div class="col-md-12" role="contact" id="role-contact">
 
       <div class="form-group col-md-12">
-        <div class="col-md-7">
+        <div class="col-md-4">
           <div for="survey_contact_first">First name <small class="required">*</small></div>
           <input type="text" class="form-control" id="survey_contact_first" name="survey_contact_first" required>
+        </div>
 
+        <div class="col-md-4">
           <div for="survey_contact_last">Last name <small class="required">*</small></div>
           <input type="text" class="form-control" id="survey_contact_last" name="survey_contact_last" required>
+        </div>
 
+        <div class="col-md-8">
           <div for="survey_contact_title">Title (optional)</div>
           <input type="text" class="form-control" id="survey_contact_title" name="survey_contact_title">
 
@@ -356,8 +361,15 @@
       </div>
     </div><!-- /closes role contact -->
       
-    <div class="row col-md-7"><br />
-      <button class="btn btn-primary col-md-3" id="btnSubmit" type="submit" name="submit" value="submit">SUBMIT</button>
+      <br />
+
+
+
+    <div class="col-md-12" style="text-align:center;">    
+      <button class="btn btn-primary" style="padding:1em 2em 1em 2em; width:200px; background-color: rgb(53, 162, 227);" id="btnSubmit" type="submit" name="submit" value="submit">SUBMIT</button>
+    </div>
+
+      
     </div>
 
 </form>

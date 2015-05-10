@@ -81,6 +81,7 @@ div.od-purpose {
 	color: rgb(85, 85, 85);
 	border: 1px solid rgb(217, 217, 218);
 	padding: 12px 32px 32px 40px;
+	margin-bottom: 2.0em;
 }
 
 #role-eligibility ul {
@@ -93,19 +94,76 @@ div.od-purpose {
 	min-height:70px;
 }
 
+#role-orgInfo-titlebar {
+	background-color: rgb(4, 15, 78);
+	color: rgb(255, 255, 255);
+	padding: 0.0em 0.85em 0.70em 24px;
+	margin-bottom: 0px;
+	border-top-left-radius: 10px 10px;
+	border-top-right-radius: 10px 10px;
+}
+
+#role-orgInfo-titlebar .section-title h3 {
+	color: rgb(255, 255, 255);
+	font-size: 0.85em;
+}
+
 #role-orgInfo {
-	background-color: rgb(253,228,156);
-	padding: 0 0 8px 8px;
+	/*background-color: rgb(253,228,156);*/
+	padding: 1.5em 0 8px 24px;
+	border: 1px solid rgb(217, 217, 218);
+	margin-top: 0px;
+	border-bottom-left-radius: 10px 10px;
+	border-bottom-right-radius: 10px 10px;
+}
+
+#role-dataUse-titlebar {
+	background-color: rgb(244, 180, 43);
+	color: rgb(255, 255, 255);
+	padding: 0.0em 0.85em 0.70em 24px;
+	margin-bottom: 0px;
+	border-top-left-radius: 10px 10px;
+	border-top-right-radius: 10px 10px;
+}
+
+#role-dataUse-titlebar .section-title h3 {
+	color: rgb(255, 255, 255);
+	font-size: 0.85em;
 }
 
 #role-dataUse {
-	background-color: rgb(170,208,145);
-	padding: 0 0 8px 8px;
+	padding: 1.5em 0 8px 24px;
+	background-color: rgb(255, 255, 255);
+	border: 1px solid rgb(217, 217, 218);
+	border-bottom-left-radius: 10px 10px;
+	border-bottom-right-radius: 10px 10px;
+}
+
+#role-contact-titlebar {
+	background-color: rgb(53, 167, 105);
+	color: rgb(255, 255, 255);
+	padding: 0.0em 0.85em 0.70em 24px;
+	margin-bottom: 0px;
+	border-top-left-radius: 10px 10px;
+	border-top-right-radius: 10px 10px;
+}
+
+#role-contact-titlebar .section-title h3 {
+	color: rgb(255, 255, 255);
+	font-size: 0.85em;
+}
+
+#role-contact-titlebar small {
+	color: rgb(240, 240, 240);
+	font-size: 0.5em;
 }
 
 #role-contact {
-	background-color: rgb(146,187,226);
-	padding: 0 0 8px 8px;
+	padding: 1.5em 0 8px 24px;
+	background-color: rgb(255, 255, 255);
+	border: 1px solid rgb(217, 217, 218);
+	border-bottom-left-radius: 10px 10px;
+	border-bottom-right-radius: 10px 10px;
 }
 
 .data_detail_row {
