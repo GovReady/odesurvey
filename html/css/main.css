@@ -64,17 +64,28 @@ div.od-purpose {
 /* Theme section */
 
 #role-intro {
-	background-color: #fff;
-	padding: 0 0 8px 8px;
+	color: rgb(85, 85, 85);
+	background-color: rgb(255, 255, 255);
+	padding: 12px 64px 24px 64px;
+	line-height: 1.8em;
+}
+
+#role-intro h2 {
+	color: rgb(62, 165, 221);
+	text-align: center;
+	font-size: 1.5em;
 }
 
 #role-eligibility {
-	background-color: #bbb;
-	padding: 0 0 8px 8px;
+	background-color: rgb(244, 245, 246);
+	color: rgb(85, 85, 85);
+	border: 1px solid rgb(217, 217, 218);
+	padding: 12px 32px 32px 40px;
 }
 
 #role-eligibility ul {
 	margin: .5em 0 .5em 0 !important;
+	line-height: 2.5em;
 }
 
 #org_description, #org_additional {
@@ -110,7 +121,6 @@ div.od-purpose {
 }
 
 h3 {
-    border-bottom: 1px dotted #ddd;
     margin: 24px 0px 16px 0px;
 }
 
