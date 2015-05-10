@@ -190,6 +190,18 @@ h3 {
     margin: 24px 0px 16px 0px;
 }
 
+.footer-section {
+	text-align:right;
+	padding: 8px 12px 8px 0px;
+	background-color: rgb(4, 15, 78);
+	margin-top:65px;
+}
+
+.footer-container {
+	text-align:right;
+	font-size: 8px;
+	color: rgb(255, 255, 255); 
+}
 
 /* Bootstrap overrides */
 /* darken selected buttons */
