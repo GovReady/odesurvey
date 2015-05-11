@@ -34,6 +34,7 @@
                 <nav id="menu" class="navbar-collapse collapse" role="navigation">
 
                     <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/admin/login/">login</a></li>
                         <li><a href="#">Start page</a></li>
                     </ul>
                 </nav>
