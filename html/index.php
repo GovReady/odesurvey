@@ -76,6 +76,39 @@ HTML;
 });
 
 // ************
+$app->get('/admin/login/', function () use ($app) {
+	
+    $content['title'] = "Open Data Impact Map Admin";
+    $content['intro'] = <<<HTML
+		<p>Open Data Impact Map Admin</p>
+HTML;
+
+	// return $app->response->setBody($response);
+	// Render content with simple bespoke templates
+	$app->view()->setData(array('content' => $content));
+	$app->render('admin/tp_login.php');
+    
+});
+
+// ************
+$app->post('/admin/login/', function () use ($app) {
+
+	echo "route to login";
+	return true;
+	
+    $content['title'] = "Open Data Impact Map Admin";
+    $content['intro'] = <<<HTML
+		<p>Open Data Impact Map Admin</p>
+HTML;
+
+	// return $app->response->setBody($response);
+	// Render content with simple bespoke templates
+	$app->view()->setData(array('content' => $content));
+	$app->render('admin/tp_login.php');
+    
+});
+
+// ************
 $app->get('/survey/opendata/', function () use ($app) {
 	
     $app->redirect("/survey/opendata/start/");
