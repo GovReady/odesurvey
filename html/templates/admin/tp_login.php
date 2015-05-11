@@ -14,10 +14,12 @@
             @-o-viewport { width: device-width; }
             @viewport { width: device-width; }
 
-            body { padding-top: 70px; }
             
-            .column .text { color: #f00 !important; }
-            .cell { font-weight: bold; }
+    
+        </style>
+        <link rel="stylesheet" href="/css/main.css">
+        <style>
+            body { padding-top: 70px; }
         </style>
     </head>
     <body>
@@ -34,7 +36,6 @@
                 <nav id="menu" class="navbar-collapse collapse" role="navigation">
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/admin/login/">login</a></li>
                         <li><a href="/">Start page</a></li>
                     </ul>
                 </nav>
@@ -60,19 +61,35 @@
                         <img class="logo" src="http://uploads.webflow.com/54c24a0650f1708e4c8232a0/54c24fc57bbf1d8c4cfd6581_Logo-Text.png" width="400" alt="54c24fc57bbf1d8c4cfd6581_Logo-Text.png"></a>
                     </div>
 
-                    <div style="margin:10% 30% 0 30%;height:600px;text-align:center;">
-                        <h3><a href="/survey/opendata/start">Take survey</a></h3>
+                    <div style="margin:10% 30% 0 30%;height:600px;text-align:center;border:0px solid red;">
+           
+                      <!--  Login form -->
+                      <form id="login_form" class="form-horizontal" style="border:0px dotted black;" action="/authenticate.php" method="post">
 
-                        <h3><a href="/survey/opendata/list/new">View submitted surveys</a></h3>
+                        <div class="col-md-12" role="contact-titlebar"  id="role-contact-titlebar">
+                          <div class="section-title"><h2>Login</h2></div>
+                        </div>
 
-                        <h3><a href="/survey/opendata/data/flatfile.json">Combined flatfile (json)</a></h3>
+                        <div class="col-md-12" role="contact" id="role-contact">
 
-                        <h3>Administration</h3>
+                            <div class="form-group col-md-12">
 
-                        <h4><a href="/admin/login/">Admin login</a></h4>
-                        <h4><a href="https://github.com/GovReady/odesurvey">GitHub Code Repository</a><br><small>login required</small></h4>
-                        <h4><a href="https://github.com/notifications">GitHub Issue Notifications</a> <br><small>login required</small></h4>
+                                <div class="col-md-12">
+                                  <div for="survey_contact_title">Username</div>
+                                  <input type="text" class="form-control" id="u" name="u">
 
+                                  <div for="survey_contact_email">Password</div>
+                                  <input type="password" class="form-control" id="pw" name="pw">
+
+                                </div>
+                            </div>
+                        </div><!-- /closes role contact -->
+
+                         <div class="" style="border:0px solid gray;">    
+                          <button class="btn btn-primary" style="margin:30px 0 10px 0; background-color: rgb(53, 162, 227);" id="btnSubmit" type="submit" name="submit" value="submit">SUBMIT</button>
+                        </div>
+
+                      </form>
                         
                     </div>
 
@@ -86,37 +103,5 @@
 
         <script src="/lib/jquery-1.11.1.min.js"></script>
         <script src="/js3/bootstrap.js"></script>
-        <script src="/dist/jquery.bootgrid.js"></script>
-        <script>
-            $(function()
-            {
-                function init()
-                {
-                    $("#grid").bootgrid({
-                        formatters: {
-                            "link": function(column, row)
-                            {
-                                return "<a href=\"/survey/opendata/" + row.id + "/submitted/\">" + row.organization + " survey</a>";
-                            }
-                        }
-                    });
-                }
-                
-                init();
-                
-                
-                $("#clear").on("click", function ()
-                {
-                    $("#grid").bootgrid("clear");
-                });
-                
-                $("#removeSelected").on("click", function ()
-                {
-                    $("#grid").bootgrid("remove");
-                });
-                
-                $("#init").on("click", init);
-            });
-        </script>
     </body>
 </html>

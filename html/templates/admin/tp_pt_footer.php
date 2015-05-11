@@ -1,15 +1,11 @@
+<footer class="w-section nav-bar footer-section">
 <a name="footer"></a>
 
-  <div class="container col-sm-12 footer" style="padding-top:60px;">
-    <footer style="text-align:center;">
-    <!--
-     <a href="http://twitter.com/gitmachines"><img src="/img/twitter-wrap.png" alt="Twitter Logo" class="social-icon"></a>
-     <a href="http://https://github.com/GovReady/GovReady.github.io"><img src="/img/github-wrap.png" alt="Github Logo" class="social-icon"></a>
-     <p>&copy; GovReady, Greg Elin 2014</p>
-    -->
-    <p>&copy; Center for Open Data Enterprise 2015. All Rights Reserved.</p>
-    </footer>
+  <div class="container col-md-12 footer-container">
+    &copy; Center for Open Data Enterprise 2015. All Rights Reserved.
   </div>
+
+</footer>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>

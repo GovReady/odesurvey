@@ -1,5 +1,22 @@
 <?php
 
+// server should keep session data for AT LEAST 1 hour
+ini_set('session.gc_maxlifetime', 3600);
+// each client should remember their session id for EXACTLY 1 hour
+session_set_cookie_params(3600);
+session_start();
+$now = time();
+// echo "discard after: $now<br>";
+if (isset($_SESSION['discard_after']) && $now > $_SESSION['discard_after']) {
+    // this session has worn out its welcome; kill it and start a brand new one
+    session_unset();
+    session_destroy();
+    session_start();
+}
+// either new or old, it should live at most for another hour
+$_SESSION['discard_after'] = $now + 3600;
+// echo "<pre>top of script\n"; print_r($_SESSION);
+
 // Configuration
 //-------------------------------
 // error_reporting(E_ERROR | E_WARNING | E_PARSE);
@@ -74,6 +91,85 @@ HTML;
 	$app->render('survey/tp_start.php');
 
 });
+
+// ************
+$app->get('/admin/login/', function () use ($app) {
+	
+    $content['title'] = "Open Data Impact Map Admin";
+    $content['intro'] = <<<HTML
+		<p>Open Data Impact Map Admin</p>
+HTML;
+
+	// return $app->response->setBody($response);
+	// Render content with simple bespoke templates
+	$app->view()->setData(array('content' => $content));
+	$app->render('admin/tp_login.php');
+    
+});
+
+// ************
+$app->post('/admin/login/', function () use ($app) {
+
+	echo "route to login";
+	return true;
+	
+//     $content['title'] = "Open Data Impact Map Admin";
+//     $content['intro'] = <<<HTML
+// 		<p>Open Data Impact Map Admin</p>
+// HTML;
+
+// 	// return $app->response->setBody($response);
+// 	// Render content with simple bespoke templates
+// 	$app->view()->setData(array('content' => $content));
+// 	$app->render('admin/tp_login.php');
+    
+});
+
+// ************
+$app->get('/admin/protected/', function () use ($app) {
+
+	// Requires login to access
+	if ( !isset($_SESSION['username']) ) {
+		// echo "<br> no username";
+		$app->redirect("/admin/login/");
+	}
+
+    $paramValue = $app->request->get('param');
+    
+    $content['title'] = "ODE Survery Studies";
+    $content['intro'] = <<<HTML
+		<p>Home ODE Survey Studies</p>
+HTML;
+
+	// return $app->response->setBody($response);
+	// Render content with simple bespoke templates
+	$app->view()->setData(array('content' => $content));
+	$app->render('admin/tp_admin_home.php');
+
+});
+
+// ************
+$app->get('/admin/', function () use ($app) {
+
+	// Requires login to access
+	if ( !isset($_SESSION['username']) ) {
+		// echo "<br> no username";
+		$app->redirect("/admin/login/");
+	}
+
+	echo "<br><br>This is a protected route/path/page";
+	return true;
+});
+
+// ************
+$app->get('/admin/logout/', function () use ($app) {
+
+	session_unset();
+	session_destroy();
+	$app->redirect("/admin/login/");
+
+});
+
 
 // ************
 $app->get('/survey/opendata/', function () use ($app) {
@@ -501,6 +597,9 @@ $app->get('/survey/opendata/:surveyId/submitted/', function ($surveyId) use ($ap
 // **************
 $app->get('/survey/opendata/list/new/', function () use ($app) {
 
+	// Requires login to access
+	if ( !isset($_SESSION['username']) ) { $app->redirect("/admin/login/"); }
+
 	$parse = new parseRestClient(array(
 		'appid' => PARSE_APPLICATION_ID,
 		'restkey' => PARSE_API_KEY
@@ -528,6 +627,9 @@ $app->get('/survey/opendata/list/new/', function () use ($app) {
 // **************
 $app->get('/survey/opendata/list/new/2/', function () use ($app) {
 
+	// Requires login to access
+	if ( !isset($_SESSION['username']) ) { $app->redirect("/admin/login/"); }
+
 	$parse = new parseRestClient(array(
 		'appid' => PARSE_APPLICATION_ID,
 		'restkey' => PARSE_API_KEY
@@ -554,6 +656,9 @@ $app->get('/survey/opendata/list/new/2/', function () use ($app) {
 
 // **************
 $app->get('/survey/opendata/list/map/', function () use ($app) {
+
+	// Requires login to access
+	if ( !isset($_SESSION['username']) ) { $app->redirect("/admin/login/"); }
 
 	$parse = new parseRestClient(array(
 		'appid' => PARSE_APPLICATION_ID,
