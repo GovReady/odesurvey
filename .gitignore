@@ -7,6 +7,7 @@
 # application
 credentials.inc.php
 phpinfo.php
+parseConfig.php
 
 # data
 scripts/data-etl/Inventory - Country Classification.csv
