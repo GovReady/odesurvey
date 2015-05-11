@@ -34,9 +34,9 @@
                 <nav id="menu" class="navbar-collapse collapse" role="navigation">
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">logged in (<?php echo $_SESSION['username'];?>)</a></li>
+                        <li><a href="#">(<?php echo $_SESSION['username'];?>)</a></li>
                         <li><a href="/admin/logout/">logout</a></li>
-                        <li><a href="#">Start page</a></li>
+                        <li><a href="/">Start page</a></li>
                     </ul>
                 </nav>
             </div>

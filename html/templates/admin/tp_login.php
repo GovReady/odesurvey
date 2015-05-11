@@ -14,10 +14,13 @@
             @-o-viewport { width: device-width; }
             @viewport { width: device-width; }
 
-            body { padding-top: 110px; }
+            
     
         </style>
         <link rel="stylesheet" href="/css/main.css">
+        <style>
+            body { padding-top: 70px; }
+        </style>
     </head>
     <body>
         <header id="header" class="navbar navbar-default navbar-fixed-top">
@@ -33,7 +36,7 @@
                 <nav id="menu" class="navbar-collapse collapse" role="navigation">
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Start page</a></li>
+                        <li><a href="/">Start page</a></li>
                     </ul>
                 </nav>
             </div>
@@ -50,7 +53,6 @@
                         <br />
                         -->
                         <!--a href="">all</a-->
-                        blah, blah, blah
                     </div>
                 </div>
                 <div class="col-md-10" style="border:0px solid blue;">
