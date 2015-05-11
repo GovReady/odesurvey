@@ -35,7 +35,7 @@
 
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="/admin/login/">login</a></li>
-                        <li><a href="#">Start page</a></li>
+                        <li><a href="/">Start page</a></li>
                     </ul>
                 </nav>
             </div>
