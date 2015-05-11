@@ -68,7 +68,12 @@
 
                         <h3>Administration</h3>
 
-                        <h4><a href="/admin/login/">Admin login</a></h4>
+                        <h4><a href="/tests/unit_tests/testtest.php">Test that testing works</a></h4>
+                        <h4><a href="/tests/unit_tests/test_datalog.php">Test Data Log (in progress)</a></h4>
+                        <h4><a href="/tests/unit_tests/test_survey.php">Test Survey (in progress)</a></h4>
+                        <h4><a href="/tests/unit_tests/test_functions.php">Test functions</a></h4>
+                        <h4><a href="/tests/unit_tests/test_parse.php">Test Parse (in progress)</a></h4>
+                        <br />
                         <h4><a href="https://github.com/GovReady/odesurvey">GitHub Code Repository</a><br><small>login required</small></h4>
                         <h4><a href="https://github.com/notifications">GitHub Issue Notifications</a> <br><small>login required</small></h4>
 

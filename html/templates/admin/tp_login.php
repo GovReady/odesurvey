@@ -14,11 +14,10 @@
             @-o-viewport { width: device-width; }
             @viewport { width: device-width; }
 
-            body { padding-top: 70px; }
-            
-            .column .text { color: #f00 !important; }
-            .cell { font-weight: bold; }
+            body { padding-top: 110px; }
+    
         </style>
+        <link rel="stylesheet" href="/css/main.css">
     </head>
     <body>
         <header id="header" class="navbar navbar-default navbar-fixed-top">
@@ -42,7 +41,7 @@
 
         <div class="container-fluid" style="border:0px solid orange;">
             <div class="row">
-                <div class="col-md-1 visible-md visible-lg" style="border:1px solid green;">
+                <div class="col-md-1 visible-md visible-lg" style="border:0px solid green;">
                     <div class="affix">
                         <!--
                         view recent
@@ -62,33 +61,33 @@
 
                     <div style="margin:10% 30% 0 30%;height:600px;text-align:center;border:0px solid red;">
            
-  <!--  Login form -->
-  <form id="login_form" class="form-horizontal" style="border:0px dotted black;" action="/admin/login/" method="post">
+                      <!--  Login form -->
+                      <form id="login_form" class="form-horizontal" style="border:0px dotted black;" action="/authenticate.php" method="post">
 
-    <div class="col-md-12" role="contact-titlebar"  id="role-contact-titlebar">
-      <div class="section-title"><h3>Login</h3></div>
-    </div>
-    <div class="col-md-12" role="contact" id="role-contact">
+                        <div class="col-md-12" role="contact-titlebar"  id="role-contact-titlebar">
+                          <div class="section-title"><h2>Login</h2></div>
+                        </div>
 
-        <div class="col-md-12">
-          <div for="survey_contact_title">Username</div>
-          <input type="text" class="form-control" id="survey_contact_title" name="survey_contact_title">
+                        <div class="col-md-12" role="contact" id="role-contact">
 
-          <div for="survey_contact_email">Password</div>
-          <input type="email" class="form-control" id="survey_contact_email" name="survey_contact_email" required>
+                            <div class="form-group col-md-12">
 
-        </div>
+                                <div class="col-md-12">
+                                  <div for="survey_contact_title">Username</div>
+                                  <input type="text" class="form-control" id="u" name="u">
 
-    </div><!-- /closes role contact -->
+                                  <div for="survey_contact_email">Password</div>
+                                  <input type="password" class="form-control" id="pw" name="pw">
 
-     <div class="" style="border:1px solid gray;">    
-      <button class="btn btn-primary" style="margin:30px 0 10px 0; background-color: rgb(53, 162, 227);" id="btnSubmit" type="submit" name="submit" value="submit">SUBMIT</button>
-    </div>
+                                </div>
+                            </div>
+                        </div><!-- /closes role contact -->
 
-  </form>
+                         <div class="" style="border:0px solid gray;">    
+                          <button class="btn btn-primary" style="margin:30px 0 10px 0; background-color: rgb(53, 162, 227);" id="btnSubmit" type="submit" name="submit" value="submit">SUBMIT</button>
+                        </div>
 
-
-
+                      </form>
                         
                     </div>
 
@@ -102,37 +101,5 @@
 
         <script src="/lib/jquery-1.11.1.min.js"></script>
         <script src="/js3/bootstrap.js"></script>
-        <script src="/dist/jquery.bootgrid.js"></script>
-        <script>
-            $(function()
-            {
-                function init()
-                {
-                    $("#grid").bootgrid({
-                        formatters: {
-                            "link": function(column, row)
-                            {
-                                return "<a href=\"/survey/opendata/" + row.id + "/submitted/\">" + row.organization + " survey</a>";
-                            }
-                        }
-                    });
-                }
-                
-                init();
-                
-                
-                $("#clear").on("click", function ()
-                {
-                    $("#grid").bootgrid("clear");
-                });
-                
-                $("#removeSelected").on("click", function ()
-                {
-                    $("#grid").bootgrid("remove");
-                });
-                
-                $("#init").on("click", init);
-            });
-        </script>
     </body>
 </html>
