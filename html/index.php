@@ -134,8 +134,18 @@ $app->get('/admin/protected/', function () use ($app) {
 		$app->redirect("/admin/login/");
 	}
 
-	echo "<br><br>This is a protected route/path/page";
-	return true;
+    $paramValue = $app->request->get('param');
+    
+    $content['title'] = "ODE Survery Studies";
+    $content['intro'] = <<<HTML
+		<p>Home ODE Survey Studies</p>
+HTML;
+
+	// return $app->response->setBody($response);
+	// Render content with simple bespoke templates
+	$app->view()->setData(array('content' => $content));
+	$app->render('admin/tp_admin_home.php');
+
 });
 
 // ************
@@ -587,6 +597,9 @@ $app->get('/survey/opendata/:surveyId/submitted/', function ($surveyId) use ($ap
 // **************
 $app->get('/survey/opendata/list/new/', function () use ($app) {
 
+	// Requires login to access
+	if ( !isset($_SESSION['username']) ) { $app->redirect("/admin/login/"); }
+
 	$parse = new parseRestClient(array(
 		'appid' => PARSE_APPLICATION_ID,
 		'restkey' => PARSE_API_KEY
@@ -614,6 +627,9 @@ $app->get('/survey/opendata/list/new/', function () use ($app) {
 // **************
 $app->get('/survey/opendata/list/new/2/', function () use ($app) {
 
+	// Requires login to access
+	if ( !isset($_SESSION['username']) ) { $app->redirect("/admin/login/"); }
+
 	$parse = new parseRestClient(array(
 		'appid' => PARSE_APPLICATION_ID,
 		'restkey' => PARSE_API_KEY
@@ -640,6 +656,9 @@ $app->get('/survey/opendata/list/new/2/', function () use ($app) {
 
 // **************
 $app->get('/survey/opendata/list/map/', function () use ($app) {
+
+	// Requires login to access
+	if ( !isset($_SESSION['username']) ) { $app->redirect("/admin/login/"); }
 
 	$parse = new parseRestClient(array(
 		'appid' => PARSE_APPLICATION_ID,
