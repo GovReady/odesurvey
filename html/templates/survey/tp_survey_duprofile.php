@@ -6,10 +6,10 @@
  <form id="survey_form" class="form-horizontal" style="border:0px dotted black;" action="/survey/opendata/2du/<?php echo $content['surveyId']; ?>" method="post">
 
     <div class="col-md-12" role="Intro" id="role-intro">
-      <h2>Thank you for participating in the Open Data Impact Map</h2>
-      <div style="text-align:center;font-size:1.1em;">
-        This is the first centralized, searchable database of open data use cases from around the world. Your contribution makes it possible to better understand the value of open data and encourage its use globally. 
-        Information collected will be displayed on the <a href="#">Map</a> and will be made available as open data.
+      <div style="text-align:center;font-size:1.1em;margin-top:20px;">
+        Thank you for participating in the Open Data Impact Map, the first centralized, searchable database of open data use cases from around the world. 
+        Your contribution makes it possible to better understand the value of open data and encourage its use globally.
+        Information collected will be displayed on the <a href="http://opendataenterprise.org/map/viz">Map</a> and will be made available as open data.
       </div>
       <br />
     </div>
