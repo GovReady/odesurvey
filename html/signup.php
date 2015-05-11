@@ -20,7 +20,7 @@ require ('credentials.inc.php');
 require ('vendor/parse.com-php-library/parse.php');
 
 // test values
-$_GET['u'] = 'greg'; $_GET['pw'] = 'xxxx'; $_GET['email'] = "greg@odenterprise.org";$_GET['customField'] = "customvalue";
+$_GET['u'] = 'freddygusto'; $_GET['pw'] = 'xxxx'; $_GET['email'] = "gustavo@odenterprise.org";$_GET['customField'] = "customvalue";
 
 // echo API_KEY;
 // echo APPLICATION_ID;
