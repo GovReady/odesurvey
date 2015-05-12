@@ -1,5 +1,5 @@
 # Open Data Impact Survey
-Version 1.0
+Version 1.1
 
 This is the first centralized, searchable database of open data use cases from around the world. Your contribution makes it possible to better understand the value of open data and encourage its use globally. Information collected will be displayed on http://www.opendataenterprise.org and will be made available as open data.
 
@@ -50,4 +50,17 @@ If the URL does not work check `vm/basic/Vagrantfile` and check file Vagrant con
 - Using Parse PHP API Library - https://github.com/apotropaic/parse.com-php-library/blob/parse.com-php-library_v1/README.md
 - Using jQuery Bootgrid - http://www.jquery-bootgrid.com
 
+# Change Log
+
+## Version 1.1
+- Improve parsing of inventory spreadsheet
+- Updated URL paths
+- Add login to restrict access to login pages
+
+## Version 1.0
+- Final survey content
+- Final survey design
+- Data submission and storage
+- Early stage API for ARCGIS online and start of record management
+- Simple start page
 
