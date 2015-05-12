@@ -61,7 +61,7 @@
                     </div>
 
                     <div style="margin:10% 30% 0 30%;height:600px;text-align:center;">
-                        <h3><a href="/survey/opendata/start">Take survey</a></h3>
+                        <h3><a href="/map/survey/start">Take survey</a></h3>
 
                         <h3><a href="/survey/opendata/list/new">View submitted surveys</a></h3>
 

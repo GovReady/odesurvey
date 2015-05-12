@@ -292,7 +292,7 @@
                         <br />
                         view recent
                         <br />
-                        <a href="/survey/opendata/" target="_blank">new survey</a>
+                        <a href="/map/survey/" target="_blank">new survey</a>
                         <br />
                         <a href="/survey/opendata/data/flatfile.json">flatfile (json)</a>
                         <br />

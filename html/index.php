@@ -172,9 +172,9 @@ $app->get('/admin/logout/', function () use ($app) {
 
 
 // ************
-$app->get('/survey/opendata/', function () use ($app) {
+$app->get('/map/survey/', function () use ($app) {
 	
-    $app->redirect("/survey/opendata/start/");
+    $app->redirect("/map/survey/start/");
 
 });
 
@@ -240,7 +240,7 @@ $app->get('/admin/delete/test/confirmed', function () use ($app) {
 
 
 // ************
-$app->get('/survey/opendata/start', function () use ($app) {
+$app->get('/map/survey/start', function () use ($app) {
 	
 	$parse = new parseRestClient(array(
 		'appid' => PARSE_APPLICATION_ID,
@@ -260,7 +260,7 @@ $app->get('/survey/opendata/start', function () use ($app) {
 
     if(isset($response['objectId'])) {
     	// Success
-    	$app->redirect("/survey/opendata/".$response['objectId']);
+    	$app->redirect("/map/survey/".$response['objectId']);
     } else {
     	// Failure
     	echo "Problem. Promlem with record creation not yet handled.";
@@ -270,7 +270,7 @@ $app->get('/survey/opendata/start', function () use ($app) {
 });
 
 // ************
-$app->get('/survey/opendata/:surveyId', function ($surveyId) use ($app) {
+$app->get('/map/survey/:surveyId', function ($surveyId) use ($app) {
 	
 	$app->log->debug(date_format(date_create(), 'Y-m-d H:i:s')."; DEBUG; "."new survey created, ...");
 	
@@ -299,7 +299,7 @@ $app->get('/survey/opendata/:surveyId', function ($surveyId) use ($app) {
 		$org_profile = $request_decoded['results'][0];
 			// $app->redirect("/survey/opendata/".$surveyId."/thankyou/");
 			//$app->get('/survey/opendata/:surveyId/submitted/', function ($surveyId) use ($app) {
-		$app->redirect("/survey/opendata/".$surveyId."/submitted/");
+		$app->redirect("/map/survey/".$surveyId."/submitted/");
 	}
 
 	//HTylD69YaB
@@ -315,7 +315,7 @@ $app->get('/survey/opendata/:surveyId', function ($surveyId) use ($app) {
 
 // du new post here
 // ************
-$app->post('/survey/opendata/2du/:surveyId/', function ($surveyId) use ($app) {
+$app->post('/map/survey/2du/:surveyId/', function ($surveyId) use ($app) {
 
 	$parse = new parseRestClient(array(
 		'appid' => PARSE_APPLICATION_ID,
@@ -518,12 +518,12 @@ $app->post('/survey/opendata/2du/:surveyId/', function ($surveyId) use ($app) {
 		// echo "<pre>";print_r($result); echo "</pre>";
     }
 
-	$app->redirect("/survey/opendata/".$surveyId."/thankyou/");
+	$app->redirect("/map/survey/".$surveyId."/thankyou/");
 });
 // end du new post here
 
 // ************
-$app->get('/survey/opendata/:surveyId/thankyou/', function ($surveyId) use ($app) {
+$app->get('/map/survey/:surveyId/thankyou/', function ($surveyId) use ($app) {
 	
 	$parse = new parseRestClient(array(
 		'appid' => PARSE_APPLICATION_ID,
