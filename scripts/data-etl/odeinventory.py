@@ -1,5 +1,18 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+#
+# Name: odeinventory.py
+# Author: Greg Elin gregelin@gitmachines.com
+# Copyright: 2015, Center for Open Data Enterprise and GovReady PBC. All Rights Reserved.
+# Version 1.0
+#
+# About: Parses internal Inventory.xlsx spreadsheet to generate org_profile.json
+#        and arcgis_flatfile.json for importining into Parse.com database
+#        
+# Usage: python odeinventory.py
+# Output: org_profile.json and arcgis_flatfile.json
+#
+#
 
 import xlrd
 from collections import OrderedDict
