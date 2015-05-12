@@ -72,7 +72,6 @@
                         <h4><a href="/admin/login/">Admin login</a></h4>
                         <h4><a href="https://github.com/GovReady/odesurvey">GitHub Code Repository</a><br><small>login required</small></h4>
                         <h4><a href="https://github.com/notifications">GitHub Issue Notifications</a> <br><small>login required</small></h4>
-
                         
                     </div>
 
