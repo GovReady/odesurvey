@@ -318,13 +318,8 @@
           Additional information <small class="optional">(optional, 400 characters or less)</small>
         </label>
 
-        <div class="row col-md-10" style="font-weight:normal; line-height:1.2em;margin-bottom:1.0em;">
-          E.g. How could the open data your organization uses be improved? Which datasets are most valuable to your organization? 
-          What other types of data does your organization use in addition to open government data?
-        </div>
-
         <div class="row col-md-10">
-          <textarea type="text" class="form-control" id="org_additional" name="org_additional"></textarea>
+          <textarea type="text" class="form-control" id="org_additional" name="org_additional" placeholder="E.g. How could the open data your organization uses be improved? Which datasets are most valuable to your organization? What other types of data does your organization use in addition to open government data?"></textarea>
         </div>
       </div>
       <br />

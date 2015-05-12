@@ -102,6 +102,10 @@ div.od-purpose {
 	min-height:70px;
 }
 
+#org_additional {
+	min-height: 124px;
+}
+
 #role-orgInfo-titlebar {
 	background-color: rgb(4, 15, 78);
 	color: rgb(255, 255, 255);
