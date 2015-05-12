@@ -28,7 +28,8 @@
           <br />
           Please help us spread the word!
           <br />
-          (social media links here)
+          <a href="https://twitter.com/intent/tweet?button_hashtag=&text=Checkout%20the%20open%20data%20impact%20map!%20http://opendataenterprise.org/map" class="twitter-hashtag-button" data-lang="en" data-size="large">Tweet</a>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
           <br /><br />
           If you have any questions, email us at map@odenterprise.org.
           <br /><br />
