@@ -6,6 +6,7 @@ from collections import OrderedDict
 import simplejson as json
 import random
 import copy
+import re
 
 # Open the workbook and select the first worksheet
 
@@ -26,7 +27,7 @@ cnt = 0
 # # Iterate through each row in worksheet and fetch values into dict
 # for rownum in range(1, sh.nrows):
 for rownum in range(0, sh.nrows):
-    print "------"
+    print "%d ------" % (rownum)
     cnt +=1
     org = OrderedDict()
     # Get values of all cells in the row
@@ -47,8 +48,8 @@ for rownum in range(0, sh.nrows):
     org['org_hq_city'] = row_values[6]
     org['org_hq_st_prov'] = row_values[7]
     org['org_hq_country'] = row_values[8]
-    if org['org_hq_country'] == "USA":
-        org['org_hq_country_locode'] = 'US'
+    # if org['org_hq_country'] == "USA":
+    #     org['org_hq_country_locode'] = 'US'
 
     print "loc: %s, %s, %s" % (org['org_hq_city'],org['org_hq_st_prov'], org['org_hq_country'])
 
@@ -69,6 +70,13 @@ for rownum in range(0, sh.nrows):
 
     org['org_size_id'] = row_values[11]
     org['org_greatest_impact'] = row_values[12]
+    print "impact", org['org_greatest_impact']
+    org['org_greatest_impact_detail'] = None
+    print len(org['org_greatest_impact'])
+    if "(" in org['org_greatest_impact']:
+        org['org_greatest_impact'], org['org_greatest_impact_detail'] = org['org_greatest_impact'].split("(")
+        org['org_greatest_impact_detail'] = org['org_greatest_impact_detail'].strip(")")
+
     org['data_use_unparsed'] = row_values[13]
     org['usage_unparsed'] = row_values[14]
     org['org_profile_src'] = row_values[15]
@@ -137,7 +145,7 @@ for rownum in range(0, sh.nrows):
 "  FRA" : ["", "", "FRA", 46.227638, 2.213749],
 "  GBR" : ["", "", "GBR", 55.378051, -3.435973],
 "  GEO" : ["", "", "GEO", 0, 0],
-"  GER" : ["", "", "GER", 0, 0],
+"  DEU" : ["", "", "GER", 0, 0],
 "  GTM" : ["", "", "GTM", 15.783471, -90.230759],
 "  HUN" : ["", "", "HUN", 47.162494, 19.503304],
 "  IDN" : ["", "", "IDN", -0.789275, 113.921327],
@@ -838,6 +846,10 @@ for rownum in range(0, sh.nrows):
         org['org_hq_country_income'] = None
         org['org_hq_country_income_code'] = None
 
+    # fix country code
+    if (3 == len(org['org_hq_country']) and 'EUR' != org['org_hq_country']):
+        org['org_hq_country'] = regions[org['org_hq_country']]['COUNTRY']
+
     # parse usage_unparsed
     usage_key = {
     "new" : "use_prod_srvc",
@@ -878,7 +890,7 @@ for rownum in range(0, sh.nrows):
 
 
 #   Append org if eligible
-    if org['eligibility'] == 'Y' and org['org_confidence'] > 3 and org['org_hq_country'] != "Spain" and org['latitude'] != 0 and org['longitude'] != 0 :
+    if org['eligibility'] == 'Y' and org['org_confidence'] > 3 and org['org_hq_country'] != "Spain" and (org['latitude'] is not None) and org['latitude'] != 0 and org['longitude'] != 0 :
         org_list.append(org)
         print "appended"
         # print org['org_hq_city'], org['org_hq_country']
