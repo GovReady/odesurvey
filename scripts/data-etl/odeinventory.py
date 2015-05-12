@@ -145,7 +145,7 @@ for rownum in range(0, sh.nrows):
 "  FRA" : ["", "", "FRA", 46.227638, 2.213749],
 "  GBR" : ["", "", "GBR", 55.378051, -3.435973],
 "  GEO" : ["", "", "GEO", 0, 0],
-"  DEU" : ["", "", "GER", 0, 0],
+"  DEU" : ["", "", "DEU", 0, 0],
 "  GTM" : ["", "", "GTM", 15.783471, -90.230759],
 "  HUN" : ["", "", "HUN", 47.162494, 19.503304],
 "  IDN" : ["", "", "IDN", -0.789275, 113.921327],
@@ -849,7 +849,10 @@ for rownum in range(0, sh.nrows):
     # fix country code
     if (3 == len(org['org_hq_country']) and 'EUR' != org['org_hq_country']):
         org['org_hq_country'] = regions[org['org_hq_country']]['COUNTRY']
-
+    
+    if  org['org_hq_country_locode'] is not None and 3 == len(org['org_hq_country_locode']) and 'EUR' != org['org_hq_country_locode']:
+        org['org_hq_country_locode'] = regions[org['org_hq_country_locode']]['ISO3166-1-UNLOC']
+        
     # parse usage_unparsed
     usage_key = {
     "new" : "use_prod_srvc",
@@ -923,14 +926,17 @@ for org in org_list:
     cnt += 1
     # print cnt
     # add row for org org_profile
+    data_srcs = org['data_use_unparsed'].split("|")
+    # Delete unparsed element
+    org.pop('data_use_unparsed', None)
+    
     org['data_type'] = None
     org['data_src_country_locode'] = None
     org['data_src_gov_level'] = None
     org['row_type'] = "org_profile"
     data_use_flat.append(copy.copy(org))
     
-    # Split data use
-    data_srcs = org['data_use_unparsed'].split("|")
+    # Split data use using data_srcs
     print "%s, %s" % (org['profile_id'], org['org_name'])    
     for data_src in data_srcs:
         print data_src.strip("")
@@ -943,11 +949,11 @@ for org in org_list:
         org['data_type'], org['data_src_country_locode'], org['data_src_gov_level'] = data_src.split(";")
         org['row_type'] = "data_use"
         org['data_type'] = org['data_type'].strip()
-        org['data_src_country_locode'] = org['data_src_country_locode'].strip()
         org['data_src_gov_level'] = org['data_src_gov_level'].strip()
-        # Delete unparsed element
-        org.pop('data_use_unparsed', None)
-        
+        org['data_src_country_locode'] = org['data_src_country_locode'].strip()
+        if  org['data_src_country_locode'] is not None and 3 == len(org['data_src_country_locode']) and 'EUR' != org['data_src_country_locode']:
+            org['data_src_country_locode'] = regions[org['data_src_country_locode']]['ISO3166-1-UNLOC']
+
         # Append copy of object to data_use_flatfile
         data_use_flat.append(copy.copy(org))
 
