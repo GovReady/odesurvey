@@ -594,6 +594,111 @@ $app->get('/survey/opendata/:surveyId/submitted/', function ($surveyId) use ($ap
 
 });
 
+
+// ************
+$app->get('/map/company/:profile_id/edit', function ($profile_id) use ($app) {
+
+	$app->redirect("/map/edit/".$profile_id);
+
+});
+
+// ************
+$app->get('/map/edit/:profile_id', function ($profile_id) use ($app) {
+
+	$parse = new parseRestClient(array(
+		'appid' => PARSE_APPLICATION_ID,
+		'restkey' => PARSE_API_KEY
+	));
+	// Retrieve org_profile
+	$params = array(
+	    'className' => 'org_profile',
+	    'query' => array(
+	        'profile_id' => $profile_id
+	    	)
+	);
+
+	$request = $parse->query($params);
+	$request_decoded = json_decode($request, true);
+	if (count($request_decoded['results']) > 0) {
+		// No result redirect to error
+		$org_profile = $request_decoded['results'][0];
+		// echo "<pre>"; print_r($request_decoded); 
+	} else {
+		$app->redirect("/map/org/".$profile_id."/notfound/");
+	}
+	
+	$content['surveyId'] = $profile_id;
+	$content['HTTP_HOST'] = $_SERVER['HTTP_HOST'];
+	$content['surveyName'] = "opendata";
+	$content['title'] = "Open Data Enterprise Survey - Edit Message";
+	
+	$app->view()->setData(array('content' => $content, 'org_profile' => $org_profile ));
+	$app->render('survey/tp_profile_edit_msg.php');
+
+});
+
+// ************
+$app->get('/map/edit/:profile_id/form', function ($profile_id) use ($app) {
+
+	$parse = new parseRestClient(array(
+		'appid' => PARSE_APPLICATION_ID,
+		'restkey' => PARSE_API_KEY
+	));
+	// Retrieve org_profile
+	$params = array(
+	    'className' => 'org_profile',
+	    'query' => array(
+	        'profile_id' => $profile_id
+	    	)
+	);
+
+	$request = $parse->query($params);
+	$request_decoded = json_decode($request, true);
+	if (count($request_decoded['results']) > 0) {
+		// No result redirect to error
+		$org_profile = $request_decoded['results'][0];
+		// echo "<pre>"; print_r($request_decoded); 
+	} else {
+		$app->redirect("/map/org/".$profile_id."/notfound/");
+	}
+	
+	// Retrieve org_data_use
+	// $params = array(
+	// 	'className' => 'org_data_use',
+	// 	'query' => array(
+	//         'surveyId' => $surveyId
+	// 		)
+	// );
+
+	// $request = $parse->query($params);
+	// $request_decoded = json_decode($request, true);
+	// $org_data_use = $request_decoded['results'];
+
+	$content['surveyId'] = $profile_id;
+
+	$content['HTTP_HOST'] = $_SERVER['HTTP_HOST'];
+	$content['surveyName'] = "opendata";
+	$content['title'] = "Open Data Enterprise Survey - Edit";
+	
+	$app->view()->setData(array('content' => $content, 'org_profile' => $org_profile ));
+	$app->render('survey/tp_profile_edit.php');
+
+});
+
+// ************
+$app->get('/map/org/:profile_id/notfound/', function ($profile_id) use ($app) {
+
+	$content['profile_id'] = $profile_id;
+	$content['HTTP_HOST'] = $_SERVER['HTTP_HOST'];
+	$content['title'] = "Open Data Enterprise Survey - Problem";
+	$content['error_msg_title'] = "Organization not found.";
+	$content['error_msg_details'] = "We did not find any organization for profile: $profile_id.";
+	
+	$app->view()->setData(array('content' => $content));
+	$app->render('survey/tp_problem.php');
+
+});
+
 // **************
 $app->get('/survey/opendata/list/new/', function () use ($app) {
 
