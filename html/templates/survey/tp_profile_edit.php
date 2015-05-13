@@ -7,14 +7,17 @@
 
     <div class="col-md-12" role="Intro" id="role-intro">
       <div style="text-align:center;font-size:1.1em;margin-top:20px;">
+        EDIT FORM (under development)
+        <!-- 
         Thank you for participating in the Open Data Impact Map, the first centralized, searchable database of open data use cases from around the world. 
         Your contribution makes it possible to better understand the value of open data and encourage its use globally.
         Information collected will be displayed on the <a href="http://opendataenterprise.org/map/viz">Map</a> and will be made available as open data.
+       -->
       </div>
       <br />
     </div>
      
-    <div class="col-md-12" role="eligibility" id="role-eligibility">
+    <!-- <div class="col-md-12" role="eligibility" id="role-eligibility">
       <div class="row col-md-12">
         <h4>ELIGIBILITY</h4>
       </div>
@@ -27,7 +30,7 @@
         We define open government data as publicly available data that is produced or commissioned by governments 
         and that can be accessed and reused by anyone, free of charge. 
       </div>
-    </div>
+    </div> -->
 
 <br />
 

@@ -12,13 +12,17 @@ date_default_timezone_set('America/New_York');
 
 class TestOfSurvey extends WebTestCase {
 
-    function testEndUserEditStarts() {
+    function testEndUseEditMsgPage() {
+        $this->get('http://'.$_SERVER['HTTP_HOST'].'/map/edit/rKemc0O5G9');
+        $this->assertResponse(200);
+        $this->assertTitle('Open Data Enterprise Survey - Edit Message');
+    }
+
+    function testEndUserEditForm() {
         echo "<p>Todo: Need a way to create and test an existing record.</p>";
-        $this->get('http://'.$_SERVER['HTTP_HOST'].'/map/org/rKemc0O5G9/edit/');
+        $this->get('http://'.$_SERVER['HTTP_HOST'].'/map/edit/rKemc0O5G9/form');
         $this->assertResponse(200);
         $this->assertTitle('Open Data Enterprise Survey - Edit');
-        // $this->assertText('as publicly available Data');
-        // echo $this->getUrl();
     }
 
     function testErrorPage() {
@@ -31,7 +35,7 @@ class TestOfSurvey extends WebTestCase {
     }
 
     function testErrorOrgNotFound() {
-        $this->get('http://'.$_SERVER['HTTP_HOST'].'/map/org/:0009000/edit/');
+        $this->get('http://'.$_SERVER['HTTP_HOST'].'/map/edit/:0009000');
         $this->assertResponse(200);
         // make sure problem page appears
         $this->assertTitle('Open Data Enterprise Survey - Problem');
