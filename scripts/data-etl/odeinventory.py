@@ -66,6 +66,7 @@ for rownum in range(0, sh.nrows):
     org['org_type_other'] = None
 
     org['org_url'] = row_values[4]
+    org['no_org_url'] = False
     org['org_description'] = row_values[5]
     # org_type_other
     org['org_hq_city'] = row_values[6]
