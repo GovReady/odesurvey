@@ -507,15 +507,27 @@ $app->post('/map/survey/2du/:surveyId/', function ($surveyId) use ($app) {
 	$mgClient = new Mailgun(MAILGUN_APIKEY);
 	$domain = MAILGUN_SERVER;
 
+	$emailtext = <<<EOL
+Thank you for participating in the Open Data Impact Map. Your contribution helps make the Map a truly global view of open data’s impact. You can view your submission here: http://${_SERVER['HTTP_HOST']}/survey/opendata/${surveyId}
+
+Please help us spread the word by sharing the survey http://www.opendataenterprise.org/map/survey
+
+If you know of any other organizations using open data, are interested in becoming a regional supporter, or have any questions, please email us at map@odenterprise.org.
+
+Many thanks, 
+The Center for Open Data Enterprise
+
+EOL;
+
     if ( strlen($allPostVars['survey_contact_email']) > 0 && SEND_MAIL) {
 		// Send email with mailgun
 		$result = $mgClient->sendMessage($domain, array(
 			'from'    => 'Center for Open Data Enterprise <mailgun@sandboxc1675fc5cc30472ca9bd4af8028cbcdf.mailgun.org>',
 			'to'      => '<'.$allPostVars['survey_contact_email'].'>',
-			'subject' => 'Thank you for submitting open data survey!',
-			'text'    => 'Thank you for completing the 2015 open data survery. You can view your submitted survey at http://'.$_SERVER['HTTP_HOST'].'/survey/opendata/'.$surveyId.'/submitted'
+			'subject' => "Open Data Impact Map: SUBMISSION RECEIVED",
+			'text'    => $emailtext
 		));
-		// echo "<pre>";print_r($result); echo "</pre>";
+		// echo "<pre>";print_r($result); echo "</pre>";exit;
     }
 
 	$app->redirect("/map/survey/".$surveyId."/thankyou/");
