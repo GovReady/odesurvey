@@ -3,7 +3,7 @@
 <!-- Main Content Section -->
 <div class="container lg-font col-md-12" style="border:0px solid black;">
 
- <form id="survey_form" class="form-horizontal" style="border:0px dotted black;" action="/map/survey/2du/<?php echo $content['surveyId']; ?>" method="post">
+ <form id="survey_form" class="form-horizontal" style="border:0px dotted black;" action="/map/edit/<?php echo $content['surveyId']; ?>/editform" method="post">
 
     <div class="col-md-12" role="Intro" id="role-intro">
       <div style="text-align:center;font-size:1.1em;margin-top:20px;">
@@ -44,7 +44,7 @@
         <div class="form-group col-md-12">
           <div class="form-group col-md-10">
             <label for="org_name">Name of organization<small class="required">*</small></label>
-            <input type="text" class="form-control" id="org_name" name="org_name" placeholder="" required minlength="2">
+            <input type="text" class="form-control" id="org_name" name="org_name" placeholder="" required minlength="2" value="<?php echo $org_profile['org_name'];?>">
         </div>
         </div>
       </div>
@@ -53,7 +53,7 @@
       <div class="form-group col-md-12">
         <div class="form-group col-md-10">
           <label for="org_description">One sentence description of organization <small class="required">(400 characters or less)*</small></label>
-          <textarea type="text" class="form-control " id="org_description" name="org_description" required></textarea>
+          <textarea type="text" class="form-control " id="org_description" name="org_description" required><?php echo $org_profile['org_description'];?></textarea>
         </div>
       </div>
 
@@ -62,18 +62,20 @@
           <label for="org_type">Type of organization<small class="required">*</small></label>
         <div class="col-md-10">
           <div class="btn-group" data-toggle="buttons">
-            <label class="btn btn-default">
-                <input type="radio" name="org_type" id="For-profit" value="For-profit" required="True"> For-profit
+            <label class="btn btn-default <?php if ("For-profit" == $org_profile['org_type']) {echo "active";} ?>">
+                <input type="radio" name="org_type" id="For-profit" value="For-profit" required="True" <?php if ("For-profit" == $org_profile['org_type']) {echo "checked";} ?>> For-profit
             </label>
-            <label class="btn btn-default">
-                <input type="radio" name="org_type" id="Nonprofit" value="Nonprofit"> Nonprofit
+            <label class="btn btn-default <?php if ("Nonprofit" == $org_profile['org_type']) {echo "active";} ?>">
+                <input type="radio" name="org_type" id="Nonprofit" value="Nonprofit" <?php if ("Nonprofit" == $org_profile['org_type']) {echo "checked";} ?>> Nonprofit
             </label>
-            <label class="btn btn-default">
-                <input type="radio" name="org_type" id="Developer group" value="Developer group"> Developer group
+            <label class="btn btn-default <?php if ("Developer group" == $org_profile['org_type']) {echo "active";} ?>">
+                <input type="radio" name="org_type" id="Developer group" value="Developer group" <?php if ("Developer group" == $org_profile['org_type']) {echo "checked";} ?>> Developer group
             </label>
-            <label class="btn btn-default">
-                <input type="radio" name="org_type" id="Other" value="Other"> Other
+            <label class="btn btn-default <?php if ("Other" == $org_profile['org_type']) {echo "active";} ?>">
+                <input type="radio" name="org_type" id="Other" value="Other" <?php if ("Other" == $org_profile['org_type']) {echo "checked";} ?>> Other
+
             </label>
+            <br>TODO
           </div>
         </div>
       </div>
@@ -83,10 +85,10 @@
         <label for="org_url">Website URL</label>
         <div class="row">      
             <div class="col-md-8">
-              <input type="url" class="form-control" id="org_url" name="org_url" placeholder="http://" value="http://">
+              <input type="url" class="form-control" id="org_url" name="org_url" placeholder="http://" value="<?php if (null !== $org_profile['org_url']) { echo $org_profile['org_url']; } else { echo null; } ?>">
             </div>
             <div class="col-md-4">
-              <input type="checkbox" name="no_org_url" id="no_org_url" value="True"> No URL
+              <input type="checkbox" name="no_org_url" id="no_org_url" value="True" <?php if ($org_profile['no_org_url']) {echo "checked";} ?>> No URL 
             </div>
         </div>
       </div>
@@ -96,7 +98,7 @@
         <div class="form-group col-md-10 details">
 
           <label for="org_hq_city_all">Location <small class="required">(Please provide as specific as possible)*</small></label>
-          <input type="text" class="form-control" id="org_hq_city_all" name="org_hq_city_all" required>
+          <input type="text" class="form-control" id="org_hq_city_all" name="org_hq_city_all" required >
 
           <!--label for="org_hq_city">City</label -->
           <input type="hidden" class="form-control" id="org_hq_city" name="org_hq_city" required data-geo="locality">
@@ -121,34 +123,34 @@
         <div class="col-md-4" id="industry_id_col-1">
           <input type="radio" name="industry_id" class="industry_id" value="agr">&nbsp; Agriculture
           <br /><input type="radio" name="industry_id" class="industry_id" value="art">&nbsp; Arts and culture
-          <br /><input id="industry_id_cul" type="radio" name="industry_id" class="industry_id" value="bus" required> Business &amp; legal services
-          <br /><input type="radio" name="industry_id" class="industry_id" value="con">&nbsp; Consumer services
-          <br /><input type="radio" name="industry_id" class="industry_id" value="dat">&nbsp; Data/information technology
-          <br /><input type="radio" name="industry_id" class="industry_id" value="edu">&nbsp; Education
-          <br /><input type="radio" name="industry_id" class="industry_id" value="ngy">&nbsp; Energy
-          <br /><input type="radio" name="industry_id" class="industry_id" value="env">&nbsp; Environment
-          <br /><input type="radio" name="industry_id" class="industry_id" value="fin">&nbsp; Finance and investment
+          <br /><input id="industry_id_cul" type="radio" name="industry_id" class="industry_id" value="bus" required <?php if ("bus" == $org_profile['industry_id']) {echo "checked";} ?>> Business &amp; legal services
+          <br /><input type="radio" name="industry_id" class="industry_id" value="con" <?php if ("con" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Consumer services
+          <br /><input type="radio" name="industry_id" class="industry_id" value="dat" <?php if ("dat" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Data/information technology
+          <br /><input type="radio" name="industry_id" class="industry_id" value="edu" <?php if ("edu" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Education
+          <br /><input type="radio" name="industry_id" class="industry_id" value="ngy" <?php if ("ngy" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Energy
+          <br /><input type="radio" name="industry_id" class="industry_id" value="env" <?php if ("env" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Environment
+          <br /><input type="radio" name="industry_id" class="industry_id" value="fin" <?php if ("fin" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Finance and investment
         </div>
         <div class="col-md-4" id="industry_id_col-2">
           <input type="radio" name="industry_id" class="industry_id" value="geo">&nbsp; Geospatial/mapping
-          <br /><input type="radio" name="industry_id" class="industry_id" value="gov">&nbsp; Governance
-          <br /><input type="radio" name="industry_id" class="industry_id" value="hlt">&nbsp; Healthcare
-          <br /><input type="radio" name="industry_id" class="industry_id" value="est">&nbsp; Housing and real estate
-          <br /><input type="radio" name="industry_id" class="industry_id" value="ins">&nbsp; Insurance
-          <br /><input type="radio" name="industry_id" class="industry_id" value="med">&nbsp; Media and communications
-          <br /><input type="radio" name="industry_id" class="industry_id" value="man">&nbsp; Mining/Manufacturing
-          <br /><input type="radio" name="industry_id" class="industry_id" value="rsh">&nbsp; Research and consulting
-          <br /><input type="radio" name="industry_id" class="industry_id" value="sec">&nbsp; Security and public safety
+          <br /><input type="radio" name="industry_id" class="industry_id" value="gov" <?php if ("gov" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Governance
+          <br /><input type="radio" name="industry_id" class="industry_id" value="hlt" <?php if ("hlt" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Healthcare
+          <br /><input type="radio" name="industry_id" class="industry_id" value="est" <?php if ("est" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Housing and real estate
+          <br /><input type="radio" name="industry_id" class="industry_id" value="ins" <?php if ("ins" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Insurance
+          <br /><input type="radio" name="industry_id" class="industry_id" value="med" <?php if ("med" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Media and communications
+          <br /><input type="radio" name="industry_id" class="industry_id" value="man" <?php if ("man" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Mining/Manufacturing
+          <br /><input type="radio" name="industry_id" class="industry_id" value="rsh" <?php if ("rsh" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Research and consulting
+          <br /><input type="radio" name="industry_id" class="industry_id" value="sec" <?php if ("sec" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Security and public safety
         </div>
         <div class="col-md-4" id="industry_id_col-3">
           <input type="radio" name="industry_id" class="industry_id" value="sci">&nbsp; Scientific research
-          <br /><input type="radio" name="industry_id" class="industry_id" value="tel">&nbsp; Telecommunications/internet service providers (ISPs)
-          <br /><input type="radio" name="industry_id" class="industry_id" value="trm">&nbsp; Tourism
-          <br /><input type="radio" name="industry_id" class="industry_id" value="trn">&nbsp; Transportation and logistics
-          <br /><input type="radio" name="industry_id" class="industry_id" value="wat">&nbsp; Water and sanitation
-          <br /><input type="radio" name="industry_id" class="industry_id" value="wea">&nbsp; Weather
-          <br /><input type="radio" name="industry_id" class="industry_id" value="otr">&nbsp; Other
-                <input type="text" class="form-control" style="display:none" name="industry_other" placeholder="Describe other">
+          <br /><input type="radio" name="industry_id" class="industry_id" value="tel" <?php if ("tel" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Telecommunications/internet service providers (ISPs)
+          <br /><input type="radio" name="industry_id" class="industry_id" value="trm" <?php if ("trm" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Tourism
+          <br /><input type="radio" name="industry_id" class="industry_id" value="trn" <?php if ("trn" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Transportation and logistics
+          <br /><input type="radio" name="industry_id" class="industry_id" value="wat" <?php if ("wat" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Water and sanitation
+          <br /><input type="radio" name="industry_id" class="industry_id" value="wea" <?php if ("wea" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Weather
+          <br /><input type="radio" name="industry_id" class="industry_id" value="otr" <?php if ("otr" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Other
+                <input type="text" class="form-control" style="display:none" name="industry_other" placeholder="Describe other">TODO 
         </div>
         </fieldset>
       </div>
@@ -157,7 +159,7 @@
       <div class="form-group col-md-12">
         <div class="form-group col-md-10">
           <label for="org_year_founded">Founding year<small class="required">*</small></label>
-          <input type="text" class="form-control" id="org_year_founded" name="org_year_founded" placeholder="" required>
+          <input type="text" class="form-control" id="org_year_founded" name="org_year_founded" placeholder="" required value="<?php echo $org_profile['org_year_founded'];?>">
         </div>
       </div>
 
@@ -166,20 +168,20 @@
         <label for="org_size_id">Size<small class="required">*</small></label>
         <div class="col-md-12">
           <div class="btn-group" data-toggle="buttons">
-            <label class="btn btn-default">
-                <input type="radio" name="org_size_id" value="1-10"> 1-10 employees
+            <label class="btn btn-default <?php if ("1-10" == $org_profile['org_size_id']) {echo "active";} ?>">
+                <input type="radio" name="org_size_id" value="1-10" <?php if ("1-10" == $org_profile['org_size_id']) {echo "checked";} ?>> 1-10 employees
             </label>
-            <label class="btn btn-default">
-                <input type="radio" name="org_size_id" value="11-50"> 11-50 employees
+            <label class="btn btn-default <?php if ("11-50" == $org_profile['org_size_id']) {echo "active";} ?>">
+                <input type="radio" name="org_size_id" value="11-50" <?php if ("11-50" == $org_profile['org_size_id']) {echo "checked";} ?>> 11-50 employees
             </label>
-            <label class="btn btn-default">
-                <input type="radio" name="org_size_id" value="51-200"> 51-200 employees
+            <label class="btn btn-default  <?php if ("51-200" == $org_profile['org_size_id']) {echo "active";} ?>">
+                <input type="radio" name="org_size_id" value="51-200" <?php if ("51-200" == $org_profile['org_size_id']) {echo "checked";} ?>> 51-200 employees
             </label>
-            <label class="btn btn-default">
-                <input type="radio" name="org_size_id" value="201-1000"> 201-1000 employees
+            <label class="btn btn-default <?php if ("201-1000" == $org_profile['org_size_id']) {echo "active";} ?>">
+                <input type="radio" name="org_size_id" value="201-1000" <?php if ("201-1000" == $org_profile['org_size_id']) {echo "checked";} ?>> 201-1000 employees
             </label>
-            <label class="btn btn-default">
-                <input type="radio" name="org_size_id" value="1000+"> 1000+ employees
+            <label class="btn btn-default <?php if ("1000+" == $org_profile['org_size_id']) {echo "active";} ?>">
+                <input type="radio" name="org_size_id" value="1000+"<?php if ("1000+" == $org_profile['org_size_id']) {echo "checked";} ?>> 1000+ employees
             </label>
           </div>
         </div>
@@ -190,21 +192,22 @@
           <label for="org_greatest_impact">What is the greatest type of impact your organization has?<small class="required">*</small></label>
         <div class="col-xs-9">
           <div class="btn-group" data-toggle="buttons">
-            <label class="btn btn-default">
-                <input type="radio" name="org_greatest_impact" id="Economic" value="Economic" /> Economic
+            <label class="btn btn-default <?php if ("Economic" == $org_profile['org_greatest_impact']) {echo "active";} ?>">
+                <input type="radio" name="org_greatest_impact" id="Economic" value="Economic" <?php if ("Economic" == $org_profile['org_greatest_impact']) {echo "checked";} ?>> Economic
             </label>
-            <label class="btn btn-default">
-                <input type="radio" name="org_greatest_impact" id="Environmental" value="Environmental" /> Environmental
+            <label class="btn btn-default <?php if ("Environmental" == $org_profile['org_greatest_impact']) {echo "active";} ?>">
+                <input type="radio" name="org_greatest_impact" id="Environmental" value="Environmental" <?php if ("Environmental" == $org_profile['org_greatest_impact']) {echo "checked";} ?>> Environmental
             </label>
-            <label class="btn btn-default">
-                <input type="radio" name="org_greatest_impact" id="Governance" value="Governance" /> Governance
+            <label class="btn btn-default <?php if ("Governance" == $org_profile['org_greatest_impact']) {echo "active";} ?>">
+                <input type="radio" name="org_greatest_impact" id="Governance" value="Governance" <?php if ("Governance" == $org_profile['org_greatest_impact']) {echo "checked";} ?>> Governance
             </label>
-            <label class="btn btn-default">
-                <input type="radio" name="org_greatest_impact" id="Social" value="Social" /> Social
+            <label class="btn btn-default <?php if ("Social" == $org_profile['org_greatest_impact']) {echo "active";} ?>">
+                <input type="radio" name="org_greatest_impact" id="Social" value="Social"  <?php if ("Social" == $org_profile['org_greatest_impact']) {echo "checked";} ?>> Social
             </label>
-            <label class="btn btn-default">
-                <input type="radio" name="org_greatest_impact" id="Other" value="Other" /> Other
+            <label class="btn btn-default <?php if ("Other" == $org_profile['org_greatest_impact']) {echo "active";} ?>">
+                <input type="radio" name="org_greatest_impact" id="Other" value="Other"  <?php if ("Other" == $org_profile['org_greatest_impact']) {echo "checked";} ?>> Other
             </label>
+            TODO
           </div>
         </div>
       </div>
@@ -221,7 +224,7 @@
       <div class="row col-md-12 data-use-row" id="dataUseDataType">
         <label for="data_use_type[]">Types of <u>most relevant</u> open data your organization uses <small class="required">(select all that apply)*</small></label>
         <div class="col-md-4" id="data_type_col-1">
-            <input type="checkbox" name="data_use_type[]" class="data_use_type" value="Agriculture" required>&nbsp; Agriculture
+            <input type="checkbox" name="data_use_type[]" class="data_use_type" value="Agriculture" required >&nbsp; Agriculture
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Arts and culture">&nbsp; Arts and culture
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Business">&nbsp; Business
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Consumer">&nbsp; Consumer
@@ -258,22 +261,22 @@
         <div class="col-md-12">
           <div class="btn-group" data-toggle="buttons">
             <label class="btn btn-default">
-                <input type="radio" name="data_country_count" value="1" /> 1 country
+                <input type="radio" name="data_country_count" value="1" > 1 country
             </label>
             <label class="btn btn-default">
-                <input type="radio" name="data_country_count" value="2 - 5" /> 2-5 countries
+                <input type="radio" name="data_country_count" value="2 - 5" > 2-5 countries
             </label>
             <label class="btn btn-default">
-                <input type="radio" name="data_country_count" value="6 - 10" /> 6-10 countries
+                <input type="radio" name="data_country_count" value="6 - 10" > 6-10 countries
             </label>
             <label class="btn btn-default">
-                <input type="radio" name="data_country_count" value="11 - 20" /> 11-20 countries
+                <input type="radio" name="data_country_count" value="11 - 20" > 11-20 countries
             </label>
             <label class="btn btn-default">
-                <input type="radio" name="data_country_count" value="21 - 50" /> 21-50 countries
+                <input type="radio" name="data_country_count" value="21 - 50" > 21-50 countries
             </label>
             <label class="btn btn-default">
-                <input type="radio" name="data_country_count" value="50+" /> 50+ countries
+                <input type="radio" name="data_country_count" value="50+" > 50+ countries
             </label>
           </div>
         </div>
@@ -322,7 +325,7 @@
         </label>
 
         <div class="row col-md-10">
-          <textarea type="text" class="form-control" id="org_additional" name="org_additional" placeholder="E.g. How could the open data your organization uses be improved? Which datasets are most valuable to your organization? What other types of data does your organization use in addition to open government data?"></textarea>
+          <textarea type="text" class="form-control" id="org_additional" name="org_additional" placeholder="E.g. How could the open data your organization uses be improved? Which datasets are most valuable to your organization? What other types of data does your organization use in addition to open government data?"><?php echo $org_profile['org_additional'];?></textarea>
         </div>
       </div>
       <br />
