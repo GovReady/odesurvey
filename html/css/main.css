@@ -9,12 +9,10 @@
 body {
     padding-top: 30px;
     padding-bottom: 20px;
-    font-size: 11pt;
+    font-family: Lato, sans-serif;
     color: #333;
-    /*font-size: 12px;*/
-    /*line-height: 22px;*/
-    /*font-family: Lato, sans-serif;*/
-    font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Verdana, sans-serif;
+ 	font-size: 12px;
+ 	line-height: 22px;
 }
 
 .lg-font p {
@@ -67,8 +65,9 @@ div.od-purpose {
 /* Theme section */
 
 #role-intro {
-	color: rgb(85, 85, 85);
 	background-color: rgb(255, 255, 255);
+	font-size: 16px;
+	color: #333;
 	padding: 12px 64px 24px 64px;
 	line-height: 1.8em;
 }
@@ -85,10 +84,17 @@ div.od-purpose {
 	border: 1px solid rgb(217, 217, 218);
 	padding: 12px 32px 32px 40px;
 	margin-bottom: 2.0em;
+	font-size: 14px;
 }
 
-#role-eligibility h4, b {
+#role-eligibility h4 {
 	color: rgb(85, 85, 85);
+	font-size: 16px;
+}
+
+#role-eligibility b {
+	color: rgb(85, 85, 85);
+	font-size: 14px;
 }
 
 
@@ -100,6 +106,7 @@ div.od-purpose {
 #org_description, #org_additional {
 	height:70px; 
 	min-height:70px;
+	font-size: 14px;
 }
 
 #org_additional {
@@ -107,7 +114,7 @@ div.od-purpose {
 }
 
 #role-orgInfo-titlebar {
-	background-color: rgb(4, 15, 78);
+	background-color: #020b4f;
 	color: rgb(255, 255, 255);
 	padding: 0.0em 0.85em 0.70em 24px;
 	margin-bottom: 0px;
@@ -117,7 +124,7 @@ div.od-purpose {
 
 #role-orgInfo-titlebar .section-title h3 {
 	color: rgb(255, 255, 255);
-	font-size: 0.85em;
+	font-size: 27px;
 }
 
 #role-orgInfo {
@@ -130,7 +137,7 @@ div.od-purpose {
 }
 
 #role-dataUse-titlebar {
-	background-color: rgb(244, 180, 43);
+	background-color: #f8b401;
 	color: rgb(255, 255, 255);
 	padding: 0.0em 0.85em 0.70em 24px;
 	margin-bottom: 0px;
@@ -152,7 +159,7 @@ div.od-purpose {
 }
 
 #role-contact-titlebar {
-	background-color: rgb(53, 167, 105);
+	background-color: #2fa767;
 	color: rgb(255, 255, 255);
 	padding: 0.0em 0.85em 0.70em 24px;
 	margin-bottom: 0px;
@@ -176,6 +183,7 @@ div.od-purpose {
 	border: 1px solid rgb(217, 217, 218);
 	border-bottom-left-radius: 10px 10px;
 	border-bottom-right-radius: 10px 10px;
+	font-size: 16px;
 }
 
 .data_detail_row {
