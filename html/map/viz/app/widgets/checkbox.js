@@ -1,0 +1,1 @@
+define(["react"],function(e){"use strict";var t=React.createClass({displayName:"Checkbox",render:function(){var e=this.props.keys;return React.createElement("div",null,React.createElement("h2",null,e.title),React.createElement("p",null,e.name))}});return function(e,n){React.render(React.createElement(t,{keys:e}),document.getElementById(n))}});
