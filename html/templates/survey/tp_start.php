@@ -66,6 +66,7 @@
                         <h3><a href="/survey/opendata/list/new">View submitted surveys</a></h3>
 
                         <h3><a href="/survey/opendata/data/flatfile.json">Combined flatfile (json)</a></h3>
+                        <h3><a href="/map/viz/index.html">map/viz</a></h3>
                         <h4><a href="http://s3.amazonaws.com/stg.blueraster.com/opendata/index.html">Blue Raster Map (s3.amazonaws.com)</a></h4>
 
                         <h3>Administration</h3>
