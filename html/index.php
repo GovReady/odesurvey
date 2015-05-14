@@ -1,5 +1,22 @@
 <?php
 
+// server should keep session data for AT LEAST 1 hour
+ini_set('session.gc_maxlifetime', 3600);
+// each client should remember their session id for EXACTLY 1 hour
+session_set_cookie_params(3600);
+session_start();
+$now = time();
+// echo "discard after: $now<br>";
+if (isset($_SESSION['discard_after']) && $now > $_SESSION['discard_after']) {
+    // this session has worn out its welcome; kill it and start a brand new one
+    session_unset();
+    session_destroy();
+    session_start();
+}
+// either new or old, it should live at most for another hour
+$_SESSION['discard_after'] = $now + 3600;
+// echo "<pre>top of script\n"; print_r($_SESSION);
+
 // Configuration
 //-------------------------------
 // error_reporting(E_ERROR | E_WARNING | E_PARSE);
@@ -76,9 +93,88 @@ HTML;
 });
 
 // ************
-$app->get('/survey/opendata/', function () use ($app) {
+$app->get('/admin/login/', function () use ($app) {
 	
-    $app->redirect("/survey/opendata/start/");
+    $content['title'] = "Open Data Impact Map Admin";
+    $content['intro'] = <<<HTML
+		<p>Open Data Impact Map Admin</p>
+HTML;
+
+	// return $app->response->setBody($response);
+	// Render content with simple bespoke templates
+	$app->view()->setData(array('content' => $content));
+	$app->render('admin/tp_login.php');
+    
+});
+
+// ************
+$app->post('/admin/login/', function () use ($app) {
+
+	echo "route to login";
+	return true;
+	
+//     $content['title'] = "Open Data Impact Map Admin";
+//     $content['intro'] = <<<HTML
+// 		<p>Open Data Impact Map Admin</p>
+// HTML;
+
+// 	// return $app->response->setBody($response);
+// 	// Render content with simple bespoke templates
+// 	$app->view()->setData(array('content' => $content));
+// 	$app->render('admin/tp_login.php');
+    
+});
+
+// ************
+$app->get('/admin/protected/', function () use ($app) {
+
+	// Requires login to access
+	if ( !isset($_SESSION['username']) ) {
+		// echo "<br> no username";
+		$app->redirect("/admin/login/");
+	}
+
+    $paramValue = $app->request->get('param');
+    
+    $content['title'] = "ODE Survery Studies";
+    $content['intro'] = <<<HTML
+		<p>Home ODE Survey Studies</p>
+HTML;
+
+	// return $app->response->setBody($response);
+	// Render content with simple bespoke templates
+	$app->view()->setData(array('content' => $content));
+	$app->render('admin/tp_admin_home.php');
+
+});
+
+// ************
+$app->get('/admin/', function () use ($app) {
+
+	// Requires login to access
+	if ( !isset($_SESSION['username']) ) {
+		// echo "<br> no username";
+		$app->redirect("/admin/login/");
+	}
+
+	echo "<br><br>This is a protected route/path/page";
+	return true;
+});
+
+// ************
+$app->get('/admin/logout/', function () use ($app) {
+
+	session_unset();
+	session_destroy();
+	$app->redirect("/admin/login/");
+
+});
+
+
+// ************
+$app->get('/map/survey/', function () use ($app) {
+	
+    $app->redirect("/map/survey/start/");
 
 });
 
@@ -144,7 +240,7 @@ $app->get('/admin/delete/test/confirmed', function () use ($app) {
 
 
 // ************
-$app->get('/survey/opendata/start', function () use ($app) {
+$app->get('/map/survey/start', function () use ($app) {
 	
 	$parse = new parseRestClient(array(
 		'appid' => PARSE_APPLICATION_ID,
@@ -164,7 +260,7 @@ $app->get('/survey/opendata/start', function () use ($app) {
 
     if(isset($response['objectId'])) {
     	// Success
-    	$app->redirect("/survey/opendata/".$response['objectId']);
+    	$app->redirect("/map/survey/".$response['objectId']);
     } else {
     	// Failure
     	echo "Problem. Promlem with record creation not yet handled.";
@@ -174,7 +270,7 @@ $app->get('/survey/opendata/start', function () use ($app) {
 });
 
 // ************
-$app->get('/survey/opendata/:surveyId', function ($surveyId) use ($app) {
+$app->get('/map/survey/:surveyId', function ($surveyId) use ($app) {
 	
 	$app->log->debug(date_format(date_create(), 'Y-m-d H:i:s')."; DEBUG; "."new survey created, ...");
 	
@@ -203,7 +299,7 @@ $app->get('/survey/opendata/:surveyId', function ($surveyId) use ($app) {
 		$org_profile = $request_decoded['results'][0];
 			// $app->redirect("/survey/opendata/".$surveyId."/thankyou/");
 			//$app->get('/survey/opendata/:surveyId/submitted/', function ($surveyId) use ($app) {
-		$app->redirect("/survey/opendata/".$surveyId."/submitted/");
+		$app->redirect("/map/survey/".$surveyId."/submitted/");
 	}
 
 	//HTylD69YaB
@@ -219,7 +315,7 @@ $app->get('/survey/opendata/:surveyId', function ($surveyId) use ($app) {
 
 // du new post here
 // ************
-$app->post('/survey/opendata/2du/:surveyId/', function ($surveyId) use ($app) {
+$app->post('/map/survey/2du/:surveyId/', function ($surveyId) use ($app) {
 
 	$parse = new parseRestClient(array(
 		'appid' => PARSE_APPLICATION_ID,
@@ -422,12 +518,12 @@ $app->post('/survey/opendata/2du/:surveyId/', function ($surveyId) use ($app) {
 		// echo "<pre>";print_r($result); echo "</pre>";
     }
 
-	$app->redirect("/survey/opendata/".$surveyId."/thankyou/");
+	$app->redirect("/map/survey/".$surveyId."/thankyou/");
 });
 // end du new post here
 
 // ************
-$app->get('/survey/opendata/:surveyId/thankyou/', function ($surveyId) use ($app) {
+$app->get('/map/survey/:surveyId/thankyou/', function ($surveyId) use ($app) {
 	
 	$parse = new parseRestClient(array(
 		'appid' => PARSE_APPLICATION_ID,
@@ -498,8 +594,116 @@ $app->get('/survey/opendata/:surveyId/submitted/', function ($surveyId) use ($ap
 
 });
 
+
+// ************
+$app->get('/map/company/:profile_id/edit', function ($profile_id) use ($app) {
+
+	$app->redirect("/map/edit/".$profile_id);
+
+});
+
+// ************
+$app->get('/map/edit/:profile_id', function ($profile_id) use ($app) {
+
+	$parse = new parseRestClient(array(
+		'appid' => PARSE_APPLICATION_ID,
+		'restkey' => PARSE_API_KEY
+	));
+	// Retrieve org_profile
+	$params = array(
+	    'className' => 'org_profile',
+	    'query' => array(
+	        'profile_id' => $profile_id
+	    	)
+	);
+
+	$request = $parse->query($params);
+	$request_decoded = json_decode($request, true);
+	if (count($request_decoded['results']) > 0) {
+		// No result redirect to error
+		$org_profile = $request_decoded['results'][0];
+		// echo "<pre>"; print_r($request_decoded); 
+	} else {
+		$app->redirect("/map/org/".$profile_id."/notfound/");
+	}
+	
+	$content['surveyId'] = $profile_id;
+	$content['HTTP_HOST'] = $_SERVER['HTTP_HOST'];
+	$content['surveyName'] = "opendata";
+	$content['title'] = "Open Data Enterprise Survey - Edit Message";
+	
+	$app->view()->setData(array('content' => $content, 'org_profile' => $org_profile ));
+	$app->render('survey/tp_profile_edit_msg.php');
+
+});
+
+// ************
+$app->get('/map/edit/:profile_id/form', function ($profile_id) use ($app) {
+
+	$parse = new parseRestClient(array(
+		'appid' => PARSE_APPLICATION_ID,
+		'restkey' => PARSE_API_KEY
+	));
+	// Retrieve org_profile
+	$params = array(
+	    'className' => 'org_profile',
+	    'query' => array(
+	        'profile_id' => $profile_id
+	    	)
+	);
+
+	$request = $parse->query($params);
+	$request_decoded = json_decode($request, true);
+	if (count($request_decoded['results']) > 0) {
+		// No result redirect to error
+		$org_profile = $request_decoded['results'][0];
+		// echo "<pre>"; print_r($request_decoded); 
+	} else {
+		$app->redirect("/map/org/".$profile_id."/notfound/");
+	}
+	
+	// Retrieve org_data_use
+	$params = array(
+		'className' => 'org_data_use',
+		'query' => array(
+	        'profile_id' => $profile_id
+			)
+	);
+
+	$request = $parse->query($params);
+	$request_decoded = json_decode($request, true);
+	$org_data_use = $request_decoded['results'];
+
+	$content['surveyId'] = $profile_id;
+
+	$content['HTTP_HOST'] = $_SERVER['HTTP_HOST'];
+	$content['surveyName'] = "opendata";
+	$content['title'] = "Open Data Enterprise Survey - Edit";
+	
+	$app->view()->setData(array('content' => $content, 'org_profile' => $org_profile, 'org_data_use' => $org_data_use ));
+	$app->render('survey/tp_profile_edit.php');
+
+});
+
+// ************
+$app->get('/map/org/:profile_id/notfound/', function ($profile_id) use ($app) {
+
+	$content['profile_id'] = $profile_id;
+	$content['HTTP_HOST'] = $_SERVER['HTTP_HOST'];
+	$content['title'] = "Open Data Enterprise Survey - Problem";
+	$content['error_msg_title'] = "Organization not found.";
+	$content['error_msg_details'] = "We did not find any organization for profile: $profile_id.";
+	
+	$app->view()->setData(array('content' => $content));
+	$app->render('survey/tp_problem.php');
+
+});
+
 // **************
 $app->get('/survey/opendata/list/new/', function () use ($app) {
+
+	// Requires login to access
+	if ( !isset($_SESSION['username']) ) { $app->redirect("/admin/login/"); }
 
 	$parse = new parseRestClient(array(
 		'appid' => PARSE_APPLICATION_ID,
@@ -528,6 +732,9 @@ $app->get('/survey/opendata/list/new/', function () use ($app) {
 // **************
 $app->get('/survey/opendata/list/new/2/', function () use ($app) {
 
+	// Requires login to access
+	if ( !isset($_SESSION['username']) ) { $app->redirect("/admin/login/"); }
+
 	$parse = new parseRestClient(array(
 		'appid' => PARSE_APPLICATION_ID,
 		'restkey' => PARSE_API_KEY
@@ -554,6 +761,9 @@ $app->get('/survey/opendata/list/new/2/', function () use ($app) {
 
 // **************
 $app->get('/survey/opendata/list/map/', function () use ($app) {
+
+	// Requires login to access
+	if ( !isset($_SESSION['username']) ) { $app->redirect("/admin/login/"); }
 
 	$parse = new parseRestClient(array(
 		'appid' => PARSE_APPLICATION_ID,

@@ -274,6 +274,8 @@
                 <nav id="menu" class="navbar-collapse collapse" role="navigation">
 
                     <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">(<?php echo $_SESSION['username'];?>)</a></li>
+                        <li><a href="/admin/logout/">logout</a></li>
                         <li><a href="#">Recently submitted surveys</a></li>
                     </ul>
                 </nav>
@@ -290,7 +292,7 @@
                         <br />
                         view recent
                         <br />
-                        <a href="/survey/opendata/" target="_blank">new survey</a>
+                        <a href="/map/survey/" target="_blank">new survey</a>
                         <br />
                         <a href="/survey/opendata/data/flatfile.json">flatfile (json)</a>
                         <br />

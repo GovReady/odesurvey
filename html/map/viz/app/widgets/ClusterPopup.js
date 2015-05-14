@@ -1,0 +1,1 @@
+define(["react","widgets/CompanyPopup"],function(e,t){"use strict";var n=React.createClass({displayName:"ClusterPopup",getInitialState:function(){return{}},handleChange:function(e){},render:function(){var e=this.props.keys,n=(this.state,this.setState,e.companies.map(function(e){return React.createElement(t,{keys:e})}));return React.createElement("div",null,n)}});return n});
