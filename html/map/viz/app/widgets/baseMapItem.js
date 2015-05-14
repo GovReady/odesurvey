@@ -1,0 +1,1 @@
+define(["react","map/MapController"],function(e,a){"use strict";return React.createClass({render:function(){var e=this.props.keys;return React.createElement("li",{className:"baseMapItem",onClick:a.changeBaseMap.bind(e)},React.createElement("img",{id:e.name,className:"baseMapThumbnail",src:e.thumbnail}))}})});
