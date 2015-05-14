@@ -1,0 +1,1 @@
+define(["react","widgets/SelectableItem","widgets/CompanyPopup"],function(e,t,n){"use strict";var r={},u=function(t,n,r){return e.render(e.createElement(t,{keys:n}),document.getElementById(r))};return r.CompanyPopup=function(e,t){return u(n,e,t)},r});

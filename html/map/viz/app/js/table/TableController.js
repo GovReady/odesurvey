@@ -1,0 +1,1 @@
+define(["map/map_config","dijit/Dialog"],function(n,i){"use strict";var o={};return o.popupCompanyInfo=function(n,i){},o});
