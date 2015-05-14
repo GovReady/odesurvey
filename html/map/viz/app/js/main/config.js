@@ -1,0 +1,1 @@
+define([],function(){return{layers:[{name:"Layer1",url:"#"},{name:"Layer2",url:"#"},{name:"Layer3",url:"#"}],pannel_state:!0,map_panels:[{selected:!0,value:"map",label:"Map"},{selected:!1,value:"Table",label:"Table"}],panels:[{selected:!0,value:"statistics",label:"Statistics"},{selected:!1,value:"filter",label:"Filter"}]}});
