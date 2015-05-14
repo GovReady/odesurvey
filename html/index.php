@@ -663,16 +663,16 @@ $app->get('/map/edit/:profile_id/form', function ($profile_id) use ($app) {
 	}
 	
 	// Retrieve org_data_use
-	// $params = array(
-	// 	'className' => 'org_data_use',
-	// 	'query' => array(
-	//         'surveyId' => $surveyId
-	// 		)
-	// );
+	$params = array(
+		'className' => 'org_data_use',
+		'query' => array(
+	        'profile_id' => $profile_id
+			)
+	);
 
-	// $request = $parse->query($params);
-	// $request_decoded = json_decode($request, true);
-	// $org_data_use = $request_decoded['results'];
+	$request = $parse->query($params);
+	$request_decoded = json_decode($request, true);
+	$org_data_use = $request_decoded['results'];
 
 	$content['surveyId'] = $profile_id;
 
@@ -680,7 +680,7 @@ $app->get('/map/edit/:profile_id/form', function ($profile_id) use ($app) {
 	$content['surveyName'] = "opendata";
 	$content['title'] = "Open Data Enterprise Survey - Edit";
 	
-	$app->view()->setData(array('content' => $content, 'org_profile' => $org_profile ));
+	$app->view()->setData(array('content' => $content, 'org_profile' => $org_profile, 'org_data_use' => $org_data_use ));
 	$app->render('survey/tp_profile_edit.php');
 
 });
