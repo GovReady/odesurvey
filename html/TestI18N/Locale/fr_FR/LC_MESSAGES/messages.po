@@ -21,3 +21,450 @@ msgstr "Bonjour tout le monde!"
 #Test token 2
 msgid "TEST_TRANSLATION"
 msgstr "Test de traduction..."
+
+#Thank you for participating in the Open Data Impact Map, the first centralized, searchable database of open data use cases from around the world.
+msgid "THANKS_PARTICIPATING"
+msgstr ""
+
+#Your contribution makes it possible to better understand the value of open data and encourage its use globally.
+msgid "YOUR_CONTRIBUTION"
+msgstr ""
+
+#Information collected will be displayed on the Map and will be made available as open data.
+msgid "INFO_COLLECTED"
+msgstr ""
+
+#ELIGIBILITY
+msgid "ELIGIBILITY"
+msgstr ""
+
+#The Open Data Impact Map includes organizations that:
+msgid "MAP_INCLUDES_ORGS"
+msgstr ""
+
+#are companies, non-profits, or developer groups; and
+msgid "ARE_COMPANIES"
+msgstr ""
+
+#use open government data to develop products and services, improve operations, inform strategy and/or conduct research.
+msgid "USE_OPEN_GOVERNMENT_DATA"
+msgstr ""
+
+#We define open government data as publicly available data that is produced or commissioned by governments and that can be accessed and reused by anyone, free of charge.
+msgid "WE_DEFINE_OPEN"
+msgstr ""
+
+#1. Organizational Information
+msgid "ORG_INFO"
+msgstr ""
+
+#Name of organization
+msgid "ORG_NAME"
+msgstr ""
+
+#One sentence description of organization
+msgid "ORG_DESC"
+msgstr ""
+
+#400 characters or less
+msgid "400_CHAR"
+msgstr ""
+
+#Type of organization
+msgid "ORG_TYPE"
+msgstr ""
+
+#For-profit
+msgid "FOR-PROFIT"
+msgstr ""
+
+#Nonprofit
+msgid "NONPROFIT"
+msgstr ""
+
+#Developer group
+msgid "DEVELOPER_GROUP"
+msgstr ""
+
+#other
+msgid "OTHER"
+msgstr ""
+
+#Website URL
+msgid "WEBSITE_URL"
+msgstr ""
+
+#No URL
+msgid "NO_URL"
+msgstr ""
+
+#Location
+msgid "LOCATION"
+msgstr ""
+
+#Please provide as specific as possible
+msgid "SPECIFIC_AS_POSSIBLE"
+msgstr ""
+
+#Industry/category of the organization
+msgid "IND"
+msgstr ""
+
+#Agriculture 
+msgid "AGR"
+msgstr ""
+
+#Arts and culture 
+msgid "ART"
+msgstr ""
+
+#Business & legal services 
+msgid "BUS"
+msgstr ""
+
+#Consumer services 
+msgid "CSM"
+msgstr ""
+
+#Data/information technology 
+msgid "DAT"
+msgstr ""
+
+#Education 
+msgid "EDU"
+msgstr ""
+
+#Energy 
+msgid "NGY"
+msgstr ""
+
+#Environment 
+msgid "ENV"
+msgstr ""
+
+#Finance and investment
+msgid "FIN"
+msgstr ""
+
+#Geospatial/mapping 
+msgid "GEO"
+msgstr ""
+
+#Governance 
+msgid "GOV"
+msgstr ""
+
+#Healthcare 
+msgid "HLT"
+msgstr ""
+
+#Housing and real estate 
+msgid "HOU"
+msgstr ""
+
+#Insurance 
+msgid "INS"
+msgstr ""
+
+#Media and communications 
+msgid "COM"
+msgstr ""
+
+#Mining/Manufacturing 
+msgid "MAN"
+msgstr ""
+
+#Research and consulting 
+msgid "RSH"
+msgstr ""
+
+#Security and public safety
+msgid "SEC"
+msgstr ""
+
+#Scientific research 
+msgid "SCI"
+msgstr ""
+
+#Telecommunications/internet service providers (ISPs) 
+msgid "TEL"
+msgstr ""
+
+#Tourism 
+msgid "TOR"
+msgstr ""
+
+#Transportation and logistics 
+msgid "TRN"
+msgstr ""
+
+#Water and sanitation 
+msgid "WAT"
+msgstr ""
+
+#Weather 
+msgid "WEA"
+msgstr ""
+
+#Founding year
+msgid "FOUNDING_YEAR"
+msgstr ""
+
+#Size
+msgid "SIZE"
+msgstr ""
+
+#1-10 employees
+msgid "1-10"
+msgstr ""
+
+#11-50 employees
+msgid "11-50"
+msgstr ""
+
+#51-200 employees
+msgid "51-200"
+msgstr ""
+
+#201-1000 employees
+msgid "201-1000"
+msgstr ""
+
+#1000+ employees
+msgid "1000+"
+msgstr ""
+
+#Economic
+msgid "ECONOMIC"
+msgstr ""
+
+#Environmental
+msgid "ENVIRONMENTAL"
+msgstr ""
+
+#Governance
+msgid "GOVERNANCE"
+msgstr ""
+
+#Social
+msgid "SOCIAL"
+msgstr ""
+
+#Provide details
+msgid "PROVIDE_DETAILS"
+msgstr ""
+
+#2. Use of Open Data
+msgid "USE_OF_OPEN_DATA"
+msgstr ""
+
+
+#Types of most relevant open data your organization uses
+msgid "MOST_RELEVANT_OPEN_DATA"
+msgstr ""
+
+#select all that apply
+msgid "SELECT_ALL"
+msgstr ""
+
+#Agriculture 
+msgid "AGRICULTURE"
+msgstr ""
+
+#Arts and culture 
+msgid "ARTS_AND_CULTURE"
+msgstr ""
+
+#Business 
+msgid "BUSINESS"
+msgstr ""
+
+#Consumer 
+msgid "CONSUMER"
+msgstr ""
+
+#Demographics and social 
+msgid "DEMOGRAPHICS"
+msgstr ""
+
+#Economics 
+msgid "ECONOMICS"
+msgstr ""
+
+#Education 
+msgid "EDUCATION"
+msgstr ""
+
+#Energy
+msgid "ENERGY"
+msgstr ""
+
+#Environment 
+msgid "ENVIRONMENT"
+msgstr ""
+
+#Finance 
+msgid "FINANCE"
+msgstr ""
+
+#Geospatial/mapping 
+msgid "GEOSPATIAL"
+msgstr ""
+
+#Government operations 
+msgid "GOVERNMENT_OPS"
+msgstr ""
+
+#Health/healthcare 
+msgid "HEALTH"
+msgstr ""
+
+#Housing 
+msgid "HOUSING"
+msgstr ""
+
+#International/global development 
+msgid "INTERNATIONAL"
+msgstr ""
+
+#Legal
+msgid "LEGAL"
+msgstr ""
+
+#Manufacturing 
+msgid "MANUFACTURING"
+msgstr ""
+
+#Science and research 
+msgid "SCIENCE_AND_RESEARCH"
+msgstr ""
+
+#Public safety 
+msgid "PUBLIC_SAFETY"
+msgstr ""
+
+#Tourism 
+msgid "TOURISM"
+msgstr ""
+
+#Transportation 
+msgid "TRANSPORTATION"
+msgstr ""
+
+#Weather 
+msgid "WEATHER"
+msgstr ""
+
+
+#Number of countries from which open data is provided
+msgid "NUM_OF_COUNTRIES"
+msgstr ""
+
+#Indicate the country that provide the data, and whether the data is National or State / Local (state/province/city).
+msgid "INDICATE_COUNTRY_THAT"
+msgstr ""
+
+#Data source - Country
+msgid "DATA_SOURCE_COUNTRY"
+msgstr ""
+
+#Select
+msgid "SELECT"
+msgstr ""
+
+#1 country 
+msgid "1_COUNTRY"
+msgstr ""
+
+#2-5 countries 
+msgid "2-5_COUNTRIES"
+msgstr ""
+
+#6-10 countries 
+msgid "6-10_COUNTRIES"
+msgstr ""
+
+#11-20 countries 
+msgid "11-20_COUNTRIES"
+msgstr ""
+
+#21-50 countries 
+msgid "21-50_COUNTRIES"
+msgstr ""
+
+50+ countries
+msgid "50+_COUNTRIES"
+msgstr ""
+
+#How does your organization use open data?
+msgid "HOW_USE_OPEN_DATA"
+msgstr ""
+
+#advocacy
+msgid "ADVOCACY"
+msgstr ""
+
+#develop new products or services
+msgid "DEVELOP_NEW"
+msgstr ""
+
+#organizational optimization 
+msgid "ORG_OPTIMIZATION"
+msgstr ""
+
+#(e.g. benchmarking, market analysis, improving efficiency, enhancing existing products and services)
+msgid "EG_BENCHMARKING"
+msgstr ""
+
+#Additional information
+msgid "ADDITIONAL_INFORMATION"
+msgstr ""
+
+#optional
+msgid "OPTIONAL"
+msgstr ""
+
+#E.g. How could the open data your organization uses be improved? 
+msgid "EG_HOW_COULD"
+msgstr ""
+
+#Which datasets are most valuable to your organization? 
+msgid "WHICH_DATASETS_MOST_VALUABLE"
+msgstr ""
+
+#What other types of data does your organization use in addition to open government data?
+msgid "WHAT_OTHER_TYPES_OF_DATA"
+msgstr ""
+
+#3. Contact Information
+msgid "CONTACT_INFORMATION"
+msgstr ""
+
+#This information will not be made public
+msgid "NOT_BE_MADE_PUBLIC"
+msgstr ""
+
+#First name
+msgid "FIRST_NAME"
+msgstr ""
+
+#Last name
+msgid "LAST_NAME"
+msgstr ""
+
+#Title
+msgid "TITLE"
+msgstr ""
+
+#Email
+msgid "EMAIL"
+msgstr ""
+
+#Phone
+msgid "PHONE"
+msgstr ""
+
+#SUBMIT
+msgid "SUPPORT"
+msgstr ""
+

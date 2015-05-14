@@ -1,0 +1,1 @@
+!function(){require(["main/Main"],function(i){i.init()})}();

@@ -3,13 +3,13 @@
 <!-- Main Content Section -->
 <div class="container lg-font col-md-12" style="border:0px solid black;">
 
- <form id="survey_form" class="form-horizontal" style="border:0px dotted black;" action="/survey/opendata/2du/<?php echo $content['surveyId']; ?>" method="post">
+ <form id="survey_form" class="form-horizontal" style="border:0px dotted black;" action="/map/survey/2du/<?php echo $content['surveyId']; ?>" method="post">
 
     <div class="col-md-12" role="Intro" id="role-intro">
-      <h2>Thank you for participating in the Open Data Impact Map</h2>
-      <div style="text-align:center;font-size:1.1em;">
-        This is the first centralized, searchable database of open data use cases from around the world. Your contribution makes it possible to better understand the value of open data and encourage its use globally. 
-        Information collected will be displayed on the <a href="#">Map</a> and will be made available as open data.
+      <div style="text-align:center;font-size:1.1em;margin-top:20px;">
+        Thank you for participating in the Open Data Impact Map, the first centralized, searchable database of open data use cases from around the world. 
+        Your contribution makes it possible to better understand the value of open data and encourage its use globally.
+        Information collected will be displayed on the <a href="http://opendataenterprise.org/map/viz">Map</a> and will be made available as open data.
       </div>
       <br />
     </div>
@@ -318,13 +318,8 @@
           Additional information <small class="optional">(optional, 400 characters or less)</small>
         </label>
 
-        <div class="row col-md-10" style="font-weight:normal; line-height:1.2em;margin-bottom:1.0em;">
-          E.g. How could the open data your organization uses be improved? Which datasets are most valuable to your organization? 
-          What other types of data does your organization use in addition to open government data?
-        </div>
-
         <div class="row col-md-10">
-          <textarea type="text" class="form-control" id="org_additional" name="org_additional"></textarea>
+          <textarea type="text" class="form-control" id="org_additional" name="org_additional" placeholder="E.g. How could the open data your organization uses be improved? Which datasets are most valuable to your organization? What other types of data does your organization use in addition to open government data?"></textarea>
         </div>
       </div>
       <br />

@@ -17,22 +17,28 @@
 
     <div class="row col-md-12 controlsec row-fluid" role="Intro">
       <div class="row col-md-12">
-          <h3>Thank You!</h3>
+          <h3>SUMBISSION RECEIVED: Thank you!</h3>
       </div>
 
-      <div class="row col-md-8">
+      <div class="row col-md-12">
           <div>
-            Thank you for completing the 2015 Open Data Survey for <?php echo $org_profile['org_name']; ?>.
+            Thank you for participating in the Open Data Impact Map! We will review and publish your submission shortly. 
+            If you wish to view or make any changes to your entry, you may access it via the unique url:  <a href ="http://<?php echo $content['HTTP_HOST']; ?>/survey/opendata/<?php echo $content['surveyId'] ?>/submitted">http://<?php echo $content['HTTP_HOST']; ?>/survey/opendata/<?php echo $content['surveyId'] ?>/submitted</a>
           </div>
-          <div>
-            You can view your survey anytime at: <a href ="http://<?php echo $content['HTTP_HOST']; ?>/survey/opendata/<?php echo $content['surveyId'] ?>/submitted">http://<?php echo $content['HTTP_HOST']; ?>/survey/opendata/<?php echo $content['surveyId'] ?>/submitted</a>
-          </div>
-        </div>
+          <br />
+          Please help us spread the word!
+          <br />
+          <a href="https://twitter.com/intent/tweet?button_hashtag=&text=Checkout%20the%20open%20data%20impact%20map!%20http://opendataenterprise.org/map" class="twitter-hashtag-button" data-lang="en" data-size="large">Tweet</a>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+          <br /><br />
+          If you have any questions, email us at map@odenterprise.org.
+          <br /><br />
+          Best, 
+          <br /><br />
+          The Center for Open Data Enterprise
+      </div>
 
     </div><!--/Intro-->
-
-    
-
 
 </form>
 
