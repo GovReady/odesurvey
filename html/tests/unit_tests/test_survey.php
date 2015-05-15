@@ -13,7 +13,7 @@ date_default_timezone_set('America/New_York');
 class TestOfSurvey extends WebTestCase {
 
     function testSurveyStarts() {
-        $this->get('http://'.$_SERVER['HTTP_HOST'].'/survey/opendata/start');
+        $this->get('http://'.$_SERVER['HTTP_HOST'].'/map/survey/start');
         $this->assertResponse(200);
         $this->assertTitle('Open Data Enterprise Survey');
         // $this->assertText('as publicly available Data');
@@ -21,16 +21,16 @@ class TestOfSurvey extends WebTestCase {
     }
 
     function testBasicLogging() {
-        $this->get('http://'.$_SERVER['HTTP_HOST'].'/survey/opendata/start');
+        $this->get('http://'.$_SERVER['HTTP_HOST'].'/map/survey/start');
         $this->assertResponse(200);
 
-        echo "<br>should generate entry in slimroot/app/errors_slim.log<br>\n";
+        echo "<br>should generate entry in /var/log/odesurvey/odesurvey.log<br>\n";
     }
 
     function testSurveySubmitComplete() {
 
         // Test getting getting blank survey page
-    	$this->get('http://'.$_SERVER['HTTP_HOST'].'/survey/opendata/start');
+    	$this->get('http://'.$_SERVER['HTTP_HOST'].'/map/survey/start');
         $this->assertResponse(200);
         
         // Fill in survey fields
@@ -73,7 +73,7 @@ class TestOfSurvey extends WebTestCase {
         echo "<br>Submitted profile_id: $profile_id";
 
         // Test returning this submitted survey should take us to the submitted page instead of a blank survey
-        $this->get('http://'.$_SERVER['HTTP_HOST'].'/survey/opendata/'.$profile_id);
+        $this->get('http://'.$_SERVER['HTTP_HOST'].'/map/survey/'.$profile_id);
         $this->assertResponse(200);
         $this->assertTitle('Open Data Enterprise Survey - Submitted');
 
@@ -81,7 +81,7 @@ class TestOfSurvey extends WebTestCase {
 
     // function testSurveyRawSubmit() {
     // 	$this->post(
-    //             $this->get('http://'.$_SERVER['HTTP_HOST'].'/survey/opendata/2du/0000000000'),
+    //             $this->get('http://'.$_SERVER['HTTP_HOST'].'/map/survey/2du/0000000000'),
     //             array('type' => 'superuser'));
     //     $this->assertNoText('user created');
     // }

@@ -13,6 +13,7 @@
 -- Codes/IDs are used in field `industry_id` to make easier to deal with multiple languages
 
 -- CHANGE LOG
+-- 0.18.0       Add org_profile_category
 -- 0.17.0       Add fields use_advocacy, use_advocacy_desc, fix other use_* fields
 -- 0.16.0       Add fields for world bank regions code
 -- 0.15.0       Add fields for world bank regions and country economic demorgraphic 
@@ -67,6 +68,7 @@ org_hq_country_income_code  varchar(3) NULL,       -- Worldbank country income c
 org_profile_year         int,                      -- year for this profile is relevent
 org_profile_status       varchar(20) NULL,         -- (new, vetted, published)
 org_profile_src          varchar(20) NULL,         -- (survey, researched, OD500)
+org_profile_category     varchar(20) NULL,         -- ('submitted survey', research) anything not survey becomes research
 data_type                varchar(75) NOT NULL,
 data_type_other          varchar(150) NOT NULL,
 data_src_country_locode  varchar(2) NOT NULL,
