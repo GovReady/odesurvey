@@ -357,6 +357,7 @@
           <input type="hidden" class="form-control" id="org_profile_year" name="org_profile_year" value="2015">
           <input type="hidden" class="form-control" id="org_profile_status" name="org_profile_status" value="submitted">
           <input type="hidden" class="form-control" id="org_profile_src" name="org_profile_src" value="survey">
+          <input type="hidden" class="form-control" id="org_profile_src" name="org_profile_category" value="submitted survey">
         </div>
       </div>
     </div><!-- /closes role contact -->
