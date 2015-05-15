@@ -364,6 +364,14 @@
       
       <br />
 
+    <div class="col-md-12" role="submit-note" id="role-submit-note">
+      <div style="text-align:center;font-size:14px;margin-top:20px;">
+        <i>Please note that all submissions will be reviewed by the Center for Open Data Enterprise 
+        research team before public display on the Open Data Impact Map.</i>
+      </div>
+      <br />
+    </div>
+
     <div class="col-md-12" style="text-align:center;">    
       <button class="btn btn-primary" style="padding:1em 2em 1em 2em; width:200px; background-color: rgb(53, 162, 227);" id="btnSubmit" type="submit" name="submit" value="submit">SUBMIT</button>
     </div>
