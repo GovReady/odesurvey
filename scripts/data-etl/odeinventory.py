@@ -104,6 +104,10 @@ for rownum in range(0, sh.nrows):
     org['data_use_unparsed'] = row_values[13]
     org['usage_unparsed'] = row_values[14]
     org['org_profile_src'] = row_values[15]
+    if "survey" == org['org_profile_src'] or "submitted" == ['org_profile_src'] or "submitted survey" == ['org_profile_src']:
+        org['org_profile_category'] = 'submitted survey'
+    else:
+        org['org_profile_category'] = 'researched'
 
     try:
         org['org_confidence'] = int(row_values[26])
