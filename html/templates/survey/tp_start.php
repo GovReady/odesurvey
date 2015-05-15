@@ -75,6 +75,32 @@
                         <h4><a href="https://github.com/GovReady/odesurvey">GitHub Code Repository</a><br><small>login required</small></h4>
                         <h4><a href="https://github.com/notifications">GitHub Issue Notifications</a> <br><small>login required</small></h4>
                         
+                        <h3>Location lookup</h3>
+                        <form>
+                          <!-- Location -->  
+                          <div class="form-group col-md-12">
+                            <div class="form-group col-md-12 details">
+
+                              <label for="org_hq_city_all">Location <small class="required">(Please provide as specific as possible)*</small></label>
+                              <input type="text" class="form-control" id="org_hq_city_all" name="org_hq_city_all">
+
+                              <label for="org_hq_city">City</label>
+                              <input type="text" class="form-control" id="org_hq_city" name="org_hq_cityx" data-geo="locality">
+
+                              <label for="org_hq_st_prov">State/Province</label>
+                              <input type="text" class="form-control" id="org_hq_st_provx" name="org_hq_st_provx" data-geo="administrative_area_level_1">
+
+                              <label for="org_hq_country">Country</label>
+                              <input type="text" class="form-control" id="org_hq_countryx" name="org_hq_countryx" data-geo="country_short">
+
+                              <label for="latitude">lat</label>
+                              <input type="text" class="form-control" id="latitudex" name="latitudex" data-geo="lat">
+                              <label for="longitude">lng</label>
+                              <input type="text" class="form-control" id="longitudex" name="longitudex" data-geo="lng">
+                            </div>
+                          </div>
+                      </form>
+
                     </div>
 
                 </div>
@@ -88,6 +114,10 @@
         <script src="/lib/jquery-1.11.1.min.js"></script>
         <script src="/js3/bootstrap.js"></script>
         <script src="/dist/jquery.bootgrid.js"></script>
+          <!-- geocomplete -->
+      <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+      <script src="/js/vendor/ubilabs-geocomplete-eb38f45/jquery.geocomplete.js"></script>
+
         <script>
             $(function()
             {
@@ -105,7 +135,6 @@
                 
                 init();
                 
-                
                 $("#clear").on("click", function ()
                 {
                     $("#grid").bootgrid("clear");
@@ -117,6 +146,12 @@
                 });
                 
                 $("#init").on("click", init);
+
+                // Geocomplete
+                $('#org_hq_city_all').geocomplete({ 
+                    details: ".details",
+                    detailsAttribute: "data-geo"
+                });
             });
         </script>
     </body>
