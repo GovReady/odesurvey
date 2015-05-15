@@ -22,7 +22,7 @@
         <b>The Open Data Impact Map includes organizations that:</b>
           <ul>
               <li>are companies, non-profits, or developer groups; and</li>
-              <li>use open government data to develop products and services, improve operations, inform strategy and/or conduct research.</li>
+              <li>use open government data for advocacy, to develop products and services, improve operations, inform strategy and/or conduct research.</li>
             </ul>
         We define open government data as publicly available data that is produced or commissioned by governments 
         and that can be accessed and reused by anyone, free of charge. 
