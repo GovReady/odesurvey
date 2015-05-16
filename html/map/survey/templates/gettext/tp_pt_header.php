@@ -10,8 +10,8 @@
         <meta name="description" content="Prototype of representing audit controls.">
         <meta name="viewport" content="width=device-width">
 
-        <link rel="stylesheet" href="/css/bootstrap.min.css">
-        <link href="/css/bootstrap-editable.css" rel="stylesheet">
+        <link rel="stylesheet" href="/map/survey/css/bootstrap.min.css">
+        <link href="/map/survey/css/bootstrap-editable.css" rel="stylesheet">
         <link rel="icon" type="image/png" href="/favicon.png">
         <link REL="apple-touch-icon" HREF="/apple-touch-icon.png" />
         <style>
@@ -20,8 +20,8 @@
                 padding-bottom: 20px;
             }
         </style>
-        <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/map/survey/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="/map/survey/css/main.css">
 
         <link rel="stylesheet" type="text/css" href="https://daks2k3a4ib2z.cloudfront.net/54c24a0650f1708e4c8232a0/css/opendataenterprise.webflow.02ce61403.css">
 

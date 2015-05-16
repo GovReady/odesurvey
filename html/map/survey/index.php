@@ -508,7 +508,7 @@ $app->post('/2du/:surveyId/', function ($surveyId) use ($app) {
 	$domain = MAILGUN_SERVER;
 
 	$emailtext = <<<EOL
-Thank you for participating in the Open Data Impact Map. Your contribution helps make the Map a truly global view of open data’s impact. You can view your submission here: http://${_SERVER['HTTP_HOST']}/survey/opendata/${surveyId}
+Thank you for participating in the Open Data Impact Map. Your contribution helps make the Map a truly global view of open data’s impact. You can view your submission here: http://${_SERVER['HTTP_HOST']}/map/survey/${surveyId}
 
 Please help us spread the word by sharing the survey http://www.opendataenterprise.org/map/survey
 
@@ -530,7 +530,7 @@ EOL;
 		// echo "<pre>";print_r($result); echo "</pre>";exit;
     }
 
-	$app->redirect("/".$surveyId."/thankyou/");
+	$app->redirect("/map/survey/".$surveyId."/thankyou/");
 });
 // end du new post here
 

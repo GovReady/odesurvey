@@ -4,9 +4,9 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Open Data Survey 2015 - List</title>
-        <link href="/css3/bootstrap.css" rel="stylesheet" />
-        <link href="/dist/jquery.bootgrid.css" rel="stylesheet" />
-        <script src="/js3/modernizr-2.8.1.js"></script>
+        <link href="/map/survey/css3/bootstrap.css" rel="stylesheet" />
+        <link href="/map/survey/dist/jquery.bootgrid.css" rel="stylesheet" />
+        <script src="/map/survey/js3/modernizr-2.8.1.js"></script>
         <style>
             @-webkit-viewport { width: device-width; }
             @-moz-viewport { width: device-width; }
@@ -17,7 +17,7 @@
             
     
         </style>
-        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/map/survey/css/main.css">
         <style>
             body { padding-top: 70px; }
         </style>
@@ -64,7 +64,7 @@
                     <div style="margin:10% 30% 0 30%;height:600px;text-align:center;border:0px solid red;">
            
                       <!--  Login form -->
-                      <form id="login_form" class="form-horizontal" style="border:0px dotted black;" action="/authenticate.php" method="post">
+                      <form id="login_form" class="form-horizontal" style="border:0px dotted black;" action="/map/survey/authenticate.php" method="post">
 
                         <div class="col-md-12" role="contact-titlebar"  id="role-contact-titlebar">
                           <div class="section-title"><h2>Login</h2></div>
@@ -101,7 +101,7 @@
             © Copyright 2015, Center for Open Data Enterprise
         </footer>
 
-        <script src="/lib/jquery-1.11.1.min.js"></script>
-        <script src="/js3/bootstrap.js"></script>
+        <script src="/map/survey/lib/jquery-1.11.1.min.js"></script>
+        <script src="/map/survey/js3/bootstrap.js"></script>
     </body>
 </html>
