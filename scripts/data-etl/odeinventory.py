@@ -46,25 +46,50 @@ print wb.sheet_names()
 sh = wb.sheet_by_index(0)
 print sh.name, sh.nrows, sh.ncols
 
+#
+# Functions
+#
+
+# Test if organization qualifies to be included
+def org_include(org):
+    # if org['eligibility'] == 'Y' and org['org_confidence'] > 3 and org['org_hq_country'] != "Spain" and (org['latitude'] is not None) and org['latitude'] != 0 and org['longitude'] != 0 :
+    if "Y" != org['eligibility'] and "YY" != org['eligibility']:
+        print "skipped b/c org['eligibility'] is %s" % (org['eligibility'])
+        return False
+    if org['org_profile_src'].find("OD500 (unsubmitted)") > -1:
+        print "skipped b/c org['org_profile_src'] is %s" % (org['org_profile_src'])
+        return False
+    if org['org_profile_src'].find("OD500 AU") > -1:
+        print "skipped b/c org['org_profile_src'] is %s" % (org['org_profile_src'])
+        return False
+    if org['org_profile_src'].find("data.gob.es") > -1:
+        print "skipped b/c org['org_profile_src'] is %s" % (org['org_profile_src'])
+        return False
+    # If we got here, record should be included
+    return True
+
 # List to hold dictionaries
 org_list = []
 org_list_not_used = []
+org_errors = []
 cnt = 0
 # # Iterate through each row in worksheet and fetch values into dict
-# for rownum in range(1, sh.nrows):
+# for rownum in range(1, 50):
 for rownum in range(0, sh.nrows):
-    print "%d ------" % (rownum)
+    # print "hidden? %n" % sh.row_values(rownum).col_hidden
     cnt +=1
     org = OrderedDict()
     # Get values of all cells in the row
     row_values = sh.row_values(rownum)
     # print row_values
-    
+
     # Assign values to object
     org['profile_id'] = str(cnt)
     org['eligibility'] = row_values[0]
     org['org_name'] = row_values[2]
-    print "org['org_name'] : %s" % org['org_name']
+    
+    print "\nrow %d: %s\n===================================================" % (rownum, org['org_name'])
+    
     org['org_type'] = row_values[3]
     org['org_type_other'] = None
 
@@ -78,28 +103,20 @@ for rownum in range(0, sh.nrows):
     # if org['org_hq_country'] == "USA":
     #     org['org_hq_country_locode'] = 'US'
 
-    print "loc: %s, %s, %s" % (org['org_hq_city'],org['org_hq_st_prov'], org['org_hq_country'])
+    # print "loc: %s, %s, %s" % (org['org_hq_city'],org['org_hq_st_prov'], org['org_hq_country'])
 
     org['industry_id'] = row_values[9]
-    # randomly select industry category
-    # industries =["agr", "art", "bus", "con", "dat", "edu", "ngy", "env", "fin", "geo", "gov", "hlt", "est", "ins", "med", "man", "rsh", "sec", "sci", "tel", "trm", "trn", "wat", "wea", "otr"]
-    # org['industry_id'] = random.choice(industries)
     
     try:
         org['org_year_founded'] = int(row_values[10])
     except:
         org['org_year_founded'] = None
 
-    # if isinstance(row_values[10], (int, float)):
-    #     org['org_year_founded'] = int(row_values[10])
-    # else:
-	   #  org['org_year_founded'] = None
-
     org['org_size_id'] = row_values[11]
     org['org_greatest_impact'] = row_values[12]
-    print "impact", org['org_greatest_impact']
+    # print "impact", org['org_greatest_impact']
     org['org_greatest_impact_detail'] = None
-    print len(org['org_greatest_impact'])
+    # print len(org['org_greatest_impact'])
     if "(" in org['org_greatest_impact']:
         org['org_greatest_impact'], org['org_greatest_impact_detail'] = org['org_greatest_impact'].split("(")
         org['org_greatest_impact_detail'] = org['org_greatest_impact_detail'].strip(")")
@@ -117,7 +134,7 @@ for rownum in range(0, sh.nrows):
     except:
         org['org_confidence'] = None
 
-    print org['org_confidence']
+    # print org['org_confidence']
     org['org_profile_year'] = 2015
     # org['latitude'] = None
     # org['longitude'] = None
@@ -162,7 +179,7 @@ for rownum in range(0, sh.nrows):
         org['org_hq_country_locode'] = locs[loc][2]
         org['latitude'] = float(locs[loc][3])
     	org['longitude'] = float(locs[loc][4])
-        print "%s, %s" % (org['latitude'], org['longitude'])
+        #print "%s, %s" % (org['latitude'], org['longitude'])
         print "loc match success"
     except:
     	org['org_hq_city'] = None
@@ -176,7 +193,7 @@ for rownum in range(0, sh.nrows):
 
     try:
         # org['org_hq_country_locode'] 
-        print "%s %s" % (org['org_hq_country_locode'], regions[org['org_hq_country_locode']]['REGION'])
+        #print "%s %s" % (org['org_hq_country_locode'], regions[org['org_hq_country_locode']]['REGION'])
         org['org_hq_country_region'] = regions[org['org_hq_country_locode']]['REGION']
         org['org_hq_country_income'] = regions[org['org_hq_country_locode']]['INCOME']
         org['org_hq_country_income_code'] = regions[org['org_hq_country_locode']]['INCOME CODE']
@@ -208,7 +225,7 @@ for rownum in range(0, sh.nrows):
         org[usage_key[key]+"_desc"] = None      
     usages = org['usage_unparsed'].split("|")
     for usage in usages:
-        print "use: %s" % usage.strip()
+        #print "use: %s" % usage.strip()
         usage_split = usage.split(":")
         if len(usage_split) < 1:
             continue
@@ -216,32 +233,29 @@ for rownum in range(0, sh.nrows):
             usage_split.append("")
         usage_split[0] = usage_split[0].strip()
         usage_split[1] = usage_split[1].strip()
-        print "***%s, %s" % (usage_split[0], usage_split[1])
+        #print "***%s, %s" % (usage_split[0], usage_split[1])
 
         try:
             # print "(%s)->%s" % (usage_split[0], usage_key[usage_split[0]])
             org[usage_key[usage_split[0]]] = True
             org[usage_key[usage_split[0]]+"_desc"] = usage_split[1]
         except:
-            print "ERROR: "
+            print "ERROR on usage_key[usage_split[0]: "
         # print "usage_split[1] %s" % usage_split[1]
         # print usage_key[usage_split[0]]+"_desc"
-    print org
+    # variable dump
+    # print org
     # delete unparsed key
     org.pop('usage_unparsed', None)
 
-
-
 #   Append org if eligible
-    if org['eligibility'] == 'Y' and org['org_confidence'] > 3 and org['org_hq_country'] != "Spain" and (org['latitude'] is not None) and org['latitude'] != 0 and org['longitude'] != 0 :
+    if org_include(org):
         org_list.append(org)
-        print "appended"
-        # print org['org_hq_city'], org['org_hq_country']
     else:
-    	org_list_not_used.append(org)
+        org_list_not_used.append(org)
 
 #     #print org_list
-print "============"
+print "========================================"
 print "rows used:", len(org_list)
 print "rows not used:", len(org_list_not_used)
 
@@ -286,11 +300,14 @@ for org in org_list:
             org['data_src_gov_level'] = None
             org['row_type'] = "data_use"
             continue
-        org['data_type'], org['data_src_country_locode'], org['data_src_gov_level'] = data_src.split(";")
-        org['row_type'] = "data_use"
-        org['data_type'] = org['data_type'].strip()
-        org['data_src_gov_level'] = org['data_src_gov_level'].strip()
-        org['data_src_country_locode'] = org['data_src_country_locode'].strip()
+        try:
+            org['data_type'], org['data_src_country_locode'], org['data_src_gov_level'] = data_src.split(";")
+            org['data_type'] = org['data_type'].strip()
+            org['data_src_gov_level'] = org['data_src_gov_level'].strip()
+            org['data_src_country_locode'] = org['data_src_country_locode'].strip()
+        except:
+            org_errors.append( "%s: error splitting data_src %s" % (org['org_name'], data_src ) )
+        
         if  org['data_src_country_locode'] is not None and 3 == len(org['data_src_country_locode']) and 'EUR' != org['data_src_country_locode']:
             org['data_src_country_locode'] = regions[org['data_src_country_locode']]['ISO3166-1-UNLOC']
 
