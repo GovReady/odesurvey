@@ -13,6 +13,7 @@
 -- Codes/IDs are used in field `industry_id` to make easier to deal with multiple languages
 
 -- CHANGE LOG
+-- 0.19.0       Add increase size of industry_id to use full string, drop industry
 -- 0.18.0       Add org_profile_category
 -- 0.17.0       Add fields use_advocacy, use_advocacy_desc, fix other use_* fields
 -- 0.16.0       Add fields for world bank regions code
@@ -41,7 +42,7 @@ no_org_url               boolean NULL,             -- org does not have a URL
 org_year_founded         int NULL,                 -- year organization founded
 org_description          varchar(401) NULL,        -- 400 character description of organization
 org_size_id              varchar(8) NULL,          -- code for organization side (see: table org_size)
-industry_id              varchar(20) NULL,         -- industry identifier (see: table industry)
+industry_id              varchar(60) NULL,         -- industry identifier (see: table industry)
 org_greatest_impact      varchar(50) NULL,         -- (Economic, Environmental, Governance, Social, other)
 org_greatest_impact_detail varchar(400) NULL,      -- details of org_greatest_impact
 use_advocacy             boolean NULL,
@@ -113,12 +114,4 @@ create table org_size (
 org_size_id              varchar(8) NOT NULL KEY,
 min_employees            mediumint NOT NULL,
 max_employees            mediumint NOT NULL
-);
-
--- industry/category reference table
--- --------------------------------------------
-drop table if exists industry;
-create table industry (
-industry_id             varchar(12) NOT NULL KEY,
-industry_name           varchar(124) NOT NULL
 );

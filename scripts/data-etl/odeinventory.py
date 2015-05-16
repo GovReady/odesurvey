@@ -31,6 +31,9 @@ with open('locs.json') as data_file:
 # Read in Worldbank Region data
 with open('regions.json') as data_file:
     regions = json.load(data_file)
+# spreadsheet fields
+with open('spreadsheet_fields.json') as data_file:
+    fields = json.load(data_file)
 
 # Open the workbook and select the first worksheet
 xlsx_file = "Inventory.xlsx"
@@ -79,9 +82,9 @@ for rownum in range(0, sh.nrows):
 
     org['industry_id'] = row_values[9]
     # randomly select industry category
-    industries =["agr", "art", "bus", "con", "dat", "edu", "ngy", "env", "fin", "geo", "gov", "hlt", "est", "ins", "med", "man", "rsh", "sec", "sci", "tel", "trm", "trn", "wat", "wea", "otr"]
-    org['industry_id'] = random.choice(industries)
-
+    # industries =["agr", "art", "bus", "con", "dat", "edu", "ngy", "env", "fin", "geo", "gov", "hlt", "est", "ins", "med", "man", "rsh", "sec", "sci", "tel", "trm", "trn", "wat", "wea", "otr"]
+    # org['industry_id'] = random.choice(industries)
+    
     try:
         org['org_year_founded'] = int(row_values[10])
     except:
