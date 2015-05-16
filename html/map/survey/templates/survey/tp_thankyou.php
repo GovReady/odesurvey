@@ -23,7 +23,7 @@
       <div class="row col-md-12">
           <div>
             Thank you for participating in the Open Data Impact Map! We will review and publish your submission shortly. 
-            If you wish to view or make any changes to your entry, you may access it via the unique url:  <a href ="http://<?php echo $content['HTTP_HOST']; ?>/survey/opendata/<?php echo $content['surveyId'] ?>/submitted">http://<?php echo $content['HTTP_HOST']; ?>/survey/opendata/<?php echo $content['surveyId'] ?>/submitted</a>
+            If you wish to view or make any changes to your entry, you may access it via the unique url:  <a href ="http://<?php echo $content['HTTP_HOST']; ?>/map/survey/<?php echo $content['surveyId'] ?>">http://<?php echo $content['HTTP_HOST']; ?>/map/survey/<?php echo $content['surveyId'] ?></a>
           </div>
           <br />
           Please help us spread the word!

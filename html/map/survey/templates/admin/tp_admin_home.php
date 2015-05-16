@@ -4,9 +4,9 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Open Data Survey 2015 - List</title>
-        <link href="/css3/bootstrap.css" rel="stylesheet" />
-        <link href="/dist/jquery.bootgrid.css" rel="stylesheet" />
-        <script src="/js3/modernizr-2.8.1.js"></script>
+        <link href="/map/survey/css3/bootstrap.css" rel="stylesheet" />
+        <link href="/map/survey/dist/jquery.bootgrid.css" rel="stylesheet" />
+        <script src="/map/survey/js3/modernizr-2.8.1.js"></script>
         <style>
             @-webkit-viewport { width: device-width; }
             @-moz-viewport { width: device-width; }
@@ -35,8 +35,8 @@
 
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#">(<?php echo $_SESSION['username'];?>)</a></li>
-                        <li><a href="/admin/logout/">logout</a></li>
-                        <li><a href="/">Start page</a></li>
+                        <li><a href="/map/survey/admin/logout/">logout</a></li>
+                        <li><a href="/map/survey/info">Start page</a></li>
                     </ul>
                 </nav>
             </div>
@@ -95,9 +95,9 @@
             © Copyright 2015, Center for Open Data Enterprise
         </footer>
 
-        <script src="/lib/jquery-1.11.1.min.js"></script>
-        <script src="/js3/bootstrap.js"></script>
-        <script src="/dist/jquery.bootgrid.js"></script>
+        <script src="/map/survey/lib/jquery-1.11.1.min.js"></script>
+        <script src="/map/survey/js3/bootstrap.js"></script>
+        <script src="/map/survey/dist/jquery.bootgrid.js"></script>
         <script>
             $(function()
             {

@@ -76,7 +76,7 @@ $app = new \Slim\Slim(array('log.writer' => $logWriter));
 
 //-----------------------------------------------------
 // display placeholder landing page
-$app->get('/', function () use ($app) {
+$app->get('/info', function () use ($app) {
 
     $paramValue = $app->request->get('param');
     
@@ -131,7 +131,7 @@ $app->get('/admin/protected/', function () use ($app) {
 	// Requires login to access
 	if ( !isset($_SESSION['username']) ) {
 		// echo "<br> no username";
-		$app->redirect("/admin/login/");
+		$app->redirect("/map/survey/admin/login/");
 	}
 
     $paramValue = $app->request->get('param');
@@ -154,7 +154,7 @@ $app->get('/admin/', function () use ($app) {
 	// Requires login to access
 	if ( !isset($_SESSION['username']) ) {
 		// echo "<br> no username";
-		$app->redirect("/admin/login/");
+		$app->redirect("/map/survey/admin/login/");
 	}
 
 	echo "<br><br>This is a protected route/path/page";
@@ -166,15 +166,22 @@ $app->get('/admin/logout/', function () use ($app) {
 
 	session_unset();
 	session_destroy();
-	$app->redirect("/admin/login/");
+	$app->redirect("/map/survey/admin/login/");
+
+});
+
+// ************
+$app->get('/index.html', function () use ($app) {
+	// Route /map/survey/index.html to /start/
+    $app->redirect("/map/survey/start/");
 
 });
 
 
 // ************
-$app->get('/map/survey/', function () use ($app) {
-	
-    $app->redirect("/map/survey/start/");
+$app->get('/', function () use ($app) {
+
+    $app->redirect("index.html");
 
 });
 
@@ -240,7 +247,7 @@ $app->get('/admin/delete/test/confirmed', function () use ($app) {
 
 
 // ************
-$app->get('/map/survey/start', function () use ($app) {
+$app->get('/start/', function () use ($app) {
 	
 	$parse = new parseRestClient(array(
 		'appid' => PARSE_APPLICATION_ID,
@@ -270,7 +277,7 @@ $app->get('/map/survey/start', function () use ($app) {
 });
 
 // ************
-$app->get('/map/survey/:surveyId', function ($surveyId) use ($app) {
+$app->get('/:surveyId', function ($surveyId) use ($app) {
 	
 	$app->log->debug(date_format(date_create(), 'Y-m-d H:i:s')."; DEBUG; "."new survey created, ...");
 	
@@ -315,7 +322,7 @@ $app->get('/map/survey/:surveyId', function ($surveyId) use ($app) {
 
 // du new post here
 // ************
-$app->post('/map/survey/2du/:surveyId/', function ($surveyId) use ($app) {
+$app->post('/2du/:surveyId/', function ($surveyId) use ($app) {
 
 	$parse = new parseRestClient(array(
 		'appid' => PARSE_APPLICATION_ID,
@@ -508,7 +515,7 @@ $app->post('/map/survey/2du/:surveyId/', function ($surveyId) use ($app) {
 	$domain = MAILGUN_SERVER;
 
 	$emailtext = <<<EOL
-Thank you for participating in the Open Data Impact Map. Your contribution helps make the Map a truly global view of open data’s impact. You can view your submission here: http://${_SERVER['HTTP_HOST']}/survey/opendata/${surveyId}
+Thank you for participating in the Open Data Impact Map. Your contribution helps make the Map a truly global view of open data’s impact. You can view your submission here: http://${_SERVER['HTTP_HOST']}/map/survey/${surveyId}
 
 Please help us spread the word by sharing the survey http://www.opendataenterprise.org/map/survey
 
@@ -535,7 +542,7 @@ EOL;
 // end du new post here
 
 // ************
-$app->get('/map/survey/:surveyId/thankyou/', function ($surveyId) use ($app) {
+$app->get('/:surveyId/thankyou/', function ($surveyId) use ($app) {
 	
 	$parse = new parseRestClient(array(
 		'appid' => PARSE_APPLICATION_ID,
@@ -565,7 +572,7 @@ $app->get('/map/survey/:surveyId/thankyou/', function ($surveyId) use ($app) {
 });
 
 // ************
-$app->get('/map/survey/:surveyId/submitted/', function ($surveyId) use ($app) {
+$app->get('/:surveyId/submitted/', function ($surveyId) use ($app) {
 	
 	$parse = new parseRestClient(array(
 		'appid' => PARSE_APPLICATION_ID,
@@ -610,12 +617,19 @@ $app->get('/map/survey/:surveyId/submitted/', function ($surveyId) use ($app) {
 // ************
 $app->get('/map/company/:profile_id/edit', function ($profile_id) use ($app) {
 
-	$app->redirect("/map/edit/".$profile_id);
+	$app->redirect("/map/survey/edit/".$profile_id);
 
 });
 
 // ************
-$app->get('/map/edit/:profile_id', function ($profile_id) use ($app) {
+$app->get('/:profile_id/edit', function ($profile_id) use ($app) {
+
+	$app->redirect("/map/survey/edit/".$profile_id);
+
+});
+
+// ************
+$app->get('/edit/:profile_id', function ($profile_id) use ($app) {
 
 	$parse = new parseRestClient(array(
 		'appid' => PARSE_APPLICATION_ID,
@@ -650,7 +664,7 @@ $app->get('/map/edit/:profile_id', function ($profile_id) use ($app) {
 });
 
 // ************
-$app->get('/map/edit/:profile_id/form', function ($profile_id) use ($app) {
+$app->get('/edit/:profile_id/form', function ($profile_id) use ($app) {
 
 	$parse = new parseRestClient(array(
 		'appid' => PARSE_APPLICATION_ID,
@@ -671,7 +685,7 @@ $app->get('/map/edit/:profile_id/form', function ($profile_id) use ($app) {
 		$org_profile = $request_decoded['results'][0];
 		// echo "<pre>"; print_r($request_decoded); 
 	} else {
-		$app->redirect("/map/org/".$profile_id."/notfound/");
+		$app->redirect("/map/survey/".$profile_id."/notfound/");
 	}
 	
 	// Retrieve org_data_use
@@ -698,7 +712,7 @@ $app->get('/map/edit/:profile_id/form', function ($profile_id) use ($app) {
 });
 
 // ************
-$app->get('/map/org/:profile_id/notfound/', function ($profile_id) use ($app) {
+$app->get('/:profile_id/notfound/', function ($profile_id) use ($app) {
 
 	$content['profile_id'] = $profile_id;
 	$content['HTTP_HOST'] = $_SERVER['HTTP_HOST'];
@@ -715,7 +729,7 @@ $app->get('/map/org/:profile_id/notfound/', function ($profile_id) use ($app) {
 $app->get('/survey/opendata/list/new/', function () use ($app) {
 
 	// Requires login to access
-	if ( !isset($_SESSION['username']) ) { $app->redirect("/admin/login/"); }
+	if ( !isset($_SESSION['username']) ) { $app->redirect("/map/survey/admin/login/"); }
 
 	$parse = new parseRestClient(array(
 		'appid' => PARSE_APPLICATION_ID,
@@ -745,7 +759,7 @@ $app->get('/survey/opendata/list/new/', function () use ($app) {
 $app->get('/survey/opendata/list/new/2/', function () use ($app) {
 
 	// Requires login to access
-	if ( !isset($_SESSION['username']) ) { $app->redirect("/admin/login/"); }
+	if ( !isset($_SESSION['username']) ) { $app->redirect("/map/survey/admin/login/"); }
 
 	$parse = new parseRestClient(array(
 		'appid' => PARSE_APPLICATION_ID,
@@ -775,7 +789,7 @@ $app->get('/survey/opendata/list/new/2/', function () use ($app) {
 $app->get('/survey/opendata/list/map/', function () use ($app) {
 
 	// Requires login to access
-	if ( !isset($_SESSION['username']) ) { $app->redirect("/admin/login/"); }
+	if ( !isset($_SESSION['username']) ) { $app->redirect("/map/survey/admin/login/"); }
 
 	$parse = new parseRestClient(array(
 		'appid' => PARSE_APPLICATION_ID,
@@ -850,6 +864,32 @@ $app->get('/survey/opendata/data/org/:profile_id', function ($profile_id) use ($
 	header('Content-Type: application/json');
 	echo $request;
 	exit;
+
+});
+
+// **************
+$app->get('/data/flatfile.json', function () use ($app) {
+
+	$parse = new parseRestClient(array(
+		'appid' => PARSE_APPLICATION_ID,
+		'restkey' => PARSE_API_KEY
+	));
+
+	$params = array(
+		'className' => 'arcgis_flatfile',
+		'limit' => '1000'
+	);
+
+	$request = $parse->query($params);
+	// Return results via json
+	header('Content-Type: application/json');
+	echo $request;
+	exit;
+
+	$request_array = json_decode($request, true);
+	$org_combined = $request_array['results'];
+
+	echo "<pre>"; print_r($org_combined); echo "</pre>"; 
 
 });
 

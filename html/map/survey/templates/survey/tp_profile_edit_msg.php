@@ -24,7 +24,7 @@
       <div style="text-align:center;">
         <b>Click here to edit:</b>
         <br />
-          <a href="http://<?php echo $content['HTTP_HOST']; ?>/map/edit/<?php echo $org_profile['profile_id']; ?>/form">http://<?php echo $content['HTTP_HOST']; ?>/map/edit/<?php echo $org_profile['profile_id']; ?>/form</a>
+          <a href="http://<?php echo $content['HTTP_HOST']; ?>/map/survey/edit/<?php echo $org_profile['profile_id']; ?>/form">http://<?php echo $content['HTTP_HOST']; ?>/map/survey/edit/<?php echo $org_profile['profile_id']; ?>/form</a>
       </div>
     </div>
 

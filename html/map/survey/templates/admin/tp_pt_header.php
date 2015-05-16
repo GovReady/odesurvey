@@ -11,12 +11,12 @@
         <meta name="viewport" content="width=device-width">
         <meta name="format-detection" content="telephone=no">
 
-        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/map/survey/css/bootstrap.min.css">
         <link rel="icon" type="image/png" href="/favicon.png">
         <link REL="apple-touch-icon" HREF="/apple-touch-icon.png" />
-        <link rel="stylesheet" href="/css/bootstrap-theme.min.css">        
+        <link rel="stylesheet" href="/map/survey/css/bootstrap-theme.min.css">        
         <link rel="stylesheet" type="text/css" href="https://daks2k3a4ib2z.cloudfront.net/54c24a0650f1708e4c8232a0/css/opendataenterprise.webflow.02ce61403.css">
-        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/map/survey/css/main.css">
 
         <script src="/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 
