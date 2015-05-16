@@ -31,7 +31,7 @@ try {
     // echo "<br> here ==========<br>";
     // print_r($data);
     // exit;
-    header( 'Location: /admin/protected' );
+    header( 'Location: /map/survey/admin/protected' );
 
 
 } catch (Exception $e) {
@@ -48,7 +48,7 @@ try {
 
     echo "Error logging in.<br>";
     echo $data['error'];
-    echo "<p><a href='/admin/login/'>Return to login</p>";
+    echo "<p><a href='/map/survey/admin/login/'>Return to login</p>";
 }
 
 ?>

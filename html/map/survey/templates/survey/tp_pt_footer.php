@@ -9,18 +9,18 @@
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
-  <script src="/js/vendor/bootstrap.min.js"></script>
-  <script src="/js/plugins.js"></script>
-  <script src="/js/main.js"></script>
+  <script src="/map/survey/js/vendor/bootstrap.min.js"></script>
+  <script src="/map/survey/js/plugins.js"></script>
+  <script src="/map/survey/js/main.js"></script>
 
   <!-- select2 library -->
   <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/css/select2.min.css" rel="stylesheet" />
   <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/js/select2.min.js"></script>
-  <script src="/dist/jquery.validate.min.js"></script>
+  <script src="/map/survey/dist/jquery.validate.min.js"></script>
 
   <!-- geocomplete -->
   <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
-  <script src="/js/vendor/ubilabs-geocomplete-eb38f45/jquery.geocomplete.js"></script>
+  <script src="/map/survey/js/vendor/ubilabs-geocomplete-eb38f45/jquery.geocomplete.js"></script>
   
   <!-- custom -->
   <script>

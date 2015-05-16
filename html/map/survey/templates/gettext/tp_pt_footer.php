@@ -15,18 +15,18 @@
      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
      <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
 
-     <script src="/js/vendor/bootstrap.min.js"></script>
+     <script src="/map/survey/js/vendor/bootstrap.min.js"></script>
 
-     <script src="/js/plugins.js"></script>
-     <script src="/js/main.js"></script>
+     <script src="/map/survey/js/plugins.js"></script>
+     <script src="/map/survey/js/main.js"></script>
 
-     <script src="/js/vendor/bootstrap-editable.min.js"></script>
+     <script src="/map/survey/js/vendor/bootstrap-editable.min.js"></script>
 
-     <link href="/js/vendor/inputs-ext/wysihtml5/bootstrap-wysihtml5-0.0.2/bootstrap-wysihtml5-0.0.2.css" rel="stylesheet" type="text/css"></link>  
-      <script src="/js/vendor/inputs-ext/wysihtml5/bootstrap-wysihtml5-0.0.2/wysihtml5-0.3.0.min.js"></script>  
-      <script src="/js/vendor/inputs-ext/wysihtml5/bootstrap-wysihtml5-0.0.2/bootstrap-wysihtml5-0.0.2.min.js"></script>
-      <script src="/js/vendor/inputs-ext/typeaheadjs/typeaheadjs.js"></script>
-      <script src="/js/vendor/inputs-ext/wysihtml5/wysihtml5.js"></script>
+     <link href="/map/survey/js/vendor/inputs-ext/wysihtml5/bootstrap-wysihtml5-0.0.2/bootstrap-wysihtml5-0.0.2.css" rel="stylesheet" type="text/css"></link>  
+      <script src="/map/survey/js/vendor/inputs-ext/wysihtml5/bootstrap-wysihtml5-0.0.2/wysihtml5-0.3.0.min.js"></script>  
+      <script src="/map/survey/js/vendor/inputs-ext/wysihtml5/bootstrap-wysihtml5-0.0.2/bootstrap-wysihtml5-0.0.2.min.js"></script>
+      <script src="/map/survey/js/vendor/inputs-ext/typeaheadjs/typeaheadjs.js"></script>
+      <script src="/map/survey/js/vendor/inputs-ext/wysihtml5/wysihtml5.js"></script>
 
      <script>
 
