@@ -134,5 +134,16 @@
     }); // End Document Ready function
 
   </script>
+  <!--[if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
+  <script>
+    $('.custom-button').on('click', function (evt) {
+      $('.target-tab-link').triggerHandler('click');
+      evt.preventDefault();
+    });
+    $('.custom-button-2').on('click', function (evt) {
+      $('.target-tab-link-2').triggerHandler('click');
+      evt.preventDefault();
+    });
+  </script>
  </body>
 </html>
