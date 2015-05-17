@@ -6,6 +6,14 @@
  *
  */
 
+// force reload of javascript file
+// use: reload_js('source_file.js');
+function reload_js(src) {
+    $('script[src="' + src + '"]').remove();
+    $('<script>').attr('src', src).appendTo('head');
+}
+
+
 // testing method
 function fillForm() {
   // fill survey form
@@ -83,7 +91,7 @@ function updateDataUseProfile(e) {
       default:
       country_count = 3;
         country_text = "top 3 countries";
-    }
+    } 
 
     // empty holding div
     $('#data_use_details').empty();
@@ -94,10 +102,23 @@ function updateDataUseProfile(e) {
     for (var c = 1; c <= country_count; c++) {
       var content = getCountries(c);
       var content_data_types = getTypes(c,'data_use_type');
-      var new_html = '<div class="col-md-12 data_detail_row"><div class="row col-md-12" style="border:0px solid #ddd;">'+
+
+
+    // alert(data_use_html.length);
+
+    if (c == 1) {
+      //  data-intro="Select a country whose data you use." data-position="top"
+      var new_html = '<div class="col-md-12 data_detail_row" data-intro="Select a country whose data you use and government levels for each selected data type." data-position="top"><div class="row col-md-12" style="border:0px solid #ddd;" >'+
       content+
       '<div class="col-md-7">'+content_data_types+'</div>' +
       '</div></div>';
+    } else {
+      var new_html = '<div class="col-md-12 data_detail_row"><div class="row col-md-12" style="border:0px solid #ddd;" >'+
+      content+
+      '<div class="col-md-7">'+content_data_types+'</div>' +
+      '</div></div>';
+    }
+
       $('#data_use_details').append(new_html);
     }    
   }
@@ -106,6 +127,30 @@ function updateDataUseProfile(e) {
     { placeholder: "Select",
     allowClear: true }
   );
+
+  if (country_count > 0 ) {
+    reload_js('/map/survey/js/chardinjs.min.js');
+    $('body').chardinJs('start');
+  }
+}
+
+// set onscreen guidance only for checked data types
+function toggleDataTypeGuidance () {
+    // add online guidance
+    // $('input[type=checkbox][value='+entry+']:checked').attr('data-intro', entry);
+    // $('input[type=checkbox][value='+entry+']:checked').attr('data-position', "right");
+    // $('input[type=checkbox][class=data_use_type]:checked').map(function(){ alert( $(this).val()); });
+    // $('input[type=checkbox][class=data_use_type]:checked').map(function(){ alert( $(this).next("span").text()); });
+    // clear on screen guidance
+    $('input[type=checkbox][class=data_use_type]').map(function(){  $(this).removeAttr('data-intro'); });
+    $('input[type=checkbox][class=data_use_type]').map(function(){  $(this).removeAttr('data-position'); });
+    
+    // add online guidance for checked items
+    // $('input[type=checkbox][class=data_use_type]:checked').map(function(){  $(this).next("span").css('color', 'red'); });
+    $('input[type=checkbox][class=data_use_type]:checked').map(function(){  $(this).next("span").css('font-weight', 'bold'); });
+    $('input[type=checkbox][class=data_use_type]:checked').map(function(){  $(this).attr('data-intro', $(this).val() ); });
+    $('input[type=checkbox][class=data_use_type]:checked').map(function(){  $(this).attr('data-position', 'right'); });
+
 }
 
 // manage data use
@@ -121,6 +166,7 @@ function getTypes(idSuffixNum, selectName) {
       entry = $('input[name="data_use_type_other"]').val();
     }
     console.log(entry);
+
     var gov_level = ' \
     <span class="col-md-4" style="border:0px solid black;"> \
     <span class="" id="" style="font-size:0.8em;">'+truncate(entry)+'</span> \
