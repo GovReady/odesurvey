@@ -4,9 +4,9 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Open Data Survey 2015 - List</title>
-        <link href="/css3/bootstrap.css" rel="stylesheet" />
-        <link href="/dist/jquery.bootgrid.css" rel="stylesheet" />
-        <script src="/js3/modernizr-2.8.1.js"></script>
+        <link href="/map/survey/css3/bootstrap.css" rel="stylesheet" />
+        <link href="/map/survey/dist/jquery.bootgrid.css" rel="stylesheet" />
+        <script src="/map/survey/js3/modernizr-2.8.1.js"></script>
         <style>
             @-webkit-viewport { width: device-width; }
             @-moz-viewport { width: device-width; }
@@ -111,12 +111,12 @@
             © Copyright 2015, Center for Open Data Enterprise
         </footer>
 
-        <script src="/lib/jquery-1.11.1.min.js"></script>
-        <script src="/js3/bootstrap.js"></script>
-        <script src="/dist/jquery.bootgrid.js"></script>
+        <script src="/map/survey/lib/jquery-1.11.1.min.js"></script>
+        <script src="/map/survey/js3/bootstrap.js"></script>
+        <script src="/map/survey/dist/jquery.bootgrid.js"></script>
           <!-- geocomplete -->
       <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
-      <script src="/js/vendor/ubilabs-geocomplete-eb38f45/jquery.geocomplete.js"></script>
+      <script src="/map/survey/js/vendor/ubilabs-geocomplete-eb38f45/jquery.geocomplete.js"></script>
 
         <script>
             $(function()

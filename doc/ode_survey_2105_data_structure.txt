@@ -66,10 +66,10 @@ org_hq_country_region_code varchar(3) NULL,        -- Worldbank region code
 org_hq_country_income    varchar(12) NULL,         -- Worldbank country income
 org_hq_country_income_code  varchar(3) NULL,       -- Worldbank country income code
 org_profile_year         int,                      -- year for this profile is relevent
-org_profile_category     varchar(20) NULL,         -- (survey, research) anything not survey becomes research
+org_profile_category     varchar(20) NULL,         -- ('submitted survey', research) anything not survey becomes research
 org_additional           varchar(401) NULL,        -- Aditional optional field for survey
 org_profile_status       varchar(20) NULL,         -- (new, vetted, published)
-org_profile_src          varchar(20) NULL,         -- (survey, researched, OD500)
+org_profile_src          varchar(20) NULL,         -- (survey, researched, OD500, ...)
 date_created             datetime,                 -- date survey created (e.g., started)
 date_modified            timestamp                 -- date and time survey record modified
 );
