@@ -97,7 +97,7 @@ function updateDataUseProfile(e) {
     // empty holding div
     $('#data_use_details').empty();
 
-    var content_question =  '<div class=" col-md-12" style="border:0px solid black;" id="data_details">Indicate the '+country_text+' that provide the data, and whether the data is National or State / Local (state/province/city).</div>';
+    var content_question =  '<div class=" col-md-12" style="border:0px solid black;" id="data_details">Indicate the '+country_text+' that provide the data, and whether the data is National or Local (state/province/city).</div>';
     $('#data_use_details').append(content_question);
 
     for (var c = 1; c <= country_count; c++) {
@@ -109,7 +109,7 @@ function updateDataUseProfile(e) {
 
     if (c == 1) {
       //  data-intro="Select a country whose data you use." data-position="top"
-      var new_html = '<div class="col-md-12 data_detail_row" data-intro="Click National or State/Local to show government level of data used." data-position="top"><div class="row col-md-12" style="border:0px solid #ddd;" >'+
+      var new_html = '<div class="col-md-12 data_detail_row" data-intro="Click National or Local to show government level of data used." data-position="top"><div class="row col-md-12" style="border:0px solid #ddd;" >'+
       content+
       '<div class="col-md-7">'+content_data_types+'</div>' +
       '</div></div>';
@@ -182,7 +182,7 @@ function getTypes(idSuffixNum, selectName) {
             <input type="checkbox" name="dataUseData-'+idSuffixNum.toString()+'[src_country][type]['+entry+'][src_gov_level][]" value="National">National \
         </label> \
         <label class="btn btn-default" style="font-size:0.6em"> \
-            <input type="checkbox" name="dataUseData-'+idSuffixNum.toString()+'[src_country][type]['+entry+'][src_gov_level][]" value="State/Local">State / Local \
+            <input type="checkbox" name="dataUseData-'+idSuffixNum.toString()+'[src_country][type]['+entry+'][src_gov_level][]" value="Local">Local \
         </label> \
       </div> \
       </span>';
