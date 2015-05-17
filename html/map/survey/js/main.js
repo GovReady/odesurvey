@@ -59,11 +59,11 @@ function fillForm() {
 }
 
 // String truncate method
-function truncate(string){
-   if (string.length > 22)
-      return string.substring(0,20)+'...';
+function truncate(string, strlen){
+   if (string.length > strlen)
+      return string.substring(0,strlen)+'...';
    else
-      if (string.length < 20)
+      if (string.length < strlen)
         return string+"&nbsp;&nbsp;&nbsp;&nbsp;";
       else
         return string;
@@ -71,6 +71,7 @@ function truncate(string){
 
 // Use of Open Data Interactivity
 function updateDataUseProfile(e) {
+  toggleDataTypeGuidance();
 
   var data_country_count = $('input[type=radio][name=data_country_count]:checked').val();
   if (typeof data_country_count !== 'undefined') {
@@ -108,7 +109,7 @@ function updateDataUseProfile(e) {
 
     if (c == 1) {
       //  data-intro="Select a country whose data you use." data-position="top"
-      var new_html = '<div class="col-md-12 data_detail_row" data-intro="Select a country whose data you use and government levels for each selected data type." data-position="top"><div class="row col-md-12" style="border:0px solid #ddd;" >'+
+      var new_html = '<div class="col-md-12 data_detail_row" data-intro="Click National or State/Local to show government level of data used." data-position="top"><div class="row col-md-12" style="border:0px solid #ddd;" >'+
       content+
       '<div class="col-md-7">'+content_data_types+'</div>' +
       '</div></div>';
@@ -148,7 +149,7 @@ function toggleDataTypeGuidance () {
     // add online guidance for checked items
     // $('input[type=checkbox][class=data_use_type]:checked').map(function(){  $(this).next("span").css('color', 'red'); });
     $('input[type=checkbox][class=data_use_type]:checked').map(function(){  $(this).next("span").css('font-weight', 'bold'); });
-    $('input[type=checkbox][class=data_use_type]:checked').map(function(){  $(this).attr('data-intro', $(this).val() ); });
+    $('input[type=checkbox][class=data_use_type]:checked').map(function(){  $(this).attr('data-intro', truncate($(this).val(), 12) ); });
     $('input[type=checkbox][class=data_use_type]:checked').map(function(){  $(this).attr('data-position', 'right'); });
 
 }
@@ -167,9 +168,15 @@ function getTypes(idSuffixNum, selectName) {
     }
     console.log(entry);
 
+    // if (data_use_html.length == 0) {
+    //   var xx = 'data-intro="info here" data-position="above"';
+    // } else {
+    //   var xx = '';
+    // }
+
     var gov_level = ' \
     <span class="col-md-4" style="border:0px solid black;"> \
-    <span class="" id="" style="font-size:0.8em;">'+truncate(entry)+'</span> \
+    <span class="" id="" style="font-size:0.8em;">'+truncate(entry, 12)+'</span> \
       <div class="btn-group" data-toggle="buttons"> \
         <label class="btn btn-default" style="font-size:0.6em"> \
             <input type="checkbox" name="dataUseData-'+idSuffixNum.toString()+'[src_country][type]['+entry+'][src_gov_level][]" value="National">National \
