@@ -327,4 +327,5 @@ with open('arcgis_flatfile.json', 'w') as f:
 print "============"
 print "rows used:", len(org_list)
 print "rows not used:", len(org_list_not_used)
+print "orgs with errors", len(org_errors), org_errors
 
