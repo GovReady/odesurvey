@@ -1,11 +1,19 @@
-<footer class="w-section nav-bar footer-section">
-<a name="footer"></a>
-
-  <div class="container col-md-12 footer-container">
-    &copy; Center for Open Data Enterprise 2015. All Rights Reserved.
-  </div>
-
 </footer>
+<footer class="w-section section footer">
+<!--   <div class="w-container footer-container">
+    <div class="circle-logo"><img class="logo footer" src="/images/Logo-Mark.png" width="60">
+    </div>
+    <div class="brand-container footer"><img class="logo" src="/images/Logo-Text.png" width="320">
+    </div>
+  </div>
+ -->  
+  <div class="legal-wrapper">
+    <div>© 2015 The Center for Open Data Enterprise&nbsp;1110 Vermont Avenue NW, Suite 500, Washington, DC 20005</div>
+  </div>
+</footer>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/webflow.js"></script>
+
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
@@ -125,6 +133,17 @@
       });
     }); // End Document Ready function
 
+  </script>
+  <!--[if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
+  <script>
+    $('.custom-button').on('click', function (evt) {
+      $('.target-tab-link').triggerHandler('click');
+      evt.preventDefault();
+    });
+    $('.custom-button-2').on('click', function (evt) {
+      $('.target-tab-link-2').triggerHandler('click');
+      evt.preventDefault();
+    });
   </script>
  </body>
 </html>
