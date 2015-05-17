@@ -68,8 +68,7 @@
             <nav class="w-dropdown-list dropdown-list"><a class="w-dropdown-link dropdown-link" href="/about#Our-Mission">Mission</a><a class="w-dropdown-link dropdown-link" href="/about#What-We-Do">What we do</a><a class="w-dropdown-link dropdown-link" href="/about#Our-Team">Who we are</a><a class="w-dropdown-link dropdown-link" href="/about#Our-Partners">Partners</a><a class="w-dropdown-link dropdown-link" href="/about#Our-Advisors">Advisors</a>
             </nav>
           </div><a class="w-nav-link nav-link" href="/map.html">Map</a><a class="w-nav-link nav-link" href="/convene.html">CONVENE</a><a class="w-nav-link nav-link" href="/implement.html">Implement</a><a class="w-nav-link nav-link" href="http://blog.opendataenterprise.org/">Blog</a><a class="w-nav-link nav-link" href="/contact.html">Contact</a>
-          <a class="w-inline-block nav-link twitter-nav" href="http://www.twitter.com/odenterprise" target="_blank"><img src="/images/Twitter_logo_white_1.png" width="27">
-          </a>
+          <a class="w-inline-block nav-link twitter-nav" href="http://www.twitter.com/odenterprise" target="_blank<img src="/images/Twitter_logo_white_1.png" width="27"></a>
         </nav>
         <div class="w-nav-button">
           <div class="w-icon-nav-menu"></div>
