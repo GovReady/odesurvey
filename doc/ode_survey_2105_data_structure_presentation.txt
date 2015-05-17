@@ -68,7 +68,7 @@ org_hq_country_income    varchar(12) NULL,         -- Worldbank country income
 org_hq_country_income_code  varchar(3) NULL,       -- Worldbank country income code
 org_profile_year         int,                      -- year for this profile is relevent
 org_profile_status       varchar(20) NULL,         -- (new, vetted, published)
-org_profile_src          varchar(20) NULL,         -- (survey, researched, OD500)
+org_profile_src          varchar(20) NULL,         -- (survey, researched, OD500, ...)
 org_profile_category     varchar(20) NULL,         -- ('submitted survey', research) anything not survey becomes research
 data_type                varchar(75) NOT NULL,
 data_type_other          varchar(150) NOT NULL,

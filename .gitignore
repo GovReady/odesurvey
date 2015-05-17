@@ -15,3 +15,7 @@ scripts/data-etl/data-backup/odesurvey-parse-prod-export-2015-07-08/*
 
 assets/*
 html/grid/*
+
+# Data
+Inventory-2015-05-10.xlsx
+.~lock.Inventory.xlsx#
