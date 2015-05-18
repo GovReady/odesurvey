@@ -71,6 +71,7 @@ def dataframe_to_point_features(df, x_field, y_field, wkid=4326):
         f['geometry']['y'] = d[y_field]
         f['geometry']['spatialReference'] = {'wkid':wkid}
         return f
+
     dicts = df.to_dict(outtype='records')
     return [create_point_feature(d) for d in dicts]
 
