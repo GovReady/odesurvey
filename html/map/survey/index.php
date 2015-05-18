@@ -360,7 +360,7 @@ $app->post('/2du/:surveyId/', function ($surveyId) use ($app) {
     	$org_object[$param] = $allPostVars[$param];
     }
 	// Set string values to boolean values
-	$params = array("no_org_url", "use_prod_srvc", "use_org_opt", "use_research", "use_other");
+	$params = array("no_org_url", "use_advocacy", "use_prod_srvc", "use_org_opt", "use_research", "use_other");
 	foreach ($params as $param) {
 		if (is_null($org_object[$param])) {
 			$org_object[$param] = false;
