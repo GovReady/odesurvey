@@ -74,6 +74,13 @@ To configure the location of the local file for import into the ArcGIS Online, e
 
     self.arcgis_source_file = 'arcgis_flatfile.json'
 
+####Switching Environments (i.e. Development, Staging, Production)
+The agol_integration script will target only one environment at a time.  To change which environment is active, edit the following line in `settings.py`:
+
+    env = DevelopmentSettings()
+
+Valid environment values include: `DevelopmentSettings`, `StagingSettings`, and `ProductionSettings`
+
 ####Scheduling
 
 Add script to crontab:
@@ -93,5 +100,3 @@ To run associated tests:
     OK
 
 
-### ArcGIS Online Initial Service Configuration
-To setup services with a new schema, 
