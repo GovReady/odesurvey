@@ -58,15 +58,19 @@ function fillForm() {
   return true;
 }
 
-// String truncate method
-function truncate(string, strlen){
-   if (string.length > strlen)
-      return string.substring(0,strlen)+'...';
-   else
-      if (string.length < strlen)
-        return string+"&nbsp;&nbsp;&nbsp;&nbsp;";
-      else
-        return string;
+// String sizestring method
+function sizestring(string, strlen){
+  // if string too short, pad string
+  if (string.length < strlen) {
+    pad_len = strlen - string.length;
+    return string + Array(pad_len).join('&nbsp;');
+  }
+
+  // if string too long, shorten
+  if (string.length > strlen)
+    return string.substring(0,strlen)+'...';
+  else
+    return string;
 };
 
 // Use of Open Data Interactivity
@@ -148,7 +152,7 @@ function toggleDataTypeGuidance () {
     
     // add online guidance for checked items
     $('input[type=checkbox][class=data_use_type]:checked').map(function(){  $(this).next("span").css('font-weight', 'bold'); });
-    $('input[type=checkbox][class=data_use_type]:checked').map(function(){  $(this).attr('data-intro', truncate($(this).val(), 12) ); });
+    $('input[type=checkbox][class=data_use_type]:checked').map(function(){  $(this).attr('data-intro', sizestring($(this).val(), 12) ); });
     $('input[type=checkbox][class=data_use_type]:checked').map(function(){  $(this).attr('data-position', 'right'); });
 }
 
@@ -179,7 +183,7 @@ function getTypes(idSuffixNum, selectName) {
 
     var gov_level = ' \
     <span class="col-md-4" style="border:0px solid black;"> \
-    <span class="" id="" style="font-size:0.8em;">'+truncate(entry, 12)+'</span> \
+    <span class="" id="" style="font-size:0.8em;">'+sizestring(entry, 12)+'</span> \
       <div class="btn-group" data-toggle="buttons"> \
         <label class="btn btn-default" style="font-size:0.6em"> \
             <input type="checkbox" name="dataUseData-'+idSuffixNum.toString()+'[src_country][type]['+entry+'][src_gov_level][]" value="National">National \
