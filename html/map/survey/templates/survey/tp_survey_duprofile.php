@@ -118,7 +118,7 @@
         <div class="col-md-4" id="industry_id_col-1">
           <input type="radio" name="industry_id" class="industry_id" value="Agriculture">&nbsp; Agriculture
           <br /><input type="radio" name="industry_id" class="industry_id" value="Arts and culture">&nbsp; Arts and culture
-          <br /><input id="industry_id_cul" type="radio" name="industry_id" class="industry_id" value="Business and legal services" required> Business and legal services
+          <br /><input id="industry_id_cul" type="radio" name="industry_id" class="industry_id" value="Business and legal services" required>&nbsp; Business and legal services
           <br /><input type="radio" name="industry_id" class="industry_id" value="Consumer services">&nbsp; Consumer services
           <br /><input type="radio" name="industry_id" class="industry_id" value="Data/information technology">&nbsp; Data/information technology
           <br /><input type="radio" name="industry_id" class="industry_id" value="Education">&nbsp; Education
