@@ -13,6 +13,7 @@
 -- Codes/IDs are used in field `industry_id` to make easier to deal with multiple languages
 
 -- CHANGE LOG
+-- 0.20.0       Add data_src_country_name field
 -- 0.19.0       Add increase size of industry_id to use full string, drop industry
 -- 0.18.0       Add org_profile_category
 -- 0.17.0       Add fields use_advocacy, use_advocacy_desc, fix other use_* fields
@@ -73,6 +74,7 @@ org_profile_category     varchar(20) NULL,         -- ('submitted survey', resea
 data_type                varchar(75) NOT NULL,
 data_type_other          varchar(150) NOT NULL,
 data_src_country_locode  varchar(2) NOT NULL,
+data_src_country_name    varchar(120) NOT NULL,    -- name of country
 data_src_gov_level       varchar(75) NOT NULL
 row_type                 varchar(20) NULL,         -- identify if row is org_profile for easier querying
 date_created             datetime,                 -- date survey created (e.g., started)
