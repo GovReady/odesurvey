@@ -366,7 +366,7 @@
 
     <div class="col-md-12" role="submit-note" id="role-submit-note">
       <div style="text-align:center;font-size:14px;margin-top:20px;">
-        <i>All submissions will be reviewed before public display on the Open Data Impact Map.</i>
+        <b><i>All submissions will be reviewed before public display on the Open Data Impact Map.</i></b>
       </div>
       <br />
     </div>
