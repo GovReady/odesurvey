@@ -58,7 +58,7 @@ def flush_and_replace_feature_layer(target_layer, replacement_layer, token):
     add_features(target_layer, features, token=token)
 
 def dataframe_to_featureset(dataFrame):
-    dicts = dataFrame.to_dict(outtype='records')
+    dicts = dataFrame.to_dict(orient='records')
     features = [{'attributes':d} for d in dicts]
     return json.dumps(features)
 
@@ -71,6 +71,7 @@ def dataframe_to_point_features(df, x_field, y_field, wkid=4326):
         f['geometry']['y'] = d[y_field]
         f['geometry']['spatialReference'] = {'wkid':wkid}
         return f
+
     dicts = df.to_dict(outtype='records')
     return [create_point_feature(d) for d in dicts]
 
