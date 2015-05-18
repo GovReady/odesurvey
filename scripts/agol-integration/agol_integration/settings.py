@@ -3,9 +3,10 @@ import os
 class BaseSettings(object):
 
     def __init__(self):
-        self.agol_user = os.environ.get('AGOL_USER', '') # - add ArcGIS Online User ID or set environment variable
-        self.agol_pass = os.environ.get('AGOL_PASS','')  # - add ArcGIS Online User Pass or set environment variable
-        self.parse_data_endpoint = 'http://ode.govready.org/survey/opendata/data/flatfile.json'        
+        self.agol_user = os.environ.get('AGOL_USER', '')  # - add ArcGIS Online User ID or set environment variable
+        self.agol_pass = os.environ.get('AGOL_PASS', '')  # - add ArcGIS Online User Pass or set environment variable
+        self.parse_data_endpoint = 'http://odetest.govready.org/survey/opendata/data/flatfile.json'
+        self.arcgis_source_file = 'arcgis_flatfile.json'
 
 class DevelopmentSettings(BaseSettings):
 

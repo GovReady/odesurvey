@@ -1,6 +1,6 @@
 ## ArcGIS Online Integration Job
 
-The following code synchronizes data from the ODE Parse API to an ArcGIS Online hosted-feature-service.
+The following code synchronizes data from a local JSON file to an ArcGIS Online hosted-feature-service.
 
 #####Development Version:
 - https://services5.arcgis.com/w1WEecz5ClslKH2Q/ArcGIS/rest/services/odesurvey_organizations_dev/FeatureServer/0
@@ -13,17 +13,16 @@ The following code synchronizes data from the ODE Parse API to an ArcGIS Online 
 
 ####Setup
 
-- Install the latest version of Python 2.7.  If below version 2.7.9, install PIP also:
+- Install the latest version of Python 2.7.  If < 2.7.9, install PIP also:
 
-        $> yum install python
-        $> yum install python-devel
-        $> yum install python-pip
+        $> `yum install python`
+        $> `yum install python-devel`
+        $> `yum install python-pip`
 
 - Install 3rd-party python packages:
 
-        $> cd ./scripts/agol-integration
-        $> pip install -r requirements.txt
-
+        $> `cd ./scripts/agol-integration`
+        $> `pip install -r requirements.txt`
 
 
 Running this job requires user credentials for ArcGIS Online with at minimum `publisher` level role. 
@@ -45,6 +44,36 @@ Set credentials by either:
         export AGOL_USER=<my user name>
         export AGOL_PASS=<my user password>
 
+####Initial Service Setup
+
+To create services from scratch, first create a schema file(.csv) based on your input file(.json):
+
+    $> `python agol_integration/agol_integration.py build_schema <input_file.json> <output_file.csv>`
+
+This schema file(.csv) can then be uploaded into ArcGIS Online > My Content and can be used as a template to create a `dev`, `staging`, and `production` feature services.
+
+####Setup Max Record Count on Template Service
+
+- Once a template service is created, browse to the rest admin endpoint:
+
+    `https://services5.arcgis.com/w1WEecz5ClslKH2Q/ArcGIS/rest/admin/services/agol_service_schema/FeatureServer`
+
+- At the bottom of the screen, you should see a link to `Update Definition`
+
+- In the JSON object which appears, change "maxRecordCount" to `120000`
+
+- Go back to .../rest/admin/services/agol_service_schema/FeatureServer
+
+- Select the first layer (organizations), and at the bottom of the screen click "Update Definition". At the bottom of the JSON object in the window, you will notice `maxRecordCount`. Change this value to 120000`.
+
+- Click "Update Layer Definition", if you get an error about "Last Edit Date", then change `lastEditDate` to an empty string.
+
+
+####Additional Script Configuration
+To configure the location of the local file for import into the ArcGIS Online, edit the following line in `settings.py`:
+
+    self.arcgis_source_file = 'arcgis_flatfile.json'
+
 ####Scheduling
 
 Add script to crontab:
@@ -64,4 +93,5 @@ To run associated tests:
     OK
 
 
-
+### ArcGIS Online Initial Service Configuration
+To setup services with a new schema, 
