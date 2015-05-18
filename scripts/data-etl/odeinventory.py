@@ -307,6 +307,7 @@ for org in org_list:
             org['data_type'], org['data_src_country_locode'], org['data_src_gov_level'] = data_src.split(";")
             org['data_type'] = org['data_type'].strip()
             org['data_src_gov_level'] = org['data_src_gov_level'].strip()
+            org['data_src_country_name'] = None
             org['data_src_country_locode'] = org['data_src_country_locode'].strip()
         except:
             org_errors.append( "%s: error splitting data_src %s" % (org['org_name'], data_src ) )
