@@ -52,7 +52,11 @@
         - php-tidy
         - php-pear
         - php-posix
- 
+
+
+
+
+
    - name: Install python
      yum: pkg={{ item }} state=installed 
      with_items:
@@ -63,6 +67,9 @@
 
    - name: Install python 3rd-party modules
      pip: requirements=/opt/scripts/agol-integration/requirements.txt
+
+
+
 
    # httpd.conf update necessary to address vagrant/virtualbox issue so changes to synched folder static html files work 
    - name: Set 'EnableSendfile off' in Apache2 httpd.conf 
