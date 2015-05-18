@@ -216,7 +216,7 @@
     <div class="col-md-12" role="dataUse" id="role-dataUse">
       
       <div class="row col-md-12 data-use-row" id="dataUseDataType">
-        <label for="data_use_type[]">Types of <u>most relevant</u> open data your organization uses <small class="required">(select all that apply)*</small></label>
+        <label for="data_use_type[]">What are the <u>most relevant</u> types of data your organization uses? <small class="required">(select all that apply)*</small></label>
         <div class="col-md-4" id="data_type_col-1">
             <input type="checkbox" name="data_use_type[]" class="data_use_type" value="Agriculture" required>&nbsp; <span>Agriculture</span>
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Arts and culture">&nbsp; <span>Arts and culture</span>
@@ -251,7 +251,7 @@
 <br />
       <!-- Sources of open data -->
       <div class="form-group col-md-12">
-        <label for="data_country_count">Number of countries from which open data is provided<small class="required">*</small></label>
+        <label for="data_country_count">How many countries does your organization use open data from? <small class="required">*</small></label>
         <div class="col-md-12">
           <div class="btn-group" data-toggle="buttons">
             <label class="btn btn-default">
@@ -280,7 +280,7 @@
 
       <div class="row col-md-12">
         <label class="row col-md-10">
-          How does your organization use open data?<small class="required">*</small> 
+          How does your organization use open data? <small class="required">(Provide as much information as possible)*</small> 
         </label>
 
         <div class="form-group col-md-12">
@@ -290,7 +290,7 @@
               <input type="text" class="form-control" style="display:none" id="use_advocacy_desc" name="use_advocacy_desc" placeholder="Provide details">
             </div>
             <div>
-              <input type="checkbox" class="use_open_data" name="use_prod_srvc" id="use_prod_srvc" value="True"> develop new products or services
+              <input type="checkbox" class="use_open_data" name="use_prod_srvc" id="use_prod_srvc" value="True"> new products, services, or applications
               <input type="text" class="form-control" style="display:none" id="use_prod_srvc_desc" name="use_prod_srvc_desc" placeholder="Provide details">
             </div>
             <div>
@@ -366,8 +366,7 @@
 
     <div class="col-md-12" role="submit-note" id="role-submit-note">
       <div style="text-align:center;font-size:14px;margin-top:20px;">
-        <i>Please note that all submissions will be reviewed by the Center for Open Data Enterprise 
-        research team before public display on the Open Data Impact Map.</i>
+        <i>All submissions will be reviewed before public display on the Open Data Impact Map.</i>
       </div>
       <br />
     </div>

@@ -97,13 +97,12 @@ function updateDataUseProfile(e) {
     // empty holding div
     $('#data_use_details').empty();
 
-    var content_question =  '<div class=" col-md-12" style="border:0px solid black;" id="data_details">Indicate the '+country_text+' that provide the data, and whether the data is National or Local (state/province/city).</div>';
+    var content_question =  '<div class=" col-md-12" style="border:0px solid black;" id="data_details">Indicate the '+country_text+' that provide the data used by your organization, and whether the data is national and/or local (province/state/city).</div>';
     $('#data_use_details').append(content_question);
 
     for (var c = 1; c <= country_count; c++) {
       var content = getCountries(c);
       var content_data_types = getTypes(c,'data_use_type');
-
 
     // alert(data_use_html.length);
 
