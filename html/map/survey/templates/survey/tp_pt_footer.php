@@ -30,6 +30,10 @@
   <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
   <script src="/map/survey/js/vendor/ubilabs-geocomplete-eb38f45/jquery.geocomplete.js"></script>
   
+  <!-- onscreen guidance chardin.js -->
+  <link href="/map/survey/css/chardinjs.css" rel="stylesheet">
+  <script src="/map/survey/js/chardinjs.min.js"></script>
+
   <!-- custom -->
   <script>
 
@@ -125,7 +129,6 @@
       });
       
       $('input[name="data_use_type_other"]').change(function(e) {
-        updateDataUseProfile(e);
       });
 
       $('input[type=radio][name=data_country_count]').change(function(e) {
