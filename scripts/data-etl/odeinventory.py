@@ -274,6 +274,8 @@ with open('org_profile.json', 'w') as f:
 # create new array
 data_use_flat = []
 
+print "\n\n************************************\n org processing complete \n Starting on processing data use \n************************************\n"
+
 cnt = 0
 # Get data use for each record
 for org in org_list:
@@ -294,11 +296,12 @@ for org in org_list:
     print "%s, %s" % (org['profile_id'], org['org_name'])    
     for data_src in data_srcs:
         print data_src.strip("")
+        org['row_type'] = "data_use"
         if 0 == len(data_src) or None == data_src or "null" == data_src:
             org['data_type'] = None
             org['data_src_country_locode'] = None
+            org['data_src_country_name'] = None
             org['data_src_gov_level'] = None
-            org['row_type'] = "data_use"
             continue
         try:
             org['data_type'], org['data_src_country_locode'], org['data_src_gov_level'] = data_src.split(";")
@@ -309,8 +312,12 @@ for org in org_list:
             org_errors.append( "%s: error splitting data_src %s" % (org['org_name'], data_src ) )
         
         if  org['data_src_country_locode'] is not None and 3 == len(org['data_src_country_locode']) and 'EUR' != org['data_src_country_locode']:
+            # print "????%s?%s--regions:%s" % (org['data_src_country_locode'], org['data_src_country_locode'],regions[org['data_src_country_locode']]['COUNTRY-NAME'])
+            # IMPORTANT get data_src_country_name before changing data_src_country_locode
+            org['data_src_country_name'] = regions[org['data_src_country_locode']]['COUNTRY-NAME']
             org['data_src_country_locode'] = regions[org['data_src_country_locode']]['ISO3166-1-UNLOC']
-
+            print org['data_src_country_name']
+            
         # Append copy of object to data_use_flatfile
         data_use_flat.append(copy.copy(org))
 
