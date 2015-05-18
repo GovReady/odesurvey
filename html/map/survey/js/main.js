@@ -6,6 +6,14 @@
  *
  */
 
+// force reload of javascript file
+// use: reload_js('source_file.js');
+function reload_js(src) {
+    $('script[src="' + src + '"]').remove();
+    $('<script>').attr('src', src).appendTo('head');
+}
+
+
 // testing method
 function fillForm() {
   // fill survey form
@@ -51,11 +59,11 @@ function fillForm() {
 }
 
 // String truncate method
-function truncate(string){
-   if (string.length > 22)
-      return string.substring(0,20)+'...';
+function truncate(string, strlen){
+   if (string.length > strlen)
+      return string.substring(0,strlen)+'...';
    else
-      if (string.length < 20)
+      if (string.length < strlen)
         return string+"&nbsp;&nbsp;&nbsp;&nbsp;";
       else
         return string;
@@ -63,6 +71,7 @@ function truncate(string){
 
 // Use of Open Data Interactivity
 function updateDataUseProfile(e) {
+  toggleDataTypeGuidance();
 
   var data_country_count = $('input[type=radio][name=data_country_count]:checked').val();
   if (typeof data_country_count !== 'undefined') {
@@ -83,21 +92,34 @@ function updateDataUseProfile(e) {
       default:
       country_count = 3;
         country_text = "top 3 countries";
-    }
+    } 
 
     // empty holding div
     $('#data_use_details').empty();
 
-    var content_question =  '<div class=" col-md-12" style="border:0px solid black;" id="data_details">Indicate the '+country_text+' that provide the data, and whether the data is National or State / Local (state/province/city).</div>';
+    var content_question =  '<div class=" col-md-12" style="border:0px solid black;" id="data_details">Indicate the '+country_text+' that provide the data, and whether the data is National or Local (state/province/city).</div>';
     $('#data_use_details').append(content_question);
 
     for (var c = 1; c <= country_count; c++) {
       var content = getCountries(c);
       var content_data_types = getTypes(c,'data_use_type');
-      var new_html = '<div class="col-md-12 data_detail_row"><div class="row col-md-12" style="border:0px solid #ddd;">'+
+
+
+    // alert(data_use_html.length);
+
+    if (c == 1) {
+      //  data-intro="Select a country whose data you use." data-position="top"
+      var new_html = '<div class="col-md-12 data_detail_row" data-intro="Click National or Local to show government level of data used." data-position="top"><div class="row col-md-12" style="border:0px solid #ddd;" >'+
       content+
       '<div class="col-md-7">'+content_data_types+'</div>' +
       '</div></div>';
+    } else {
+      var new_html = '<div class="col-md-12 data_detail_row"><div class="row col-md-12" style="border:0px solid #ddd;" >'+
+      content+
+      '<div class="col-md-7">'+content_data_types+'</div>' +
+      '</div></div>';
+    }
+
       $('#data_use_details').append(new_html);
     }    
   }
@@ -106,6 +128,34 @@ function updateDataUseProfile(e) {
     { placeholder: "Select",
     allowClear: true }
   );
+
+  if (country_count > 0 ) {
+    reload_js('/map/survey/js/chardinjs.min.js');
+    $('body').chardinJs('start');
+
+    // add event listener to capture any click to stop the guidance overlay
+    document.addEventListener('mousedown', listener_guidance_click, false);
+
+  }
+}
+
+// set onscreen guidance only for checked data types
+function toggleDataTypeGuidance () {
+    // add online guidance
+     // clear on screen guidance
+    $('input[type=checkbox][class=data_use_type]').map(function(){  $(this).removeAttr('data-intro'); });
+    $('input[type=checkbox][class=data_use_type]').map(function(){  $(this).removeAttr('data-position'); });
+    $('input[type=checkbox][class=data_use_type]').map(function(){  $(this).next("span").css('font-weight', 'normal'); });
+    
+    // add online guidance for checked items
+    $('input[type=checkbox][class=data_use_type]:checked').map(function(){  $(this).next("span").css('font-weight', 'bold'); });
+    $('input[type=checkbox][class=data_use_type]:checked').map(function(){  $(this).attr('data-intro', truncate($(this).val(), 12) ); });
+    $('input[type=checkbox][class=data_use_type]:checked').map(function(){  $(this).attr('data-position', 'right'); });
+}
+
+// Listener to capture all clicks to stop overlay guidance
+var listener_guidance_click = function (e) {
+  $('body').chardinJs('stop');
 }
 
 // manage data use
@@ -121,15 +171,22 @@ function getTypes(idSuffixNum, selectName) {
       entry = $('input[name="data_use_type_other"]').val();
     }
     console.log(entry);
+
+    // if (data_use_html.length == 0) {
+    //   var xx = 'data-intro="info here" data-position="above"';
+    // } else {
+    //   var xx = '';
+    // }
+
     var gov_level = ' \
     <span class="col-md-4" style="border:0px solid black;"> \
-    <span class="" id="" style="font-size:0.8em;">'+truncate(entry)+'</span> \
+    <span class="" id="" style="font-size:0.8em;">'+truncate(entry, 12)+'</span> \
       <div class="btn-group" data-toggle="buttons"> \
         <label class="btn btn-default" style="font-size:0.6em"> \
             <input type="checkbox" name="dataUseData-'+idSuffixNum.toString()+'[src_country][type]['+entry+'][src_gov_level][]" value="National">National \
         </label> \
         <label class="btn btn-default" style="font-size:0.6em"> \
-            <input type="checkbox" name="dataUseData-'+idSuffixNum.toString()+'[src_country][type]['+entry+'][src_gov_level][]" value="State/Local">State / Local \
+            <input type="checkbox" name="dataUseData-'+idSuffixNum.toString()+'[src_country][type]['+entry+'][src_gov_level][]" value="Local">Local \
         </label> \
       </div> \
       </span>';
