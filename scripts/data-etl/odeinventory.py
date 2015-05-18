@@ -147,7 +147,8 @@ for rownum in range(0, sh.nrows):
     org_types = { "Private" : "For-profit",
         "Private" : "For-profit",
         "For profit" : "For-profit",
-        "For Profit" : "For-profit"
+        "For Profit" : "For-profit",
+        "Nonprofit" : "Nonprofit"
     }
     try:
     	org['org_type'] = org_types[org['org_type']]
