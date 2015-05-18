@@ -105,7 +105,7 @@ for rownum in range(0, sh.nrows):
 
     # print "loc: %s, %s, %s" % (org['org_hq_city'],org['org_hq_st_prov'], org['org_hq_country'])
 
-    org['industry_id'] = row_values[9]
+    org['industry_id'] = row_values[9].capitalize()
     
     try:
         org['org_year_founded'] = int(row_values[10])
@@ -148,7 +148,10 @@ for rownum in range(0, sh.nrows):
         "Private" : "For-profit",
         "For profit" : "For-profit",
         "For Profit" : "For-profit",
-        "Nonprofit" : "Nonprofit"
+        "Nonprofit" : "Nonprofit",
+        "Non-profit" : "Nonprofit",
+        "Developer group" : "Developer group",
+        "Developer Group" : "Developer group"
     }
     try:
     	org['org_type'] = org_types[org['org_type']]
@@ -307,7 +310,7 @@ for org in org_list:
             continue
         try:
             org['data_type'], org['data_src_country_locode'], org['data_src_gov_level'] = data_src.split(";")
-            org['data_type'] = org['data_type'].strip()
+            org['data_type'] = org['data_type'].strip().capitalize()
             org['data_src_gov_level'] = org['data_src_gov_level'].strip()
             org['data_src_country_name'] = None
             org['data_src_country_locode'] = org['data_src_country_locode'].strip()
