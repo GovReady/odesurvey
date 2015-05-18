@@ -288,6 +288,7 @@ for org in org_list:
     
     org['data_type'] = None
     org['data_src_country_locode'] = None
+    org['data_src_country_name'] = None
     org['data_src_gov_level'] = None
     org['row_type'] = "org_profile"
     data_use_flat.append(copy.copy(org))
