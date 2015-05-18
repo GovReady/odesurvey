@@ -272,6 +272,19 @@ msgstr "Utilisation des données ouvertes"
 msgid "MOST_RELEVANT_OPEN_DATA"
 msgstr "Type de données ouvertes les plus pertinentes que votre organisation utilise" 
 
+#What are the
+msgid "WHAT_ARE_THE"
+msgstr "What are the"
+
+#most relevant
+msgid "MOST_RELEVANT"
+msgstr "most relevant"
+
+#types of data your organization uses?
+msgid "TYPES_OF_DATA"
+msgstr "types of data your organization uses?"
+
+
 #select all that apply
 msgid "SELECT_ALL"
 msgstr "Cochez toutes les cases appropriées"
@@ -411,8 +424,8 @@ msgstr "A quelle fin votre organisation utilise-t-elle les données ouvertes?"
 msgid "ADVOCACY"
 msgstr "Activités de plaidoyer et defense de droits"
 
-#develop new products or services
-msgid "DEVELOP_NEW"
+#new products, services, or applications
+msgid "PRODUCTS_SERVICES"
 msgstr "Développement de nouveaux produits et services"
 
 #organizational optimization 
