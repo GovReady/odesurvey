@@ -132,26 +132,30 @@ function updateDataUseProfile(e) {
   if (country_count > 0 ) {
     reload_js('/map/survey/js/chardinjs.min.js');
     $('body').chardinJs('start');
+
+    // add event listener to capture any click to stop the guidance overlay
+    document.addEventListener('mousedown', listener_guidance_click, false);
+
   }
 }
 
 // set onscreen guidance only for checked data types
 function toggleDataTypeGuidance () {
     // add online guidance
-    // $('input[type=checkbox][value='+entry+']:checked').attr('data-intro', entry);
-    // $('input[type=checkbox][value='+entry+']:checked').attr('data-position', "right");
-    // $('input[type=checkbox][class=data_use_type]:checked').map(function(){ alert( $(this).val()); });
-    // $('input[type=checkbox][class=data_use_type]:checked').map(function(){ alert( $(this).next("span").text()); });
-    // clear on screen guidance
+     // clear on screen guidance
     $('input[type=checkbox][class=data_use_type]').map(function(){  $(this).removeAttr('data-intro'); });
     $('input[type=checkbox][class=data_use_type]').map(function(){  $(this).removeAttr('data-position'); });
+    $('input[type=checkbox][class=data_use_type]').map(function(){  $(this).next("span").css('font-weight', 'normal'); });
     
     // add online guidance for checked items
-    // $('input[type=checkbox][class=data_use_type]:checked').map(function(){  $(this).next("span").css('color', 'red'); });
     $('input[type=checkbox][class=data_use_type]:checked').map(function(){  $(this).next("span").css('font-weight', 'bold'); });
     $('input[type=checkbox][class=data_use_type]:checked').map(function(){  $(this).attr('data-intro', truncate($(this).val(), 12) ); });
     $('input[type=checkbox][class=data_use_type]:checked').map(function(){  $(this).attr('data-position', 'right'); });
+}
 
+// Listener to capture all clicks to stop overlay guidance
+var listener_guidance_click = function (e) {
+  $('body').chardinJs('stop');
 }
 
 // manage data use
