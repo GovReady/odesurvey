@@ -12,22 +12,22 @@ class DevelopmentSettings(BaseSettings):
 
     def __init__(self):
         BaseSettings.__init__(self)
-        self.agol_feature_service_url = 'https://services5.arcgis.com/w1WEecz5ClslKH2Q/arcgis/rest/services/odesurvey_organizations_dev/FeatureServer/0'
+        self.agol_feature_service_url = 'https://services5.arcgis.com/w1WEecz5ClslKH2Q/arcgis/rest/services/ode_organizations_dev/FeatureServer/0'
 
 class StagingSettings(BaseSettings):
 
     def __init__(self):
         BaseSettings.__init__(self)
-        self.agol_feature_service_url = 'https://services5.arcgis.com/w1WEecz5ClslKH2Q/arcgis/rest/services/odesurvey_organizations_staging/FeatureServer/0'
+        self.agol_feature_service_url = 'https://services5.arcgis.com/w1WEecz5ClslKH2Q/arcgis/rest/services/ode_organizations_staging/FeatureServer/0'
 
 class ProductionSettings(BaseSettings):
 
     def __init__(self):
         BaseSettings.__init__(self)
-        self.agol_feature_service_url = 'https://services5.arcgis.com/w1WEecz5ClslKH2Q/arcgis/rest/services/odesurvey_organizations_production/FeatureServer/0'
+        self.agol_feature_service_url = 'https://services5.arcgis.com/w1WEecz5ClslKH2Q/arcgis/rest/services/ode_organizations_production/FeatureServer/0'
 
 # - set active environment
-env = DevelopmentSettings()
+env = StagingSettings()
 
 # - logging helper
 import logging
