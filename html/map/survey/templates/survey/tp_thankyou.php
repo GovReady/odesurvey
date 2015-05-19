@@ -24,7 +24,7 @@
           Thank you for participating in the Open Data Impact Map. <b>All submissions will be reviewed before public display.</b>  
         </div>
         <br />
-        <b>Take me to the Map</b>: <a href ="http://<?php echo $content['HTTP_HOST']; ?>/map">http://<?php echo $content['HTTP_HOST']; ?>/map</a>
+        <b>Take me to the Map</b>: <a href ="http://<?php echo $content['HTTP_HOST']; ?>/map.html">http://<?php echo $content['HTTP_HOST']; ?>/map.html</a>
         <br /><br />
         <b>View my submission</b>:  <a href ="http://<?php echo $content['HTTP_HOST']; ?>/map/survey/edit/<?php echo $content['surveyId'] ?>">http://<?php echo $content['HTTP_HOST']; ?>/map/survey/edit/<?php echo $content['surveyId'] ?></a>
         <br />Use this unique URL to make changes.
