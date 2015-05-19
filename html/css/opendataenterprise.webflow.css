@@ -22,11 +22,12 @@ h1 {
   text-align: right;
 }
 h2 {
-  margin: 10px 0px;
-  color: #2ea0e6;
-  font-size: 32px;
+  margin: 0px;
+  color: white;
+  font-size: 26px;
   line-height: 36px;
   font-weight: 700;
+  text-align: center;
 }
 h3 {
   margin: 10px 0px 1px;
@@ -479,7 +480,7 @@ p {
 .section.regional {
   padding-top: 20px;
   padding-bottom: 60px;
-  border-bottom: 1px none #ccc;
+  border-bottom: 1px solid #ccc;
 }
 .section.our-partners {
   padding-top: 40px;
@@ -770,7 +771,7 @@ p {
   padding-top: 0px;
   padding-bottom: 0px;
   color: #555;
-  font-size: 22px;
+  font-size: 21px;
   line-height: 35px;
   font-weight: 300;
   text-align: center;
@@ -1790,6 +1791,7 @@ p {
 }
 .what-we-do {
   margin-top: 40px;
+  margin-bottom: 35px;
 }
 .contact {
   position: relative;
@@ -2378,6 +2380,9 @@ p {
   width: 310px;
   margin-top: 60px;
 }
+.esrilogo {
+  margin-top: 10px;
+}
 .economic-and-social-good {
   color: #2ea0e6;
   font-weight: 400;
@@ -2450,6 +2455,11 @@ p {
   font-weight: 700;
   text-shadow: none;
 }
+.map-title.open-data-map-title {
+  font-size: 46px;
+  font-weight: 300;
+  text-shadow: none;
+}
 .map-description {
   margin-bottom: 20px;
   padding-top: 0px;
@@ -2473,10 +2483,11 @@ p {
 .image-viz {
   position: relative;
   width: 100%;
-  height: 400px;
+  height: 460px;
   background-color: #2ea0e6;
   background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.29), rgba(0, 0, 0, 0.29)), url('../images/bg_slide2.jpg');
   background-image: linear-gradient(rgba(0, 0, 0, 0.29), rgba(0, 0, 0, 0.29)), url('../images/bg_slide2.jpg');
+  background-size: auto, cover;
   background-repeat: repeat, no-repeat;
   text-align: center;
 }
@@ -2487,9 +2498,7 @@ p {
   right: 0px;
   display: inline-block;
   width: 400px;
-  margin-top: 20px;
-  margin-right: auto;
-  margin-left: auto;
+  margin: 20px auto 40px;
   padding-top: 20px;
   padding-bottom: 20px;
   border-style: solid;
@@ -2497,6 +2506,7 @@ p {
   border-color: rgba(255, 255, 255, 0.8);
   border-radius: 4px;
   background-color: rgba(255, 255, 255, 0.2);
+  opacity: 1;
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
   color: white;
@@ -2510,7 +2520,7 @@ p {
   margin-bottom: 45px;
   padding-top: 0px;
   color: #777;
-  font-size: 17px;
+  font-size: 18px;
   line-height: 27px;
   text-align: center;
 }
@@ -2533,7 +2543,7 @@ p {
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
   color: #2ea0e6;
-  font-size: 16px;
+  font-size: 22px;
   font-weight: 400;
   text-decoration: none;
   text-transform: none;
@@ -2548,8 +2558,18 @@ p {
 .get-involved {
   margin-bottom: 15px;
   color: #020b4f;
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 700;
+}
+.get-involved.share {
+  position: relative;
+  top: -14px;
+  display: inline-block;
+  margin-top: 0px;
+  margin-right: 15px;
+  font-size: 20px;
+  line-height: 22px;
+  text-align: left;
 }
 .grey-background {
   padding-top: 40px;
@@ -2569,13 +2589,14 @@ p {
   margin-bottom: 30px;
   color: #2fa767;
   font-size: 32px;
+  text-align: left;
 }
 .map-container {
   position: absolute;
   left: 0px;
   top: -45px;
   right: 0px;
-  margin-top: 120px;
+  margin-top: 150px;
 }
 .row-supporters {
   margin-bottom: 20px;
@@ -2584,10 +2605,20 @@ p {
   margin-top: 50px;
 }
 .list-item {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   color: #555;
   font-size: 17px;
   line-height: 28px;
+}
+.list-item.research-bullet {
+  margin-bottom: 15px;
+  color: #555;
+}
+.list-item.companines-eligibility {
+  color: black;
+}
+.list-item.use-eligibility {
+  color: black;
 }
 .paragraph {
   margin-bottom: 10px;
@@ -2599,7 +2630,8 @@ p {
 }
 .map-list {
   margin-top: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+  font-weight: 300;
 }
 .goals-block {
   margin-bottom: 40px;
@@ -2628,6 +2660,173 @@ p {
   padding-top: 40px;
   padding-bottom: 40px;
   background-color: #020b4f;
+}
+.beta {
+  padding-right: 0px;
+  padding-left: 420px;
+  float: none;
+  direction: rtl;
+  font-size: 21px;
+}
+.capgemini {
+  padding-top: 40px;
+  padding-right: 0px;
+}
+.buenos-aires {
+  margin-top: 25px;
+  padding-top: 0px;
+}
+.coi {
+  margin-top: 30px;
+}
+.codeando-mexico {
+  margin-top: 10px;
+  padding-top: 25px;
+}
+.data-uruguay {
+  margin-top: 20px;
+}
+.el-salvador {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.ennovent {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 20px;
+}
+.expert-grup {
+  margin-top: 30px;
+  padding-top: 15px;
+}
+.geocensos {
+  margin-top: 30px;
+  padding-top: 10px;
+}
+.open-data-500 {
+  color: #2fa767;
+}
+.social-impact {
+  color: #2fa767;
+}
+.world-bank-study {
+  color: #2fa767;
+}
+.research-network {
+  color: #2fa767;
+}
+.idrc {
+  color: #2fa767;
+}
+.od4d {
+  color: #2fa767;
+}
+.share-block {
+  display: block;
+  margin-top: 40px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 40px;
+  padding-bottom: 10px;
+  border-top: 1px dotted #ccc;
+}
+.row-social {
+  display: inline-block;
+  width: 360px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.share-icons {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+.share-row {
+  display: inline-block;
+}
+.share-icon {
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+.share-icon:hover {
+  opacity: 0.7;
+}
+.share-icon.block {
+  display: block;
+  margin-bottom: 15px;
+}
+.fixed-share {
+  position: fixed;
+  z-index: 2000;
+  margin-top: 300px;
+  padding: 10px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 3px 0px;
+  text-align: center;
+}
+.fixed-share-text {
+  margin-bottom: 10px;
+  color: #777;
+  font-size: 13px;
+}
+.row-attribution {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+.link-attribution {
+  color: #2ea0e6;
+  text-decoration: none;
+}
+.text-attribution {
+  font-size: 17px;
+  line-height: 21px;
+}
+.attribution {
+  padding-top: 30px;
+  padding-bottom: 0px;
+}
+.attribution-block {
+  display: block;
+  width: 700px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.balefire-global {
+  margin-top: 25px;
+}
+.insight-centre {
+  margin-top: 20px;
+  margin-bottom: 0px;
+}
+.open-institute {
+  margin-top: 20px;
+}
+.okfn-brasil {
+  margin-top: 10px;
+}
+.nitec {
+  margin-top: 10px;
+}
+.open-city-foundation {
+  margin-bottom: 0px;
+}
+.od500 {
+  color: #555;
+  text-decoration: underline;
+}
+.od500-link {
+  color: #555;
+}
+.open-data-research-network {
+  color: #555;
+}
+.world-bank-pipeline {
+  color: #555;
+}
+.sunlight-foundation-link {
+  color: #555;
 }
 html.w-mod-js *[data-ix="display-none-on-load"] {
   display: none;
@@ -2865,9 +3064,9 @@ html.w-mod-js *[data-ix="display-none-on-load"] {
     display: inline-block;
     margin-top: 0px;
     margin-bottom: 0px;
-    padding: 15px;
+    padding: 9px;
     float: none;
-    font-size: 15px;
+    font-size: 12px;
     text-align: center;
   }
   .nav-link.twitter-nav {
@@ -3160,6 +3359,23 @@ html.w-mod-js *[data-ix="display-none-on-load"] {
   }
   .uchilogo {
     margin-top: 20px;
+  }
+  .grey-background {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  .fixed-share {
+    display: none;
+  }
+  .row-attribution {
+    text-align: center;
+  }
+  .logo-cc {
+    width: 100px;
+    margin-bottom: 10px;
+  }
+  .attribution-block {
+    width: auto;
   }
 }
 @media (max-width: 479px) {
@@ -3651,6 +3867,21 @@ html.w-mod-js *[data-ix="display-none-on-load"] {
   }
   .map-container {
     margin-top: 60px;
+  }
+  .goals-block {
+    margin-left: 10px;
+  }
+  .beta {
+    padding-left: 200px;
+  }
+  .expert-grup {
+    margin-top: 10px;
+  }
+  .open-institute {
+    margin-bottom: 10px;
+  }
+  .okfn-brasil {
+    margin-top: 20px;
   }
 }
 
