@@ -27,7 +27,7 @@ class ProductionSettings(BaseSettings):
         self.agol_feature_service_url = 'https://services5.arcgis.com/w1WEecz5ClslKH2Q/arcgis/rest/services/ode_organizations_production/FeatureServer/0'
 
 # - set active environment
-env = StagingSettings()
+env = DevelopmentSettings()
 
 # - logging helper
 import logging
