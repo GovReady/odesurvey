@@ -194,7 +194,7 @@ $app->get('/', function () use ($app) {
 
 // ************
 $app->get('', function () use ($app) {
-echo "route ''";exit;
+// echo "route ''";exit;
     $app->redirect("index.html");
 
 });
@@ -292,7 +292,7 @@ $app->get('/start/', function () use ($app) {
 
 // ************
 $app->get('/:surveyId/form', function ($surveyId) use ($app) {
-	echo $surveyId; exit;
+
 	$app->log->debug(date_format(date_create(), 'Y-m-d H:i:s')."; DEBUG; "."new survey created, ...");
 	
 	$parse = new parseRestClient(array(
