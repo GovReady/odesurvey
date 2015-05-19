@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <title>Open Data Enterprise</title>
     <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+    <script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-image/v0.0.3/leaflet-image.js'></script>
     <script src="app/includes/react/react.js"></script>
     <!-- Foundation Includes -->
     <link rel="stylesheet" href="app/includes/foundation/css/foundation.css">
     <script src="app/includes/foundation/js/vendor/modernizr.js"></script>
     <script src="app/includes/foundation/js/vendor/jquery.js"></script>
     <script src="app/includes/foundation/js/foundation.min.js"></script>
+    <script src="app/includes/html2canvas.js"></script>
+    <script src="app/includes/canvas-toBlob.js"></script>
 
     <script src="app/includes/sheetjs/xlsx.full.min.js"></script>
     <script src="app/includes/FileSaver.min.js"></script>
@@ -19,6 +22,10 @@
     <!--Backbone JS-->
     <script src="app/includes/backbone/underscore.js"></script>
     <script src="app/includes/backbone/backbone.js"></script>
+
+    <script src="app/includes/leaflet/leaflet.js"></script>
+    <script src="app/includes/markercluster/js/leaflet.markercluster-src.js"></script>
+
     <script src="app/bootloader.js"></script>
 
     <!-- ESRI Includes -->
@@ -36,6 +43,16 @@
     <link rel="stylesheet" href="app/includes/markercluster/css/MarkerCluster.css"/>
     <link rel="stylesheet" href="app/includes/markercluster/css/MarkerCluster.Default.css"/>
     <link rel="icon" type="image/png" href="favicon.png">
+
+    <script type="text/javascript">var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-59933587-1'], ['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script');
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
 
    <!-- <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 

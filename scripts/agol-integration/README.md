@@ -1,5 +1,18 @@
 ## ArcGIS Online Integration Job
 
+# Greg's Notes
+
+add the rest/admin -- add the 'admin'
+https://services5.arcgis.com/w1WEecz5ClslKH2Q/arcgis/rest/admin/services/agol_service_schema/FeatureServer
+click the 'Update Definition' to change the record count
+
+change in agol_service_schema and dev, production, etc. inherit from it
+
+
+Addressing seeing items
+
+# Brendan's Notes
+
 The following code synchronizes data from a local JSON file to an ArcGIS Online hosted-feature-service.
 
 #####Development Version:
