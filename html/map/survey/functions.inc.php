@@ -283,11 +283,15 @@ JSON;
 		$region['org_hq_country_region_code'] = $regions_php->{$un_loc_code}->{'REGION CODE'};
 		$region['org_hq_country_income'] = $regions_php->{$un_loc_code}->{'INCOME'};
 		$region['org_hq_country_income_code'] = $regions_php->{$un_loc_code}->{'INCOME CODE'};
+		$region['org_hq_country_wb_code'] = $regions_php->{$un_loc_code}->{'COUNTRY CODE'};
+		$region['org_hq_country_name'] = $regions_php->{$un_loc_code}->{'COUNTRY'};
 	} else {
 		$region['org_hq_country_region'] = null;
 		$region['org_hq_country_region_code'] = null;
 		$region['org_hq_country_income'] = null;
 		$region['org_hq_country_income_code'] = null;
+		$region['org_hq_country_wb_code'] = null;
+		$region['org_hq_country_name'] = null;
 	}
 	
 	return $region;
