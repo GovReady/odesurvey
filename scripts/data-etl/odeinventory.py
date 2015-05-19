@@ -53,20 +53,21 @@ print sh.name, sh.nrows, sh.ncols
 # Test if organization qualifies to be included
 def org_include(org):
     # if org['eligibility'] == 'Y' and org['org_confidence'] > 3 and org['org_hq_country'] != "Spain" and (org['latitude'] is not None) and org['latitude'] != 0 and org['longitude'] != 0 :
-    if "Y" != org['eligibility'] and "YY" != org['eligibility']:
+    if "Y" == org['eligibility'] or "YY" == org['eligibility']:
+        return True
+    else:
         print "skipped b/c org['eligibility'] is %s" % (org['eligibility'])
         return False
-    if org['org_profile_src'].find("OD500 (unsubmitted)") > -1:
-        print "skipped b/c org['org_profile_src'] is %s" % (org['org_profile_src'])
-        return False
-    if org['org_profile_src'].find("OD500 AU") > -1:
-        print "skipped b/c org['org_profile_src'] is %s" % (org['org_profile_src'])
-        return False
-    if org['org_profile_src'].find("data.gob.es") > -1:
-        print "skipped b/c org['org_profile_src'] is %s" % (org['org_profile_src'])
-        return False
+    # if org['org_profile_src'].find("OD500 (unsubmitted)") > -1:
+    #     print "skipped b/c org['org_profile_src'] is %s" % (org['org_profile_src'])
+    #     return False
+    # if org['org_profile_src'].find("OD500 AU") > -1:
+    #     print "skipped b/c org['org_profile_src'] is %s" % (org['org_profile_src'])
+    #     return False
+    # if org['org_profile_src'].find("data.gob.es") > -1:
+    #     print "skipped b/c org['org_profile_src'] is %s" % (org['org_profile_src'])
+    #     return False
     # If we got here, record should be included
-    return True
 
 # List to hold dictionaries
 org_list = []
