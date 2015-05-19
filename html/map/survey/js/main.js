@@ -183,7 +183,7 @@ function getTypes(idSuffixNum, selectName) {
 
     var gov_level = ' \
     <span class="col-md-4" style="border:0px solid black;"> \
-    <span class="" id="" style="font-size:0.8em;">'+sizestring(entry, 12)+'</span> \
+    <span class="" id="" style="font-size:0.8em;">'+sizestring(entry, 18)+'</span> \
       <div class="btn-group" data-toggle="buttons"> \
         <label class="btn btn-default" style="font-size:0.6em"> \
             <input type="checkbox" name="dataUseData-'+idSuffixNum.toString()+'[src_country][type]['+entry+'][src_gov_level][]" value="National">National \
@@ -200,8 +200,13 @@ function getTypes(idSuffixNum, selectName) {
 }
 
 function getCountries(idSuffixNum) {
+  var guid_attr = '';
+  if (idSuffixNum == 1) {
+    var guid_attr = 'data-intro="Select country providing data used by your organization" data-position="top"';
+  }
+
   var select_countries = ' \
-        <div class="data-src-row col-md-3" id="data-src-row-'+idSuffixNum.toString()+' style=""> Data source - Country\
+        <div class="data-src-row col-md-3" id="data-src-row-'+idSuffixNum.toString()+' style="" '+guid_attr+'> Data source - Country\
 <select name="dataUseData-'+idSuffixNum.toString()+'[src_country][src_country_locode]" class="js-example-basic-single" style="width:240px;"> \
 <option value="">Select</option> \
 <option value="AF">Afghanistan</option> \
