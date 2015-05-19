@@ -26,7 +26,7 @@
         <br />
         <b>Take me to the Map</b>: <a href ="http://<?php echo $content['HTTP_HOST']; ?>/map/viz">http://<?php echo $content['HTTP_HOST']; ?>/map/viz</a>
         <br /><br />
-        <b>View my submission</b>:  <a href ="http://<?php echo $content['HTTP_HOST']; ?>/map/survey/<?php echo $content['surveyId'] ?>">http://<?php echo $content['HTTP_HOST']; ?>/map/survey/<?php echo $content['surveyId'] ?></a>
+        <b>View my submission</b>:  <a href ="http://<?php echo $content['HTTP_HOST']; ?>/map/survey/edit/<?php echo $content['surveyId'] ?>">http://<?php echo $content['HTTP_HOST']; ?>/map/survey/edit/<?php echo $content['surveyId'] ?></a>
         <br />Use this unique URL to make changes.
 
         <br /><br />
