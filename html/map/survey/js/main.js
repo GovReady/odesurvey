@@ -77,6 +77,13 @@ function sizestring(string, strlen){
 function updateDataUseProfile(e) {
   toggleDataTypeGuidance();
 
+  // Make sure data types are selected
+  var data_types_count = $('input[type=checkbox][class=data_use_type]:checked').length;
+  // alert(data_types_count)
+  if (data_types_count == 0) {
+    return true;
+  }
+
   var data_country_count = $('input[type=radio][name=data_country_count]:checked').val();
   if (typeof data_country_count !== 'undefined') {
 
