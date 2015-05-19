@@ -3,26 +3,26 @@
 The following code synchronizes data from a local JSON file to an ArcGIS Online hosted-feature-service.
 
 #####Development Version:
-- https://services5.arcgis.com/w1WEecz5ClslKH2Q/ArcGIS/rest/services/odesurvey_organizations_dev/FeatureServer/0
+- https://services5.arcgis.com/w1WEecz5ClslKH2Q/ArcGIS/rest/services/ode_organizations_dev/FeatureServer/0
 
 #####Staging Version:
-- https://services5.arcgis.com/w1WEecz5ClslKH2Q/ArcGIS/rest/services/odesurvey_organizations_staging/FeatureServer/0
+- https://services5.arcgis.com/w1WEecz5ClslKH2Q/ArcGIS/rest/services/ode_organizations_staging/FeatureServer/0
 
 #####Production Version:
-- https://services5.arcgis.com/w1WEecz5ClslKH2Q/ArcGIS/rest/services/odesurvey_organizations_production/FeatureServer/0
+- https://services5.arcgis.com/w1WEecz5ClslKH2Q/ArcGIS/rest/services/ode_organizations_production/FeatureServer/0
 
 ####Setup
 
 - Install the latest version of Python 2.7.  If < 2.7.9, install PIP also:
 
-        $> `yum install python`
-        $> `yum install python-devel`
-        $> `yum install python-pip`
+        $> yum install python
+        $> yum install python-devel
+        $> yum install python-pip
 
 - Install 3rd-party python packages:
 
-        $> `cd ./scripts/agol-integration`
-        $> `pip install -r requirements.txt`
+        $> cd ./scripts/agol-integration
+        $> pip install -r requirements.txt
 
 
 Running this job requires user credentials for ArcGIS Online with at minimum `publisher` level role. 
@@ -48,7 +48,7 @@ Set credentials by either:
 
 To create services from scratch, first create a schema file(.csv) based on your input file(.json):
 
-    $> `python agol_integration/agol_integration.py build_schema <input_file.json> <output_file.csv>`
+    $> python agol_integration/agol_integration.py build_schema <input_file.json> <output_file.csv>
 
 This schema file(.csv) can then be uploaded into ArcGIS Online > My Content and can be used as a template to create a `dev`, `staging`, and `production` feature services.
 
@@ -82,13 +82,12 @@ The agol_integration script will target only one environment at a time.  To chan
 Valid environment values include: `DevelopmentSettings`, `StagingSettings`, and `ProductionSettings`
 
 ####Scheduling
-
 Add script to crontab:
 
         22 4 * * 0 root <install_path>/scripts/agol-integration/arcgis_online_sync.sh
 
 ####Testing
-To run associated tests:
+To run associated tests (Note: No matter what environment you set in `settings.env`, tests will always runs with `settings.DevelopmentSettings`):
 
     $> cd ./scripts/agol-integration
     $> nosetests -v
