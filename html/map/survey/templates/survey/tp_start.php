@@ -90,8 +90,11 @@
                               <label for="org_hq_st_prov">State/Province</label>
                               <input type="text" class="form-control" id="org_hq_st_provx" name="org_hq_st_provx" data-geo="administrative_area_level_1">
 
-                              <label for="org_hq_country">Country</label>
+                              <label for="org_hq_country">Country code</label>
                               <input type="text" class="form-control" id="org_hq_countryx" name="org_hq_countryx" data-geo="country_short">
+
+                              <label for="org_hq_country">Country</label>
+                              <input type="text" class="form-control" id="org_hq_countryxx" name="org_hq_countryxx" data-geo="country">
 
                               <label for="latitude">lat</label>
                               <input type="text" class="form-control" id="latitudex" name="latitudex" data-geo="lat">
