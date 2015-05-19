@@ -193,6 +193,12 @@ div.od-purpose {
   background-color:rgb(240,240,240);
 }
 
+.rm-type {
+	color: #333;
+	cursor: pointer;
+	font-weight: bold;
+}
+
 .error {
     color: red;
 }

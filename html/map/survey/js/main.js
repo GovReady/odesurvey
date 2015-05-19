@@ -139,6 +139,13 @@ function updateDataUseProfile(e) {
     allowClear: true }
   );
 
+  // assign interactivity to types
+  $('.rm-type').click(function (e) {
+    // alert('remove this');
+    $(this).parent('span').parent('span').remove();
+    
+  });
+
   if (country_count > 0 ) {
     reload_js('/map/survey/js/chardinjs.min.js');
     $('body').chardinJs('start');
@@ -190,7 +197,7 @@ function getTypes(idSuffixNum, selectName) {
 
     var gov_level = ' \
     <span class="col-md-4" style="border:0px solid black;"> \
-    <span class="" id="" style="font-size:0.8em;">'+sizestring(entry, 18)+'</span> \
+    <span class="" id="" style="font-size:0.8em;"><span class="rm-type">x</span>&nbsp;&nbsp;&nbsp;'+sizestring(entry, 16)+' </span> \
       <div class="btn-group" data-toggle="buttons"> \
         <label class="btn btn-default" style="font-size:0.6em"> \
             <input type="checkbox" name="dataUseData-'+idSuffixNum.toString()+'[src_country][type]['+entry+'][src_gov_level][]" value="National">National \
@@ -198,7 +205,7 @@ function getTypes(idSuffixNum, selectName) {
         <label class="btn btn-default" style="font-size:0.6em"> \
             <input type="checkbox" name="dataUseData-'+idSuffixNum.toString()+'[src_country][type]['+entry+'][src_gov_level][]" value="Local">Local \
         </label> \
-      </div> \
+      </div>&nbsp;&nbsp;\
       </span>';
     data_use_html = data_use_html + gov_level;
   })
