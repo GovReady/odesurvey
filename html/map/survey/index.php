@@ -488,6 +488,7 @@ $app->post('/2du/:surveyId/', function ($surveyId) use ($app) {
 
 	// dataUseData-2]
 	while (array_key_exists('dataUseData-'.$idSuffixNum, $allPostVars)) {
+		// skip row and continue if user did not select country
 		if (is_null($allPostVars['dataUseData-'.$idSuffixNum])) { continue; }
 
 		// echo "<br>$idSuffixNum";
@@ -497,6 +498,8 @@ $app->post('/2du/:surveyId/', function ($surveyId) use ($app) {
 			// echo "<pre>";print_r($row);echo "</pre>";
 			$src_country = $row['src_country_locode'];
 
+			// skip row and continue if user did not select types for country
+			if (!array_key_exists('type', $row)) { continue; }
 			foreach ($row['type'] as $type => $details) {
 				foreach ($details['src_gov_level'] as $gov_level) {
 					// echo "<br>$src_country|$type|$gov_level";
