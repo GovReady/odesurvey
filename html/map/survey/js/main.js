@@ -77,6 +77,13 @@ function sizestring(string, strlen){
 function updateDataUseProfile(e) {
   toggleDataTypeGuidance();
 
+  // Make sure data types are selected
+  var data_types_count = $('input[type=checkbox][class=data_use_type]:checked').length;
+  // alert(data_types_count)
+  if (data_types_count == 0) {
+    return true;
+  }
+
   var data_country_count = $('input[type=radio][name=data_country_count]:checked').val();
   if (typeof data_country_count !== 'undefined') {
 
@@ -183,7 +190,7 @@ function getTypes(idSuffixNum, selectName) {
 
     var gov_level = ' \
     <span class="col-md-4" style="border:0px solid black;"> \
-    <span class="" id="" style="font-size:0.8em;">'+sizestring(entry, 12)+'</span> \
+    <span class="" id="" style="font-size:0.8em;">'+sizestring(entry, 18)+'</span> \
       <div class="btn-group" data-toggle="buttons"> \
         <label class="btn btn-default" style="font-size:0.6em"> \
             <input type="checkbox" name="dataUseData-'+idSuffixNum.toString()+'[src_country][type]['+entry+'][src_gov_level][]" value="National">National \
@@ -200,8 +207,13 @@ function getTypes(idSuffixNum, selectName) {
 }
 
 function getCountries(idSuffixNum) {
+  var guid_attr = '';
+  if (idSuffixNum == 1) {
+    var guid_attr = 'data-intro="Select country providing data used by your organization" data-position="top"';
+  }
+
   var select_countries = ' \
-        <div class="data-src-row col-md-3" id="data-src-row-'+idSuffixNum.toString()+' style=""> Data source - Country\
+        <div class="data-src-row col-md-3" id="data-src-row-'+idSuffixNum.toString()+' style="" '+guid_attr+'> Data source - Country\
 <select name="dataUseData-'+idSuffixNum.toString()+'[src_country][src_country_locode]" class="js-example-basic-single" style="width:240px;"> \
 <option value="">Select</option> \
 <option value="AF">Afghanistan</option> \
