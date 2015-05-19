@@ -504,6 +504,8 @@ $app->post('/2du/:surveyId/', function ($surveyId) use ($app) {
 				foreach ($details['src_gov_level'] as $gov_level) {
 					// echo "<br>$src_country|$type|$gov_level";
 					$data_use_object['data_src_country_locode'] = $src_country;
+					$data_use_wb_region = addWbRegions($src_country);
+					$data_use_object['data_src_country_name'] = $data_use_wb_region['org_hq_country_name'];
 					$data_use_object['data_type'] = $type;
 					$data_use_object['data_src_gov_level'] = $gov_level;
 					// set profile_id
