@@ -74,6 +74,13 @@ $logWriter = new \Slim\LogWriter(fopen('/var/log/odesurvey/odesurvey.log', 'a'))
 //-------------------------------
 $app = new \Slim\Slim(array('log.writer' => $logWriter));
 
+
+// Handle not found
+$app->notFound(function () use ($app) {
+    $app->redirect('/404.html');
+});
+
+
 //-----------------------------------------------------
 // display placeholder landing page
 $app->get('/info', function () use ($app) {
@@ -180,7 +187,14 @@ $app->get('/index.html', function () use ($app) {
 
 // ************
 $app->get('/', function () use ($app) {
+// echo "route '/'";exit;
+    $app->redirect("index.html");
 
+});
+
+// ************
+$app->get('', function () use ($app) {
+echo "route ''";exit;
     $app->redirect("index.html");
 
 });
@@ -267,7 +281,7 @@ $app->get('/start/', function () use ($app) {
 
     if(isset($response['objectId'])) {
     	// Success
-    	$app->redirect("/map/survey/".$response['objectId']);
+    	$app->redirect("/map/survey/".$response['objectId']."/form");
     } else {
     	// Failure
     	echo "Problem. Promlem with record creation not yet handled.";
@@ -277,8 +291,8 @@ $app->get('/start/', function () use ($app) {
 });
 
 // ************
-$app->get('/:surveyId', function ($surveyId) use ($app) {
-	
+$app->get('/:surveyId/form', function ($surveyId) use ($app) {
+	echo $surveyId; exit;
 	$app->log->debug(date_format(date_create(), 'Y-m-d H:i:s')."; DEBUG; "."new survey created, ...");
 	
 	$parse = new parseRestClient(array(
@@ -993,6 +1007,8 @@ $app->get('/gettext/', function () use ($app) {
 	$app->view()->setData(array('content' => $content));
 	$app->render('gettext/tp_home.php');
 });
+
+
 
 // ************
 $app->run();
