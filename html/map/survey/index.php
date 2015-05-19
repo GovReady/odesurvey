@@ -259,6 +259,16 @@ $app->get('/admin/delete/test/confirmed', function () use ($app) {
  //    }
 });
 
+// ************
+$app->get('/oops/', function () use ($app) {
+
+	$content['surveyName'] = "opendata";
+	$content['title'] = "Open Data Enterprise Survey - Oops";
+	$content['HTTP_HOST'] = $_SERVER['HTTP_HOST'];
+	
+	$app->view()->setData(array('content' => $content ));
+	$app->render('survey/tp_oops.php');
+});
 
 // ************
 $app->get('/start/', function () use ($app) {
@@ -267,6 +277,8 @@ $app->get('/start/', function () use ($app) {
 		'appid' => PARSE_APPLICATION_ID,
 		'restkey' => PARSE_API_KEY
 	));
+
+	echo "here<br>";
 	
 	$survey_object = array("survey_name" => "opendata", "action" => "start", "notes" => "");
 
@@ -275,9 +287,15 @@ $app->get('/start/', function () use ($app) {
 		'className' => 'survey',
 		'object' => $survey_object
     );
+	
 	// Create Parse object and save
-    $request = $parse->create($parse_params);
-    $response = json_decode($request, true);
+    try {
+    	$request = $parse->create($parse_params);
+    	$response = json_decode($request, true);
+    } catch (Exception $e) {
+    	 echo 'Caught exception: ',  $e->getMessage(), "\n";
+    	 $app->redirect("/map/survey/oops/");
+    }
 
     if(isset($response['objectId'])) {
     	// Success
@@ -290,6 +308,7 @@ $app->get('/start/', function () use ($app) {
     }
 });
 
+
 // ************
 $app->get('/:surveyId/form', function ($surveyId) use ($app) {
 
@@ -300,28 +319,34 @@ $app->get('/:surveyId/form', function ($surveyId) use ($app) {
 		'restkey' => PARSE_API_KEY
 	));
 
-	// If survey submitted, handle differently
-	$params = array(
-	    'className' => 'org_profile',
-	    'object' => array(),
-	    'query' => array(
-	        'profile_id' => $surveyId
-	    ),
-	);
+	// // If survey submitted, handle differently
+	// $params = array(
+	//     'className' => 'org_profile',
+	//     'object' => array(),
+	//     'query' => array(
+	//         'profile_id' => $surveyId
+	//     ),
+	// );
 
-	$request = $parse->query($params);
-	$request_decoded = json_decode($request, true);
+	// try {
+	// 	$request = $parse->query($params);
+	// } catch (Exception $e) {
+	// 	echo 'Caught exception: ',  $e->getMessage(), "\n";
+	// 	sleep(1);
+	// 	exit;
+	// }
+	// $request_decoded = json_decode($request, true);
 
-	// here is where we test
-	if (0 < sizeof($request_decoded['results'])) {
-		echo "This survey has already been started or submitted.";
-		print_r($request_decoded);
-		echo "len ". sizeof($request_decoded['results']);
-		$org_profile = $request_decoded['results'][0];
-			// $app->redirect("/survey/opendata/".$surveyId."/thankyou/");
-			//$app->get('/survey/opendata/:surveyId/submitted/', function ($surveyId) use ($app) {
-		$app->redirect("/map/survey/".$surveyId."/submitted/");
-	}
+	// // here is where we test
+	// if (0 < sizeof($request_decoded['results'])) {
+	// 	echo "This survey has already been started or submitted.";
+	// 	print_r($request_decoded);
+	// 	echo "len ". sizeof($request_decoded['results']);
+	// 	$org_profile = $request_decoded['results'][0];
+	// 		// $app->redirect("/survey/opendata/".$surveyId."/thankyou/");
+	// 		//$app->get('/survey/opendata/:surveyId/submitted/', function ($surveyId) use ($app) {
+	// 	$app->redirect("/map/survey/".$surveyId."/submitted/");
+	// }
 
 	//HTylD69YaB
 	// bring up new blank survey
