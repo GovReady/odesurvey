@@ -7,7 +7,7 @@
 
     <div class="col-md-12" role="Intro" id="role-intro">
       <div style="text-align:center;font-size:1.1em;margin-top:20px;">
-        <div class="col-md-9 small">&nbsp;</div><div class="col-md-3 pull-right small" style="font-size:14px;"><a href="/map/survey/start/">English</a> | <a href="/map/survey/start/fr">French</a> | Spanish</div>
+        <div class="col-md-9 small">&nbsp;</div><div class="col-md-3 pull-right small" style="font-size:14px;"><a href="/map/survey/start/">English</a> | <a href="/map/survey/start/fr">Français</a> | Español</div>
 
         Gracias por participar en el mapa de impacto de los datos abiertos, una base de datos centralizada, con búsqueda de casos de uso de datos abiertos de todo el mundo.
         Tu contribución hace posible comprender mejor el valor de los datos abiertos y alentar el uso a nivel global.
