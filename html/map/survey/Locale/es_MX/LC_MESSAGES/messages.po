@@ -258,9 +258,9 @@ msgstr "Provide details"
 msgid "USE_OF_OPEN_DATA"
 msgstr "2. Use of Open Data"
 
-#What are the
+#What are the most relevant types of of data your organization uses?
 msgid "WHAT_ARE_THE"
-msgstr "What are the <u>most relevant</u> types of data your organization uses?"
+msgstr "What are the most relevant types of data your organization uses?"
 
 #most relevant
 msgid "MOST_RELEVANT"
@@ -433,11 +433,11 @@ msgstr "optional"
 
 #E.g. How could the open data your organization uses be improved? 
 msgid "EG_HOW_COULD"
-msgstr "E..g. How could the open data your organization uses be improved?"
+msgstr "E.g. How could the open data your organization uses be improved?"
 
 #Which datasets are most valuable to your organization? 
 msgid "WHICH_DATASETS_MOST_VALUABLE"
-msgstr "Which datasets are most valuable to your organization? "
+msgstr "Which datasets are most valuable to your organization?"
 
 #What other types of data does your organization use in addition to open government data?
 msgid "WHAT_OTHER_TYPES_OF_DATA"

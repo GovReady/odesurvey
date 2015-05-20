@@ -262,7 +262,7 @@ msgstr "Provide details"
 msgid "USE_OF_OPEN_DATA"
 msgstr "2. Use of Open Data"
 
-#What are the
+#What are the most relevant types of data your organization uses?
 msgid "WHAT_ARE_THE"
 msgstr "What are the <u>most relevant</u> types of data your organization uses?"
 

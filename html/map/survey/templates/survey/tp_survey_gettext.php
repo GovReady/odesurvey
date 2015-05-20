@@ -232,7 +232,7 @@ textdomain($domain);
     <div class="col-md-12" role="dataUse" id="role-dataUse">
       
       <div class="row col-md-12 data-use-row" id="dataUseDataType">
-        <label for="data_use_type[]"><?php echo _("WHAT_ARE_THE") ?> <small class="required">(<?php echo _("SELECT_ALL") ?>)*</small></label>
+        <label for="data_use_type[]"><?php echo _("MOST_RELEVANT_OPEN_DATA") ?> <small class="required">(<?php echo _("SELECT_ALL") ?>)*</small></label>
         <div class="col-md-4" id="data_type_col-1">
             <input type="checkbox" name="data_use_type[]" class="data_use_type" value="Agriculture" required>&nbsp; <span><?php echo _("AGRICULTURE") ?></span>
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Arts and culture">&nbsp; <span><?php echo _("ARTS_AND_CULTURE") ?></span>
@@ -335,7 +335,7 @@ textdomain($domain);
         </label>
 
         <div class="row col-md-10">
-          <textarea type="text" class="form-control" id="org_additional" name="org_additional" placeholder="<?php echo _("EG_HOW_COULD") ?>"></textarea>
+          <textarea type="text" class="form-control" id="org_additional" name="org_additional" placeholder="<?php echo _("EG_HOW_COULD") ?> <?php echo _("WHICH_DATASETS_MOST_VALUABLE") ?> <?php echo _("WHAT_OTHER_TYPES_OF_DATA") ?>"></textarea>
         </div>
       </div>
       <br />

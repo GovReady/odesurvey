@@ -104,7 +104,7 @@ msgstr "Adresse complète de votre organization"
 
 #Please provide as specific as possible
 msgid "SPECIFIC_AS_POSSIBLE"
-msgstr ""
+msgstr "soyez aussi précis que possible"
 
 #Industry/category of the organization
 msgid "IND"
@@ -266,13 +266,9 @@ msgstr "Veuillez fournir des détails"
 msgid "USE_OF_OPEN_DATA"
 msgstr "Utilisation des données ouvertes"
 
-#Types of most relevant open data your organization uses
+#What are the most relevant types of open data your organization uses?
 msgid "MOST_RELEVANT_OPEN_DATA"
 msgstr "Quels sont les types de données ouvertes les plus pertinentes que votre organisation utilise?" 
-
-#What are the
-msgid "WHAT_ARE_THE"
-msgstr "What are the"
 
 #most relevant
 msgid "MOST_RELEVANT"
@@ -281,7 +277,6 @@ msgstr "most relevant"
 #types of data your organization uses?
 msgid "TYPES_OF_DATA"
 msgstr "types of data your organization uses?"
-
 
 #select all that apply
 msgid "SELECT_ALL"
@@ -410,7 +405,8 @@ msgstr "11-20 pays"
 #21-50 countries 
 msgid "21-50_COUNTRIES"
 msgstr "21-50 pays"
-50+ countries
+
+#50+ countries
 msgid "50+_COUNTRIES"
 msgstr "+50 pays"
 
@@ -438,29 +434,29 @@ msgstr "par exemple: analyses concurrentielles comparatives, analyses de marché
 msgid "RESEARCH"
 msgstr "Recherche"
 
-#Additional information
-msgid "ADDITIONAL_INFORMATION"
-msgstr "Informations complémentaires"
-
-#optional
-msgid "OPTIONAL"
-msgstr "facultatif"
-
-#E.g. How could the open data your organization uses be improved? 
-msgid "EG_HOW_COULD"
-msgstr "Par exemple, comment améliorer les données  ouvertes utilisées par votre organisation?"
-
 #Which datasets are most valuable to your organization? 
 msgid "WHICH_DATASETS_MOST_VALUABLE"
-msgstr "Quels sont les ensembles de données les plus utiles à votre organisation? "
+msgstr "Quels sont les ensembles de données les plus utiles à votre organisation?"
 
 #What other types of data does your organization use in addition to open government data?
 msgid "WHAT_OTHER_TYPES_OF_DATA"
 msgstr "Quels autres types de données sont utilisées par votre organisation - en dehors des données ouvertes d'origine gouvernementales?"
 
+#Additional information
+msgid "ADDITIONAL_INFORMATION"
+msgstr "Informations complémentaires"
+
+#E.g. How could the open data your organization uses be improved? 
+msgid "EG_HOW_COULD"
+msgstr "Par exemple, comment améliorer les données  ouvertes utilisées par votre organisation?"
+
 #3. Contact Information
 msgid "CONTACT_INFORMATION"
 msgstr "Coordonnées"
+
+#optional
+msgid "OPTIONAL"
+msgstr "facultatif"
 
 #This information will not be made public
 msgid "NOT_BE_MADE_PUBLIC"
