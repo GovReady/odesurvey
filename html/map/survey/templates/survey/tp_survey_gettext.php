@@ -129,7 +129,7 @@ textdomain($domain);
   
       <!-- Industry/category of organization -->
       <div class="form-group col-md-12">
-        <label for="industry_id"><?php echo _("IND") ?> <small class="required">(select 1)*</small></label>
+        <label for="industry_id"><?php echo _("IND") ?> <small class="required">(<?php echo _("SELECT_1") ?>)*</small></label>
         <fieldset>
         <div class="col-md-4" id="industry_id_col-1">
           <input type="radio" name="industry_id" class="industry_id" value="Agriculture">&nbsp; <?php echo _("AGR") ?>
@@ -317,11 +317,11 @@ textdomain($domain);
 
           <div class="col-md-6" id="use_open_data_col-2">
             <div>
-              <input type="checkbox" class="use_open_data" name="use_research" id="use_research" value="True"> <?php echo _("RESEARCH") ?>research
+              <input type="checkbox" class="use_open_data" name="use_research" id="use_research" value="True"> <?php echo _("RESEARCH") ?>
               <input type="text" class="form-control" style="display:none" id="use_research_desc" name="use_research_desc" placeholder="Provide details">
             </div>
             <div>
-              <input type="checkbox" class="use_open_data" name="use_other" id="use_other" value="True"> <?php echo _("OTHER") ?>other
+              <input type="checkbox" class="use_open_data" name="use_other" id="use_other" value="True"> <?php echo _("OTHER") ?>
               <input type="text" class="form-control" style="display:none" id="use_other_desc" name="use_other_desc" placeholder="Provide details">
             </div>
           </div>
@@ -361,7 +361,7 @@ textdomain($domain);
         </div>
 
         <div class="col-md-10">
-          <div for="survey_contact_title"><?php echo _("TITLE") ?> <i>(<?php echo _("ADDITIONAL_INFORMATION") ?>)</i></div>
+          <div for="survey_contact_title"><?php echo _("TITLE") ?> <i>(<?php echo _("OPTIONAL") ?>)</i></div>
           <input type="text" class="form-control" id="survey_contact_title" name="survey_contact_title">
 
           <div for="survey_contact_email"><?php echo _("EMAIL") ?><small class="required">*</small></div>
@@ -382,7 +382,7 @@ textdomain($domain);
 
     <div class="col-md-12" role="submit-note" id="role-submit-note">
       <div style="text-align:center;font-size:16px;margin-top:20px;">
-        <b><i>All submissions will be reviewed before public display on the Open Data Impact Map.</i></b>
+        <b><i><?php echo _("SUBMISSIONS_REVIEWED") ?></i></b>
       </div>
       <br />
     </div>

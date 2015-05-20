@@ -234,6 +234,10 @@ msgstr "201-1000 employees"
 msgid "1000+"
 msgstr "1000+ employees"
 
+#What is the greatest type of impact your organization has?
+msgid "GREATEST_IMPACT"
+msgstr "What is the greatest type of impact your organization has?"
+
 #Economic
 msgid "ECONOMIC"
 msgstr "Economic"
