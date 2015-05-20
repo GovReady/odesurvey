@@ -79,6 +79,7 @@ $app = new \Slim\Slim(array('log.writer' => $logWriter));
 $app->notFound(function () use ($app) {
 
 	// Temporarily route /map, /map/viz to /map.html
+	$actual_link = "$_SERVER[REQUEST_URI]";
 	if ("/map/index.html" == "$actual_link" || "/map/viz/index.html" == "$actual_link") {
 		$app->redirect("/map.html");
 	}
@@ -203,7 +204,7 @@ $app->get('/', function () use ($app) {
 	
 	$actual_link = "$_SERVER[REQUEST_URI]";
 	// echo "here $actual_link";
-	if (in_array($actual_link, array("/about", "/contact", "/convene", "/implement" ))) {
+	if (in_array($actual_link, array("/about", "/contact", "/convene", "/implement", "/map" ))) {
 		echo "in array";
 		$app->redirect($actual_link.".html");
 	}
