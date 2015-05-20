@@ -119,7 +119,7 @@ function updateDataUseProfile(e) {
 
     if (c == 1) {
       //  data-intro="Select a country whose data you use." data-position="top"
-      var new_html = '<div class="col-md-12 data_detail_row" data-intro="Click National or Local to show government level of data used." data-position="top"><div class="row col-md-12" style="border:0px solid #ddd;" >'+
+      var new_html = '<div class="col-md-12 data_detail_row" data-intro="Click National and/or Local to show government level of data used." data-position="top"><div class="row col-md-12" style="border:0px solid #ddd;" >'+
       content+
       '<div class="col-md-7">'+content_data_types+'</div>' +
       '</div></div>';
@@ -216,7 +216,7 @@ function getTypes(idSuffixNum, selectName) {
 function getCountries(idSuffixNum) {
   var guid_attr = '';
   if (idSuffixNum == 1) {
-    var guid_attr = 'data-intro="Select country providing data used by your organization" data-position="top"';
+    var guid_attr = 'data-intro="Select countries providing data used by your organization" data-position="top"';
   }
 
   var select_countries = ' \
