@@ -458,7 +458,7 @@ msgstr "Coordonnées"
 
 #This information will not be made public
 msgid "NOT_BE_MADE_PUBLIC"
-msgstr "(non ouvertes au public"
+msgstr "non ouvertes au public"
 
 #First name
 msgid "FIRST_NAME"

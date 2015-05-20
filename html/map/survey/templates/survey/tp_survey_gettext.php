@@ -133,7 +133,7 @@ textdomain($domain);
           <input type="radio" name="industry_id" class="industry_id" value="Agriculture">&nbsp; <?php echo _("AGR") ?>
           <br /><input type="radio" name="industry_id" class="industry_id" value="Arts and culture">&nbsp; <?php echo _("ART") ?>
           <br /><input id="industry_id_cul" type="radio" name="industry_id" class="industry_id" value="Business and legal services" required>&nbsp; <?php echo _("BUS") ?>
-          <br /><input type="radio" name="industry_id" class="industry_id" value="Consumer services">&nbsp; <?php echo _("CSM") ?>Consumer services
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Consumer services">&nbsp; <?php echo _("CSM") ?>
           <br /><input type="radio" name="industry_id" class="industry_id" value="Data/information technology">&nbsp; <?php echo _("DAT") ?>
           <br /><input type="radio" name="industry_id" class="industry_id" value="Education">&nbsp; <?php echo _("EDU") ?>
           <br /><input type="radio" name="industry_id" class="industry_id" value="Energy">&nbsp; <?php echo _("NGY") ?>
@@ -167,30 +167,30 @@ textdomain($domain);
       <!-- Founding year -->    
       <div class="form-group col-md-12">
         <div class="form-group col-md-10">
-          <label for="org_year_founded">Founding year<small class="required">*</small></label>
+          <label for="org_year_founded"><?php echo _("FOUNDING_YEAR") ?><small class="required">*</small></label>
           <input type="text" class="form-control" id="org_year_founded" name="org_year_founded" placeholder="" required>
         </div>
       </div>
 
       <!-- Size -->
       <div class="form-group col-md-12">
-        <label for="org_size_id">Size<small class="required">*</small></label>
+        <label for="org_size_id"><?php echo _("SIZE") ?><small class="required">*</small></label>
         <div class="col-md-12">
           <div class="btn-group" data-toggle="buttons">
             <label class="btn btn-default">
-                <input type="radio" name="org_size_id" value="1-10"> 1-10 employees
+                <input type="radio" name="org_size_id" value="1-10"> <?php echo _("1-10") ?>
             </label>
             <label class="btn btn-default">
-                <input type="radio" name="org_size_id" value="11-50"> 11-50 employees
+                <input type="radio" name="org_size_id" value="11-50"> <?php echo _("11-50") ?>
             </label>
             <label class="btn btn-default">
-                <input type="radio" name="org_size_id" value="51-200"> 51-200 employees
+                <input type="radio" name="org_size_id" value="51-200"> <?php echo _("51-200") ?>
             </label>
             <label class="btn btn-default">
-                <input type="radio" name="org_size_id" value="201-1000"> 201-1000 employees
+                <input type="radio" name="org_size_id" value="201-1000"> <?php echo _("201-1000") ?>
             </label>
             <label class="btn btn-default">
-                <input type="radio" name="org_size_id" value="1000+"> 1000+ employees
+                <input type="radio" name="org_size_id" value="1000+"> <?php echo _("1000+") ?>
             </label>
           </div>
         </div>
@@ -202,19 +202,19 @@ textdomain($domain);
         <div class="col-xs-9">
           <div class="btn-group" data-toggle="buttons">
             <label class="btn btn-default">
-                <input type="radio" name="org_greatest_impact" id="Economic" value="Economic" /> Economic
+                <input type="radio" name="org_greatest_impact" id="Economic" value="Economic" /> <?php echo _("ECONOMIC") ?>
             </label>
             <label class="btn btn-default">
-                <input type="radio" name="org_greatest_impact" id="Environmental" value="Environmental" /> Environmental
+                <input type="radio" name="org_greatest_impact" id="Environmental" value="Environmental" /> <?php echo _("ENVIRONMENTAL") ?>
             </label>
             <label class="btn btn-default">
-                <input type="radio" name="org_greatest_impact" id="Governance" value="Governance" /> Governance
+                <input type="radio" name="org_greatest_impact" id="Governance" value="Governance" /> <?php echo _("GOVERNANCE") ?>
             </label>
             <label class="btn btn-default">
-                <input type="radio" name="org_greatest_impact" id="Social" value="Social" /> Social
+                <input type="radio" name="org_greatest_impact" id="Social" value="Social" /> <?php echo _("SOCIAL") ?>
             </label>
             <label class="btn btn-default">
-                <input type="radio" name="org_greatest_impact" id="Other" value="Other" /> Other
+                <input type="radio" name="org_greatest_impact" id="Other" value="Other" /> <?php echo _("OTHER") ?>
             </label>
           </div>
         </div>
@@ -224,67 +224,67 @@ textdomain($domain);
 <br />
 
     <div class="col-md-12" role="dataUse-titlebar"  id="role-dataUse-titlebar">
-      <div class="section-title"><h3>2. Use of Open Data</h3></div>
+      <div class="section-title"><h3><?php echo _("USE_OF_OPEN_DATA") ?></h3></div>
     </div>
 
     <div class="col-md-12" role="dataUse" id="role-dataUse">
       
       <div class="row col-md-12 data-use-row" id="dataUseDataType">
-        <label for="data_use_type[]">What are the <u>most relevant</u> types of data your organization uses? <small class="required">(select all that apply)*</small></label>
+        <label for="data_use_type[]"><?php echo _("WHAT_ARE_THE") ?> <small class="required">(<?php echo _("SELECT_ALL") ?>)*</small></label>
         <div class="col-md-4" id="data_type_col-1">
-            <input type="checkbox" name="data_use_type[]" class="data_use_type" value="Agriculture" required>&nbsp; <span>Agriculture</span>
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Arts and culture">&nbsp; <span>Arts and culture</span>
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Business">&nbsp; <span>Business</span></span>
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Consumer">&nbsp; <span>Consumer</span>
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Demographics and social">&nbsp; <span>Demographics and social</span>
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Economics ">&nbsp; <span>Economics</span>
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Education">&nbsp; <span>Education</span>
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Energy">&nbsp; <span>Energy</span>
+            <input type="checkbox" name="data_use_type[]" class="data_use_type" value="Agriculture" required>&nbsp; <span><?php echo _("AGRICULTURE") ?></span>
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Arts and culture">&nbsp; <span><?php echo _("ARTS_AND_CULTURE") ?></span>
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Business">&nbsp; <span><?php echo _("BUSINESS") ?></span></span>
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Consumer">&nbsp; <span><?php echo _("CONSUMER") ?></span>
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Demographics and social">&nbsp; <span><?php echo _("DEMOGRAPHICS") ?></span>
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Economics ">&nbsp; <span><?php echo _("ECONOMICS") ?></span>
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Education">&nbsp; <span><?php echo _("EDUCATION") ?></span>
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Energy">&nbsp; <span><?php echo _("ENERGY") ?></span>
         </div>
         <div class="col-md-4" id="data_type_col-2">
-            <input type="checkbox" name="data_use_type[]" class="data_use_type" value="Environment">&nbsp; <span>Environment</span>
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Finance">&nbsp; <span>Finance</span>
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Geospatial/mapping">&nbsp; <span>Geospatial/mapping</span>
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Government operations">&nbsp; <span>Government operations</span>
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Health/healthcare">&nbsp; <span>Health/healthcare</span>
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Housing">&nbsp; <span>Housing</span>
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="International/global development">&nbsp; <span>International/global development</span>
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Legal">&nbsp; <span>Legal</span>
+            <input type="checkbox" name="data_use_type[]" class="data_use_type" value="Environment">&nbsp; <span><?php echo _("ENVIRONMENT") ?></span>
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Finance">&nbsp; <span><?php echo _("FINANCE") ?></span>
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Geospatial/mapping">&nbsp; <span><?php echo _("GEOSPATIAL") ?></span>
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Government operations">&nbsp; <span><?php echo _("GOVERNMENT_OPS") ?></span>
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Health/healthcare">&nbsp; <span><?php echo _("HEALTH") ?></span>
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Housing">&nbsp; <span>HOUSING</span>
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="International/global development">&nbsp; <span><?php echo _("INTERNATIONAL") ?></span>
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Legal">&nbsp; <span><?php echo _("LEGAL") ?></span>
         </div>
         <div class="col-md-4" id="data_type_col-3">
-            <input type="checkbox" name="data_use_type[]" class="data_use_type" value="Manufacturing">&nbsp; <span>Manufacturing</span>
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Science and research">&nbsp; <span>Science and research</span>
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Public safety">&nbsp; <span>Public safety</span>
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Tourism">&nbsp; <span>Tourism</span>
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Transportation">&nbsp; <span>Transportation</span>
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Weather">&nbsp; <span>Weather</span>
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Other">&nbsp; <span>Other</span>
+            <input type="checkbox" name="data_use_type[]" class="data_use_type" value="Manufacturing">&nbsp; <span><?php echo _("MANUFACTURING") ?></span>
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Science and research">&nbsp; <span><?php echo _("SCIENCE_AND_RESEARCH") ?></span>
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Public safety">&nbsp; <span><?php echo _("PUBLIC_SAFETY") ?></span>
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Tourism">&nbsp; <span><?php echo _("TOURISM") ?></span>
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Transportation">&nbsp; <span><?php echo _("TRANSPORTATION") ?></span>
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Weather">&nbsp; <span><?php echo _("WEATHER") ?></span>
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Other">&nbsp; <span><?php echo _("OTHER") ?></span>
                   <input type="text" class="form-control" style="display:none" id="data_use_type_other" name="data_use_type_other" placeholder="Provide details">
         </div>
       </div>
 <br />
       <!-- Sources of open data -->
       <div class="form-group col-md-12">
-        <label for="data_country_count">How many countries does your organization use open data from? <small class="required">*</small></label>
+        <label for="data_country_count"><?php echo _("NUM_OF_COUNTRIES") ?> <small class="required">*</small></label>
         <div class="col-md-12">
           <div class="btn-group" data-toggle="buttons">
             <label class="btn btn-default">
-                <input type="radio" name="data_country_count" value="1" /> 1 country
+                <input type="radio" name="data_country_count" value="1" /> <?php echo _("1_COUNTRY") ?>
             </label>
             <label class="btn btn-default">
-                <input type="radio" name="data_country_count" value="2 - 5" /> 2-5 countries
+                <input type="radio" name="data_country_count" value="2 - 5" /> <?php echo _("2-5_COUNTRIES") ?>
             </label>
             <label class="btn btn-default">
-                <input type="radio" name="data_country_count" value="6 - 10" /> 6-10 countries
+                <input type="radio" name="data_country_count" value="6 - 10" /> <?php echo _("6-10_COUNTRIES") ?>
             </label>
             <label class="btn btn-default">
-                <input type="radio" name="data_country_count" value="11 - 20" /> 11-20 countries
+                <input type="radio" name="data_country_count" value="11 - 20" /> <?php echo _("11-20_COUNTRIES") ?>
             </label>
             <label class="btn btn-default">
-                <input type="radio" name="data_country_count" value="21 - 50" /> 21-50 countries
+                <input type="radio" name="data_country_count" value="21 - 50" /> <?php echo _("21-50_COUNTRIES") ?>
             </label>
             <label class="btn btn-default">
-                <input type="radio" name="data_country_count" value="50+" /> 50+ countries
+                <input type="radio" name="data_country_count" value="50+" /> <?php echo _("50+_COUNTRIES") ?>
             </label>
           </div>
         </div>
@@ -294,32 +294,32 @@ textdomain($domain);
 
       <div class="row col-md-12">
         <label class="row col-md-10">
-          How does your organization use open data? <small class="required">(Provide as much information as possible)*</small> 
+          <?php echo _("HOW_USE_OPEN_DATA") ?> <small class="required">(Provide as much information as possible)*</small> 
         </label>
 
         <div class="form-group col-md-12">
           <div class="col-md-6" id="use_open_data_col-1">
              <div>
-              <input type="checkbox" class="use_open_data" name="use_advocacy" id="use_advocacy" value="True"> advocacy
+              <input type="checkbox" class="use_open_data" name="use_advocacy" id="use_advocacy" value="True"> <?php echo _("ADVOCACY") ?>
               <input type="text" class="form-control" style="display:none" id="use_advocacy_desc" name="use_advocacy_desc" placeholder="Provide details">
             </div>
             <div>
-              <input type="checkbox" class="use_open_data" name="use_prod_srvc" id="use_prod_srvc" value="True"> new products, services, or applications
+              <input type="checkbox" class="use_open_data" name="use_prod_srvc" id="use_prod_srvc" value="True"> <?php echo _("PRODUCTS_SERVICES") ?>
               <input type="text" class="form-control" style="display:none" id="use_prod_srvc_desc" name="use_prod_srvc_desc" placeholder="Provide details">
             </div>
             <div>
-              <input type="checkbox" class="use_open_data" name="use_org_opt" id="use_org_opt" value="True"> organizational optimization <i>(e.g. benchmarking, market analysis, improving efficiency, enhancing existing products and services)</i>
+              <input type="checkbox" class="use_open_data" name="use_org_opt" id="use_org_opt" value="True"> <?php echo _("ORG_OPTIMIZATION") ?> <i>(<?php echo _("EG_BENCHMARKING") ?>)</i>
               <input type="text" class="form-control" style="display:none" id="use_org_opt_desc" name="use_org_opt_desc" placeholder="Provide details">
             </div>
           </div>
 
           <div class="col-md-6" id="use_open_data_col-2">
             <div>
-              <input type="checkbox" class="use_open_data" name="use_research" id="use_research" value="True"> research
+              <input type="checkbox" class="use_open_data" name="use_research" id="use_research" value="True"> <?php echo _("RESEARCH") ?>research
               <input type="text" class="form-control" style="display:none" id="use_research_desc" name="use_research_desc" placeholder="Provide details">
             </div>
             <div>
-              <input type="checkbox" class="use_open_data" name="use_other" id="use_other" value="True"> other
+              <input type="checkbox" class="use_open_data" name="use_other" id="use_other" value="True"> <?php echo _("OTHER") ?>other
               <input type="text" class="form-control" style="display:none" id="use_other_desc" name="use_other_desc" placeholder="Provide details">
             </div>
           </div>
@@ -329,11 +329,11 @@ textdomain($domain);
       <!-- Additional description --> 
       <div class="row col-md-12">
         <label class="row col-md-10">
-          Additional information <small class="optional">(optional, 400 characters or less)</small>
+          <?php echo _("ADDITIONAL_INFORMATION") ?> <small class="optional">(<?php echo _("OPTIONAL") ?>, <?php echo _("400_CHAR") ?>)</small>
         </label>
 
         <div class="row col-md-10">
-          <textarea type="text" class="form-control" id="org_additional" name="org_additional" placeholder="E.g. How could the open data your organization uses be improved? Which datasets are most valuable to your organization? What other types of data does your organization use in addition to open government data?"></textarea>
+          <textarea type="text" class="form-control" id="org_additional" name="org_additional" placeholder="<?php echo _("EG_HOW_COULD") ?>"></textarea>
         </div>
       </div>
       <br />
@@ -342,30 +342,30 @@ textdomain($domain);
     <br />
  
     <div class="col-md-12" role="contact-titlebar"  id="role-contact-titlebar">
-      <div class="section-title"><h3>3. Contact Information <small>(This information will not be made public)</small></h3></div>
+      <div class="section-title"><h3>3. <?php echo _("CONTACT_INFORMATION") ?> <small>(<?php echo _("NOT_BE_MADE_PUBLIC") ?>)</small></h3></div>
     </div>
 
     <div class="col-md-12" role="contact" id="role-contact">
 
       <div class="form-group col-md-12">
         <div class="col-md-5">
-          <div for="survey_contact_first">First name<small class="required">*</small></div>
+          <div for="survey_contact_first"><?php echo _("FIRST_NAME") ?><small class="required">*</small></div>
           <input type="text" class="form-control" id="survey_contact_first" name="survey_contact_first" required>
         </div>
 
         <div class="col-md-5">
-          <div for="survey_contact_last">Last name<small class="required">*</small></div>
+          <div for="survey_contact_last"><?php echo _("LAST_NAME") ?><small class="required">*</small></div>
           <input type="text" class="form-control" id="survey_contact_last" name="survey_contact_last" required>
         </div>
 
         <div class="col-md-10">
-          <div for="survey_contact_title">Title <i>(optional)</i></div>
+          <div for="survey_contact_title"><?php echo _("TITLE") ?> <i>(<?php echo _("ADDITIONAL_INFORMATION") ?>)</i></div>
           <input type="text" class="form-control" id="survey_contact_title" name="survey_contact_title">
 
-          <div for="survey_contact_email">Email<small class="required">*</small></div>
+          <div for="survey_contact_email"><?php echo _("EMAIL") ?><small class="required">*</small></div>
           <input type="email" class="form-control" id="survey_contact_email" name="survey_contact_email" required>
 
-          <div for="survey_contact_email">Phone <i>(optional)</i></div>
+          <div for="survey_contact_email"><?php echo _("PHONE") ?> <i>(<?php echo _("OPTIONAL") ?>)</i></div>
           <input type="text" class="form-control" id="survey_contact_phone" name="survey_contact_phone">
 
           <input type="hidden" class="form-control" id="org_profile_year" name="org_profile_year" value="2015">
@@ -386,7 +386,7 @@ textdomain($domain);
     </div>
 
     <div class="col-md-12" style="text-align:center;">    
-      <button class="btn btn-primary" style="padding:1em 2em 1em 2em; width:200px; background-color: rgb(53, 162, 227);" id="btnSubmit" type="submit" name="submit" value="submit">SUBMIT</button>
+      <button class="btn btn-primary" style="padding:1em 2em 1em 2em; width:200px; background-color: rgb(53, 162, 227);" id="btnSubmit" type="submit" name="submit" value="submit"><?php echo _("SUBMIT") ?></button>
     </div>
 
       
