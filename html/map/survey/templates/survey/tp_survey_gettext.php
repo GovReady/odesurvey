@@ -91,13 +91,13 @@ textdomain($domain);
 
       <!-- Website URL -->
       <div class="form-group col-md-12">
-        <label for="org_url">Website URL</label>
+        <label for="org_url"><?php echo _("WEBSITE_URL") ?></label>
         <div class="row">      
             <div class="col-md-8">
               <input type="url" class="form-control" id="org_url" name="org_url" placeholder="http://" value="http://">
             </div>
             <div class="col-md-4">
-              <input type="checkbox" name="no_org_url" id="no_org_url" value="True"> No URL
+              <input type="checkbox" name="no_org_url" id="no_org_url" value="True"> <?php echo _("NO_URL") ?>
             </div>
         </div>
       </div>
@@ -106,7 +106,7 @@ textdomain($domain);
       <div class="form-group col-md-12">
         <div class="form-group col-md-10 details">
 
-          <label for="org_hq_city_all">Location <small class="required">(Please provide as specific as possible)*</small></label>
+          <label for="org_hq_city_all"><?php echo _("LOCATION") ?> <small class="required">(<?php echo _("SPECIFIC_AS_POSSIBLE") ?>)*</small></label>
           <input type="text" class="form-control" id="org_hq_city_all" name="org_hq_city_all" required>
 
           <!--label for="org_hq_city">City</label -->
@@ -127,38 +127,38 @@ textdomain($domain);
   
       <!-- Industry/category of organization -->
       <div class="form-group col-md-12">
-        <label for="industry_id">Industry/category of the organization <small class="required">(select 1)*</small></label>
+        <label for="industry_id"><?php echo _("IND") ?> <small class="required">(select 1)*</small></label>
         <fieldset>
         <div class="col-md-4" id="industry_id_col-1">
-          <input type="radio" name="industry_id" class="industry_id" value="Agriculture">&nbsp; Agriculture
-          <br /><input type="radio" name="industry_id" class="industry_id" value="Arts and culture">&nbsp; Arts and culture
-          <br /><input id="industry_id_cul" type="radio" name="industry_id" class="industry_id" value="Business and legal services" required>&nbsp; Business and legal services
-          <br /><input type="radio" name="industry_id" class="industry_id" value="Consumer services">&nbsp; Consumer services
-          <br /><input type="radio" name="industry_id" class="industry_id" value="Data/information technology">&nbsp; Data/information technology
-          <br /><input type="radio" name="industry_id" class="industry_id" value="Education">&nbsp; Education
-          <br /><input type="radio" name="industry_id" class="industry_id" value="Energy">&nbsp; Energy
-          <br /><input type="radio" name="industry_id" class="industry_id" value="Environment">&nbsp; Environment
-          <br /><input type="radio" name="industry_id" class="industry_id" value="Finance and investment">&nbsp; Finance and investment
+          <input type="radio" name="industry_id" class="industry_id" value="Agriculture">&nbsp; <?php echo _("AGR") ?>
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Arts and culture">&nbsp; <?php echo _("ART") ?>
+          <br /><input id="industry_id_cul" type="radio" name="industry_id" class="industry_id" value="Business and legal services" required>&nbsp; <?php echo _("BUS") ?>
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Consumer services">&nbsp; <?php echo _("CSM") ?>Consumer services
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Data/information technology">&nbsp; <?php echo _("DAT") ?>
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Education">&nbsp; <?php echo _("EDU") ?>
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Energy">&nbsp; <?php echo _("NGY") ?>
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Environment">&nbsp; <?php echo _("ENV") ?>
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Finance and investment">&nbsp; <?php echo _("FIN") ?>
         </div>
         <div class="col-md-4" id="industry_id_col-2">
-          <input type="radio" name="industry_id" class="industry_id" value="Geospatial/mapping">&nbsp; Geospatial/mapping
-          <br /><input type="radio" name="industry_id" class="industry_id" value="Governance">&nbsp; Governance
-          <br /><input type="radio" name="industry_id" class="industry_id" value="Healthcare">&nbsp; Healthcare
-          <br /><input type="radio" name="industry_id" class="industry_id" value="Housing and real estate">&nbsp; Housing and real estate
-          <br /><input type="radio" name="industry_id" class="industry_id" value="Insurance">&nbsp; Insurance
-          <br /><input type="radio" name="industry_id" class="industry_id" value="Media and communications">&nbsp; Media and communications
-          <br /><input type="radio" name="industry_id" class="industry_id" value="Mining/manufacturing">&nbsp; Mining/manufacturing
-          <br /><input type="radio" name="industry_id" class="industry_id" value="Research and consulting">&nbsp; Research and consulting
-          <br /><input type="radio" name="industry_id" class="industry_id" value="Security and public safety">&nbsp; Security and public safety
+          <input type="radio" name="industry_id" class="industry_id" value="Geospatial/mapping">&nbsp; <?php echo _("GEO") ?>
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Governance">&nbsp; <?php echo _("GOV") ?>
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Healthcare">&nbsp; <?php echo _("HLT") ?>
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Housing and real estate">&nbsp; <?php echo _("HOU") ?>
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Insurance">&nbsp; <?php echo _("INS") ?>
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Media and communications">&nbsp; <?php echo _("COM") ?>
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Mining/manufacturing">&nbsp; <?php echo _("MAN") ?>
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Research and consulting">&nbsp; <?php echo _("RSH") ?>
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Security and public safety">&nbsp; <?php echo _("SEC") ?>
         </div>
         <div class="col-md-4" id="industry_id_col-3">
-          <input type="radio" name="industry_id" class="industry_id" value="Scientific research">&nbsp; Scientific research
-          <br /><input type="radio" name="industry_id" class="industry_id" value="Telecommunications/internet service providers (ISPs)">&nbsp; Telecommunications/internet service providers (ISPs)
-          <br /><input type="radio" name="industry_id" class="industry_id" value="Tourism">&nbsp; Tourism
-          <br /><input type="radio" name="industry_id" class="industry_id" value="Transportation and logistics">&nbsp; Transportation and logistics
-          <br /><input type="radio" name="industry_id" class="industry_id" value="Water and sanitation">&nbsp; Water and sanitation
-          <br /><input type="radio" name="industry_id" class="industry_id" value="Weather">&nbsp; Weather
-          <br /><input type="radio" name="industry_id" class="industry_id" value="Other">&nbsp; Other
+          <input type="radio" name="industry_id" class="industry_id" value="Scientific research">&nbsp; <?php echo _("SCI") ?>
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Telecommunications/internet service providers (ISPs)">&nbsp; <?php echo _("TEL") ?>
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Tourism">&nbsp; <?php echo _("TOR") ?>Tourism
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Transportation and logistics">&nbsp; <?php echo _("TRN") ?>
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Water and sanitation">&nbsp; <?php echo _("WAT") ?>
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Weather">&nbsp; <?php echo _("WEA") ?>
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Other">&nbsp; <?php echo _("OTHER") ?>
                 <input type="text" class="form-control" style="display:none" name="industry_other" placeholder="Describe other">
         </div>
         </fieldset>
