@@ -7,7 +7,7 @@
 
     <div class="col-md-12" role="Intro" id="role-intro">
       <div style="text-align:center;font-size:1.1em;margin-top:20px;">
-        <div class="col-md-9 small">&nbsp;</div><div class="col-md-3 pull-right small" style="font-size:14px;"><a href="/map/survey/start/">English</a> | <a href="/map/survey/start/fr">French</a> | Spanish</div>
+        <div class="col-md-9 small">&nbsp;</div><div class="col-md-3 pull-right small" style="font-size:14px;"><a href="/map/survey/start/">English</a> | <a href="/map/survey/start/fr">Français</a> | Español</div>
 
         Gracias por participar en el mapa de impacto de los datos abiertos, una base de datos centralizada, con búsqueda de casos de uso de datos abiertos de todo el mundo.
         Tu contribución hace posible comprender mejor el valor de los datos abiertos y alentar el uso a nivel global.
@@ -79,13 +79,13 @@
 
       <!-- Website URL -->
       <div class="form-group col-md-12">
-        <label for="org_url">Sitio web url</label>
+        <label for="org_url">Sitio web URL</label>
         <div class="row">      
             <div class="col-md-8">
               <input type="url" class="form-control" id="org_url" name="org_url" placeholder="http://" value="http://">
             </div>
             <div class="col-md-4">
-              <input type="checkbox" name="no_org_url" id="no_org_url" value="True"> Sin url
+              <input type="checkbox" name="no_org_url" id="no_org_url" value="True"> Sin URL
             </div>
         </div>
       </div>
@@ -115,7 +115,7 @@
   
       <!-- Industry/category of organization -->
       <div class="form-group col-md-12">
-        <label for="industry_id">Industry/category of the organizationIndustria/categoría de organización <small class="required">(seleccione uno)*</small></label>
+        <label for="industry_id">Industria/categoría de organización <small class="required">(seleccione uno)*</small></label>
         <fieldset>
         <div class="col-md-4" id="industry_id_col-1">
           <input type="radio" name="industry_id" class="industry_id" value="Agriculture">&nbsp; Agricultura
@@ -186,7 +186,7 @@
 
       <!-- What is the greatest type of impact your organization has? -->
       <div class="form-group col-md-12" id="org_greatest_impact">
-          <label for="org_greatest_impact">What is the greatest type of impact your organization has?<small class="required">*</small></label>
+          <label for="org_greatest_impact">¿Cuál es el tipo de impacto más grande que su organización logra?<small class="required">*</small></label>
         <div class="col-xs-9">
           <div class="btn-group" data-toggle="buttons">
             <label class="btn btn-default">
@@ -218,7 +218,7 @@
     <div class="col-md-12" role="dataUse" id="role-dataUse">
       
       <div class="row col-md-12 data-use-row" id="dataUseDataType">
-        <label for="data_use_type[]">Tipos de datos abiertos su organización utiliza que son <u>más relevantes</u>?<small class="required">(marcar todas las opciones que apliquen)*</small></label>
+        <label for="data_use_type[]">¿Cuales son los tipos de datos abiertos su organización utiliza que son más relevantes?<small class="required">(marque todas las opciones que apliquen)*</small></label>
         <div class="col-md-4" id="data_type_col-1">
             <input type="checkbox" name="data_use_type[]" class="data_use_type" value="Agriculture" required>&nbsp; <span>Agricultura</span>
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Arts and culture">&nbsp; <span>Arte y cultura</span>
@@ -253,7 +253,7 @@
 <br />
       <!-- Sources of open data -->
       <div class="form-group col-md-12">
-        <label for="data_country_count">How many countries does your organization use open data from? <small class="required">*</small></label>
+        <label for="data_country_count">¿Cuántos países proporcionan datos abiertos que su organización utiliza? <small class="required">*</small></label>
         <div class="col-md-12">
           <div class="btn-group" data-toggle="buttons">
             <label class="btn btn-default">
@@ -368,13 +368,13 @@
 
     <div class="col-md-12" role="submit-note" id="role-submit-note">
       <div style="text-align:center;font-size:16px;margin-top:20px;">
-        <b><i>All submissions will be reviewed before public display on the Open Data Impact Map.</i></b>
+        <b><i>Toda la información recopilada sera revisada antes de su exhibición pública en el mapa de impacto de los datos abiertos.</i></b>
       </div>
       <br />
     </div>
 
     <div class="col-md-12" style="text-align:center;">    
-      <button class="btn btn-primary" style="padding:1em 2em 1em 2em; width:200px; background-color: rgb(53, 162, 227);" id="btnSubmit" type="submit" name="submit" value="submit">SUBMIT</button>
+      <button class="btn btn-primary" style="padding:1em 2em 1em 2em; width:200px; background-color: rgb(53, 162, 227);" id="btnSubmit" type="submit" name="submit" value="submit">ENVIAR</button>
     </div>
 
       

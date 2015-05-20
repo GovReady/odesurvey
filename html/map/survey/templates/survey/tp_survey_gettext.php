@@ -22,7 +22,7 @@ textdomain($domain);
 
     <div class="col-md-12" role="Intro" id="role-intro">
       <div style="text-align:center;font-size:1.1em;margin-top:20px;">
-        <div class="col-md-9 small">&nbsp;</div><div class="col-md-3 pull-right small" style="font-size:14px;"><a href="/map/survey/start">English</a> | French | <a href="/map/survey/start/es">Spanish</a></div>
+        <div class="col-md-9 small">&nbsp;</div><div class="col-md-3 pull-right small" style="font-size:14px;"><a href="/map/survey/start">English</a> | Français | <a href="/map/survey/start/es">Español</a></div>
         
         <?php echo gettext("THANKS_PARTICIPATING") ?>
         <?php echo _("YOUR_CONTRIBUTION") ?>
