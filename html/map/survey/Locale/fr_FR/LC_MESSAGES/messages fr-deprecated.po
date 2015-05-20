@@ -24,7 +24,7 @@ msgstr "Test de traduction..."
 
 #Thank you for participating in the Open Data Impact Map, the first centralized, searchable database of open data use cases from around the world.
 msgid "THANKS_PARTICIPATING"
-msgstr "Merci de votre contribution à l’Open Data Impact Map, la première base de données recensant les expériences d'utilisation de données [d'origine publique] ouvertes du monde entier."
+msgstr "Merci de votre contribution à l’Open Data Impact Map, une base de données recensant les expériences d'utilisation de données ouvertes du monde entier."
 
 #Your contribution makes it possible to better understand the value of open data and encourage its use globally.
 msgid "YOUR_CONTRIBUTION"
