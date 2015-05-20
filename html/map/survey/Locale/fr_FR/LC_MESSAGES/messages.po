@@ -56,7 +56,7 @@ msgstr "Nous définissons les données ouvertes comme des données publiques, as
 
 #1. Organizational Information
 msgid "ORG_INFO"
-msgstr "Informations concernant l'organisation"
+msgstr "1. Informations concernant l'organisation"
 
 #Name of organization
 msgid "ORG_NAME"
@@ -264,7 +264,7 @@ msgstr "Veuillez fournir des détails"
 
 #2. Use of Open Data
 msgid "USE_OF_OPEN_DATA"
-msgstr "Utilisation des données ouvertes"
+msgstr "2. Utilisation des données ouvertes"
 
 #What are the most relevant types of open data your organization uses?
 msgid "MOST_RELEVANT_OPEN_DATA"
