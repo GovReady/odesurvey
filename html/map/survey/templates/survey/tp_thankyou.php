@@ -14,7 +14,7 @@
 <div class="container lg-font col-md-12" style="border:0px solid black;">
 
     <div class="col-md-12" role="orgInfo-titlebar"  id="role-orgInfo-titlebar" style="margin-top: 40px;">
-      <div class="section-title"><h3>SUBMISION RECEIVED</h3></div>
+      <div class="section-title"><h3>SUBMISSION RECEIVED</h3></div>
     </div>
  
     <div class="col-md-12" role="orgInfo"  id="role-orgInfo" style="font-size:14pt;height:460px; margin-top">
