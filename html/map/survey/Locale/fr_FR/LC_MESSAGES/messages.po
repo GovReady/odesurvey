@@ -372,7 +372,7 @@ msgstr "Météorologie"
 
 #Number of countries from which open data is provided
 msgid "NUM_OF_COUNTRIES"
-msgstr "Nombre de pays produisant les données ouvertes dont vous disposez"
+msgstr "Quel est le nombre de pays produisant les données ouvertes dont vous disposez?"
 
 #Indicate the country that provide the data, and whether the data is National or State / Local (state/province/city).
 msgid "INDICATE_COUNTRY_THAT"
