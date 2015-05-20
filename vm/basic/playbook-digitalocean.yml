@@ -37,6 +37,11 @@
      copy: src=templates/etc/sysconfig/iptables dest=/etc/sysconfig/iptables owner=root group=root mode=0600
      notify: restart iptables
 
+   - name: gettext
+     yum: pkg={{ item }} state=installed
+     with_items:
+        - gettext
+
    - name: Install http and php etc
      yum: pkg={{ item }} state=installed
      with_items:
@@ -55,6 +60,10 @@
 
    - name: Copy Apache vhost config file for default web pages 
      copy: src=templates/etc/httpd/conf.d/15-default.conf dest=/etc/httpd/conf.d/15-default.conf
+     notify: restart httpd
+
+   - name: Copy gettext.ini file 
+     copy: src=templates/etc/php.d/gettext.ini dest=/etc/php.d/gettext.ini
      notify: restart httpd
 
    - name: Create application log directory
