@@ -390,7 +390,7 @@ $app->get('/:surveyId/form', function ($surveyId) use ($app) {
 	$content['title'] = "Open Data Enterprise Survey";
 
 	$app->view()->setData(array('content' => $content ));
-	$app->render('survey/tp_survey_duprofile.php');
+	$app->render('survey/tp_survey.php');
 
 });
 
