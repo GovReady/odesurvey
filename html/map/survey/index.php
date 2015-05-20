@@ -342,6 +342,42 @@ $app->get('/start/es/', function () use ($app) {
     }
 });
 
+// ************
+$app->get('/start/fr/', function () use ($app) {
+	
+	$parse = new parseRestClient(array(
+		'appid' => PARSE_APPLICATION_ID,
+		'restkey' => PARSE_API_KEY
+	));
+	
+	$survey_object = array("survey_name" => "opendata", "action" => "start", "notes" => "");
+
+	# store new information as new record 
+    $parse_params = array(
+		'className' => 'survey',
+		'object' => $survey_object
+    );
+	
+	// Create Parse object and save
+    try {
+    	$request = $parse->create($parse_params);
+    	$response = json_decode($request, true);
+    } catch (Exception $e) {
+    	 echo 'Caught exception: ',  $e->getMessage(), "\n";
+    	 $app->redirect("/map/survey/oops/");
+    }
+
+    if(isset($response['objectId'])) {
+    	// Success
+    	$app->redirect("/map/survey/".$response['objectId']."/form/fr/");
+    } else {
+    	// Failure
+    	echo "Problem. Promlem with record creation not yet handled.";
+    	exit;
+    	$app->redirect("/error".$response['objectId']);
+    }
+});
+
 
 
 // ************
@@ -354,36 +390,6 @@ $app->get('/:surveyId/form', function ($surveyId) use ($app) {
 		'restkey' => PARSE_API_KEY
 	));
 
-	// // If survey submitted, handle differently
-	// $params = array(
-	//     'className' => 'org_profile',
-	//     'object' => array(),
-	//     'query' => array(
-	//         'profile_id' => $surveyId
-	//     ),
-	// );
-
-	// try {
-	// 	$request = $parse->query($params);
-	// } catch (Exception $e) {
-	// 	echo 'Caught exception: ',  $e->getMessage(), "\n";
-	// 	sleep(1);
-	// 	exit;
-	// }
-	// $request_decoded = json_decode($request, true);
-
-	// // here is where we test
-	// if (0 < sizeof($request_decoded['results'])) {
-	// 	echo "This survey has already been started or submitted.";
-	// 	print_r($request_decoded);
-	// 	echo "len ". sizeof($request_decoded['results']);
-	// 	$org_profile = $request_decoded['results'][0];
-	// 		// $app->redirect("/survey/opendata/".$surveyId."/thankyou/");
-	// 		//$app->get('/survey/opendata/:surveyId/submitted/', function ($surveyId) use ($app) {
-	// 	$app->redirect("/map/survey/".$surveyId."/submitted/");
-	// }
-
-	//HTylD69YaB
 	// bring up new blank survey
 	$content['surveyId'] = $surveyId;
 	$content['surveyName'] = "opendata";
@@ -404,36 +410,6 @@ $app->get('/:surveyId/form/es/', function ($surveyId) use ($app) {
 		'restkey' => PARSE_API_KEY
 	));
 
-	// // If survey submitted, handle differently
-	// $params = array(
-	//     'className' => 'org_profile',
-	//     'object' => array(),
-	//     'query' => array(
-	//         'profile_id' => $surveyId
-	//     ),
-	// );
-
-	// try {
-	// 	$request = $parse->query($params);
-	// } catch (Exception $e) {
-	// 	echo 'Caught exception: ',  $e->getMessage(), "\n";
-	// 	sleep(1);
-	// 	exit;
-	// }
-	// $request_decoded = json_decode($request, true);
-
-	// // here is where we test
-	// if (0 < sizeof($request_decoded['results'])) {
-	// 	echo "This survey has already been started or submitted.";
-	// 	print_r($request_decoded);
-	// 	echo "len ". sizeof($request_decoded['results']);
-	// 	$org_profile = $request_decoded['results'][0];
-	// 		// $app->redirect("/survey/opendata/".$surveyId."/thankyou/");
-	// 		//$app->get('/survey/opendata/:surveyId/submitted/', function ($surveyId) use ($app) {
-	// 	$app->redirect("/map/survey/".$surveyId."/submitted/");
-	// }
-
-	//HTylD69YaB
 	// bring up new blank survey
 	$content['surveyId'] = $surveyId;
 	$content['surveyName'] = "opendata";
@@ -441,6 +417,26 @@ $app->get('/:surveyId/form/es/', function ($surveyId) use ($app) {
 
 	$app->view()->setData(array('content' => $content ));
 	$app->render('survey/tp_survey_es.php');
+
+});
+
+// ************
+$app->get('/:surveyId/form/fr/', function ($surveyId) use ($app) {
+
+	$app->log->debug(date_format(date_create(), 'Y-m-d H:i:s')."; DEBUG; "."new survey created, ...");
+	
+	$parse = new parseRestClient(array(
+		'appid' => PARSE_APPLICATION_ID,
+		'restkey' => PARSE_API_KEY
+	));
+
+	// bring up new blank survey
+	$content['surveyId'] = $surveyId;
+	$content['surveyName'] = "opendata";
+	$content['title'] = "Open Data Enterprise Survey";
+
+	$app->view()->setData(array('content' => $content ));
+	$app->render('survey/tp_survey_gettext.php');
 
 });
 
