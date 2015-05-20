@@ -56,7 +56,7 @@ msgstr "Nous définissons les données ouvertes comme des données publiques, as
 
 #1. Organizational Information
 msgid "ORG_INFO"
-msgstr "Informations concernant l'organisation"
+msgstr "1. Informations concernant l'organisation"
 
 #Name of organization
 msgid "ORG_NAME"
@@ -80,7 +80,7 @@ msgstr "A but lucratif"
 
 #Nonprofit
 msgid "NONPROFIT"
-msgstr "A but non lucratif""
+msgstr "A but non lucratif"
 
 #Developer group
 msgid "DEVELOPER_GROUP"
@@ -92,7 +92,7 @@ msgstr "Autre"
 
 #Website URL
 msgid "WEBSITE_URL"
-msgstr "Site internet URL:"
+msgstr "Site internet URL"
 
 #No URL
 msgid "NO_URL"
@@ -105,15 +105,10 @@ msgstr "Adresse complète de votre organization"
 #Please provide as specific as possible
 msgid "SPECIFIC_AS_POSSIBLE"
 msgstr ""
-Note: not applicable here, contained in location field
 
 #Industry/category of the organization
 msgid "IND"
-msgstr "Secteur d'activité de votre organisation"
-
-#select one
-msgstr "cocher une case seulement"
-Note: was missing from list
+msgstr "Industry/category of the organization"
 
 #Agriculture 
 msgid "AGR"
@@ -121,140 +116,135 @@ msgstr "Agriculture"
 
 #Arts and culture 
 msgid "ART"
-msgstr "Arts et culture"
+msgstr "Arts and culture"
 
 #Business & legal services 
 msgid "BUS"
-msgstr "Services juridiques et services aux entreprises"
+msgstr "Business and legal services"
 
-#Consumer services 
+#Consumer 
 msgid "CSM"
-msgstr "Consommation"
+msgstr "Consumer"
 
 #Data/information technology 
 msgid "DAT"
-msgstr "Services informatiques"
+msgstr "Data/information technology"
 
 #Education 
 msgid "EDU"
-msgstr "Éducation"
+msgstr "Education"
 
 #Energy 
 msgid "NGY"
-msgstr "Énergie"
+msgstr "Energy"
 
 #Environment 
 msgid "ENV"
-msgstr "Environnement"
+msgstr "Environment"
 
 #Finance and investment
 msgid "FIN"
-msgstr "Finance et investissements"
+msgstr "Finance and investment"
 
 #Geospatial/mapping 
 msgid "GEO"
-msgstr "Intelligence géographique/cartographie"
+msgstr "Geospatial/mapping"
 
 #Governance 
 msgid "GOV"
-msgstr "Gouvernance"
+msgstr "Governance"
 
 #Healthcare 
 msgid "HLT"
-msgstr "Santé"
+msgstr "Healthcare"
 
 #Housing and real estate 
 msgid "HOU"
-msgstr "Logement / immobilier"
+msgstr "Housing and real estate"
 
 #Insurance 
 msgid "INS"
-msgstr "Assurance"
+msgstr "Insurance"
 
 #Media and communications 
 msgid "COM"
-msgstr "Médias et communication"
+msgstr "Media and communications"
 
 #Mining/Manufacturing 
 msgid "MAN"
-msgstr "Sociétés minières/Industrie manufacturière"
+msgstr "Mining/manufacturing"
 
 #Research and consulting 
 msgid "RSH"
-msgstr "Recherche et conseil"
+msgstr "Research and consulting"
 
 #Security and public safety
 msgid "SEC"
-msgstr "Securité et sûreté publique"
+msgstr "Security and public safety"
 
 #Scientific research 
 msgid "SCI"
-msgstr "Recherche scientifique"
+msgstr "Scientific research"
 
 #Telecommunications/internet service providers (ISPs) 
 msgid "TEL"
-msgstr "Télécommunications/fournisseurs de services Internet (FSI)"
+msgstr "Telecommunications/internet service providers (ISPs)"
 
 #Tourism 
 msgid "TOR"
-msgstr "Tourisme"
+msgstr "Tourism"
 
 #Transportation and logistics 
 msgid "TRN"
-msgstr "Transport et logistique"
+msgstr "Transportation and logistics"
 
 #Water and sanitation 
 msgid "WAT"
-msgstr "Eau, assainissement et hygiène"
+msgstr "Water and sanitation"
 
 #Weather 
 msgid "WEA"
-msgstr "Météorologie"
+msgstr "Weather"
 
 #Founding year
 msgid "FOUNDING_YEAR"
-msgstr "Année de création de l’organisation"
+msgstr "Founding year"
 
 #Size
 msgid "SIZE"
-msgstr "Taille de l'organisation"
+msgstr "Size"
 
 #1-10 employees
 msgid "1-10"
-msgstr "1-10 employés"
+msgstr "1-10 employees"
 
 #11-50 employees
 msgid "11-50"
-msgstr "11-50 employés"
+msgstr "11-50 employees"
 
 #51-200 employees
 msgid "51-200"
-msgstr "51-200 employés"
+msgstr "51-200 employees"
 
 #201-1000 employees
 msgid "201-1000"
-msgstr "201-1000 employés"
+msgstr "201-1000 employees"
 
 #1000+ employees
 msgid "1000+"
-msgstr "+1000 employés"
-
-#What is the greatest type of impact your organization has?
-msgstr "Quel est l'impact le plus déterminant de votre organisation?"
-Note: was missing from list
+msgstr "1000+ employees"
 
 #Economic
 msgid "ECONOMIC"
-msgstr "Économique"
-adv
+msgstr "Economic"
 
 #Environmental
 msgid "ENVIRONMENTAL"
-msgstr "Environnemental"
+msgstr "Environmental"
 
 #Governance
 msgid "GOVERNANCE"
-msgstr "Politique"
+msgstr "Governance"
 
 #Social
 msgid "SOCIAL"
@@ -262,23 +252,19 @@ msgstr "Social"
 
 #Provide details
 msgid "PROVIDE_DETAILS"
-msgstr "Veuillez fournir des détails"
+msgstr "Provide details"
 
 #2. Use of Open Data
 msgid "USE_OF_OPEN_DATA"
-msgstr "Utilisation des données ouvertes"
-
-#Types of most relevant open data your organization uses
-msgid "MOST_RELEVANT_OPEN_DATA"
-msgstr "Type de données ouvertes les plus pertinentes que votre organisation utilise" 
+msgstr "2. Use of Open Data"
 
 #What are the
 msgid "WHAT_ARE_THE"
-msgstr "What are the"
+msgstr "What are the <u>most relevant</u> types of data your organization uses?"
 
 #most relevant
 msgid "MOST_RELEVANT"
-msgstr "most relevant"
+msgstr "What are the <u>most relevant</u> types of data your organization uses?"
 
 #types of data your organization uses?
 msgid "TYPES_OF_DATA"
@@ -287,7 +273,7 @@ msgstr "types of data your organization uses?"
 
 #select all that apply
 msgid "SELECT_ALL"
-msgstr "Cochez toutes les cases appropriées"
+msgstr "Select all that apply"
 
 #Agriculture 
 msgid "AGRICULTURE"
@@ -295,35 +281,35 @@ msgstr "Agriculture"
 
 #Arts and culture 
 msgid "ARTS_AND_CULTURE"
-msgstr "Arts et culture"
+msgstr "Arts and culture"
 
 #Business 
 msgid "BUSINESS"
-msgstr "Commerciales"
+msgstr "Business"
 
 #Consumer 
 msgid "CONSUMER"
-msgstr "Consommation"
+msgstr "Consumer"
 
 #Demographics and social 
 msgid "DEMOGRAPHICS"
-msgstr "Demographiques et sociétales"
+msgstr "Demographics"
 
 #Economics 
 msgid "ECONOMICS"
-msgstr "Économie"
+msgstr "Economics"
 
 #Education 
 msgid "EDUCATION"
-msgstr "Éducation"
+msgstr "Education"
 
 #Energy
 msgid "ENERGY"
-msgstr "Énergie"
+msgstr "Energy"
 
 #Environment 
 msgid "ENVIRONMENT"
-msgstr "Environnement"
+msgstr "Environment"
 
 #Finance 
 msgid "FINANCE"
@@ -331,161 +317,164 @@ msgstr "Finance"
 
 #Geospatial/mapping 
 msgid "GEOSPATIAL"
-msgstr "Géospatial"
+msgstr "Geospatial"
 
 #Government operations 
 msgid "GOVERNMENT_OPS"
-msgstr "Activités gouvernementales"
+msgstr "Government operations"
 
 #Health/healthcare 
 msgid "HEALTH"
-msgstr "Santé"
+msgstr "Health"
 
 #Housing 
 msgid "HOUSING"
-msgstr "Logement"
+msgstr "Housing"
 
 #International/global development 
 msgid "INTERNATIONAL"
-msgstr "Développement international"
+msgstr "International/global development"
 
 #Legal
 msgid "LEGAL"
-msgstr "Juridique"
+msgstr "Legal"
 
 #Manufacturing 
 msgid "MANUFACTURING"
-msgstr "Fabrication/manufacture"
+msgstr "Manufacturing"
 
 #Science and research 
 msgid "SCIENCE_AND_RESEARCH"
-msgstr "Science et recherche"
+msgstr "Science and research"
 
 #Public safety 
 msgid "PUBLIC_SAFETY"
-msgstr "Sûreté publique"
+msgstr "Public safety"
 
 #Tourism 
 msgid "TOURISM"
-msgstr "Tourisme"
+msgstr "Tourism"
 
 #Transportation 
 msgid "TRANSPORTATION"
-msgstr "Transports"
+msgstr "Transportation"
 
 #Weather 
 msgid "WEATHER"
-msgstr "Météorologie"
+msgstr "Weather"
 
-#Number of countries from which open data is provided
+#Number of countries from which open data is used
 msgid "NUM_OF_COUNTRIES"
-msgstr "Nombre de pays produisant les données ouvertes dont vous disposez"
+msgstr "Number of countries from which open data is used"
 
-#Indicate the country that provide the data, and whether the data is National or State / Local (state/province/city).
+#Indicate the country that provide the data, and whether the data is National or Regional / Local (state/province/city).
 msgid "INDICATE_COUNTRY_THAT"
-msgstr "Indiquer le pays qui produit les données, et si ce sont des données nationales, our régionales/locales"
+msgstr "Indicate the country that provide the data, and whether the data is National or Regional / Local (state/province/city)."
 
 #Data source - Country
 msgid "DATA_SOURCE_COUNTRY"
-msgstr "pays produisant les données ouvertes"
+msgstr "Data source - Country"
 
 #Select
 msgid "SELECT"
-msgstr "selectionner"
+msgstr "Select"
 
 #1 country 
 msgid "1_COUNTRY"
-msgstr "1 pays"
+msgstr "1 country"
 
 #2-5 countries 
 msgid "2-5_COUNTRIES"
-msgstr "2-5 pays"
+msgstr "2-5 countries"
 
 #6-10 countries 
 msgid "6-10_COUNTRIES"
-msgstr "6-10 pays"
+msgstr "6-10 countries"
 
 #11-20 countries 
 msgid "11-20_COUNTRIES"
-msgstr "11-20 pays"
+msgstr "11-20 countries"
 
 #21-50 countries 
 msgid "21-50_COUNTRIES"
-msgstr "21-50 pays"
+msgstr "21-50 countries"
+
 50+ countries
 msgid "50+_COUNTRIES"
-msgstr "+50 pays"
+msgstr "50+ countries"
 
 #How does your organization use open data?
 msgid "HOW_USE_OPEN_DATA"
-msgstr "A quelle fin votre organisation utilise-t-elle les données ouvertes?"
+msgstr "How does your organization use open data?"
 
 #advocacy
 msgid "ADVOCACY"
-msgstr "Activités de plaidoyer et defense de droits"
+msgstr "Advocacy"
 
 #new products, services, or applications
 msgid "PRODUCTS_SERVICES"
-msgstr "Développement de nouveaux produits et services"
+msgstr "new products, services, or applications"
 
 #organizational optimization 
 msgid "ORG_OPTIMIZATION"
-msgstr "Optimisation opérationnelle"
+msgstr "organizational optimization"
 
 #(e.g. benchmarking, market analysis, improving efficiency, enhancing existing products and services)
 msgid "EG_BENCHMARKING"
-msgstr "par exemple: analyses concurrentielles comparatives, analyses de marché, améliorations d'efficacité, améliorations de services et produits existants"
+msgstr "(e.g. benchmarking, market analysis, improving efficiency, enhancing existing products and services)"
 
 #Additional information
 msgid "ADDITIONAL_INFORMATION"
-msgstr "Informations complémentaires"
+msgstr "Additional information"
 
 #optional
 msgid "OPTIONAL"
-msgstr "facultatif"
+msgstr "optional"
 
 #E.g. How could the open data your organization uses be improved? 
 msgid "EG_HOW_COULD"
-msgstr "Par exemple, comment améliorer les données  ouvertes utilisées par votre organisation?"
+msgstr "E..g. How could the open data your organization uses be improved?"
 
 #Which datasets are most valuable to your organization? 
 msgid "WHICH_DATASETS_MOST_VALUABLE"
-msgstr "Quels sont les ensembles de données les plus utiles à votre organisation? "
+msgstr "Which datasets are most valuable to your organization? "
 
 #What other types of data does your organization use in addition to open government data?
 msgid "WHAT_OTHER_TYPES_OF_DATA"
-msgstr "Quels autres types de données sont utilisées par votre organisation - en dehors des données ouvertes d'origine gouvernementales?"
+msgstr "What other types of data does your organization use in addition to open government data?"
 
 #3. Contact Information
 msgid "CONTACT_INFORMATION"
-msgstr "Coordonnées"
+msgstr "3. Contact Information"
 
 #This information will not be made public
 msgid "NOT_BE_MADE_PUBLIC"
-msgstr "(non ouvertes au public"
+msgstr "This information will not be made public"
 
 #First name
 msgid "FIRST_NAME"
-msgstr "Prénom"
+msgstr "First name"
 
 #Last name
 msgid "LAST_NAME"
-msgstr "Nom"
+msgstr "Last/Family name"
 
 #Title
 msgid "TITLE"
-msgstr "Titre"
+msgstr "Title"
 
 #Email
 msgid "EMAIL"
-msgstr "Adresse email"
+msgstr "Email"
 
 #Phone
 msgid "PHONE"
 msgstr "Téléphone"
 
+#All submissions will be reviewed before public display on the Open Data Impact Map.
+msgid "SUBMISSIONS_REVIEWED"
+msgstr "All submissions will be reviewed before public display on the Open Data Impact Map."
+
 #SUBMIT
-msgid "SUPPORT"
-msgstr "Envoyer"
-
-
+msgid "SUBMIT"
+msgstr "Submit"

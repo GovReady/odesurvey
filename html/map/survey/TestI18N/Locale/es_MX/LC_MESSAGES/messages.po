@@ -5,7 +5,7 @@ msgstr ""
 "PO-Revision-Date: 2015-03-19 11:48-0500\n"
 "Last-Translator: \n"
 "Language-Team: MyTeam <team@example.com>\n"
-"Language: es\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,15 +24,15 @@ msgstr "Test de traduction..."
 
 #Thank you for participating in the Open Data Impact Map, the first centralized, searchable database of open data use cases from around the world.
 msgid "THANKS_PARTICIPATING"
-msgstr "Merci de votre contribution à l’Open Data Impact Map, la première base de données recensant les expériences d'utilisation de données [d'origine publique] ouvertes du monde entier."
+msgstr "Gracias por participar en el mapa de impacto de los datos abiertos, una base de datos centralizada, con búsqueda de casos de uso de datos abiertos de todo el mundo."
 
 #Your contribution makes it possible to better understand the value of open data and encourage its use globally.
 msgid "YOUR_CONTRIBUTION"
-msgstr "Votre contribution permettra de mieux apprécier la valeur ajoutée des données ouvertes et d’encourager leur utilisation à travers le monde."
+msgstr "Tu contribución hace posible comprender mejor el valor de los datos abiertos y alentar el uso a nivel global."
 
 #Information collected will be displayed on the Map and will be made available as open data.
 msgid "INFO_COLLECTED"
-msgstr "Les informations collectées seront affichées sur l'Open Data Impact Map et seront disponibles comme données ouvertes."
+msgstr "La información recopilada será mostrada en el mapa y hecho disponible como datos abiertos."
 
 #ELIGIBILITY
 msgid "ELIGIBILITY"
@@ -40,27 +40,27 @@ msgstr "Critères d’éligibilité"
 
 #The Open Data Impact Map includes organizations that:
 msgid "MAP_INCLUDES_ORGS"
-msgstr "L’Open Data Impact Map comprend des contributions d'institutions:"
+msgstr "El mapa de impacto de los datos abiertos incluye organizaciones que:"
 
 #are companies, non-profits, or developer groups; and
 msgid "ARE_COMPANIES"
-msgstr "qui sont des organisations à but non lucratif ou lucratif,  ou des communautés de développeurs; et"
+msgstr "son empresas, organizaciones sin fines de lucro, o grupo de programadores informáticos; y"
 
 #use open government data for advocacy, to develop products and services, improve operations, inform strategy and/or conduct research.
 msgid "USE_OPEN_GOVERNMENT_DATA"
-msgstr "qui utilisent des données ouvertes pour développer leurs produits et services, améliorer leurs opérations, éclairer leur stratégie, poursuivre des travaux de recherche et/ou des activités de plaidoyer."
+msgstr "utilizan datos públicos gubernamentales para desarrollar productos y servicios, mejorar las operaciones, informar estrategia y / o realizar investigaciones."
 
 #We define open government data as publicly available data that is produced or commissioned by governments and that can be accessed and reused by anyone, free of charge.
 msgid "WE_DEFINE_OPEN"
-msgstr "Nous définissons les données ouvertes comme des données publiques, assemblées par ou à la demande d' entité(s) gouvernementale, mises à la disposition du public et accessibles gratuitement, pouvant être utilisées et reutilisées par quiconque."
+msgstr "Definimos los datos gubernamentales abiertos como datos públicos que son producidos o comisionados por gobiernos y pueden ser accesado y reutilizado gratis por cualquiera"
 
 #1. Organizational Information
 msgid "ORG_INFO"
-msgstr "1. Informations concernant l'organisation"
+msgstr "1. Información organizativa"
 
 #Name of organization
 msgid "ORG_NAME"
-msgstr "Nom de l'organisation"
+msgstr "Breve descripción de organización"
 
 #One sentence description of organization
 msgid "ORG_DESC"
@@ -68,15 +68,15 @@ msgstr "Description de l'organisation en une phrase"
 
 #400 characters or less
 msgid "400_CHAR"
-msgstr "400 caractères  maximum"
+msgstr "máximo 400 caracteres"
 
 #Type of organization
 msgid "ORG_TYPE"
-msgstr "Type d'organisation"
+msgstr "Comercial"
 
 #For-profit
 msgid "FOR-PROFIT"
-msgstr "A but lucratif"
+msgstr "Sin Fines de Lucro"
 
 #Nonprofit
 msgid "NONPROFIT"
@@ -84,19 +84,19 @@ msgstr "A but non lucratif"
 
 #Developer group
 msgid "DEVELOPER_GROUP"
-msgstr "Communauté de développeurs"
+msgstr "Grupo de programadores informáticos"
 
 #other
 msgid "OTHER"
-msgstr "Autre"
+msgstr "Otro"
 
 #Website URL
 msgid "WEBSITE_URL"
-msgstr "Site internet URL"
+msgstr "Sin url"
 
 #No URL
 msgid "NO_URL"
-msgstr "Pas de site internet"
+msgstr "Localización"
 
 #Location
 msgid "LOCATION"
@@ -104,135 +104,135 @@ msgstr "Adresse complète de votre organization"
 
 #Please provide as specific as possible
 msgid "SPECIFIC_AS_POSSIBLE"
-msgstr ""
+msgstr "sea lo más específico posible"
 
 #Industry/category of the organization
 msgid "IND"
-msgstr "Industry/category of the organization"
+msgstr "Industria/categoría de organización (seleccione uno)"
 
 #Agriculture 
 msgid "AGR"
-msgstr "Agriculture"
+msgstr "Agricultura"
 
 #Arts and culture 
 msgid "ART"
-msgstr "Arts and culture"
+msgstr "Arte y cultura"
 
 #Business & legal services 
 msgid "BUS"
-msgstr "Business and legal services"
+msgstr "Servicios empresariales y legales"
 
 #Consumer 
 msgid "CSM"
-msgstr "Consumer"
+msgstr "Servicios consumidor"
 
 #Data/information technology 
 msgid "DAT"
-msgstr "Data/information technology"
+msgstr "Datos/ tecnologías de la información"
 
 #Education 
 msgid "EDU"
-msgstr "Education"
+msgstr "Educación"
 
 #Energy 
 msgid "NGY"
-msgstr "Energy"
+msgstr "Energía"
 
 #Environment 
 msgid "ENV"
-msgstr "Environment"
+msgstr "Medio Ambiente"
 
 #Finance and investment
 msgid "FIN"
-msgstr "Finance and investment"
+msgstr "Finanzas e Inversiones"
 
 #Geospatial/mapping 
 msgid "GEO"
-msgstr "Geospatial/mapping"
+msgstr "Geoespacial/Mapeo"
 
 #Governance 
 msgid "GOV"
-msgstr "Governance"
+msgstr "Gobierno"
 
 #Healthcare 
 msgid "HLT"
-msgstr "Healthcare"
+msgstr "Salud"
 
 #Housing and real estate 
 msgid "HOU"
-msgstr "Housing and real estate"
+msgstr "Vivienda/Bienes Raíces"
 
 #Insurance 
 msgid "INS"
-msgstr "Insurance"
+msgstr "Seguros"
 
 #Media and communications 
 msgid "COM"
-msgstr "Media and communications"
+msgstr "Medios y Comunicación"
 
 #Mining/Manufacturing 
 msgid "MAN"
-msgstr "Mining/manufacturing"
+msgstr "Minería/Fabricación"
 
 #Research and consulting 
 msgid "RSH"
-msgstr "Research and consulting"
+msgstr "Investigación y Consultoría"
 
 #Security and public safety
 msgid "SEC"
-msgstr "Security and public safety"
+msgstr "Seguridad Pública y Vigilancia"
 
 #Scientific research 
 msgid "SCI"
-msgstr "Scientific research"
+msgstr "Investigación y Consultoría"
 
 #Telecommunications/internet service providers (ISPs) 
 msgid "TEL"
-msgstr "Telecommunications/internet service providers (ISPs)"
+msgstr "Telecomunicaciones/proveedores de servicios de Internet"
 
 #Tourism 
 msgid "TOR"
-msgstr "Tourism"
+msgstr "Turismo"
 
 #Transportation and logistics 
 msgid "TRN"
-msgstr "Transportation and logistics"
+msgstr "Transporte y Logística"
 
 #Water and sanitation 
 msgid "WAT"
-msgstr "Water and sanitation"
+msgstr "Agua y Saneamiento"
 
 #Weather 
 msgid "WEA"
-msgstr "Weather"
+msgstr "Meteorológico"
 
 #Founding year
 msgid "FOUNDING_YEAR"
-msgstr "Founding year"
+msgstr "Año de fundación"
 
 #Size
 msgid "SIZE"
-msgstr "Size"
+msgstr "Número de empleados"
 
 #1-10 employees
 msgid "1-10"
-msgstr "1-10 employees"
+msgstr "1-10 empleados"
 
 #11-50 employees
 msgid "11-50"
-msgstr "11-50 employees"
+msgstr "11-50 empleados"
 
 #51-200 employees
 msgid "51-200"
-msgstr "51-200 employees"
+msgstr "51-200 empleados"
 
 #201-1000 employees
 msgid "201-1000"
-msgstr "201-1000 employees"
+msgstr "201-1000 empleados"
 
 #1000+ employees
 msgid "1000+"
-msgstr "1000+ employees"
+msgstr "1000+ empleados"
 
 #Economic
 msgid "ECONOMIC"
@@ -465,7 +465,7 @@ msgstr "Title"
 
 #Email
 msgid "EMAIL"
-msgstr "Email"
+msgstr "Correo electrónico"
 
 #Phone
 msgid "PHONE"
