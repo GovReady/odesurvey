@@ -77,7 +77,22 @@ $app = new \Slim\Slim(array('log.writer' => $logWriter));
 
 // Handle not found
 $app->notFound(function () use ($app) {
+
+	$actual_link = "$_SERVER[REQUEST_URI]";
+	// Temporarily route /map, /map/viz to /map.html
+	if ("/map/index.html" == "$actual_link" || "/map/viz/index.html" == "$actual_link") {
+		$app->redirect("/map.html");
+	}
+
     $app->redirect('/404.html');
+});
+
+
+// ************
+$app->get('/map/', function () use ($app) {
+// echo "route '/'";exit;
+    $app->redirect("http://www.opendataenterprise.org/map.html");
+
 });
 
 
@@ -183,7 +198,6 @@ $app->get('/index.html', function () use ($app) {
     $app->redirect("/map/survey/start/");
 
 });
-
 
 // ************
 $app->get('/', function () use ($app) {
