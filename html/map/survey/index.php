@@ -78,7 +78,6 @@ $app = new \Slim\Slim(array('log.writer' => $logWriter));
 // Handle not found
 $app->notFound(function () use ($app) {
 
-	$actual_link = "$_SERVER[REQUEST_URI]";
 	// Temporarily route /map, /map/viz to /map.html
 	if ("/map/index.html" == "$actual_link" || "/map/viz/index.html" == "$actual_link") {
 		$app->redirect("/map.html");
@@ -201,7 +200,14 @@ $app->get('/index.html', function () use ($app) {
 
 // ************
 $app->get('/', function () use ($app) {
-// echo "route '/'";exit;
+	
+	$actual_link = "$_SERVER[REQUEST_URI]";
+	// echo "here $actual_link";
+	if (in_array($actual_link, array("/about", "/contact", "/convene", "/implement" ))) {
+		echo "in array";
+		$app->redirect($actual_link.".html");
+	}
+
     $app->redirect("index.html");
 
 });
