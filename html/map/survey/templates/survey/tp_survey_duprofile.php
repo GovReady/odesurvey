@@ -9,7 +9,7 @@
       <div style="text-align:center;font-size:1.1em;margin-top:20px;">
         Thank you for participating in the Open Data Impact Map, the first centralized, searchable database of open data use cases from around the world. 
         Your contribution makes it possible to better understand the value of open data and encourage its use globally.
-        Information collected will be displayed on the <a href="/map/viz">Map</a> and will be made available as open data.
+        Information collected will be displayed on the <a href="/map.html">Map</a> and will be made available as open data.
       </div>
       <br />
     </div>
@@ -235,7 +235,7 @@
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Health/healthcare">&nbsp; <span>Health/healthcare</span>
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Housing">&nbsp; <span>Housing</span>
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="International/global development">&nbsp; <span>International/global development</span>
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Legal">&nbsp; <span>Legal
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Legal">&nbsp; <span>Legal</span>
         </div>
         <div class="col-md-4" id="data_type_col-3">
             <input type="checkbox" name="data_use_type[]" class="data_use_type" value="Manufacturing">&nbsp; <span>Manufacturing</span>
