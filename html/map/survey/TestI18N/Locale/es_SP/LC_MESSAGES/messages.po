@@ -58,11 +58,11 @@ msgstr "utilizan datos públicos gubernamentales para desarrollar productos y se
 
 #We define open government data as publicly available data that is produced or commissioned by governments and that can be accessed and reused by anyone, free of charge.
 msgid "WE_DEFINE_OPEN"
-msgstr "Definimos los datos gubernamentales abiertos como datos públicos que son producidos o comisionados por gobiernos y pueden ser accesado y reutilizado gratis por cualquiera"
+msgstr "Definimos los datos gubernamentales abiertos como datos públicos que son producidos o comisionados por gobiernos y pueden ser accesado y reutilizado gratis por cualquiera."
 
 #1. Organizational Information
 msgid "ORG_INFO"
-msgstr "Información organizativa"
+msgstr "1. Información organizativa"
 
 #Name of organization
 msgid "ORG_NAME"
@@ -74,7 +74,7 @@ msgstr "Breve descripción de organización"
 
 #400 characters or less
 msgid "400_CHAR"
-msgstr "(máximo 400 caracteres)"
+msgstr "máximo 400 caracteres"
 
 #Type of organization
 msgid "ORG_TYPE"
@@ -110,7 +110,7 @@ msgstr "Localización"
 
 #Please provide as specific as possible
 msgid "SPECIFIC_AS_POSSIBLE"
-msgstr "(sea lo más específico posible)"
+msgstr "sea lo más específico posible"
 
 #Industry/category of the organization
 msgid "IND"
@@ -326,7 +326,7 @@ msgstr "Finanzas"
 
 #Geospatial/mapping 
 msgid "GEOSPATIAL"
-msgstr "Geoespacial/Mapeo"
+msgstr "Geoespacial/mapeo"
 
 #Government operations 
 msgid "GOVERNMENT_OPS"
