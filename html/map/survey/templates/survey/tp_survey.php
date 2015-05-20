@@ -7,6 +7,7 @@
 
     <div class="col-md-12" role="Intro" id="role-intro">
       <div style="text-align:center;font-size:1.1em;margin-top:20px;">
+        <div class="col-md-9 small">&nbsp;</div><div class="col-md-3 pull-right small" style="font-size:14px;">English | <a href="/map/survey/start/fr">French</a> | <a href="/map/survey/start/es">Spanish</a></div>
         Thank you for participating in the Open Data Impact Map, the first centralized, searchable database of open data use cases from around the world. 
         Your contribution makes it possible to better understand the value of open data and encourage its use globally.
         Information collected will be displayed on the <a href="/map.html">Map</a> and will be made available as open data.
