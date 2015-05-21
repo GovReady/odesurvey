@@ -484,7 +484,7 @@ msgstr "Téléphone"
 
 #All submissions will be reviewed before public display on the Open Data Impact Map.
 msgid "SUBMISSIONS_REVIEWED"
-msgstr "Nous passerons en revue toutes les informations avent leur mise a disposition du public sur l'Open Data Impact Map‎"
+msgstr "Nous passerons en revue toutes les informations avent leur mise à disposition du public sur l'Open Data Impact Map"
 
 #SUBMIT
 msgid "SUBMIT"
