@@ -332,7 +332,7 @@ msgid "HEALTH"
 msgstr "Health"
 
 #Housing 
-msgid "HOUSING"
+msgid "HOUSING_CAT"
 msgstr "Housing"
 
 #International/global development 

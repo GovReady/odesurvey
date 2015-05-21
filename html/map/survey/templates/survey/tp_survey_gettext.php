@@ -165,7 +165,7 @@ textdomain($domain);
         <div class="col-md-4" id="industry_id_col-3">
           <input type="radio" name="industry_id" class="industry_id" value="Scientific research">&nbsp; <?php echo _("SCI") ?>
           <br /><input type="radio" name="industry_id" class="industry_id" value="Telecommunications/internet service providers (ISPs)">&nbsp; <?php echo _("TEL") ?>
-          <br /><input type="radio" name="industry_id" class="industry_id" value="Tourism">&nbsp; <?php echo _("TOR") ?>Tourism
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Tourism">&nbsp; <?php echo _("TOR") ?>
           <br /><input type="radio" name="industry_id" class="industry_id" value="Transportation and logistics">&nbsp; <?php echo _("TRN") ?>
           <br /><input type="radio" name="industry_id" class="industry_id" value="Water and sanitation">&nbsp; <?php echo _("WAT") ?>
           <br /><input type="radio" name="industry_id" class="industry_id" value="Weather">&nbsp; <?php echo _("WEA") ?>
@@ -209,7 +209,7 @@ textdomain($domain);
 
       <!-- What is the greatest type of impact your organization has? -->
       <div class="form-group col-md-12" id="org_greatest_impact">
-          <label for="org_greatest_impact">What is the greatest type of impact your organization has?<small class="required">*</small></label>
+          <label for="org_greatest_impact"><?php echo _("GREATEST_IMPACT") ?><small class="required">*</small></label>
         <div class="col-xs-9">
           <div class="btn-group" data-toggle="buttons">
             <label class="btn btn-default">
@@ -258,7 +258,7 @@ textdomain($domain);
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Geospatial/mapping">&nbsp; <span><?php echo _("GEOSPATIAL") ?></span>
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Government operations">&nbsp; <span><?php echo _("GOVERNMENT_OPS") ?></span>
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Health/healthcare">&nbsp; <span><?php echo _("HEALTH") ?></span>
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Housing">&nbsp; <span>HOUSING</span>
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Housing">&nbsp; <span><?php echo _("HOUSING_CAT") ?></span>
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="International/global development">&nbsp; <span><?php echo _("INTERNATIONAL") ?></span>
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Legal">&nbsp; <span><?php echo _("LEGAL") ?></span>
         </div>

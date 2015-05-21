@@ -48,11 +48,11 @@ msgstr "qui sont des organisations à but non lucratif ou lucratif,  ou des comm
 
 #use open government data for advocacy, to develop products and services, improve operations, inform strategy and/or conduct research.
 msgid "USE_OPEN_GOVERNMENT_DATA"
-msgstr "qui utilisent des données ouvertes pour développer leurs produits et services, améliorer leurs opérations, éclairer leur stratégie, poursuivre des travaux de recherche et/ou des activités de plaidoyer."
+msgstr "qui utilisent des données ouvertes pour développer leurs produits et services, améliorer leurs opérations, éclairer leur stratégie, poursuivre des travaux de recherche et/ou de lobbying."
 
 #We define open government data as publicly available data that is produced or commissioned by governments and that can be accessed and reused by anyone, free of charge.
 msgid "WE_DEFINE_OPEN"
-msgstr "Nous définissons les données ouvertes comme des données publiques, assemblées par ou à la demande d' entité(s) gouvernementale, mises à la disposition du public et accessibles gratuitement, pouvant être utilisées et reutilisées par quiconque."
+msgstr "Nous définissons les données ouvertes comme des données publiques, assemblées par ou à la demande d' entité(s) gouvernementale(s), mises à la disposition du public et accessibles gratuitement, pouvant être utilisées et réutilisées par quiconque."
 
 #1. Organizational Information
 msgid "ORG_INFO"
@@ -108,11 +108,11 @@ msgstr "soyez aussi précis que possible"
 
 #Industry/category of the organization
 msgid "IND"
-msgstr "Secteur d'activité de votre organisation"
+msgstr "Secteur d'activité"
 
 #select 1
 msgid "SELECT_1"
-msgstr "cocher une case seulement"
+msgstr "cochez une case seulement"
 
 #Agriculture 
 msgid "AGR"
@@ -212,11 +212,11 @@ msgstr "Météorologie"
 
 #Founding year
 msgid "FOUNDING_YEAR"
-msgstr "Année de création de l’organisation"
+msgstr "Année de création"
 
 #Size
 msgid "SIZE"
-msgstr "Taille de l'organisation"
+msgstr "Taille"
 
 #1-10 employees
 msgid "1-10"
@@ -240,7 +240,7 @@ msgstr "+1000 employés"
 
 #What is the greatest type of impact your organization has?
 msgid "GREATEST_IMPACT"
-msgstr "Quel est l'impact le plus déterminant de votre organisation?"
+msgstr "Quel est l'impact le plus déterminant de l'organisation?"
 
 #Economic
 msgid "ECONOMIC"
@@ -268,7 +268,7 @@ msgstr "2. Utilisation des données ouvertes"
 
 #What are the most relevant types of open data your organization uses?
 msgid "MOST_RELEVANT_OPEN_DATA"
-msgstr "Quels sont les types de données ouvertes les plus pertinentes que votre organisation utilise?" 
+msgstr "Quels sont les types de données ouvertes les plus pertinentes utilisées par votre organisation?" 
 
 #most relevant
 msgid "MOST_RELEVANT"
@@ -292,7 +292,7 @@ msgstr "Arts et culture"
 
 #Business 
 msgid "BUSINESS"
-msgstr "Commerciales"
+msgstr "Commercial"
 
 #Consumer 
 msgid "CONSUMER"
@@ -300,7 +300,7 @@ msgstr "Consommation"
 
 #Demographics and social 
 msgid "DEMOGRAPHICS"
-msgstr "Demographiques et sociétales"
+msgstr "Démographie et société"
 
 #Economics 
 msgid "ECONOMICS"
@@ -335,7 +335,7 @@ msgid "HEALTH"
 msgstr "Santé"
 
 #Housing 
-msgid "HOUSING"
+msgid "HOUSING_CAT"
 msgstr "Logement"
 
 #International/global development 
@@ -376,7 +376,7 @@ msgstr "Quel est le nombre de pays produisant les données ouvertes dont vous di
 
 #Indicate the country that provide the data, and whether the data is National or State / Local (state/province/city).
 msgid "INDICATE_COUNTRY_THAT"
-msgstr "Indiquer le pays qui produit les données, et si ce sont des données nationales, our régionales/locales"
+msgstr "Indiquez les 3 pays fournissant les données les plus les plus utiles à votre organization, et si ces données sont nationales, et/ou locales (ville/région/département)"
 
 #Data source - Country
 msgid "DATA_SOURCE_COUNTRY"
@@ -384,7 +384,7 @@ msgstr "pays produisant les données ouvertes"
 
 #Select
 msgid "SELECT"
-msgstr "selectionner"
+msgstr "sélectionner"
 
 #1 country 
 msgid "1_COUNTRY"
@@ -416,11 +416,11 @@ msgstr "A quelle fin votre organisation utilise-t-elle les données ouvertes?"
 
 #advocacy
 msgid "ADVOCACY"
-msgstr "Activités de plaidoyer et defense de droits"
+msgstr "Lobbying et defense de droits"
 
 #new products, services, or applications
 msgid "PRODUCTS_SERVICES"
-msgstr "Développement de nouveaux produits et services"
+msgstr "Développement de nouveaux produits ou services"
 
 #organizational optimization 
 msgid "ORG_OPTIMIZATION"
@@ -440,7 +440,7 @@ msgstr "Quels sont les ensembles de données les plus utiles à votre organisati
 
 #What other types of data does your organization use in addition to open government data?
 msgid "WHAT_OTHER_TYPES_OF_DATA"
-msgstr "Quels autres types de données sont utilisées par votre organisation - en dehors des données ouvertes d'origine gouvernementales?"
+msgstr "Quels autres types de données sont utilisées par votre organisation - en dehors des données ouvertes d'origine gouvernementale?"
 
 #Additional information
 msgid "ADDITIONAL_INFORMATION"
@@ -460,7 +460,7 @@ msgstr "facultatif"
 
 #This information will not be made public
 msgid "NOT_BE_MADE_PUBLIC"
-msgstr "non ouvertes au public"
+msgstr "Informations non ouvertes au public"
 
 #First name
 msgid "FIRST_NAME"
@@ -484,10 +484,10 @@ msgstr "Téléphone"
 
 #All submissions will be reviewed before public display on the Open Data Impact Map.
 msgid "SUBMISSIONS_REVIEWED"
-msgstr "Nous passerons en revue toutes les informations avant leur mise à disposition du public sur l'Open Data Impact Map‎"
+msgstr "Nous passerons en revue toutes les informations transmises avant leur mise à disposition du public sur l'Open Data Impact Map"
 
 #SUBMIT
-msgid "SUPPORT"
+msgid "SUBMIT"
 msgstr "Envoyer"
 
 

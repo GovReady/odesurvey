@@ -14,6 +14,14 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
+#Test token 1
+msgid "HELLO_WORLD"
+msgstr "Bonjour tout le monde!"
+
+#Test token 2
+msgid "TEST_TRANSLATION"
+msgstr "Test de traduction..."
+
 #Thank you for participating in the Open Data Impact Map, the first centralized, searchable database of open data use cases from around the world.
 msgid "THANKS_PARTICIPATING"
 msgstr "Gracias por participar en el mapa de impacto de los datos abiertos, una base de datos centralizada, con búsqueda de casos de uso de datos abiertos de todo el mundo."
