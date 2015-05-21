@@ -26,7 +26,7 @@ textdomain($domain);
         <div class="col-md-9 small">&nbsp;</div><div class="col-md-3 pull-right small" style="font-size:14px;">
           <?php if ($language == "fr_FR") { ?>
             <a href="/map/survey/start">English</a> | Français | <a href="/map/survey/start/es">Español</a>
-          <?php } elseif ($language == "es_SP") { ?>
+          <?php } elseif ($language == "es_MX") { ?>
             <a href="/map/survey/start/">English</a> | <a href="/map/survey/start/fr">Français</a> | Español
           <?php } else { ?>
             English | <a href="/map/survey/start/fr">Français</a> | <a href="/map/survey/start/es">Español</a>
