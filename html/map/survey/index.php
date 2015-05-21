@@ -435,9 +435,11 @@ $app->get('/:surveyId/form/es/', function ($surveyId) use ($app) {
 	$content['surveyId'] = $surveyId;
 	$content['surveyName'] = "opendata";
 	$content['title'] = "Open Data Enterprise Survey";
+	$content['language'] = "es_MX";
 
 	$app->view()->setData(array('content' => $content ));
-	$app->render('survey/tp_survey_es.php');
+	// $app->render('survey/tp_survey_es.php');
+	$app->render('survey/tp_survey_gettext.php');
 
 });
 
@@ -455,6 +457,7 @@ $app->get('/:surveyId/form/fr/', function ($surveyId) use ($app) {
 	$content['surveyId'] = $surveyId;
 	$content['surveyName'] = "opendata";
 	$content['title'] = "Open Data Enterprise Survey";
+	$content['language'] = "fr_FR";
 
 	$app->view()->setData(array('content' => $content ));
 	$app->render('survey/tp_survey_gettext.php');

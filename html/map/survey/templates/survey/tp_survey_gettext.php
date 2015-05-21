@@ -1,6 +1,7 @@
 <?php 
 // I18N support information here
-$language = "fr_FR";
+// $language = "fr_FR";
+$language = $content['language'];
 putenv("LANG=" . $language); 
 setlocale(LC_ALL, $language);
  
@@ -22,7 +23,15 @@ textdomain($domain);
 
     <div class="col-md-12" role="Intro" id="role-intro">
       <div style="text-align:center;font-size:1.1em;margin-top:20px;">
-        <div class="col-md-9 small">&nbsp;</div><div class="col-md-3 pull-right small" style="font-size:14px;"><a href="/map/survey/start">English</a> | Français | <a href="/map/survey/start/es">Español</a></div>
+        <div class="col-md-9 small">&nbsp;</div><div class="col-md-3 pull-right small" style="font-size:14px;">
+          <?php if ($language == "fr_FR") { ?>
+            <a href="/map/survey/start">English</a> | Français | <a href="/map/survey/start/es">Español</a>
+          <?php } elseif ($language == "es_MX") { ?>
+            <a href="/map/survey/start/">English</a> | <a href="/map/survey/start/fr">Français</a> | Español
+          <?php } else { ?>
+            English | <a href="/map/survey/start/fr">Français</a> | <a href="/map/survey/start/es">Español</a>
+          <?php } ?>
+        </div>
         
         <?php echo gettext("THANKS_PARTICIPATING") ?>
         <?php echo _("YOUR_CONTRIBUTION") ?>
@@ -296,7 +305,7 @@ textdomain($domain);
 
       <div class="row col-md-12">
         <label class="row col-md-10">
-          <?php echo _("HOW_USE_OPEN_DATA") ?> <small class="required">(Provide as much information as possible)*</small> 
+          <?php echo _("HOW_USE_OPEN_DATA") ?> <small class="required">(<?php echo _("PROVIDE_AS_MUCH_INFO") ?>)*</small> 
         </label>
 
         <div class="form-group col-md-12">
