@@ -108,7 +108,7 @@ msgstr "sea lo más específico posible"
 
 #Industry/category of the organization
 msgid "IND"
-msgstr "Industria/categoría de organización ()"
+msgstr "Industria/categoría de organización"
 
 #select 1
 msgid "SELECT_1"

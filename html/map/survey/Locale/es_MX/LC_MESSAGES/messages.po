@@ -14,14 +14,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
-#Test token 1
-msgid "HELLO_WORLD"
-msgstr "Bonjour tout le monde!"
-
-#Test token 2
-msgid "TEST_TRANSLATION"
-msgstr "Test de traduction..."
-
 #Thank you for participating in the Open Data Impact Map, the first centralized, searchable database of open data use cases from around the world.
 msgid "THANKS_PARTICIPATING"
 msgstr "Gracias por participar en el mapa de impacto de los datos abiertos, una base de datos centralizada, con búsqueda de casos de uso de datos abiertos de todo el mundo."
@@ -36,7 +28,7 @@ msgstr "La información recopilada será mostrada en el mapa y hecho disponible 
 
 #ELIGIBILITY
 msgid "ELIGIBILITY"
-msgstr "Critères d’éligibilité"
+msgstr "ELEGIBILIDAD"
 
 #The Open Data Impact Map includes organizations that:
 msgid "MAP_INCLUDES_ORGS"
@@ -60,11 +52,11 @@ msgstr "1. Información organizativa"
 
 #Name of organization
 msgid "ORG_NAME"
-msgstr "Breve descripción de organización"
+msgstr "Nombre de organización"
 
 #One sentence description of organization
 msgid "ORG_DESC"
-msgstr "Description de l'organisation en une phrase"
+msgstr "Breve descripción de organización"
 
 #400 characters or less
 msgid "400_CHAR"
@@ -72,15 +64,15 @@ msgstr "máximo 400 caracteres"
 
 #Type of organization
 msgid "ORG_TYPE"
-msgstr "Comercial"
+msgstr "Tipo de organización"
 
 #For-profit
 msgid "FOR-PROFIT"
-msgstr "Sin Fines de Lucro"
+msgstr "Comercial"
 
 #Nonprofit
 msgid "NONPROFIT"
-msgstr "A but non lucratif"
+msgstr "Sin Fines de Lucro"
 
 #Developer group
 msgid "DEVELOPER_GROUP"
@@ -92,15 +84,15 @@ msgstr "Otro"
 
 #Website URL
 msgid "WEBSITE_URL"
-msgstr "Sin url"
+msgstr "Sitio web url"
 
 #No URL
 msgid "NO_URL"
-msgstr "Localización"
+msgstr "Sin URL"
 
 #Location
 msgid "LOCATION"
-msgstr "Adresse complète de votre organization"
+msgstr "Localización"
 
 #Please provide as specific as possible
 msgid "SPECIFIC_AS_POSSIBLE"
@@ -108,7 +100,11 @@ msgstr "sea lo más específico posible"
 
 #Industry/category of the organization
 msgid "IND"
-msgstr "Industria/categoría de organización (seleccione uno)"
+msgstr "Industria/categoría de organización"
+
+#select 1
+msgid "SELECT_1"
+msgstr "seleccione uno"
 
 #Agriculture 
 msgid "AGR"
@@ -234,7 +230,9 @@ msgstr "201-1000 empleados"
 msgid "1000+"
 msgstr "1000+ empleados"
 
-##################################
+#What is the greatest type of impact your organization has?
+msgid "GREATEST_IMPACT"
+msgstr "¿Cuál es el tipo de impacto más grande que su organización logra?"
 
 #Economic
 msgid "ECONOMIC"
@@ -321,7 +319,7 @@ msgid "HEALTH"
 msgstr "Salud"
 
 #Housing 
-msgid "HOUSING"
+msgid "HOUSING_CAT"
 msgstr "Vivienda"
 
 #International/global development 
@@ -446,7 +444,7 @@ msgstr "Información de contacto"
 
 #This information will not be made public
 msgid "NOT_BE_MADE_PUBLIC"
-msgstr "(ésta información no será accesible al público)"
+msgstr "ésta información no será accesible al público"
 
 #First name
 msgid "FIRST_NAME"
@@ -486,7 +484,7 @@ msgstr "proporcione ejemplos"
 
 #"enter a location" 
 msgid "ENTER_LOCATION"
-msgstr "introduce una localización"
+msgstr "Introduce una localización"
 
 #"select countries providing data used by your organization" msgstr "marque países que 
 msgid "SELECT_COUNTRIES_PROVIDING_DATA"
