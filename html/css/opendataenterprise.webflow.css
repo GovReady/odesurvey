@@ -470,6 +470,7 @@ p {
 .section.do {
   padding-top: 40px;
   padding-bottom: 40px;
+  font-size: 14px;
   text-align: left;
 }
 .section.sponsors {
@@ -2357,9 +2358,9 @@ p {
   margin-right: 0px;
   margin-left: 0px;
   color: #888;
-  font-size: 13px;
+  font-size: 17px;
   font-weight: 400;
-  text-align: left;
+  text-align: center;
 }
 .booz-allen {
   margin-top: 50px;
@@ -2827,6 +2828,9 @@ p {
 }
 .sunlight-foundation-link {
   color: #555;
+}
+.okf-china {
+  margin-top: 10px;
 }
 html.w-mod-js *[data-ix="display-none-on-load"] {
   display: none;
