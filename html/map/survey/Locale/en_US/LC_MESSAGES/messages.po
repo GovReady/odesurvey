@@ -482,3 +482,11 @@ msgstr "All submissions will be reviewed before public display on the Open Data 
 #SUBMIT
 msgid "SUBMIT"
 msgstr "Submit"
+
+#The Open Data Impact Map, a project of the Center for Open Data Enterprise as part of the OD4D network, is licensed under
+msgid "OD4D_ATTRIBUTION"
+msgstr "The Open Data Impact Map, a project of the Center for Open Data Enterprise as part of the OD4D network, is licensed under"
+
+#Creative Commons Attribution-Share Alike 4.0 International License
+msgid "CREATIVE_COMMONS_LICENSE"
+msgstr "Creative Commons Attribution-Share Alike 4.0 International License"

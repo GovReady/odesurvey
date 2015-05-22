@@ -400,6 +400,23 @@ textdomain($domain);
       <button class="btn btn-primary" style="padding:1em 2em 1em 2em; width:200px; background-color: rgb(53, 162, 227);" id="btnSubmit" type="submit" name="submit" value="submit"><?php echo _("SUBMIT") ?></button>
     </div>
 
+    <div class="w-section attribution" style="margin-top:12px;">
+      <div class="w-container">
+        <div class="">
+          <hr>
+          <div class="w-row row-attribution" >
+            <div class="w-col w-col-3"><a href="http://od4d.net"><img class="logo-od4" src="/map/survey/img/od4-logo-black.png" width="200"></a>
+            </div>
+            <div class="w-col w-col-3" style="text-align:center;"><a class="link-attribution" href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="logo-cc" src="/map/survey/img/creative_commons_logo.png" width="150"></a>
+            </div>
+            <div class="w-col w-col-6">
+              <div class="text-attribution"><?php echo _("OD4D_ATTRIBUTION") ?>&nbsp;<a class="link-attribution" href="http://creativecommons.org/licenses/by-sa/4.0/"><?php echo _("CREATIVE_COMMONS_LICENSE") ?></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
       
     </div>
 

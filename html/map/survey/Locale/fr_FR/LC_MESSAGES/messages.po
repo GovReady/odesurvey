@@ -530,3 +530,11 @@ msgstr "Ce champ est obligatoire"
 #"Please enter a valid URL."
 msgid "ENTER_VALID_URL"
 msgstr "Veuillez entrer une adresse valide"
+
+#The Open Data Impact Map, a project of the Center for Open Data Enterprise as part of the OD4D network, is licensed under
+msgid "OD4D_ATTRIBUTION"
+msgstr "L'Open Data Impact Map, une initiative du Center for Open Data Enterprise soutenue par le réseau Open Data for Development (OD4D), est mis à disposition selon les termes de la licence"
+
+#Creative Commons Attribution-Share Alike 4.0 International License
+msgid "CREATIVE_COMMONS_LICENSE"
+msgstr "Creative Commons Attribution – Partage à l’Identique 4.0 Internationale"
