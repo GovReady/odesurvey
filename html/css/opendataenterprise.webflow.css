@@ -2601,6 +2601,7 @@ p {
 }
 .row-supporters {
   margin-bottom: 20px;
+  text-align: center;
 }
 .block-supporters {
   margin-top: 50px;
@@ -2831,6 +2832,17 @@ p {
 }
 .okf-china {
   margin-top: 10px;
+}
+.od4d-network {
+  margin-left: 30px;
+}
+.idrc-logo {
+  margin-top: 30px;
+  margin-right: 50px;
+  text-align: left;
+}
+.od-taiwan {
+  margin-top: 5px;
 }
 html.w-mod-js *[data-ix="display-none-on-load"] {
   display: none;
@@ -3380,6 +3392,12 @@ html.w-mod-js *[data-ix="display-none-on-load"] {
   }
   .attribution-block {
     width: auto;
+  }
+  .od4d-network {
+    margin-left: 0px;
+  }
+  .idrc-logo {
+    margin-right: 0px;
   }
 }
 @media (max-width: 479px) {
