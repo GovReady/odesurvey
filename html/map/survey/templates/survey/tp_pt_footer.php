@@ -77,11 +77,11 @@
       // Toggle other choice for industry/category
       $('.industry_id').on('change', function(e) {
         var choice = $('input[name="industry_id"]:checked').val();
-        if (choice != 'otr' && $('input[name="industry_other"]').is(":visible")) {
+        if (choice != 'Other' && $('input[name="industry_other"]').is(":visible")) {
           $('input[name="industry_other"]').val("");
           $('input[name="industry_other"]').toggle();
         }
-        if (choice == 'otr' && $('input[name="industry_other"]').is(":hidden")) {
+        if (choice == 'Other' && $('input[name="industry_other"]').is(":hidden")) {
           $('input[name="industry_other"]').val("");
           $('input[name="industry_other"]').toggle();
         }
