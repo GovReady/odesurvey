@@ -64,10 +64,20 @@
             required: true,
             digits: true,
             rangelength: [4, 4]
+          },
+          industry_other: {
+            required: "#industr_id_other:checked",
+            minlength: 2
+          },
+          data_use_type_other: {
+            required: "#data_use_type_checkbox_other:checked",
+            minlength: 2
           }
         },
         messages: {
-          org_year_founded: "Enter a year using four digits, example: 1980"
+          org_year_founded: "Enter a year using four digits, example: 1980",
+          industry_other: "Describe other is required",
+          data_use_type_other: "Describe other is required"
         }
       });
 
@@ -100,8 +110,8 @@
       });
 
       // Toggle other choice for most relevant types of open data
-      $('input[value="Other"]').on('change', function(e) {
-        var choice = $('input[value="Other"]:checked').val();
+      $('#data_use_type_checkbox_other').on('change', function(e) {
+        var choice = $('#data_use_type_checkbox_other:checked').val();
         if (choice != 'Other' && $('input[name="data_use_type_other"]').is(":visible")) {
           $('input[name="data_use_type_other"]').val("");
           $('input[name="data_use_type_other"]').toggle();

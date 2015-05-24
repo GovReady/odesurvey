@@ -145,8 +145,8 @@
           <br /><input type="radio" name="industry_id" class="industry_id" value="Transportation and logistics">&nbsp; Transportation and logistics
           <br /><input type="radio" name="industry_id" class="industry_id" value="Water and sanitation">&nbsp; Water and sanitation
           <br /><input type="radio" name="industry_id" class="industry_id" value="Weather">&nbsp; Weather
-          <br /><input type="radio" name="industry_id" class="industry_id" value="Other">&nbsp; Other
-                <input type="text" class="form-control" style="display:none" name="industry_other" placeholder="Describe other">
+          <br /><input type="radio" name="industry_id" class="industry_id" id="industr_id_other" value="Other">&nbsp; Other
+                <input type="text" class="form-control" style="display:none" id="industry_other" name="industry_other" placeholder="Describe other">
         </div>
         </fieldset>
       </div>
@@ -245,7 +245,7 @@
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Tourism">&nbsp; <span>Tourism</span>
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Transportation">&nbsp; <span>Transportation</span>
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Weather">&nbsp; <span>Weather</span>
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Other">&nbsp; <span>Other</span>
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" id="data_use_type_checkbox_other" value="Other">&nbsp; <span>Other</span>
                   <input type="text" class="form-control" style="display:none" id="data_use_type_other" name="data_use_type_other" placeholder="Provide details">
         </div>
       </div>
