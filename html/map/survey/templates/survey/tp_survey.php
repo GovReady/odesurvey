@@ -155,7 +155,7 @@
       <div class="form-group col-md-12">
         <div class="form-group col-md-10">
           <label for="org_year_founded">Founding year<small class="required">*</small></label>
-          <input type="text" class="form-control" id="org_year_founded" name="org_year_founded" placeholder="" required>
+          <input type="text" class="form-control" id="org_year_founded" name="org_year_founded" placeholder="" minlength=4 maxlength=4 required>
         </div>
       </div>
 

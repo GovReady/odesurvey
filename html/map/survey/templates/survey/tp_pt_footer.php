@@ -56,8 +56,20 @@
         allowClear: true }
       );
 
-      // Form Data validation
-      $("#survey_form").validate();
+      // // Form Data validation
+      // $("#survey_form").validate();
+      $("#survey_form").validate({
+        rules: {
+          org_year_founded: {
+            required: true,
+            digits: true,
+            rangelength: [4, 4]
+          }
+        },
+        messages: {
+          org_year_founded: "Enter a year using four digits, example: 1980"
+        }
+      });
 
       // Geocomplete
       $('#org_hq_city_all').geocomplete({ 
