@@ -1,3 +1,17 @@
+<?php 
+// I18N support information here
+// $language = "fr_FR";
+$language = $content['language'];
+putenv("LANG=" . $language); 
+setlocale(LC_ALL, $language);
+ 
+// Set the text domain as "messages"
+$domain = "messages";
+bindtextdomain($domain, "Locale"); 
+bind_textdomain_codeset($domain, 'UTF-8');
+ 
+textdomain($domain);
+?>
 <?php include __DIR__.'/'.'tp_pt_header.php'; ?>
 
 <!-- Main Content Section -->
