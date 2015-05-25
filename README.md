@@ -1,5 +1,5 @@
 # Open Data Impact Survey
-Version 1.2
+Version 1.3
 
 This is the first centralized, searchable database of open data use cases from around the world. Your contribution makes it possible to better understand the value of open data and encourage its use globally. Information collected will be displayed on http://www.opendataenterprise.org and will be made available as open data.
 
@@ -51,6 +51,9 @@ If the URL does not work check `vm/basic/Vagrantfile` and check file Vagrant con
 - Using jQuery Bootgrid - http://www.jquery-bootgrid.com
 
 # Change Log
+
+## Version 1.3
+- Improved language localization
 
 ## Version 1.2
 - Guidance overlay

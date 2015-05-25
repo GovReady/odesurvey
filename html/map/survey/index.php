@@ -415,6 +415,7 @@ $app->get('/:surveyId/form', function ($surveyId) use ($app) {
 	$content['surveyId'] = $surveyId;
 	$content['surveyName'] = "opendata";
 	$content['title'] = "Open Data Enterprise Survey";
+	$content['language'] = "en_US";
 
 	$app->view()->setData(array('content' => $content ));
 	$app->render('survey/tp_survey.php');
@@ -714,6 +715,7 @@ $app->get('/:surveyId/thankyou/', function ($surveyId) use ($app) {
 	$content['HTTP_HOST'] = $_SERVER['HTTP_HOST'];
 	$content['surveyName'] = "opendata";
 	$content['title'] = "Open Data Enterprise Survey - Thank You";
+	$content['language'] = "en_US";
 	
 	$app->view()->setData(array('content' => $content, 'org_profile' => $org_profile ));
 	$app->render('survey/tp_thankyou.php');
@@ -756,6 +758,7 @@ $app->get('/:surveyId/submitted/', function ($surveyId) use ($app) {
 	$content['HTTP_HOST'] = $_SERVER['HTTP_HOST'];
 	$content['surveyName'] = "opendata";
 	$content['title'] = "Open Data Enterprise Survey - Submitted";
+	$content['language'] = "en_US";
 	
 	$app->view()->setData(array('content' => $content, 'org_profile' => $org_profile, 'org_data_use' => $org_data_use ));
 	$app->render('survey/tp_submitted.php');
@@ -806,6 +809,7 @@ $app->get('/edit/:profile_id', function ($profile_id) use ($app) {
 	$content['HTTP_HOST'] = $_SERVER['HTTP_HOST'];
 	$content['surveyName'] = "opendata";
 	$content['title'] = "Open Data Enterprise Survey - Edit Message";
+	$content['language'] = "en_US";
 	
 	$app->view()->setData(array('content' => $content, 'org_profile' => $org_profile ));
 	$app->render('survey/tp_profile_edit_msg.php');
@@ -854,6 +858,7 @@ $app->get('/edit/:profile_id/form', function ($profile_id) use ($app) {
 	$content['HTTP_HOST'] = $_SERVER['HTTP_HOST'];
 	$content['surveyName'] = "opendata";
 	$content['title'] = "Open Data Enterprise Survey - Edit";
+	$content['language'] = "en_US";
 	
 	$app->view()->setData(array('content' => $content, 'org_profile' => $org_profile, 'org_data_use' => $org_data_use ));
 	$app->render('survey/tp_profile_edit.php');
@@ -868,6 +873,7 @@ $app->get('/:profile_id/notfound/', function ($profile_id) use ($app) {
 	$content['title'] = "Open Data Enterprise Survey - Problem";
 	$content['error_msg_title'] = "Organization not found.";
 	$content['error_msg_details'] = "We did not find any organization for profile: $profile_id.";
+	$content['language'] = "en_US";
 	
 	$app->view()->setData(array('content' => $content));
 	$app->render('survey/tp_problem.php');
@@ -898,6 +904,7 @@ $app->get('/survey/opendata/list/new/', function () use ($app) {
 	$content['HTTP_HOST'] = $_SERVER['HTTP_HOST'];
 	$content['surveyName'] = "opendata";
 	$content['title'] = "Open Data Enterprise Survey - Recently Submitted";
+	$content['language'] = "en_US";
 
 	$app->view()->setData(array('content' => $content, 'org_profiles' => $org_profiles));
 	$app->render('survey/tp_grid_map.php');
@@ -928,6 +935,7 @@ $app->get('/survey/opendata/list/new/2/', function () use ($app) {
 	$content['HTTP_HOST'] = $_SERVER['HTTP_HOST'];
 	$content['surveyName'] = "opendata";
 	$content['title'] = "Open Data Enterprise Survey - Recently Submitted";
+	$content['language'] = "en_US";
 
 	$app->view()->setData(array('content' => $content, 'org_profiles' => $org_profiles));
 	$app->render('admin/tp_grid_map.php');
@@ -958,6 +966,7 @@ $app->get('/survey/opendata/list/map/', function () use ($app) {
 	$content['HTTP_HOST'] = $_SERVER['HTTP_HOST'];
 	$content['surveyName'] = "opendata";
 	$content['title'] = "Open Data Enterprise Survey - Recently Submitted";
+	$content['language'] = "en_US";
 
 	$app->view()->setData(array('content' => $content, 'org_profiles' => $org_profiles));
 	$app->render('survey/tp_grid_map.php');
@@ -985,6 +994,7 @@ $app->get('/survey/opendata/list/new/csv', function () use ($app) {
 	$content['HTTP_HOST'] = $_SERVER['HTTP_HOST'];
 	$content['surveyName'] = "opendata";
 	$content['title'] = "Open Data Enterprise Survey - Recently Submitted";
+	$content['language'] = "en_US";
 
 	$app->view()->setData(array('content' => $content, 'org_profiles' => $org_profiles));
 	$app->render('survey/tp_csv.php');
@@ -1138,6 +1148,7 @@ $app->get('/argis/geoservice/', function () use ($app) {
 $app->get('/gettext/', function () use ($app) {
 
 	$content['title'] = "Open Data Enterprise Survey"; 
+	$content['language'] = "en_US";
 	
 	$app->view()->setData(array('content' => $content));
 	$app->render('gettext/tp_home.php');
