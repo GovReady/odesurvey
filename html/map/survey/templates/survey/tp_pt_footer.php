@@ -56,10 +56,46 @@
         allowClear: true }
       );
 
+      // override jquery validate plugin defaults
+      $.validator.setDefaults({
+        ignore: [],
+          highlight: function(element) {
+            $(element).closest('.form-group').addClass('has-error');
+          },
+          unhighlight: function(element) {
+            $(element).closest('.form-group').removeClass('has-error');
+          },
+          errorElement: 'label',
+          // errorClass: 'help-block',
+          errorPlacement: function(error, element) {
+            if(element.parent('.btn-group').length) {
+                error.insertAfter(element.parent());
+            } else {
+                error.insertAfter(element);
+            }
+          }
+      });
+
       // // Form Data validation
       // $("#survey_form").validate();
       $("#survey_form").validate({
         rules: {
+          // txtTextOnly: {
+          //   required: true,
+          //   textOnly: true
+          // },
+          org_type: {
+            required: true
+          },
+          org_size_id: {
+            required: true
+          },
+          org_greatest_impact: {
+            required: true
+          },
+          data_country_count: {
+            required: true
+          },
           org_year_founded: {
             required: true,
             digits: true,
@@ -135,6 +171,7 @@
             $('#org_type_other_div').remove();
           }
         }
+        $('#org_type-error').html("");
       });
 
       $('input[type=radio][name=org_greatest_impact]').change(function() {
@@ -143,6 +180,11 @@
           // console.log($('#industry_id').parent());
           $('#org_greatest_impact').append(new_html);
         }
+        $('#org_greatest_impact-error').html("");
+      });
+
+      $('input[type=radio][name=org_size_id]').change(function() {
+        $('#org_size_id-error').html("");
       });
 
       // Use of Open Data Interactivity
@@ -154,6 +196,7 @@
       });
 
       $('input[type=radio][name=data_country_count]').change(function(e) {
+        $('#data_country_count-error').html("");
         updateDataUseProfile(e);
       });
     }); // End Document Ready function
