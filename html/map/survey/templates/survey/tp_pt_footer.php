@@ -25,6 +25,11 @@
   <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/css/select2.min.css" rel="stylesheet" />
   <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/js/select2.min.js"></script>
   <script src="/map/survey/dist/jquery.validate.min.js"></script>
+<?php if ($language == "fr_FR") { ?>
+  <script src="/map/survey/js/vendor/jquery-validation/src/localization/messages_fr.js"></script>
+<?php } elseif ($language == "es_MX") { ?>
+  <script src="/map/survey/js/vendor/jquery-validation/src/localization/messages_es.js"></script>
+<?php } ?>
 
   <!-- geocomplete -->
   <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
