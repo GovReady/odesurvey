@@ -503,9 +503,9 @@ msgstr "donnez des exemples"
 msgid "ENTER_LOCATION"
 msgstr "indiquez le lieu"
 
-#"select countries providing data used by your organization"  
+#"Select countries providing data used by your organization"  
 msgid "SELECT_COUNTRIES_PROVIDING_DATA"
-msgstr " selectionnez le(s) pays fournissant les données utilisées par votre organization"
+msgstr "Selectionnez le(s) pays fournissant les données utilisées par votre organization"
 
 #"national/local" 
 msgid "NATIONAL_LOCAL"
@@ -515,9 +515,9 @@ msgstr "national/local"
 msgid "DATA_SOURCE"
 msgstr "source de données - pays"
 
-#"click national and/or local to show government level of data used" 
+#"Click national and/or local to show government level of data used" 
 msgid "SHOW_GOVERNMENT_LEVEL"
-msgstr "indiquez national et/ou local pour démontrer le niveau de gouvernement fournissant les données"
+msgstr "Indiquez national et/ou local pour démontrer le niveau de gouvernement fournissant les données"
 
 #"required" 
 msgid "REQUIRED"
