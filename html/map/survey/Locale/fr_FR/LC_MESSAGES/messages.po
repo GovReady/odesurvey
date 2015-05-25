@@ -493,15 +493,15 @@ msgstr "Envoyer"
 
 #"provide as much information as possible" 
 msgid "PROVIDE_AS_MUCH_INFO"
-msgstr "fournissez un maximum d'informations"
+msgstr "Fournissez un maximum d'informations"
 
 #"provide examples" 
 msgid "PROVIDE_EXAMPLES"
-msgstr "donnez des exemples"
+msgstr "Donnez des exemples"
 
 #"enter a location" 
 msgid "ENTER_LOCATION"
-msgstr "indiquez le lieu"
+msgstr "Indiquez le lieu"
 
 #"Select countries providing data used by your organization"  
 msgid "SELECT_COUNTRIES_PROVIDING_DATA"
@@ -521,7 +521,7 @@ msgstr "Indiquez national et/ou local pour démontrer le niveau de gouvernement 
 
 #"required" 
 msgid "REQUIRED"
-msgstr "obligatoire"
+msgstr "Obligatoire"
 
 #"This field is required" 
 msgid "FIELD_REQUIRED"

@@ -264,7 +264,7 @@ msgstr "Tipos de datos abiertos su organización utiliza que son más relevantes
 
 #select all that apply
 msgid "SELECT_ALL"
-msgstr "marque todas las opciones que apliquen"
+msgstr "Marque todas las opciones que apliquen"
 
 #Agriculture 
 msgid "AGRICULTURE"
@@ -488,7 +488,7 @@ msgstr "Introduce una localización"
 
 #"select countries providing data used by your organization" msgstr "marque países que 
 msgid "SELECT_COUNTRIES_PROVIDING_DATA"
-msgstr "proporcionan los datos abiertos utilizado por su organización"
+msgstr "Proporcionan los datos abiertos utilizado por su organización"
 
 #"national/local" 
 msgid "NATIONAL_LOCAL"
@@ -500,11 +500,11 @@ msgstr "fuente de datos - país"
 
 #"click national and/or local to show government level of data used" 
 msgid "SHOW_GOVERNMENT_LEVEL"
-msgstr "marque nacional y/o local para mostrar el nivel de datos gubernamentales utilizado"
+msgstr "Marque nacional y/o local para mostrar el nivel de datos gubernamentales utilizado"
 
 #"required" 
 msgid "REQUIRED"
-msgstr "obligatorio"
+msgstr "Obligatorio"
 
 #"This field is required" 
 msgid "FIELD_REQUIRED"
@@ -516,7 +516,7 @@ msgstr "Por favor introduce un URL valido"
 
 #The Open Data Impact Map, a project of the Center for Open Data Enterprise as part of the OD4D network, is licensed under
 msgid "OD4D_ATTRIBUTION"
-msgstr "TEl mapa de impacto de los datos abiertos, un proyecto del Center for Open Data Enterprise como parte de la red OD4D , está licenciado bajo"
+msgstr "Tel mapa de impacto de los datos abiertos, un proyecto del Center for Open Data Enterprise como parte de la red OD4D , está licenciado bajo"
 
 #Creative Commons Attribution-Share Alike 4.0 International License
 msgid "CREATIVE_COMMONS_LICENSE"

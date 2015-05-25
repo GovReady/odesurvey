@@ -490,3 +490,43 @@ msgstr "The Open Data Impact Map, a project of the Center for Open Data Enterpri
 #Creative Commons Attribution-Share Alike 4.0 International License
 msgid "CREATIVE_COMMONS_LICENSE"
 msgstr "Creative Commons Attribution-Share Alike 4.0 International License"
+
+#provide as much information as possible
+msgid "PROVIDE_AS_MUCH_INFO"
+msgstr "Provide as much information as possible"
+
+#provide examples 
+msgid "PROVIDE_EXAMPLES"
+msgstr "provide examples" 
+
+#enter a location 
+msgid "ENTER_LOCATION"
+msgstr "Enter a location"
+
+#Select countries providing data used by your organization 
+msgid "SELECT_COUNTRIES_PROVIDING_DATA"
+msgstr "Select countries providing data used by your organization"
+
+#national/local
+msgid "NATIONAL_LOCAL"
+msgstr "national/local"
+
+#data source - country 
+msgid "DATA_SOURCE"
+msgstr "data source - country"
+
+#Click national and/or local to show government level of data used 
+msgid "SHOW_GOVERNMENT_LEVEL"
+msgstr "Click national and/or local to show government level of data used"
+
+#required
+msgid "REQUIRED"
+msgstr "required"
+
+#This field is required 
+msgid "FIELD_REQUIRED"
+msgstr "This field is required"
+
+#Please enter a valid URL.
+msgid "ENTER_VALID_URL"
+msgstr "Please enter a valid URL"

@@ -171,7 +171,7 @@ textdomain($domain);
           <br /><input type="radio" name="industry_id" class="industry_id" value="Water and sanitation">&nbsp; <?php echo _("WAT") ?>
           <br /><input type="radio" name="industry_id" class="industry_id" value="Weather">&nbsp; <?php echo _("WEA") ?>
           <br /><input type="radio" name="industry_id" class="industry_id" value="Other">&nbsp; <?php echo _("OTHER") ?>
-                <input type="text" class="form-control" style="display:none" name="industry_other" placeholder="Describe other">
+                <input type="text" class="form-control" style="display:none" name="industry_other" placeholder="<?php echo _("PROVIDE_DETAILS") ?>">
         </div>
         </fieldset>
       </div>
@@ -274,7 +274,7 @@ textdomain($domain);
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Transportation">&nbsp; <span><?php echo _("TRANSPORTATION") ?></span>
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Weather">&nbsp; <span><?php echo _("WEATHER") ?></span>
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Other">&nbsp; <span><?php echo _("OTHER") ?></span>
-                  <input type="text" class="form-control" style="display:none" id="data_use_type_other" name="data_use_type_other" placeholder="Provide details">
+                  <input type="text" class="form-control" style="display:none" id="data_use_type_other" name="data_use_type_other" placeholder="<?php echo _("PROVIDE_DETAILS") ?>">
         </div>
       </div>
 <br />
@@ -317,26 +317,26 @@ textdomain($domain);
           <div class="col-md-6" id="use_open_data_col-1">
              <div>
               <input type="checkbox" class="use_open_data" name="use_advocacy" id="use_advocacy" value="True"> <?php echo _("ADVOCACY") ?>
-              <input type="text" class="form-control" style="display:none" id="use_advocacy_desc" name="use_advocacy_desc" placeholder="Provide details">
+              <input type="text" class="form-control" style="display:none" id="use_advocacy_desc" name="use_advocacy_desc" placeholder="<?php echo _("PROVIDE_DETAILS") ?>">
             </div>
             <div>
               <input type="checkbox" class="use_open_data" name="use_prod_srvc" id="use_prod_srvc" value="True"> <?php echo _("PRODUCTS_SERVICES") ?>
-              <input type="text" class="form-control" style="display:none" id="use_prod_srvc_desc" name="use_prod_srvc_desc" placeholder="Provide details">
+              <input type="text" class="form-control" style="display:none" id="use_prod_srvc_desc" name="use_prod_srvc_desc" placeholder="<?php echo _("PROVIDE_DETAILS") ?>">
             </div>
             <div>
               <input type="checkbox" class="use_open_data" name="use_org_opt" id="use_org_opt" value="True"> <?php echo _("ORG_OPTIMIZATION") ?> <i>(<?php echo _("EG_BENCHMARKING") ?>)</i>
-              <input type="text" class="form-control" style="display:none" id="use_org_opt_desc" name="use_org_opt_desc" placeholder="Provide details">
+              <input type="text" class="form-control" style="display:none" id="use_org_opt_desc" name="use_org_opt_desc" placeholder="<?php echo _("PROVIDE_DETAILS") ?>">
             </div>
           </div>
 
           <div class="col-md-6" id="use_open_data_col-2">
             <div>
               <input type="checkbox" class="use_open_data" name="use_research" id="use_research" value="True"> <?php echo _("RESEARCH") ?>
-              <input type="text" class="form-control" style="display:none" id="use_research_desc" name="use_research_desc" placeholder="Provide details">
+              <input type="text" class="form-control" style="display:none" id="use_research_desc" name="use_research_desc" placeholder="<?php echo _("PROVIDE_DETAILS") ?>">
             </div>
             <div>
               <input type="checkbox" class="use_open_data" name="use_other" id="use_other" value="True"> <?php echo _("OTHER") ?>
-              <input type="text" class="form-control" style="display:none" id="use_other_desc" name="use_other_desc" placeholder="Provide details">
+              <input type="text" class="form-control" style="display:none" id="use_other_desc" name="use_other_desc" placeholder="<?php echo _("PROVIDE_DETAILS") ?>">
             </div>
           </div>
         </div>
