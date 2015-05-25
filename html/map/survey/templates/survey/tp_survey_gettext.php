@@ -12,7 +12,6 @@ bind_textdomain_codeset($domain, 'UTF-8');
  
 textdomain($domain);
 ?>
-
 <?php include __DIR__.'/'.'tp_pt_header.php'; ?>
 
 
@@ -82,6 +81,7 @@ textdomain($domain);
       <!-- Type of organization -->
       <div class="form-group col-md-12" id="org_type">
           <label for="org_type"> <?php echo _("ORG_TYPE") ?><small class="required">*</small></label>
+          <label id="org_type-error" class="error" for="org_type"></label>
         <div class="col-md-10">
           <div class="btn-group" data-toggle="buttons">
             <label class="btn btn-default">
@@ -121,24 +121,25 @@ textdomain($domain);
           <input type="text" class="form-control" id="org_hq_city_all" name="org_hq_city_all" required>
 
           <!--label for="org_hq_city">City</label -->
-          <input type="hidden" class="form-control" id="org_hq_city" name="org_hq_city" required data-geo="locality">
+          <input type="hidden" class="form-control" id="org_hq_city" name="org_hq_city" data-geo="locality">
 
           <!--label for="org_hq_st_prov">State/Province</label -->
-          <input type="hidden" class="form-control" id="org_hq_st_prov" name="org_hq_st_prov" required data-geo="administrative_area_level_1">
+          <input type="hidden" class="form-control" id="org_hq_st_prov" name="org_hq_st_prov" data-geo="administrative_area_level_1">
 
           <!--label for="org_hq_country">Country</label -->
-          <input type="hidden" class="form-control" id="org_hq_country" name="org_hq_country" required data-geo="country_short">
+          <input type="hidden" class="form-control" id="org_hq_country" name="org_hq_country" data-geo="country_short">
 
           <!--label for="latitude">lat</label -->
-          <input type="hidden" class="form-control" id="latitude" name="latitude" required data-geo="lat">
+          <input type="hidden" class="form-control" id="latitude" name="latitude" data-geo="lat">
           <!--label for="longitude">lng</label -->
-          <input type="hidden" class="form-control" id="longitude" name="longitude" required data-geo="lng">
+          <input type="hidden" class="form-control" id="longitude" name="longitude" data-geo="lng">
         </div>
       </div>
   
       <!-- Industry/category of organization -->
       <div class="form-group col-md-12">
         <label for="industry_id"><?php echo _("IND") ?> <small class="required">(<?php echo _("SELECT_1") ?>)*</small></label>
+        <label id="industry_id-error" class="error" for="industry_id"></label>
         <fieldset>
         <div class="col-md-4" id="industry_id_col-1">
           <input type="radio" name="industry_id" class="industry_id" value="Agriculture">&nbsp; <?php echo _("AGR") ?>
@@ -186,6 +187,7 @@ textdomain($domain);
       <!-- Size -->
       <div class="form-group col-md-12">
         <label for="org_size_id"><?php echo _("SIZE") ?><small class="required">*</small></label>
+        <label id="org_size_id-error" class="error" for="org_size_id"></label>
         <div class="col-md-12">
           <div class="btn-group" data-toggle="buttons">
             <label class="btn btn-default">
@@ -210,6 +212,7 @@ textdomain($domain);
       <!-- What is the greatest type of impact your organization has? -->
       <div class="form-group col-md-12" id="org_greatest_impact">
           <label for="org_greatest_impact"><?php echo _("GREATEST_IMPACT") ?><small class="required">*</small></label>
+          <label id="org_greatest_impact-error" class="error" for="org_greatest_impact"></label>
         <div class="col-xs-9">
           <div class="btn-group" data-toggle="buttons">
             <label class="btn btn-default">
@@ -242,6 +245,7 @@ textdomain($domain);
       
       <div class="row col-md-12 data-use-row" id="dataUseDataType">
         <label for="data_use_type[]"><?php echo _("MOST_RELEVANT_OPEN_DATA") ?> <small class="required">(<?php echo _("SELECT_ALL") ?>)*</small></label>
+        <label id="data_use_type[]-error" class="error" for="data_use_type[]"></label>
         <div class="col-md-4" id="data_type_col-1">
             <input type="checkbox" name="data_use_type[]" class="data_use_type" value="Agriculture" required>&nbsp; <span><?php echo _("AGRICULTURE") ?></span>
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Arts and culture">&nbsp; <span><?php echo _("ARTS_AND_CULTURE") ?></span>
@@ -277,6 +281,7 @@ textdomain($domain);
       <!-- Sources of open data -->
       <div class="form-group col-md-12">
         <label for="data_country_count"><?php echo _("NUM_OF_COUNTRIES") ?> <small class="required">*</small></label>
+        <label id="data_country_count-error" class="error" for="data_country_count"></label>
         <div class="col-md-12">
           <div class="btn-group" data-toggle="buttons">
             <label class="btn btn-default">

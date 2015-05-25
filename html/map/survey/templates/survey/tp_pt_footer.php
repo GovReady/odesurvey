@@ -25,6 +25,11 @@
   <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/css/select2.min.css" rel="stylesheet" />
   <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/js/select2.min.js"></script>
   <script src="/map/survey/dist/jquery.validate.min.js"></script>
+<?php if ($language == "fr_FR") { ?>
+  <script src="/map/survey/js/vendor/jquery-validation/src/localization/messages_fr.js"></script>
+<?php } elseif ($language == "es_MX") { ?>
+  <script src="/map/survey/js/vendor/jquery-validation/src/localization/messages_es.js"></script>
+<?php } ?>
 
   <!-- geocomplete -->
   <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
@@ -56,18 +61,64 @@
         allowClear: true }
       );
 
+      // override jquery validate plugin defaults
+      $.validator.setDefaults({
+        ignore: [],
+          highlight: function(element) {
+            $(element).closest('.form-group').addClass('has-error');
+          },
+          unhighlight: function(element) {
+            $(element).closest('.form-group').removeClass('has-error');
+          },
+          errorElement: 'label',
+          // errorClass: 'help-block',
+          errorPlacement: function(error, element) {
+            if(element.parent('.btn-group').length) {
+                error.insertAfter(element.parent());
+            } else {
+                error.insertAfter(element);
+            }
+          }
+      });
+
       // // Form Data validation
       // $("#survey_form").validate();
       $("#survey_form").validate({
         rules: {
+          // txtTextOnly: {
+          //   required: true,
+          //   textOnly: true
+          // },
+          org_type: {
+            required: true
+          },
+          org_size_id: {
+            required: true
+          },
+          org_greatest_impact: {
+            required: true
+          },
+          data_country_count: {
+            required: true
+          },
           org_year_founded: {
             required: true,
             digits: true,
             rangelength: [4, 4]
+          },
+          industry_other: {
+            required: "#industr_id_other:checked",
+            minlength: 2
+          },
+          data_use_type_other: {
+            required: "#data_use_type_checkbox_other:checked",
+            minlength: 2
           }
         },
         messages: {
-          org_year_founded: "Enter a year using four digits, example: 1980"
+          org_year_founded: "Enter a year using four digits, example: 1980",
+          industry_other: "Describe other is required",
+          data_use_type_other: "Describe other is required"
         }
       });
 
@@ -100,8 +151,8 @@
       });
 
       // Toggle other choice for most relevant types of open data
-      $('input[value="Other"]').on('change', function(e) {
-        var choice = $('input[value="Other"]:checked').val();
+      $('#data_use_type_checkbox_other').on('change', function(e) {
+        var choice = $('#data_use_type_checkbox_other:checked').val();
         if (choice != 'Other' && $('input[name="data_use_type_other"]').is(":visible")) {
           $('input[name="data_use_type_other"]').val("");
           $('input[name="data_use_type_other"]').toggle();
@@ -125,6 +176,7 @@
             $('#org_type_other_div').remove();
           }
         }
+        $('#org_type-error').html("");
       });
 
       $('input[type=radio][name=org_greatest_impact]').change(function() {
@@ -133,6 +185,11 @@
           // console.log($('#industry_id').parent());
           $('#org_greatest_impact').append(new_html);
         }
+        $('#org_greatest_impact-error').html("");
+      });
+
+      $('input[type=radio][name=org_size_id]').change(function() {
+        $('#org_size_id-error').html("");
       });
 
       // Use of Open Data Interactivity
@@ -144,6 +201,7 @@
       });
 
       $('input[type=radio][name=data_country_count]').change(function(e) {
+        $('#data_country_count-error').html("");
         updateDataUseProfile(e);
       });
     }); // End Document Ready function

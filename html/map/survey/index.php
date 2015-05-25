@@ -415,6 +415,7 @@ $app->get('/:surveyId/form', function ($surveyId) use ($app) {
 	$content['surveyId'] = $surveyId;
 	$content['surveyName'] = "opendata";
 	$content['title'] = "Open Data Enterprise Survey";
+	$content['language'] = "en_US";
 
 	$app->view()->setData(array('content' => $content ));
 	$app->render('survey/tp_survey.php');

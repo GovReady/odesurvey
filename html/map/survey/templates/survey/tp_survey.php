@@ -1,3 +1,17 @@
+<?php 
+// I18N support information here
+// $language = "fr_FR";
+$language = $content['language'];
+putenv("LANG=" . $language); 
+setlocale(LC_ALL, $language);
+ 
+// Set the text domain as "messages"
+$domain = "messages";
+bindtextdomain($domain, "Locale"); 
+bind_textdomain_codeset($domain, 'UTF-8');
+ 
+textdomain($domain);
+?>
 <?php include __DIR__.'/'.'tp_pt_header.php'; ?>
 
 <!-- Main Content Section -->
@@ -56,18 +70,19 @@
       </div>
 
       <!-- Type of organization -->
-      <div class="form-group col-md-12" id="org_type">
+      <div class="form-group col-md-12" id="org_type_wrapper">
           <label for="org_type">Type of organization<small class="required">*</small></label>
+          <label id="org_type-error" class="error" for="org_type"></label>
         <div class="col-md-10">
-          <div class="btn-group" data-toggle="buttons">
+          <div class="btn-group" data-toggle="buttons" id="divSaleType">
             <label class="btn btn-default">
-                <input type="radio" name="org_type" id="For-profit" value="For-profit" required="True"> For-profit
+                <input type="radio" name="org_type" id="For_profit" value="For-profit"> For-profit
             </label>
             <label class="btn btn-default">
                 <input type="radio" name="org_type" id="Nonprofit" value="Nonprofit"> Nonprofit
             </label>
             <label class="btn btn-default">
-                <input type="radio" name="org_type" id="Developer group" value="Developer group"> Developer group
+                <input type="radio" name="org_type" id="Developer_group" value="Developer group"> Developer group
             </label>
             <label class="btn btn-default">
                 <input type="radio" name="org_type" id="Other" value="Other"> Other
@@ -97,27 +112,28 @@
           <input type="text" class="form-control" id="org_hq_city_all" name="org_hq_city_all" required>
 
           <!--label for="org_hq_city">City</label -->
-          <input type="hidden" class="form-control" id="org_hq_city" name="org_hq_city" required data-geo="locality">
+          <input type="hidden" class="form-control" id="org_hq_city" name="org_hq_city" data-geo="locality">
 
           <!--label for="org_hq_st_prov">State/Province</label -->
-          <input type="hidden" class="form-control" id="org_hq_st_prov" name="org_hq_st_prov" required data-geo="administrative_area_level_1">
+          <input type="hidden" class="form-control" id="org_hq_st_prov" name="org_hq_st_prov" data-geo="administrative_area_level_1">
 
           <!--label for="org_hq_country">Country</label -->
-          <input type="hidden" class="form-control" id="org_hq_country" name="org_hq_country" required data-geo="country_short">
+          <input type="hidden" class="form-control" id="org_hq_country" name="org_hq_country" data-geo="country_short">
 
           <!--label for="latitude">lat</label -->
-          <input type="hidden" class="form-control" id="latitude" name="latitude" required data-geo="lat">
+          <input type="hidden" class="form-control" id="latitude" name="latitude" data-geo="lat">
           <!--label for="longitude">lng</label -->
-          <input type="hidden" class="form-control" id="longitude" name="longitude" required data-geo="lng">
+          <input type="hidden" class="form-control" id="longitude" name="longitude" data-geo="lng">
         </div>
       </div>
   
       <!-- Industry/category of organization -->
       <div class="form-group col-md-12">
         <label for="industry_id">Industry/category of the organization <small class="required">(select 1)*</small></label>
+        <label id="industry_id-error" class="error" for="industry_id"></label>
         <fieldset>
         <div class="col-md-4" id="industry_id_col-1">
-          <input type="radio" name="industry_id" class="industry_id" value="Agriculture">&nbsp; Agriculture
+          <input type="radio" name="industry_id" class="industry_id" value="Agriculture" required>&nbsp; Agriculture
           <br /><input type="radio" name="industry_id" class="industry_id" value="Arts and culture">&nbsp; Arts and culture
           <br /><input id="industry_id_cul" type="radio" name="industry_id" class="industry_id" value="Business and legal services" required>&nbsp; Business and legal services
           <br /><input type="radio" name="industry_id" class="industry_id" value="Consumer services">&nbsp; Consumer services
@@ -145,8 +161,8 @@
           <br /><input type="radio" name="industry_id" class="industry_id" value="Transportation and logistics">&nbsp; Transportation and logistics
           <br /><input type="radio" name="industry_id" class="industry_id" value="Water and sanitation">&nbsp; Water and sanitation
           <br /><input type="radio" name="industry_id" class="industry_id" value="Weather">&nbsp; Weather
-          <br /><input type="radio" name="industry_id" class="industry_id" value="Other">&nbsp; Other
-                <input type="text" class="form-control" style="display:none" name="industry_other" placeholder="Describe other">
+          <br /><input type="radio" name="industry_id" class="industry_id" id="industr_id_other" value="Other">&nbsp; Other
+                <input type="text" class="form-control" style="display:none" id="industry_other" name="industry_other" placeholder="Describe other">
         </div>
         </fieldset>
       </div>
@@ -162,6 +178,7 @@
       <!-- Size -->
       <div class="form-group col-md-12">
         <label for="org_size_id">Size<small class="required">*</small></label>
+        <label id="org_size_id-error" class="error" for="org_size_id"></label>
         <div class="col-md-12">
           <div class="btn-group" data-toggle="buttons">
             <label class="btn btn-default">
@@ -185,7 +202,8 @@
 
       <!-- What is the greatest type of impact your organization has? -->
       <div class="form-group col-md-12" id="org_greatest_impact">
-          <label for="org_greatest_impact">What is the greatest type of impact your organization has?<small class="required">*</small></label>
+        <label for="org_greatest_impact">What is the greatest type of impact your organization has?<small class="required">*</small></label>
+        <label id="org_greatest_impact-error" class="error" for="org_greatest_impact"></label>
         <div class="col-xs-9">
           <div class="btn-group" data-toggle="buttons">
             <label class="btn btn-default">
@@ -218,6 +236,7 @@
       
       <div class="row col-md-12 data-use-row" id="dataUseDataType">
         <label for="data_use_type[]">What are the <u>most relevant</u> types of data your organization uses? <small class="required">(select all that apply)*</small></label>
+        <label id="data_use_type[]-error" class="error" for="data_use_type[]"></label>
         <div class="col-md-4" id="data_type_col-1">
             <input type="checkbox" name="data_use_type[]" class="data_use_type" value="Agriculture" required>&nbsp; <span>Agriculture</span>
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Arts and culture">&nbsp; <span>Arts and culture</span>
@@ -245,7 +264,7 @@
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Tourism">&nbsp; <span>Tourism</span>
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Transportation">&nbsp; <span>Transportation</span>
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Weather">&nbsp; <span>Weather</span>
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Other">&nbsp; <span>Other</span>
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" id="data_use_type_checkbox_other" value="Other">&nbsp; <span>Other</span>
                   <input type="text" class="form-control" style="display:none" id="data_use_type_other" name="data_use_type_other" placeholder="Provide details">
         </div>
       </div>
@@ -253,6 +272,7 @@
       <!-- Sources of open data -->
       <div class="form-group col-md-12">
         <label for="data_country_count">How many countries does your organization use open data from? <small class="required">*</small></label>
+        <label id="data_country_count-error" class="error" for="data_country_count"></label>
         <div class="col-md-12">
           <div class="btn-group" data-toggle="buttons">
             <label class="btn btn-default">
