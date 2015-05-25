@@ -119,7 +119,7 @@ function updateDataUseProfile(e) {
 
     if (c == 1) {
       //  data-intro="Select a country whose data you use." data-position="top"
-      var new_html = '<div class="col-md-12 data_detail_row" data-intro="Click National and/or Local to show government level of data used." data-position="top"><div class="row col-md-12" style="border:0px solid #ddd;" >'+
+      var new_html = '<div class="col-md-12 data_detail_row" data-intro="'+_i18n['SHOW_GOVERNMENT_LEVEL']+'" data-position="top"><div class="row col-md-12" style="border:0px solid #ddd;" >'+
       content+
       '<div class="col-md-7">'+content_data_types+'</div>' +
       '</div></div>';
@@ -135,7 +135,7 @@ function updateDataUseProfile(e) {
   }
   // Set selection to select2 type
   $(".js-example-basic-single").select2( 
-    { placeholder: "Select",
+    { placeholder: _i18n['SELECT'],
     allowClear: true }
   );
 
@@ -216,13 +216,13 @@ function getTypes(idSuffixNum, selectName) {
 function getCountries(idSuffixNum) {
   var guid_attr = '';
   if (idSuffixNum == 1) {
-    var guid_attr = 'data-intro="Select countries providing data used by your organization" data-position="top"';
+    var guid_attr = 'data-intro="'+_i18n['SELECT_COUNTRIES_PROVIDING_DATA']+'" data-position="top"';
   }
 
   var select_countries = ' \
-        <div class="data-src-row col-md-3" id="data-src-row-'+idSuffixNum.toString()+' style="" '+guid_attr+'> Data source - Country\
+        <div class="data-src-row col-md-3" id="data-src-row-'+idSuffixNum.toString()+' style="" '+guid_attr+'> '+_i18n['DATA_SOURCE_COUNTRY']+'\
 <select name="dataUseData-'+idSuffixNum.toString()+'[src_country][src_country_locode]" class="js-example-basic-single" style="width:240px;"> \
-<option value="">Select</option> \
+<option value="">'+_i18n['SELECT']+'</option> \
 <option value="AF">Afghanistan</option> \
 <option value="AX">Åland Islands</option> \
 <option value="AL">Albania</option> \

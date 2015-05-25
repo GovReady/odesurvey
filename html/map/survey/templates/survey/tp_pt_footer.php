@@ -19,6 +19,17 @@
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
   <script src="/map/survey/js/vendor/bootstrap.min.js"></script>
   <script src="/map/survey/js/plugins.js"></script>
+  <script>
+    // Prepare _i18n localization object for use in main.js
+    // NOTE: _i18n must be prepared before main.js called
+    var _i18n = {
+      "SELECT_COUNTRIES_PROVIDING_DATA": "<?php echo _('SELECT_COUNTRIES_PROVIDING_DATA') ?>",
+      "SHOW_GOVERNMENT_LEVEL": "<?php echo _('SHOW_GOVERNMENT_LEVEL') ?>",
+      "DATA_SOURCE_COUNTRY": "<?php echo _('DATA_SOURCE_COUNTRY') ?>",
+      "SELECT": "<?php echo _('SELECT') ?>"
+    }
+
+  </script>
   <script src="/map/survey/js/main.js"></script>
 
   <!-- select2 library -->
@@ -57,7 +68,7 @@
       );
 
       $(".js-example-basic-single").select2( 
-        { placeholder: "Select",
+        { placeholder: "<?php echo _('SELECT') ?>",
         allowClear: true }
       );
 
@@ -181,7 +192,7 @@
 
       $('input[type=radio][name=org_greatest_impact]').change(function() {
         if ( $('#org_greatest_impact_detail_div').length == 0 ) {
-          var new_html = '<div class="col-md-10" id="org_greatest_impact_detail_div"><input type="text" class="form-control" id="org_greatest_impact_detail" name="org_greatest_impact_other" placeholder="Provide details" required></div>';
+          var new_html = '<div class="col-md-10" id="org_greatest_impact_detail_div"><input type="text" class="form-control" id="org_greatest_impact_detail" name="org_greatest_impact_other" placeholder="<?php echo _("PROVIDE_DETAILS") ?>" required></div>';
           // console.log($('#industry_id').parent());
           $('#org_greatest_impact').append(new_html);
         }
