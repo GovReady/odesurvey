@@ -228,7 +228,7 @@ textdomain($domain);
             </label>
           </div>
         </div>
-          <div class="col-md-10" id="org_greatest_impact_detail_div"><input type="text" class="form-control" id="org_greatest_impact_detail" name="org_greatest_impact_other" placeholder="Provide other" required value="<?php echo $org_profile['org_greatest_impact_detail'];?>"></div>
+          <div class="col-md-10" id="org_greatest_impact_detail_div"><input type="text" class="form-control" id="org_greatest_impact_detail" name="org_greatest_impact_detail" placeholder="Provide other" required value="<?php echo $org_profile['org_greatest_impact_detail'];?>"></div>
       </div>
     </div><!--/OrgInfo-->
 
