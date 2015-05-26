@@ -243,40 +243,40 @@ textdomain($domain);
       <div class="row col-md-12 data-use-row" id="dataUseDataType">
         <label for="data_use_type[]">Types of <u>most relevant</u> open data your organization uses <small class="required">(select all that apply)*</small></label>
         <div class="col-md-4" id="data_type_col-1">
-            <input type="checkbox" name="data_use_type[]" class="data_use_type" value="Agriculture" required >&nbsp; Agriculture
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Arts and culture">&nbsp; Arts and culture
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Business">&nbsp; Business
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Consumer">&nbsp; Consumer
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Demographics and social">&nbsp; Demographics and social
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Economics ">&nbsp; Economics
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Education">&nbsp; Education
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Energy">&nbsp; Energy
+            <input type="checkbox" name="data_use_type[]" class="data_use_type" value="Agriculture" required  <?php if (in_array("Agriculture", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; Agriculture
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Arts and culture" <?php if (in_array("Arts and culture", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; Arts and culture
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Business" <?php if (in_array("Business", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; Business
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Consumer" <?php if (in_array("Consumer", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; Consumer
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Demographics and social" <?php if (in_array("Demographics and social", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; Demographics and social
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Economics " <?php if (in_array("Economics", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; Economics
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Education" <?php if (in_array("Education", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; Education
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Energy" <?php if (in_array("Energy", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; Energy
         </div>
         <div class="col-md-4" id="data_type_col-2">
-            <input type="checkbox" name="data_use_type[]" class="data_use_type" value="Environment">&nbsp; Environment
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Finance">&nbsp; Finance
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Geospatial/mapping">&nbsp; Geospatial/mapping
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Government operations">&nbsp; Government operations
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Health/healthcare">&nbsp; Health/healthcare
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Housing">&nbsp; Housing
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="International/global development">&nbsp; International/global development
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Legal">&nbsp; Legal
+            <input type="checkbox" name="data_use_type[]" class="data_use_type" value="Environment" <?php if (in_array("Environment", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; Environment
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Finance" <?php if (in_array("Finance", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; Finance
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Geospatial/mapping" <?php if (in_array("Geospatial/mapping", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; Geospatial/mapping
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Government operations" <?php if (in_array("Government operations", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; Government operations
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Health/healthcare" <?php if (in_array("Health/healthcare", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; Health/healthcare
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Housing" <?php if (in_array("Housing", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; Housing
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="International/global development" <?php if (in_array("International/global development", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; International/global development
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Legal" <?php if (in_array("Legal", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; Legal
         </div>
         <div class="col-md-4" id="data_type_col-3">
-            <input type="checkbox" name="data_use_type[]" class="data_use_type" value="Manufacturing">&nbsp; Manufacturing
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Science and research">&nbsp; Science and research
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Public safety">&nbsp; Public safety
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Tourism">&nbsp; Tourism
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Transportation">&nbsp; Transportation
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Weather">&nbsp; Weather
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Other">&nbsp; Other
-                  <input type="text" class="form-control" style="display:none" id="data_use_type_other" name="data_use_type_other" placeholder="Provide details">
+            <input type="checkbox" name="data_use_type[]" class="data_use_type" value="Manufacturing" <?php if (in_array("Manufacturing", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; Manufacturing
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Science and research" <?php if (in_array("Science and research", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; Science and research
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Public safety" <?php if (in_array("Public safety", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; Public safety
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Tourism" <?php if (in_array("Tourism", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; Tourism
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Transportation" <?php if (in_array("Tra", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; Transportation
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Weather" <?php if (in_array("Weather", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; Weather
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Other" <?php if (in_array("Other", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; Other
+                  <input type="text" class="form-control" style="" id="data_use_type_other" name="data_use_type_other" placeholder="Provide details" value="<?php if (array_key_exists("data_use_type_other", $org_profile)) {echo $org_profile['data_use_type_other'];} ?>">
         </div>
       </div>
 <br />
       <!-- Sources of open data -->
       <div class="form-group col-md-12">
-        <label for="data_country_count">Number of countries from which open data is provided<small class="required">* <?php echo $org_profile['data_country_count'] ?></small></label>
+        <label for="data_country_count">Number of countries from which open data is provided<small class="required">*</small></label>
         <div class="col-md-12">
           <div class="btn-group" data-toggle="buttons">
             <label class="btn btn-default" <?php if ("1" == $org_profile['data_country_count']) {echo "active";} ?>">
@@ -311,27 +311,27 @@ textdomain($domain);
         <div class="form-group col-md-12">
           <div class="col-md-6" id="use_open_data_col-1">
              <div>
-              <input type="checkbox" class="use_open_data" name="use_advocacy" id="use_advocacy" value="True"> advocacy
-              <input type="text" class="form-control" style="display:none" id="use_advocacy_desc" name="use_advocacy_desc" placeholder="Provide details">
+              <input type="checkbox" class="use_open_data" name="use_advocacy" id="use_advocacy" value="True" <?php if ("1" == $org_profile['use_advocacy']) {echo "checked";} ?>> advocacy
+              <textarea class="form-control" style="" id="use_advocacy_desc" name="use_advocacy_desc" placeholder="Provide details"><?php if (array_key_exists("use_advocacy_desc", $org_profile)) {echo $org_profile['use_advocacy_desc'];} ?></textarea>
             </div>
             <div>
-              <input type="checkbox" class="use_open_data" name="use_prod_srvc" id="use_prod_srvc" value="True"> develop new products or services
-              <input type="text" class="form-control" style="display:none" id="use_prod_srvc_desc" name="use_prod_srvc_desc" placeholder="Provide details">
+              <input type="checkbox" class="use_open_data" name="use_prod_srvc" id="use_prod_srvc" value="True" <?php if ("1" == $org_profile['use_prod_srvc']) {echo "checked";} ?>> develop new products or services
+              <textarea class="form-control" style="" id="use_prod_srvc_desc" name="use_prod_srvc_desc" placeholder="Provide details"><?php if (array_key_exists("use_prod_srvc_desc", $org_profile)) {echo $org_profile['use_prod_srvc_desc'];} ?></textarea>
             </div>
             <div>
-              <input type="checkbox" class="use_open_data" name="use_org_opt" id="use_org_opt" value="True"> organizational optimization <i>(e.g. benchmarking, market analysis, improving efficiency, enhancing existing products and services)</i>
-              <input type="text" class="form-control" style="display:none" id="use_org_opt_desc" name="use_org_opt_desc" placeholder="Provide details">
+              <input type="checkbox" class="use_open_data" name="use_org_opt" id="use_org_opt" value="True" <?php if ("1" == $org_profile['use_org_opt']) {echo "checked";} ?>> organizational optimization <i>(e.g. benchmarking, market analysis, improving efficiency, enhancing existing products and services)</i>
+              <textarea class="form-control" style="" id="use_org_opt_desc" name="use_org_opt_desc" placeholder="Provide details"><?php if (array_key_exists("use_org_opt_desc", $org_profile)) {echo $org_profile['use_org_opt_desc'];} ?></textarea>
             </div>
           </div>
 
           <div class="col-md-6" id="use_open_data_col-2">
             <div>
-              <input type="checkbox" class="use_open_data" name="use_research" id="use_research" value="True"> research
-              <input type="text" class="form-control" style="display:none" id="use_research_desc" name="use_research_desc" placeholder="Provide details">
+              <input type="checkbox" class="use_open_data" name="use_research" id="use_research" value="True" <?php if ("1" == $org_profile['use_research']) {echo "checked";} ?>> research
+              <textarea class="form-control" style="" id="use_research_desc" name="use_research_desc" placeholder="Provide details"><?php if (array_key_exists("use_research_desc", $org_profile)) {echo $org_profile['use_research_desc'];} ?></textarea>
             </div>
             <div>
-              <input type="checkbox" class="use_open_data" name="use_other" id="use_other" value="True"> other
-              <input type="text" class="form-control" style="display:none" id="use_other_desc" name="use_other_desc" placeholder="Provide details">
+              <input type="checkbox" class="use_open_data" name="use_other" id="use_other" value="True" <?php if ("1" == $org_profile['use_other']) {echo "checked";} ?>> other
+              <textarea class="form-control" style="" id="use_other_desc" name="use_other_desc" placeholder="Provide details"><?php if (array_key_exists("use_other_desc", $org_profile)) {echo $org_profile['use_other_desc'];} ?></textarea>
             </div>
           </div>
         </div>
