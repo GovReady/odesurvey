@@ -276,26 +276,26 @@ textdomain($domain);
 <br />
       <!-- Sources of open data -->
       <div class="form-group col-md-12">
-        <label for="data_country_count">Number of countries from which open data is provided<small class="required">*</small></label>
+        <label for="data_country_count">Number of countries from which open data is provided<small class="required">* <?php echo $org_profile['data_country_count'] ?></small></label>
         <div class="col-md-12">
           <div class="btn-group" data-toggle="buttons">
-            <label class="btn btn-default">
-                <input type="radio" name="data_country_count" value="1" > 1 country
+            <label class="btn btn-default" <?php if ("1" == $org_profile['data_country_count']) {echo "active";} ?>">
+                <input type="radio" name="data_country_count" value="1" <?php if ("1" == $org_profile['data_country_count']) {echo "checked";} ?>> 1 country
             </label>
-            <label class="btn btn-default">
-                <input type="radio" name="data_country_count" value="2 - 5" > 2-5 countries
+            <label class="btn btn-default <?php if ("2 - 5" == $org_profile['data_country_count']) {echo "active";} ?>">
+                <input type="radio" name="data_country_count" value="2 - 5" <?php if ("2 - 5" == $org_profile['data_country_count']) {echo "checked";} ?>> 2-5 countries
             </label>
-            <label class="btn btn-default">
-                <input type="radio" name="data_country_count" value="6 - 10" > 6-10 countries
+            <label class="btn btn-default <?php if ("6 - 10" == $org_profile['data_country_count']) {echo "active";} ?>">
+                <input type="radio" name="data_country_count" value="6 - 10" <?php if ("6 - 10" == $org_profile['data_country_count']) {echo "checked";} ?>> 6-10 countries
             </label>
-            <label class="btn btn-default">
-                <input type="radio" name="data_country_count" value="11 - 20" > 11-20 countries
+            <label class="btn btn-default <?php if ("11 - 20" == $org_profile['data_country_count']) {echo "active";} ?>">
+                <input type="radio" name="data_country_count" value="11 - 20" <?php if ("11 - 20" == $org_profile['data_country_count']) {echo "checked";} ?>> 11-20 countries
             </label>
-            <label class="btn btn-default">
-                <input type="radio" name="data_country_count" value="21 - 50" > 21-50 countries
+            <label class="btn btn-default <?php if ("21 - 50" == $org_profile['data_country_count']) {echo "active";} ?>">
+                <input type="radio" name="data_country_count" value="21 - 50" <?php if ("21 - 50" == $org_profile['data_country_count']) {echo "checked";} ?>> 21-50 countries
             </label>
-            <label class="btn btn-default">
-                <input type="radio" name="data_country_count" value="50+" > 50+ countries
+            <label class="btn btn-default <?php if ("50+" == $org_profile['data_country_count']) {echo "active";} ?>">
+                <input type="radio" name="data_country_count" value="50+" <?php if ("50+" == $org_profile['data_country_count']) {echo "checked";} ?>> 50+ countries
             </label>
           </div>
         </div>
