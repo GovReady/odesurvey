@@ -134,16 +134,6 @@ $app->post('/admin/login/', function () use ($app) {
 
 	echo "route to login";
 	return true;
-	
-//     $content['title'] = "Open Data Impact Map Admin";
-//     $content['intro'] = <<<HTML
-// 		<p>Open Data Impact Map Admin</p>
-// HTML;
-
-// 	// return $app->response->setBody($response);
-// 	// Render content with simple bespoke templates
-// 	$app->view()->setData(array('content' => $content));
-// 	$app->render('admin/tp_login.php');
     
 });
 
@@ -228,20 +218,6 @@ $app->get('/admin/delete/test/confirmed', function () use ($app) {
 		'restkey' => PARSE_API_KEY
 	));
 
-// 	$params = array(
-//     'className' => 'gameScore',
-//     'object' => array(),
-//     'query' => array(
-//         'score' => array(
-//             '$gt' => 500
-//         )
-//     ),
-//     'order' => '-score',
-//     'limit' => '2',
-//     'skip' => '2'
-// );
-	
-
 	echo "THIS DELETES DATA";
 
 	$parse_params = array(
@@ -258,26 +234,6 @@ $app->get('/admin/delete/test/confirmed', function () use ($app) {
     print_r($response);
     exit;
 
-	// $survey_object = array("survey_name" => "opendata", "action" => "start", "notes" => "");
-
-	// # store new information as new record 
- //    $parse_params = array(
-	// 	'className' => 'survey',
-	// 	'object' => $survey_object
- //    );
-	// // Create Parse object and save
- //    $request = $parse->create($parse_params);
- //    $response = json_decode($request, true);
-
- //    if(isset($response['objectId'])) {
- //    	// Success
- //    	$app->redirect("/survey/opendata/".$response['objectId']);
- //    } else {
- //    	// Failure
- //    	echo "Problem. Promlem with record creation not yet handled.";
- //    	exit;
- //    	$app->redirect("/error".$response['objectId']);
- //    }
 });
 
 // ************
@@ -1145,15 +1101,6 @@ $app->get('/argis/geoservice/', function () use ($app) {
  * Development routes
  */
 // ************
-$app->get('/gettext/', function () use ($app) {
-
-	$content['title'] = "Open Data Enterprise Survey"; 
-	$content['language'] = "en_US";
-	
-	$app->view()->setData(array('content' => $content));
-	$app->render('gettext/tp_home.php');
-});
-
 
 
 // ************
