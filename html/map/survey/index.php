@@ -800,7 +800,7 @@ $app->get('/edit/:profile_id/form', function ($profile_id) use ($app) {
 	} else {
 		$app->redirect("/map/survey/".$profile_id."/notfound/");
 	}
-	
+
 	// Retrieve org_data_use
 	$params = array(
 		'className' => 'org_data_use',

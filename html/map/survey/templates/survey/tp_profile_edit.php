@@ -301,7 +301,73 @@ textdomain($domain);
         </div>
       </div>
 
-      <div id="data_use_details"></div>
+      <div id="data_use_details">
+
+<?php 
+echo "rows: ".count($org_data_use);
+echo "<pre>";
+print_r($org_data_use);echo "</pre>";
+
+echo '<div class=" col-md-12" style="border:0px solid black;" id="data_details">Update the countries that provide the data used by your organization, and whether the data is national and/or local (province/state/city).</div>';
+$prev_country = "";
+
+for ($r = 0; $r < count($org_data_use); $r++) {
+
+  $country = $org_data_use[$r]['data_src_country_name'];
+  if ($prev_country != $country) {
+    echo "<br>new country<br>";
+    $top_html = '<div class="col-md-12 data_detail_row"><div class="row col-md-12" style="border:0px solid #ddd;" >';
+    echo $top_html;
+    $row_html = '<div class="col-md-5" style="border:1px solid red;">'.$country.'</div>';
+    echo $row_html;
+    // echo print_r($org_profile['data_use_type']);
+
+    echo '<div class="col-md-7">'; // frame data use
+
+    foreach ($org_profile['data_use_type'] as $dut) {
+      // print "($dut)";
+
+      $dut_sized = sizeStringPhp($dut, 16);
+    $gov_level = <<<EOL
+<span class="col-md-4" style="border:0px solid black;">
+<span class="" id="" style="font-size:0.8em;"><span class="rm-type">x</span>&nbsp;&nbsp;&nbsp; $dut_sized </span><br />
+  <div class="btn-group" data-toggle="buttons">
+    <label class="btn btn-default" style="font-size:0.6em">
+        <input type="checkbox" name="dataUseData-'+idSuffixNum.toString()+'[src_country][type]['+entry+'][src_gov_level][]" value="National">National
+    </label>
+    <label class="btn btn-default" style="font-size:0.6em">
+        <input type="checkbox" name="dataUseData-'+idSuffixNum.toString()+'[src_country][type]['+entry+'][src_gov_level][]" value="Local">Local
+    </label>
+  </div>&nbsp;&nbsp;
+</span>
+EOL;
+    echo $gov_level;
+
+    }
+
+    echo "</div>"; // close frame data use
+
+  } else {
+    echo "<br>same country<br>";
+    
+  }
+
+  // $top_html = '<div class="col-md-12 data_detail_row"><div class="row col-md-12" style="border:0px solid #ddd;" >';
+  
+  $bottom_html = '</div></div>';
+
+  echo $bottom_html;
+  $prev_country = $country;
+
+}
+
+
+
+?>
+
+
+
+      </div>
 
       <div class="row col-md-12">
         <label class="row col-md-10">

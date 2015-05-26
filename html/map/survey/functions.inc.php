@@ -297,5 +297,15 @@ JSON;
 	return $region;
 }
 
+function sizeStringPhp ($str, $len) {
+	if ($str < $len) {
+		return str_pad($str, $len, "&nbsp;");
+	} 
+	if ($str > $len) {
+		return substr($str,0,$len).'...';
+	}
+	return $str;
+}
+
 
 ?>
