@@ -87,11 +87,12 @@ textdomain($domain);
             </label>
             <label class="btn btn-default <?php if ("Other" == $org_profile['org_type']) {echo "active";} ?>">
                 <input type="radio" name="org_type" id="Other" value="Other" <?php if ("Other" == $org_profile['org_type']) {echo "checked";} ?>> Other
-
             </label>
-            <br>TODO
           </div>
         </div>
+        <?php if ("Other" == $org_profile['org_type']) { ?>
+          <div class="col-md-4" id="org_type_other_div"><input type="text" class="form-control" id="org_type_other" name="org_type_other" placeholder="Provide other" required value="<?php echo $org_profile['org_type_other'];?>"></div>
+        <?php } ?>
       </div>
 
       <!-- Website URL -->
@@ -112,21 +113,21 @@ textdomain($domain);
         <div class="form-group col-md-10 details">
 
           <label for="org_hq_city_all">Location <small class="required">(Please provide as specific as possible)*</small></label>
-          <input type="text" class="form-control" id="org_hq_city_all" name="org_hq_city_all" required >
+          <input type="text" class="form-control" id="org_hq_city_all" name="org_hq_city_all" required value="<?php echo $org_profile['org_hq_city'].", ".$org_profile['org_hq_st_prov'].", ".$org_profile['org_hq_country'];?>">
 
           <!--label for="org_hq_city">City</label -->
-          <input type="hidden" class="form-control" id="org_hq_city" name="org_hq_city" required data-geo="locality">
+          <input type="hidden" class="form-control" id="org_hq_city" name="org_hq_city" required data-geo="locality" value="<?php echo $org_profile['org_hq_city'];?>">
 
           <!--label for="org_hq_st_prov">State/Province</label -->
-          <input type="hidden" class="form-control" id="org_hq_st_prov" name="org_hq_st_prov" required data-geo="administrative_area_level_1">
+          <input type="hidden" class="form-control" id="org_hq_st_prov" name="org_hq_st_prov" required data-geo="administrative_area_level_1" value="<?php echo $org_profile['org_hq_st_prov'];?>">
 
           <!--label for="org_hq_country">Country</label -->
-          <input type="hidden" class="form-control" id="org_hq_country" name="org_hq_country" required data-geo="country_short">
+          <input type="hidden" class="form-control" id="org_hq_country" name="org_hq_country" required data-geo="country_short" value="<?php echo $org_profile['org_hq_country'];?>">
 
           <!--label for="latitude">lat</label -->
-          <input type="hidden" class="form-control" id="latitude" name="latitude" required data-geo="lat">
+          <input type="hidden" class="form-control" id="latitude" name="latitude" required data-geo="lat" value="<?php echo $org_profile['latitude'];?>">
           <!--label for="longitude">lng</label -->
-          <input type="hidden" class="form-control" id="longitude" name="longitude" required data-geo="lng">
+          <input type="hidden" class="form-control" id="longitude" name="longitude" required data-geo="lng" value="<?php echo $org_profile['longitude'];?>">
         </div>
       </div>
   
