@@ -1,5 +1,5 @@
 
-/* line 526 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 595 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 
 /* line 1 : /Users/jasonhettmansperger/Projects/ode/node_modules/gulp-stylus/node_modules/stylus/lib/functions/index.styl */
 
@@ -58,214 +58,246 @@ input{background:url("../images/icon_magnifying_glass.png") no-repeat 10px #2ea0
 /* line 87 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 
 /* line 90 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
-.br #mapDiv{height:100%;position:absolute;right:0;left:250px}
-/* line 96 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+.br #mapDiv{top:49px;bottom:0;position:absolute;right:0;left:250px}
+/* line 97 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .br #tableDiv{position:absolute;left:250px;right:0;bottom:0;top:49px;overflow:auto;}
-/* line 104 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 105 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .br #tableDiv table{margin-bottom:0}
-/* line 107 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 108 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .br .top-bar{z-index:99999999}
-/* line 110 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 111 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .columns{padding-left:0;padding-right:0}
-/* line 114 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 115 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 @media screen and (max-width:500px){
-/* line 116 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 117 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .br #leftPanel{background:#fff;z-index:99999;float:left;width:350px;height:100%}}
-/* line 124 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 125 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .br #PanelToggle{background:#fff;width:40px;height:200px;top:0;bottom:0;left:350px;background:#808080;cursor:pointer;position:absolute;z-index:9;margin:auto;opacity:.1;border-top-right-radius:15px;border-bottom-right-radius:15px}
-/* line 140 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 141 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .br #PanelToggle:hover{background:#333;opacity:.2}
-/* line 144 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 145 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .br #toggleIcon{background:#f00;width:20px;height:20px}
-/* line 149 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 150 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .icon-bar.five-up .item{height:45px;width:70px}
-/* line 154 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 155 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .br #fillPannel{width:100%;display:none;min-height:150px;background:#008cba;padding:10px}
-/* line 160 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 161 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .br .pageIcon svg{fill:#00f}
-/* line 162 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 163 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .br .baseMapItem{display:inline-block;float:none;padding:10px;background:none}
-/* line 167 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 168 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .br .baseMapThumbnail{width:130px;height:80px;-webkit-box-shadow:0 0 15px #fff;-moz-box-shadow:0 0 15px #fff;-ms-box-shadow:0 0 15px #fff;-o-box-shadow:0 0 15px #fff;box-shadow:0 0 15px #fff;cursor:pointer}
-/* line 172 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 173 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .br #baseMapGallery{white-space:nowrap;background:none}
-/* line 175 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 176 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .br #gallery_pan_left{display:none;position:absolute;height:80px;top:64px;width:35px;background:#4d4a4a;opacity:.4;cursor:pointer;-webkit-box-shadow:0 0 20px 0 #fff;-moz-box-shadow:0 0 20px 0 #fff;-ms-box-shadow:0 0 20px 0 #fff;-o-box-shadow:0 0 20px 0 #fff;box-shadow:0 0 20px 0 #fff}
-/* line 185 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 186 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .br #gallery_pan_left:hover{opacity:.5}
-/* line 187 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 188 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .br #gallery_pan_right{position:absolute;right:10px;width:35px;height:80px;top:64px;background:#4d4a4a;opacity:.4;-webkit-box-shadow:6px 0 11px 0 #fff;-moz-box-shadow:6px 0 11px 0 #fff;-ms-box-shadow:6px 0 11px 0 #fff;-o-box-shadow:6px 0 11px 0 #fff;box-shadow:6px 0 11px 0 #fff;cursor:pointer}
-/* line 197 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 198 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .br #gallery_pan_right:hover{opacity:.5}
-/* line 199 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 200 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .br #gallery{height:100px}
-/* line 202 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 203 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .layer-radios{padding-left:10px}
-/* line 204 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
-.br-radio{background:url("../images/radio_unselected.png") no-repeat left;padding-left:25px;padding-top:5px;padding-bottom:5px;border-bottom:1px solid #e1e1e1;cursor:pointer;}
-/* line 212 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
-.br-radio.selected{background:url("../images/radio_selected.png") no-repeat left}
-/* line 215 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
-
+/* line 205 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+.br-radio{background:url("../images/checkboxUnchecked.svg") no-repeat left;padding-left:25px;padding-top:5px;padding-bottom:5px;border-bottom:1px solid #e1e1e1;cursor:pointer;}
+/* line 213 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+.br-radio.selected{background:url("../images/checkboxChecked.svg") no-repeat left}
 /* line 216 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+
+/* line 217 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .br-accordian .filter-label{cursor:pointer;padding:5px;margin:2px;background:url("../images/icon_collapsed.png") no-repeat calc(100% - 10px) #fff;}
-/* line 221 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 222 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .br-accordian .filter-label.selected{background:url("../images/icon_expanded.png") no-repeat calc(100% - 10px) #fff}
-/* line 223 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 224 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .br-accordian .filter-label:hover{background:url("../images/icon_collapsed.png") no-repeat calc(100% - 10px) #feebb6}
-/* line 227 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 228 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .br-accordian .accordian-content{max-height:500px;overflow-y:auto;padding-left:10px;padding-right:10px;background:#eeeff1;}
-/* line 234 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 235 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .br-accordian .accordian-content.selected{display:block}
-/* line 241 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
-
 /* line 242 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+
+/* line 243 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .br .leaflet-popup-content{width:auto !important}
-/* line 244 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 245 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .br .leaflet-popup-content-wrapper{border-radius:0}
-/* line 247 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 248 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .br .markerPopup{width:300px}
-/* line 250 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
-
 /* line 251 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+
+/* line 252 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .br .company-popup .company-popup-title{font-size:16px;font-weight:bold;margin-bottom:5px;border-bottom:solid 1px #d3d3d3;cursor:pointer}
-/* line 257 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 258 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .br .company-popup .company-popup-content{list-style-type:none}
-/* line 261 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 262 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .br #clusterPopup{width:300px;max-height:380px;overflow-y:auto;}
-/* line 266 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 267 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .br #clusterPopup .company-popup-title{font-size:12px;font-weight:bold;margin-bottom:5px;border-bottom:0}
-/* line 271 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 272 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .br #clusterPopup .company-popup-content{padding-left:10px;padding-bottom:15px}
-/* line 275 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 276 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .br-tab-items{display:inline-block}
-/* line 278 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 279 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .tab-items{border-bottom:5px #fcc72d solid}
-/* line 280 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 281 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .tabItem{border:1px #eaeaea solid;display:none;}
-/* line 283 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 284 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .tabItem.outerselected{display:block}
-/* line 286 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 287 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .tabItem-label{cursor:pointer;background:#fff;margin:1px;margin-bottom:0;margin-top:10px;padding:5px;color:#fff;background:#2ea0e6;padding-left:25px;-webkit-border-radius:2px 2px 0 0;-moz-border-radius:2px 2px 0 0;-ms-border-radius:2px 2px 0 0;-o-border-radius:2px 2px 0 0;border-radius:2px 2px 0 0;}
-/* line 297 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 298 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .tabItem-label.filter{background:url("../images/icon_filter_white.png") no-repeat 5px #2ea0e6}
-/* line 301 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 302 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .tabItem-label.statistics{background:url("../images/icon_statistics.png") no-repeat 5px #2ea0e6}
-/* line 304 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 305 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .tabItem-label.Table{background:url("../images/icon_tabular_results.png") no-repeat 5px #2ea0e6}
-/* line 307 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 308 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .tabItem-label.map{background:url("../images/icon_map_results_white.png") no-repeat 5px #2ea0e6}
-/* line 314 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 315 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .tabItem-label .selected{background:#eaeaea}
-/* line 317 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 318 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .innerContent{display:none}
-/* line 319 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
-
 /* line 320 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+
+/* line 321 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .selected .innerContent{display:block}
-/* line 322 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 323 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .selected .tabItem-label{background:#fcc72d;color:#333;}
-/* line 326 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 327 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .selected .tabItem-label.filter{background:url("../images/icon_filter.png") no-repeat 5px #fcc72d}
-/* line 329 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 330 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .selected .tabItem-label.statistics{background:url("../images/icon_statistics_gray.png") no-repeat 5px #fcc72d}
-/* line 332 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 333 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .selected .tabItem-label.Table{background:url("../images/icon_tabular_results_gray.png") no-repeat 5px #fcc72d}
-/* line 335 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 336 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .selected .tabItem-label.map{background:url("../images/icon_map_results.png") no-repeat 5px #fcc72d}
-/* line 338 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 339 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .br-button{padding:10px;cursor:pointer;}
-/* line 341 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 342 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .br-button.clear-filters{background:#fcc72d;color:#333;width:auto;padding-left:1rem;}
-/* line 348 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 349 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .br-button.clear-filters:hover{background:#2ea0e6;color:#fff}
-/* line 352 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
-
 /* line 353 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+
+/* line 354 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .br .accordian-container{padding:10px;background:#f7f7f7}
-/* line 357 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 358 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 #filterStats{background:#f7f7f7;padding:10px;}
-/* line 361 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 362 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 #filterStats li{list-style-type:none}
-/* line 364 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 365 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .fake-link{color:#00f;text-decoration:underline;cursor:pointer}
-/* line 369 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
-.table-company-popup{position:absolute;height:300px;width:300px;display:none;background-color:#fff;border:solid 1px #000;overflow:auto;z-index:50}
-/* line 379 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
-.table-company-popup{font-size:12px;}
-/* line 383 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
-.table-company-popup .company-popup-title,.table-company-popup .company-popup-content{padding-left:5px;padding-right:5px}
+/* line 371 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+.table-company-popup{position:absolute;width:300px;display:none;background-color:#fff;border:solid 1px #000;z-index:50;font-size:12px;}
+/* line 380 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+.table-company-popup .company-popup-title{font-size:16px;font-weight:bold;border-bottom:solid 1px #d3d3d3;cursor:pointer;padding:10px;font-size:13px}
 /* line 388 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
-.table-company-popup .company-popup-title{font-size:13px !important}
-/* line 391 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+.table-company-popup .company-popup-content{list-style-type:none;padding:10px;overflow:auto;max-height:250px;box-sizing:border-box;margin-bottom:10px}
+/* line 396 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+.table-company-popup .close-popup{float:right;font-size:14px;margin-right:10px;margin-top:6px;cursor:pointer}
+/* line 403 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+.table-company-popup .edit-button{margin:0}
+/* line 407 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .close-popup{float:right;margin-right:5px}
-/* line 395 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 411 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .table{max-height:80%}
-/* line 398 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 414 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .description-column{width:30%}
-/* line 401 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
-.export-button{margin-top:0;margin-bottom:0;background-color:#2ea0e6;width:100%;padding-left:1rem;text-align:left;}
-/* line 409 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 417 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+.export-button{margin-top:0;margin-bottom:0;background-color:#2ea0e6;width:100%;padding-left:1rem;text-align:left;padding-right:0;}
+/* line 426 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .export-button:hover{background:#fcc72d}
-/* line 412 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 429 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .edit-button-holder{width:100%;margin-top:10px;position:relative;}
-/* line 418 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 435 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .edit-button-holder .edit-button{background-color:#2ea0e6;width:40%;height:34px;line-height:5px}
-/* line 425 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 442 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .gin-control-zoom-home{background:url("../images/home.svg") no-repeat !important;background-position:center !important;background-color:#fff !important}
-/* line 430 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 447 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 .survey-button{position:absolute;right:10px;top:100px;height:26px;width:26px;background-color:#00f;z-index:1000;border-radius:4px;background:url("../images/clipboard.svg") no-repeat !important;background-position:center !important;background-color:#fff !important;border:solid 1px #d3d3d3;-webkit-box-shadow:0 2px 2px #888;-moz-box-shadow:0 2px 2px #888;-ms-box-shadow:0 2px 2px #888;-o-box-shadow:0 2px 2px #888;box-shadow:0 2px 2px #888;cursor:pointer}
-/* line 446 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 463 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 #PanelToggle{display:none}
-/* line 449 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 466 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 #mapArea .tab-items{text-align:right;padding-right:20px;}
-/* line 453 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 470 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 #mapArea .tab-items .tabItem-label{margin-right:10px}
-/* line 456 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
-#leftPanel .tab-items{padding-left:20px;}
-/* line 459 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
-#leftPanel .tab-items .tabItem-label{margin-left:10px}
-/* line 462 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
-.leaflet-bar a,.leaflet-bar a:hover{height:35px !important;width:35px !important}
-/* line 467 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
-.gin-control-zoom-in,.gin-control-zoom-out{font-size:22px;line-height:30px !important}
-/* line 471 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
-
-/* line 472 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
-
 /* line 473 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
-
-/* line 474 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
-
-/* line 475 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
-
-/* line 477 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
-
-/* line 478 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
-
-/* line 480 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
-#header-container{border-bottom:solid 1px #000;margin-bottom:5px}
+#leftPanel .tab-items{padding-left:20px;}
+/* line 476 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+#leftPanel .tab-items .tabItem-label{margin-left:10px}
+/* line 479 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+.leaflet-bar a,.leaflet-bar a:hover{height:35px !important;width:35px !important}
 /* line 484 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
-.cluster-popup-header{font-weight:bold;font-size:13px}
+.gin-control-zoom-in,.gin-control-zoom-out{font-size:22px;line-height:30px !important}
 /* line 488 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
-.license-holder{color:#fff;padding:15px}
-/* line 492 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
-.tab-content{overflow:auto;bottom:0;top:49px;position:absolute}
-/* line 498 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
-.leftPanelComponent{height:100%}
-/* line 501 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
-.absolute{position:absolute}
-/* line 504 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
-.no-right{right:0}
-/* line 507 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
-.no-left{left:0}
-/* line 510 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
-.no-top{top:0}
-/* line 513 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
-.no-bottom{bottom:0}
-/* line 516 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 
-/* line 518 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+/* line 489 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+
+/* line 490 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+
+/* line 491 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+
+/* line 492 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+
+/* line 494 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+
+/* line 495 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+
+/* line 497 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+#header-container{border-bottom:solid 1px #000;margin-bottom:5px}
+/* line 501 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+.cluster-popup-header{font-weight:bold;font-size:13px}
+/* line 505 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+.license-holder{font-size:9px;color:#fff;padding:15px}
+/* line 510 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+.tab-content{overflow:auto;bottom:0;top:49px;position:absolute}
+/* line 516 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+.leftPanelComponent{height:100%}
+/* line 519 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+.absolute{position:absolute}
+/* line 522 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+.no-right{right:0}
+/* line 525 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+.no-left{left:0}
+/* line 528 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+.no-top{top:0}
+/* line 531 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+.no-bottom{bottom:0}
+/* line 534 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+
+/* line 536 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
 #filterStats ul{margin-left:0 !important}
-/* line 521 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
-.creative-commons-logo{height:70px;width:210px;background:url("../images/creative_commons_logo.png") no-repeat;background-size:100% 100%;margin-left:15px}
+/* line 539 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+.creative-commons-logo{height:25px;width:75px;background:url("../images/creative_commons_logo.png") no-repeat;background-size:100% 100%;margin-left:15px}
+/* line 546 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+.display-inline-block{display:inline-block}
+/* line 549 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+#clusterPopup .selected .company-title-label:before{content:url("../images/minus.svg");margin-right:5px}
+/* line 553 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+#clusterPopup .company-title-label:before{margin-right:5px;content:url("../images/plus.svg")}
+/* line 557 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+.table tbody tr:nth-child(even) td{background-color:#edecec !important}
+/* line 560 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+.table tbody tr td:nth-child(1){cursor:pointer;color:#00f !important}
+/* line 564 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+.table tbody tr td:nth-child(n+2){pointer-events:none}
+/* line 567 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+.table{border-spacing:0}
+/* line 570 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+.table tbody td{border-top:1px solid #d3d3d3;border-bottom:1px solid #d3d3d3}
+/* line 574 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+.griddle-page select{width:60px !important}
+/* line 577 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+.no-data-display-container{height:200px;background:#ececec;padding:20px;}
+/* line 582 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+.no-data-display-container > div{padding-top:20px}
+/* line 585 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+.no-results-text-container{font-weight:bold}
+/* line 588 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+.marker-cluster-small{background-color:transparent}
+/* line 591 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+.marker-cluster-medium{background-color:transparent}
+/* line 594 : /Users/jasonhettmansperger/Projects/ode/src/app/css/app.styl */
+.marker-cluster-large{background-color:transparent}
