@@ -453,7 +453,7 @@ $app->post('/2du/:surveyId/', function ($surveyId) use ($app) {
 	// Prepare and save org_object
 	// ============================
 	/* Saves once per survey submission */
-    $params = array("org_name", "org_open_corporates_id", "org_type", "org_type_other", "org_url", "no_org_url", "org_year_founded", "org_description", "org_size_id", "industry_id", "industry_other", "org_greatest_impact", "org_greatest_impact_detail", "use_advocacy", "use_advocacy_desc", "use_prod_srvc", "use_prod_srvc_desc", "use_org_opt", "use_org_opt_desc", "use_research", "use_research_desc", "use_other", "use_other_desc", "org_hq_city", "org_hq_st_prov", "org_hq_country", "latitude", "longitude", "org_hq_city_locode", "org_hq_country_locode", "org_profile_year", "org_additional", "org_profile_status", "org_profile_src", "org_profile_category");
+    $params = array("org_name", "org_open_corporates_id", "org_type", "org_type_other", "org_url", "no_org_url", "org_year_founded", "org_description", "org_size_id", "industry_id", "industry_other", "org_greatest_impact", "org_greatest_impact_detail", "use_advocacy", "use_advocacy_desc", "use_prod_srvc", "use_prod_srvc_desc", "use_org_opt", "use_org_opt_desc", "use_research", "use_research_desc", "use_other", "use_other_desc", "org_hq_city", "org_hq_st_prov", "org_hq_country", "latitude", "longitude", "org_hq_city_locode", "org_hq_country_locode", "org_profile_year", "org_additional", "org_profile_status", "org_profile_src", "org_profile_category", "data_use_type", "data_country_count");
     $org_object = array();
     // Set all parameters to received value or null
     foreach ($params as $param) {
@@ -481,6 +481,9 @@ $app->post('/2du/:surveyId/', function ($surveyId) use ($app) {
 	// set profile_id
 	$org_object['profile_id'] = $surveyId;
 
+	// echo "<br>****** PARAMS ********* <pre>\n";print_r($allPostVars);echo "</pre>"; 
+	// exit;
+
 	// save org_object to Parse
 	$parse_params = array(
 		'className' => 'org_profile',
@@ -489,13 +492,14 @@ $app->post('/2du/:surveyId/', function ($surveyId) use ($app) {
 	$request = $parse->create($parse_params);
 	$response = json_decode($request, true);
 	// echo "<pre>"; print_r($response); echo "</pre>";
+	// exit;
 
 	// ============================================================================
 	// Prepare and save org_object into arcgis_flatfile as row_type = org_profile
 	// ============================================================================
 	/* Saves once per survey submission */
 	// remove certain fields from org_profile
-	$remove_keys = array ("use_prod_srvc_desc", "use_org_opt_desc", "use_research_desc", "use_other_desc", "org_additional");
+	$remove_keys = array ("use_prod_srvc_desc", "use_org_opt_desc", "use_research_desc", "use_other_desc", "org_additional", "data_country_count", "data_use_type", "data_country_count");
 	foreach ( $remove_keys as $key) {
 		if (array_key_exists($key, $org_object)) {
 			unset($org_object[$key]);
