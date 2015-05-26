@@ -70,7 +70,7 @@ textdomain($domain);
       </div>
 
       <!-- Type of organization -->
-      <div class="form-group col-md-12" id="org_type_wrapper">
+      <div class="form-group col-md-12" id="org_type">
           <label for="org_type">Type of organization<small class="required">*</small></label>
           <label id="org_type-error" class="error" for="org_type"></label>
         <div class="col-md-10">
