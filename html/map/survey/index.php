@@ -1145,15 +1145,6 @@ $app->get('/argis/geoservice/', function () use ($app) {
  * Development routes
  */
 // ************
-$app->get('/gettext/', function () use ($app) {
-
-	$content['title'] = "Open Data Enterprise Survey"; 
-	$content['language'] = "en_US";
-	
-	$app->view()->setData(array('content' => $content));
-	$app->render('gettext/tp_home.php');
-});
-
 
 
 // ************
