@@ -190,14 +190,14 @@
         $('#org_type-error').html("");
       });
 
-      $('input[type=radio][name=org_greatest_impact]').change(function() {
-        if ( $('#org_greatest_impact_detail_div').length == 0 ) {
-          var new_html = '<div class="col-md-10" id="org_greatest_impact_detail_div"><input type="text" class="form-control" id="org_greatest_impact_detail" name="org_greatest_impact_other" placeholder="<?php echo _("PROVIDE_DETAILS") ?>" required></div>';
-          // console.log($('#industry_id').parent());
-          $('#org_greatest_impact').append(new_html);
-        }
-        $('#org_greatest_impact-error').html("");
-      });
+      // $('input[type=radio][name=org_greatest_impact]').change(function() {
+      //   if ( $('#org_greatest_impact_detail_div').length == 0 ) {
+      //     var new_html = '<div class="col-md-10" id="org_greatest_impact_detail_div"><input type="text" class="form-control" id="org_greatest_impact_detail" name="org_greatest_impact_other" placeholder="<?php echo _("PROVIDE_DETAILS") ?>" required></div>';
+      //     // console.log($('#industry_id').parent());
+      //     $('#org_greatest_impact').append(new_html);
+      //   }
+      //   $('#org_greatest_impact-error').html("");
+      // });
 
       $('input[type=radio][name=org_size_id]').change(function() {
         $('#org_size_id-error').html("");
