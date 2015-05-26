@@ -317,26 +317,26 @@ textdomain($domain);
           <div class="col-md-6" id="use_open_data_col-1">
              <div>
               <input type="checkbox" class="use_open_data" name="use_advocacy" id="use_advocacy" value="True"> <?php echo _("ADVOCACY") ?>
-              <input type="text" class="form-control" style="display:none" id="use_advocacy_desc" name="use_advocacy_desc" placeholder="<?php echo _("PROVIDE_DETAILS") ?>">
+              <textarea class="form-control" style="display:none" id="use_advocacy_desc" name="use_advocacy_desc" placeholder="<?php echo _("PROVIDE_DETAILS") ?>"></textarea>
             </div>
             <div>
               <input type="checkbox" class="use_open_data" name="use_prod_srvc" id="use_prod_srvc" value="True"> <?php echo _("PRODUCTS_SERVICES") ?>
-              <input type="text" class="form-control" style="display:none" id="use_prod_srvc_desc" name="use_prod_srvc_desc" placeholder="<?php echo _("PROVIDE_DETAILS") ?>">
+              <textarea class="form-control" style="display:none" id="use_prod_srvc_desc" name="use_prod_srvc_desc" placeholder="<?php echo _("PROVIDE_DETAILS") ?>"></textarea>
             </div>
             <div>
               <input type="checkbox" class="use_open_data" name="use_org_opt" id="use_org_opt" value="True"> <?php echo _("ORG_OPTIMIZATION") ?> <i>(<?php echo _("EG_BENCHMARKING") ?>)</i>
-              <input type="text" class="form-control" style="display:none" id="use_org_opt_desc" name="use_org_opt_desc" placeholder="<?php echo _("PROVIDE_DETAILS") ?>">
+              <textarea class="form-control" style="display:none" id="use_org_opt_desc" name="use_org_opt_desc" placeholder="<?php echo _("PROVIDE_DETAILS") ?>"></textarea>
             </div>
           </div>
 
           <div class="col-md-6" id="use_open_data_col-2">
             <div>
               <input type="checkbox" class="use_open_data" name="use_research" id="use_research" value="True"> <?php echo _("RESEARCH") ?>
-              <input type="text" class="form-control" style="display:none" id="use_research_desc" name="use_research_desc" placeholder="<?php echo _("PROVIDE_DETAILS") ?>">
+              <textarea class="form-control" style="display:none" id="use_research_desc" name="use_research_desc" placeholder="<?php echo _("PROVIDE_DETAILS") ?>"></textarea>
             </div>
             <div>
               <input type="checkbox" class="use_open_data" name="use_other" id="use_other" value="True"> <?php echo _("OTHER") ?>
-              <input type="text" class="form-control" style="display:none" id="use_other_desc" name="use_other_desc" placeholder="<?php echo _("PROVIDE_DETAILS") ?>">
+              <textarea class="form-control" style="display:none" id="use_other_desc" name="use_other_desc" placeholder="<?php echo _("PROVIDE_DETAILS") ?>"></textarea>
             </div>
           </div>
         </div>
