@@ -53,7 +53,7 @@ print sh.name, sh.nrows, sh.ncols
 # Test if organization qualifies to be included
 def org_include(org):
     # if org['eligibility'] == 'Y' and org['org_confidence'] > 3 and org['org_hq_country'] != "Spain" and (org['latitude'] is not None) and org['latitude'] != 0 and org['longitude'] != 0 :
-    if "Y" == org['eligibility'] or "YY" == org['eligibility']:
+    if "YY" == org['eligibility']:
         return True
     else:
         print "skipped b/c org['eligibility'] is %s" % (org['eligibility'])
@@ -209,10 +209,10 @@ for rownum in range(0, sh.nrows):
         org['org_hq_country_income_code'] = None
 
     # fix country code
-    if (3 == len(org['org_hq_country']) and 'EUR' != org['org_hq_country']):
+    if (3 == len(org['org_hq_country']) and 'EUR' != org['org_hq_country'] and 'LAC' != org['org_hq_country']):
         org['org_hq_country'] = regions[org['org_hq_country']]['COUNTRY']
     
-    if  org['org_hq_country_locode'] is not None and 3 == len(org['org_hq_country_locode']) and 'EUR' != org['org_hq_country_locode']:
+    if  org['org_hq_country_locode'] is not None and 3 == len(org['org_hq_country_locode']) and 'EUR' != org['org_hq_country_locode'] and 'LAC' != org['org_hq_country_locode']:
         org['org_hq_country_locode'] = regions[org['org_hq_country_locode']]['ISO3166-1-UNLOC']
         
     # parse usage_unparsed
