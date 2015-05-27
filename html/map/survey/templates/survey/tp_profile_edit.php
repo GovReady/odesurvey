@@ -17,15 +17,15 @@ textdomain($domain);
 <!-- Main Content Section -->
 <div class="container lg-font col-md-12" style="border:0px solid black;">
 
- <form id="survey_form" class="form-horizontal" style="border:0px dotted black;" action="/map/edit/<?php echo $content['surveyId']; ?>/editform" method="post">
+ <form id="survey_form" class="form-horizontal" style="border:0px dotted black;" action="/map/survey/<?php echo $content['surveyId']; ?>/editform" method="post">
 
     <div class="col-md-12" role="Intro" id="role-intro">
       <div style="text-align:center;font-size:1.1em;margin-top:20px;">
-        EDIT FORM (under development)
-        <!-- 
+        
+        
         Thank you for participating in the Open Data Impact Map, the first centralized, searchable database of open data use cases from around the world. 
         Your contribution makes it possible to better understand the value of open data and encourage its use globally.
-        Information collected will be displayed on the <a href="http://opendataenterprise.org/map/viz">Map</a> and will be made available as open data.
+        <!-- Information collected will be displayed on the <a href="http://opendataenterprise.org/map/viz">Map</a> and will be made available as open data.
        -->
       </div>
       <br />
@@ -87,11 +87,12 @@ textdomain($domain);
             </label>
             <label class="btn btn-default <?php if ("Other" == $org_profile['org_type']) {echo "active";} ?>">
                 <input type="radio" name="org_type" id="Other" value="Other" <?php if ("Other" == $org_profile['org_type']) {echo "checked";} ?>> Other
-
             </label>
-            <br>TODO
           </div>
         </div>
+        <?php if ("Other" == $org_profile['org_type']) { ?>
+          <div class="col-md-4" id="org_type_other_div"><input type="text" class="form-control" id="org_type_other" name="org_type_other" placeholder="Provide other" required value="<?php echo $org_profile['org_type_other'];?>"></div>
+        <?php } ?>
       </div>
 
       <!-- Website URL -->
@@ -112,21 +113,21 @@ textdomain($domain);
         <div class="form-group col-md-10 details">
 
           <label for="org_hq_city_all">Location <small class="required">(Please provide as specific as possible)*</small></label>
-          <input type="text" class="form-control" id="org_hq_city_all" name="org_hq_city_all" required >
+          <input type="text" class="form-control" id="org_hq_city_all" name="org_hq_city_all" required value="<?php echo $org_profile['org_hq_city'].", ".$org_profile['org_hq_st_prov'].", ".$org_profile['org_hq_country'];?>">
 
           <!--label for="org_hq_city">City</label -->
-          <input type="hidden" class="form-control" id="org_hq_city" name="org_hq_city" required data-geo="locality">
+          <input type="hidden" class="form-control" id="org_hq_city" name="org_hq_city" required data-geo="locality" value="<?php echo $org_profile['org_hq_city'];?>">
 
           <!--label for="org_hq_st_prov">State/Province</label -->
-          <input type="hidden" class="form-control" id="org_hq_st_prov" name="org_hq_st_prov" required data-geo="administrative_area_level_1">
+          <input type="hidden" class="form-control" id="org_hq_st_prov" name="org_hq_st_prov" required data-geo="administrative_area_level_1" value="<?php echo $org_profile['org_hq_st_prov'];?>">
 
           <!--label for="org_hq_country">Country</label -->
-          <input type="hidden" class="form-control" id="org_hq_country" name="org_hq_country" required data-geo="country_short">
+          <input type="hidden" class="form-control" id="org_hq_country" name="org_hq_country" required data-geo="country_short" value="<?php echo $org_profile['org_hq_country'];?>">
 
           <!--label for="latitude">lat</label -->
-          <input type="hidden" class="form-control" id="latitude" name="latitude" required data-geo="lat">
+          <input type="hidden" class="form-control" id="latitude" name="latitude" required data-geo="lat" value="<?php echo $org_profile['latitude'];?>">
           <!--label for="longitude">lng</label -->
-          <input type="hidden" class="form-control" id="longitude" name="longitude" required data-geo="lng">
+          <input type="hidden" class="form-control" id="longitude" name="longitude" required data-geo="lng" value="<?php echo $org_profile['longitude'];?>">
         </div>
       </div>
   
@@ -135,36 +136,40 @@ textdomain($domain);
         <label for="industry_id">Industry/category of the organization <small class="required">(select 1)*</small></label>
         <fieldset>
         <div class="col-md-4" id="industry_id_col-1">
-          <input type="radio" name="industry_id" class="industry_id" value="agr">&nbsp; Agriculture
-          <br /><input type="radio" name="industry_id" class="industry_id" value="art">&nbsp; Arts and culture
-          <br /><input id="industry_id_cul" type="radio" name="industry_id" class="industry_id" value="bus" required <?php if ("bus" == $org_profile['industry_id']) {echo "checked";} ?>> Business &amp; legal services
-          <br /><input type="radio" name="industry_id" class="industry_id" value="con" <?php if ("con" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Consumer services
-          <br /><input type="radio" name="industry_id" class="industry_id" value="dat" <?php if ("dat" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Data/information technology
-          <br /><input type="radio" name="industry_id" class="industry_id" value="edu" <?php if ("edu" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Education
-          <br /><input type="radio" name="industry_id" class="industry_id" value="ngy" <?php if ("ngy" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Energy
-          <br /><input type="radio" name="industry_id" class="industry_id" value="env" <?php if ("env" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Environment
-          <br /><input type="radio" name="industry_id" class="industry_id" value="fin" <?php if ("fin" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Finance and investment
+          <input type="radio" name="industry_id" class="industry_id" value="Agriculture" <?php if ("Agriculture" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Agriculture
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Arts and culture" <?php if ("Arts and culture" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Arts and culture
+          <br /><input id="industry_id_cul" type="radio" name="industry_id" class="industry_id" value="Business and legal services" required <?php if ("Business and legal services" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Business and legal services
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Consumer services" <?php if ("Consumer services" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Consumer services
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Data/information technology" <?php if ("Data/information technology" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Data/information technology
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Education" <?php if ("Education" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Education
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Energy" <?php if ("Energy" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Energy
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Environment" <?php if ("Environment" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Environment
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Finance and investment" <?php if ("Finance and investment" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Finance and investment
         </div>
         <div class="col-md-4" id="industry_id_col-2">
           <input type="radio" name="industry_id" class="industry_id" value="geo">&nbsp; Geospatial/mapping
-          <br /><input type="radio" name="industry_id" class="industry_id" value="gov" <?php if ("gov" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Governance
-          <br /><input type="radio" name="industry_id" class="industry_id" value="hlt" <?php if ("hlt" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Healthcare
-          <br /><input type="radio" name="industry_id" class="industry_id" value="est" <?php if ("est" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Housing and real estate
-          <br /><input type="radio" name="industry_id" class="industry_id" value="ins" <?php if ("ins" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Insurance
-          <br /><input type="radio" name="industry_id" class="industry_id" value="med" <?php if ("med" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Media and communications
-          <br /><input type="radio" name="industry_id" class="industry_id" value="man" <?php if ("man" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Mining/Manufacturing
-          <br /><input type="radio" name="industry_id" class="industry_id" value="rsh" <?php if ("rsh" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Research and consulting
-          <br /><input type="radio" name="industry_id" class="industry_id" value="sec" <?php if ("sec" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Security and public safety
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Governance" <?php if ("Governance" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Governance
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Healthcare" <?php if ("Healthcare" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Healthcare
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Housing and real estate" <?php if ("Housing and real estate" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Housing and real estate
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Insurance" <?php if ("Insurance" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Insurance
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Media and communications" <?php if ("Media and communications" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Media and communications
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Mining/Manufacturing" <?php if ("Mining/Manufacturing" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Mining/Manufacturing
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Research and consulting" <?php if ("Research and consulting" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Research and consulting
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Security and public safety" <?php if ("Security and public safety" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Security and public safety
         </div>
         <div class="col-md-4" id="industry_id_col-3">
           <input type="radio" name="industry_id" class="industry_id" value="sci">&nbsp; Scientific research
-          <br /><input type="radio" name="industry_id" class="industry_id" value="tel" <?php if ("tel" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Telecommunications/internet service providers (ISPs)
-          <br /><input type="radio" name="industry_id" class="industry_id" value="trm" <?php if ("trm" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Tourism
-          <br /><input type="radio" name="industry_id" class="industry_id" value="trn" <?php if ("trn" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Transportation and logistics
-          <br /><input type="radio" name="industry_id" class="industry_id" value="wat" <?php if ("wat" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Water and sanitation
-          <br /><input type="radio" name="industry_id" class="industry_id" value="wea" <?php if ("wea" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Weather
-          <br /><input type="radio" name="industry_id" class="industry_id" value="otr" <?php if ("otr" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Other
-                <input type="text" class="form-control" style="display:none" name="industry_other" placeholder="Describe other">TODO 
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Telecommunications/internet service providers (ISPs)" <?php if ("Telecommunications/internet service providers (ISPs)" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Telecommunications/internet service providers (ISPs)
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Tourism" <?php if ("Tourism" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Tourism
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Transportation and logistics" <?php if ("Transportation and logistics" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Transportation and logistics
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Water and sanitation" <?php if ("Water and sanitation" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Water and sanitation
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Weather" <?php if ("Weather" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Weather
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Other" <?php if ("Other" == $org_profile['industry_id']) {echo "checked";} ?>>&nbsp; Other
+              <?php if ("Other" == $org_profile['industry_id']) { ?>
+                <input type="text" class="form-control" name="industry_other" placeholder="Describe other" value="<?php echo $org_profile['industry_other'];?>">
+              <?php } else { ?>
+                <input type="text" class="form-control" style="display:none" name="industry_other" placeholder="Describe other">
+              <?php } ?>
         </div>
         </fieldset>
       </div>
@@ -221,9 +226,9 @@ textdomain($domain);
             <label class="btn btn-default <?php if ("Other" == $org_profile['org_greatest_impact']) {echo "active";} ?>">
                 <input type="radio" name="org_greatest_impact" id="Other" value="Other"  <?php if ("Other" == $org_profile['org_greatest_impact']) {echo "checked";} ?>> Other
             </label>
-            TODO
           </div>
         </div>
+          <div class="col-md-10" id="org_greatest_impact_detail_div"><input type="text" class="form-control" id="org_greatest_impact_detail" name="org_greatest_impact_detail" placeholder="Provide other" required value="<?php echo $org_profile['org_greatest_impact_detail'];?>"></div>
       </div>
     </div><!--/OrgInfo-->
 
@@ -238,34 +243,34 @@ textdomain($domain);
       <div class="row col-md-12 data-use-row" id="dataUseDataType">
         <label for="data_use_type[]">Types of <u>most relevant</u> open data your organization uses <small class="required">(select all that apply)*</small></label>
         <div class="col-md-4" id="data_type_col-1">
-            <input type="checkbox" name="data_use_type[]" class="data_use_type" value="Agriculture" required >&nbsp; Agriculture
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Arts and culture">&nbsp; Arts and culture
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Business">&nbsp; Business
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Consumer">&nbsp; Consumer
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Demographics and social">&nbsp; Demographics and social
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Economics ">&nbsp; Economics
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Education">&nbsp; Education
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Energy">&nbsp; Energy
+            <input type="checkbox" name="data_use_type[]" class="data_use_type" value="Agriculture" required  <?php if (in_array("Agriculture", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; Agriculture
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Arts and culture" <?php if (in_array("Arts and culture", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; Arts and culture
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Business" <?php if (in_array("Business", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; Business
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Consumer" <?php if (in_array("Consumer", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; Consumer
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Demographics and social" <?php if (in_array("Demographics and social", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; Demographics and social
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Economics " <?php if (in_array("Economics", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; Economics
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Education" <?php if (in_array("Education", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; Education
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Energy" <?php if (in_array("Energy", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; Energy
         </div>
         <div class="col-md-4" id="data_type_col-2">
-            <input type="checkbox" name="data_use_type[]" class="data_use_type" value="Environment">&nbsp; Environment
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Finance">&nbsp; Finance
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Geospatial/mapping">&nbsp; Geospatial/mapping
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Government operations">&nbsp; Government operations
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Health/healthcare">&nbsp; Health/healthcare
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Housing">&nbsp; Housing
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="International/global development">&nbsp; International/global development
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Legal">&nbsp; Legal
+            <input type="checkbox" name="data_use_type[]" class="data_use_type" value="Environment" <?php if (in_array("Environment", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; Environment
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Finance" <?php if (in_array("Finance", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; Finance
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Geospatial/mapping" <?php if (in_array("Geospatial/mapping", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; Geospatial/mapping
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Government operations" <?php if (in_array("Government operations", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; Government operations
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Health/healthcare" <?php if (in_array("Health/healthcare", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; Health/healthcare
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Housing" <?php if (in_array("Housing", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; Housing
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="International/global development" <?php if (in_array("International/global development", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; International/global development
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Legal" <?php if (in_array("Legal", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; Legal
         </div>
         <div class="col-md-4" id="data_type_col-3">
-            <input type="checkbox" name="data_use_type[]" class="data_use_type" value="Manufacturing">&nbsp; Manufacturing
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Science and research">&nbsp; Science and research
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Public safety">&nbsp; Public safety
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Tourism">&nbsp; Tourism
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Transportation">&nbsp; Transportation
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Weather">&nbsp; Weather
-            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Other">&nbsp; Other
-                  <input type="text" class="form-control" style="display:none" id="data_use_type_other" name="data_use_type_other" placeholder="Provide details">
+            <input type="checkbox" name="data_use_type[]" class="data_use_type" value="Manufacturing" <?php if (in_array("Manufacturing", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; Manufacturing
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Science and research" <?php if (in_array("Science and research", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; Science and research
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Public safety" <?php if (in_array("Public safety", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; Public safety
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Tourism" <?php if (in_array("Tourism", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; Tourism
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Transportation" <?php if (in_array("Tra", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; Transportation
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Weather" <?php if (in_array("Weather", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; Weather
+            <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Other" <?php if (in_array("Other", $org_profile['data_use_type'])) {echo "checked";} ?>>&nbsp; Other
+                  <input type="text" class="form-control" style="" id="data_use_type_other" name="data_use_type_other" placeholder="Provide details" value="<?php if (array_key_exists("data_use_type_other", $org_profile)) {echo $org_profile['data_use_type_other'];} ?>">
         </div>
       </div>
 <br />
@@ -274,29 +279,381 @@ textdomain($domain);
         <label for="data_country_count">Number of countries from which open data is provided<small class="required">*</small></label>
         <div class="col-md-12">
           <div class="btn-group" data-toggle="buttons">
-            <label class="btn btn-default">
-                <input type="radio" name="data_country_count" value="1" > 1 country
+            <label class="btn btn-default" <?php if ("1" == $org_profile['data_country_count']) {echo "active";} ?>">
+                <input type="radio" name="data_country_count" value="1" <?php if ("1" == $org_profile['data_country_count']) {echo "checked";} ?>> 1 country
             </label>
-            <label class="btn btn-default">
-                <input type="radio" name="data_country_count" value="2 - 5" > 2-5 countries
+            <label class="btn btn-default <?php if ("2 - 5" == $org_profile['data_country_count']) {echo "active";} ?>">
+                <input type="radio" name="data_country_count" value="2 - 5" <?php if ("2 - 5" == $org_profile['data_country_count']) {echo "checked";} ?>> 2-5 countries
             </label>
-            <label class="btn btn-default">
-                <input type="radio" name="data_country_count" value="6 - 10" > 6-10 countries
+            <label class="btn btn-default <?php if ("6 - 10" == $org_profile['data_country_count']) {echo "active";} ?>">
+                <input type="radio" name="data_country_count" value="6 - 10" <?php if ("6 - 10" == $org_profile['data_country_count']) {echo "checked";} ?>> 6-10 countries
             </label>
-            <label class="btn btn-default">
-                <input type="radio" name="data_country_count" value="11 - 20" > 11-20 countries
+            <label class="btn btn-default <?php if ("11 - 20" == $org_profile['data_country_count']) {echo "active";} ?>">
+                <input type="radio" name="data_country_count" value="11 - 20" <?php if ("11 - 20" == $org_profile['data_country_count']) {echo "checked";} ?>> 11-20 countries
             </label>
-            <label class="btn btn-default">
-                <input type="radio" name="data_country_count" value="21 - 50" > 21-50 countries
+            <label class="btn btn-default <?php if ("21 - 50" == $org_profile['data_country_count']) {echo "active";} ?>">
+                <input type="radio" name="data_country_count" value="21 - 50" <?php if ("21 - 50" == $org_profile['data_country_count']) {echo "checked";} ?>> 21-50 countries
             </label>
-            <label class="btn btn-default">
-                <input type="radio" name="data_country_count" value="50+" > 50+ countries
+            <label class="btn btn-default <?php if ("50+" == $org_profile['data_country_count']) {echo "active";} ?>">
+                <input type="radio" name="data_country_count" value="50+" <?php if ("50+" == $org_profile['data_country_count']) {echo "checked";} ?>> 50+ countries
             </label>
           </div>
         </div>
       </div>
 
-      <div id="data_use_details"></div>
+      <div id="data_use_details">
+
+<?php
+// echo "rows: ".count($org_data_use);
+// echo "<pre>";print_r($org_data_use);echo "</pre>";
+
+// build up easy dictionary for checked values
+$gov_level_checked = array();
+for ($r = 0; $r < count($org_data_use); $r++) {
+  $key = $org_data_use[$r]['data_src_country_name'].$org_data_use[$r]['data_type'].$org_data_use[$r]['data_src_gov_level'];
+  $gov_level_checked[$key] = "checked";
+}
+// echo "<pre>";print_r($gov_level_checked);echo "</pre>";
+
+echo '<div class=" col-md-12" style="border:0px solid black;" id="data_details">Update the countries that provide the data used by your organization, and whether the data is national and/or local (province/state/city).</div>';
+$prev_country = "";
+$country_count = 0;
+
+for ($r = 0; $r < count($org_data_use); $r++) {
+
+  $country = $org_data_use[$r]['data_src_country_name'];
+  if ($prev_country != $country) {
+    // echo "<br>new country<br>";
+    if ($r > 0) {
+      // we are not in the first row, so close up previous row
+      $bottom_html = '</div></div>';
+      echo $bottom_html;
+    }
+    $country_count++;
+
+    $top_html = '<div class="col-md-12 data_detail_row"><div class="row col-md-12" style="border:0px solid #ddd;" >';
+    echo $top_html;
+    $row_html = '<div class="col-md-5" style="border:0px solid red;">Data source - Country<br />';
+    $row_html .= <<<EOL
+<select name="dataUseData-{$country_count}[src_country][src_country_locode]" class="js-example-basic-single" style="width:240px;">
+<option value="$country">$country</option>
+<option value="AF">Afghanistan</option>
+<option value="AX">Åland Islands</option>
+<option value="AL">Albania</option>
+<option value="DZ">Algeria</option>
+<option value="AS">American Samoa</option>
+<option value="AD">Andorra</option>
+<option value="AO">Angola</option>
+<option value="AI">Anguilla</option>
+<option value="AQ">Antarctica</option>
+<option value="AG">Antigua and Barbuda</option>
+<option value="AR">Argentina</option>
+<option value="AM">Armenia</option>
+<option value="AW">Aruba</option>
+<option value="AU">Australia</option>
+<option value="AT">Austria</option>
+<option value="AZ">Azerbaijan</option>
+<option value="BS">Bahamas</option>
+<option value="BH">Bahrain</option>
+<option value="BD">Bangladesh</option>
+<option value="BB">Barbados</option>
+<option value="BY">Belarus</option>
+<option value="BE">Belgium</option>
+<option value="BZ">Belize</option>
+<option value="BJ">Benin</option>
+<option value="BM">Bermuda</option>
+<option value="BT">Bhutan</option>
+<option value="BO">Bolivia</option>
+<option value="BQ">Bonaire, Sint Eustatius and Saba</option>
+<option value="BA">Bosnia and Herzegovina</option>
+<option value="BW">Botswana</option>
+<option value="BR">Brazil</option>
+<option value="IO">British Indian Ocean Territory</option>
+<option value="BN">Brunei Darussalam</option>
+<option value="BG">Bulgaria</option>
+<option value="BF">Burkina Faso</option>
+<option value="BI">Burundi</option>
+<option value="KH">Cambodia</option>
+<option value="CM">Cameroon</option>
+<option value="CA">Canada</option>
+<option value="CV">Cape Verde</option>
+<option value="KY">Cayman Islands</option>
+<option value="CF">Central African Republic</option>
+<option value="TD">Chad</option>
+<option value="CL">Chile</option>
+<option value="CN">China</option>
+<option value="CX">Christmas Island</option>
+<option value="CC">Cocos (Keeling) Islands</option>
+<option value="CO">Colombia</option>
+<option value="KM">Comoros</option>
+<option value="CG">Congo</option>
+<option value="CD">Congo, The Democratic Republic of the</option>
+<option value="CK">Cook Islands</option>
+<option value="CR">Costa Rica</option>
+<option value="CI">Côte d\'Ivoire</option>
+<option value="HR">Croatia</option>
+<option value="CU">Cuba</option>
+<option value="CW">Curaçao</option>
+<option value="CY">Cyprus</option>
+<option value="CZ">Czech Republic</option>
+<option value="DK">Denmark</option>
+<option value="DJ">Djibouti</option>
+<option value="DM">Dominica</option>
+<option value="DO">Dominican Republic</option>
+<option value="EC">Ecuador</option>
+<option value="EG">Egypt</option>
+<option value="SV">El Salvador</option>
+<option value="GQ">Equatorial Guinea</option>
+<option value="ER">Eritrea</option>
+<option value="EE">Estonia</option>
+<option value="ET">Ethiopia</option>
+<option value="FK">Falkland Islands (Malvinas)</option>
+<option value="FO">Faroe Islands</option>
+<option value="FJ">Fiji</option>
+<option value="FI">Finland</option>
+<option value="FR">France</option>
+<option value="GF">French Guiana</option>
+<option value="PF">French Polynesia</option>
+<option value="TF">French Southern Territories</option>
+<option value="GA">Gabon</option>
+<option value="GM">Gambia</option>
+<option value="GE">Georgia</option>
+<option value="DE">Germany</option>
+<option value="GH">Ghana</option>
+<option value="GI">Gibraltar</option>
+<option value="GR">Greece</option>
+<option value="GL">Greenland</option>
+<option value="GD">Grenada</option>
+<option value="GP">Guadeloupe</option>
+<option value="GU">Guam</option>
+<option value="GT">Guatemala</option>
+<option value="GG">Guernsey</option>
+<option value="GN">Guinea</option>
+<option value="GW">Guinea-Bissau</option>
+<option value="GY">Guyana</option>
+<option value="HT">Haiti</option>
+<option value="HM">Heard Island and McDonald Islands</option>
+<option value="VA">Holy See (Vatican City State)</option>
+<option value="HN">Honduras</option>
+<option value="HK">Hong Kong</option>
+<option value="HU">Hungary</option>
+<option value="IS">Iceland</option>
+<option value="IN">India</option>
+<option value="ID">Indonesia</option>
+<option value="XZ">Installations in International Waters</option>
+<option value="IR">Iran, Islamic Republic of</option>
+<option value="IQ">Iraq</option>
+<option value="IE">Ireland</option>
+<option value="IM">Isle of Man</option>
+<option value="IL">Israel</option>
+<option value="IT">Italy</option>
+<option value="JM">Jamaica</option>
+<option value="JP">Japan</option>
+<option value="JE">Jersey</option>
+<option value="JO">Jordan</option>
+<option value="KZ">Kazakhstan</option>
+<option value="KE">Kenya</option>
+<option value="KI">Kiribati</option>
+<option value="KP">Korea, Democratic People\'s Republic of</option>
+<option value="KR">Korea, Republic of</option>
+<option value="KW">Kuwait</option>
+<option value="KG">Kyrgyzstan</option>
+<option value="LA">Lao People\'s Democratic Republic</option>
+<option value="LV">Latvia</option>
+<option value="LB">Lebanon</option>
+<option value="LS">Lesotho</option>
+<option value="LR">Liberia</option>
+<option value="LY">Libya</option>
+<option value="LI">Liechtenstein</option>
+<option value="LT">Lithuania</option>
+<option value="LU">Luxembourg</option>
+<option value="MO">Macao</option>
+<option value="MK">Macedonia, The former Yugoslav Republic of</option>
+<option value="MG">Madagascar</option>
+<option value="MW">Malawi</option>
+<option value="MY">Malaysia</option>
+<option value="MV">Maldives</option>
+<option value="ML">Mali</option>
+<option value="MT">Malta</option>
+<option value="MH">Marshall Islands</option>
+<option value="MQ">Martinique</option>
+<option value="MR">Mauritania</option>
+<option value="MU">Mauritius</option>
+<option value="YT">Mayotte</option>
+<option value="MX">Mexico</option>
+<option value="FM">Micronesia, Federated States of</option>
+<option value="MD">Moldova, Republic of</option>
+<option value="MC">Monaco</option>
+<option value="MN">Mongolia</option>
+<option value="ME">Montenegro</option>
+<option value="MS">Montserrat</option>
+<option value="MA">Morocco</option>
+<option value="MZ">Mozambique</option>
+<option value="MM">Myanmar</option>
+<option value="NA">Namibia</option>
+<option value="NR">Nauru</option>
+<option value="NP">Nepal</option>
+<option value="NL">Netherlands</option>
+<option value="NC">New Caledonia</option>
+<option value="NZ">New Zealand</option>
+<option value="NI">Nicaragua</option>
+<option value="NE">Niger</option>
+<option value="NG">Nigeria</option>
+<option value="NU">Niue</option>
+<option value="NF">Norfolk Island</option>
+<option value="MP">Northern Mariana Islands</option>
+<option value="NO">Norway</option>
+<option value="OM">Oman</option>
+<option value="PK">Pakistan</option>
+<option value="PW">Palau</option>
+<option value="PS">Palestine, State of</option>
+<option value="PA">Panama</option>
+<option value="PG">Papua New Guinea</option>
+<option value="PY">Paraguay</option>
+<option value="PE">Peru</option>
+<option value="PH">Philippines</option>
+<option value="PN">Pitcairn</option>
+<option value="PL">Poland</option>
+<option value="PT">Portugal</option>
+<option value="PR">Puerto Rico</option>
+<option value="QA">Qatar</option>
+<option value="RE">Reunion</option>
+<option value="RO">Romania</option>
+<option value="RU">Russian Federation</option>
+<option value="RW">Rwanda</option>
+<option value="BL">Saint Barthélemy</option>
+<option value="SH">Saint Helena, Ascension and Tristan Da Cunha</option>
+<option value="KN">Saint Kitts and Nevis</option>
+<option value="LC">Saint Lucia</option>
+<option value="MF">Saint Martin (French Part)</option>
+<option value="PM">Saint Pierre and Miquelon</option>
+<option value="VC">Saint Vincent and the Grenadines</option>
+<option value="WS">Samoa</option>
+<option value="SM">San Marino</option>
+<option value="ST">Sao Tome and Principe</option>
+<option value="SA">Saudi Arabia</option>
+<option value="SN">Senegal</option>
+<option value="RS">Serbia</option>
+<option value="SC">Seychelles</option>
+<option value="SL">Sierra Leone</option>
+<option value="SG">Singapore</option>
+<option value="SX">Sint Maarten (Dutch Part)</option>
+<option value="SK">Slovakia</option>
+<option value="SI">Slovenia</option>
+<option value="SB">Solomon Islands</option>
+<option value="SO">Somalia</option>
+<option value="ZA">South Africa</option>
+<option value="GS">South Georgia and the South Sandwich Islands</option>
+<option value="SS">South Sudan</option>
+<option value="ES">Spain</option>
+<option value="LK">Sri Lanka</option>
+<option value="SD">Sudan</option>
+<option value="SR">Suriname</option>
+<option value="SJ">Svalbard and Jan Mayen</option>
+<option value="SZ">Swaziland</option>
+<option value="SE">Sweden</option>
+<option value="CH">Switzerland</option>
+<option value="SY">Syrian Arab Republic</option>
+<option value="TW">Taiwan, Province of China</option>
+<option value="TJ">Tajikistan</option>
+<option value="TZ">Tanzania, United Republic of</option>
+<option value="TH">Thailand</option>
+<option value="TL">Timor-Leste</option>
+<option value="TG">Togo</option>
+<option value="TK">Tokelau</option>
+<option value="TO">Tonga</option>
+<option value="TT">Trinidad and Tobago</option>
+<option value="TN">Tunisia</option>
+<option value="TR">Turkey</option>
+<option value="TM">Turkmenistan</option>
+<option value="TC">Turks and Caicos Islands</option>
+<option value="TV">Tuvalu</option>
+<option value="UG">Uganda</option>
+<option value="UA">Ukraine</option>
+<option value="AE">United Arab Emirates</option>
+<option value="GB">United Kingdom</option>
+<option value="US">United States</option>
+<option value="UM">United States Minor Outlying Islands</option>
+<option value="UY">Uruguay</option>
+<option value="UZ">Uzbekistan</option>
+<option value="VU">Vanuatu</option>
+<option value="VE">Venezuela</option>
+<option value="VN">Viet Nam</option>
+<option value="VG">Virgin Islands, British</option>
+<option value="VI">Virgin Islands, U.S.</option>
+<option value="WF">Wallis and Futuna</option>
+<option value="EH">Western Sahara</option>
+<option value="YE">Yemen</option>
+<option value="ZM">Zambia</option>
+<option value="ZW">Zimbabwe</option>
+</select>
+EOL;
+
+    $row_html .= '</div>';
+    echo $row_html;
+    // echo print_r($org_profile['data_use_type']);
+
+    echo '<div class="col-md-7">'; // frame data use
+
+    foreach ($org_profile['data_use_type'] as $entry) {
+      $key_national = $country.$entry."National";
+      $key_local = $country.$entry."Local";
+
+      $national_checked = "";
+      $local_checked = "";
+      $national_class = "";
+      $local_class = "";
+
+      if (array_key_exists($key_national, $gov_level_checked)) {
+        $national_checked = "checked";
+        $national_class = "active";
+      }
+      if (array_key_exists($key_local, $gov_level_checked)) {
+        $local_checked = "checked";
+        $local_class = "active";
+      }
+
+      // print "($entry)";
+      $entry_sized = sizeStringPhp($entry, 16);
+      $gov_level = <<<EOL
+<span class="col-md-4" style="border:0px solid black;">
+<span class="" id="" style="font-size:0.8em;"><span class="rm-type">x</span>&nbsp;&nbsp;&nbsp; $entry_sized </span><br />
+  <div class="btn-group" data-toggle="buttons">
+    <label class="btn btn-default {$national_class}" style="font-size:0.6em">
+        <input type="checkbox" name="dataUseData-{$country_count}[src_country][type][{$entry}][src_gov_level][]" value="National" $national_checked>National
+    </label>
+    <label class="btn btn-default {$local_class}" style="font-size:0.6em">
+        <input type="checkbox" name="dataUseData-{$country_count}[src_country][type][{$entry}][src_gov_level][]" value="Local" $local_checked>Local
+    </label>
+  </div>&nbsp;&nbsp;
+</span>
+EOL;
+    echo $gov_level;
+
+    }
+
+    echo "</div>";// close frame data use
+
+  } else {
+    // echo "<br>same country<br>";
+    
+  }
+
+  // $top_html = '<div class="col-md-12 data_detail_row"><div class="row col-md-12" style="border:0px solid #ddd;" >';
+  
+  $prev_country = $country;
+
+}
+// Close up final row
+$bottom_html = '</div></div><br />';
+echo $bottom_html;
+
+
+?>
+
+
+
+      </div>
 
       <div class="row col-md-12">
         <label class="row col-md-10">
@@ -306,27 +663,27 @@ textdomain($domain);
         <div class="form-group col-md-12">
           <div class="col-md-6" id="use_open_data_col-1">
              <div>
-              <input type="checkbox" class="use_open_data" name="use_advocacy" id="use_advocacy" value="True"> advocacy
-              <input type="text" class="form-control" style="display:none" id="use_advocacy_desc" name="use_advocacy_desc" placeholder="Provide details">
+              <input type="checkbox" class="use_open_data" name="use_advocacy" id="use_advocacy" value="True" <?php if ("1" == $org_profile['use_advocacy']) {echo "checked";} ?>> advocacy
+              <textarea class="form-control" style="" id="use_advocacy_desc" name="use_advocacy_desc" placeholder="Provide details"><?php if (array_key_exists("use_advocacy_desc", $org_profile)) {echo $org_profile['use_advocacy_desc'];} ?></textarea>
             </div>
             <div>
-              <input type="checkbox" class="use_open_data" name="use_prod_srvc" id="use_prod_srvc" value="True"> develop new products or services
-              <input type="text" class="form-control" style="display:none" id="use_prod_srvc_desc" name="use_prod_srvc_desc" placeholder="Provide details">
+              <input type="checkbox" class="use_open_data" name="use_prod_srvc" id="use_prod_srvc" value="True" <?php if ("1" == $org_profile['use_prod_srvc']) {echo "checked";} ?>> develop new products or services
+              <textarea class="form-control" style="" id="use_prod_srvc_desc" name="use_prod_srvc_desc" placeholder="Provide details"><?php if (array_key_exists("use_prod_srvc_desc", $org_profile)) {echo $org_profile['use_prod_srvc_desc'];} ?></textarea>
             </div>
             <div>
-              <input type="checkbox" class="use_open_data" name="use_org_opt" id="use_org_opt" value="True"> organizational optimization <i>(e.g. benchmarking, market analysis, improving efficiency, enhancing existing products and services)</i>
-              <input type="text" class="form-control" style="display:none" id="use_org_opt_desc" name="use_org_opt_desc" placeholder="Provide details">
+              <input type="checkbox" class="use_open_data" name="use_org_opt" id="use_org_opt" value="True" <?php if ("1" == $org_profile['use_org_opt']) {echo "checked";} ?>> organizational optimization <i>(e.g. benchmarking, market analysis, improving efficiency, enhancing existing products and services)</i>
+              <textarea class="form-control" style="" id="use_org_opt_desc" name="use_org_opt_desc" placeholder="Provide details"><?php if (array_key_exists("use_org_opt_desc", $org_profile)) {echo $org_profile['use_org_opt_desc'];} ?></textarea>
             </div>
           </div>
 
           <div class="col-md-6" id="use_open_data_col-2">
             <div>
-              <input type="checkbox" class="use_open_data" name="use_research" id="use_research" value="True"> research
-              <input type="text" class="form-control" style="display:none" id="use_research_desc" name="use_research_desc" placeholder="Provide details">
+              <input type="checkbox" class="use_open_data" name="use_research" id="use_research" value="True" <?php if ("1" == $org_profile['use_research']) {echo "checked";} ?>> research
+              <textarea class="form-control" style="" id="use_research_desc" name="use_research_desc" placeholder="Provide details"><?php if (array_key_exists("use_research_desc", $org_profile)) {echo $org_profile['use_research_desc'];} ?></textarea>
             </div>
             <div>
-              <input type="checkbox" class="use_open_data" name="use_other" id="use_other" value="True"> other
-              <input type="text" class="form-control" style="display:none" id="use_other_desc" name="use_other_desc" placeholder="Provide details">
+              <input type="checkbox" class="use_open_data" name="use_other" id="use_other" value="True" <?php if ("1" == $org_profile['use_other']) {echo "checked";} ?>> other
+              <textarea class="form-control" style="" id="use_other_desc" name="use_other_desc" placeholder="Provide details"><?php if (array_key_exists("use_other_desc", $org_profile)) {echo $org_profile['use_other_desc'];} ?></textarea>
             </div>
           </div>
         </div>
@@ -375,8 +732,9 @@ textdomain($domain);
           <input type="text" class="form-control" id="survey_contact_phone" name="survey_contact_phone">
 
           <input type="hidden" class="form-control" id="org_profile_year" name="org_profile_year" value="2015">
-          <input type="hidden" class="form-control" id="org_profile_status" name="org_profile_status" value="submitted">
-          <input type="hidden" class="form-control" id="org_profile_src" name="org_profile_src" value="survey">
+          <input type="hidden" class="form-control" id="org_profile_status" name="org_profile_status" value="edit">
+          <input type="hidden" class="form-control" id="org_profile_src" name="org_profile_src" value="survey-edit">
+          <input type="hidden" class="form-control" id="profile_id" name="profile_id" value="<?php echo $org_profile['profile_id']?>">
         </div>
       </div>
     </div><!-- /closes role contact -->

@@ -800,7 +800,7 @@ $app->get('/edit/:profile_id/form', function ($profile_id) use ($app) {
 	} else {
 		$app->redirect("/map/survey/".$profile_id."/notfound/");
 	}
-	
+
 	// Retrieve org_data_use
 	$params = array(
 		'className' => 'org_data_use',
@@ -823,6 +823,56 @@ $app->get('/edit/:profile_id/form', function ($profile_id) use ($app) {
 	$app->view()->setData(array('content' => $content, 'org_profile' => $org_profile, 'org_data_use' => $org_data_use ));
 	$app->render('survey/tp_profile_edit.php');
 
+});
+
+// ************
+$app->post('/:surveyId/editform', function ($surveyId) use ($app) {
+
+	$parse = new parseRestClient(array(
+		'appid' => PARSE_APPLICATION_ID,
+		'restkey' => PARSE_API_KEY
+	));
+
+	// Access post variables from submitted survey form
+	$allPostVars = $app->request->post();
+	// echo "edit form submission $surveyId";
+	// echo "<pre>"; print_r($allPostVars); echo "</pre>";
+
+	$edits = print_r($allPostVars, true);
+
+	// Instantiate the client.
+	$mgClient = new Mailgun(MAILGUN_APIKEY);
+	$domain = MAILGUN_SERVER;
+
+	$emailtext = <<<EOL
+An EDIT was filled out for Org Profile: ${surveyId} 
+
+View the current profile here: http://${_SERVER['HTTP_HOST']}/map/survey/${surveyId}
+
+The submitted changes are below:
+
+$edits
+
+EOL;
+
+	// Send email with mailgun
+	$result = $mgClient->sendMessage($domain, array(
+		'from'    => 'Center for Open Data Enterprise <mailgun@sandboxc1675fc5cc30472ca9bd4af8028cbcdf.mailgun.org>',
+		'to'      => '<'.'audrey@odenterprise.org'.'>',
+		'cc'      => '<'.'greg@odenterprise.org'.'>',
+		'subject' => "Open Data Impact Map: EDIT FOR PROFILE ${surveyId}",
+		'text'    => $emailtext
+	));
+
+	// exit;
+
+	// writeDataLog($allPostVars);
+	$app->log->info(date_format(date_create(), 'Y-m-d H:i:s')."; INFO; ". str_replace("\n", "||", print_r($allPostVars, true)) );
+	// echo "<br>"."/map/survey/".$surveyId."/thankyou/";
+
+// exit;
+	$app->redirect("/map/survey/".$surveyId."/thankyou/");
+	
 });
 
 // ************
