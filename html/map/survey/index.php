@@ -826,6 +826,25 @@ $app->get('/edit/:profile_id/form', function ($profile_id) use ($app) {
 });
 
 // ************
+$app->post('/:surveyId/editform', function ($surveyId) use ($app) {
+
+	$parse = new parseRestClient(array(
+		'appid' => PARSE_APPLICATION_ID,
+		'restkey' => PARSE_API_KEY
+	));
+
+	// Access post variables from submitted survey form
+	$allPostVars = $app->request->post();
+	echo "edit form submission";
+	echo "<pre>"; print_r($allPostVars); echo "</pre>";
+	exit;
+
+	// writeDataLog($allPostVars);
+	$app->log->info(date_format(date_create(), 'Y-m-d H:i:s')."; INFO; ". str_replace("\n", "||", print_r($allPostVars, true)) );
+
+});
+
+// ************
 $app->get('/:profile_id/notfound/', function ($profile_id) use ($app) {
 
 	$content['profile_id'] = $profile_id;
