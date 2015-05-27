@@ -275,6 +275,13 @@ textdomain($domain);
       </div>
 <br />
       <!-- Sources of open data -->
+
+      <?php
+        // Deal with data_country_count error
+        if (!array_key_exists('data_country_count', $org_profile)) {
+          $org_profile['data_country_count'] = 0;
+        }
+      ?>
       <div class="form-group col-md-12">
         <label for="data_country_count">Number of countries from which open data is provided<small class="required">*</small></label>
         <div class="col-md-12">
@@ -304,6 +311,7 @@ textdomain($domain);
       <div id="data_use_details">
 
 <?php
+/*
 // echo "rows: ".count($org_data_use);
 // echo "<pre>";print_r($org_data_use);echo "</pre>";
 
@@ -648,7 +656,7 @@ EOL;
 $bottom_html = '</div></div><br />';
 echo $bottom_html;
 
-
+*/
 ?>
 
 
