@@ -835,13 +835,44 @@ $app->post('/:surveyId/editform', function ($surveyId) use ($app) {
 
 	// Access post variables from submitted survey form
 	$allPostVars = $app->request->post();
-	echo "edit form submission";
-	echo "<pre>"; print_r($allPostVars); echo "</pre>";
-	exit;
+	// echo "edit form submission $surveyId";
+	// echo "<pre>"; print_r($allPostVars); echo "</pre>";
+
+	$edits = print_r($allPostVars, true);
+
+	// Instantiate the client.
+	$mgClient = new Mailgun(MAILGUN_APIKEY);
+	$domain = MAILGUN_SERVER;
+
+	$emailtext = <<<EOL
+An EDIT was filled out for Org Profile: ${surveyId} 
+
+View the current profile here: http://${_SERVER['HTTP_HOST']}/map/survey/${surveyId}
+
+The submitted changes are below:
+
+$edits
+
+EOL;
+
+	// Send email with mailgun
+	$result = $mgClient->sendMessage($domain, array(
+		'from'    => 'Center for Open Data Enterprise <mailgun@sandboxc1675fc5cc30472ca9bd4af8028cbcdf.mailgun.org>',
+		'to'      => '<'.'audrey@odenterprise.org'.'>',
+		'cc'      => '<'.'greg@odenterprise.org'.'>',
+		'subject' => "Open Data Impact Map: EDIT FOR PROFILE ${surveyId}",
+		'text'    => $emailtext
+	));
+
+	// exit;
 
 	// writeDataLog($allPostVars);
 	$app->log->info(date_format(date_create(), 'Y-m-d H:i:s')."; INFO; ". str_replace("\n", "||", print_r($allPostVars, true)) );
+	// echo "<br>"."/map/survey/".$surveyId."/thankyou/";
 
+// exit;
+	$app->redirect("/map/survey/".$surveyId."/thankyou/");
+	
 });
 
 // ************

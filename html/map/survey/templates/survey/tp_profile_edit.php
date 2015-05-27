@@ -17,7 +17,7 @@ textdomain($domain);
 <!-- Main Content Section -->
 <div class="container lg-font col-md-12" style="border:0px solid black;">
 
- <form id="survey_form" class="form-horizontal" style="border:0px dotted black;" action="/map/edit/<?php echo $content['surveyId']; ?>/editform" method="post">
+ <form id="survey_form" class="form-horizontal" style="border:0px dotted black;" action="/map/survey/<?php echo $content['surveyId']; ?>/editform" method="post">
 
     <div class="col-md-12" role="Intro" id="role-intro">
       <div style="text-align:center;font-size:1.1em;margin-top:20px;">
@@ -732,8 +732,9 @@ echo $bottom_html;
           <input type="text" class="form-control" id="survey_contact_phone" name="survey_contact_phone">
 
           <input type="hidden" class="form-control" id="org_profile_year" name="org_profile_year" value="2015">
-          <input type="hidden" class="form-control" id="org_profile_status" name="org_profile_status" value="submitted">
-          <input type="hidden" class="form-control" id="org_profile_src" name="org_profile_src" value="survey">
+          <input type="hidden" class="form-control" id="org_profile_status" name="org_profile_status" value="edit">
+          <input type="hidden" class="form-control" id="org_profile_src" name="org_profile_src" value="survey-edit">
+          <input type="hidden" class="form-control" id="profile_id" name="profile_id" value="<?php echo $org_profile['profile_id']?>">
         </div>
       </div>
     </div><!-- /closes role contact -->
