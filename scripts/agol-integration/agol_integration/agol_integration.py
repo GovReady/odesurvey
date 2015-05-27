@@ -2,6 +2,7 @@
 
 import json
 import sys
+import pdb
 
 # - 3rd party
 import pandas
@@ -33,6 +34,11 @@ def main(environment):
     df = get_parse_content(environment.arcgis_source_file)
     df = df.where((pandas.notnull(df)), None)  # - nan to None
     df = df[df.latitude.notnull() & df.longitude.notnull()]
+
+    for c in df.columns:
+        if len(df[df[c].str.len() > environment.max_character_limit]) > 0:
+            df[c] = df[c].map(lambda r: r and r[:environment.max_character_limit] or r)
+
     refresh_agol(df, environment.agol_feature_service_url, token=agol_token)
     return True
 

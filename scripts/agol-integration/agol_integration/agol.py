@@ -250,11 +250,14 @@ def add_features(url, features, token):
                 print r.json()
                 raise KeyError('Failed to add features to AGOL')
 
-        if r.json():
-
-                add_count += len(r.json()['addResults'])
+        for i in r.json()['addResults']:
+            if not i.get('success'):
+                print i
+            else:
+                add_count += 1
 
         print 'added {} items to {}'.format(add_count, url)
+        
     return r.json()
 
 def update_features(url, dataframe, token):
