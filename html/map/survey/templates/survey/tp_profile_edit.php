@@ -303,13 +303,21 @@ textdomain($domain);
 
       <div id="data_use_details">
 
-<?php 
+<?php
 echo "rows: ".count($org_data_use);
-// echo "<pre>";
-// print_r($org_data_use);echo "</pre>";
+// echo "<pre>";print_r($org_data_use);echo "</pre>";
+
+// build up easy dictionary for checked values
+$gov_level_checked = array();
+for ($r = 0; $r < count($org_data_use); $r++) {
+  $key = $org_data_use[$r]['data_src_country_name'].$org_data_use[$r]['data_type'].$org_data_use[$r]['data_src_gov_level'];
+  $gov_level_checked[$key] = "checked";
+}
+// echo "<pre>";print_r($gov_level_checked);echo "</pre>";
 
 echo '<div class=" col-md-12" style="border:0px solid black;" id="data_details">Update the countries that provide the data used by your organization, and whether the data is national and/or local (province/state/city).</div>';
 $prev_country = "";
+$country_count = 0;
 
 for ($r = 0; $r < count($org_data_use); $r++) {
 
@@ -321,27 +329,56 @@ for ($r = 0; $r < count($org_data_use); $r++) {
       $bottom_html = '</div></div>';
       echo $bottom_html;
     }
+    $country_count++;
 
     $top_html = '<div class="col-md-12 data_detail_row"><div class="row col-md-12" style="border:0px solid #ddd;" >';
     echo $top_html;
-    $row_html = '<div class="col-md-5" style="border:1px solid red;">'.$country.'</div>';
+    $row_html = '<div class="col-md-5" style="border:0px solid red;">';
+    $row_html .= <<<EOL
+<select name="dataUseData-{$country_count}[src_country][src_country_locode]" class="js-example-basic-single" style="width:240px;">
+<option value="$country">$country</option>
+<option value="AF">Afghanistan</option>
+<option value="AX">Åland Islands</option>
+<option value="AL">Albania</option>
+<option value="DZ">Algeria</option>
+</select>
+EOL;
+
+    $row_html .= '</div>';
     echo $row_html;
     // echo print_r($org_profile['data_use_type']);
 
     echo '<div class="col-md-7">'; // frame data use
 
-    foreach ($org_profile['data_use_type'] as $dut) {
-      // print "($dut)";
-      $dut_sized = sizeStringPhp($dut, 16);
+    foreach ($org_profile['data_use_type'] as $entry) {
+      $key_national = $country.$entry."National";
+      $key_local = $country.$entry."Local";
+
+      $national_checked = "";
+      $local_checked = "";
+      $national_class = "";
+      $local_class = "";
+
+      if (array_key_exists($key_national, $gov_level_checked)) {
+        $national_checked = "checked";
+        $national_class = "active";
+      }
+      if (array_key_exists($key_local, $gov_level_checked)) {
+        $local_checked = "checked";
+        $local_class = "active";
+      }
+
+      // print "($entry)";
+      $entry_sized = sizeStringPhp($entry, 16);
       $gov_level = <<<EOL
 <span class="col-md-4" style="border:0px solid black;">
-<span class="" id="" style="font-size:0.8em;"><span class="rm-type">x</span>&nbsp;&nbsp;&nbsp; $dut_sized </span><br />
+<span class="" id="" style="font-size:0.8em;"><span class="rm-type">x</span>&nbsp;&nbsp;&nbsp; $entry_sized </span><br />
   <div class="btn-group" data-toggle="buttons">
-    <label class="btn btn-default" style="font-size:0.6em">
-        <input type="checkbox" name="dataUseData-'+idSuffixNum.toString()+'[src_country][type]['+entry+'][src_gov_level][]" value="National">National
+    <label class="btn btn-default {$national_class}" style="font-size:0.6em">
+        <input type="checkbox" name="dataUseData-{$country_count}[src_country][type][{$entry}][src_gov_level][]" value="National" $national_checked>National
     </label>
-    <label class="btn btn-default" style="font-size:0.6em">
-        <input type="checkbox" name="dataUseData-'+idSuffixNum.toString()+'[src_country][type]['+entry+'][src_gov_level][]" value="Local">Local
+    <label class="btn btn-default {$local_class}" style="font-size:0.6em">
+        <input type="checkbox" name="dataUseData-{$country_count}[src_country][type][{$entry}][src_gov_level][]" value="Local" $local_checked>Local
     </label>
   </div>&nbsp;&nbsp;
 </span>
@@ -350,7 +387,7 @@ EOL;
 
     }
 
-    echo "</div>"; // close frame data use
+    echo "</div>";// close frame data use
 
   } else {
     // echo "<br>same country<br>";
