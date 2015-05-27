@@ -305,8 +305,8 @@ textdomain($domain);
 
 <?php 
 echo "rows: ".count($org_data_use);
-echo "<pre>";
-print_r($org_data_use);echo "</pre>";
+// echo "<pre>";
+// print_r($org_data_use);echo "</pre>";
 
 echo '<div class=" col-md-12" style="border:0px solid black;" id="data_details">Update the countries that provide the data used by your organization, and whether the data is national and/or local (province/state/city).</div>';
 $prev_country = "";
@@ -315,7 +315,13 @@ for ($r = 0; $r < count($org_data_use); $r++) {
 
   $country = $org_data_use[$r]['data_src_country_name'];
   if ($prev_country != $country) {
-    echo "<br>new country<br>";
+    // echo "<br>new country<br>";
+    if ($r > 0) {
+      // we are not in the first row, so close up previous row
+      $bottom_html = '</div></div>';
+      echo $bottom_html;
+    }
+
     $top_html = '<div class="col-md-12 data_detail_row"><div class="row col-md-12" style="border:0px solid #ddd;" >';
     echo $top_html;
     $row_html = '<div class="col-md-5" style="border:1px solid red;">'.$country.'</div>';
@@ -326,9 +332,8 @@ for ($r = 0; $r < count($org_data_use); $r++) {
 
     foreach ($org_profile['data_use_type'] as $dut) {
       // print "($dut)";
-
       $dut_sized = sizeStringPhp($dut, 16);
-    $gov_level = <<<EOL
+      $gov_level = <<<EOL
 <span class="col-md-4" style="border:0px solid black;">
 <span class="" id="" style="font-size:0.8em;"><span class="rm-type">x</span>&nbsp;&nbsp;&nbsp; $dut_sized </span><br />
   <div class="btn-group" data-toggle="buttons">
@@ -348,19 +353,18 @@ EOL;
     echo "</div>"; // close frame data use
 
   } else {
-    echo "<br>same country<br>";
+    // echo "<br>same country<br>";
     
   }
 
   // $top_html = '<div class="col-md-12 data_detail_row"><div class="row col-md-12" style="border:0px solid #ddd;" >';
   
-  $bottom_html = '</div></div>';
-
-  echo $bottom_html;
   $prev_country = $country;
 
 }
-
+// Close up final row
+$bottom_html = '</div></div><br />';
+echo $bottom_html;
 
 
 ?>
