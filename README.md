@@ -1,5 +1,5 @@
 # Open Data Impact Survey
-Version 1.3
+Version 1.4
 
 This is the first centralized, searchable database of open data use cases from around the world. Your contribution makes it possible to better understand the value of open data and encourage its use globally. Information collected will be displayed on http://www.opendataenterprise.org and will be made available as open data.
 
@@ -42,7 +42,7 @@ If the URL does not work check `vm/basic/Vagrantfile` and check file Vagrant con
 # Credits
 
 - Survey content: Audrey Ariss, Gustavo Magalhaus and all of Center for Open Data Enterprise
-- Survey coding, CSS, Database and Adminstration: Greg Elin, GovReady.org
+- Survey coding, CSS, Database and Adminstration: Greg Elin, GovReady.com
 - Design: Sumiko Carter, ThreeSpot.com
 - Map: BlueRaster
 - Using ArcGIS Online
@@ -51,6 +51,10 @@ If the URL does not work check `vm/basic/Vagrantfile` and check file Vagrant con
 - Using jQuery Bootgrid - http://www.jquery-bootgrid.com
 
 # Change Log
+
+## Version 1.4
+- Improved parsing on imported data
+- Further work on edit page
 
 ## Version 1.3
 - Improved language localization
