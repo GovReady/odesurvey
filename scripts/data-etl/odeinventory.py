@@ -53,10 +53,11 @@ print sh.name, sh.nrows, sh.ncols
 # Test if organization qualifies to be included
 def org_include(org):
     # if org['eligibility'] == 'Y' and org['org_confidence'] > 3 and org['org_hq_country'] != "Spain" and (org['latitude'] is not None) and org['latitude'] != 0 and org['longitude'] != 0 :
-    if "Y" == org['eligibility'] or "YY" == org['eligibility']:
+    if "YY" == org['eligibility']:
+    #if "YY" == org['eligibility']:
         return True
     else:
-        print "skipped b/c org['eligibility'] is %s" % (org['eligibility'])
+        # print "skipped b/c org['eligibility'] is %s" % (org['eligibility'])
         return False
     # if org['org_profile_src'].find("OD500 (unsubmitted)") > -1:
     #     print "skipped b/c org['org_profile_src'] is %s" % (org['org_profile_src'])
@@ -75,7 +76,7 @@ org_list_not_used = []
 org_errors = []
 cnt = 0
 # # Iterate through each row in worksheet and fetch values into dict
-# for rownum in range(1, 50):
+# for rownum in range(891, 897):
 for rownum in range(0, sh.nrows):
     # print "hidden? %n" % sh.row_values(rownum).col_hidden
     cnt +=1
@@ -87,6 +88,9 @@ for rownum in range(0, sh.nrows):
     # Assign values to object
     org['profile_id'] = str(cnt)
     org['eligibility'] = row_values[0]
+    # Skip record if not eligible
+    if not (org_include(org)):
+        continue
     org['org_name'] = row_values[2]
     
     print "\nrow %d: %s\n===================================================" % (rownum, org['org_name'])
@@ -177,6 +181,7 @@ for rownum in range(0, sh.nrows):
     except:
         org['org_size_id'] = None
 
+    print "%s %s %s" % (org['org_hq_city'],org['org_hq_st_prov'], org['org_hq_country'])
     try:
     	loc = "%s %s %s" % (org['org_hq_city'],org['org_hq_st_prov'], org['org_hq_country'])
     	org['org_hq_city'] = locs[loc][0]
@@ -194,7 +199,25 @@ for rownum in range(0, sh.nrows):
     	org['longitude'] = None
         print "loc match failed"
         # print org['org_hq_city'], org['org_hq_country'], org['latitude']
-
+    
+    # if lat is still null, try matching just on country
+    if org['latitude'] == None:
+        print "LAT missing: %s" % org['org_hq_country']
+        print "(%s %s %s)" % (org['org_hq_city'],org['org_hq_st_prov'], org['org_hq_country'])
+        try:
+            loc ="  %s" % (org['org_hq_country'])
+            org['org_hq_city'] = locs[loc][0]
+            org['org_hq_st_prov'] = locs[loc][1]
+            org['org_hq_country_locode'] = locs[loc][2]
+            org['latitude'] = float(locs[loc][3])
+            org['longitude'] = float(locs[loc][4])
+            print "Try #2 - matched on just country"
+            # print "%s %s %s" % (org['org_hq_city'],org['org_hq_st_prov'], org['org_hq_country'])
+            print "%s: %d %d" % (org['org_hq_country_locode'], org['latitude'], org['longitude'])
+        except:
+            print "Try #2 - NO MATCH on just country"
+            org_errors.append( "%s: Try #2 - NO MATCH on just country. Tried %s" % (org['org_name'], org['org_hq_country'] ) )
+            
 
     try:
         # org['org_hq_country_locode'] 
@@ -299,9 +322,9 @@ for org in org_list:
     data_use_flat.append(copy.copy(org))
     
     # Split data use using data_srcs
-    print "%s, %s" % (org['profile_id'], org['org_name'])    
+    # print "%s, %s" % (org['profile_id'], org['org_name'])    
     for data_src in data_srcs:
-        print data_src.strip("")
+        # print data_src.strip("")
         org['row_type'] = "data_use"
         if 0 == len(data_src) or None == data_src or "null" == data_src:
             org['data_type'] = None
@@ -323,7 +346,7 @@ for org in org_list:
             # IMPORTANT get data_src_country_name before changing data_src_country_locode
             org['data_src_country_name'] = regions[org['data_src_country_locode']]['COUNTRY-NAME']
             org['data_src_country_locode'] = regions[org['data_src_country_locode']]['ISO3166-1-UNLOC']
-            print org['data_src_country_name']
+            # print org['data_src_country_name']
             
         # Append copy of object to data_use_flatfile
         data_use_flat.append(copy.copy(org))
