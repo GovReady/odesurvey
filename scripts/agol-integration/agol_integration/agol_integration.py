@@ -3,6 +3,7 @@
 import json
 import sys
 import pdb
+from functools import partial
 
 # - 3rd party
 import pandas
@@ -17,10 +18,30 @@ def get_parse_content(file_path):
             df = pandas.DataFrame(content_response['results'])
             return df
 
+def output_problem_rows(df):
+    df_problems = df[df.latitude.isnull() | df.longitude.isnull()]
+
+    results = {}
+    results['results'] = df_problems.to_dict(orient='records')
+
+    with open('problem_records.json', 'w') as output_file:
+        output_file.write(json.dumps(results))
+
+    print 'found {} problematic records (see problem_records.json)'.format(len(df_problems))
+
 def refresh_agol(source_df, destination_feature_service_layer, token):
     features = agol.dataframe_to_point_features(source_df, x_field='longitude', y_field='latitude', wkid=4326)
     agol.delete_features(destination_feature_service_layer, where='1=1', token=token)
-    agol.add_features(destination_feature_service_layer, features, token=token)
+    successes, errors = agol.add_features(destination_feature_service_layer, features, token=token)
+    
+    with open('agol_success.json', 'w') as success_file:
+        if successes:
+            success_file.write(json.dumps(successes))
+    
+    with open('agol_error.json', 'w') as error_file:
+        if errors:
+            success_file.write(json.dumps(errors))
+
     return True
 
 def create_schema_file(input_file, output_file):
@@ -29,13 +50,28 @@ def create_schema_file(input_file, output_file):
         df = pandas.DataFrame(j)
         df.head(2).to_csv(output_file, index=False, encoding='utf8')
 
+def clean_row(lookup_table, row):
+
+    if not row['latitude'] and lookup_table.get(row['org_hq_country']):
+        row['latitude'] = lookup_table.get(row['org_hq_country'])[1]
+
+    if not row['longitude'] and lookup_table.get(row['org_hq_country']):
+        row['longitude'] = lookup_table.get(row['org_hq_country'])[0]
+
+    return row
+
 def main(environment):
+    centroid_lookup = pandas.read_csv(environment.country_centroid_lookup_table, sep='\t')
+    centroid_lookup = { i['FIPS10'] : (i['LONG'], i['LAT']) for i in centroid_lookup.to_dict(orient='records')}
     agol_token = agol.generate_token(environment.agol_user, environment.agol_pass)
     df = get_parse_content(environment.arcgis_source_file)
     df = df.where((pandas.notnull(df)), None)  # - nan to None
+    clean_row_func = partial(clean_row, centroid_lookup)
+    df = df.apply(clean_row_func, axis=1)
     df = df[df.latitude.notnull() & df.longitude.notnull()]
+    output_problem_rows(df)
 
-    for c in df.columns:
+    for c in [c for c, t in zip(df.columns, df.dtypes) if t == 'object']:
         if len(df[df[c].str.len() > environment.max_character_limit]) > 0:
             df[c] = df[c].map(lambda r: r and r[:environment.max_character_limit] or r)
 
