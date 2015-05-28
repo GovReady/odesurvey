@@ -7,6 +7,8 @@ class BaseSettings(object):
         self.agol_pass = os.environ.get('AGOL_PASS', '')  # - add ArcGIS Online User Pass or set environment variable
         self.parse_data_endpoint = 'http://odetest.govready.org/survey/opendata/data/flatfile.json'
         self.arcgis_source_file = 'arcgis_flatfile.json'
+        self.max_character_limit = 256
+        self.country_centroid_lookup_table = os.path.join(os.path.dirname(__file__), 'country_centroids_all.csv')
 
 class DevelopmentSettings(BaseSettings):
 

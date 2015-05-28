@@ -235,27 +235,54 @@ def create_layer_object():
 
     return layer
 
+def check_response(r):
+    r.json()
+    r.json()['addResults']
+
 def add_features(url, features, token):
     add_url = url + '/addFeatures'
     add_count = 0
-    for feature_chunk in chunker(features, 100):
+    successes = []
+    errors = []
 
+    for feature_chunk in chunker(features, 100):
         params = {}
         params['features'] = json.dumps(feature_chunk, encoding='latin-1')
         params['f'] = 'json'
         params['token'] = token
         r = requests.post(add_url, data=params)
         
+        try:
+            check_response(r)
+        except:
+            r = requests.post(add_url, data=params)
+            try:
+                check_response(r)
+            except:
+                r = requests.post(add_url, data=params)
+                try:
+                    check_response(r)
+                except:
+                    r = requests.post(add_url, data=params)
+                    try:
+                        check_response(r)
+                    except:
+                        r = requests.post(add_url, data=params)
+
         if 'addResults' not in r.json().keys():
-                print r.json()
-                raise KeyError('Failed to add features to AGOL')
+            print r.json()
+            raise KeyError('Failed to add features to AGOL')
 
-        if r.json():
+        for n, i in enumerate(r.json()['addResults']):
+            if not i.get('success'):
+                errors.append(feature_chunk[n])
+                print i
+            else:
+                successes.append(feature_chunk[n])
 
-                add_count += len(r.json()['addResults'])
-
-        print 'added {} items to {}'.format(add_count, url)
-    return r.json()
+        print 'successfully added {} items, failed to add {} items to {}'.format(len(successes), len(errors), url)
+        
+    return successes, errors 
 
 def update_features(url, dataframe, token):
 
