@@ -24,6 +24,10 @@ import random
 import copy
 import re
 
+# Configuration
+arcgis_flatfile = "arcgis_flatfile.json"
+org_profile = "org_profile.json"
+
 # Read in look up data
 # Read in location look ups
 with open('locs.json') as data_file:
@@ -54,7 +58,6 @@ print sh.name, sh.nrows, sh.ncols
 def org_include(org):
     # if org['eligibility'] == 'Y' and org['org_confidence'] > 3 and org['org_hq_country'] != "Spain" and (org['latitude'] is not None) and org['latitude'] != 0 and org['longitude'] != 0 :
     if "YY" == org['eligibility']:
-    #if "YY" == org['eligibility']:
         return True
     else:
         # print "skipped b/c org['eligibility'] is %s" % (org['eligibility'])
@@ -76,7 +79,7 @@ org_list_not_used = []
 org_errors = []
 cnt = 0
 # # Iterate through each row in worksheet and fetch values into dict
-# for rownum in range(891, 897):
+# for rownum in range(1, 20):
 for rownum in range(0, sh.nrows):
     # print "hidden? %n" % sh.row_values(rownum).col_hidden
     cnt +=1
@@ -126,7 +129,25 @@ for rownum in range(0, sh.nrows):
         org['org_greatest_impact'], org['org_greatest_impact_detail'] = org['org_greatest_impact'].split("(")
         org['org_greatest_impact_detail'] = org['org_greatest_impact_detail'].strip(")")
 
+    # Temporarily give all inventory countries some count
+    # org['data_country_count'] = 1
+
     org['data_use_unparsed'] = row_values[13]
+
+    # Create data_use_types array
+    data_srcs = org['data_use_unparsed'].split("|")
+    print "data_srcs"
+    print data_srcs
+    if len(data_srcs) > 0:
+        org['data_use_type'] = [i.split(";")[0].strip() for i in data_srcs]
+    else:
+        org['data_use_type'] = []
+    print "data_use_type"
+    print org['data_use_type']
+
+    # To count countries, split on ';', comprehend on country, then remove duplicates, then count
+
+
     org['usage_unparsed'] = row_values[14]
     org['org_profile_src'] = row_values[15]
     if "survey" == org['org_profile_src'] or "submitted" == ['org_profile_src'] or "submitted survey" == ['org_profile_src']:
@@ -217,7 +238,6 @@ for rownum in range(0, sh.nrows):
         except:
             print "Try #2 - NO MATCH on just country"
             org_errors.append( "%s: Try #2 - NO MATCH on just country. Tried %s" % (org['org_name'], org['org_hq_country'] ) )
-            
 
     try:
         # org['org_hq_country_locode'] 
@@ -232,10 +252,10 @@ for rownum in range(0, sh.nrows):
         org['org_hq_country_income_code'] = None
 
     # fix country code
-    if (3 == len(org['org_hq_country']) and 'EUR' != org['org_hq_country']):
+    if (3 == len(org['org_hq_country']) and 'EUR' != org['org_hq_country'] and 'LAC' != org['org_hq_country']):
         org['org_hq_country'] = regions[org['org_hq_country']]['COUNTRY']
     
-    if  org['org_hq_country_locode'] is not None and 3 == len(org['org_hq_country_locode']) and 'EUR' != org['org_hq_country_locode']:
+    if  org['org_hq_country_locode'] is not None and 3 == len(org['org_hq_country_locode']) and 'EUR' != org['org_hq_country_locode'] and 'LAC' != org['org_hq_country_locode']:
         org['org_hq_country_locode'] = regions[org['org_hq_country_locode']]['ISO3166-1-UNLOC']
         
     # parse usage_unparsed
@@ -293,7 +313,7 @@ results = { "results": org_list }
 j = json.dumps(results, sort_keys=False, indent=4, separators=(',', ': '))
 # print j
 # Write to file
-with open('org_profile.json', 'w') as f:
+with open(org_profile, 'w') as f:
     f.write(j)
 
 # Now generate ArcGIS Flat file
@@ -313,6 +333,11 @@ for org in org_list:
     data_srcs = org['data_use_unparsed'].split("|")
     # Delete unparsed element
     org.pop('data_use_unparsed', None)
+    # Delete 'data_use_type' array element so it can be reused for individual data_use record
+    try:
+        org.pop('data_use_type', None)
+    except KeyError:
+        pass
     
     org['data_type'] = None
     org['data_src_country_locode'] = None
@@ -356,7 +381,7 @@ results = { "results": data_use_flat }
 j = json.dumps(results, sort_keys=False, indent=4, separators=(',', ': '))
 # print j
 # Write to file
-with open('arcgis_flatfile.json', 'w') as f:
+with open(arcgis_flatfile, 'w') as f:
     f.write(j)
 
 

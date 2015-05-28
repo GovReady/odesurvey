@@ -28,6 +28,8 @@ class ProductionSettings(BaseSettings):
 
 # - set active environment
 env = DevelopmentSettings()
+# env = StagingSettings()
+# env = ProductionSettings()
 
 # - logging helper
 import logging
