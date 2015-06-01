@@ -1,4 +1,4 @@
-3# apple
+# apple
 .DS_Store
 
 # Vagrant
@@ -11,18 +11,13 @@ parseConfig.php
 
 # data
 scripts/data-etl/Inventory - Country Classification.csv
-scripts/data-etl/data-backup/odesurvey-parse-prod-export-2015-07-08/*
-Inventory-2015-05-15.xlsx
-Inventory-2015-0518.xlsx
 scripts/agol-integration/agol_error.json
 scripts/agol-integration/agol_success.json
 scripts/agol-integration/arcgis_flatfile.json
 scripts/agol-integration/problem_records.json
-Inventory.old.xlsx
 
 assets/*
 html/grid/*
 
 # Data
-Inventory-2015-05-10.xlsx
 .~lock.Inventory.xlsx#
