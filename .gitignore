@@ -19,7 +19,6 @@ scripts/agol-integration/agol_success.json
 scripts/agol-integration/arcgis_flatfile.json
 scripts/agol-integration/problem_records.json
 Inventory.old.xlsx
-Inventory*xlsx
 
 assets/*
 html/grid/*
