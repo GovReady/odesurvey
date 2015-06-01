@@ -11,6 +11,10 @@ parseConfig.php
 
 # data
 scripts/data-etl/Inventory - Country Classification.csv
+Inventory.xlsx
+arcgis_flatfile.json
+org_profile.json
+
 scripts/agol-integration/agol_error.json
 scripts/agol-integration/agol_success.json
 scripts/agol-integration/arcgis_flatfile.json
