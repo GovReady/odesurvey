@@ -4,9 +4,9 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Open Data Survey 2015 - List</title>
-        <link href="/css3/bootstrap.css" rel="stylesheet" />
-        <link href="/dist/jquery.bootgrid.css" rel="stylesheet" />
-        <script src="/js3/modernizr-2.8.1.js"></script>
+        <link href="/map/survey/css3/bootstrap.css" rel="stylesheet" />
+        <link href="/map/survey/dist/jquery.bootgrid.css" rel="stylesheet" />
+        <script src="/map/survey/js3/modernizr-2.8.1.js"></script>
         <style>
             @-webkit-viewport { width: device-width; }
             @-moz-viewport { width: device-width; }
@@ -20,8 +20,8 @@
             .cell { font-weight: bold; }
         </style>
 
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.min.css">
-<link rel="stylesheet" href="//js.arcgis.com/3.13/esri/css/esri.css">
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.min.css">
+<link rel="stylesheet" href="http://js.arcgis.com/3.13/esri/css/esri.css">
 <style>
   /*html, body {
     padding: 0;
@@ -123,9 +123,9 @@
   }
 </style>
 
-<script src="//js.arcgis.com/3.13compact/"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="//code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+<script src="http://js.arcgis.com/3.13compact/"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
 <script>
   var map;
 
@@ -162,7 +162,7 @@
         slider: false
       });
 
-      var data_url = 'http://<?php echo $content["HTTP_HOST"];?>/survey/opendata/list/new/csv';
+      var data_url = 'http://<?php echo $content["HTTP_HOST"];?>/map/survey/opendata/submitted/csv';
       var csv = new CSVLayer(data_url, {
         fields: [{name: "org_name", type: "String"}]
       });
@@ -275,8 +275,8 @@
 
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#">(<?php echo $_SESSION['username'];?>)</a></li>
-                        <li><a href="/admin/logout/">logout</a></li>
-                        <li><a href="#">Recently submitted surveys</a></li>
+                        <li><a href="/map/survey/admin/logout/">logout</a></li>
+                        <li><a href="/map/survey/admin/survey/submitted/">Recently submitted surveys</a></li>
                     </ul>
                 </nav>
             </div>
@@ -345,9 +345,11 @@
                             <tbody>
                                 
                                 <?php
+
     foreach ($org_profiles as $org_profile) {
         // echo "<pre>"; print_r($org_profile); echo "..".$org_profile['org_name']."</pre>";
-        if ( array_key_exists('org_name', $org_profile) && $org_profile['org_profile_status'] == 'submitted') { 
+        // if ( array_key_exists('org_name', $org_profile) && $org_profile['org_profile_status'] == 'submitted') { 
+        if ( array_key_exists('org_name', $org_profile) ) { 
             echo "<tr>";
             echo "<td>".$org_profile['profile_id']."</td>";
             echo "<td>".$org_profile['org_name']."</td>";
@@ -393,8 +395,8 @@
         </footer>
 
         <!--script src="/lib/jquery-1.11.1.min.js"></script-->
-        <script src="/js3/bootstrap.js"></script>
-        <script src="/dist/jquery.bootgrid.js"></script>
+        <script src="/map/survey/js3/bootstrap.js"></script>
+        <script src="/map/survey/dist/jquery.bootgrid.js"></script>
         <script>
             $(function()
             {

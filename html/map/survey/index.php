@@ -891,7 +891,7 @@ $app->get('/:profile_id/notfound/', function ($profile_id) use ($app) {
 });
 
 // **************
-$app->get('/survey/opendata/list/new/', function () use ($app) {
+$app->get('/admin/survey/submitted/', function () use ($app) {
 
 	// Requires login to access
 	if ( !isset($_SESSION['username']) ) { $app->redirect("/map/survey/admin/login/"); }
@@ -902,7 +902,10 @@ $app->get('/survey/opendata/list/new/', function () use ($app) {
 	));
 
 	$params = array(
-		'className' => 'org_profile'
+		'className' => 'org_profile',
+		'query' => array(
+	        'org_profile_status' => "submitted"
+			)
 	);
 
 	$request = $parse->query($params);
@@ -917,7 +920,7 @@ $app->get('/survey/opendata/list/new/', function () use ($app) {
 	$content['language'] = "en_US";
 
 	$app->view()->setData(array('content' => $content, 'org_profiles' => $org_profiles));
-	$app->render('survey/tp_grid_map.php');
+	$app->render('admin/tp_grid_map.php');
 
 });
 
@@ -984,7 +987,7 @@ $app->get('/survey/opendata/list/map/', function () use ($app) {
 });
 
 // **************
-$app->get('/survey/opendata/list/new/csv', function () use ($app) {
+$app->get('/opendata/submitted/csv', function () use ($app) {
 
 	$parse = new parseRestClient(array(
 		'appid' => PARSE_APPLICATION_ID,
@@ -992,14 +995,17 @@ $app->get('/survey/opendata/list/new/csv', function () use ($app) {
 	));
 
 	$params = array(
-		'className' => 'org_profile'
+		'className' => 'org_profile',
+		'query' => array(
+	        'org_profile_status' => "submitted"
+			)
 	);
 
 	$request = $parse->query($params);
 	$request_array = json_decode($request, true);
 	$org_profiles = $request_array['results'];
 
-	// echo "<pre>"; print_r($org_profiles); echo "</pre>"; 
+	// echo "<pre>"; print_r($org_profiles); echo "</pre>";
 
 	$content['HTTP_HOST'] = $_SERVER['HTTP_HOST'];
 	$content['surveyName'] = "opendata";
