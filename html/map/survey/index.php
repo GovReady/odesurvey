@@ -902,7 +902,10 @@ $app->get('/admin/survey/submitted/', function () use ($app) {
 	));
 
 	$params = array(
-		'className' => 'org_profile'
+		'className' => 'org_profile',
+		'query' => array(
+	        'org_profile_status' => "submitted"
+			)
 	);
 
 	$request = $parse->query($params);
@@ -992,7 +995,10 @@ $app->get('/opendata/submitted/csv', function () use ($app) {
 	));
 
 	$params = array(
-		'className' => 'org_profile'
+		'className' => 'org_profile',
+		'query' => array(
+	        'org_profile_status' => "submitted"
+			)
 	);
 
 	$request = $parse->query($params);
