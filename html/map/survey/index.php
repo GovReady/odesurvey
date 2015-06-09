@@ -1006,6 +1006,7 @@ $app->get('/admin/survey/grid/', function () use ($app) {
 
 	$params = array(
 		'className' => 'org_profile',
+		'order' => 'org_name',
 		'limit' => '1000'
 	);
 
@@ -1035,6 +1036,46 @@ $app->post('/admin/survey/updatefield/:profile_id', function ($profile_id) use (
 		'appid' => PARSE_APPLICATION_ID,
 		'restkey' => PARSE_API_KEY
 	));
+
+	// get post vars
+	$allPostVars = $app->request->post();
+	// print_r($allPostVars); exit;
+	foreach ($allPostVars as $key => $value) {
+		$field_name = $key;
+		$value = $value;
+	}
+	// TODO: data checks here
+
+	// Assume one field and it is clean
+
+	// query database for object_id
+		// Retrieve org_profile
+	$params = array(
+	    'className' => 'org_profile',
+	    'query' => array(
+	        'profile_id' => $profile_id
+	    )
+	);
+
+	$request = $parse->query($params);
+	$request_decoded = json_decode($request, true);
+	$org_profile = $request_decoded['results'][0];
+	$objectId = $org_profile['objectId'];
+	echo $objectId;
+	echo " field_name: $field_name ";
+	echo " value: $value ";
+
+	// Update parse using query - does this work?
+	$params = array(
+		'className' => 'org_profile',
+		'objectId' => $objectId,
+		'object' => array(
+			$field_name => $value
+		)
+	);
+
+	$request = $parse->update($params);
+	$request_array = json_decode($request, true);
 
 	$content['HTTP_HOST'] = $_SERVER['HTTP_HOST'];
 	$content['surveyName'] = "opendata";

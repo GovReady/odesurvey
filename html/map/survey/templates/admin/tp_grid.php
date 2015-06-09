@@ -276,12 +276,12 @@
 
                             "type": function(column, row)
                             {
-                                return "<div id='" + "org_type:" + row.id + "' contenteditable='true'>" + row.type  + "</div>";
+                                return "<div id='" + "org_type:" + row.id + "' contenteditable='true' onclick=\"document.execCommand('selectAll',false,null)\">" + row.type  + "</div>";
                             },
 
                             "status": function(column, row)
                             {
-                                return "<div id='" + "org_profile_status:" + row.id + "' contenteditable='true'>" + row.status  + "</div>";
+                                return "<div id='" + "org_profile_status:" + row.id + "' contenteditable='true' onclick=\"document.execCommand('selectAll',false,null)\">" + row.status  + "</div>";
                             }
 
 
@@ -294,6 +294,7 @@
 
                         // Attach contenteditable listener
                         var message_status = $("#status");
+                        message_status.hide();
 
                         // Have return key blur field insted of add carriage return
                         $("div[contenteditable=true]").on('keydown', function(e) {  
@@ -316,20 +317,20 @@
                             message_status.text(profile_id + ", " + field_name + ", " + value );
                             message_status.text('/map/survey/admin/survey/updatefield/'+profile_id+", "+ field_name + "=" + value);
                             //hide the message
-                            setTimeout(function(){message_status.hide()},6000);
+                            // setTimeout(function(){message_status.hide()},6000);
 
                             // Followed tutorial: http://w3lessons.info/2014/04/13/html5-inline-edit-with-php-mysql-jquery-ajax/
-                            // $.post('/map/survey/admin/survey/updatefield/'+profile_id, field_name + "=" + value, function(data){
-                            //     if(data != '')
-                            //     {
-                            //         message_status.show();
-                            //         message_status.text(data);
-                            //         //hide the message
-                            //         setTimeout(function(){message_status.hide()},5000);
-                            //     } else {
-                            //         alert("Data did not get saved");
-                            //     }
-                            // });
+                            $.post('/map/survey/admin/survey/updatefield/'+profile_id, field_name + "=" + value, function(data){
+                                if(data != '')
+                                {
+                                    message_status.show();
+                                    message_status.text(data);
+                                    //hide the message
+                                    // setTimeout(function(){message_status.hide()},5000);
+                                } else {
+                                    alert("Data did not get saved");
+                                }
+                            });
                         });
 
                         // Add command buttons

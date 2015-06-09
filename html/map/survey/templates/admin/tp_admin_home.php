@@ -64,7 +64,7 @@
                     <div style="margin:10% 30% 0 30%;height:600px;text-align:center;">
                         <h3><a href="/map/survey/start">Take survey</a></h3>
 
-                        <h3><a href="/map/survey/admin/survey/submitted/">View submitted surveys</a></h3>
+                        <h3><a href="/map/survey/admin/survey/grid/">Manage surveys</a></h3>
 
                         <h3><a href="/map/survey/opendata/data/flatfile.json">Combined flatfile (json)</a></h3>
 
