@@ -987,6 +987,66 @@ $app->get('/survey/opendata/list/map/', function () use ($app) {
 });
 
 // **************
+$app->get('/admin/survey/grid/', function () use ($app) {
+
+	// Requires login to access
+	if ( !isset($_SESSION['username']) ) { $app->redirect("/map/survey/admin/login/"); }
+
+	$parse = new parseRestClient(array(
+		'appid' => PARSE_APPLICATION_ID,
+		'restkey' => PARSE_API_KEY
+	));
+
+	// $params = array(
+	// 	'className' => 'org_profile',
+	// 	'query' => array(
+	//         'org_profile_status' => "submitted"
+	// 		)
+	// );
+
+	$params = array(
+		'className' => 'org_profile',
+		'limit' => '1000'
+	);
+
+	$request = $parse->query($params);
+	$request_array = json_decode($request, true);
+	$org_profiles = $request_array['results'];
+
+	// echo "<pre>"; print_r($org_profiles); echo "</pre>"; 
+
+	$content['HTTP_HOST'] = $_SERVER['HTTP_HOST'];
+	$content['surveyName'] = "opendata";
+	$content['title'] = "Open Data Enterprise Survey - Recently Submitted";
+	$content['language'] = "en_US";
+
+	$app->view()->setData(array('content' => $content, 'org_profiles' => $org_profiles));
+	$app->render('admin/tp_grid.php');
+
+});
+
+// **************
+$app->post('/admin/survey/updatefield/:profile_id', function ($profile_id) use ($app) {
+
+	// Requires login to access
+	if ( !isset($_SESSION['username']) ) { $app->redirect("/map/survey/admin/login/"); }
+
+	$parse = new parseRestClient(array(
+		'appid' => PARSE_APPLICATION_ID,
+		'restkey' => PARSE_API_KEY
+	));
+
+	$content['HTTP_HOST'] = $_SERVER['HTTP_HOST'];
+	$content['surveyName'] = "opendata";
+	$content['title'] = "Open Data Enterprise Survey - Recently Submitted";
+	$content['language'] = "en_US";
+
+	$app->view()->setData(array('content' => $content));
+	$app->render('admin/tp_udpatefield_result.php');
+
+});
+
+// **************
 $app->get('/opendata/submitted/csv', function () use ($app) {
 
 	$parse = new parseRestClient(array(
