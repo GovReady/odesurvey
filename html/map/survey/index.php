@@ -355,7 +355,41 @@ $app->get('/start/fr/', function () use ($app) {
     }
 });
 
+// ************
+$app->get('/start/internal/add/', function () use ($app) {
+	
+	$parse = new parseRestClient(array(
+		'appid' => PARSE_APPLICATION_ID,
+		'restkey' => PARSE_API_KEY
+	));
+	
+	$survey_object = array("survey_name" => "opendata", "action" => "start", "notes" => "");
 
+	# store new information as new record 
+    $parse_params = array(
+		'className' => 'survey',
+		'object' => $survey_object
+    );
+	
+	// Create Parse object and save
+    try {
+    	$request = $parse->create($parse_params);
+    	$response = json_decode($request, true);
+    } catch (Exception $e) {
+    	 echo 'Caught exception: ',  $e->getMessage(), "\n";
+    	 $app->redirect("/map/survey/oops/");
+    }
+
+    if(isset($response['objectId'])) {
+    	// Success
+    	$app->redirect("/map/survey/".$response['objectId']."/form/internal/add/");
+    } else {
+    	// Failure
+    	echo "Problem. Promlem with record creation not yet handled.";
+    	exit;
+    	$app->redirect("/error".$response['objectId']);
+    }
+});
 
 // ************
 $app->get('/:surveyId/form', function ($surveyId) use ($app) {
@@ -418,6 +452,27 @@ $app->get('/:surveyId/form/fr/', function ($surveyId) use ($app) {
 
 	$app->view()->setData(array('content' => $content ));
 	$app->render('survey/tp_survey_gettext.php');
+
+});
+
+// ************
+$app->get('/:surveyId/form/internal/add/', function ($surveyId) use ($app) {
+
+	$app->log->debug(date_format(date_create(), 'Y-m-d H:i:s')."; DEBUG; "."new internal survey created, ...");
+	
+	$parse = new parseRestClient(array(
+		'appid' => PARSE_APPLICATION_ID,
+		'restkey' => PARSE_API_KEY
+	));
+
+	// bring up new blank survey
+	$content['surveyId'] = $surveyId;
+	$content['surveyName'] = "opendata";
+	$content['title'] = "Open Data Enterprise Survey (Internal)";
+	$content['language'] = "en_US";
+
+	$app->view()->setData(array('content' => $content ));
+	$app->render('survey/tp_survey_less_req.php');
 
 });
 
