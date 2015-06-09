@@ -294,6 +294,15 @@
 
                         // Attach contenteditable listener
                         var message_status = $("#status");
+
+                        // Have return key blur field insted of add carriage return
+                        $("div[contenteditable=true]").on('keydown', function(e) {  
+                            if(e.keyCode == 13)
+                            {
+                                e.preventDefault();
+                                this.blur();
+                            }
+                        });
                         $("div[contenteditable=true]").blur(function(){
                             // alert('blur');
                             var field_and_id = $(this).attr("id") ;
@@ -309,6 +318,7 @@
                             //hide the message
                             setTimeout(function(){message_status.hide()},6000);
 
+                            // Followed tutorial: http://w3lessons.info/2014/04/13/html5-inline-edit-with-php-mysql-jquery-ajax/
                             // $.post('/map/survey/admin/survey/updatefield/'+profile_id, field_name + "=" + value, function(data){
                             //     if(data != '')
                             //     {
