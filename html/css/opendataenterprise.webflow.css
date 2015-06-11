@@ -2811,7 +2811,7 @@ p {
   margin-top: 10px;
 }
 .nitec {
-  margin-top: 10px;
+  margin-top: 20px;
 }
 .open-city-foundation {
   margin-bottom: 0px;
@@ -2845,6 +2845,9 @@ p {
 }
 .od-taiwan {
   margin-top: 5px;
+}
+.opennorth {
+  margin-top: 10px;
 }
 html.w-mod-js *[data-ix="display-none-on-load"] {
   display: none;
