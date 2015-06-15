@@ -43,7 +43,7 @@
 <?php } ?>
 
   <!-- geocomplete -->
-  <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+  <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places&language=<?php echo $content['language']; ?>"></script>
   <script src="/map/survey/js/vendor/ubilabs-geocomplete-eb38f45/jquery.geocomplete.js"></script>
   
   <!-- onscreen guidance chardin.js -->

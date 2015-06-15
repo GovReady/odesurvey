@@ -24,11 +24,13 @@ textdomain($domain);
       <div style="text-align:center;font-size:1.1em;margin-top:20px;">
         <div class="col-md-9 small">&nbsp;</div><div class="col-md-3 pull-right small" style="font-size:14px;">
           <?php if ($language == "fr_FR") { ?>
-            <a href="/map/survey/start">English</a> | Français | <a href="/map/survey/start/es">Español</a>
+            <a href="/map/survey/start">English</a> | <a href="/map/survey/start/es_MX">Español</a> | Français | <a href="/map/survey/start/ru_RU">Russkiy</a>
           <?php } elseif ($language == "es_MX") { ?>
-            <a href="/map/survey/start/">English</a> | <a href="/map/survey/start/fr">Français</a> | Español
+            <a href="/map/survey/start/">English</a> | Español | <a href="/map/survey/start/fr_FR">Français</a> | <a href="/map/survey/start/ru_RU">Russkiy</a>
+          <?php } elseif ($language == "ru_RU") { ?>
+            <a href="/map/survey/start/">English</a> | <a href="/map/survey/start/fr_FR">Français</a> | <a href="/map/survey/start/es_MX">Español</a> | Russkiy
           <?php } else { ?>
-            English | <a href="/map/survey/start/fr">Français</a> | <a href="/map/survey/start/es">Español</a>
+            English | <a href="/map/survey/start/es_MX">Español</a> | <a href="/map/survey/start/fr_FR">Français</a> | <a href="/map/survey/start/ru_RU">Russkiy</a>
           <?php } ?>
         </div>
         
