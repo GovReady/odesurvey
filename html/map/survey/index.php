@@ -286,6 +286,9 @@ $app->get('/start/', function () use ($app) {
 // ************
 $app->get('/start/internal/add/', function () use ($app) {
 	
+	// Requires login to access
+	if ( !isset($_SESSION['username']) ) { $app->redirect("/map/survey/admin/login/"); }
+
 	$parse = new parseRestClient(array(
 		'appid' => PARSE_APPLICATION_ID,
 		'restkey' => PARSE_API_KEY
@@ -400,6 +403,9 @@ $app->get('/:surveyId/form/:lang/', function ($surveyId, $lang) use ($app) {
 
 // ************
 $app->get('/:surveyId/form/internal/add/', function ($surveyId) use ($app) {
+
+	// Requires login to access
+	if ( !isset($_SESSION['username']) ) { $app->redirect("/map/survey/admin/login/"); }
 
 	$app->log->debug(date_format(date_create(), 'Y-m-d H:i:s')."; DEBUG; "."new internal survey created, ...");
 	

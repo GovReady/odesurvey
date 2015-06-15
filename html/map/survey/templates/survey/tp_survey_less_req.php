@@ -98,7 +98,7 @@ textdomain($domain);
         <label for="org_url">Website URL</label>
         <div class="row">      
             <div class="col-md-8">
-              <input type="url" class="form-control" id="org_url" name="org_url" placeholder="http://" value="http://">
+              <input type="input" class="form-control" id="org_url" name="org_url" placeholder="http://" value="http://">
             </div>
             <div class="col-md-4">
               <input type="checkbox" name="no_org_url" id="no_org_url" value="True"> No URL
@@ -135,7 +135,7 @@ textdomain($domain);
         <label id="industry_id-error" class="error" for="industry_id"></label>
         <fieldset>
         <div class="col-md-4" id="industry_id_col-1">
-          <input type="radio" name="industry_id" class="industry_id" value="Agriculture" required>&nbsp; Agriculture
+          <input type="radio" name="industry_id" class="industry_id" value="Agriculture">&nbsp; Agriculture
           <br /><input type="radio" name="industry_id" class="industry_id" value="Arts and culture">&nbsp; Arts and culture
           <br /><input id="industry_id_cul" type="radio" name="industry_id" class="industry_id" value="Business and legal services" required>&nbsp; Business and legal services
           <br /><input type="radio" name="industry_id" class="industry_id" value="Consumer services">&nbsp; Consumer services
@@ -173,7 +173,7 @@ textdomain($domain);
       <div class="form-group col-md-12">
         <div class="form-group col-md-10">
           <label for="org_year_founded">Founding year<small class="required">*</small></label>
-          <input type="text" class="form-control" id="org_year_founded" name="org_year_founded" placeholder="" minlength=4 maxlength=4 required>
+          <input type="text" class="form-control" id="org_year_founded" name="org_year_founded" placeholder="">
         </div>
       </div>
 
@@ -225,7 +225,7 @@ textdomain($domain);
             </label>
           </div>
         </div>
-        <div class="col-md-10" id="org_greatest_impact_detail_div"><input type="text" class="form-control" id="org_greatest_impact_detail" name="org_greatest_impact_detail" placeholder="<?php echo _("PROVIDE_DETAILS") ?>" required></div>
+        <div class="col-md-10" id="org_greatest_impact_detail_div"><input type="text" class="form-control" id="org_greatest_impact_detail" name="org_greatest_impact_detail" placeholder="<?php echo _("PROVIDE_DETAILS") ?>"></div>
       </div>
     </div><!--/OrgInfo-->
 
@@ -241,7 +241,7 @@ textdomain($domain);
         <label for="data_use_type[]">What are the <u>most relevant</u> types of data your organization uses? <small class="required">(select all that apply)*</small></label>
         <label id="data_use_type[]-error" class="error" for="data_use_type[]"></label>
         <div class="col-md-4" id="data_type_col-1">
-            <input type="checkbox" name="data_use_type[]" class="data_use_type" value="Agriculture" required>&nbsp; <span>Agriculture</span>
+            <input type="checkbox" name="data_use_type[]" class="data_use_type" value="Agriculture">&nbsp; <span>Agriculture</span>
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Arts and culture">&nbsp; <span>Arts and culture</span>
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Business">&nbsp; <span>Business</span>
             <br /><input type="checkbox" name="data_use_type[]" class="data_use_type" value="Consumer">&nbsp; <span>Consumer</span>
@@ -427,5 +427,5 @@ textdomain($domain);
 <!-- I think I am missing a closing </div> gut things are working. -->
 <!-- end container - where is the tag? -->
 
-<?php include __DIR__.'/'.'tp_pt_footer.php'; ?>
+<?php include __DIR__.'/'.'tp_pt_footer_less_req.php'; ?>
 
