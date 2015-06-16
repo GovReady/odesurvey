@@ -168,7 +168,7 @@
                         <br />
                         view recent
                         <br />
-                        <a href="/map/survey/" target="_blank">new survey</a>
+                        <a href="/map/survey/start/internal/add" target="_blank">add min survey</a>
                         <br />
                         <a href="/survey/opendata/data/flatfile.json">flatfile (json)</a>
                         <br />
