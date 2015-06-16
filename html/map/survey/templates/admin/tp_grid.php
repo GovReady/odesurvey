@@ -184,15 +184,11 @@
                             <thead>
                                 <tr>
                                     <th data-column-id="id" data-identifier="true">ID</th>
-                                    <th data-column-id="organization" data-order="asc" data-align="left" data-header-align="left">Organization</th>
-                                    <th data-column-id="type" data-formatter="type" data-order="asc" data-align="left" data-header-align="left">Type</th>
-                                    <th data-column-id="city" data-order="asc" data-align="left" data-header-align="left">City</th>
-                                    <th data-column-id="country" data-order="asc" data-align="left" data-header-align="left">Country</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="true" data-filterable="true" data-sortable="true" data-column-id="org_name"         data-formatter="org_name">org_name</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="true" data-filterable="true" data-sortable="true" data-column-id="org_type"         data-formatter="org_type">org_type</th>
                                     
-                                    <th data-column-id="founded" data-css-class="cell" data-filterable="true">Year founded</th>
-                                    <th data-column-id="survey" data-formatter="link" data-sortable="false">Survey</th>
-                                    <th data-column-id="source" data-sortable="true">Source</th>
-                                    <th data-column-id="status" data-formatter="status" data-sortable="true">Status</th>
+                                    <th data-column-id="org_profile_src" data-sortable="true">org_profile_src</th>
+                                    <th data-column-id="org_profile_status" data-formatter="status" data-sortable="true">org_profile_status</th>
                                     <th data-column-id="commands" data-formatter="commands" data-sortable="false">Commands</th>
                                 </tr>
                             </thead>
@@ -205,15 +201,19 @@
         // if ( array_key_exists('org_name', $org_profile) && $org_profile['org_profile_status'] == 'submitted') { 
         if ( array_key_exists('org_name', $org_profile) ) { 
             echo "<tr>";
-            echo "<td>".$org_profile['profile_id']."</td>";
-            echo "<td>".$org_profile['org_name']."</td>";
-            echo "<td>".$org_profile['org_type']."</td>";
-            echo "<td>".$org_profile['org_hq_city']."</td>";
-            echo "<td>".$org_profile['org_hq_country']."</td>";
-            echo "<td>${org_profile['org_year_founded']}</td>";
-            echo "<td></td>";
-            echo "<td>".$org_profile['org_profile_src']."</td>";
-            echo "<td>".$org_profile['org_profile_status']."</td>";
+        
+            echo "<td>${org_profile['profile_id']}</td>";
+            $keys = array("org_name", "org_type");
+            foreach ($keys as $key) {
+                if ( array_key_exists($key, $org_profile) ) {
+                    echo "<td>".$org_profile[$key]."</td>";
+                } else {
+                     echo "<td></td>";
+                }
+            }
+
+            echo "<td>${org_profile['org_profile_src']}</td>";
+            echo "<td>${org_profile['org_profile_status']}</td>";
             echo "</tr>";
         }
     }
@@ -274,16 +274,17 @@
                                     "<button type=\"button\" class=\"btn btn-xs btn-default command-delete\" data-row-id=\"" + row.id + "\"><span class=\"fa fa-trash-o\">other...</span></button>";
                             },
 
-                            "type": function(column, row)
-                            {
-                                return "<div id='" + "org_type:" + row.id + "' contenteditable='true' onclick=\"document.execCommand('selectAll',false,null)\">" + row.type  + "</div>";
-                            },
+                            // "org_name": function(column, row) { return "<div id='" + "org_name:" + row.id + "' contenteditable='true' onclick=\"document.execCommand('selectAll',false,null)\">" + row.org_name  + "</div>"; }
+                            // "org_type": function(column, row) { return "<div id='" + "org_type:" + row.id + "' contenteditable='true' onclick=\"document.execCommand('selectAll',false,null)\">" + row.org_type  + "</div>"; }
 
-                            "status": function(column, row)
-                            {
-                                return "<div id='" + "org_profile_status:" + row.id + "' contenteditable='true' onclick=\"document.execCommand('selectAll',false,null)\">" + row.status  + "</div>";
-                            }
-
+                    <?php
+                        foreach ($keys as $key) {
+                            $this_row = <<<EOF
+                            "$key": function(column, row) { return "<div id='" + "$key:" + row.id + "' orig='"+ row.$key +"' contenteditable='true' onclick=\"document.execCommand('selectAll',false,null)\">" + row.$key  + "</div>"; },
+EOF;
+                            echo $this_row;
+                        }
+                    ?>
 
                         }
                     }).on("loaded.rs.jquery.bootgrid", function()
@@ -306,31 +307,35 @@
                         });
                         $("div[contenteditable=true]").blur(function(){
                             // alert('blur');
-                            var field_and_id = $(this).attr("id") ;
-                            var value = $(this).text();
+                            var field_and_id = $(this).attr("id");
+                            var value = $(this).text(); 
+
                             // split field information into field name and profile id
                             var fieldinfo = field_and_id.split(':');
                             field_name = fieldinfo[0];
                             profile_id = fieldinfo[1];
-
+                            
                             message_status.show();
                             message_status.text(profile_id + ", " + field_name + ", " + value );
                             message_status.text('/map/survey/admin/survey/updatefield/'+profile_id+", "+ field_name + "=" + value);
                             //hide the message
                             // setTimeout(function(){message_status.hide()},6000);
-
-                            // Followed tutorial: http://w3lessons.info/2014/04/13/html5-inline-edit-with-php-mysql-jquery-ajax/
-                            $.post('/map/survey/admin/survey/updatefield/'+profile_id, field_name + "=" + value, function(data){
-                                if(data != '')
-                                {
-                                    message_status.show();
-                                    message_status.text(data);
-                                    //hide the message
-                                    // setTimeout(function(){message_status.hide()},5000);
-                                } else {
-                                    alert("Data did not get saved");
-                                }
-                            });
+                            
+                            if ( $(this).attr("orig") != value ) {
+                                // alert( $(this).attr("orig") + ' vs ' + value );
+                                // Followed tutorial: http://w3lessons.info/2014/04/13/html5-inline-edit-with-php-mysql-jquery-ajax/
+                                $.post('/map/survey/admin/survey/updatefield/'+profile_id, field_name + "=" + value, function(data){
+                                    if(data != '')
+                                    {
+                                        message_status.show();
+                                        message_status.text(data);
+                                        // hide the message
+                                        // setTimeout(function(){message_status.hide()},5000);
+                                    } else {
+                                        alert("Data did not get saved");
+                                    }
+                                });
+                            }
                         });
 
                         // Add command buttons
