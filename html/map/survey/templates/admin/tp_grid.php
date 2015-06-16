@@ -122,12 +122,13 @@
     color: #555555;
   }
 
-  .org_description {
+  .org_description, .use_advocacy_desc, .use_prod_srvc_desc, .use_org_opt_desc, .use_research_desc, .use_other_desc, .org_additional {
     height: 60px !important;
     white-space: pre-line !important;
     word-wrap: break-word;
     overflow: scroll;
   }
+
 </style>
 
 <script src="http://js.arcgis.com/3.13compact/"></script>
@@ -200,11 +201,42 @@
                                     
                                     <th data-order="asc" data-align="left" data-header-align="left" data-visible="true" data-filterable="true" data-sortable="true" data-column-id="org_year_founded"  data-formatter="org_year_founded">org_year_founded</th>
 
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="org_size_id"  data-formatter="org_size_id">org_size_id</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="industry_id"  data-formatter="industry_id">industry_id</th>
 
-                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="true" data-filterable="true" data-sortable="true" data-column-id="org_description"  data-formatter="org_description">org_description</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="org_greatest_impact"  data-formatter="org_greatest_impact">org_greatest_impact</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="org_greatest_impact_detail"  data-formatter="org_greatest_impact_detail">org_greatest_impact_detail</th>
+
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="data_country_count"  data-formatter="data_country_count">data_country_count</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="data_use_type"  data-formatter="data_use_type">data_use_type</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="use_advocacy"  data-formatter="use_advocacy">use_advocacy</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="use_advocacy_desc"  data-formatter="use_advocacy_desc">use_advocacy_desc</th>
+
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="use_prod_srvc"  data-formatter="use_prod_srvc">use_prod_srvc</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="use_prod_srvc_desc"  data-formatter="use_prod_srvc_desc">use_prod_srvc_desc</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="use_org_opt"  data-formatter="use_org_opt">use_org_opt</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="use_org_opt_desc"  data-formatter="use_org_opt_desc">use_org_opt_desc</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="use_research"  data-formatter="use_research">use_research</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="use_research_desc"  data-formatter="use_research_desc">use_research_desc</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="use_other"  data-formatter="use_other">use_other</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="use_other_desc"  data-formatter="use_other_desc">use_other_desc</th>
+
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="org_hq_city"  data-formatter="org_hq_city">org_hq_city</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="org_hq_st_prov"  data-formatter="org_hq_st_prov">org_hq_st_prov</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="org_hq_country"  data-formatter="org_hq_country">org_hq_country</th>
+
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="latitude"  data-formatter="latitude">latitude</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="longitude"  data-formatter="longitude">longitude</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="org_hq_country_locode"  data-formatter="org_hq_country_locode">country_locode</th>
+
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="org_hq_country_income"  data-formatter="org_hq_country_income">country_income</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="true" data-filterable="true" data-sortable="true" data-column-id="org_hq_country_income_code"  data-formatter="org_hq_country_income_code">country_income_code</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="org_additional"  data-formatter="org_additional">org_additional</th>
+
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="org_description"  data-formatter="org_description">org_description</th>
 
                                     <th data-order="asc" data-align="left" data-header-align="left" data-visible="true"  data-filterable="true" data-sortable="true" data-column-id="org_profile_status" data-formatter="org_profile_status">org_profile_status</th>
-                                    
+
                                     <th data-column-id="org_profile_src" data-sortable="true">org_profile_src</th>
                                     <!-- <th data-column-id="commands" data-formatter="commands" data-sortable="false">Commands</th> -->
                                 </tr>
@@ -221,7 +253,12 @@
         
             echo "<td>${org_profile['profile_id']}</td>";
             // $keys is reusable list of field names for org_profile record - Also used to make fields editable
-            $keys = array("org_name", "org_type", "org_type_other", "org_url", "no_org_url", "org_year_founded", "org_description", 
+            $keys = array("org_name", "org_type", "org_type_other", "org_url", "no_org_url", "org_year_founded", "org_size_id", "industry_id",
+                "org_greatest_impact", "org_greatest_impact_detail", "data_country_count", "data_use_type", "use_advocacy", "use_advocacy_desc",
+                "org_prod_srv", "use_prod_srvc_desc", "use_org_opt", "use_org_opt_desc", "use_research", "use_research_desc", "use_other", "use_other_desc",
+                "org_hq_city", "org_hq_st_prov", "org_hq_country", "latitude", "longitude",
+                "org_hq_country_region", "org_hq_country_income", "org_hq_country_income_code", "org_additional",
+                "org_description",
                 "org_profile_status");
             foreach ($keys as $key) {
                 if ( array_key_exists($key, $org_profile) ) {
