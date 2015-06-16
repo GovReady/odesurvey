@@ -230,7 +230,7 @@
                                     <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="org_hq_country_locode"  data-formatter="org_hq_country_locode">country_locode</th>
 
                                     <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="org_hq_country_income"  data-formatter="org_hq_country_income">country_income</th>
-                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="true" data-filterable="true" data-sortable="true" data-column-id="org_hq_country_income_code"  data-formatter="org_hq_country_income_code">country_income_code</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="org_hq_country_income_code"  data-formatter="org_hq_country_income_code">country_income_code</th>
                                     <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="org_additional"  data-formatter="org_additional">org_additional</th>
 
                                     <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="org_description"  data-formatter="org_description">org_description</th>
@@ -238,6 +238,8 @@
                                     <th data-order="asc" data-align="left" data-header-align="left" data-visible="true"  data-filterable="true" data-sortable="true" data-column-id="org_profile_status" data-formatter="org_profile_status">org_profile_status</th>
 
                                     <th data-column-id="org_profile_src" data-sortable="true">org_profile_src</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="true" data-filterable="true" data-sortable="true" data-column-id="org_profile_category"  data-formatter="org_profile_category">org_profile_category</th>
+
                                     <!-- <th data-column-id="commands" data-formatter="commands" data-sortable="false">Commands</th> -->
                                 </tr>
                             </thead>
@@ -269,6 +271,7 @@
             }
 
             echo "<td>${org_profile['org_profile_src']}</td>";
+            echo "<td>${org_profile['org_profile_category']}</td>";
             echo "</tr>";
         }
     }
