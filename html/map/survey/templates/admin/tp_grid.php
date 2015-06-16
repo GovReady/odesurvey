@@ -121,6 +121,13 @@
     border: 2px solid #67656c;
     color: #555555;
   }
+
+  .org_description {
+    height: 60px !important;
+    white-space: pre-line !important;
+    word-wrap: break-word;
+    overflow: scroll;
+  }
 </style>
 
 <script src="http://js.arcgis.com/3.13compact/"></script>
@@ -175,23 +182,31 @@
                     </div>
 
 
-                    <button id="removeSelected" type="button" class="btn btn-default">Remove Selected</button>
+                    <!-- <button id="removeSelected" type="button" class="btn btn-default">Remove Selected</button>
                     <button id="clear" type="button" class="btn btn-default">Clear</button>
-                    <button id="init" type="button" class="btn btn-default">Init</button>
+                    <button id="init" type="button" class="btn btn-default">Init</button> -->
                     <button id="status" type="button" class="btn btn-default" style="color:green;">&nbsp;</button>
                     <!--div class="table-responsive"-->
                         <table id="grid" class="table table-condensed table-hover table-striped" data-selection="false" data-multi-select="true" data-row-select="true" data-keep-selection="true">
                             <thead>
                                 <tr>
                                     <th data-column-id="id" data-identifier="true">ID</th>
-                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="true" data-filterable="true" data-sortable="true" data-column-id="org_name"         data-formatter="org_name">org_name</th>
-                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="true" data-filterable="true" data-sortable="true" data-column-id="org_type"         data-formatter="org_type">org_type</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="true"  data-filterable="true" data-sortable="true" data-column-id="org_name"        data-formatter="org_name">org_name</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="true"  data-filterable="true" data-sortable="true" data-column-id="org_type"        data-formatter="org_type">org_type</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="org_type_other"  data-formatter="org_type_other">org_type_other</th>
                                     
-                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="org_type_other"   data-formatter="org_type_other">org_type_other</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="org_url"  data-formatter="org_url">org_url</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="no_org_url"  data-formatter="no_org_url">no_org_url</th>
+                                    
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="true" data-filterable="true" data-sortable="true" data-column-id="org_year_founded"  data-formatter="org_year_founded">org_year_founded</th>
+
+
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="true" data-filterable="true" data-sortable="true" data-column-id="org_description"  data-formatter="org_description">org_description</th>
+
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="true"  data-filterable="true" data-sortable="true" data-column-id="org_profile_status" data-formatter="org_profile_status">org_profile_status</th>
                                     
                                     <th data-column-id="org_profile_src" data-sortable="true">org_profile_src</th>
-                                    <th data-column-id="org_profile_status" data-formatter="status" data-sortable="true">org_profile_status</th>
-                                    <th data-column-id="commands" data-formatter="commands" data-sortable="false">Commands</th>
+                                    <!-- <th data-column-id="commands" data-formatter="commands" data-sortable="false">Commands</th> -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -206,7 +221,8 @@
         
             echo "<td>${org_profile['profile_id']}</td>";
             // $keys is reusable list of field names for org_profile record - Also used to make fields editable
-            $keys = array("org_name", "org_type", "org_type_other");
+            $keys = array("org_name", "org_type", "org_type_other", "org_url", "no_org_url", "org_year_founded", "org_description", 
+                "org_profile_status");
             foreach ($keys as $key) {
                 if ( array_key_exists($key, $org_profile) ) {
                     echo "<td>".$org_profile[$key]."</td>";
@@ -216,7 +232,6 @@
             }
 
             echo "<td>${org_profile['org_profile_src']}</td>";
-            echo "<td>${org_profile['org_profile_status']}</td>";
             echo "</tr>";
         }
     }
@@ -265,6 +280,7 @@
                 function init()
                 {
                     var grid = $("#grid").bootgrid({
+                        rowCount: [10, 25, 50, 100, 500, -1],
                         formatters: {
                             "link": function(column, row)
                             {
@@ -283,7 +299,7 @@
                     <?php
                         foreach ($keys as $key) {
                             $this_row = <<<EOF
-                            "$key": function(column, row) { return "<div id='" + "$key:" + row.id + "' orig='"+ row.$key +"' contenteditable='true' onclick=\"document.execCommand('selectAll',false,null)\">" + row.$key  + "</div>"; },
+                            "$key": function(column, row) { return "<div id='" + "$key:" + row.id + "' orig='"+ row.$key +"' contenteditable='true' class='$key' onclick=\"document.execCommand('selectAll',false,null)\">" + row.$key  + "</div>"; },
 EOF;
                             echo $this_row;
                         }
@@ -320,13 +336,14 @@ EOF;
                             
                             message_status.show();
                             message_status.text(profile_id + ", " + field_name + ", " + value );
-                            message_status.text('/map/survey/admin/survey/updatefield/'+profile_id+", "+ field_name + "=" + value);
-                            //hide the message
+                            message_status.text('Status message: '+'/map/survey/admin/survey/updatefield/'+profile_id+", "+ field_name + "=" + value);
+                            // hide the message
                             // setTimeout(function(){message_status.hide()},6000);
                             
                             if ( $(this).attr("orig") != value ) {
                                 // alert( $(this).attr("orig") + ' vs ' + value );
                                 // Followed tutorial: http://w3lessons.info/2014/04/13/html5-inline-edit-with-php-mysql-jquery-ajax/
+                                // alert('trying to save');
                                 $.post('/map/survey/admin/survey/updatefield/'+profile_id, field_name + "=" + value, function(data){
                                     if(data != '')
                                     {
@@ -366,17 +383,17 @@ EOF;
                 
                 init();
                 
-                $("#clear").on("click", function ()
-                {
-                    $("#grid").bootgrid("clear");
-                });
+                // $("#clear").on("click", function ()
+                // {
+                //     $("#grid").bootgrid("clear");
+                // });
                 
-                $("#removeSelected").on("click", function ()
-                {
-                    $("#grid").bootgrid("remove");
-                });
+                // $("#removeSelected").on("click", function ()
+                // {
+                //     $("#grid").bootgrid("remove");
+                // });
                 
-                $("#init").on("click", init);
+                // $("#init").on("click", init);
 
 
             });
