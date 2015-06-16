@@ -239,7 +239,7 @@
 
                                     <th data-column-id="org_profile_src" data-sortable="true">org_profile_src</th>
                                     <th data-order="asc" data-align="left" data-header-align="left" data-visible="true" data-filterable="true" data-sortable="true" data-column-id="org_profile_category"  data-formatter="org_profile_category">org_profile_category</th>
-
+                                    <th data-column-id="link" data-sortable="true" data-formatter="link">link</th>
                                     <!-- <th data-column-id="commands" data-formatter="commands" data-sortable="false">Commands</th> -->
                                 </tr>
                             </thead>
@@ -272,6 +272,7 @@
 
             echo "<td>${org_profile['org_profile_src']}</td>";
             echo "<td>${org_profile['org_profile_category']}</td>";
+            echo "<td></td>";
             echo "</tr>";
         }
     }
@@ -324,7 +325,7 @@
                         formatters: {
                             "link": function(column, row)
                             {
-                                return "<a href=\"/map/survey/edit/" + row.id + "/form\">" + row.organization + " survey</a>";
+                                return "<a href=\"/map/survey/edit/" + row.id + "/form\" target=\"_blank\">" + row.org_name + " survey</a>";
                             },
 
                             "commands": function(column, row)
