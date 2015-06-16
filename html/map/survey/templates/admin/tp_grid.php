@@ -121,6 +121,14 @@
     border: 2px solid #67656c;
     color: #555555;
   }
+
+  .org_description, .use_advocacy_desc, .use_prod_srvc_desc, .use_org_opt_desc, .use_research_desc, .use_other_desc, .org_additional {
+    height: 60px !important;
+    white-space: pre-line !important;
+    word-wrap: break-word;
+    overflow: scroll;
+  }
+
 </style>
 
 <script src="http://js.arcgis.com/3.13compact/"></script>
@@ -175,25 +183,62 @@
                     </div>
 
 
-                    <button id="removeSelected" type="button" class="btn btn-default">Remove Selected</button>
+                    <!-- <button id="removeSelected" type="button" class="btn btn-default">Remove Selected</button>
                     <button id="clear" type="button" class="btn btn-default">Clear</button>
-                    <button id="init" type="button" class="btn btn-default">Init</button>
+                    <button id="init" type="button" class="btn btn-default">Init</button> -->
                     <button id="status" type="button" class="btn btn-default" style="color:green;">&nbsp;</button>
                     <!--div class="table-responsive"-->
                         <table id="grid" class="table table-condensed table-hover table-striped" data-selection="false" data-multi-select="true" data-row-select="true" data-keep-selection="true">
                             <thead>
                                 <tr>
                                     <th data-column-id="id" data-identifier="true">ID</th>
-                                    <th data-column-id="organization" data-order="asc" data-align="left" data-header-align="left">Organization</th>
-                                    <th data-column-id="type" data-formatter="type" data-order="asc" data-align="left" data-header-align="left">Type</th>
-                                    <th data-column-id="city" data-order="asc" data-align="left" data-header-align="left">City</th>
-                                    <th data-column-id="country" data-order="asc" data-align="left" data-header-align="left">Country</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="true"  data-filterable="true" data-sortable="true" data-column-id="org_name"        data-formatter="org_name">org_name</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="true"  data-filterable="true" data-sortable="true" data-column-id="org_type"        data-formatter="org_type">org_type</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="org_type_other"  data-formatter="org_type_other">org_type_other</th>
                                     
-                                    <th data-column-id="founded" data-css-class="cell" data-filterable="true">Year founded</th>
-                                    <th data-column-id="survey" data-formatter="link" data-sortable="false">Survey</th>
-                                    <th data-column-id="source" data-sortable="true">Source</th>
-                                    <th data-column-id="status" data-formatter="status" data-sortable="true">Status</th>
-                                    <th data-column-id="commands" data-formatter="commands" data-sortable="false">Commands</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="org_url"  data-formatter="org_url">org_url</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="no_org_url"  data-formatter="no_org_url">no_org_url</th>
+                                    
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="true" data-filterable="true" data-sortable="true" data-column-id="org_year_founded"  data-formatter="org_year_founded">org_year_founded</th>
+
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="org_size_id"  data-formatter="org_size_id">org_size_id</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="industry_id"  data-formatter="industry_id">industry_id</th>
+
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="org_greatest_impact"  data-formatter="org_greatest_impact">org_greatest_impact</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="org_greatest_impact_detail"  data-formatter="org_greatest_impact_detail">org_greatest_impact_detail</th>
+
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="data_country_count"  data-formatter="data_country_count">data_country_count</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="data_use_type"  data-formatter="data_use_type">data_use_type</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="use_advocacy"  data-formatter="use_advocacy">use_advocacy</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="use_advocacy_desc"  data-formatter="use_advocacy_desc">use_advocacy_desc</th>
+
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="use_prod_srvc"  data-formatter="use_prod_srvc">use_prod_srvc</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="use_prod_srvc_desc"  data-formatter="use_prod_srvc_desc">use_prod_srvc_desc</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="use_org_opt"  data-formatter="use_org_opt">use_org_opt</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="use_org_opt_desc"  data-formatter="use_org_opt_desc">use_org_opt_desc</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="use_research"  data-formatter="use_research">use_research</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="use_research_desc"  data-formatter="use_research_desc">use_research_desc</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="use_other"  data-formatter="use_other">use_other</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="use_other_desc"  data-formatter="use_other_desc">use_other_desc</th>
+
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="org_hq_city"  data-formatter="org_hq_city">org_hq_city</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="org_hq_st_prov"  data-formatter="org_hq_st_prov">org_hq_st_prov</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="org_hq_country"  data-formatter="org_hq_country">org_hq_country</th>
+
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="latitude"  data-formatter="latitude">latitude</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="longitude"  data-formatter="longitude">longitude</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="org_hq_country_locode"  data-formatter="org_hq_country_locode">country_locode</th>
+
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="org_hq_country_income"  data-formatter="org_hq_country_income">country_income</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="true" data-filterable="true" data-sortable="true" data-column-id="org_hq_country_income_code"  data-formatter="org_hq_country_income_code">country_income_code</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="org_additional"  data-formatter="org_additional">org_additional</th>
+
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="org_description"  data-formatter="org_description">org_description</th>
+
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="true"  data-filterable="true" data-sortable="true" data-column-id="org_profile_status" data-formatter="org_profile_status">org_profile_status</th>
+
+                                    <th data-column-id="org_profile_src" data-sortable="true">org_profile_src</th>
+                                    <!-- <th data-column-id="commands" data-formatter="commands" data-sortable="false">Commands</th> -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -205,15 +250,25 @@
         // if ( array_key_exists('org_name', $org_profile) && $org_profile['org_profile_status'] == 'submitted') { 
         if ( array_key_exists('org_name', $org_profile) ) { 
             echo "<tr>";
-            echo "<td>".$org_profile['profile_id']."</td>";
-            echo "<td>".$org_profile['org_name']."</td>";
-            echo "<td>".$org_profile['org_type']."</td>";
-            echo "<td>".$org_profile['org_hq_city']."</td>";
-            echo "<td>".$org_profile['org_hq_country']."</td>";
-            echo "<td>${org_profile['org_year_founded']}</td>";
-            echo "<td></td>";
-            echo "<td>".$org_profile['org_profile_src']."</td>";
-            echo "<td>".$org_profile['org_profile_status']."</td>";
+        
+            echo "<td>${org_profile['profile_id']}</td>";
+            // $keys is reusable list of field names for org_profile record - Also used to make fields editable
+            $keys = array("org_name", "org_type", "org_type_other", "org_url", "no_org_url", "org_year_founded", "org_size_id", "industry_id",
+                "org_greatest_impact", "org_greatest_impact_detail", "data_country_count", "data_use_type", "use_advocacy", "use_advocacy_desc",
+                "org_prod_srv", "use_prod_srvc_desc", "use_org_opt", "use_org_opt_desc", "use_research", "use_research_desc", "use_other", "use_other_desc",
+                "org_hq_city", "org_hq_st_prov", "org_hq_country", "latitude", "longitude",
+                "org_hq_country_region", "org_hq_country_income", "org_hq_country_income_code", "org_additional",
+                "org_description",
+                "org_profile_status");
+            foreach ($keys as $key) {
+                if ( array_key_exists($key, $org_profile) ) {
+                    echo "<td>".$org_profile[$key]."</td>";
+                } else {
+                     echo "<td></td>";
+                }
+            }
+
+            echo "<td>${org_profile['org_profile_src']}</td>";
             echo "</tr>";
         }
     }
@@ -262,6 +317,7 @@
                 function init()
                 {
                     var grid = $("#grid").bootgrid({
+                        rowCount: [10, 25, 50, 100, 500, -1],
                         formatters: {
                             "link": function(column, row)
                             {
@@ -274,16 +330,17 @@
                                     "<button type=\"button\" class=\"btn btn-xs btn-default command-delete\" data-row-id=\"" + row.id + "\"><span class=\"fa fa-trash-o\">other...</span></button>";
                             },
 
-                            "type": function(column, row)
-                            {
-                                return "<div id='" + "org_type:" + row.id + "' contenteditable='true' onclick=\"document.execCommand('selectAll',false,null)\">" + row.type  + "</div>";
-                            },
+                            // "org_name": function(column, row) { return "<div id='" + "org_name:" + row.id + "' contenteditable='true' onclick=\"document.execCommand('selectAll',false,null)\">" + row.org_name  + "</div>"; }
+                            // "org_type": function(column, row) { return "<div id='" + "org_type:" + row.id + "' contenteditable='true' onclick=\"document.execCommand('selectAll',false,null)\">" + row.org_type  + "</div>"; }
 
-                            "status": function(column, row)
-                            {
-                                return "<div id='" + "org_profile_status:" + row.id + "' contenteditable='true' onclick=\"document.execCommand('selectAll',false,null)\">" + row.status  + "</div>";
-                            }
-
+                    <?php
+                        foreach ($keys as $key) {
+                            $this_row = <<<EOF
+                            "$key": function(column, row) { return "<div id='" + "$key:" + row.id + "' orig='"+ row.$key +"' contenteditable='true' class='$key' onclick=\"document.execCommand('selectAll',false,null)\">" + row.$key  + "</div>"; },
+EOF;
+                            echo $this_row;
+                        }
+                    ?>
 
                         }
                     }).on("loaded.rs.jquery.bootgrid", function()
@@ -306,31 +363,36 @@
                         });
                         $("div[contenteditable=true]").blur(function(){
                             // alert('blur');
-                            var field_and_id = $(this).attr("id") ;
-                            var value = $(this).text();
+                            var field_and_id = $(this).attr("id");
+                            var value = $(this).text(); 
+
                             // split field information into field name and profile id
                             var fieldinfo = field_and_id.split(':');
                             field_name = fieldinfo[0];
                             profile_id = fieldinfo[1];
-
+                            
                             message_status.show();
                             message_status.text(profile_id + ", " + field_name + ", " + value );
-                            message_status.text('/map/survey/admin/survey/updatefield/'+profile_id+", "+ field_name + "=" + value);
-                            //hide the message
+                            message_status.text('Status message: '+'/map/survey/admin/survey/updatefield/'+profile_id+", "+ field_name + "=" + value);
+                            // hide the message
                             // setTimeout(function(){message_status.hide()},6000);
-
-                            // Followed tutorial: http://w3lessons.info/2014/04/13/html5-inline-edit-with-php-mysql-jquery-ajax/
-                            $.post('/map/survey/admin/survey/updatefield/'+profile_id, field_name + "=" + value, function(data){
-                                if(data != '')
-                                {
-                                    message_status.show();
-                                    message_status.text(data);
-                                    //hide the message
-                                    // setTimeout(function(){message_status.hide()},5000);
-                                } else {
-                                    alert("Data did not get saved");
-                                }
-                            });
+                            
+                            if ( $(this).attr("orig") != value ) {
+                                // alert( $(this).attr("orig") + ' vs ' + value );
+                                // Followed tutorial: http://w3lessons.info/2014/04/13/html5-inline-edit-with-php-mysql-jquery-ajax/
+                                // alert('trying to save');
+                                $.post('/map/survey/admin/survey/updatefield/'+profile_id, field_name + "=" + value, function(data){
+                                    if(data != '')
+                                    {
+                                        message_status.show();
+                                        message_status.text(data);
+                                        // hide the message
+                                        // setTimeout(function(){message_status.hide()},5000);
+                                    } else {
+                                        alert("Data did not get saved");
+                                    }
+                                });
+                            }
                         });
 
                         // Add command buttons
@@ -358,17 +420,17 @@
                 
                 init();
                 
-                $("#clear").on("click", function ()
-                {
-                    $("#grid").bootgrid("clear");
-                });
+                // $("#clear").on("click", function ()
+                // {
+                //     $("#grid").bootgrid("clear");
+                // });
                 
-                $("#removeSelected").on("click", function ()
-                {
-                    $("#grid").bootgrid("remove");
-                });
+                // $("#removeSelected").on("click", function ()
+                // {
+                //     $("#grid").bootgrid("remove");
+                // });
                 
-                $("#init").on("click", init);
+                // $("#init").on("click", init);
 
 
             });

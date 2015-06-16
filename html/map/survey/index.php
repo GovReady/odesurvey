@@ -1041,15 +1041,29 @@ $app->post('/admin/survey/updatefield/:profile_id', function ($profile_id) use (
 		'restkey' => PARSE_API_KEY
 	));
 
+
+    // // Set string values to numeric values
+    // $allPostVars["org_profile_year"] = intval($allPostVars["org_profile_year"]);
+    // $allPostVars["org_year_founded"] = intval($allPostVars["org_year_founded"]);
+    // $allPostVars["latitude"] = floatval($allPostVars["latitude"]);
+    // $allPostVars["longitude"] = floatval($allPostVars["longitude"]);
+
 	// get post vars
 	$allPostVars = $app->request->post();
 	// print_r($allPostVars); exit;
-	foreach ($allPostVars as $key => $value) {
+	foreach ($allPostVars as $key => $val) {
 		$field_name = $key;
-		$value = $value;
+		// echo "field_name: $field_name";
+		switch ($field_name) {
+			case "org_year_founded":
+				$value = intval($val);
+				break;
+			default:
+				$value = $val;
+		}
 	}
 	// TODO: data checks here
-
+	// echo "(type of field_name: ".gettype($value);
 	// Assume one field and it is clean
 
 	// query database for object_id
@@ -1065,9 +1079,9 @@ $app->post('/admin/survey/updatefield/:profile_id', function ($profile_id) use (
 	$request_decoded = json_decode($request, true);
 	$org_profile = $request_decoded['results'][0];
 	$objectId = $org_profile['objectId'];
-	echo $objectId;
-	echo " field_name: $field_name ";
-	echo " value: $value ";
+	// echo $objectId;
+	// echo " field_name: $field_name ";
+	// echo " value: $value ";
 
 	// Update parse using query - does this work?
 	$params = array(
@@ -1080,11 +1094,16 @@ $app->post('/admin/survey/updatefield/:profile_id', function ($profile_id) use (
 
 	$request = $parse->update($params);
 	$request_array = json_decode($request, true);
+	// print_r($request);
 
 	$content['HTTP_HOST'] = $_SERVER['HTTP_HOST'];
 	$content['surveyName'] = "opendata";
 	$content['title'] = "Open Data Enterprise Survey - Recently Submitted";
 	$content['language'] = "en_US";
+	$content['updatedAt'] = $request_array['updatedAt'];
+	$content['field_name'] = $field_name;
+	$content['value'] = $value;
+	$content['profile_id'] =  $profile_id;
 
 	$app->view()->setData(array('content' => $content));
 	$app->render('admin/tp_udpatefield_result.php');
