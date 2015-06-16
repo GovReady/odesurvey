@@ -187,6 +187,8 @@
                                     <th data-order="asc" data-align="left" data-header-align="left" data-visible="true" data-filterable="true" data-sortable="true" data-column-id="org_name"         data-formatter="org_name">org_name</th>
                                     <th data-order="asc" data-align="left" data-header-align="left" data-visible="true" data-filterable="true" data-sortable="true" data-column-id="org_type"         data-formatter="org_type">org_type</th>
                                     
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="org_type_other"   data-formatter="org_type_other">org_type_other</th>
+                                    
                                     <th data-column-id="org_profile_src" data-sortable="true">org_profile_src</th>
                                     <th data-column-id="org_profile_status" data-formatter="status" data-sortable="true">org_profile_status</th>
                                     <th data-column-id="commands" data-formatter="commands" data-sortable="false">Commands</th>
@@ -203,7 +205,8 @@
             echo "<tr>";
         
             echo "<td>${org_profile['profile_id']}</td>";
-            $keys = array("org_name", "org_type");
+            // $keys is reusable list of field names for org_profile record - Also used to make fields editable
+            $keys = array("org_name", "org_type", "org_type_other");
             foreach ($keys as $key) {
                 if ( array_key_exists($key, $org_profile) ) {
                     echo "<td>".$org_profile[$key]."</td>";
