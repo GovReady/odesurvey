@@ -237,7 +237,8 @@
 
                                     <th data-order="asc" data-align="left" data-header-align="left" data-visible="true"  data-filterable="true" data-sortable="true" data-column-id="org_profile_status" data-formatter="org_profile_status">org_profile_status</th>
 
-                                    <th data-column-id="org_profile_src" data-sortable="true">org_profile_src</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="true"  data-filterable="true" data-sortable="true" data-column-id="org_profile_src" data-formatter="org_profile_src">org_profile_src</th>
+
                                     <th data-order="asc" data-align="left" data-header-align="left" data-visible="true" data-filterable="true" data-sortable="true" data-column-id="org_profile_category"  data-formatter="org_profile_category">org_profile_category</th>
                                     <th data-column-id="link" data-sortable="true" data-formatter="link">link</th>
                                     <!-- <th data-column-id="commands" data-formatter="commands" data-sortable="false">Commands</th> -->
@@ -261,7 +262,7 @@
                 "org_hq_city", "org_hq_st_prov", "org_hq_country", "latitude", "longitude",
                 "org_hq_country_region", "org_hq_country_income", "org_hq_country_income_code", "org_additional",
                 "org_description",
-                "org_profile_status");
+                "org_profile_status", "org_profile_src", "org_profile_category");
             foreach ($keys as $key) {
                 if ( array_key_exists($key, $org_profile) ) {
                     echo "<td>".$org_profile[$key]."</td>";
@@ -270,8 +271,6 @@
                 }
             }
 
-            echo "<td>${org_profile['org_profile_src']}</td>";
-            echo "<td>${org_profile['org_profile_category']}</td>";
             echo "<td></td>";
             echo "</tr>";
         }
