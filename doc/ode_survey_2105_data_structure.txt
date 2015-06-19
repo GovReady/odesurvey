@@ -2,7 +2,7 @@
 -- Copyright 2015 Center for Open Data Enterprise. All Rights Reserved.
 -- Prepared by Greg Elin (greg@odenterprise.org)
 -- filename: ode_survey_2015_data_structure.txt
--- version: 0.22.0
+-- version: 0.23.0
 
 -- NOTES
 -- This is a description of the data tables for the 2015 Survey.
@@ -11,6 +11,7 @@
 -- Codes/IDs are used in field `industry_id` to make easier to deal with multiple languages
 
 -- CHANGE LOG
+-- 0.23.0       Fix typo on size of use_product_srvc_desc
 -- 0.22.0       Change data_type to data_use_type in org_profile
 -- 0.21.0       Add data_country_count, data_type to org_profile
 -- 0.20.0       Add data_src_country_name field
@@ -52,7 +53,7 @@ data_use_type                varchar(400) NULL         -- array of data types us
 use_advocacy             boolean NULL,
 use_advocacy_desc        varchar(401) NULL,        -- 400 character description
 use_prod_srvc            boolean NULL,
-use_prod_srvc_desc       varchar(75) NULL,         
+use_prod_srvc_desc       varchar(401) NULL,         
 use_org_opt              boolean NULL,
 use_org_opt_desc         varchar(401) NULL,        -- 400 character description
 use_research             boolean NULL,
