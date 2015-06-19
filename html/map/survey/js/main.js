@@ -440,7 +440,7 @@ function getCountries(idSuffixNum) {
 <option value="SE">Sweden</option> \
 <option value="CH">Switzerland</option> \
 <option value="SY">Syrian Arab Republic</option> \
-<option value="TW">Taiwan, Province of China</option> \
+<option value="TW">Taiwan</option> \
 <option value="TJ">Tajikistan</option> \
 <option value="TZ">Tanzania, United Republic of</option> \
 <option value="TH">Thailand</option> \

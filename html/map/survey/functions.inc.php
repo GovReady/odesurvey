@@ -237,7 +237,7 @@ function addWbRegions($un_loc_code) {
 "SE": {"ISO3166-1-UNLOC": "SE", "COUNTRY-NAME": "Sweden", "COUNTRY": "Sweden", "COUNTRY CODE": "SWE", "REGION": "Europe & Central Asia", "REGION CODE": "ECA", "INCOME": "High income", "INCOME CODE": "HIC"},
 "CH": {"ISO3166-1-UNLOC": "CH", "COUNTRY-NAME": "Switzerland", "COUNTRY": "Switzerland", "COUNTRY CODE": "CHE", "REGION": "Europe & Central Asia", "REGION CODE": "ECA", "INCOME": "High income", "INCOME CODE": "HIC"},
 "SY": {"ISO3166-1-UNLOC": "SY", "COUNTRY-NAME": "Syrian Arab Republic", "COUNTRY": "Syrian Arab Republic", "COUNTRY CODE": "SYR", "REGION": "Middle East & North Africa", "REGION CODE": "MNA", "INCOME": "Lower middle income", "INCOME CODE": "LMC"},
-"TW": {"ISO3166-1-UNLOC": "TW", "COUNTRY-NAME": "Taiwan, Province of China", "COUNTRY": "null", "COUNTRY CODE": "null", "REGION": "null", "REGION CODE": "null", "INCOME": "null", "INCOME CODE": "null"},
+"TW": {"ISO3166-1-UNLOC": "TW", "COUNTRY-NAME": "Taiwan", "COUNTRY": "Taiwan", "COUNTRY CODE": "null", "REGION": "null", "REGION CODE": "null", "INCOME": "null", "INCOME CODE": "null"},
 "TJ": {"ISO3166-1-UNLOC": "TJ", "COUNTRY-NAME": "Tajikistan", "COUNTRY": "Tajikistan", "COUNTRY CODE": "TJK", "REGION": "Europe & Central Asia", "REGION CODE": "ECA", "INCOME": "Low income", "INCOME CODE": "LIC"},
 "TZ": {"ISO3166-1-UNLOC": "TZ", "COUNTRY-NAME": "Tanzania, United Republic of", "COUNTRY": "Tanzania", "COUNTRY CODE": "TZA", "REGION": "Sub-Saharan Africa", "REGION CODE": "SSA", "INCOME": "Low income", "INCOME CODE": "LIC"},
 "TH": {"ISO3166-1-UNLOC": "TH", "COUNTRY-NAME": "Thailand", "COUNTRY": "Thailand", "COUNTRY CODE": "THA", "REGION": "East Asia & Pacific", "REGION CODE": "EAP", "INCOME": "Upper middle income", "INCOME CODE": "UMC"},
