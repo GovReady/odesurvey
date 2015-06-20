@@ -81,7 +81,58 @@ Administration is still under development.
 
 To create an admin account, fill out user information inside html/map/survey/signup.php script and call from browser. This will create a proper account in Parse database with encrypted password.
 
+# Dev / Staging / Production for Map
 
+In the file app/js/map/map_config.js the first few lines set up where the application gets the data:11
+```
+  var agsserver = "https://services5.arcgis.com/w1WEecz5ClslKH2Q/ArcGIS/rest/services";
+  var runAs = 'develop';
+  var mode = {
+              'develop': 'ode_organizations_dev',
+              'staging': 'ode_organizations_staging',
+              'production': 'ode_organizations_dev'
+          }
+```
+
+To change the service the application pulls from you need to change the line 
+```
+  var runAs = 'develop’;
+```
+
+To which mode you’d like: ‘develop’, ‘staging’, ‘production'
+
+AGOL Python Integration:
+To change to service to be updated when running the script:
+
+In the file scripts/agol-integration/agol-integration/settings.py there are three class, one for each of the environments:
+
+```
+class DevelopmentSettings(BaseSettings):
+    def __init__(self):
+        BaseSettings.__init__(self)
+        self.agol_feature_service_url = 'https://services5.arcgis.com/w1WEecz5ClslKH2Q/arcgis/rest/services/ode_organizations_dev/FeatureServer/0'
+
+class StagingSettings(BaseSettings):
+    def __init__(self):
+        BaseSettings.__init__(self)
+        self.agol_feature_service_url = 'https://services5.arcgis.com/w1WEecz5ClslKH2Q/arcgis/rest/services/ode_organizations_staging/FeatureServer/0'
+
+class ProductionSettings(BaseSettings):
+    def __init__(self):
+        BaseSettings.__init__(self)
+        self.agol_feature_service_url = 'https://services5.arcgis.com/w1WEecz5ClslKH2Q/arcgis/rest/services/ode_organizations_production/FeatureServer/0'
+```
+
+Right after them is a block of code that sets which environment is passed back to the integration script:
+
+```
+# - set active environment
+env = DevelopmentSettings()
+# env = StagingSettings()
+# env = ProductionSettings()
+```
+
+Only one should be uncommented at a time. The one not commented out sets the environment and which service is updated/overwritten.
 
 # Miscellaneous Working Notes
 
