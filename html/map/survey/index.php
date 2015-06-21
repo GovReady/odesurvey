@@ -68,12 +68,11 @@ function TempLogger($message) {
 
 // Set up basic logging using slim built in logger
 // NOTE: Makes sure /var/log/odesurvey/ directory exists and owned by apache:apache
-$logWriter = new \Slim\LogWriter(fopen('/var/log/odesurvey/odesurvey.log', 'a'));
+$logWriter = new \Slim\LogWriter(fopen(ODESURVEY_LOG, 'a'));
 
 // Start Slim instance
 //-------------------------------
 $app = new \Slim\Slim(array('log.writer' => $logWriter));
-
 
 // Handle not found
 $app->notFound(function () use ($app) {
@@ -1148,6 +1147,13 @@ $app->get('/admin/survey/syncflatfile/:profile_id', function ($profile_id) use (
 
 	$request = $parse->query($params);
 	$request_decoded = json_decode($request, true);
+	// print_r($request_decoded);
+	if ( count($request_decoded['results']) == 0 ) {
+		echo "<br> log no match in arcgis_flatfile for ${profile_id}";
+		// Note in log
+		$app->log->info(date_format(date_create(), 'Y-m-d H:i:s')."; DATA_UPDATE; ". "No matching profile_id ${profile_id} in arcgis_flatfile" );
+		exit;
+	}
 	$arcgis_org_profile = $request_decoded['results'][0];
 	$objectId = $org_profile['objectId'];
 
@@ -1173,7 +1179,9 @@ $app->get('/admin/survey/syncflatfile/:profile_id', function ($profile_id) use (
 		
 		// compare field values for updates
 		if ( $org_profile[$key] != $arcgis_org_profile[$key] ) {
-			echo "<br>$key<br>&nbsp; ${org_profile[$key]} | ${arcgis_org_profile[$key]} ";
+			$msg =  "$key<br>&nbsp; ${org_profile[$key]} | ${arcgis_org_profile[$key]} ";
+			echo "<br/>$msg";
+			$app->log->info(date_format(date_create(), 'Y-m-d H:i:s')."; DATA_UPDATE; ". "$msg" );
 
 			// Update all arcgis_profile records parse using query by looping through the related objectIds
 			foreach($arcgis_flatfile_objects as $object) {
@@ -1189,30 +1197,16 @@ $app->get('/admin/survey/syncflatfile/:profile_id', function ($profile_id) use (
 
 				$request = $parse->update($params);
 				$request_array = json_decode($request, true);
-				print_r($request);
+				$msg = "Updated arcgis_flatfile orbjectId ${object['objectId']}";
+				$app->log->info(date_format(date_create(), 'Y-m-d H:i:s')."; DATA_UPDATE; ". "$msg" );
+				// print_r($request);
 			}
 		}
 	}
 
 
-	echo "<br> All records updated for profile_id '${profle_id}'.";
+	echo "<br><br>All records updated for profile_id '${profile_id}'.";
 	exit;
-
-	// $request = $parse->update($params);
-	// $request_array = json_decode($request, true);
-	// print_r($request);
-
-	// $content['HTTP_HOST'] = $_SERVER['HTTP_HOST'];
-	// $content['surveyName'] = "opendata";
-	// $content['title'] = "Open Data Enterprise Survey - Recently Submitted";
-	// $content['language'] = "en_US";
-	// $content['updatedAt'] = $request_array['updatedAt'];
-	// $content['field_name'] = $field_name;
-	// $content['value'] = $value;
-	// $content['profile_id'] =  $profile_id;
-
-	// $app->view()->setData(array('content' => $content));
-	// $app->render('admin/tp_udpatefield_result.php');
 
 });
 
