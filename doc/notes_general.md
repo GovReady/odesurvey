@@ -79,11 +79,11 @@ For city level data, you can either use a Placefinder – Esri has one built int
 # Admin
 Administration is still under development.
 
-To create an admin account, fill out user information inside html/map/survey/signup.php script and call from browser. This will create a proper account in Parse database with encrypted password.
+To create an admin account, fill out user information inside `html/map/survey/signup.php` script and call from browser. This will create a proper account in Parse database with encrypted password.
 
 # Dev / Staging / Production for Map
 
-In the file app/js/map/map_config.js the first few lines set up where the application gets the data:11
+In the file `app/js/map/map_config.js` the first few lines set up where the application gets the data:11
 ```
   var agsserver = "https://services5.arcgis.com/w1WEecz5ClslKH2Q/ArcGIS/rest/services";
   var runAs = 'develop';
