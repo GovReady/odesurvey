@@ -1274,15 +1274,32 @@ $app->get('/data/flatfile.json', function () use ($app) {
 		'restkey' => PARSE_API_KEY
 	));
 
-	$params = array(
-		'className' => 'arcgis_flatfile',
-		'limit' => '1000'
-	);
+	// Initialize variables for loop
+	$arcgis_rows = array();
+	$skip = 0;
 
-	$request = $parse->query($params);
-	// Return results via json
+	while ( $skip == 0 OR count($arcgis_rows) > 0 ) {
+	// while ( $skip == 0 OR $skip < 50 ) {
+
+		$params = array(
+			'className' => 'arcgis_flatfile',
+			'limit' => '1000',
+			'skip' => $skip
+		);
+
+		$request = $parse->query($params);
+		// Return results via json
+
+		$request_array = json_decode($request, true);
+		$arcgis_rows = $request_array['results'];
+		echo count($arcgis_rows)." | ";
+		// echo $request;
+		$skip = $skip + 1000;
+
+	}
+	
 	header('Content-Type: application/json');
-	echo $request;
+
 	exit;
 
 	$request_array = json_decode($request, true);
