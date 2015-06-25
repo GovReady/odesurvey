@@ -2684,15 +2684,15 @@ p {
   margin-top: 30px;
 }
 .codeando-mexico {
-  margin-top: 10px;
-  padding-top: 25px;
+  margin-top: 0px;
+  padding-top: 10px;
 }
 .data-uruguay {
-  margin-top: 20px;
+  margin-top: 0px;
 }
 .el-salvador {
-  margin-top: 10px;
-  padding-top: 10px;
+  margin-top: 0px;
+  padding-top: 5px;
 }
 .ennovent {
   margin-top: 10px;
@@ -2848,6 +2848,10 @@ p {
 }
 .opennorth {
   margin-top: 10px;
+}
+.ctg {
+  display: inline-block;
+  margin-top: 20px;
 }
 html.w-mod-js *[data-ix="display-none-on-load"] {
   display: none;
