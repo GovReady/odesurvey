@@ -1303,7 +1303,7 @@ $app->get('/data/flatfile.json', function () use ($app) {
 	// We now have all records in one big array in $arcgis_rows
 
 	array_walk($arcgis_rows, 'fixFlatfileValues');
-	
+
 
 	// Let's convert to json and send using expected format with 'results' key
 	$arcgis_flatfile = array("results" => $arcgis_rows);
@@ -1312,32 +1312,6 @@ $app->get('/data/flatfile.json', function () use ($app) {
 	echo json_encode($arcgis_flatfile);
 
 	return true;
-});
-
-// **************
-$app->get('/survey/opendata/data/flatfile.json', function () use ($app) {
-
-	$parse = new parseRestClient(array(
-		'appid' => PARSE_APPLICATION_ID,
-		'restkey' => PARSE_API_KEY
-	));
-
-	$params = array(
-		'className' => 'arcgis_flatfile',
-		'limit' => '1000'
-	);
-
-	$request = $parse->query($params);
-	// Return results via json
-	header('Content-Type: application/json');
-	echo $request;
-	exit;
-
-	$request_array = json_decode($request, true);
-	$org_combined = $request_array['results'];
-
-	echo "<pre>"; print_r($org_combined); echo "</pre>"; 
-
 });
 
 /*
