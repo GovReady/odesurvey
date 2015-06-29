@@ -83,7 +83,7 @@ To create an admin account, fill out user information inside `html/map/survey/si
 
 # Dev / Staging / Production for Map
 
-In the file `app/js/map/map_config.js` the first few lines set up where the application gets the data:11
+In the file `viz-src/src/app/js/map/map_config.js` the first few lines set up where the application gets the data:11
 ```
   var agsserver = "https://services5.arcgis.com/w1WEecz5ClslKH2Q/ArcGIS/rest/services";
   var runAs = 'develop';
@@ -93,6 +93,8 @@ In the file `app/js/map/map_config.js` the first few lines set up where the appl
               'production': 'ode_organizations_dev'
           }
 ```
+
+
 
 To change the service the application pulls from you need to change the line 
 ```
