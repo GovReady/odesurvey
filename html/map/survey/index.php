@@ -1274,48 +1274,44 @@ $app->get('/data/flatfile.json', function () use ($app) {
 		'restkey' => PARSE_API_KEY
 	));
 
-	$params = array(
-		'className' => 'arcgis_flatfile',
-		'limit' => '1000'
-	);
+	// Initialize variables for loop
+	$arcgis_rows = array();
+	$skip = 0;
+	$retrieved = 0;
 
-	$request = $parse->query($params);
-	// Return results via json
+	// Retrieve all records from parse.com, 1000 records at a time b/c 1000 records is the max allowed
+	// Build up a single array of all retrieved records
+	while ( $skip == 0 OR $retrieved > 0 ) {
+
+		$params = array(
+			'className' => 'arcgis_flatfile',
+			'limit' => '1000',
+			'skip' => $skip
+		);
+
+		$request = $parse->query($params);
+		$request_array = json_decode($request, true);
+		$retrieved = count($request_array['results']);
+		if ($retrieved > 0) {
+			// Use array_merge_recursive to keep merged array flat
+			$arcgis_rows = array_merge_recursive($arcgis_rows,$request_array['results']);
+		}
+		// echo "$retrieved ";
+		// increment skip
+		$skip = $skip + 1000;
+	}
+	// We now have all records in one big array in $arcgis_rows
+
+	array_walk($arcgis_rows, 'fixFlatfileValues');
+
+
+	// Let's convert to json and send using expected format with 'results' key
+	$arcgis_flatfile = array("results" => $arcgis_rows);
+	// $arcgis_flatfile = array("results" => array_slice($arcgis_rows,1,2));
 	header('Content-Type: application/json');
-	echo $request;
-	exit;
+	echo json_encode($arcgis_flatfile);
 
-	$request_array = json_decode($request, true);
-	$org_combined = $request_array['results'];
-
-	echo "<pre>"; print_r($org_combined); echo "</pre>"; 
-
-});
-
-// **************
-$app->get('/survey/opendata/data/flatfile.json', function () use ($app) {
-
-	$parse = new parseRestClient(array(
-		'appid' => PARSE_APPLICATION_ID,
-		'restkey' => PARSE_API_KEY
-	));
-
-	$params = array(
-		'className' => 'arcgis_flatfile',
-		'limit' => '1000'
-	);
-
-	$request = $parse->query($params);
-	// Return results via json
-	header('Content-Type: application/json');
-	echo $request;
-	exit;
-
-	$request_array = json_decode($request, true);
-	$org_combined = $request_array['results'];
-
-	echo "<pre>"; print_r($org_combined); echo "</pre>"; 
-
+	return true;
 });
 
 /*
