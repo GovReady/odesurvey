@@ -7,7 +7,7 @@ define([],function(){
   var mode = {
               'develop': 'ode_organizations_dev',
               'staging': 'ode_organizations_staging',
-              'production': 'ode_organizations_dev'
+              'production': 'ode_organizations_production'
           }
   var features = [agsserver,mode[runAs],'FeatureServer/0'].join('/');
     var countries = [agsserver,'country_centroids','FeatureServer/0'].join('/');
