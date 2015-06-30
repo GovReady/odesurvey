@@ -3,6 +3,7 @@
 import json
 import sys
 import pdb
+import urllib2
 from functools import partial
 
 # - 3rd party
@@ -11,12 +12,20 @@ import pandas
 # - local
 import agol
 
-def get_parse_content(file_path):
-    with open(file_path, 'r') as d:
-        content_response = json.loads(d.read())
+def get_parse_content(json_file):
+    print "Parsing data from json file %s" % json_file
+
+    if json_file.find("http") > -1:
+        content_response = json.loads(urllib2.urlopen(json_file).read())
         if 'results' in content_response.keys():
             df = pandas.DataFrame(content_response['results'])
             return df
+    else:
+        with open(json_file, 'r') as d:
+            content_response = json.loads(d.read())
+            if 'results' in content_response.keys():
+                df = pandas.DataFrame(content_response['results'])
+                return df
 
 def output_problem_rows(df):
     df_problems = df[df.latitude.isnull() | df.longitude.isnull()]
@@ -64,7 +73,8 @@ def main(environment):
     centroid_lookup = pandas.read_csv(environment.country_centroid_lookup_table, sep='\t')
     centroid_lookup = { i['FIPS10'] : (i['LONG'], i['LAT']) for i in centroid_lookup.to_dict(orient='records')}
     agol_token = agol.generate_token(environment.agol_user, environment.agol_pass)
-    df = get_parse_content(environment.arcgis_source_file)
+    df = get_parse_content(environment.parse_data_endpoint)
+    # df = get_parse_content(environment.arcgis_source_file)
     df = df.where((pandas.notnull(df)), None)  # - nan to None
     clean_row_func = partial(clean_row, centroid_lookup)
     df = df.apply(clean_row_func, axis=1)
@@ -76,6 +86,8 @@ def main(environment):
             df[c] = df[c].map(lambda r: r and r[:environment.max_character_limit] or r)
 
     refresh_agol(df, environment.agol_feature_service_url, token=agol_token)
+    # print "skipping refresh_agol"
+    # print df['org_name']
     return True
 
 if __name__ == '__main__':
