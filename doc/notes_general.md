@@ -83,23 +83,37 @@ To create an admin account, fill out user information inside `html/map/survey/si
 
 # Dev / Staging / Production for Map
 
-In the file `app/js/map/map_config.js` the first few lines set up where the application gets the data:11
+### In the viz app source files
+
+In the file `viz-src/src/app/js/map/map_config.js` the first few lines set up where the application gets the data:11
 ```
   var agsserver = "https://services5.arcgis.com/w1WEecz5ClslKH2Q/ArcGIS/rest/services";
   var runAs = 'develop';
   var mode = {
-              'develop': 'ode_organizations_dev',
-              'staging': 'ode_organizations_staging',
-              'production': 'ode_organizations_dev'
-          }
+    'develop': 'ode_organizations_dev',
+    'staging': 'ode_organizations_staging',
+    'production': 'ode_organizations_dev'
+  }
 ```
 
-To change the service the application pulls from you need to change the line 
+To change the service the application pulls from in the source you need to change the line to which mode you’d like: ‘develop’, ‘staging’, ‘production'
+
 ```
   var runAs = 'develop’;
 ```
 
-To which mode you’d like: ‘develop’, ‘staging’, ‘production'
+### In the viz app compiled files
+
+These lines are compiled into the file `html/map/viz/app/js/map/map_config.js` to be displayed as:
+```
+  var e="https://services5.arcgis.com/w1WEecz5ClslKH2Q/ArcGIS/rest/services",a="develop",t={develop:"ode_organizations_dev",staging:"ode_organizations_staging",production:"ode_organizations_dev"},
+```
+
+To change the service the application pulls from in the compiled app change the value to which mode you’d like: ‘develop’, ‘staging’, ‘production'
+
+```
+  a="develop"
+```
 
 AGOL Python Integration:
 To change to service to be updated when running the script:
@@ -133,6 +147,30 @@ env = DevelopmentSettings()
 ```
 
 Only one should be uncommented at a time. The one not commented out sets the environment and which service is updated/overwritten.
+
+# Using ArcGIS Online Web Interface to Manage Features
+
+## Example update
+
+### Docs
+http://resources.arcgis.com/en/help/arcgis-rest-api and navigate to `Your own services` > `Feature Service` > `Update Features`
+
+### Example
+https://services5.arcgis.com/[appid]/ArcGIS/rest/services/ode_organizations_staging/FeatureServer/0/updateFeatures
+
+Enter the following into field for `features`
+[
+    {
+      "attributes" : {
+      "FID": 12242,
+        "org_name" : "Farm Canada XX"
+      }
+    }
+]
+
+Use the `FID` (Feature ID) as the `objectid`. To obtain the `FID`, run a query at url
+https://services5.arcgis.com/[appid]/ArcGIS/rest/services/ode_organizations_staging/FeatureServer/0/query
+
 
 # Miscellaneous Working Notes
 
