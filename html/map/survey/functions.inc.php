@@ -310,7 +310,7 @@ function sizeStringPhp ($str, $len) {
 
 function fixFlatfileValues(&$row, $key) {
 	// Fix various flat file values
-	if ( !array_key_exists('date_created_x', $row) ) {
+	if ( !array_key_exists('date_created', $row) ) {
 		$row['date_created'] = $row['createdAt'];
 	}
 	if ( !array_key_exists('date_modified', $row) ) {
@@ -319,6 +319,10 @@ function fixFlatfileValues(&$row, $key) {
 
 	if ( !array_key_exists('eligibility', $row) ) {
 		$row['eligibility'] = "YY";
+	}
+
+	foreach (array('date_created', 'date_modified', 'createdAt', 'updatedAt') as $date_key) {
+		$row[$date_key] = substr($row[$date_key], 0, 10);
 	}
 
 	$fields = array('industry_other', 'use_prod_srvc', 'use_prod_srvc_desc', 'use_org_opt', 'use_org_opt_desc', 'use_research', 'use_research', 'use_research_desc', 'use_other', 'use_other_desc', 'org_additional', 'org_additional', 'org_confidence', 'org_open_corporates_id', 'org_type_other', 'org_greatest_impact_detail','data_country_count');
