@@ -321,6 +321,7 @@ function fixFlatfileValues(&$row, $key) {
 		$row['eligibility'] = "YY";
 	}
 
+
 	foreach (array('date_created', 'date_modified', 'createdAt', 'updatedAt') as $date_key) {
 		$row[$date_key] = substr($row[$date_key], 0, 10);
 	}
@@ -330,6 +331,14 @@ function fixFlatfileValues(&$row, $key) {
 		if ( !array_key_exists($field, $row) ) {
 			$row[$field] = Null;
 		}
+	}
+
+	if ( is_null($row['org_year_founded']) ) {
+		$row['org_year_founded'] = 0;
+	}
+
+	if ( is_null($row['org_confidence']) ) {
+		$row['org_confidence'] = 0;
 	}
 }
 
