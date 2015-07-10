@@ -54,7 +54,7 @@ def flush_and_replace_feature_layer(target_layer, replacement_layer, token):
         feat['attributes'] = {k:v for k,v in f.items() if k != 'geometry' }
         feat['geometry'] = f['geometry']
         features.append(feat)
-
+    print "target_layer: %s" % target_layer
     add_features(target_layer, features, token=token)
 
 def dataframe_to_featureset(dataFrame):

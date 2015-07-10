@@ -310,7 +310,7 @@ function sizeStringPhp ($str, $len) {
 
 function fixFlatfileValues(&$row, $key) {
 	// Fix various flat file values
-	if ( !array_key_exists('date_created_x', $row) ) {
+	if ( !array_key_exists('date_created', $row) ) {
 		$row['date_created'] = $row['createdAt'];
 	}
 	if ( !array_key_exists('date_modified', $row) ) {
@@ -321,12 +321,139 @@ function fixFlatfileValues(&$row, $key) {
 		$row['eligibility'] = "YY";
 	}
 
+
+	foreach (array('date_created', 'date_modified', 'createdAt', 'updatedAt') as $date_key) {
+		$row[$date_key] = substr($row[$date_key], 0, 10);
+	}
+
 	$fields = array('industry_other', 'use_prod_srvc', 'use_prod_srvc_desc', 'use_org_opt', 'use_org_opt_desc', 'use_research', 'use_research', 'use_research_desc', 'use_other', 'use_other_desc', 'org_additional', 'org_additional', 'org_confidence', 'org_open_corporates_id', 'org_type_other', 'org_greatest_impact_detail','data_country_count');
 	foreach ($fields as $field) {
 		if ( !array_key_exists($field, $row) ) {
 			$row[$field] = Null;
 		}
 	}
+
+	if ( is_null($row['org_year_founded']) ) {
+		$row['org_year_founded'] = 0;
+	}
+
+	if ( is_null($row['org_confidence']) ) {
+		$row['org_confidence'] = 0;
+	}
+}
+
+function addFeaturesFormatting(&$row, $key) {
+	// Fix various flat file values
+	if ( !array_key_exists('date_created', $row) ) {
+		$row['date_created'] = $row['createdAt'];
+	}
+
+	if ( !array_key_exists('date_modified', $row) ) {
+		$row['date_modified'] = $row['updatedAt'];
+	}
+
+	foreach (array('date_created', 'date_modified', 'createdAt', 'updatedAt') as $date_key) {
+		$row[$date_key] = substr($row[$date_key], 0, 10);
+	}
+
+	$fields = array('industry_other', 'use_prod_srvc', 'use_prod_srvc_desc', 'use_org_opt', 'use_org_opt_desc', 'use_research', 'use_research', 'use_research_desc', 'use_other', 'use_other_desc', 'org_additional', 'org_additional', 'org_confidence', 'org_open_corporates_id', 'org_type_other', 'org_greatest_impact_detail','data_country_count');
+	foreach ($fields as $field) {
+		if ( !array_key_exists($field, $row) ) {
+			$row[$field] = Null;
+		}
+	}
+
+	// Remove fields
+	$fields = array('data_use_unparsed', 'eligibility');
+	foreach ($fields as $field) {
+		if ( array_key_exists($field, $row) ) {
+			unset($row[$field]);
+		}
+	}
+
+	// fix booleen values
+	$fields = array('no_org_url', 'use_advocacy', 'use_org_opt', 'use_other', 'use_prod_srvc', 'use_research');
+	foreach ($fields as $field) {
+		if ( array_key_exists($field, $row) ) {
+			$row[$field] = ($row[$field]) ? 1 : 0;
+		}
+	}
+}
+
+/**
+ * Pretty-print JSON string
+ *
+ * Use 'format' option to select output format - currently html and txt supported, txt is default
+ * Use 'indent' option to override the indentation string set in the format - by default for the 'txt' format it's a tab
+ *
+ * @param string $json Original JSON string
+ * @param array $options Encoding options
+ * @return string
+ */
+function json_pretty($json, $options = array())
+{
+    $tokens = preg_split('|([\{\}\]\[,])|', $json, -1, PREG_SPLIT_DELIM_CAPTURE);
+    $result = '';
+    $indent = 0;
+
+    $format = 'txt';
+
+    //$ind = "\t";
+    $ind = "    ";
+
+    if (isset($options['format'])) {
+        $format = $options['format'];
+    }
+
+    switch ($format) {
+        case 'html':
+            $lineBreak = '<br />';
+            $ind = '&nbsp;&nbsp;&nbsp;&nbsp;';
+            break;
+        default:
+        case 'txt':
+            $lineBreak = "\n";
+            //$ind = "\t";
+            $ind = "    ";
+            break;
+    }
+
+    // override the defined indent setting with the supplied option
+    if (isset($options['indent'])) {
+        $ind = $options['indent'];
+    }
+
+    $inLiteral = false;
+    foreach ($tokens as $token) {
+        if ($token == '') {
+            continue;
+        }
+
+        $prefix = str_repeat($ind, $indent);
+        if (!$inLiteral && ($token == '{' || $token == '[')) {
+            $indent++;
+            if (($result != '') && ($result[(strlen($result) - 1)] == $lineBreak)) {
+                $result .= $prefix;
+            }
+            $result .= $token . $lineBreak;
+        } elseif (!$inLiteral && ($token == '}' || $token == ']')) {
+            $indent--;
+            $prefix = str_repeat($ind, $indent);
+            $result .= $lineBreak . $prefix . $token;
+        } elseif (!$inLiteral && $token == ',') {
+            $result .= $token . $lineBreak;
+        } else {
+            $result .= ( $inLiteral ? '' : $prefix ) . $token;
+
+            // Count # of unescaped double-quotes in token, subtract # of
+            // escaped double-quotes and if the result is odd then we are 
+            // inside a string literal
+            if ((substr_count($token, "\"") - substr_count($token, "\\\"")) % 2 != 0) {
+                $inLiteral = !$inLiteral;
+            }
+        }
+    }
+    return $result;
 }
 
 ?>

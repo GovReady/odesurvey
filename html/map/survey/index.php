@@ -1317,6 +1317,41 @@ $app->get('/data/flatfile.json', function () use ($app) {
 /*
  * ArcGIS Online routes
  */
+
+// **************
+$app->get('/data/agol/addFeatures/json/:profile_id', function ($profile_id) use ($app) {
+
+	$parse = new parseRestClient(array(
+		'appid' => PARSE_APPLICATION_ID,
+		'restkey' => PARSE_API_KEY
+	));
+
+	// retrieve the record from parse
+	// Retrieve org_data_use
+	$params = array(
+	    'className' => 'arcgis_flatfile',
+	    'query' => array(
+	        'profile_id' => $profile_id
+	    )
+	);
+
+	$request = $parse->query($params);
+	// print_r($request);
+	$request_array = json_decode($request, true);
+
+	$arcgis_rows = array( $request_array['results'][0] );
+
+	array_walk($arcgis_rows, 'addFeaturesFormatting');
+
+	// Let's convert to json and send using expected format with 'results' key
+	$arcgis_flatfile = array( array("attributes" => $arcgis_rows[0]) ) ;
+	// // $arcgis_flatfile = array("results" => array_slice($arcgis_rows,1,2));
+	header('Content-Type: application/json');
+	echo json_pretty(json_encode($arcgis_flatfile));
+
+	return true;
+});
+
 // *****************
 $app->get('/argis/auth/', function () use ($app) {
 
