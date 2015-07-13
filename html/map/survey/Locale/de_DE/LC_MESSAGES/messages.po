@@ -5,7 +5,7 @@ msgstr ""
 "PO-Revision-Date: 2015-06-09 11:48-0500\n"
 "Last-Translator: \n"
 "Language-Team: MyTeam <team@example.com>\n"
-"Language: ru_RU\n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -16,524 +16,524 @@ msgstr ""
 
 #Test token 1
 msgid "HELLO_WORLD"
-msgstr ""
+msgstr "Test Deutsch 1"
 
 #Test token 2
 msgid "TEST_TRANSLATION"
-msgstr ""
+msgstr "Test Deutsch 2"
 
 #Thank you for participating in the Open Data Impact Map, the first centralized, searchable database of open data use cases from around the world.
 msgid "THANKS_PARTICIPATING"
-msgstr ""
+msgstr "Vielen Dank für ihre Beteiligung an der Open Data Impact Map, der ersten zentralen, durchsuchbaren Datenbank von Open Data-Anwendungsbeispielen aus aller Welt."
 
 #Your contribution makes it possible to better understand the value of open data and encourage its use globally.
 msgid "YOUR_CONTRIBUTION"
-msgstr ""
+msgstr "Ihre Beteiligung ermöglicht es, den Wert offener Daten besser zu verstehen und deren globale Nutzung zu fördern"
 
 #Information collected will be displayed on the Map and will be made available as open data.
 msgid "INFO_COLLECTED"
-msgstr ""
+msgstr "Die erhobenen Informationen werden auf der Karte dargestellt und als Open Data verfügbar gemacht."
 
 #ELIGIBILITY
 msgid "ELIGIBILITY"
-msgstr ""
+msgstr "EIGNUNG"
 
 #The Open Data Impact Map includes organizations that:
 msgid "MAP_INCLUDES_ORGS"
-msgstr ""
+msgstr "Die Open Data Impact Map umfasst:"
 
 #are companies, non-profits, or developer groups; and
 msgid "ARE_COMPANIES"
-msgstr ""
+msgstr "Unternehmen, gemeinnützige Organisationen und Entwicklergruppen, die"
 
 #use open government data for advocacy, to develop products and services, improve operations, inform strategy and/or conduct research.
 msgid "USE_OPEN_GOVERNMENT_DATA"
-msgstr ""
+msgstr "offene Verwaltungsdaten nutzen, um Informationen zu verbreiten, Produkte oder Dienstleistungen zu entwickeln, interne Abläufe zu verbessern, strategische Entscheidungen zu treffen oder Forschungen durchzuführen."
 
 #We define open government data as publicly available data that is produced or commissioned by governments and that can be accessed and reused by anyone, free of charge.
 msgid "WE_DEFINE_OPEN"
-msgstr ""
+msgstr "Wir definieren offene Verwaltungsdaten als öffentlich verfügbare Daten, die von Regierungen produziert oder bestellt werden und von jeder Person uneingeschränkt und kostenfrei genutzt und weiterverbreitet werden können."
 
 #1. Organizational Information
 msgid "ORG_INFO"
-msgstr ""
+msgstr "1. Informationen über die Organisation"
 
 #Name of organization
 msgid "ORG_NAME"
-msgstr ""
+msgstr "Name der Organisation"
 
 #One sentence description of organization
 msgid "ORG_DESC"
-msgstr ""
+msgstr "Beschreibung der Organisation in einem Satz"
 
 #400 characters or less
 msgid "400_CHAR"
-msgstr ""
+msgstr "maximal 400 Zeichen"
 
 #Type of organization
 msgid "ORG_TYPE"
-msgstr ""
+msgstr "Art der Organisation"
 
 #For-profit
 msgid "FOR-PROFIT"
-msgstr ""
+msgstr "gewinnorientiert"
 
 #Nonprofit
 msgid "NONPROFIT"
-msgstr ""
+msgstr "gemeinnützig"
 
 #Developer group
 msgid "DEVELOPER_GROUP"
-msgstr ""
+msgstr "Entwicklergruppe"
 
 #other
 msgid "OTHER"
-msgstr ""
+msgstr "andere"
 
 #Website URL
 msgid "WEBSITE_URL"
-msgstr ""
+msgstr "URL der Website"
 
 #No URL
 msgid "NO_URL"
-msgstr ""
+msgstr "keine URL"
 
 #Location
 msgid "LOCATION"
-msgstr ""
+msgstr "Ort"
 
 #Please provide as specific as possible
 msgid "SPECIFIC_AS_POSSIBLE"
-msgstr ""
+msgstr "so genau wie möglich"
 
 #Industry/category of the organization
 msgid "IND"
-msgstr ""
+msgstr "Sektor/Kategorie der Organisation"
 
 #select 1
 msgid "SELECT_1"
-msgstr ""
+msgstr "ein Feld auswählen"
 
 #Agriculture 
 msgid "AGR"
-msgstr ""
+msgstr "Landwirtschaft"
 
 #Arts and culture 
 msgid "ART"
-msgstr ""
+msgstr "Kunst und Kultur"
 
 #Business & legal services 
 msgid "BUS"
-msgstr ""
+msgstr "Wirtschaft & Recht"
 
 #Consumer services 
 msgid "CSM"
-msgstr ""
+msgstr "Dienstleistung"
 
 #Data/information technology 
 msgid "DAT"
-msgstr ""
+msgstr "Daten/Informationstechnologie"
 
 #Education 
 msgid "EDU"
-msgstr ""
+msgstr "Bildung"
 
 #Energy 
 msgid "NGY"
-msgstr ""
+msgstr "Energie"
 
 #Environment 
 msgid "ENV"
-msgstr ""
+msgstr "Umwelt"
 
 #Finance and investment
 msgid "FIN"
-msgstr ""
+msgstr "Finanzen und Investment"
 
 #Geospatial/mapping 
 msgid "GEO"
-msgstr ""
+msgstr "Geoinformation/Kartierung"
 
 #Governance 
 msgid "GOV"
-msgstr ""
+msgstr "Regierung"
 
 #Healthcare 
 msgid "HLT"
-msgstr ""
+msgstr "Gesundheit"
 
 #Housing and real estate 
 msgid "HOU"
-msgstr ""
+msgstr "Wohnen und Immobilien"
 
 #Insurance 
 msgid "INS"
-msgstr ""
+msgstr "Versicherungen"
 
 #Media and communications 
 msgid "COM"
-msgstr ""
+msgstr "Medien und Kommunikation"
 
 #Mining/Manufacturing 
 msgid "MAN"
-msgstr ""
+msgstr "Fertigungstechnik/Bergbau"
 
 #Research and consulting 
 msgid "RSH"
-msgstr ""
+msgstr "Forschung und Beratung"
 
 #Security and public safety
 msgid "SEC"
-msgstr ""
+msgstr "Öffentliche Sicherheit"
 
 #Scientific research 
 msgid "SCI"
-msgstr ""
+msgstr "Wissenschaft"
 
 #Telecommunications/internet service providers (ISPs) 
 msgid "TEL"
-msgstr ""
+msgstr "Telekommunikation/Internet Service Provider (ISP)"
 
 #Tourism 
 msgid "TOR"
-msgstr ""
+msgstr "Tourismus"
 
 #Transportation and logistics 
 msgid "TRN"
-msgstr ""
+msgstr "Transport und Logistik"
 
 #Water and sanitation 
 msgid "WAT"
-msgstr ""
+msgstr "Wasser und Hygiene"
 
 #Weather 
 msgid "WEA"
-msgstr ""
+msgstr "Wetter"
 
 #Founding year
 msgid "FOUNDING_YEAR"
-msgstr ""
+msgstr "Gründungsjahr"
 
 #Size
 msgid "SIZE"
-msgstr ""
+msgstr "Größe"
 
 #1-10 employees
 msgid "1-10"
-msgstr ""
+msgstr "1-10 Mitarbeiter"
 
 #11-50 employees
 msgid "11-50"
-msgstr ""
+msgstr "11-50 Mitarbeiter"
 
 #51-200 employees
 msgid "51-200"
-msgstr ""
+msgstr "51-200 Mitarbeiter"
 
 #201-1000 employees
 msgid "201-1000"
-msgstr ""
+msgstr "201-1000 Mitarbeiter"
 
 #1000+ employees
 msgid "1000+"
-msgstr ""
+msgstr "1000+ Mitarbeiter"
 
 #What is the greatest type of impact your organization has?
 msgid "GREATEST_IMPACT"
-msgstr ""
+msgstr "In welchem Bereich hat ihre Organisation den größten Einfluss?"
 
 #Economic
 msgid "ECONOMIC"
-msgstr ""
+msgstr "Wirtschaft"
 
 #Environmental
 msgid "ENVIRONMENTAL"
-msgstr ""
+msgstr "Umwelt"
 
 #Governance
 msgid "GOVERNANCE"
-msgstr ""
+msgstr "Regierung"
 
 #Social
 msgid "SOCIAL"
-msgstr ""
+msgstr "Soziales"
 
 #Provide details
 msgid "PROVIDE_DETAILS"
-msgstr ""
+msgstr "Details ergänzen"
 
 #2. Use of Open Data
 msgid "USE_OF_OPEN_DATA"
-msgstr ""
+msgstr "2. Nutzung von Open Data"
 
 #What are the most relevant types of open data your organization uses?
 msgid "MOST_RELEVANT_OPEN_DATA"
-msgstr ""
+msgstr "Was sind die relevantesten Arten von offenen Daten, die ihre Organisation nutzt?"
 
 #most relevant
 msgid "MOST_RELEVANT"
-msgstr ""
+msgstr "relevantesten"
 
 #types of data your organization uses?
 msgid "TYPES_OF_DATA"
-msgstr ""
+msgstr "Arten von offenen Daten, die ihre Organisation nutzt?"
 
 #select all that apply
 msgid "SELECT_ALL"
-msgstr ""
+msgstr "Mehrfachauswahl möglich"
 
 #Agriculture 
 msgid "AGRICULTURE"
-msgstr ""
+msgstr "Landwirtschaft"
 
 #Arts and culture 
 msgid "ARTS_AND_CULTURE"
-msgstr ""
+msgstr "Kunst und Kultur"
 
 #Business 
 msgid "BUSINESS"
-msgstr ""
+msgstr "Betriebswirtschaft"
 
 #Consumer 
 msgid "CONSUMER"
-msgstr ""
+msgstr "Konsumentendaten"
 
 #Demographics and social 
 msgid "DEMOGRAPHICS"
-msgstr ""
+msgstr "Demografie und Soziales"
 
 #Economics 
 msgid "ECONOMICS"
-msgstr ""
+msgstr "Volkswirtschaft"
 
 #Education 
 msgid "EDUCATION"
-msgstr ""
+msgstr "Bildung"
 
 #Energy
 msgid "ENERGY"
-msgstr ""
+msgstr "Energie"
 
 #Environment 
 msgid "ENVIRONMENT"
-msgstr ""
+msgstr "Umwelt"
 
 #Finance 
 msgid "FINANCE"
-msgstr ""
+msgstr "Finanzen"
 
 #Geospatial/mapping 
 msgid "GEOSPATIAL"
-msgstr ""
+msgstr "Geoinformation/Kartierung"
 
 #Government operations 
 msgid "GOVERNMENT_OPS"
-msgstr ""
+msgstr "Regierungshandeln"
 
 #Health/healthcare 
 msgid "HEALTH"
-msgstr ""
+msgstr "Gesundheit"
 
 #Housing 
 msgid "HOUSING_CAT"
-msgstr ""
+msgstr "Wohnen"
 
 #International/global development 
 msgid "INTERNATIONAL"
-msgstr ""
+msgstr "Internationale/globale Entwicklungen"
 
 #Legal
 msgid "LEGAL"
-msgstr ""
+msgstr "Recht und Justiz"
 
 #Manufacturing 
 msgid "MANUFACTURING"
-msgstr ""
+msgstr "Fertigung"
 
 #Science and research 
 msgid "SCIENCE_AND_RESEARCH"
-msgstr ""
+msgstr "Wissenschaft und Forschung"
 
 #Public safety 
 msgid "PUBLIC_SAFETY"
-msgstr ""
+msgstr "Öffentliche Sicherheit"
 
 #Tourism 
 msgid "TOURISM"
-msgstr ""
+msgstr "Tourismus"
 
 #Transportation 
 msgid "TRANSPORTATION"
-msgstr ""
+msgstr "Transport"
 
 #Weather 
 msgid "WEATHER"
-msgstr ""
+msgstr "Wetter"
 
 #Number of countries from which open data is provided
 msgid "NUM_OF_COUNTRIES"
-msgstr ""
+msgstr "Anzahl der Länder, aus denen Daten genutzt werden"
 
 #Indicate the country that provide the data, and whether the data is National or State / Local (state/province/city).
 msgid "INDICATE_COUNTRY_THAT"
-msgstr ""
+msgstr "Bitte angeben, aus welchem Land und von welchen Behörden die Daten stammen (Staat/Region/Stadt)"
 
 #Data source - Country
 msgid "DATA_SOURCE_COUNTRY"
-msgstr ""
+msgstr "Land"
 
 #Select
 msgid "SELECT"
-msgstr ""
+msgstr "auswählen"
 
 #1 country 
 msgid "1_COUNTRY"
-msgstr ""
+msgstr "1 Land"
 
 #2-5 countries 
 msgid "2-5_COUNTRIES"
-msgstr ""
+msgstr "2-5 Länder"
 
 #6-10 countries 
 msgid "6-10_COUNTRIES"
-msgstr ""
+msgstr "6-10 Länder"
 
 #11-20 countries 
 msgid "11-20_COUNTRIES"
-msgstr ""
+msgstr "11-20 Länder"
 
 #21-50 countries 
 msgid "21-50_COUNTRIES"
-msgstr ""
+msgstr "21-50 Länder"
 
 #50+ countries
 msgid "50+_COUNTRIES"
-msgstr ""
+msgstr "50+ Länder"
 
 #How does your organization use open data?
 msgid "HOW_USE_OPEN_DATA"
-msgstr ""
+msgstr "Wozu nutzt ihre Organisation offene Daten"
 
 #advocacy
 msgid "ADVOCACY"
-msgstr ""
+msgstr "Lobby-/Öffentlichkeitsarbeit"
 
 #new products, services, or applications
 msgid "PRODUCTS_SERVICES"
-msgstr ""
+msgstr "Entwicklung von Produkten, Dienstleistungen oder Anwendungen"
 
 #organizational optimization 
 msgid "ORG_OPTIMIZATION"
-msgstr ""
+msgstr "Optimierung von internen Abläufen"
 
 #(e.g. benchmarking, market analysis, improving efficiency, enhancing existing products and services)
 msgid "EG_BENCHMARKING"
-msgstr ""
+msgstr "(z.B. Benchmarking, Marktanalyse, Effizienzsteigerung, Verbesserung von Produkten und Services)"
 
 #research
 msgid "RESEARCH"
-msgstr ""
+msgstr "Forschung"
 
 #Which datasets are most valuable to your organization? 
 msgid "WHICH_DATASETS_MOST_VALUABLE"
-msgstr ""
+msgstr "Welche Datensätze sind für ihre Organisation am wertvollsten?"
 
 #What other types of data does your organization use in addition to open government data?
 msgid "WHAT_OTHER_TYPES_OF_DATA"
-msgstr ""
+msgstr "Welche anderen Formen offener Daten nutzt ihre Organisation zusätzlich zu offenen Verwaltungsdaten?"
 
 #Additional information
 msgid "ADDITIONAL_INFORMATION"
-msgstr ""
+msgstr "Weitere Informationen"
 
 #E.g. How could the open data your organization uses be improved? 
 msgid "EG_HOW_COULD"
-msgstr ""
+msgstr "Wie könnten die offenen Daten, die ihre Organisation nutzt, verbessert werden?"
 
 #3. Contact Information
 msgid "CONTACT_INFORMATION"
-msgstr ""
+msgstr "Kontaktinformationen"
 
 #optional
 msgid "OPTIONAL"
-msgstr ""
+msgstr "optional"
 
 #This information will not be made public
 msgid "NOT_BE_MADE_PUBLIC"
-msgstr ""
+msgstr "Diese Informationen werden nicht veröffentlicht"
 
 #First name
 msgid "FIRST_NAME"
-msgstr ""
+msgstr "Vorname"
 
 #Last name
 msgid "LAST_NAME"
-msgstr ""
+msgstr "Nachname"
 
 #Title
 msgid "TITLE"
-msgstr ""
+msgstr "Titel"
 
 #Email
 msgid "EMAIL"
-msgstr ""
+msgstr "E-Mail"
 
 #Phone
 msgid "PHONE"
-msgstr ""
+msgstr "Telefon"
 
 #All submissions will be reviewed before public display on the Open Data Impact Map.
 msgid "SUBMISSIONS_REVIEWED"
-msgstr ""
+msgstr "Alle Einträge werden geprüft, bevor sie auf der Open Data Impact Map veröffentlicht werden."
 
 #SUBMIT
 msgid "SUBMIT"
-msgstr ""
+msgstr "Absenden"
 
 #"provide as much information as possible" 
 msgid "PROVIDE_AS_MUCH_INFO"
-msgstr ""
+msgstr "so viele Informationen wie möglich angeben"
 
 #"provide examples" 
 msgid "PROVIDE_EXAMPLES"
-msgstr ""
+msgstr "Beispiele angeben"
 
 #"enter a location" 
 msgid "ENTER_LOCATION"
-msgstr ""
+msgstr "Ort angeben"
 
 #"Select countries providing data used by your organization"  
 msgid "SELECT_COUNTRIES_PROVIDING_DATA"
-msgstr ""
+msgstr "Länder, deren Daten von ihrer Organisation genutzt werden"
 
 #"national/local" 
-msgid "NATIONAL_LO
-msgstr ""
+msgid "NATIONAL_LO"
+msgstr "national/regional"
 
 #"data source - country" 
 msgid "DATA_SOURCE"
-msgstr ""
+msgstr "Datenquelle - Land"
 
 #"Click national and/or local to show government level of data used" 
 msgid "SHOW_GOVERNMENT_LEVEL"
-msgstr ""
+msgstr "National und/oder regional auswählen, je nach bereitstellender Behörde"
 
 #"required" 
 msgid "REQUIRED"
-msgstr ""
+msgstr "erforderlich"
 
 #"This field is required" 
 msgid "FIELD_REQUIRED"
-msgstr ""
+msgstr "Dieses Feld ist erforderlich"
 
 #"Please enter a valid URL."
 msgid "ENTER_VALID_URL"
-msgstr ""
+msgstr "Bitte eine gültige URL eingeben."
 
 #The Open Data Impact Map, a project of the Center for Open Data Enterprise as part of the OD4D network, is licensed under
 msgid "OD4D_ATTRIBUTION"
-msgstr ""
+msgstr "Die Open Data Impact Map, ein Projekt des Center for Open Data Enterprise als Teil des OD4D-Netzwerks, ist lizensiert unter"
 
 #Creative Commons Attribution-Share Alike 4.0 International License
 msgid "CREATIVE_COMMONS_LICENSE"
-msgstr ""	
+msgstr "Creative Commons Attribution-Share Alike 4.0 International License"  
