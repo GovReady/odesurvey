@@ -25,3 +25,8 @@ html/grid/*
 
 # Data
 .~lock.Inventory.xlsx#
+
+# Temp
+CFR-2011/*
+html/cfr/*
+html/scap-security-guide/*
