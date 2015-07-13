@@ -1,0 +1,491 @@
+{
+  "objectIdFieldName" : "FID", 
+  "globalIdFieldName" : "", 
+  "geometryType" : "esriGeometryPoint", 
+  "spatialReference" : {
+    "wkid" : 102100, 
+    "latestWkid" : 3857
+  }, 
+  "fields" : [
+    {
+      "name" : "data_src_country_locode", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "data_src_country_locode", 
+      "sqlType" : "sqlTypeNVarchar", "length" : 256, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "data_src_country_name", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "data_src_country_name", 
+      "sqlType" : "sqlTypeNVarchar", "length" : 256, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "data_src_gov_level", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "data_src_gov_level", 
+      "sqlType" : "sqlTypeNVarchar", "length" : 256, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "data_type", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "data_type", 
+      "sqlType" : "sqlTypeNVarchar", "length" : 256, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "date_created", 
+      "type" : "esriFieldTypeDate", 
+      "alias" : "date_created", 
+      "sqlType" : "sqlTypeTimestamp2", "length" : 8, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "date_modified", 
+      "type" : "esriFieldTypeDate", 
+      "alias" : "date_modified", 
+      "sqlType" : "sqlTypeTimestamp2", "length" : 8, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "eligibility", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "eligibility", 
+      "sqlType" : "sqlTypeNVarchar", "length" : 256, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "industry_id", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "industry_id", 
+      "sqlType" : "sqlTypeNVarchar", "length" : 256, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "latitude", 
+      "type" : "esriFieldTypeDouble", 
+      "alias" : "latitude", 
+      "sqlType" : "sqlTypeFloat", 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "longitude", 
+      "type" : "esriFieldTypeDouble", 
+      "alias" : "longitude", 
+      "sqlType" : "sqlTypeFloat", 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "no_org_url", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "no_org_url", 
+      "sqlType" : "sqlTypeNVarchar", "length" : 256, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "org_additional", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "org_additional", 
+      "sqlType" : "sqlTypeNVarchar", "length" : 256, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "org_confidence", 
+      "type" : "esriFieldTypeDouble", 
+      "alias" : "org_confidence", 
+      "sqlType" : "sqlTypeFloat", 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "org_description", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "org_description", 
+      "sqlType" : "sqlTypeNVarchar", "length" : 256, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "org_greatest_impact", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "org_greatest_impact", 
+      "sqlType" : "sqlTypeNVarchar", "length" : 256, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "org_greatest_impact_detail", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "org_greatest_impact_detail", 
+      "sqlType" : "sqlTypeNVarchar", "length" : 256, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "org_hq_city", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "org_hq_city", 
+      "sqlType" : "sqlTypeNVarchar", "length" : 256, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "org_hq_country", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "org_hq_country", 
+      "sqlType" : "sqlTypeNVarchar", "length" : 256, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "org_hq_country_income", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "org_hq_country_income", 
+      "sqlType" : "sqlTypeNVarchar", "length" : 256, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "org_hq_country_income_code", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "org_hq_country_income_code", 
+      "sqlType" : "sqlTypeNVarchar", "length" : 256, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "org_hq_country_locode", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "org_hq_country_locode", 
+      "sqlType" : "sqlTypeNVarchar", "length" : 256, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "org_hq_country_region", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "org_hq_country_region", 
+      "sqlType" : "sqlTypeNVarchar", "length" : 256, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "org_hq_st_prov", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "org_hq_st_prov", 
+      "sqlType" : "sqlTypeNVarchar", "length" : 256, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "org_name", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "org_name", 
+      "sqlType" : "sqlTypeNVarchar", "length" : 256, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "org_profile_category", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "org_profile_category", 
+      "sqlType" : "sqlTypeNVarchar", "length" : 256, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "org_profile_src", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "org_profile_src", 
+      "sqlType" : "sqlTypeNVarchar", "length" : 256, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "org_profile_status", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "org_profile_status", 
+      "sqlType" : "sqlTypeNVarchar", "length" : 256, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "org_profile_year", 
+      "type" : "esriFieldTypeInteger", 
+      "alias" : "org_profile_year", 
+      "sqlType" : "sqlTypeInteger", 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "org_size_id", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "org_size_id", 
+      "sqlType" : "sqlTypeNVarchar", "length" : 256, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "org_type", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "org_type", 
+      "sqlType" : "sqlTypeNVarchar", "length" : 256, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "org_type_other", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "org_type_other", 
+      "sqlType" : "sqlTypeNVarchar", "length" : 256, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "org_url", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "org_url", 
+      "sqlType" : "sqlTypeNVarchar", "length" : 256, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "org_year_founded", 
+      "type" : "esriFieldTypeDouble", 
+      "alias" : "org_year_founded", 
+      "sqlType" : "sqlTypeFloat", 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "profile_id", 
+      "type" : "esriFieldTypeInteger", 
+      "alias" : "profile_id", 
+      "sqlType" : "sqlTypeInteger", 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "row_type", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "row_type", 
+      "sqlType" : "sqlTypeNVarchar", "length" : 256, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "use_advocacy", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "use_advocacy", 
+      "sqlType" : "sqlTypeNVarchar", "length" : 256, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "use_advocacy_desc", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "use_advocacy_desc", 
+      "sqlType" : "sqlTypeNVarchar", "length" : 256, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "use_org_opt", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "use_org_opt", 
+      "sqlType" : "sqlTypeNVarchar", "length" : 256, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "use_org_opt_desc", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "use_org_opt_desc", 
+      "sqlType" : "sqlTypeNVarchar", "length" : 256, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "use_other", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "use_other", 
+      "sqlType" : "sqlTypeNVarchar", "length" : 256, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "use_other_desc", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "use_other_desc", 
+      "sqlType" : "sqlTypeNVarchar", "length" : 256, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "use_prod_srvc", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "use_prod_srvc", 
+      "sqlType" : "sqlTypeNVarchar", "length" : 256, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "use_prod_srvc_desc", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "use_prod_srvc_desc", 
+      "sqlType" : "sqlTypeNVarchar", "length" : 256, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "use_research", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "use_research", 
+      "sqlType" : "sqlTypeNVarchar", "length" : 256, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "use_research_desc", 
+      "type" : "esriFieldTypeString", 
+      "alias" : "use_research_desc", 
+      "sqlType" : "sqlTypeNVarchar", "length" : 256, 
+      "domain" : null, 
+      "defaultValue" : null
+    }, 
+    {
+      "name" : "FID", 
+      "type" : "esriFieldTypeInteger", 
+      "alias" : "FID", 
+      "sqlType" : "sqlTypeInteger", 
+      "domain" : null, 
+      "defaultValue" : null
+    }
+  ], 
+  "features" : [
+    {
+      "attributes" : {
+        "data_src_country_locode" : null, 
+        "data_src_country_name" : null, 
+        "data_src_gov_level" : null, 
+        "data_type" : null, 
+        "date_created" : 1430870400000, 
+        "date_modified" : 1430870400000, 
+        "eligibility" : "YY", 
+        "industry_id" : "Agriculture", 
+        "latitude" : 56.130366, 
+        "longitude" : -106.346771, 
+        "no_org_url" : "0", 
+        "org_additional" : "", 
+        "org_confidence" : 5, 
+        "org_description" : "A one-stop-shop for Canadian farmers to access historical data from the government and the latest commodity prices that matter to them.", 
+        "org_greatest_impact" : "Economic", 
+        "org_greatest_impact_detail" : null, 
+        "org_hq_city" : "", 
+        "org_hq_country" : "Canada", 
+        "org_hq_country_income" : "High income", 
+        "org_hq_country_income_code" : "HIC", 
+        "org_hq_country_locode" : "CA", 
+        "org_hq_country_region" : "North America", 
+        "org_hq_st_prov" : "", 
+        "org_name" : "Farm Canada", 
+        "org_profile_category" : "researched", 
+        "org_profile_src" : "CODE research", 
+        "org_profile_status" : "test", 
+        "org_profile_year" : 2015, 
+        "org_size_id" : "1-10", 
+        "org_type" : "For-profit", 
+        "org_type_other" : null, 
+        "org_url" : "http://www.farm-canada.amichaleski.com/", 
+        "org_year_founded" : 2015, 
+        "profile_id" : 911, 
+        "row_type" : "org_profile", 
+        "use_advocacy" : "0", 
+        "use_advocacy_desc" : null, 
+        "use_org_opt" : "0", 
+        "use_org_opt_desc" : null, 
+        "use_other" : "0", 
+        "use_other_desc" : null, 
+        "use_prod_srvc" : "0", 
+        "use_prod_srvc_desc" : null, 
+        "use_research" : "0", 
+        "use_research_desc" : null, 
+        "FID" : 12242
+      }, 
+      "geometry" : 
+      {
+        "x" : -11838468.395228874, 
+        "y" : 7584411.7327468563
+      }
+    }, 
+    {
+      "attributes" : {
+        "data_src_country_locode" : "CA", 
+        "data_src_country_name" : "Canada", 
+        "data_src_gov_level" : "National", 
+        "data_type" : "Agriculture", 
+        "date_created" : 1430870400000, 
+        "date_modified" : 1430870400000, 
+        "eligibility" : "YY", 
+        "industry_id" : "Agriculture", 
+        "latitude" : 56.130366, 
+        "longitude" : -106.346771, 
+        "no_org_url" : "0", 
+        "org_additional" : "", 
+        "org_confidence" : 5, 
+        "org_description" : "A one-stop-shop for Canadian farmers to access historical data from the government and the latest commodity prices that matter to them.", 
+        "org_greatest_impact" : "Economic", 
+        "org_greatest_impact_detail" : null, 
+        "org_hq_city" : "", 
+        "org_hq_country" : "Canada", 
+        "org_hq_country_income" : "High income", 
+        "org_hq_country_income_code" : "HIC", 
+        "org_hq_country_locode" : "CA", 
+        "org_hq_country_region" : "North America", 
+        "org_hq_st_prov" : "", 
+        "org_name" : "Farm Canada", 
+        "org_profile_category" : "researched", 
+        "org_profile_src" : "CODE research", 
+        "org_profile_status" : "test", 
+        "org_profile_year" : 2015, 
+        "org_size_id" : "1-10", 
+        "org_type" : "For-profit", 
+        "org_type_other" : null, 
+        "org_url" : "http://www.farm-canada.amichaleski.com/", 
+        "org_year_founded" : 2015, 
+        "profile_id" : 911, 
+        "row_type" : "data_use", 
+        "use_advocacy" : "0", 
+        "use_advocacy_desc" : null, 
+        "use_org_opt" : "0", 
+        "use_org_opt_desc" : null, 
+        "use_other" : "0", 
+        "use_other_desc" : null, 
+        "use_prod_srvc" : "0", 
+        "use_prod_srvc_desc" : null, 
+        "use_research" : "0", 
+        "use_research_desc" : null, 
+        "FID" : 12243
+      }, 
+      "geometry" : 
+      {
+        "x" : -11838468.395228874, 
+        "y" : 7584411.7327468554
+      }
+    }
+  ]
+}
