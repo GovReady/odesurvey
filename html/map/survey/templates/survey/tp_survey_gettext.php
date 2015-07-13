@@ -22,16 +22,18 @@ textdomain($domain);
 
     <div class="col-md-12" role="Intro" id="role-intro">
       <div style="text-align:center;font-size:1.1em;margin-top:20px;">
-        <div class="col-md-9 small">&nbsp;</div><div class="col-md-3 pull-right small" style="font-size:14px;">
-          <?php if ($language == "fr_FR") { ?>
-            <a href="/map/survey/start">English</a> | <a href="/map/survey/start/es_MX">Español</a> | Français | <a href="/map/survey/start/ru_RU">Russkiy</a>
-          <?php } elseif ($language == "es_MX") { ?>
-            <a href="/map/survey/start/">English</a> | Español | <a href="/map/survey/start/fr_FR">Français</a> | <a href="/map/survey/start/ru_RU">Russkiy</a>
-          <?php } elseif ($language == "ru_RU") { ?>
-            <a href="/map/survey/start/">English</a> | <a href="/map/survey/start/fr_FR">Français</a> | <a href="/map/survey/start/es_MX">Español</a> | Russkiy
-          <?php } else { ?>
-            English | <a href="/map/survey/start/es_MX">Español</a> | <a href="/map/survey/start/fr_FR">Français</a> | <a href="/map/survey/start/ru_RU">Russkiy</a>
-          <?php } ?>
+        <div class="col-md-8 small">&nbsp;</div><div class="col-md-4 pull-right small" style="font-size:14px;">
+        <a href="/map/survey/start">English</a>&nbsp;&nbsp;
+          <?php
+            $langs = array('es_MX' => 'Español', 'fr_FR' => 'Français', 'de_DE' => 'German', 'ru_RU' => 'Russkiy');
+            foreach ($langs as $key => $value) {
+              if ($language == $key) {
+                echo "$value &nbsp;&nbsp;";
+              } else {
+                echo "<a href=\"/map/survey/start/$key\">$value</a> &nbsp;&nbsp; ";
+              }
+            }
+          ?>         
         </div>
         
         <?php echo gettext("THANKS_PARTICIPATING") ?>
