@@ -14,10 +14,10 @@ cd odesurvey
 mkdir -p html/map/survey/Local/[language]/LC_messages
 touch html/map/survey/Local/[language]/LC_MESSAGES/messages.po
 ```
--[ ] Copy content from Hackpad (or other source) into `../[language]/LC_MESSAGES/messages.po`
+- [ ] Copy content from Hackpad (or other source) into `../[language]/LC_MESSAGES/messages.po`
 
 ## Generate messages.mo file
--[ ] Test format of messages.po is correct and generate the file (use `sudo` if necessary)
+- [ ] Test format of messages.po is correct and generate the file (use `sudo` if necessary)
 ```
 cd odesurvey/html/map/survey/Locale/de_DE/LC_MESSAGES
 msgfmt messages.po
@@ -35,18 +35,18 @@ msgfmt: error while opening "messages.mo" for writing: Permission denied
 ```
 
 ## Add language to PHP templates
--[ ] Add language entry to `$langs` array in PHP template files `survey/tp_survey.php` and `survey/tp_survey_gettext.php`
+- [ ] Add language entry to `$langs` array in PHP template files `survey/tp_survey.php` and `survey/tp_survey_gettext.php`
 ```
 $langs = array('es_MX' => 'Español', 'fr_FR' => 'Français', 'de_DE' => 'German', 'ru_RU' => 'Russkiy');
 ```
 
 ## Commit to repo
--[ ] Commit to repo
--[ ] Push repo
+- [ ] Commit to repo
+- [ ] Push repo
 
 ## Upload to servers
--[ ] See update_website.md
+- [ ] See update_website.md
 
 ## Restart Apache servers
--[ ] Login into target server
--[ ] Run the following commands
+- [ ] Login into target server
+- [ ] Run the following commands
