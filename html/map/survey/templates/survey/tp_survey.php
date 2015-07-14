@@ -24,7 +24,7 @@ textdomain($domain);
         <div class="col-md-6 small">&nbsp;</div><div class="col-md-6 pull-right small" style="font-size:14px;">
         English&nbsp;&nbsp;
           <?php
-            $langs = array('es_MX' => 'Español', 'fr_FR' => 'Français', 'de_DE' => 'German', 'ko_KR' => 'Korean', 'ru_RU' => 'Russkiy');
+            $langs = array('es_MX' => 'Español', 'fr_FR' => 'Français', 'de_DE' => 'Deutsch', 'ko_KR' => '한국어 조선말', 'ru_RU' => 'русский');
             foreach ($langs as $key => $value) {
               if ($language == $key) {
                 echo "$value &nbsp;&nbsp;";
