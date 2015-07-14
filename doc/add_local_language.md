@@ -11,8 +11,8 @@ Update languages by adding a new language
 - [ ] Create directory for language files in `Locale` directory
 ```
 cd odesurvey
-mkdir -p html/map/survey/Local/[language]/LC_MESSAGES
-touch html/map/survey/Local/[language]/LC_MESSAGES/messages.po
+mkdir -p html/map/survey/Locale/[language]/LC_MESSAGES
+touch html/map/survey/Locale/[language]/LC_MESSAGES/messages.po
 ```
 - [ ] Copy content from Hackpad (or other source) into `../[language]/LC_MESSAGES/messages.po`
 
