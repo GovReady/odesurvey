@@ -1536,7 +1536,7 @@ p {
 .bio {
   display: block;
   margin-right: auto;
-  margin-bottom: 15px;
+  margin-bottom: 0px;
   margin-left: auto;
   color: #555;
   font-size: 16px;
@@ -2127,7 +2127,7 @@ p {
 }
 .team-header {
   margin-top: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   font-size: 15px;
   font-weight: 900;
   text-align: left;
@@ -3068,7 +3068,7 @@ html.w-mod-js *[data-ix="display-none-on-load"] {
     padding-bottom: 15px;
   }
   .section.paragraph.w {
-    margin: 150px 5px 0px;
+    margin: 350px 5px 0px;
     padding-top: 0px;
     padding-bottom: 0px;
   }
@@ -3465,7 +3465,7 @@ html.w-mod-js *[data-ix="display-none-on-load"] {
     padding-bottom: 25px;
   }
   .section.paragraph.w {
-    margin: 100px 5px 0px;
+    margin: 400px 5px 0px;
     padding: 0px;
   }
   .section.mission-strata {
