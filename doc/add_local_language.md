@@ -4,11 +4,11 @@ Update languages by adding a new language
  
 ## Requirements
 
--[ ] gettext installed on server, development environment
+- [ ] gettext installed on server, development environment
 
 ## Create files
 
--[ ] Create directory for language files in `Locale` directory
+- [ ] Create directory for language files in `Locale` directory
 ```
 cd odesurvey
 mkdir -p html/map/survey/Local/[language]/LC_messages
