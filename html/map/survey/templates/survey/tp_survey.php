@@ -21,10 +21,10 @@ textdomain($domain);
 
     <div class="col-md-12" role="Intro" id="role-intro">
       <div style="text-align:center;font-size:1.1em;margin-top:20px;">
-        <div class="col-md-8 small">&nbsp;</div><div class="col-md-4 pull-right small" style="font-size:14px;">
+        <div class="col-md-6 small">&nbsp;</div><div class="col-md-6 pull-right small" style="font-size:14px;">
         English&nbsp;&nbsp;
           <?php
-            $langs = array('es_MX' => 'Español', 'fr_FR' => 'Français', 'de_DE' => 'German', 'ru_RU' => 'Russkiy');
+            $langs = array('es_MX' => 'Español', 'fr_FR' => 'Français', 'de_DE' => 'German', 'ko_KR' => 'Korean', 'ru_RU' => 'Russkiy');
             foreach ($langs as $key => $value) {
               if ($language == $key) {
                 echo "$value &nbsp;&nbsp;";
