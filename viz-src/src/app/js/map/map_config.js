@@ -2,12 +2,12 @@
  * Created by jnordling on 12/14/14.
  */
 define([],function(){
-  var agsserver = "https://services5.arcgis.com/w1WEecz5ClslKH2Q/ArcGIS/rest/services";
-  var runAs = 'develop';
+  var agsserver = "https://services.arcgis.com/Fsk4zuQe2Ol9olZc/ArcGIS/rest/services";
+  var runAs = 'production';
   var mode = {
-              'develop': 'ode_organizations_dev',
-              'staging': 'ode_organizations_staging',
-              'production': 'ode_organizations_production'
+              'develop': 'ode_organizations_staging_jul13',
+              'staging': 'ode_organizations_staging_jul13',
+              'production': 'ode_organizations_production_jul13'
           }
   var features = [agsserver,mode[runAs],'FeatureServer/0'].join('/');
     var countries = [agsserver,'country_centroids','FeatureServer/0'].join('/');
