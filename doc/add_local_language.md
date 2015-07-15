@@ -20,7 +20,7 @@ touch html/map/survey/Locale/[language]/LC_MESSAGES/messages.po
 - [ ] Test format of messages.po is correct and generate the file (use `sudo` if necessary)
 ```
 cd odesurvey/html/map/survey/Locale/de_DE/LC_MESSAGES
-msgfmt messages.po
+/usr/local/Cellar/gettext/0.19.4/bin/msgfmt messages.po
 ```
 #### Example
 ```
@@ -35,7 +35,7 @@ msgfmt: error while opening "messages.mo" for writing: Permission denied
 ```
 
 ## Add language to PHP templates
-- [ ] Add language entry to `$langs` array in PHP template files `survey/tp_survey.php` and `survey/tp_survey_gettext.php`
+- [ ] Add language entry to `$langs` array in PHP template files `html/map/survey/templates/survey/tp_survey.php` and `html/map/survey/templates/survey/tp_survey_gettext.php`
 ```
 $langs = array('es_MX' => 'Español', 'fr_FR' => 'Français', 'de_DE' => 'German', 'ru_RU' => 'Russkiy');
 ```

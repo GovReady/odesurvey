@@ -507,7 +507,7 @@ msgid "SELECT_COUNTRIES_PROVIDING_DATA"
 msgstr "Escolha os países de onde são originários os dados"
 
 #"national/local" 
-msgid "NATIONAL_LO
+msgid "NATIONAL_LOCAL"
 msgstr "National/Local"
 
 #"data source - country" 
