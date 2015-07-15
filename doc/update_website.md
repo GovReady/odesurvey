@@ -24,6 +24,10 @@ sudo cp -R html /var/www/
 sudo chmod -R 755 /var/www/html
 
 # web sites updated have been published.
+
+# Log out of gregelin user and remote session
+exit
+exit
 ```
 
 
