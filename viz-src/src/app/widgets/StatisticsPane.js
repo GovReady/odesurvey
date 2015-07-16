@@ -47,8 +47,6 @@ define([
 
 			var filterText = filterElements.length ? "Filters: " + filterElements.join(', ') : 'Filters: Not Applied';
 
-			debugger;
-
 			var statElements = props.stats.map(function(field){
 				var liArray = _.keys(field.count).map(function(key){
 					var label = key + ": "+field.count[key];
@@ -57,8 +55,6 @@ define([
 						React.createElement("li", null, label)
 					)
 				});
-
-				debugger;
 
 				//order the outputs 'For-Profit', 'Nonprofit', 'Developer Group', 'Other'
 				var tempLiArray = [];
@@ -91,7 +87,6 @@ define([
 						}
 					}
 				})
-				debugger;
 				return tempLiArray;
 				
 			});

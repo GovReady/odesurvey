@@ -41,10 +41,10 @@ function(
 					{field: 'org_year_founded', label: 'Founding Year'},
 					{field: 'org_size_id', label: 'Size'},
 					{field: 'org_type', label: 'Organization Type'},
-					// {field: 'org_', label: 'Category'},
 					// {field: 'org_', label: 'Data Use'},
 					{field: 'org_url', label: 'URL'},
 					{field: 'org_description', label: 'Description'},
+					{field: 'industry_id', label: 'Category'},
 					{field: 'org_profile_category', label: 'Entry Based On'},
 				],
 				idField: 'profile_id'
@@ -103,6 +103,12 @@ function(
 				}
 				return item
 			});
+
+
+			items.push({
+				label: "Data Use",
+				value: "" + marker.attributes.dataCell
+			})
 
 			//here we must manually determine if application of data is used
 			//push them into items
@@ -210,6 +216,7 @@ function(
 
 			//filter just for adding cluster icons
 			var profileIds = [];
+
 			var filteredMarkers = _.filter(control.markers, function(marker){
 				if(_.contains(profileIds, marker.attributes.profile_id)){
 					return false;
@@ -239,7 +246,6 @@ function(
 
 			control.statistics = getStatistics(filteredMarkers);
 
-			debugger;
 			var attr = _.pluck(control.markers,'attributes');
 			var totalCountries = _.keys(_.groupBy(attr,'org_hq_country_locode')).length
 			//map.updateStatistics({stats:control.statistics,totalCases:filteredMarkers.length})

@@ -150,6 +150,7 @@ function(
                                 }
                             })
                             filter.items = control.getFilterItems(valueField, labelField, targetField, fields)
+                            filter.items = _.sortBy(filter.items, 'label');
                             deferred.resolve(true);
                         });
                     } else {

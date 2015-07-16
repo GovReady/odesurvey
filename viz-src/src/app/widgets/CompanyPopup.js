@@ -50,6 +50,7 @@ define([
 
 			});
 
+
 			props.title.changed = this.changedTitle;
 			props.title.classNames = ['company-popup-title'];
 
@@ -73,3 +74,7 @@ define([
 //React.createElement("div", {className: "edit-button-holder"},
 //	React.createElement('button', {className: "edit-button", onClick:this.sendToEdit}, 'Edit')
 //)
+
+//<div className={"edit-button-holder"}>
+//	<button className={"edit-button"} onClick={this.sendToEdit}>Edit</button>
+//</div>

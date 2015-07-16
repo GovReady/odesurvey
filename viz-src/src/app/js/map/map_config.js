@@ -2,16 +2,16 @@
  * Created by jnordling on 12/14/14.
  */
 define([],function(){
-  var agsserver = "https://services.arcgis.com/Fsk4zuQe2Ol9olZc/ArcGIS/rest/services";
+  var agsserver = "http://services.arcgis.com/Fsk4zuQe2Ol9olZc/ArcGIS/rest/services";
   var runAs = 'production';
   var mode = {
-              'develop': 'ode_organizations_staging_jul13',
-              'staging': 'ode_organizations_staging_jul13',
+              'develop': 'ode_organizations_dev',
+              'staging': 'ode_organizations_staging',
               'production': 'ode_organizations_production_jul13'
           }
   var features = [agsserver,mode[runAs],'FeatureServer/0'].join('/');
-    var countries = [agsserver,'country_centroids','FeatureServer/0'].join('/');
-    var countryPolys = [agsserver,'Countries','FeatureServer/0'].join('/');
+    var countries = [agsserver,'country_centroids_20150715','FeatureServer/0'].join('/');
+    var countryPolys = [agsserver,'Countries_20150715','FeatureServer/0'].join('/');
 
    return{
           pannel_state: true,

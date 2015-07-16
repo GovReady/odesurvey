@@ -75,8 +75,6 @@ define([/*"esri/map",*/
                     fileSaveAs(blob, "Open Data Enterprise Map _ " + today + '.jpg');
                 });
 
-
-
             }
         });
 

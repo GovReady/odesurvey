@@ -10,6 +10,8 @@ define(['table/TableController', 'widgets/CompanyPopup', 'react'],function(Table
 
 		showPopup: function(rowProps, evt){
 
+			debugger;
+
 			document.getElementById('popup-area').style.display='block';
 			document.getElementById('popup-area').style.left = (evt.target.clientWidth + evt.target.offsetLeft) +"px";
 			document.getElementById('popup-area').style.top = evt.target.offsetTop+"px";
@@ -27,13 +29,13 @@ define(['table/TableController', 'widgets/CompanyPopup', 'react'],function(Table
 				{value: itemData['Founding Year'], label: 'Founding Year'},
 				{value: itemData['Size'], label: 'Size'},
 				{value: itemData['Organization Type'], label: 'Organization Type'},
+				{value: itemData['URL'], label: 'URL'},
 				{value: itemData['Description'], label: 'Description'},
 				{value: itemData['Industry Category'], label: 'Category'},
-				{value: itemData['Data Use'], label: 'Data Use'},
-				{value: itemData['URL'], label: 'URL'},
-				{value: itemData['Entry Based On'], label: "Entry Based On"}
-			]
+				{value: itemData['Entry Based On'], label: "Entry Based On"},
+				{value: itemData['Data Use'], label: 'Data Use'}
 
+			]
 			if(itemData['use_advocacy'] == '1'){
 				dataArray.push({
 					label: "Application",
@@ -217,11 +219,11 @@ define(['table/TableController', 'widgets/CompanyPopup', 'react'],function(Table
 					company['Size'],
 					company['URL'],
 					company['Entry Based On'],
-					company['Advocacy'],
-					company['New Products and Services'],
-					company['Organizational Optimization'],
-					company['Research'],
-					company['Other']
+					company['use_advocacy_desc'],
+					company['use_prod_srvc_desc'],
+					company['use_org_opt_desc'],
+					company['use_research_desc'],
+					company['use_other_desc']
 				])
 
 				_.forEach(data, function(row, outerIndex){
@@ -311,9 +313,10 @@ define(['table/TableController', 'widgets/CompanyPopup', 'react'],function(Table
 
 			var columns = ["Company Name", "Region", "Country", "Organization Type", "Industry Category", "Description", "Data Use"];
 
+			debugger;
+
 			_.forEach(rawData.keys, function(item){
 				var attr = item.attributes;
-
 				var data = {
 					"Company Name": attr.org_name,
 					"Region": attr.org_hq_country_region,
@@ -329,15 +332,15 @@ define(['table/TableController', 'widgets/CompanyPopup', 'react'],function(Table
 					'profileID': attr.profile_id,
 					'Entry Based On': attr.org_profile_category,
 					"use_advocacy": attr.use_advocacy,
-					"Advocacy": attr.use_advocacy_desc,
+					"use_advocacy_desc": attr.use_advocacy_desc,
 					"use_prod_srvc": attr.use_prod_srvc,
-					"New Products and Services": attr.use_prod_srvc_desc,
+					"use_prod_srvc_desc": attr.use_prod_srvc_desc,
 					"use_org_opt": attr.use_org_opt,
-					"Organizational Optimization": attr.use_org_opt_desc,
+					"use_org_opt_desc": attr.use_org_opt_desc,
 					"use_research": attr.use_research,
-					"Research": attr.use_research_desc,
+					"use_research_desc": attr.use_research_desc,
 					"use_other": attr.use_other,
-					"Other": attr.use_other_desc
+					"use_other_desc": attr.use_other_desc
 					//"Description": attr.org_description
 				}
 
