@@ -73,8 +73,8 @@ def main(environment):
     centroid_lookup = pandas.read_csv(environment.country_centroid_lookup_table, sep='\t')
     centroid_lookup = { i['FIPS10'] : (i['LONG'], i['LAT']) for i in centroid_lookup.to_dict(orient='records')}
     agol_token = agol.generate_token(environment.agol_user, environment.agol_pass)
-    # df = get_parse_content(environment.parse_data_endpoint)
-    df = get_parse_content(environment.arcgis_source_file)
+    df = get_parse_content(environment.parse_data_endpoint)
+    # df = get_parse_content(environment.arcgis_source_file)
     df = df.where((pandas.notnull(df)), None)  # - nan to None
     clean_row_func = partial(clean_row, centroid_lookup)
     df = df.apply(clean_row_func, axis=1)
