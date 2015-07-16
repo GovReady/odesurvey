@@ -2,7 +2,7 @@
 -- Copyright 2015 Center for Open Data Enterprise. All Rights Reserved.
 -- Prepared by Greg Elin (greg@odenterprise.org)
 -- filename: ode_survey_2015_data_structure_presentation.txt
--- version: 0.21.0
+-- version: 0.22.0
 
 -- NOTES
 -- This is a description of the data tables for the 2015 Survey PRESENTATION LAYER.
@@ -13,6 +13,7 @@
 -- Codes/IDs are used in field `industry_id` to make easier to deal with multiple languages
 
 -- CHANGE LOG
+-- 0.22.0	Fix org_additional being not listed in schema though noted in version log
 -- 0.21.0       Fix typo on size of use_product_srvc_desc
 -- 0.20.0       Add data_src_country_name field
 -- 0.19.0       Add increase size of industry_id to use full string, drop industry
