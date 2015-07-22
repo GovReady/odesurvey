@@ -1285,6 +1285,9 @@ $app->get('/data/flatfile.json', function () use ($app) {
 
 		$params = array(
 			'className' => 'arcgis_flatfile',
+			'query' => array(
+				'org_profile_status' => 'publish'
+			),
 			'limit' => '1000',
 			'skip' => $skip
 		);
