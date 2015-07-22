@@ -1110,6 +1110,23 @@ $app->post('/admin/survey/updatefield/:profile_id', function ($profile_id) use (
 });
 
 // **************
+$app->get('/admin/survey/syncflatfile/all', function () use ($app) {
+
+	// This route syncs ALL arcgis_flatfile data with any updates to org_profile data, field by field, record by record.
+
+	// Requires login to access
+	if ( !isset($_SESSION['username']) ) { $app->redirect("/map/survey/admin/login/"); }
+
+	echo "Synching all org_profile data to arcgis_flatfile</br>";
+	$response->status($isPartialContent ? 206 : 200);
+
+	flush();
+
+	$app->redirect("/map/survey/admin/survey/syncflatfile/all_records"); 
+
+});
+
+// **************
 $app->get('/admin/survey/syncflatfile/:profile_id', function ($profile_id) use ($app) {
 
 	// This route syncs the arcgis_flatfile data with any updates to org_profile data, field by field, record by record.
@@ -1121,6 +1138,36 @@ $app->get('/admin/survey/syncflatfile/:profile_id', function ($profile_id) use (
 		'appid' => PARSE_APPLICATION_ID,
 		'restkey' => PARSE_API_KEY
 	));
+
+
+	// Are we synching all records or just one?
+	if ( "all_records" == $profile_id ) {
+		echo "Get ready to sync all records.<br />";
+		$profile_ids = array('478', '479', '480', '481', '484', '511');
+
+		// TODO: This query needs to loop to get all records past 1000 once the list grows that large
+		$params = array(
+			'className' => 'org_profile',
+			'order' => 'org_name',
+			'limit' => '1000'
+		);
+
+		$request = $parse->query($params);
+		$request_array = json_decode($request, true);
+		$org_profiles = $request_array['results'];
+		// print_r($org_profiles);
+
+		foreach ($org_profiles as $org_profile) {
+			array_push($profile_ids, $org_profile['profile_id']);
+			// echo $org_profile['profile_id']."-";
+		}
+
+	} else {
+		$profile_ids = array($profile_id);
+	}
+
+foreach ($profile_ids as $profile_id) {
+	# code...
 
 	// query database for object_id
 	// Retrieve org_profile
@@ -1206,6 +1253,10 @@ $app->get('/admin/survey/syncflatfile/:profile_id', function ($profile_id) use (
 
 
 	echo "<br><br>All records updated for profile_id '${profile_id}'.";
+	flush(); // send info to screen
+
+} // end loop of profile ids being updated
+
 	exit;
 
 });
