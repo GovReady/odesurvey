@@ -1095,6 +1095,82 @@ $app->post('/admin/survey/updatefield/:profile_id', function ($profile_id) use (
 	$request_array = json_decode($request, true);
 	// print_r($request);
 
+	$org_profile[$field_name] = $value;
+
+	// Update all arcgis_flatfile records
+	// find arcgis_flatfile
+	$params = array(
+	    'className' => 'arcgis_flatfile',
+	    'query' => array(
+	        'profile_id' => $profile_id,
+	        'row_type' => 'org_profile'
+	    )
+	);
+
+	$request = $parse->query($params);
+	$request_decoded = json_decode($request, true);
+	// print_r($request_decoded);
+	if ( count($request_decoded['results']) == 0 ) {
+		$content['flatfile_msg'] = "no match in arcgis_flatfile for ${profile_id}";
+		// Note in log
+		$app->log->info(date_format(date_create(), 'Y-m-d H:i:s')."; DATA_UPDATE; ". "No matching profile_id ${profile_id} in arcgis_flatfile" );
+		exit;
+	} else {
+		$content['flatfile_msg'] = "Updating ".count($request_decoded['results'])." matches in arcgis_flatfile";
+	}
+	$arcgis_org_profile = $request_decoded['results'][0];
+	$objectId = $org_profile['objectId'];
+
+	// find all objectIds we need to update in arcgis_flatfile
+	$params = array(
+	    'className' => 'arcgis_flatfile',
+	    'query' => array(
+	        'profile_id' => $profile_id
+	    )
+	);
+
+	$request = $parse->query($params);
+	$request_decoded = json_decode($request, true);
+	$arcgis_flatfile_objects = $request_decoded['results'];
+
+	// Loop through fields in org_profile. Where a field is different in org_profile, update arcgis_flatfile field value
+	foreach (array_keys($org_profile) as $key) {
+		// ignore a few select fields
+		if (in_array($key, array('objectId', 'profile_id', 'updatedAt', 'createdAt', 'date_created', 'date_modified'))) { continue; }
+
+		// make sure undefined values don't stop us
+		if (!isset($arcgis_org_profile[$key])) { $arcgis_org_profile[$key] = null; }
+		
+		// compare field values for updates
+		if ( $org_profile[$key] != $arcgis_org_profile[$key] ) {
+			$msg =  "$key<br>&nbsp; ${org_profile[$key]} | ${arcgis_org_profile[$key]} ";
+			// echo "<br/>$msg";
+			$app->log->info(date_format(date_create(), 'Y-m-d H:i:s')."; DATA_UPDATE; ". "$msg" );
+
+			// Update all arcgis_profile records parse using query by looping through the related objectIds
+			foreach($arcgis_flatfile_objects as $object) {
+				// echo "--${object['objectId']}--";
+				
+				$params = array(
+					'className' => 'arcgis_flatfile',
+					'objectId' => $object['objectId'],
+					'object' => array(
+						$key => $org_profile[$key]
+					)
+				);
+
+				$request = $parse->update($params);
+				$request_array = json_decode($request, true);
+				$msg = "Updated arcgis_flatfile orbjectId ${object['objectId']}";
+				$app->log->info(date_format(date_create(), 'Y-m-d H:i:s')."; DATA_UPDATE; ". "$msg" );
+				// print_r($request);
+			}
+		}
+	}
+
+	echo "All records updated for profile_id '${profile_id}'. ";
+
+	// Prepare and send template result
 	$content['HTTP_HOST'] = $_SERVER['HTTP_HOST'];
 	$content['surveyName'] = "opendata";
 	$content['title'] = "Open Data Enterprise Survey - Recently Submitted";
@@ -1110,6 +1186,23 @@ $app->post('/admin/survey/updatefield/:profile_id', function ($profile_id) use (
 });
 
 // **************
+$app->get('/admin/survey/syncflatfile/changedfiles', function () use ($app) {
+
+	// This route syncs ALL arcgis_flatfile data with any updates to org_profile data, field by field, record by record.
+
+	// Requires login to access
+	if ( !isset($_SESSION['username']) ) { $app->redirect("/map/survey/admin/login/"); }
+
+	echo "Synching all org_profile data to arcgis_flatfile</br>";
+	// $response->status($isPartialContent ? 206 : 200);
+
+	flush();
+
+	$app->redirect("/map/survey/admin/survey/syncflatfile/all_records"); 
+
+});
+
+// **************
 $app->get('/admin/survey/syncflatfile/all', function () use ($app) {
 
 	// This route syncs ALL arcgis_flatfile data with any updates to org_profile data, field by field, record by record.
@@ -1118,7 +1211,7 @@ $app->get('/admin/survey/syncflatfile/all', function () use ($app) {
 	if ( !isset($_SESSION['username']) ) { $app->redirect("/map/survey/admin/login/"); }
 
 	echo "Synching all org_profile data to arcgis_flatfile</br>";
-	$response->status($isPartialContent ? 206 : 200);
+	// $response->status($isPartialContent ? 206 : 200);
 
 	flush();
 
