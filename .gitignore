@@ -19,6 +19,9 @@ scripts/agol-integration/agol_error.json
 scripts/agol-integration/agol_success.json
 scripts/agol-integration/arcgis_flatfile.json
 scripts/agol-integration/problem_records.json
+scripts/agol-integration/agol_integration/agol_success.json
+scripts/agol-integration/agol_integration/problem_records.json
+scripts/agol-integration/agol_integration/agol_error.json
 
 assets/*
 html/grid/*
@@ -27,6 +30,8 @@ html/grid/*
 .~lock.Inventory.xlsx#
 
 # Temp
+cfr/
 CFR-2011/*
 html/cfr/*
 html/scap-security-guide/*
+scap-security-guide/
