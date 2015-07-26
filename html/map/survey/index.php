@@ -1040,14 +1040,7 @@ $app->post('/admin/survey/updatefield/:profile_id', function ($profile_id) use (
 		'restkey' => PARSE_API_KEY
 	));
 
-
-    // // Set string values to numeric values
-    // $allPostVars["org_profile_year"] = intval($allPostVars["org_profile_year"]);
-    // $allPostVars["org_year_founded"] = intval($allPostVars["org_year_founded"]);
-    // $allPostVars["latitude"] = floatval($allPostVars["latitude"]);
-    // $allPostVars["longitude"] = floatval($allPostVars["longitude"]);
-
-	// get post vars
+	// Loop through post vars and set string values to numeric values where needed
 	$allPostVars = $app->request->post();
 	// print_r($allPostVars); exit;
 	foreach ($allPostVars as $key => $val) {
@@ -1056,6 +1049,15 @@ $app->post('/admin/survey/updatefield/:profile_id', function ($profile_id) use (
 		switch ($field_name) {
 			case "org_year_founded":
 				$value = intval($val);
+				break;
+			case "org_profile_year":
+				$value = intval($val);
+				break;
+			case "latitude":
+				$value = floatval($val);
+				break;
+			case "longitude":
+				$value = floatval($val);
 				break;
 			default:
 				$value = $val;
