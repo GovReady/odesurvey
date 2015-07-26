@@ -1120,6 +1120,7 @@ $app->post('/admin/survey/updatefield/:profile_id', function ($profile_id) use (
 	} else {
 		$content['flatfile_msg'] = "Updating ".count($request_decoded['results'])." matches in arcgis_flatfile";
 	}
+
 	$arcgis_org_profile = $request_decoded['results'][0];
 	$objectId = $org_profile['objectId'];
 
@@ -1135,39 +1136,21 @@ $app->post('/admin/survey/updatefield/:profile_id', function ($profile_id) use (
 	$request_decoded = json_decode($request, true);
 	$arcgis_flatfile_objects = $request_decoded['results'];
 
-	// Loop through fields in org_profile. Where a field is different in org_profile, update arcgis_flatfile field value
-	foreach (array_keys($org_profile) as $key) {
-		// ignore a few select fields
-		if (in_array($key, array('objectId', 'profile_id', 'updatedAt', 'createdAt', 'date_created', 'date_modified'))) { continue; }
+	// update all objects in arcgis_flatfile
+	foreach($arcgis_flatfile_objects as $object) {
 
-		// make sure undefined values don't stop us
-		if (!isset($arcgis_org_profile[$key])) { $arcgis_org_profile[$key] = null; }
-		
-		// compare field values for updates
-		if ( $org_profile[$key] != $arcgis_org_profile[$key] ) {
-			$msg =  "$key<br>&nbsp; ${org_profile[$key]} | ${arcgis_org_profile[$key]} ";
-			// echo "<br/>$msg";
-			$app->log->info(date_format(date_create(), 'Y-m-d H:i:s')."; DATA_UPDATE; ". "$msg" );
+		$params = array(
+			'className' => 'arcgis_flatfile',
+			'objectId' => $object['objectId'],
+			'object' => array(
+				$field_name => $value
+			)
+		);
 
-			// Update all arcgis_profile records parse using query by looping through the related objectIds
-			foreach($arcgis_flatfile_objects as $object) {
-				// echo "--${object['objectId']}--";
-				
-				$params = array(
-					'className' => 'arcgis_flatfile',
-					'objectId' => $object['objectId'],
-					'object' => array(
-						$key => $org_profile[$key]
-					)
-				);
-
-				$request = $parse->update($params);
-				$request_array = json_decode($request, true);
-				$msg = "Updated arcgis_flatfile orbjectId ${object['objectId']}";
-				$app->log->info(date_format(date_create(), 'Y-m-d H:i:s')."; DATA_UPDATE; ". "$msg" );
-				// print_r($request);
-			}
-		}
+		$request = $parse->update($params);
+		$request_array = json_decode($request, true);
+		$msg = "Updated arcgis_flatfile orbjectId ${object['objectId']}";
+		$app->log->info(date_format(date_create(), 'Y-m-d H:i:s')."; DATA_UPDATE; ". "$msg" );
 	}
 
 	echo "All records updated for profile_id '${profile_id}'. ";
