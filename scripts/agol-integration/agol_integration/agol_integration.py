@@ -1,5 +1,15 @@
 # - std lib
 
+#
+# Usage
+#   AGOL_USER=<username>
+#   export AGOL_USER
+#   AGOL_PASS=<password>
+#   export AGOL_PASS
+#   python agol_integration.py
+#
+
+
 import json
 import sys
 import pdb
