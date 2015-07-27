@@ -30,7 +30,7 @@ class ProductionSettings(BaseSettings):
 
     def __init__(self):
         BaseSettings.__init__(self)
-        self.agol_feature_service_url = 'https://services.arcgis.com/Fsk4zuQe2Ol9olZc/arcgis/rest/services/ode_organizations_production_jul13/FeatureServer/0'
+        self.agol_feature_service_url = 'https://services.arcgis.com/Fsk4zuQe2Ol9olZc/arcgis/rest/services/ode_organizations_production_0715/FeatureServer/0'
 
 # - set active environment
 env = DevelopmentSettings()
