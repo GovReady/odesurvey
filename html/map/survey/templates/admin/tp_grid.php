@@ -227,9 +227,10 @@
 
                                     <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="latitude"  data-formatter="latitude">latitude</th>
                                     <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="longitude"  data-formatter="longitude">longitude</th>
-                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="true" data-filterable="true" data-sortable="true" data-column-id="org_hq_country_locode"  data-formatter="org_hq_country_locode">org_hq_country_locode</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="false" data-sortable="true" data-column-id="org_hq_country_locode"  data-formatter="org_hq_country_locode">org_hq_country_locode</th>
 
-                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="true" data-filterable="true" data-sortable="true" data-column-id="org_hq_country_income"  data-formatter="org_hq_country_income">country_income</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="org_hq_country_region"  data-formatter="org_hq_country_region">org_hq_country_region</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="org_hq_country_income"  data-formatter="org_hq_country_income">country_income</th>
                                     <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="org_hq_country_income_code"  data-formatter="org_hq_country_income_code">country_income_code</th>
                                     <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="org_additional"  data-formatter="org_additional">org_additional</th>
 
@@ -239,7 +240,7 @@
 
                                     <th data-order="asc" data-align="left" data-header-align="left" data-visible="true"  data-filterable="true" data-sortable="true" data-column-id="org_profile_src" data-formatter="org_profile_src">org_profile_src</th>
 
-                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="true" data-filterable="true" data-sortable="true" data-column-id="org_profile_category"  data-formatter="org_profile_category">org_profile_category</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="true" data-filterable="false" data-sortable="true" data-column-id="org_profile_category"  data-formatter="org_profile_category">org_profile_category</th>
                                     <th data-column-id="link" data-sortable="true" data-formatter="link">link</th>
                                     <!-- <th data-column-id="commands" data-formatter="commands" data-sortable="false">Commands</th> -->
                                 </tr>

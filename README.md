@@ -50,6 +50,7 @@ If the URL does not work check `vm/basic/Vagrantfile` and check file Vagrant con
 - Using SlimPHP Framework
 - Using Parse PHP API Library - https://github.com/apotropaic/parse.com-php-library/blob/parse.com-php-library_v1/README.md
 - Using jQuery Bootgrid - http://www.jquery-bootgrid.com
+- Ubilabs geocomplete - http://ubilabs.github.io/geocomplete/
 
 # Change Log
 

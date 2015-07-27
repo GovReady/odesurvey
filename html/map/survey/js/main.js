@@ -41,7 +41,8 @@ function fillForm() {
   $('input#org_hq_city_all').val("Chicago, Illinois, United States");
   $('input#org_hq_city').val("Chicago");
   $('input#org_hq_st_prov').val("Illinois");
-  $('input#org_hq_country').val("US");
+  $('input#org_hq_country').val("United States");
+  $('input#org_hq_country_locode').val("US");
   $('input#latitude').val("41.8781136");
   $('input#longitude').val("-87.62979819999998");
   $('input[type=checkbox][value=Business]').prop("checked", true);

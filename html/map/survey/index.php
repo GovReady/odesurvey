@@ -447,7 +447,7 @@ $app->post('/2du/:surveyId/', function ($surveyId) use ($app) {
     $allPostVars["longitude"] = floatval($allPostVars["longitude"]);
 
     // Copy country abbreviation to loc code
-    $allPostVars["org_hq_country_locode"] = $allPostVars["org_hq_country"];
+    // $allPostVars["org_hq_country_locode"] = $allPostVars["org_hq_country"];
 
 	// echo "<pre>";print_r($allPostVars);echo "</pre>"; 
 	// exit;
