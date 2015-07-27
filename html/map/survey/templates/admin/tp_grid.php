@@ -221,15 +221,15 @@
                                     <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="use_other"  data-formatter="use_other">use_other</th>
                                     <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="use_other_desc"  data-formatter="use_other_desc">use_other_desc</th>
 
-                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="org_hq_city"  data-formatter="org_hq_city">org_hq_city</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="true" data-filterable="true" data-sortable="true" data-column-id="org_hq_city"  data-formatter="org_hq_city">org_hq_city</th>
                                     <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="org_hq_st_prov"  data-formatter="org_hq_st_prov">org_hq_st_prov</th>
-                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="org_hq_country"  data-formatter="org_hq_country">org_hq_country</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="true" data-filterable="true" data-sortable="true" data-column-id="org_hq_country"  data-formatter="org_hq_country">org_hq_country</th>
 
                                     <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="latitude"  data-formatter="latitude">latitude</th>
                                     <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="longitude"  data-formatter="longitude">longitude</th>
-                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="org_hq_country_locode"  data-formatter="org_hq_country_locode">country_locode</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="true" data-filterable="true" data-sortable="true" data-column-id="org_hq_country_locode"  data-formatter="org_hq_country_locode">org_hq_country_locode</th>
 
-                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="org_hq_country_income"  data-formatter="org_hq_country_income">country_income</th>
+                                    <th data-order="asc" data-align="left" data-header-align="left" data-visible="true" data-filterable="true" data-sortable="true" data-column-id="org_hq_country_income"  data-formatter="org_hq_country_income">country_income</th>
                                     <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="org_hq_country_income_code"  data-formatter="org_hq_country_income_code">country_income_code</th>
                                     <th data-order="asc" data-align="left" data-header-align="left" data-visible="false" data-filterable="true" data-sortable="true" data-column-id="org_additional"  data-formatter="org_additional">org_additional</th>
 
@@ -259,7 +259,7 @@
             $keys = array("org_name", "org_type", "org_type_other", "org_url", "no_org_url", "org_year_founded", "org_size_id", "industry_id",
                 "org_greatest_impact", "org_greatest_impact_detail", "data_country_count", "data_use_type", "use_advocacy", "use_advocacy_desc",
                 "org_prod_srv", "use_prod_srvc_desc", "use_org_opt", "use_org_opt_desc", "use_research", "use_research_desc", "use_other", "use_other_desc",
-                "org_hq_city", "org_hq_st_prov", "org_hq_country", "latitude", "longitude",
+                "org_hq_city", "org_hq_st_prov", "org_hq_country", "latitude", "longitude", "org_hq_country_locode",
                 "org_hq_country_region", "org_hq_country_income", "org_hq_country_income_code", "org_additional",
                 "org_description",
                 "org_profile_status", "org_profile_src", "org_profile_category");
