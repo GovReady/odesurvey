@@ -1441,7 +1441,7 @@ $app->get('/data/flatfile.json', function () use ($app) {
 	$arcgis_flatfile = array("results" => $arcgis_rows);
 	// $arcgis_flatfile = array("results" => array_slice($arcgis_rows,1,2));
 	header('Content-Type: application/json');
-	echo json_encode($arcgis_flatfile);
+	echo json_pretty(json_encode($arcgis_flatfile));
 
 	return true;
 });
