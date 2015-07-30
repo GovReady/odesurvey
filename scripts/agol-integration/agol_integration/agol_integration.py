@@ -6,9 +6,10 @@
 #   export AGOL_USER
 #   AGOL_PASS=<password>
 #   export AGOL_PASS
+#   AGOL_ENV=<development | staging | production>
+#   export AGOL_ENV
 #   python agol_integration.py
 #
-
 
 import json
 import sys
@@ -95,6 +96,7 @@ def main(environment):
         if len(df[df[c].str.len() > environment.max_character_limit]) > 0:
             df[c] = df[c].map(lambda r: r and r[:environment.max_character_limit] or r)
 
+    print "Updating %s environment schema %s for account %s" % (env.environment, env.agol_feature_service_url, env.agol_user)
     refresh_agol(df, environment.agol_feature_service_url, token=agol_token)
     # print "skipping refresh_agol"
     # print df['org_name']
