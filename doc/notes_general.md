@@ -210,6 +210,13 @@ class ProductionSettings(BaseSettings):
         self.agol_feature_service_url = 'https://services5.arcgis.com/w1WEecz5ClslKH2Q/arcgis/rest/services/ode_organizations_production/FeatureServer/0'
 ```
 
+# Updating ArcGIS Online Schema
+
+When updating ArcGIS Online Schema be sure to do the following:
+1. Make sure the Schema is available to everyone
+2. Update the service definition from default 1000 records to greater than or equal to the number of being uploaded (e.g., 12000 is a good number). To update the service use the url that includes `ArcGIS/rest/admin` as in: `http://services.arcgis.com/[appid]/arcgis/rest/admin/services/ode_organizations_schema_07302015/FeatureServer/0/updateDefinition`
+
+
 # Using ArcGIS Online Web Interface to Manage Features
 
 ## Example update

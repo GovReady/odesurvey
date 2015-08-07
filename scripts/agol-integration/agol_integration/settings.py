@@ -7,7 +7,7 @@ class BaseSettings(object):
         self.agol_pass = os.environ.get('AGOL_PASS', '')  # - add ArcGIS Online User Pass or set environment variable
         self.parse_data_endpoint = 'http://www.opendataenterprise.org/map/survey/data/flatfile.json'
         # self.arcgis_source_file = 'arcgis_flatfile.json'
-        self.max_character_limit = 256
+        self.max_character_limit = 1024
         self.country_centroid_lookup_table = os.path.join(os.path.dirname(__file__), 'country_centroids_all.csv')
 
 class DevelopmentSettings(BaseSettings):
@@ -16,7 +16,8 @@ class DevelopmentSettings(BaseSettings):
         BaseSettings.__init__(self)
         self.environment = "AGOL Development"
         # self.agol_feature_service_url = 'https://services5.arcgis.com/w1WEecz5ClslKH2Q/arcgis/rest/services/ode_organizations_dev04/FeatureServer/0'
-        self.agol_feature_service_url = 'https://services.arcgis.com/Fsk4zuQe2Ol9olZc/arcgis/rest/services/ode_organizations_dev_0715/FeatureServer/0'
+        # self.agol_feature_service_url = 'https://services.arcgis.com/Fsk4zuQe2Ol9olZc/arcgis/rest/services/ode_organizations_dev_0715/FeatureServer/0'
+        self.agol_feature_service_url = 'http://services.arcgis.com/Fsk4zuQe2Ol9olZc/arcgis/rest/services/ode_organizations_schema_07302015/FeatureServer/0'
 
 class StagingSettings(BaseSettings):
 
@@ -25,6 +26,7 @@ class StagingSettings(BaseSettings):
         self.environment = "AGOL Staging"
         # self.agol_feature_service_url = 'https://services5.arcgis.com/w1WEecz5ClslKH2Q/arcgis/rest/services/ode_organizations_staging/FeatureServer/0'
         self.agol_feature_service_url = 'https://services.arcgis.com/Fsk4zuQe2Ol9olZc/arcgis/rest/services/ode_organizations_staging_jul13/FeatureServer/0'
+        # self.agol_feature_service_url = 'http://services.arcgis.com/Fsk4zuQe2Ol9olZc/arcgis/rest/services/ode_organizations_schema_07302015/FeatureServer/0'
 
 class ProductionSettings(BaseSettings):
 
