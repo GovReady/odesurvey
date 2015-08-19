@@ -1000,22 +1000,35 @@ $app->get('/admin/survey/grid/', function () use ($app) {
 		'restkey' => PARSE_API_KEY
 	));
 
-	// $params = array(
-	// 	'className' => 'org_profile',
-	// 	'query' => array(
-	//         'org_profile_status' => "submitted"
-	// 		)
-	// );
+	// Initialize variables for loop
+	$org_profiles = array();
+	$skip = 0;
+	$retrieved = 0;
 
-	$params = array(
-		'className' => 'org_profile',
-		'order' => 'org_name',
-		'limit' => '1000'
-	);
+	// Retrieve all records from parse.com, 1000 records at a time b/c 1000 records is the max allowed
+	// Build up a single array of all retrieved records
+	while ( $skip == 0 OR $retrieved > 0 ) {
 
-	$request = $parse->query($params);
-	$request_array = json_decode($request, true);
-	$org_profiles = $request_array['results'];
+		$params = array(
+			'className' => 'org_profile',
+			'order' => 'org_name',
+			'limit' => '1000',
+			'skip' => $skip
+		);
+
+		$request = $parse->query($params);
+		$request_array = json_decode($request, true);
+		// $org_profiles = $request_array['results'];
+		$retrieved = count($request_array['results']);
+		if ($retrieved > 0) {
+			// Use array_merge_recursive to keep merged array flat
+			$org_profiles = array_merge_recursive($org_profiles,$request_array['results']);
+		}
+		// echo "$retrieved ";
+		// increment skip
+		$skip = $skip + 1000;
+	}
+	// We now have all records in one big array in $org_profiles
 
 	// echo "<pre>"; print_r($org_profiles); echo "</pre>"; 
 
