@@ -38,9 +38,10 @@ python agol_integration.py
 
 *NOTE* If you receive an error starting with "InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail...", correct this issue by installing requests-security module using pip with the shell command: `sudo pip install requests[security]`
 
-AGOL_ENV setting       | Data published for access by server | URL
+AGOL_ENV setting       | Data published for access by servers | URL
 -----------------------|-------------------------------------|-----
-`AGOL_ENV=development` | staging     | (not shared)
+`AGOL_ENV=development` | development, staging | (not shared)
+`AGOL_ENV=staging`     | staging     | (not shared)
 `AGOL_ENV=production`  | production  | http://www.opendataenterprise.org/map/viz/index.html
 
 #### Example terminal session output from command `python agol_integration.py`
