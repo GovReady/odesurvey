@@ -3,11 +3,11 @@
  */
 define([],function(){
   var agsserver = "http://services.arcgis.com/Fsk4zuQe2Ol9olZc/ArcGIS/rest/services";
-  var runAs = 'production';
+  var runAs = 'develop';
   var mode = {
-              'develop': 'ode_organizations_dev',
-              'staging': 'ode_organizations_staging',
-              'production': 'ode_organizations_production_0715'
+              'develop': 'ode_organizations_schema_07302015',
+              'staging': 'ode_organizations_schema_07302015',
+              'production': 'ode_organizations_prod_07302015'
           }
   var features = [agsserver,mode[runAs],'FeatureServer/0'].join('/');
     var countries = [agsserver,'country_centroids_20150715','FeatureServer/0'].join('/');
