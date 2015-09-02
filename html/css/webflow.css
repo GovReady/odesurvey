@@ -51,9 +51,6 @@ img {
 html.w-mod-touch * {
   background-attachment: scroll !important;
 }
-a:focus {
-  outline: 0;
-}
 .w-block {
   display: block;
 }
@@ -72,6 +69,19 @@ a:focus {
 .w-hidden {
   display: none;
 }
+.w-button {
+  display: inline-block;
+  padding: 9px 15px;
+  background-color: #3898ec;
+  color: white;
+  border: 0;
+  line-height: inherit;
+  text-decoration: none;
+}
+.w-button[href-disabled] {
+  color: white;
+  text-decoration: none;
+}
 html[data-w-dynpage] [data-w-cloak] {
   color: transparent !important;
 }
@@ -81,18 +91,70 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 0;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+h1 {
+  font-size: 38px;
+  line-height: 44px;
+  margin-top: 20px;
+}
+h2 {
+  font-size: 32px;
+  line-height: 36px;
+  margin-top: 20px;
+}
+h3 {
+  font-size: 24px;
+  line-height: 30px;
+  margin-top: 20px;
+}
+h4 {
+  font-size: 18px;
+  line-height: 24px;
+  margin-top: 10px;
+}
+h5 {
+  font-size: 14px;
+  line-height: 20px;
+  margin-top: 10px;
+}
+h6 {
+  font-size: 12px;
+  line-height: 18px;
+  margin-top: 10px;
 }
 p {
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+a {
+  color: #0082f3;
+  text-decoration: underline;
+}
+a:focus {
+  outline: 0;
 }
 blockquote {
+  margin: 0 0 10px 0;
+  padding: 10px 20px;
+  border-left: 5px solid #E2E2E2;
+  font-size: 18px;
+  line-height: 22px;
+}
+figure {
   margin: 0;
+  margin-bottom: 10px;
+}
+figcaption {
+  margin-top: 5px;
+  text-align: center;
 }
 ul,
 ol {
   margin-top: 0;
   margin-bottom: 0;
+  padding-left: 40px;
 }
 .w-list-unstyled {
   padding-left: 0;
@@ -129,6 +191,7 @@ button,
 html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
+  border: 0;
   cursor: pointer;
   -webkit-appearance: button;
 }
@@ -137,7 +200,8 @@ input[type="submit"] {
 }
 .w-form-done {
   display: none;
-  padding: 10px;
+  padding: 20px;
+  text-align: center;
   background-color: #dddddd;
 }
 .w-form-fail {
@@ -160,7 +224,7 @@ label {
   margin-bottom: 10px;
   font-size: 14px;
   line-height: 1.428571429;
-  color: #555555;
+  color: #333333;
   vertical-align: middle;
   background-color: #ffffff;
   border: 1px solid #cccccc;
@@ -184,7 +248,7 @@ label {
 }
 .w-input:focus,
 .w-select:focus {
-  border-color: rgba(82, 168, 236, 0.8);
+  border-color: #3898ec;
   outline: 0;
 }
 .w-input[disabled],
@@ -200,16 +264,12 @@ textarea.w-input,
 textarea.w-select {
   height: auto;
 }
+.w-select {
+  background-image: -webkit-linear-gradient(white 0%, #f3f3f3 100%);
+  background-image: linear-gradient(white 0%, #f3f3f3 100%);
+}
 .w-select[multiple] {
   height: auto;
-}
-.w-button {
-  display: inline-block;
-  padding: 12px;
-  background-color: black;
-  color: white;
-  border: 0;
-  line-height: inherit;
 }
 .w-form-label {
   display: inline-block;
@@ -922,7 +982,7 @@ textarea.w-select {
   position: relative;
   height: 300px;
   text-align: center;
-  background: rgba(153, 153, 153, 0.5);
+  background: #dddddd;
   clear: both;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   tap-highlight-color: rgba(0, 0, 0, 0);
@@ -1063,7 +1123,7 @@ textarea.w-select {
   position: relative;
   vertical-align: top;
   text-decoration: none;
-  color: #222;
+  color: #222222;
   padding: 20px;
   text-align: left;
   margin-left: auto;
@@ -1094,7 +1154,7 @@ textarea.w-select {
 }
 .w-dropdown-list {
   position: absolute;
-  background: #f2f2f2;
+  background: #dddddd;
   display: none;
   min-width: 100%;
 }
@@ -1104,9 +1164,14 @@ textarea.w-select {
 .w-dropdown-link {
   padding: 10px 20px;
   display: block;
+  color: #222222;
+}
+.w-dropdown-link:hover {
+  color: #222222;
+  text-decoration: none;
 }
 .w-dropdown-link.w--current {
-  color: #339ce1;
+  color: #0082f3;
 }
 .w-nav[data-collapse="all"] .w-dropdown,
 .w-nav[data-collapse="all"] .w-dropdown-toggle {
@@ -1439,9 +1504,120 @@ textarea.w-select {
 .w-lightbox-inactive:hover {
   opacity: 0;
 }
+.w-richtext:before,
+.w-richtext:after {
+  content: " ";
+  display: table;
+}
+.w-richtext:after {
+  clear: both;
+}
+.w-richtext .w-richtext-figure-selected[data-rt-type="video"] div:before {
+  outline: 2px solid #2895f7;
+}
+.w-richtext .w-richtext-figure-selected[data-rt-type="image"] div {
+  outline: 2px solid #2895f7;
+}
+.w-richtext figure[data-rt-type="video"] > div:before {
+  content: '';
+  position: absolute;
+  display: none;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+.w-richtext figure {
+  position: relative;
+  max-width: 60%;
+}
+.w-richtext figure > div:before,
+.w-richtext figure img {
+  cursor: default!important;
+}
+.w-richtext figure img {
+  max-width: 100%;
+}
+.w-richtext figure figcaption.w-richtext-figcaption-placeholder {
+  opacity: 0.6;
+}
+.w-richtext figure div {
+  /* fix incorrectly sized selection border in the data manager */
+  font-size: 0px;
+  color: transparent;
+}
+.w-richtext figure[data-rt-type="image"] {
+  display: table;
+}
+.w-richtext figure[data-rt-type="image"] > div {
+  display: inline-block;
+}
+.w-richtext figure[data-rt-type="image"] > figcaption {
+  display: table-caption;
+  caption-side: bottom;
+}
+.w-richtext figure[data-rt-type="video"] {
+  height: 0;
+}
+.w-richtext figure[data-rt-type="video"] iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.w-richtext figure[data-rt-type="video"] > div {
+  width: 100%;
+}
+.w-richtext figure.w-richtext-align-center {
+  margin-right: auto;
+  margin-left: auto;
+  clear: both;
+}
+.w-richtext figure.w-richtext-align-center[data-rt-type="image"] > div {
+  max-width: 100%;
+}
+.w-richtext figure.w-richtext-align-normal {
+  clear: both;
+}
+.w-richtext figure.w-richtext-align-fullwidth {
+  width: 100%;
+  text-align: center;
+  clear: both;
+  display: block;
+}
+.w-richtext figure.w-richtext-align-fullwidth > div {
+  display: inline-block;
+}
+.w-richtext figure.w-richtext-align-fullwidth > figcaption {
+  display: block;
+}
+.w-richtext figure.w-richtext-align-floatleft {
+  float: left;
+  margin-right: 15px;
+  clear: none;
+}
+.w-richtext figure.w-richtext-align-floatright {
+  float: right;
+  margin-left: 15px;
+  clear: none;
+}
+/* The video overlay (prevents interacting with (ie: playing) the video)
+   should only be present when the rich text node can be edited in that context with the RTE.
+   1. In the designer canvas - when not previewing the site
+   2. In the editor canvas for rich text dyn collection fields
+   3. In the editor canvas for static rich text fields made editable (ie: blobs)
+   4. In the data managers (see both RichTextInput.less files) as this file is not used there
+*/
+.wf-design-mode figure[data-rt-type="video"] > div:before,
+.w-editor-mount .w-dyn-list figure[data-rt-type="video"] > div:before,
+.w-editor-mount .w-editable figure[data-rt-type="video"] > div:before {
+  display: block;
+}
 .w-nav {
   position: relative;
-  background: #BBB;
+  background: #dddddd;
   z-index: 1000;
 }
 .w-nav:before,
@@ -1456,11 +1632,11 @@ textarea.w-select {
   position: relative;
   float: left;
   text-decoration: none;
-  color: #222222;
+  color: #333333;
 }
 .w-nav-brand:hover {
   text-decoration: none;
-  color: #222222;
+  color: #333333;
 }
 .w-nav-link {
   position: relative;
@@ -1478,7 +1654,7 @@ textarea.w-select {
   color: #222222;
 }
 .w-nav-link.w--current {
-  color: #339ce1;
+  color: #0082f3;
 }
 .w-nav-menu {
   position: relative;
@@ -1490,7 +1666,7 @@ textarea.w-select {
   top: 100%;
   left: 0;
   right: 0;
-  background: #999;
+  background: #c8c8c8;
   text-align: center;
   overflow: visible;
   min-width: 200px;
@@ -1544,7 +1720,7 @@ textarea.w-select {
   user-select: none;
 }
 .w-nav-button.w--open {
-  background-color: #999;
+  background-color: #c8c8c8;
   color: white;
 }
 .w-nav[data-collapse="all"] .w-nav-menu {
@@ -1599,13 +1775,14 @@ textarea.w-select {
   display: inline-block;
   vertical-align: top;
   text-decoration: none;
-  padding: 8px 30px;
+  padding: 9px 30px;
   text-align: left;
   cursor: pointer;
-  background-color: #E8E8E8;
+  color: #222222;
+  background-color: #dddddd;
 }
 .w-tab-link.w--current {
-  background-color: #BCD3F3;
+  background-color: #c8c8c8;
 }
 .w-tab-content {
   position: relative;
@@ -1643,19 +1820,7 @@ textarea.w-select {
     transform: rotate(360deg);
   }
 }
-.w-dyn-items {
-  display: none;
-}
-.w-dyn-items.visible {
-  display: block;
-}
 .w-dyn-empty {
-  display: none;
   padding: 10px;
   background-color: #dddddd;
-}
-.w-dyn-error {
-  display: none;
-  padding: 10px;
-  background-color: #ffdede;
 }

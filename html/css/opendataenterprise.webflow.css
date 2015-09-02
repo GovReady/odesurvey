@@ -65,6 +65,7 @@ p {
   padding-top: 30px;
   padding-left: 0px;
   border-style: none;
+  -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
   font-family: Lato, sans-serif;
   color: black;
@@ -88,6 +89,7 @@ p {
   background-image: url('../images/Twitter_logo_white.png');
   background-size: 30px;
   background-repeat: no-repeat;
+  -webkit-transition: background-color 300ms ease, all 500ms ease;
   transition: background-color 300ms ease, all 500ms ease;
   font-family: Lato, sans-serif;
   color: white;
@@ -101,6 +103,7 @@ p {
 }
 .button.nav {
   margin-left: 18px;
+  -webkit-transition: all 200ms ease;
   transition: all 200ms ease;
 }
 .button.nav:hover {
@@ -110,6 +113,7 @@ p {
   margin-top: 191px;
   padding: 25px 22px;
   background-color: #32ac97;
+  -webkit-transition: all 200ms ease;
   transition: all 200ms ease;
   font-size: 29px;
   text-transform: capitalize;
@@ -220,6 +224,7 @@ p {
   padding-top: 0px;
   padding-bottom: 0px;
   background-color: #020b4f;
+  background-image: -webkit-linear-gradient(rgba(89, 89, 89, 0) 35%, rgba(0, 0, 0, 0.8) 75%), url('../images/Crowd-tiny.jpg');
   background-image: linear-gradient(rgba(89, 89, 89, 0) 35%, rgba(0, 0, 0, 0.8) 75%), url('../images/Crowd-tiny.jpg');
   background-position: 0% 0%, 50% 50%;
   background-size: auto, cover;
@@ -241,6 +246,7 @@ p {
   padding-top: 0px;
   padding-bottom: 30px;
   float: none;
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.09), rgba(0, 0, 0, 0.8) 80%), url('../images/Crowd - SM.jpg');
   background-image: linear-gradient(rgba(0, 0, 0, 0.09), rgba(0, 0, 0, 0.8) 80%), url('../images/Crowd - SM.jpg');
   background-position: 0% 0%, 0px 0px;
   background-attachment: scroll, fixed;
@@ -250,6 +256,7 @@ p {
   background-color: #020b4f;
 }
 .section.hero.interior.option-2 {
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0), black), url('../images/zoom-43977784-3.jpg');
   background-image: linear-gradient(rgba(255, 255, 255, 0), black), url('../images/zoom-43977784-3.jpg');
   background-position: 0% 0%, 0% 0%;
   background-size: auto, cover;
@@ -298,6 +305,7 @@ p {
   height: 200px;
 }
 .section.hero.interior.option-4 {
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0), black), url('../images/zoom-42826844-3.jpg');
   background-image: linear-gradient(rgba(255, 255, 255, 0), black), url('../images/zoom-42826844-3.jpg');
   background-position: 0% 0%, 50% 50%;
   background-size: auto, cover;
@@ -305,6 +313,7 @@ p {
   background-attachment: scroll, scroll;
 }
 .section.hero.interior.option-5 {
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0), black), url('../images/zoom-36755458-3.jpg');
   background-image: linear-gradient(rgba(255, 255, 255, 0), black), url('../images/zoom-36755458-3.jpg');
   background-position: 0% 0%, 50% 50%;
   background-size: auto, cover;
@@ -507,7 +516,9 @@ p {
   background-position: 52% 0%;
   background-size: 25px;
   background-attachment: scroll;
+  -webkit-transition-property: color, background-color;
   transition-property: color, background-color;
+  -webkit-transition-duration: 300ms, 300ms;
   transition-duration: 300ms, 300ms;
   font-family: Lato, sans-serif;
   color: white;
@@ -914,6 +925,7 @@ p {
   padding-top: 9px;
   border-radius: 40px;
   background-color: #2ea0e6;
+  -webkit-transition: all 200ms ease;
   transition: all 200ms ease;
   text-align: center;
 }
@@ -933,6 +945,7 @@ p {
   overflow-y: hidden;
   height: 302px;
   box-shadow: red 0px -11px 0px 0px inset;
+  -webkit-transition: height 300ms ease;
   transition: height 300ms ease;
 }
 .image-crop:hover {
@@ -1179,6 +1192,7 @@ p {
   margin-right: 10px;
   margin-left: 10px;
   padding: 5px 30px;
+  -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
   font-family: Lato, sans-serif;
   color: #020b4f;
@@ -1244,6 +1258,7 @@ p {
   margin-left: auto;
   padding-top: 0px;
   background-color: #020b4f;
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0) 19%, rgba(0, 0, 0, 0.8) 75%), url('../images/Commerce Image.jpg');
   background-image: linear-gradient(rgba(255, 255, 255, 0) 19%, rgba(0, 0, 0, 0.8) 75%), url('../images/Commerce Image.jpg');
   background-position: 0% 0%, 50% -20px;
   background-size: auto, cover;
@@ -2056,6 +2071,7 @@ p {
   border: 1px solid white;
   background-color: transparent;
   box-shadow: none;
+  -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
   text-align: center;
 }
@@ -2393,17 +2409,20 @@ p {
   height: 400px;
 }
 .slide-1 {
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.8)), url('../images/bg_slide1.jpg');
   background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.8)), url('../images/bg_slide1.jpg');
   background-position: 0% 0%, 50% 50%;
   background-size: auto, cover;
   background-repeat: repeat, no-repeat;
 }
 .slide-2 {
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.09), rgba(0, 0, 0, 0.6)), url('../images/bg_slide2.jpg');
   background-image: linear-gradient(rgba(0, 0, 0, 0.09), rgba(0, 0, 0, 0.6)), url('../images/bg_slide2.jpg');
   background-size: auto, cover;
   background-repeat: repeat, no-repeat;
 }
 .slide-3 {
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.8)), url('../images/bg_slide3.jpg');
   background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.8)), url('../images/bg_slide3.jpg');
   background-position: 0% 0%, 0% 21%;
   background-size: auto, cover;
@@ -2467,6 +2486,7 @@ p {
   width: 100%;
   height: 475px;
   background-color: #2ea0e6;
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.29), rgba(0, 0, 0, 0.29)), url('../images/bg_slide2.jpg');
   background-image: linear-gradient(rgba(0, 0, 0, 0.29), rgba(0, 0, 0, 0.29)), url('../images/bg_slide2.jpg');
   background-size: auto, cover;
   background-repeat: repeat, no-repeat;
@@ -2488,6 +2508,7 @@ p {
   border-radius: 4px;
   background-color: rgba(255, 255, 255, 0.2);
   opacity: 1;
+  -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
   color: white;
   font-size: 22px;
@@ -2520,6 +2541,7 @@ p {
   padding: 8px 10px;
   border: 2px solid #2ea0e6;
   border-radius: 6px;
+  -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
   color: #2ea0e6;
   font-size: 22px;
@@ -2728,6 +2750,7 @@ p {
   display: inline-block;
 }
 .share-icon {
+  -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
 }
 .share-icon:hover {
@@ -2911,6 +2934,7 @@ html.w-mod-js *[data-ix="display-none-on-load"] {
     font-size: 24px;
   }
   .image-section {
+    background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.8) 44%), url('../images/Commerce Image.jpg');
     background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.8) 44%), url('../images/Commerce Image.jpg');
   }
   .last.bullets-and-shit {
@@ -3418,6 +3442,7 @@ html.w-mod-js *[data-ix="display-none-on-load"] {
   }
   .section.hero.option-1 {
     height: auto;
+    background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.8) 40%), url('../images/Crowd - SM.jpg');
     background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.8) 40%), url('../images/Crowd - SM.jpg');
   }
   .section.hero.interior.option-3 {
@@ -3617,6 +3642,7 @@ html.w-mod-js *[data-ix="display-none-on-load"] {
   .image-section {
     display: block;
     height: 75%;
+    background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.8) 40%), url('../images/Quote 2.jpg');
     background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.8) 40%), url('../images/Quote 2.jpg');
   }
   .image-section.link {
