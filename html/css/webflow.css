@@ -41,6 +41,9 @@ body {
   margin: 0;
   min-height: 100%;
   background-color: #fff;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
   color: #333;
 }
 img {
@@ -77,10 +80,15 @@ html.w-mod-touch * {
   border: 0;
   line-height: inherit;
   text-decoration: none;
+  cursor: pointer;
+  border-radius: 0;
 }
 .w-button[href-disabled] {
   color: white;
   text-decoration: none;
+}
+input.w-button {
+  -webkit-appearance: button;
 }
 html[data-w-dynpage] [data-w-cloak] {
   color: transparent !important;
@@ -189,8 +197,7 @@ fieldset {
 }
 button,
 html input[type="button"],
-input[type="reset"],
-input[type="submit"] {
+input[type="reset"] {
   border: 0;
   cursor: pointer;
   -webkit-appearance: button;
@@ -1614,6 +1621,10 @@ textarea.w-select {
 .w-editor-mount .w-dyn-list figure[data-rt-type="video"] > div:before,
 .w-editor-mount .w-editable figure[data-rt-type="video"] > div:before {
   display: block;
+}
+.w-editor-mount .w-dyn-list a,
+.w-editor-mount .w-editable a {
+  cursor: text!important;
 }
 .w-nav {
   position: relative;

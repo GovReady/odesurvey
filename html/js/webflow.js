@@ -89,6 +89,7 @@
 	var _ = Webflow._ = __webpack_require__(18);
 	var tram = __webpack_require__(3) && $.tram;
 	var domready = false;
+	var destroyed = false;
 	var Modernizr = window.Modernizr;
 	var noop = function() {};
 	tram.config.hideBackface = false;
@@ -124,13 +125,21 @@
 	  }
 	  // Subscribe to front-end destroy event
 	  isFunction(module.destroy) && $win.on('__wf_destroy', module.destroy);
-	  // Look for a ready method on module
+	  // Look for ready method on module
 	  if (module.ready && isFunction(module.ready)) {
-	    // If domready has already happened, call ready method
-	    if (domready) module.ready();
-	    // Otherwise push ready method into primary queue
-	    else primary.push(module.ready);
+	    addReady(module);
 	  }
+	}
+
+	function addReady(module) {
+	  // If domready has already happened, run ready method
+	  if (domready) {
+	    module.ready();
+	    return;
+	  }
+	  // Otherwise add ready method to the primary queue (only once)
+	  if (_.contains(primary, module.ready)) return;
+	  primary.push(module.ready);
 	}
 
 	function unbindModule(module) {
@@ -138,13 +147,16 @@
 	  isFunction(module.design) && $win.off('__wf_design', module.design);
 	  isFunction(module.preview) && $win.off('__wf_preview', module.preview);
 	  isFunction(module.destroy) && $win.off('__wf_destroy', module.destroy);
-
-	  // Remove from primary queue if domready hasn't happened
-	  if (!domready) {
-	    primary = _.filter(primary, function(readyFn) {
-	      return readyFn !== module.ready;
-	    });
+	  // Remove ready method from primary queue
+	  if (module.ready && isFunction(module.ready)) {
+	    removeReady(module);
 	  }
+	}
+
+	function removeReady(module) {
+	  primary = _.filter(primary, function(readyFn) {
+	    return readyFn !== module.ready;
+	  });
 	}
 
 	/**
@@ -274,13 +286,30 @@
 	// Webflow.ready - Call primary and secondary handlers
 	Webflow.ready = function() {
 	  domready = true;
-	  _.each(primary.concat(secondary), callReady);
+
+	  // Restore modules after destroy
+	  if (destroyed) {
+	    restoreModules();
+
+	  // Otherwise run primary ready methods
+	  } else {
+	    _.each(primary, callReady);
+	  }
+
+	  // Run secondary ready methods
+	  _.each(secondary, callReady);
+
 	  // Trigger resize
 	  Webflow.resize.up();
 	};
 
 	function callReady(readyFn) {
 	  isFunction(readyFn) && readyFn();
+	}
+
+	function restoreModules() {
+	  destroyed = false;
+	  _.each(modules, bindModule);
 	}
 
 	/**
@@ -304,17 +333,27 @@
 	}
 
 	// Webflow.destroy - Trigger a destroy event for all modules
-	Webflow.destroy = function() {
+	Webflow.destroy = function(options) {
+	  options = options || {};
+	  destroyed = true;
 	  $win.triggerHandler('__wf_destroy');
 
-	  // Unbind and clear modules
+	  // Allow domready reset for tests
+	  if (options.domready != null) {
+	    domready = options.domready;
+	  }
+
+	  // Unbind modules
 	  _.each(modules, unbindModule);
-	  modules = {};
 
 	  // Clear any proxy event handlers
 	  Webflow.resize.off();
 	  Webflow.scroll.off();
 	  Webflow.redraw.off();
+
+	  // Clear any queued ready methods
+	  primary = [];
+	  secondary = [];
 
 	  // If load event has not yet fired, replace the deferred
 	  if (deferLoad.state() === 'pending') bindLoad();
