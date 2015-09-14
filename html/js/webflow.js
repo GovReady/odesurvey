@@ -3219,6 +3219,7 @@
 	    config.duration = duration != null ? +duration : 500;
 
 	    if (+data.el.attr('data-infinite')) config.infinite = true;
+	    if (+data.el.attr('data-disable-swipe')) config.disableSwipe = true;
 
 	    if (+data.el.attr('data-hide-arrows')) {
 	      config.hideArrows = true;
@@ -3294,6 +3295,7 @@
 	  function handler(data) {
 	    return function(evt, options) {
 	      options = options || {};
+	      var config = data.config;
 
 	      // Designer settings
 	      if (designer && evt.type === 'setting') {
@@ -3308,6 +3310,7 @@
 
 	      // Swipe event
 	      if (evt.type === 'swipe') {
+	        if (config.disableSwipe) return;
 	        if (Webflow.env('editor')) return;
 	        if (options.direction === 'left') return next(data)();
 	        if (options.direction === 'right') return previousFunction(data)();
