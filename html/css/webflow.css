@@ -1622,10 +1622,6 @@ textarea.w-select {
 .w-editor-mount .w-editable figure[data-rt-type="video"] > div:before {
   display: block;
 }
-.w-editor-mount .w-dyn-list a,
-.w-editor-mount .w-editable a {
-  cursor: text!important;
-}
 .w-nav {
   position: relative;
   background: #dddddd;
