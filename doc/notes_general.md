@@ -5,10 +5,6 @@ General Notes
 
 Please take note of the following targets and dates:
 
-April 10: ODE will send BR a first dataset (c. 400 organizations) 
-April 10-30: Data collection continues.
-April 30: Map (beta)
-May 1 - 12): Map testing and iteration
 May 13: Official launch of the Map
 
 # Map Resources
