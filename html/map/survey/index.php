@@ -1,5 +1,6 @@
 <?php
-
+// Expand memory being used by PHP
+ini_set('memory_limit','400M');
 // server should keep session data for AT LEAST 1 hour
 ini_set('session.gc_maxlifetime', 3600);
 // each client should remember their session id for EXACTLY 1 hour
@@ -31,7 +32,7 @@ if (!file_exists('credentials.inc.php')) {
 }
 
 // make sure log directory exists and is owned by apache
-define(ODESURVEY_LOG, "/var/log/odesurvey/odesurvey.log");
+define("ODESURVEY_LOG", "/var/log/odesurvey/odesurvey.log");
 
 if (!file_exists(ODESURVEY_LOG)) {
 	echo "My log file directory ".ODESURVEY_LOG." is missing!";
