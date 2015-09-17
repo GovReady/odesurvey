@@ -554,7 +554,7 @@ $app->post('/2du/:surveyId/', function ($surveyId) use ($app) {
 	// ============================================================================================
 	/* Saves multiple times per survey submission, once for each data use into two tables */
 	$idSuffixNum = 1;
-	include_once("wb_country.php");
+	//include_once("wb_country.php");
 
 	// dataUseData-2]
 	while (array_key_exists('dataUseData-'.$idSuffixNum, $allPostVars)) {
@@ -573,7 +573,7 @@ $app->post('/2du/:surveyId/', function ($surveyId) use ($app) {
 			foreach ($row['type'] as $type => $details) {
 				foreach ($details['src_gov_level'] as $gov_level) {
 					// echo "<br>$src_country|$type|$gov_level";
-					$data_use_object['data_src_country_locode'] = getWBcode($src_country);
+					$data_use_object['data_src_country_locode'] = $src_country;
 					$data_use_wb_region = addWbRegions($src_country);
 					$data_use_object['data_src_country_name'] = $data_use_wb_region['org_hq_country_name'];
 					$data_use_object['data_type'] = $type;
