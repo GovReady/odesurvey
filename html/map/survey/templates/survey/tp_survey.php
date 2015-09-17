@@ -162,7 +162,7 @@ textdomain($domain);
           <input type="radio" name="industry_id" class="industry_id" value="Geospatial/mapping">&nbsp; Geospatial/mapping
           <br /><input type="radio" name="industry_id" class="industry_id" value="Governance">&nbsp; Governance
           <br /><input type="radio" name="industry_id" class="industry_id" value="Healthcare">&nbsp; Healthcare
-          <br /><input type="radio" name="industry_id" class="industry_id" value="Housing and real estate">&nbsp; Housing and real estate
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Housing/real estate">&nbsp; Housing and real estate
           <br /><input type="radio" name="industry_id" class="industry_id" value="Insurance">&nbsp; Insurance
           <br /><input type="radio" name="industry_id" class="industry_id" value="Media and communications">&nbsp; Media and communications
           <br /><input type="radio" name="industry_id" class="industry_id" value="Mining/manufacturing">&nbsp; Mining/manufacturing
