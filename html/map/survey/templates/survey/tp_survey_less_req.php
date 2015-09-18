@@ -149,7 +149,7 @@ textdomain($domain);
           <input type="radio" name="industry_id" class="industry_id" value="Geospatial/mapping">&nbsp; Geospatial/mapping
           <br /><input type="radio" name="industry_id" class="industry_id" value="Governance">&nbsp; Governance
           <br /><input type="radio" name="industry_id" class="industry_id" value="Healthcare">&nbsp; Healthcare
-          <br /><input type="radio" name="industry_id" class="industry_id" value="Housing and real estate">&nbsp; Housing and real estate
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Housing/real estate">&nbsp; Housing and real estate
           <br /><input type="radio" name="industry_id" class="industry_id" value="Insurance">&nbsp; Insurance
           <br /><input type="radio" name="industry_id" class="industry_id" value="Media and communications">&nbsp; Media and communications
           <br /><input type="radio" name="industry_id" class="industry_id" value="Mining/manufacturing">&nbsp; Mining/manufacturing
@@ -380,9 +380,9 @@ textdomain($domain);
 
           <input type="hidden" class="form-control" id="org_profile_year" name="org_profile_year" value="2015">
           <div for="org_profile_status">Profile status</div>
-          <input type="input" class="form-control" id="org_profile_status" name="org_profile_status" value="submitted">
+          <input type="input" class="form-control" id="org_profile_status" name="org_profile_status" value="research">
           <div for="org_profile_src">Profile source</div>
-          <input type="input" class="form-control" id="org_profile_src" name="org_profile_src" value="survey">
+          <input type="input" class="form-control" id="org_profile_src" name="org_profile_src" value="Hold">
           <input type="hidden" class="form-control" id="org_profile_src" name="org_profile_category" value="submitted survey">
         </div>
       </div>
