@@ -383,10 +383,10 @@ textdomain($domain);
 
           <input type="hidden" class="form-control" id="org_profile_year" name="org_profile_year" value="2015">
           <div for="org_profile_status">Profile status</div>
-          <input type="input" class="form-control" id="org_profile_status" name="org_profile_status" value="research">
+          <input type="input" class="form-control" id="org_profile_status" name="org_profile_status" value="Hold">
           <div for="org_profile_src">Profile source</div>
-          <input type="input" class="form-control" id="org_profile_src" name="org_profile_src" value="Hold">
-          <input type="hidden" class="form-control" id="org_profile_src" name="org_profile_category" value="submitted survey">
+          <input type="input" class="form-control" id="org_profile_src" name="org_profile_src" value="">
+          <input type="hidden" class="form-control" id="org_profile_src" name="org_profile_category" value="research">
         </div>
       </div>
     </div><!-- /closes role contact -->

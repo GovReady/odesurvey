@@ -266,7 +266,13 @@
                 "org_profile_status", "org_profile_src", "org_profile_category");
             foreach ($keys as $key) {
                 if ( array_key_exists($key, $org_profile) ) {
-                    echo "<td>".$org_profile[$key]."</td>";
+                    if ($key == "data_use_type"){
+                        echo "<td>";
+                        print_r($org_profile[$key]);    
+                        echo "</td>";    
+                    } else {
+                        echo "<td>".$org_profile[$key]."</td>";
+                    }
                 } else {
                      echo "<td></td>";
                 }
