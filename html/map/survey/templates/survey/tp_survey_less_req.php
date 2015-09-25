@@ -120,12 +120,15 @@ textdomain($domain);
           <input type="hidden" class="form-control" id="org_hq_st_prov" name="org_hq_st_prov" data-geo="administrative_area_level_1">
 
           <!--label for="org_hq_country">Country</label -->
-          <input type="hidden" class="form-control" id="org_hq_country" name="org_hq_country" data-geo="country_short">
+          <input type="hidden" class="form-control" id="org_hq_country" name="org_hq_country" data-geo="country">
 
           <!--label for="latitude">lat</label -->
           <input type="hidden" class="form-control" id="latitude" name="latitude" data-geo="lat">
           <!--label for="longitude">lng</label -->
           <input type="hidden" class="form-control" id="longitude" name="longitude" data-geo="lng">
+
+          <!-- Added by Myeong since lcode was missing from administered survey -->
+          <input type="hidden" class="form-control" id="org_hq_country_locode" name="org_hq_country_locode" data-geo="country_short">
         </div>
       </div>
   
