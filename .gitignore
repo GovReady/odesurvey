@@ -35,3 +35,8 @@ CFR-2011/*
 html/cfr/*
 html/scap-security-guide/*
 scap-security-guide/
+
+* Gulp distribution files
+viz-src/dist/*
+viz-src/node_modules/*
+vm/basic/node_modules/*
