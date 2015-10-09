@@ -561,11 +561,11 @@ $app->post('/2du/:surveyId/', function ($surveyId) use ($app) {
 	while (array_key_exists('dataUseData-'.$idSuffixNum, $allPostVars)) {
 		// skip row and continue if user did not select country
 		if (is_null($allPostVars['dataUseData-'.$idSuffixNum])) { continue; }
-
 		// echo "<br>$idSuffixNum";
 		// echo "============\n<br>";
 		$data_use_object = array();
 		foreach ($allPostVars['dataUseData-'.$idSuffixNum] as $row) {
+
 			// echo "<pre>";print_r($row);echo "</pre>";
 			$src_country = $row['src_country_locode'];
 
@@ -578,6 +578,7 @@ $app->post('/2du/:surveyId/', function ($surveyId) use ($app) {
 					$data_use_wb_region = addWbRegions($src_country);
 					$data_use_object['data_src_country_name'] = $data_use_wb_region['org_hq_country_name'];
 					$data_use_object['data_type'] = $type;
+					
 					$data_use_object['data_src_gov_level'] = $gov_level;
 					// set profile_id
 					$data_use_object['profile_id'] = $surveyId;

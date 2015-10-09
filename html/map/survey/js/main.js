@@ -184,11 +184,11 @@ function getTypes(idSuffixNum, selectName) {
 
   var data_use_html = "";
   data_use_type.forEach(function (entry) {
-    // Use Other value if set
-    if (entry == "Other" && $('input[name="data_use_type_other"]').val() != '') {
-      entry = $('input[name="data_use_type_other"]').val();
-    }
-    console.log(entry);
+    // Use Other value if set -- Myeong convernted back to just enter "Other" regardless of value in "data_use_type_other"
+    // if (entry == "Other" && $('input[name="data_use_type_other"]').val() != '') {
+    //   entry = $('input[name="data_use_type_other"]').val();
+    // }
+    //console.log(entry);
 
     // if (data_use_html.length == 0) {
     //   var xx = 'data-intro="info here" data-position="above"';
