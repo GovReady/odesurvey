@@ -57,10 +57,10 @@ function update_db($missing_column, $condition){
 
   //$query->whereEqualTo("org_hq_country_income_code", "null");
   if ($condition == "undefined"){
-    echo $missing_column . " for undefined" . "<br>";
+    echo $missing_column . " for undefined." . "<br>";
     $query->whereEqualTo($missing_column, "");
   } elseif ($condition == "blank") {
-    echo $missing_column . " for blank" . "<br>";
+    echo $missing_column . " for undefined." . "<br>";
     $query->whereDoesNotExist($missing_column);
   }
 
