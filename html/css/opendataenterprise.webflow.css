@@ -2633,7 +2633,7 @@ p {
 }
 .list-item.research-bullet {
   margin-bottom: 15px;
-  color: #555;
+  color: black;
 }
 .list-item.companines-eligibility {
   color: black;
@@ -2701,27 +2701,27 @@ p {
   margin-top: 30px;
 }
 .codeando-mexico {
-  margin-top: 0px;
+  margin-top: 10px;
   padding-top: 10px;
 }
 .data-uruguay {
-  margin-top: 0px;
+  margin-top: 10px;
 }
 .el-salvador {
   margin-top: 0px;
   padding-top: 5px;
 }
 .ennovent {
-  margin-top: 10px;
+  margin-top: 0px;
   margin-bottom: 10px;
   padding-top: 20px;
 }
 .expert-grup {
-  margin-top: 30px;
+  margin-top: 5px;
   padding-top: 15px;
 }
 .geocensos {
-  margin-top: 30px;
+  margin-top: 5px;
   padding-top: 10px;
 }
 .open-data-500 {
@@ -2868,10 +2868,16 @@ p {
 }
 .ctg {
   display: inline-block;
-  margin-top: 20px;
+  margin-top: 25px;
 }
 .od-swiss {
   padding-top: 4px;
+}
+.odi {
+  color: #555;
+}
+.data-61 {
+  margin-top: 15px;
 }
 html.w-mod-js *[data-ix="display-none-on-load"] {
   display: none;

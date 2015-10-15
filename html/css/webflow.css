@@ -1544,7 +1544,7 @@ textarea.w-select {
   cursor: default!important;
 }
 .w-richtext figure img {
-  max-width: 100%;
+  width: 100%;
 }
 .w-richtext figure figcaption.w-richtext-figcaption-placeholder {
   opacity: 0.6;
@@ -1565,6 +1565,7 @@ textarea.w-select {
   caption-side: bottom;
 }
 .w-richtext figure[data-rt-type="video"] {
+  width: 60%;
   height: 0;
 }
 .w-richtext figure[data-rt-type="video"] iframe {

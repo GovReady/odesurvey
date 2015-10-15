@@ -758,7 +758,7 @@
 	    window.WebflowEditor = true;
 	    $win.off(hashchange, checkHash);
 	    $.ajax({
-	      url: cleanSlashes(("https://webflow.com") + '/api/editor/view'),
+	      url: cleanSlashes(("https://editor-api.webflow.com") + '/api/editor/view'),
 	      xhrFields: { withCredentials: true },
 	      dataType: 'json',
 	      crossDomain: true,
@@ -786,7 +786,7 @@
 	  }
 
 	  function prefix(url) {
-	    return (url.indexOf('//') >= 0) ? url : cleanSlashes(("https://webflow.com") + url);
+	    return (url.indexOf('//') >= 0) ? url : cleanSlashes(("https://editor-api.webflow.com") + url);
 	  }
 
 	  function cleanSlashes(url) {
@@ -2014,14 +2014,15 @@
 	    return 'data:image/svg+xml;charset=utf-8,' + encodeURI(svg);
 	  }
 
-	  // Compute some dimensions manually for iOS, because of buggy support for VH.
+	  // Compute some dimensions manually for iOS < 8, because of buggy support for VH.
 	  // Also, Android built-in browser does not support viewport units.
 	  (function () {
 	    var ua = window.navigator.userAgent;
-	    var iOS = /(iPhone|iPod|iPad).+AppleWebKit/i.test(ua);
+	    var iOSRegex = /(iPhone|iPad|iPod);[^OS]*OS (\d)/;
+	    var iOSMatches = ua.match(iOSRegex);
 	    var android = ua.indexOf('Android ') > -1 && ua.indexOf('Chrome') === -1;
 
-	    if (!iOS && !android) {
+	    if (!android && (!iOSMatches || iOSMatches[2] > 7)) {
 	      return;
 	    }
 
@@ -2938,6 +2939,9 @@
 	      findEl(loc.hash.substring(1));
 	    }
 
+	    // The current page url without the hash part.
+	    var locHref = loc.href.split('#')[0];
+
 	    // When clicking on a link, check if it links to another part of the page
 	    $doc.on('click', 'a', function(e) {
 	      if (Webflow.env('design')) {
@@ -2953,7 +2957,10 @@
 	        return;
 	      }
 
-	      var hash = this.hash ? this.hash.substring(1) : null;
+	      // The href property always contains the full url so we can compare
+	      // with the document’s location to only target links on this page.
+	      var parts = this.href.split('#');
+	      var hash = parts[0] === locHref ? parts[1] : null;
 	      if (hash) {
 	        findEl(hash, e);
 	      }
