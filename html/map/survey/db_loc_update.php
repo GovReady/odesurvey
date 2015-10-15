@@ -49,13 +49,15 @@ require 'functions.inc.php';
 // update_db("org_hq_country_income", "undefined");
 update_db("org_hq_country_locode", "defined", 0);
 update_db("org_hq_country_locode", "defined", 1);
+update_db("org_hq_country_locode", "defined", 2);
+update_db("org_hq_country_locode", "defined", 3);
 
 
 function update_db($missing_column, $condition, $loop){
 
   $query = new ParseQuery("org_profile");
-  $query->setLimit(1000);
-  $query->setSkip($loop * 1000);
+  $query->setLimit(500);
+  $query->setSkip($loop * 500);
 
  
   if ($condition == "undefined"){
