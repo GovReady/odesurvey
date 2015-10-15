@@ -83,13 +83,11 @@ function update_db($missing_column, $condition, $loop){
       
       if (!isset($obj->org_hq_country_locode) or $obj->org_hq_country_locode=="") continue;
 
-      $element[$obj->objectId] = array(        
-        "org_hq_country_locode" => $obj->org_hq_country_locode,
-      );
-
-
-      if (!isset($obj->org_hq_country) || !isset($obj->org_hq_country_region) || !isset($obj->org_hq_country_region_code) ||
-        !isset($obj->org_hq_country_income) || !isset($obj->org_hq_country_income_code)) {
+      if (!isset($obj->org_hq_country) && !isset($obj->org_hq_country_region) && !isset($obj->org_hq_country_region_code) &&
+        !isset($obj->org_hq_country_income) && !isset($obj->org_hq_country_income_code)) {
+        $element[$obj->objectId] = array(        
+          "org_hq_country_locode" => $obj->org_hq_country_locode,
+        );
         $element[$obj->objectId]["org_hq_country"] = $wb_region['org_hq_country_name'];          
         $element[$obj->objectId]["org_hq_country_region"] = $wb_region['org_hq_country_region'];                   
         $element[$obj->objectId]["org_hq_country_region_code"] = $wb_region['org_hq_country_region_code'];          
