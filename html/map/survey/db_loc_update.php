@@ -128,6 +128,7 @@ function update_db($missing_column, $condition, $loop){
       $parse->__set('org_hq_country_income_code', $value["org_hq_country_income_code"]);
       $request = $parse->update($key);
       $count++;
+      usleep(500);
     }
 
 
