@@ -3,7 +3,9 @@
  */
 define([],function(){
   var agsserver = "http://services.arcgis.com/Fsk4zuQe2Ol9olZc/ArcGIS/rest/services";
-  var runAs = 'production';
+  var runAs = 'develop';
+  if (location.host == "opendataenterprise.org") runAs = 'production';
+  
   var mode = {
               'develop': 'ode_organizations_schema_07302015',
               'staging': 'ode_organizations_schema_07302015',

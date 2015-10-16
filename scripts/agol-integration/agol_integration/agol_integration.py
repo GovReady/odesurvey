@@ -28,6 +28,7 @@ def get_parse_content(json_file):
 
     if json_file.find("http") > -1:
         content_response = json.loads(urllib2.urlopen(json_file).read())
+        print "JSON record size: %d" % len(content_response['results'])
         if 'results' in content_response.keys():
             df = pandas.DataFrame(content_response['results'])
             return df
@@ -56,6 +57,7 @@ def refresh_agol(source_df, destination_feature_service_layer, token):
     
     with open('agol_success.json', 'w') as success_file:
         if successes:
+            print "Number of features written to AGOL: %d" % len(successes)
             success_file.write(json.dumps(successes))
     
     with open('agol_error.json', 'w') as error_file:
