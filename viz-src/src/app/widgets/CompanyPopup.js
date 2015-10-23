@@ -23,7 +23,8 @@ define([
 
 		sendToEdit: function(){
 			var profileId = this.props.keys.profileID.value
-			var url = 'http://odetest.opendataenterprise.org/map/survey/edit/' + profileId;
+			var url = 'http://' + location.host + '/map/survey/edit/' + profileId;
+			console.log(url);
 			window.open(url, '_blank');
 		},
 
