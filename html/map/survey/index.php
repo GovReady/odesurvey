@@ -646,7 +646,7 @@ The old profile ID is: ${old_id}
 The new profile ID is: ${new_id}
 The old objectID in Parse.com's org_profile: ${objectid} 
 
-View the current profile here: http://${_SERVER['HTTP_HOST']}/map/survey/${surveyId}
+View the new profile here: http://${_SERVER['HTTP_HOST']}/map/survey/edit/${surveyId}
 
 EOL;
 
