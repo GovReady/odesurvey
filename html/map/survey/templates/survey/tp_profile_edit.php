@@ -17,7 +17,8 @@ textdomain($domain);
 <!-- Main Content Section -->
 <div class="container lg-font col-md-12" style="border:0px solid black;">
 
- <form id="survey_form" class="form-horizontal" style="border:0px dotted black;" action="/map/survey/<?php echo $content['surveyId']; ?>/editform" method="post">
+ <!-- <form id="survey_form" class="form-horizontal" style="border:0px dotted black;" action="/map/survey/<?php echo $content['surveyId']; ?>/editform" method="post"> -->
+  <form id="survey_form" class="form-horizontal" style="border:0px dotted black;" action="/map/survey/2du/<?php echo $content['surveyId']; ?>" method="post">
 
     <div class="col-md-12" role="Intro" id="role-intro">
       <div style="text-align:center;font-size:1.1em;margin-top:20px;">
@@ -48,7 +49,7 @@ textdomain($domain);
 
 <br />
 
-    <div class="col-md-12" role="orgInfo-titlebar"  id="role-orgInfo-titlebar">
+    <div class="col-md-12" role="orgInfo-titlebar"  id="role-orgInfo-titlebar">      
       <div class="section-title"><h3>1. Organizational Information</h3></div>
     </div>
 
@@ -59,6 +60,7 @@ textdomain($domain);
           <div class="form-group col-md-10">
             <label for="org_name">Name of organization<small class="required">*</small></label>
             <input type="text" class="form-control" id="org_name" name="org_name" placeholder="" required minlength="2" value="<?php echo $org_profile['org_name'];?>">
+            <input type="hidden" class="form-control" id="objectId" name="objectId" value="<?php echo $org_profile['objectId'];?>">
         </div>
         </div>
       </div>
@@ -123,6 +125,8 @@ textdomain($domain);
 
           <!--label for="org_hq_country">Country</label -->
           <input type="hidden" class="form-control" id="org_hq_country" name="org_hq_country" required data-geo="country_short" value="<?php echo $org_profile['org_hq_country'];?>">
+
+          <input type="hidden" class="form-control" id="org_hq_country_locode" name="org_hq_country_locode" data-geo="country_short" value="<?php echo $org_profile['org_hq_country_locode'];?>">
 
           <!--label for="latitude">lat</label -->
           <input type="hidden" class="form-control" id="latitude" name="latitude" required data-geo="lat" value="<?php echo $org_profile['latitude'];?>">

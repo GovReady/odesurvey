@@ -475,7 +475,7 @@ $app->post('/2du/:surveyId/', function ($surveyId) use ($app) {
 	}
 
 	// Add Worldbank Region and Economic code data
-	echo "org_hq_country_locode".$org_object['org_hq_country_locode'];
+	echo "org_hq_country_locode: ".$org_object['org_hq_country_locode'] . "<br>";
     $wb_region = addWbRegions($org_object['org_hq_country_locode']);
     $org_object['org_hq_country_region'] = $wb_region['org_hq_country_region'];
     $org_object['org_hq_country_region_code'] = $wb_region['org_hq_country_region_code'];
@@ -620,6 +620,7 @@ $app->post('/2du/:surveyId/', function ($surveyId) use ($app) {
 		$idSuffixNum++;
 	}
 
+
 	// If we made it here, everything saved.
 
 	// ==========================================
@@ -627,10 +628,36 @@ $app->post('/2du/:surveyId/', function ($surveyId) use ($app) {
 	// ==========================================
 	/* Send one per survey submission */
 	// Instantiate the client.
-	$mgClient = new Mailgun(MAILGUN_APIKEY);
-	$domain = MAILGUN_SERVER;
 
-	$emailtext = <<<EOL
+	if ($allPostVars['org_profile_status'] == "edit"){
+			// Instantiate the client.
+		$mgClient = new Mailgun(MAILGUN_APIKEY);
+		$domain = MAILGUN_SERVER;
+		$objectid = $allPostVars['objectId'];
+
+		$emailtext = <<<EOL
+An EDIT was filled out for Org Profile: ${surveyId} 
+
+View the current profile here: http://${_SERVER['HTTP_HOST']}/map/survey/${surveyId}
+
+The old objectID in Parse.com's org_profile: ${objectid} 
+
+EOL;
+
+		// Send email with mailgun
+		$result = $mgClient->sendMessage($domain, array(
+			'from'    => 'Center for Open Data Enterprise <mailgun@sandboxc1675fc5cc30472ca9bd4af8028cbcdf.mailgun.org>',
+			'to'      => '<'.'myeong@odenterprise.org'.'>',
+			'subject' => "Open Data Impact Map: EDIT FOR PROFILE ${surveyId}",
+			'text'    => $emailtext
+		));
+
+	} else {
+
+		$mgClient = new Mailgun(MAILGUN_APIKEY);
+		$domain = MAILGUN_SERVER;
+
+		$emailtext = <<<EOL
 Thank you for participating in the Open Data Impact Map. Your contribution helps make the Map a truly global view of open data’s impact. You can view your submission here: http://${_SERVER['HTTP_HOST']}/map/survey/${surveyId}
 
 Please help us spread the word by sharing the survey http://www.opendataenterprise.org/map/survey
@@ -642,16 +669,17 @@ The Center for Open Data Enterprise
 
 EOL;
 
-    if ( strlen($allPostVars['survey_contact_email']) > 0 && SEND_MAIL) {
-		// Send email with mailgun
-		$result = $mgClient->sendMessage($domain, array(
-			'from'    => 'Center for Open Data Enterprise <mailgun@sandboxc1675fc5cc30472ca9bd4af8028cbcdf.mailgun.org>',
-			'to'      => '<'.$allPostVars['survey_contact_email'].'>',
-			'subject' => "Open Data Impact Map: SUBMISSION RECEIVED",
-			'text'    => $emailtext
-		));
-		// echo "<pre>";print_r($result); echo "</pre>";exit;
-    }
+	    if ( strlen($allPostVars['survey_contact_email']) > 0 && SEND_MAIL) {
+			// Send email with mailgun
+			$result = $mgClient->sendMessage($domain, array(
+				'from'    => 'Center for Open Data Enterprise <mailgun@sandboxc1675fc5cc30472ca9bd4af8028cbcdf.mailgun.org>',
+				'to'      => '<'.$allPostVars['survey_contact_email'].'>',
+				'subject' => "Open Data Impact Map: SUBMISSION RECEIVED",
+				'text'    => $emailtext
+			));
+			// echo "<pre>";print_r($result); echo "</pre>";exit;
+	    }
+	}
 
 	$app->redirect("/map/survey/".$surveyId."/thankyou/");
 });
