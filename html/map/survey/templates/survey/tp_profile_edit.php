@@ -61,6 +61,7 @@ textdomain($domain);
             <label for="org_name">Name of organization<small class="required">*</small></label>
             <input type="text" class="form-control" id="org_name" name="org_name" placeholder="" required minlength="2" value="<?php echo $org_profile['org_name'];?>">
             <input type="hidden" class="form-control" id="objectId" name="objectId" value="<?php echo $org_profile['objectId'];?>">
+            <input type="hidden" class="form-control" id="oldId" name="oldId" value="<?php echo $content['old_survey_id'];?>">
         </div>
         </div>
       </div>

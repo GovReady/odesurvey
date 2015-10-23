@@ -634,20 +634,26 @@ $app->post('/2du/:surveyId/', function ($surveyId) use ($app) {
 		$mgClient = new Mailgun(MAILGUN_APIKEY);
 		$domain = MAILGUN_SERVER;
 		$objectid = $allPostVars['objectId'];
+		$org_name = $allPostVars['org_name'];
+		$old_id = $allPostVars['oldId'];
+		$new_id = $allPostVars['profile_id'];
 
 		$emailtext = <<<EOL
-An EDIT was filled out for Org Profile: ${surveyId} 
+An EDIT was filled out for Org Profile.
+
+The organization name in the new survey: ${org_name}
+The old profile ID is: ${old_id} 
+The new profile ID is: ${new_id}
+The old objectID in Parse.com's org_profile: ${objectid} 
 
 View the current profile here: http://${_SERVER['HTTP_HOST']}/map/survey/${surveyId}
-
-The old objectID in Parse.com's org_profile: ${objectid} 
 
 EOL;
 
 		// Send email with mailgun
 		$result = $mgClient->sendMessage($domain, array(
 			'from'    => 'Center for Open Data Enterprise <mailgun@sandboxc1675fc5cc30472ca9bd4af8028cbcdf.mailgun.org>',
-			'to'      => '<'.'myeong@odenterprise.org'.'>',
+			'to'      => '<'.'audrey@odenterprise.org'.'>',
 			'subject' => "Open Data Impact Map: EDIT FOR PROFILE ${surveyId}",
 			'text'    => $emailtext
 		));
@@ -846,6 +852,35 @@ $app->get('/edit/:profile_id/form', function ($profile_id) use ($app) {
 	$request = $parse->query($params);
 	$request_decoded = json_decode($request, true);
 	$org_data_use = $request_decoded['results'];
+
+	// When editing, it creates a new survey instead of using the old survey fields
+	$survey_object = array("survey_name" => "opendata", "action" => "start", "notes" => "");
+
+	# store new information as new record 
+    $parse_params = array(
+		'className' => 'survey',
+		'object' => $survey_object
+    );
+
+    try {
+    	$request = $parse->create($parse_params);
+    	$response = json_decode($request, true);
+    } catch (Exception $e) {
+    	 echo 'Caught exception: ',  $e->getMessage(), "\n";
+    	 $app->redirect("/map/survey/oops/");
+    }
+
+	if(isset($response['objectId'])) {
+    	// Success
+    	$content['old_survey_id'] = $profile_id;
+    	$profile_id = $response['objectId'];
+    	$org_profile['profile_id'] = $profile_id;
+    } else {
+    	// Failure
+    	echo "Problem. Promlem with record creation not yet handled.";
+    	exit;
+    	$app->redirect("/error".$response['objectId']);
+    }
 
 	$content['surveyId'] = $profile_id;
 
