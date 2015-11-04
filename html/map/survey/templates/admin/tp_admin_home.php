@@ -61,7 +61,7 @@
                         <img class="logo" src="http://uploads.webflow.com/54c24a0650f1708e4c8232a0/54c24fc57bbf1d8c4cfd6581_Logo-Text.png" width="400" alt="54c24fc57bbf1d8c4cfd6581_Logo-Text.png"></a>
                     </div>
 
-                    <div style="margin:10% 30% 0 30%;height:600px;text-align:center;">
+                    <div style="margin:5% 30% 0 30%;text-align:center;">
                         <h3><a href="/map/survey/start">Take survey</a></h3>
 
                         <h3><a href="/map/survey/start/internal/add">Take survey (few requireds)</a></h3>
@@ -70,9 +70,12 @@
 
                         <h3><a href="/map/survey/opendata/data/flatfile.json">Combined flatfile (json)</a></h3>
 
-                        <h3><a href="/map/viz/index.html">map/viz</a></h3>
-                        <h4><a href="http://s3.amazonaws.com/stg.blueraster.com/opendata/index.html">Blue Raster Map (s3.amazonaws.com)</a></h4>
+                        <h3><a href="/map/survey/admin/survey/duplicate/">Search for duplicate survey data</a></h3>
 
+                        <h3><a href="/map/viz/index.html">map/viz</a></h3>
+                        <hr />
+                        <h4><a href="http://s3.amazonaws.com/stg.blueraster.com/opendata/index.html">Blue Raster Map (s3.amazonaws.com)</a></h4>
+                        <hr />
                         <h3>Administration</h3>
 
                         <h4><a href="/tests/unit_tests/testtest.php">Test that testing works</a></h4>

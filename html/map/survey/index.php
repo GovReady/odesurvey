@@ -1108,6 +1108,75 @@ $app->get('/admin/survey/grid/', function () use ($app) {
 
 });
 
+$app->get('/admin/survey/duplicate/', function () use ($app) {
+	
+	// Requires login to access
+	if ( !isset($_SESSION['username']) ) { $app->redirect("/map/survey/admin/login/"); }
+	$parse = new parseRestClient(array(
+		'appid' => PARSE_APPLICATION_ID,
+		'restkey' => PARSE_API_KEY
+	));
+
+	// Initialize variables for loop
+	$org_profiles = array();
+	$skip = 0;
+	$retrieved = 0;
+
+	// Retrieve all records from parse.com, 1000 records at a time b/c 1000 records is the max allowed
+	// Build up a single array of all retrieved records
+	while ( $skip == 0 OR $retrieved > 0 ) {
+
+		$params = array(
+			'className' => 'org_profile',
+			'order' => 'org_name',
+		    'query' => array(
+				        'org_profile_status' => 'publish'
+					    ),
+			'limit' => '1000',
+			'skip' => $skip
+		);
+
+		$request = $parse->query($params);
+		$request_array = json_decode($request, true);
+		// $org_profiles = $request_array['results'];
+		$retrieved = count($request_array['results']);
+		if ($retrieved > 0) {
+			// Use array_merge_recursive to keep merged array flat
+			$org_profiles = array_merge_recursive($org_profiles,$request_array['results']);
+		}
+		// echo "$retrieved ";
+		// increment skip
+		$skip = $skip + 1000;
+	}
+	$duplicate_list = array();
+
+	foreach ($org_profiles as $profile){
+
+		foreach($org_profiles as $iter){
+			if ($iter['objectId'] != $profile['objectId'] &&
+					$iter['org_name'] == $profile['org_name']){
+				if (array_key_exists(strval($profile['org_name']), $duplicate_list)) {
+					if ($duplicate_list[strval($profile['org_name'])] != strval($iter['profile_id']))
+						$duplicate_list[strval($profile['org_name'])] .=  ', ' . strval($iter['profile_id']);
+				}
+				else {
+					$duplicate_list[strval($profile['org_name'])] =  strval($iter['profile_id']);
+				}
+			}
+		}
+	}
+
+	$content['HTTP_HOST'] = $_SERVER['HTTP_HOST'];
+	$content['surveyName'] = "opendata";
+	$content['title'] = "Open Data Enterprise Survey - Recently Submitted";
+	$content['language'] = "en_US";
+
+	$app->view()->setData(array('content' => $content, 'duplicate_list' => $duplicate_list));
+
+	$app->render('admin/tp_duplicate.php');
+
+});
+
 // **************
 $app->post('/admin/survey/updatefield/:profile_id', function ($profile_id) use ($app) {
 
