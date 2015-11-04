@@ -1155,25 +1155,27 @@ $app->get('/admin/survey/duplicate/', function () use ($app) {
 		foreach($org_profiles as $iter){
 			if ($iter['objectId'] != $profile['objectId'] &&
 					$iter['org_name'] == $profile['org_name']){
-				if (array_key_exists(strval($profile['org_name']), $duplicate_list)) {
-					if ($duplicate_list[strval($profile['org_name'])] != strval($iter['profile_id']))
-						$duplicate_list[strval($profile['org_name'])] .=  ', ' . strval($iter['profile_id']);
-				}
-				else {
-					$duplicate_list[strval($profile['org_name'])] =  strval($iter['profile_id']);
-				}
+				// if (array_key_exists(strval($profile['org_name']), $duplicate_list)) {
+				// 	if ($duplicate_list[strval($profile['org_name'])] != strval($iter['profile_id']))
+				// 		$duplicate_list[strval($profile['org_name'])] .=  ', ' . strval($iter['profile_id']);
+				// }
+				// else {
+				// 	$duplicate_list[strval($profile['org_name'])] =  strval($iter['profile_id']);
+				// }
+				$duplicate_list[] = strval($iter['profile_id']);
 			}
 		}
 	}
+	$duplicate_list = array_unique($duplicate_list);
 
 	$content['HTTP_HOST'] = $_SERVER['HTTP_HOST'];
 	$content['surveyName'] = "opendata";
 	$content['title'] = "Open Data Enterprise Survey - Recently Submitted";
 	$content['language'] = "en_US";
 
-	$app->view()->setData(array('content' => $content, 'duplicate_list' => $duplicate_list));
+	$app->view()->setData(array('content' => $content, 'org_profiles' => $org_profiles, 'duplicate_list' => $duplicate_list));
 
-	$app->render('admin/tp_duplicate.php');
+	$app->render('admin/tp_grid.php');
 
 });
 

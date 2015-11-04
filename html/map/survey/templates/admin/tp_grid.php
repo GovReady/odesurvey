@@ -172,6 +172,10 @@
                         <br />
                         <a href="/survey/opendata/data/flatfile.json">flatfile (json)</a>
                         <br />
+                        <a href="/map/survey/admin/survey/duplicate/">duplicate data</a>
+                        <br />
+                        <a href="/map/survey/admin/survey/grid/">reset table</a>
+                        <br />
                         
                         <!--a href="">all</a-->
                     </div>
@@ -253,6 +257,12 @@
         // echo "<pre>"; print_r($org_profile); echo "..".$org_profile['org_name']."</pre>";
         // if ( array_key_exists('org_name', $org_profile) && $org_profile['org_profile_status'] == 'submitted') { 
         if ( array_key_exists('org_name', $org_profile) ) { 
+            // check whether this page is for duplicate list.
+            if (isset($duplicate_list)){
+                if (!in_array($org_profile['profile_id'], $duplicate_list) ){
+                    continue;
+                }
+            }
             echo "<tr>";
         
             echo "<td>${org_profile['profile_id']}</td>";

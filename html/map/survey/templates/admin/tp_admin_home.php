@@ -70,7 +70,7 @@
 
                         <h3><a href="/map/survey/opendata/data/flatfile.json">Combined flatfile (json)</a></h3>
 
-                        <h3><a href="/map/survey/admin/survey/duplicate/">Search for duplicate survey data</a></h3>
+                        <!-- <h3><a href="/map/survey/admin/survey/duplicate/">Search for duplicate survey data</a></h3> -->
 
                         <h3><a href="/map/viz/index.html">map/viz</a></h3>
                         <hr />
