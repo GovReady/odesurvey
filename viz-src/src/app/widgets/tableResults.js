@@ -350,13 +350,13 @@ define(['table/TableController', 'widgets/CompanyPopup', 'react'],function(Table
 					"Other": (attr.use_other==1 ? "TRUE" : "FALSE"),
 					"Use - Other Description": attr.use_other_desc,
 					'Entry Based On': attr.org_profile_category
-				}
+				};
 
-				//data.__proto__.itemData = item.attributes;
+				//Data.push(data);
+				/* This is for inserting each element in a sorted order. */
+				Data.splice(sortedIndex(Data, data), 0, data);
 
-				Data.push(data);
-
-			})
+			});
 			
 			return (
 				React.createElement("div", {id: "results-ontainer", className: 'results-container'},
@@ -376,9 +376,15 @@ define(['table/TableController', 'widgets/CompanyPopup', 'react'],function(Table
 
 });
 
-function srt(desc,key) {
- return function(a,b){
-   return desc ? ~~(key ? a[key]<b[key] : a < b) 
-               : ~~(key ? a[key] > b[key] : a > b);
-  };
+/* Finding an index to insert a value in a sorted order. For the key "Company Name " */
+function sortedIndex(array, value) {
+	var low = 0,
+		high = array.length;
+
+	while (low < high) {
+		var mid = low + high >>> 1;
+		if (array[mid]["Company Name"] < value["Company Name"]) low = mid + 1;
+		else high = mid;
+	}
+	return low;
 }
