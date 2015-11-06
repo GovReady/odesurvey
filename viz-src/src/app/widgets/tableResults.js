@@ -36,6 +36,7 @@ define(['table/TableController', 'widgets/CompanyPopup', 'react'],function(Table
 				{value: itemData['Data Use'], label: 'Data Use'}
 
 			]
+
 			if(itemData['use_advocacy'] == '1'){
 				dataArray.push({
 					label: "Application",
@@ -207,23 +208,30 @@ define(['table/TableController', 'widgets/CompanyPopup', 'react'],function(Table
 					company[index] = String(company[index]).replace(/(\r\n|\n|\r)/gm," ");
 				})
 
-				data.push([company['Company Name'],
+				data.push([
 					company['Region'],
 					company['Country'],
-					company['Organization Type'],
+					company['Company Name'],
+					company['Organization Type'],					
 					company['Industry Category'],
 					company['Description'],
-					company['Data Use'],
+					company['URL'],
 					company['City'],
+					company['State/Region'],
 					company['Founding Year'],
 					company['Size'],
-					company['URL'],
-					company['Entry Based On'],
-					company['use_advocacy_desc'],
-					company['use_prod_srvc_desc'],
-					company['use_org_opt_desc'],
-					company['use_research_desc'],
-					company['use_other_desc']
+					company['Data Use'],					
+					company['Advocacy'],
+					company['Advocacy Description'],
+					company['Product/Service'],
+					company['Product/Service Description'],
+					company['Organizational Optimization'],
+					company['Organizational Optimization Description'],
+					company['Research'],
+					company['Research Description'],
+					company['Other'],
+					company['Use - Other Description'],
+					company['Entry Based On']
 				])
 
 				_.forEach(data, function(row, outerIndex){
@@ -317,31 +325,31 @@ define(['table/TableController', 'widgets/CompanyPopup', 'react'],function(Table
 
 			_.forEach(rawData.keys, function(item){
 				var attr = item.attributes;
-				var data = {
-					"Company Name": attr.org_name,
+				var data = {					
 					"Region": attr.org_hq_country_region,
 					"Country": attr.org_hq_country,
-					'Organization Type': attr.org_type,
+					"Company Name": attr.org_name,
+					'Organization Type': attr.org_type,					
 					"Industry Category": attr.industry_id,
 					"Description": attr.org_description,
-					"Data Use": attr.dataCell,
+					'URL': attr.org_url,
 					"City": attr.org_hq_city,
+					"State/Region": attr.org_hq_st_prov,
 					'Founding Year': attr.org_year_founded,
 					'Size': attr.org_size_id,
-					'URL': attr.org_url,
-					'profileID': attr.profile_id,
-					'Entry Based On': attr.org_profile_category,
-					"use_advocacy": attr.use_advocacy,
-					"use_advocacy_desc": attr.use_advocacy_desc,
-					"use_prod_srvc": attr.use_prod_srvc,
-					"use_prod_srvc_desc": attr.use_prod_srvc_desc,
-					"use_org_opt": attr.use_org_opt,
-					"use_org_opt_desc": attr.use_org_opt_desc,
-					"use_research": attr.use_research,
-					"use_research_desc": attr.use_research_desc,
-					"use_other": attr.use_other,
-					"use_other_desc": attr.use_other_desc
-					//"Description": attr.org_description
+					"Data Use": attr.dataCell,
+					//'profileID': attr.profile_id,
+					"Advocacy": attr.use_advocacy,
+					"Advocacy Description": attr.use_advocacy_desc,
+					"Product/Service": attr.use_prod_srvc,
+					"Product/Service Description": attr.use_prod_srvc_desc,
+					"Organizational Optimization": attr.use_org_opt,
+					"Organizational Optimization Description": attr.use_org_opt_desc,
+					"Research": attr.use_research,
+					"Research Description": attr.use_research_desc,
+					"Other": attr.use_other,
+					"Use - Other Description": attr.use_other_desc,
+					'Entry Based On': attr.org_profile_category
 				}
 
 				//data.__proto__.itemData = item.attributes;
