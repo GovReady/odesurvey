@@ -191,13 +191,13 @@ define(['table/TableController', 'widgets/CompanyPopup', 'react'],function(Table
 
 			var exportData = _.map(Data, _.clone);
 			delete exportData[0]['profileID'];
-			delete exportData[0]['use_advocacy'];
-			delete exportData[0]['use_org_opt'];
-			delete exportData[0]['use_other'];
-			delete exportData[0]['use_prod_srvc'];
-			delete exportData[0]['use_research'];
-
-
+			/* these fields included in the download fields as of 11/6/2015 */
+			// delete exportData[0]['use_advocacy'];
+			// delete exportData[0]['use_org_opt'];
+			// delete exportData[0]['use_other'];
+			// delete exportData[0]['use_prod_srvc'];
+			// delete exportData[0]['use_research'];
+			
 			var data = [];
 			data.push(Object.keys(exportData[0]));
 
@@ -232,7 +232,7 @@ define(['table/TableController', 'widgets/CompanyPopup', 'react'],function(Table
 					company['Other'],
 					company['Use - Other Description'],
 					company['Entry Based On']
-				])
+				]);
 
 				_.forEach(data, function(row, outerIndex){
 					_.forEach(row, function(item, innerIndex){
@@ -240,7 +240,7 @@ define(['table/TableController', 'widgets/CompanyPopup', 'react'],function(Table
 							data[outerIndex][innerIndex] = ' ';
 						}
 					})
-				})
+				});
 
 
 				//"use_advocacy": attr.use_advocacy,
@@ -259,7 +259,7 @@ define(['table/TableController', 'widgets/CompanyPopup', 'react'],function(Table
 				//	debugger;
 				//})
 				//data.push(tempData);
-			})
+			});
 
 			var csvContent = "";
 			data.forEach(function(infoArray, index){
@@ -339,25 +339,25 @@ define(['table/TableController', 'widgets/CompanyPopup', 'react'],function(Table
 					'Size': attr.org_size_id,
 					"Data Use": attr.dataCell,
 					//'profileID': attr.profile_id,
-					"Advocacy": attr.use_advocacy,
+					"Advocacy": (attr.use_advocacy==1 ? "TRUE" : "FALSE"),
 					"Advocacy Description": attr.use_advocacy_desc,
-					"Product/Service": attr.use_prod_srvc,
+					"Product/Service": (attr.use_prod_srvc==1 ? "TRUE" : "FALSE"),
 					"Product/Service Description": attr.use_prod_srvc_desc,
-					"Organizational Optimization": attr.use_org_opt,
+					"Organizational Optimization": (attr.use_org_opt==1 ? "TRUE" : "FALSE"),
 					"Organizational Optimization Description": attr.use_org_opt_desc,
-					"Research": attr.use_research,
+					"Research": (attr.use_research==1 ? "TRUE" : "FALSE"),
 					"Research Description": attr.use_research_desc,
-					"Other": attr.use_other,
+					"Other": (attr.use_other==1 ? "TRUE" : "FALSE"),
 					"Use - Other Description": attr.use_other_desc,
 					'Entry Based On': attr.org_profile_category
 				}
 
 				//data.__proto__.itemData = item.attributes;
 
-				Data.push(data)
+				Data.push(data);
 
 			})
-
+			
 			return (
 				React.createElement("div", {id: "results-ontainer", className: 'results-container'},
 					React.createElement("div", {id: "table-area", className: "table-area"},
@@ -375,3 +375,10 @@ define(['table/TableController', 'widgets/CompanyPopup', 'react'],function(Table
 	return tableResults;
 
 });
+
+function srt(desc,key) {
+ return function(a,b){
+   return desc ? ~~(key ? a[key]<b[key] : a < b) 
+               : ~~(key ? a[key] > b[key] : a > b);
+  };
+}
