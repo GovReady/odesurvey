@@ -269,12 +269,12 @@
             // $keys is reusable list of field names for org_profile record - Also used to make fields editable
             $keys = array("org_name", "org_type", "org_type_other", "org_url", "no_org_url", "org_year_founded", "org_size_id", "industry_id",
                 "org_greatest_impact", "org_greatest_impact_detail", "data_country_count", "data_use_type", "use_advocacy", "use_advocacy_desc",
-                "org_prod_srv", "use_prod_srvc_desc", "use_org_opt", "use_org_opt_desc", "use_research", "use_research_desc", "use_other", "use_other_desc",
+                "use_prod_srvc", "use_prod_srvc_desc", "use_org_opt", "use_org_opt_desc", "use_research", "use_research_desc", "use_other", "use_other_desc",
                 "org_hq_city", "org_hq_st_prov", "org_hq_country", "latitude", "longitude", "org_hq_country_locode",
                 "org_hq_country_region", "org_hq_country_income", "org_hq_country_income_code", "org_additional",
                 "org_description",
                 "org_profile_status", "org_profile_src", "org_profile_category");
-            foreach ($keys as $key) {
+            foreach ($keys as $key) {                
                 if ( array_key_exists($key, $org_profile) ) {
                     if ($key == "data_use_type"){
                         echo "<td>";

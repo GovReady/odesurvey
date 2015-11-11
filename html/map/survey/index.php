@@ -1209,6 +1209,21 @@ $app->post('/admin/survey/updatefield/:profile_id', function ($profile_id) use (
 			case "longitude":
 				$value = floatval($val);
 				break;
+			case "use_advocacy":
+				$value = (bool)$val;
+				break;
+			case "use_org_opt":
+				$value = (bool)$val;
+				break;
+			case "use_prod_srvc":
+				$value = (bool)$val;
+				break;
+			case "use_research":
+				$value = (bool)$val;
+				break;
+			case "use_other":
+				$value = (bool)$val;
+				break;
 			default:
 				$value = $val;
 		}
