@@ -99,11 +99,12 @@
 	 * Webflow.define - Define a named module
 	 * @param  {string} name
 	 * @param  {function} factory
+	 * @param  {object} options
 	 * @return {object}
 	 */
-	Webflow.define = function(name, factory) {
+	Webflow.define = function(name, factory, options) {
 	  if (modules[name]) unbindModule(modules[name]);
-	  var instance = modules[name] = factory($, _) || {};
+	  var instance = modules[name] = factory($, _, options) || {};
 	  bindModule(instance);
 	  return instance;
 	};
@@ -187,6 +188,7 @@
 	  if (mode === 'slug') return inApp && window.__wf_slug;
 	  if (mode === 'editor') return window.WebflowEditor;
 	  if (mode === 'test') return window.__wf_test;
+	  if (mode === 'frame') return window !== window.top;
 	};
 
 	// Feature detects + browser sniffs  ಠ_ಠ
@@ -484,11 +486,9 @@
 	        position: 'fixed',
 	        bottom: 0,
 	        right: 0,
-	        borderTop: '5px solid #2b3239',
-	        borderLeft: '5px solid #2b3239',
 	        borderTopLeftRadius: '5px',
 	        backgroundColor: '#2b3239',
-	        padding: '5px 5px 5px 10px',
+	        padding: '8px 12px 5px 15px',
 	        fontFamily: 'Arial',
 	        fontSize: '10px',
 	        textTransform: 'uppercase',
@@ -505,7 +505,7 @@
 	      $webflowLogo.attr('src', 'https://daks2k3a4ib2z.cloudfront.net/54153e6a3d25f2755b1f14ed/5445a4b1944ecdaa4df86d3e_subdomain-brand.svg');
 	      $webflowLogo.css({
 	        opacity: 0.9,
-	        width: '55px',
+	        width: '57px',
 	        verticalAlign: 'middle',
 	        paddingLeft: '4px',
 	        paddingBottom: '3px'
@@ -720,24 +720,31 @@
 
 	var Webflow = __webpack_require__(1);
 
-	Webflow.define('edit', module.exports = function($, _) {
+	Webflow.define('edit', module.exports = function($, _, options) {
+	  options = options || {};
+
+	  // Exit early in test env or when inside an iframe
+	  if (Webflow.env('test') || Webflow.env('frame')) {
+	    // Allow test fixtures to continue
+	    if (!options.fixture) {
+	      return {exit: 1};
+	    }
+	  }
+
 	  var api = {};
 	  var $win = $(window);
-	  var noop = function() {};
 	  var location = document.location;
 	  var hashchange = 'hashchange';
 	  var loaded;
-
-	  // Only allow editor to load outside test env
-	  var loadEditor = Webflow.env('test') ? noop : load;
+	  var loadEditor = options.load || load;
 
 	  // Check localStorage for editor data
 	  if (localStorage && localStorage.getItem && localStorage.getItem('WebflowEditor')) {
 	    loadEditor();
 
 	  } else if (location.search) {
-	    // Check url query for `edit` parameter or an invalid query ending in `?edit`
-	    if (/[?&](edit)(?:[=&]|$)/.test(location.search) || /\?edit$/.test(location.search)) {
+	    // Check url query for `edit` parameter or any url ending in `?edit`
+	    if (/[?&](edit)(?:[=&?]|$)/.test(location.search) || /\?edit$/.test(location.href)) {
 	      loadEditor();
 	    }
 
@@ -1152,7 +1159,6 @@
 	  var inApp = env();
 	  var emptyFix = env.chrome && env.chrome < 35;
 	  var transNone = 'none 0s ease 0s';
-	  var fallbackProps = /width|height/;
 	  var $subs = $();
 	  var config = {};
 	  var anchors = [];
@@ -1440,8 +1446,7 @@
 	      transitions = transitions.split(',');
 	      for (var i = 0; i < transitions.length; i++) {
 	        var transition = transitions[i];
-	        var options = fallbackProps.test(transition) ? { fallback: true } : null;
-	        _tram[addMethod](transition, options);
+	        _tram[addMethod](transition);
 	      }
 	    }
 
@@ -2923,7 +2928,7 @@
 	  var win = window;
 	  var loc = win.location;
 	  var history = inIframe() ? null : win.history;
-	  var validHash = /^[a-zA-Z][\w:.-]*$/;
+	  var validHash = /^[a-zA-Z0-9][\w:.-]*$/;
 
 	  function inIframe() {
 	    try {
@@ -2981,7 +2986,12 @@
 	    }
 
 	    // Push new history state
-	    if (loc.hash !== hash && history && history.pushState) {
+	    if (
+	      loc.hash !== hash &&
+	      history && history.pushState &&
+	      // Navigation breaks Chrome when the protocol is `file:`.
+	      !(Webflow.env.chrome && loc.protocol === 'file:')
+	    ) {
 	      var oldHash = history.state && history.state.hash;
 	      if (oldHash !== hash) {
 	        history.pushState({ hash: hash }, '', '#' + hash);
