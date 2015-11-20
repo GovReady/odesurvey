@@ -1588,6 +1588,11 @@ $app->get('/data/flatfile.json', function () use ($app) {
 
 		$request = $parse->query($params);
 		$request_array = json_decode($request, true);
+
+		foreach ($request_array['results'] as &$item){
+			unset($item['objectId']);
+		}
+		
 		$retrieved = count($request_array['results']);
 		if ($retrieved > 0) {
 			// Use array_merge_recursive to keep merged array flat
