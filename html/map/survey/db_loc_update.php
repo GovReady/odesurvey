@@ -98,9 +98,8 @@ function flatfile_update_db($missing_column, $condition, $loop){
       
       if (!isset($obj->org_hq_country_locode) or $obj->org_hq_country_locode=="") continue;      
 
-      if ((!isset($obj->org_hq_country) || $obj->org_hq_country=="") or (!isset($obj->org_hq_country_region) || $org_hq_country_region=="") or
-        (!isset($obj->org_hq_country_region_code) || $org_hq_country_region_code=="") or (!isset($obj->org_hq_country_income) || $obj->org_hq_country_income=="") or
-        (!isset($obj->org_hq_country_income_code) || $obj->org_hq_country_income_code=="") ){
+      if (!isset($obj->org_hq_country) && !isset($obj->org_hq_country_region) && !isset($obj->org_hq_country_region_code) &&
+        !isset($obj->org_hq_country_income) && !isset($obj->org_hq_country_income_code)) {
         
         $element[$obj->objectId] = array(        
           "org_hq_country_locode" => $obj->org_hq_country_locode,
@@ -184,13 +183,15 @@ function update_db($missing_column, $condition, $loop){
       
       if (!isset($obj->org_hq_country_locode) or $obj->org_hq_country_locode=="") continue;
 
-      if (!isset($obj->org_hq_country) && !isset($obj->org_hq_country_region) && !isset($obj->org_hq_country_region_code) &&
+      // if (!isset($obj->org_hq_country) && !isset($obj->org_hq_country_region) && !isset($obj->org_hq_country_region_code) &&
+      //   !isset($obj->org_hq_country_income) && !isset($obj->org_hq_country_income_code)) {
+      if (!isset($obj->org_hq_country_region_code) &&
         !isset($obj->org_hq_country_income) && !isset($obj->org_hq_country_income_code)) {
         $element[$obj->objectId] = array(        
           "org_hq_country_locode" => $obj->org_hq_country_locode,
         );
-        $element[$obj->objectId]["org_hq_country"] = $wb_region['org_hq_country_name'];          
-        $element[$obj->objectId]["org_hq_country_region"] = $wb_region['org_hq_country_region'];                   
+        // $element[$obj->objectId]["org_hq_country"] = $wb_region['org_hq_country_name'];          
+        // $element[$obj->objectId]["org_hq_country_region"] = $wb_region['org_hq_country_region'];                   
         $element[$obj->objectId]["org_hq_country_region_code"] = $wb_region['org_hq_country_region_code'];          
         $element[$obj->objectId]["org_hq_country_income"] = $wb_region['org_hq_country_income'];               
         $element[$obj->objectId]["org_hq_country_income_code"] = $wb_region['org_hq_country_income_code'];   
@@ -219,9 +220,9 @@ function update_db($missing_column, $condition, $loop){
 
       $parse = new ParseObject('org_profile');
       $parse->__set('objectId', $key);
-      $parse->__set('org_hq_country', $value["org_hq_country"]);
-      $parse->__set('org_hq_country_locode', $value["org_hq_country_locode"]);
-      $parse->__set('org_hq_country_region', $value["org_hq_country_region"]);
+      // $parse->__set('org_hq_country', $value["org_hq_country"]);
+      // $parse->__set('org_hq_country_locode', $value["org_hq_country_locode"]);
+      // $parse->__set('org_hq_country_region', $value["org_hq_country_region"]);
       $parse->__set('org_hq_country_region_code', $value["org_hq_country_region_code"]);
       $parse->__set('org_hq_country_income', $value["org_hq_country_income"]);
       $parse->__set('org_hq_country_income_code', $value["org_hq_country_income_code"]);
@@ -235,6 +236,7 @@ function update_db($missing_column, $condition, $loop){
     echo '<br>';
   }
 }
+
 
 
 ?>
