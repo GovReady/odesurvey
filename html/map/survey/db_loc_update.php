@@ -52,20 +52,20 @@ require 'functions.inc.php';
 // update_db("org_hq_country_locode", "defined", 2);
 // update_db("org_hq_country_locode", "defined", 3);
 
-flatfile_update_db("org_hq_country", "blank", 0);
-flatfile_update_db("org_hq_country", "undefined", 0);
-flatfile_update_db("org_hq_country_region_code", "blank", 0);
-flatfile_update_db("org_hq_country_region_code", "undefined", 0);
-flatfile_update_db("org_hq_country_region", "blank", 0);
-flatfile_update_db("org_hq_country_region", "undefined", 0);
-flatfile_update_db("org_hq_country_income_code", "blank", 0);
-flatfile_update_db("org_hq_country_income_code", "undefined", 0);
-flatfile_update_db("org_hq_country_income", "blank", 0);
-flatfile_update_db("org_hq_country_income", "undefined", 0);
-// flatfile_update_db("org_hq_country_locode", "defined", 0);
-// flatfile_update_db("org_hq_country_locode", "defined", 1);
-// flatfile_update_db("org_hq_country_locode", "defined", 2);
-// flatfile_update_db("org_hq_country_locode", "defined", 3);
+// flatfile_update_db("org_hq_country", "blank", 0);
+// flatfile_update_db("org_hq_country", "undefined", 0);
+// flatfile_update_db("org_hq_country_region_code", "blank", 0);
+// flatfile_update_db("org_hq_country_region_code", "undefined", 0);
+// flatfile_update_db("org_hq_country_region", "blank", 0);
+// flatfile_update_db("org_hq_country_region", "undefined", 0);
+// flatfile_update_db("org_hq_country_income_code", "blank", 0);
+// flatfile_update_db("org_hq_country_income_code", "undefined", 0);
+//flatfile_update_db("org_hq_country_income", "blank", 0);
+// flatfile_update_db("org_hq_country_income", "undefined", 0);
+flatfile_update_db("org_hq_country_locode", "defined", 0);
+flatfile_update_db("org_hq_country_locode", "defined", 1);
+flatfile_update_db("org_hq_country_locode", "defined", 2);
+flatfile_update_db("org_hq_country_locode", "defined", 3);
 
 
 function flatfile_update_db($missing_column, $condition, $loop){
@@ -98,19 +98,21 @@ function flatfile_update_db($missing_column, $condition, $loop){
       
       if (!isset($obj->org_hq_country_locode) or $obj->org_hq_country_locode=="") continue;      
 
-      // if (!isset($obj->org_hq_country) || !isset($obj->org_hq_country_region) || !isset($obj->org_hq_country_region_code) ||
-      //   !isset($obj->org_hq_country_income) || !isset($obj->org_hq_country_income_code)) {
+      if ((!isset($obj->org_hq_country) || $obj->org_hq_country=="") or (!isset($obj->org_hq_country_region) || $org_hq_country_region=="") or
+        (!isset($obj->org_hq_country_region_code) || $org_hq_country_region_code=="") or (!isset($obj->org_hq_country_income) || $obj->org_hq_country_income=="") or
+        (!isset($obj->org_hq_country_income_code) || $obj->org_hq_country_income_code=="") ){
         
         $element[$obj->objectId] = array(        
           "org_hq_country_locode" => $obj->org_hq_country_locode,
         );
-        $element[$obj->objectId]["org_hq_country"] = $wb_region['org_hq_country_name'];          
-        $element[$obj->objectId]["org_hq_country_region"] = $wb_region['org_hq_country_region'];                   
-        $element[$obj->objectId]["org_hq_country_region_code"] = $wb_region['org_hq_country_region_code'];          
-        $element[$obj->objectId]["org_hq_country_income"] = $wb_region['org_hq_country_income'];               
+      
+        $element[$obj->objectId]["org_hq_country"] = $wb_region['org_hq_country_name'];
+        $element[$obj->objectId]["org_hq_country_region"] = $wb_region['org_hq_country_region'];    
+        $element[$obj->objectId]["org_hq_country_region_code"] = $wb_region['org_hq_country_region_code'];  
+        $element[$obj->objectId]["org_hq_country_income"] = $wb_region['org_hq_country_income'];  
         $element[$obj->objectId]["org_hq_country_income_code"] = $wb_region['org_hq_country_income_code'];   
-        $need_update = TRUE;       
-      // }
+        $need_update = TRUE;             
+      }
 
       if ($need_update){
         echo $obj->objectId;    
