@@ -20,6 +20,9 @@ The `agol_integration.py` script requires username and password and target featu
 # navigate to repository
 cd /path/projects/odesurvey
 
+# download the most up-to-date scripts (just in case)
+git pull origin master
+
 # navigate to directory with agol_integration.py script
 cd scripts/agol-integration/agol_integration
 
