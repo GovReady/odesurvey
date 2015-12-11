@@ -134,17 +134,28 @@ define([/*"esri/map",*/
     }
 
     control.updateFilter= function(values,fieldName,updateFeatures, labels){
-        filterValues[fieldName] = values.map(function(value){
-            return "'{}'".replace('{}',value);
-        });
+        /* Temporary fix by Myeong to allow multiple values per item */
+        if (fieldName == "org_year_founded"){
+            _.forEach(values, function(v){
+                filterValues[fieldName] = v.map(function(value){
+                    return "'{}'".replace('{}',value);
+                });
+            });
+        } else {
+            filterValues[fieldName] = values.map(function(value){
+                return "'{}'".replace('{}',value);
+            });
+        }        
+        
         filterValues.labels[fieldName] = labels;
+        
         if (updateFeatures){
             this.filterFeatures(this.getFilters());
         }
         return filterValues;
     }
 
-    control.filterFeatures = function(filters){
+    control.filterFeatures = function(filters){        
         var where;
         if(filters){
             where = fetcher.getQueryString(filters);

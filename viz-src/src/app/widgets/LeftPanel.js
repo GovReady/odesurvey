@@ -96,6 +96,39 @@ define([
 				}
 			}
 
+			if(filterGroup.value == 'ageorg'){
+
+				var currentlySelected = _.where(filterGroup.items, {selected: true});
+				var years = [];
+
+				_.forEach(currentlySelected, function(item){
+
+					var current_year = new Date().getFullYear();
+
+					if (item.label == "0 - 10 years"){						
+						_.forEach(_.range(10), function(i){
+							years.push(current_year - i);		
+						});
+						item.value = years;						
+					} else if (item.label == "11 - 20 years"){
+						_.forEach(_.range(11,20), function(i){
+							years.push(current_year - i);		
+						});
+						item.value = years;
+					} else if (item.label == "21 - 30 years"){
+						_.forEach(_.range(21,30), function(i){
+							years.push(current_year - i);		
+						});
+						item.value = years;
+					} else if (item.label == "30+ years"){
+						_.forEach(_.range(31, 120), function(i){
+							years.push(current_year - i);		
+						});
+						item.value = years;
+					}
+					_.debounce(me.props.keys.selectFilter([item], item.field), 500);
+				});
+			}
 
 			var curSelected = filterGroup.items.filter(function(item){
 				if (item.selected){

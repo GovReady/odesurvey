@@ -154,7 +154,7 @@ function(
                             deferred.resolve(true);
                         });
                     } else {
-                        filter.items = control.getFilterItems(valueField, labelField, targetField, fields);
+                        filter.items = control.getFilterItems(valueField, labelField, targetField, fields);                        
                         deferred.resolve(true);
                     }
 
