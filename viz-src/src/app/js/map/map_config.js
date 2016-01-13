@@ -14,14 +14,14 @@ define([],function(){
               'production': 'ode_organizations_prod_07302015'
           }
   var features = [agsserver,mode[runAs],'FeatureServer/0'].join('/');
-    var countries = [agsserver,'country_centroids_20150715','FeatureServer/0'].join('/');
-    var countryPolys = [agsserver,'Countries_20150715','FeatureServer/0'].join('/');
+  var countries = [agsserver,'country_centroids_20150715','FeatureServer/0'].join('/');
+  var countryPolys = [agsserver,'Countries_20150715','FeatureServer/0'].join('/');
 
    return{
           pannel_state: true,
           default_basemap:"streets",
 
-            tempCountryURL: 'http://services.arcgis.com/EDxZDh4HqQ1a9KvA/ArcGIS/rest/services/Countries_ISO2/FeatureServer/0',
+          tempCountryURL: 'http://services.arcgis.com/EDxZDh4HqQ1a9KvA/ArcGIS/rest/services/Countries_ISO2/FeatureServer/0',
 
           features: features,
           countries: countries,
@@ -70,23 +70,27 @@ define([],function(){
                     value: 'Country',
                     selected: false,
                     source: {
-                      url:countries, 
-                      field:'org_hq_country_locode',
-                      groupBy: ['SHORT_NAME','ISO3136'],
-                      labelField: 'SHORT_NAME',
-                      valueField: 'ISO3136',
+                      url:features, 
+                      field:'org_hq_country'
+                      /* commented out my Myeong to show country names with World Bank names */
+                      // url:countries, 
+                      // field:'org_hq_country_locode',
+                      // groupBy: ['SHORT_NAME','ISO3136'],
+                      // labelField: 'SHORT_NAME',
+                      // valueField: 'ISO3136',
 
                     },
-                    items: [{
-                                selected: false,
-                                value: 'value1',
-                                label: 'country 1'
-                            },
-                            {
-                                selected: true,
-                                value: 'value2',
-                                label: 'country 2'
-                            }
+                    items: [
+                            // {
+                            //     selected: false,
+                            //     value: 'value1',
+                            //     label: 'country 1'
+                            // },
+                            // {
+                            //     selected: true,
+                            //     value: 'value2',
+                            //     label: 'country 2'
+                            // }
                     ]
                 },
                 {
@@ -132,7 +136,7 @@ define([],function(){
                     },
                     items: []
                 },
-                {
+                { /* Myeong added */
                     label: 'Data Source',
                     value: 'datasource',
                     selected: false,
@@ -142,7 +146,7 @@ define([],function(){
                     },
                     items: []
                 },
-                {
+                { /* Myeong added */
                     label: 'Age of Organization',
                     value: 'ageorg',
                     selected: false,
