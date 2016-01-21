@@ -2158,10 +2158,12 @@ p {
   padding-top: 40px;
   padding-bottom: 60px;
   font-size: 13px;
+  font-weight: 400;
 }
 
 .advisor-names {
   font-size: 18px;
+  font-weight: 700;
 }
 
 .advisors-block {
