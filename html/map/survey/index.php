@@ -503,7 +503,8 @@ $app->post('/2du/:surveyId/', function ($surveyId) use ($app) {
 	// ============================================================================
 	/* Saves once per survey submission */
 	// remove certain fields from org_profile
-	$remove_keys = array ("use_prod_srvc_desc", "use_org_opt_desc", "use_research_desc", "use_other_desc", "org_additional", "data_country_count", "data_use_type", "data_country_count");
+	// fields "use_prod_srvc_desc", "use_org_opt_desc", "use_research_desc", "use_other_desc" should be copied to arcgis_flatfield (by Myeong)
+	$remove_keys = array ("org_additional", "data_country_count", "data_use_type", "data_country_count");
 	foreach ( $remove_keys as $key) {
 		if (array_key_exists($key, $org_object)) {
 			unset($org_object[$key]);
