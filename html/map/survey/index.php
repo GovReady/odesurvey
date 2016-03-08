@@ -84,6 +84,15 @@ $app->notFound(function () use ($app) {
 		$app->redirect("/map.html");
 	}
 
+	// Let's make sure we remove a trailing "/" on any not found paths
+        $actual_link = rtrim($actual_link, '/');
+        
+	// Any change to below array must also be made to identical array in route "/" around line 210
+	if (in_array($actual_link, array("/about", "/contact", "/convene", "/implement", "/map", "/open-data-roundtables" ))) {
+		echo "in array";
+		$app->redirect($actual_link.".html");
+	}
+
     $app->redirect('/404.html');
 });
 
@@ -193,8 +202,12 @@ $app->get('/index.html', function () use ($app) {
 $app->get('/', function () use ($app) {
 	
 	$actual_link = "$_SERVER[REQUEST_URI]";
-	// echo "here $actual_link";
-	if (in_array($actual_link, array("/about", "/contact", "/convene", "/implement", "/map" ))) {
+	
+	// Let's make sure we remove a trailing "/" on any not found paths
+        $actual_link = rtrim($actual_link, '/');
+
+	// Any change to below array must also be made to identical array in route "/" around line 91
+	if (in_array($actual_link, array("/about", "/contact", "/convene", "/implement", "/map", "/open-data-roundtables" ))) {
 		echo "in array";
 		$app->redirect($actual_link.".html");
 	}
