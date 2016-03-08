@@ -180,7 +180,7 @@ var listener_guidance_click = function (e) {
 function getTypes(idSuffixNum, selectName) {
   // get array of selected items
   var data_use_type = $('input[type=checkbox][class='+selectName+']:checked').map(function(){ return $(this).val(); }).get();
-  console.log(data_use_type);
+  // console.log(data_use_type);
 
   var data_use_html = "";
   data_use_type.forEach(function (entry) {
