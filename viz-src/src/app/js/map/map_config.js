@@ -14,14 +14,14 @@ define([],function(){
               'production': 'ode_organizations_prod_07302015'
           }
   var features = [agsserver,mode[runAs],'FeatureServer/0'].join('/');
-    var countries = [agsserver,'country_centroids_20150715','FeatureServer/0'].join('/');
-    var countryPolys = [agsserver,'Countries_20150715','FeatureServer/0'].join('/');
+  var countries = [agsserver,'country_centroids_20150715','FeatureServer/0'].join('/');
+  var countryPolys = [agsserver,'Countries_20150715','FeatureServer/0'].join('/');
 
    return{
           pannel_state: true,
           default_basemap:"streets",
 
-            tempCountryURL: 'http://services.arcgis.com/EDxZDh4HqQ1a9KvA/ArcGIS/rest/services/Countries_ISO2/FeatureServer/0',
+          tempCountryURL: 'http://services.arcgis.com/EDxZDh4HqQ1a9KvA/ArcGIS/rest/services/Countries_ISO2/FeatureServer/0',
 
           features: features,
           countries: countries,
@@ -70,23 +70,27 @@ define([],function(){
                     value: 'Country',
                     selected: false,
                     source: {
-                      url:countries, 
-                      field:'org_hq_country_locode',
-                      groupBy: ['SHORT_NAME','ISO3136'],
-                      labelField: 'SHORT_NAME',
-                      valueField: 'ISO3136',
+                      url:features, 
+                      field:'org_hq_country'
+                      /* commented out my Myeong to show country names with World Bank names */
+                      // url:countries, 
+                      // field:'org_hq_country_locode',
+                      // groupBy: ['SHORT_NAME','ISO3136'],
+                      // labelField: 'SHORT_NAME',
+                      // valueField: 'ISO3136',
 
                     },
-                    items: [{
-                                selected: false,
-                                value: 'value1',
-                                label: 'country 1'
-                            },
-                            {
-                                selected: true,
-                                value: 'value2',
-                                label: 'country 2'
-                            }
+                    items: [
+                            // {
+                            //     selected: false,
+                            //     value: 'value1',
+                            //     label: 'country 1'
+                            // },
+                            // {
+                            //     selected: true,
+                            //     value: 'value2',
+                            //     label: 'country 2'
+                            // }
                     ]
                 },
                 {
@@ -123,7 +127,7 @@ define([],function(){
                     ]
                 },
                 {
-                    label: 'Data Type',
+                    label: 'Type of Data Used',
                     value: 'datatype',
                     selected: false,
                     source: {
@@ -131,6 +135,51 @@ define([],function(){
                       field:'data_type'
                     },
                     items: []
+                },
+                { /* Myeong added */
+                    label: 'Data Source',
+                    value: 'datasource',
+                    selected: false,
+                    source: {
+                      url:features, 
+                      field:'data_src_country_name'
+                    },
+                    items: []
+                },
+                { /* Myeong added */
+                    label: 'Age of Organization',
+                    value: 'ageorg',
+                    selected: false,
+                    // source: {
+                    //   url: features, 
+                    //   field:'org_year_founded'                      
+                    // },
+                    items: [
+                    {
+                            selected: false,
+                            field: 'org_year_founded',
+                            label: '0 - 10 years',
+                            value: 1
+                        },
+                        {
+                            selected: false,
+                            field: 'org_year_founded',
+                            label: '11 - 20 years',
+                            value: 1
+                        },
+                        {
+                            selected: false,
+                            field: 'org_year_founded',
+                            label: '21 - 30 years',
+                            value: 1
+                        },
+                        {
+                            selected: false,
+                            field: 'org_year_founded',
+                            label: '30+ years',
+                            value: 1
+                        },
+                    ]
                 },
                 {
                     label: 'Application',
