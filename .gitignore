@@ -22,6 +22,7 @@ scripts/agol-integration/problem_records.json
 scripts/agol-integration/agol_integration/agol_success.json
 scripts/agol-integration/agol_integration/problem_records.json
 scripts/agol-integration/agol_integration/agol_error.json
+scripts/agol-integration/agol_integration/settings.py
 
 assets/*
 html/grid/*

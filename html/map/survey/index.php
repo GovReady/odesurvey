@@ -575,9 +575,13 @@ $app->post('/2du/:surveyId/', function ($surveyId) use ($app) {
 	while (array_key_exists('dataUseData-'.$idSuffixNum, $allPostVars)) {
 		// skip row and continue if user did not select country
 		if (is_null($allPostVars['dataUseData-'.$idSuffixNum])) { continue; }
-		// echo "<br>$idSuffixNum";
-		// echo "============\n<br>";
+		// echo "<pre>";
+		// print_r ($allPostVars);
+		// echo "</pre>";
+		// exit;
+		$data_use_types = $allPostVars['data_use_type'];
 		$data_use_object = array();
+
 		foreach ($allPostVars['dataUseData-'.$idSuffixNum] as $row) {
 			
 			$src_country = $row['src_country_locode'];
@@ -591,37 +595,45 @@ $app->post('/2du/:surveyId/', function ($surveyId) use ($app) {
 				$data_use_object['data_src_country_name'] = $data_use_wb_region['org_hq_country_name'];
 				$data_use_object['profile_id'] = $surveyId;
 				$data_use_object['row_type'] = 'data_use';
-										// save data_use_object to Parse
-				$parse_params = array(
-					'className' => 'org_data_use',
-					'object' => $data_use_object 	// contains data for org_data_use row
-				);
-				$request = $parse->create($parse_params);
-				$response = json_decode($request, true);
-				// print_r($response); echo "<br />";
-				if(!isset($response['createdAt'])) {
-					echo "<br>Problem. Problem saving how data is used create not yet handled.";
-					// log error and generate email to admins
-					exit;
-				}
 
-				// merge org_profile and data_use objects and save to parse for arcgis
-				$arcgis_object = array_merge($org_object, $data_use_object);
-				$parse_params = array(
-					'className' => 'arcgis_flatfile',
-					'object' => $arcgis_object 	// contains data for org_data_use row
-				);
-				$request = $parse->create($parse_params);
-				$response = json_decode($request, true);
-				// print_r($response); echo "<br />";
-				if(!isset($response['createdAt'])) {
-					echo "<br>Problem. Problem saving how data is used create not yet handled.";
-					// log error and generate email to admins
-					exit;
+				/* Create a record for each type even though the national is blank */
+				foreach ($data_use_types as $type){
+					$data_use_object['data_type'] = $type;
+										// save data_use_object to Parse
+					$parse_params = array(
+						'className' => 'org_data_use',
+						'object' => $data_use_object 	// contains data for org_data_use row
+					);
+					$request = $parse->create($parse_params);
+					$response = json_decode($request, true);
+					// print_r($response); echo "<br />";
+					if(!isset($response['createdAt'])) {
+						echo "<br>Problem. Problem saving how data is used create not yet handled.";
+						// log error and generate email to admins
+						exit;
+					}
+
+					// merge org_profile and data_use objects and save to parse for arcgis
+					$arcgis_object = array_merge($org_object, $data_use_object);
+					$parse_params = array(
+						'className' => 'arcgis_flatfile',
+						'object' => $arcgis_object 	// contains data for org_data_use row
+					);
+					$request = $parse->create($parse_params);
+					$response = json_decode($request, true);
+					// print_r($response); echo "<br />";
+					if(!isset($response['createdAt'])) {
+						echo "<br>Problem. Problem saving how data is used create not yet handled.";
+						// log error and generate email to admins
+						exit;
+					}
+					// continue;
 				}
-				// continue;
 			} else {
+				$existing_types = array();
 				foreach ($row['type'] as $type => $details) {
+					/* store a type that exists in the data */
+					$existing_types[] = $type;
 					foreach ($details['src_gov_level'] as $gov_level) {
 						// echo "<br>$src_country|$type|$gov_level";
 						$data_use_object['data_src_country_locode'] = $src_country;
@@ -664,6 +676,48 @@ $app->post('/2du/:surveyId/', function ($surveyId) use ($app) {
 							// log error and generate email to admins
 							exit;
 						}
+					}
+				}
+				/* Creating records for empty-national/local value records */
+				foreach ($data_use_types as $type){
+					if (!in_array($type, $existing_types)){
+						$data_use_object['data_src_country_locode'] = $src_country;
+						$data_use_wb_region = addWbRegions($src_country);
+						$data_use_object['data_src_country_name'] = $data_use_wb_region['org_hq_country_name'];
+						$data_use_object['profile_id'] = $surveyId;
+						$data_use_object['row_type'] = 'data_use';
+						$data_use_object['data_type'] = $type;
+						unset($data_use_object['data_src_gov_level']);
+											// save data_use_object to Parse
+						$parse_params = array(
+							'className' => 'org_data_use',
+							'object' => $data_use_object 	// contains data for org_data_use row
+						);
+						$request = $parse->create($parse_params);
+						$response = json_decode($request, true);
+						// print_r($response); echo "<br />";
+						if(!isset($response['createdAt'])) {
+							echo "<br>Problem. Problem saving how data is used create not yet handled.";
+							// log error and generate email to admins
+							exit;
+						}
+
+						// merge org_profile and data_use objects and save to parse for arcgis
+						$arcgis_object = array_merge($org_object, $data_use_object);
+						$parse_params = array(
+							'className' => 'arcgis_flatfile',
+							'object' => $arcgis_object 	// contains data for org_data_use row
+						);
+						$request = $parse->create($parse_params);
+						$response = json_decode($request, true);
+						// print_r($response); echo "<br />";
+						if(!isset($response['createdAt'])) {
+							echo "<br>Problem. Problem saving how data is used create not yet handled.";
+							// log error and generate email to admins
+							exit;
+						}
+						// continue;
+						
 					}
 				}
 			}
