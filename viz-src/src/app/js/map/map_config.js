@@ -146,41 +146,6 @@ define([],function(){
                     },
                     items: []
                 },
-                { /* Myeong added */
-                    label: 'Age of Organization',
-                    value: 'ageorg',
-                    selected: false,
-                    // source: {
-                    //   url: features, 
-                    //   field:'org_year_founded'                      
-                    // },
-                    items: [
-                    {
-                            selected: false,
-                            field: 'org_year_founded',
-                            label: '0 - 10 years',
-                            value: 1
-                        },
-                        {
-                            selected: false,
-                            field: 'org_year_founded',
-                            label: '11 - 20 years',
-                            value: 1
-                        },
-                        {
-                            selected: false,
-                            field: 'org_year_founded',
-                            label: '21 - 30 years',
-                            value: 1
-                        },
-                        {
-                            selected: false,
-                            field: 'org_year_founded',
-                            label: '30+ years',
-                            value: 1
-                        },
-                    ]
-                },
                 {
                     label: 'Application',
                     value: 'dataApplication',
