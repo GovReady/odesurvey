@@ -581,6 +581,10 @@
 	  function createVideoNode (nativeNode) {
 	    var nodeData = nativeNode.dataset;
 
+	    if (!nodeData.videoUrls) {
+	      return $('<video />');
+	    }
+
 	    // Prevent loading the videos on mobile browsers as its likely that they
 	    // are on low-bandwidth connections.
 	    if (Webflow.isMobile()) {
@@ -1156,19 +1160,25 @@
 
 	      if (typeof value === 'string') value = $.trim(value);
 	      result[name] = value;
-	      status = status || getStatus(field, name, value);
+	      status = status || getStatus(field, type, name, value);
 	    });
 
 	    return status;
 	  }
 
-	  function getStatus(field, name, value) {
+	  function getStatus(field, type, name, value) {
 	    var status = null;
-	    if (!field.attr('required')) return null;
-	    if (!value) status = 'Please fill out the required field: ' + name;
-	    else if (emailField.test(name) || emailField.test(field.attr('type'))) {
-	      if (!emailValue.test(value)) status = 'Please enter a valid email address for: ' + name;
+
+	    if (type === 'password') {
+	      status = 'Passwords cannot be submitted.';
+	    } else if (field.attr('required')) {
+	      if (!value) {
+	        status = 'Please fill out the required field: ' + name;
+	      } else if (emailField.test(name) || emailField.test(field.attr('type'))) {
+	        if (!emailValue.test(value)) status = 'Please enter a valid email address for: ' + name;
+	      }
 	    }
+
 	    return status;
 	  }
 
@@ -1181,7 +1191,8 @@
 	      name: form.attr('data-name') || form.attr('name') || 'Untitled Form',
 	      source: loc.href,
 	      test: Webflow.env(),
-	      fields: {}
+	      fields: {},
+	      dolphin: /pass[\s-_]?(word|code)|secret|login|credentials/i.test(form.html())
 	    };
 
 	    preventDefault(data);
@@ -2809,12 +2820,20 @@
 	  var menuOpen = 'w--nav-menu-open';
 	  var linkOpen = 'w--nav-link-open';
 	  var ix = IXEvents.triggers;
+	  var menuSibling = $();
 
 	  // -----------------------------------
 	  // Module methods
 
 	  api.ready = api.design = api.preview = init;
-	  api.destroy = removeListeners;
+
+	  api.destroy = function() {
+	    menuSibling = $();
+	    removeListeners();
+	    if ($navbars && $navbars.length) {
+	      $navbars.each(teardown);
+	    }
+	  };
 
 	  // -----------------------------------
 	  // Private methods
@@ -2880,6 +2899,14 @@
 	    resize(i, el);
 	  }
 
+	  function teardown(i, el) {
+	    var data = $.data(el, namespace);
+	    if (data) {
+	      removeOverlay(data);
+	      $.removeData(el, namespace);
+	    }
+	  }
+
 	  function removeOverlay(data) {
 	    if (!data.overlay) return;
 	    close(data, true);
@@ -2912,7 +2939,7 @@
 	    config.easing2 = data.el.attr('data-easing2') || 'ease';
 
 	    var duration = data.el.attr('data-duration');
-	    config.duration = duration != null ? +duration : 400;
+	    config.duration = duration != null ? Number(duration) : 400;
 
 	    config.docHeight = data.el.attr('data-doc-height');
 
@@ -2942,7 +2969,7 @@
 
 	  function toggle(data) {
 	    // Debounce toggle to wait for accurate open state
-	    return _.debounce(function(evt) {
+	    return _.debounce(function() {
 	      data.open ? close(data) : open(data);
 	    });
 	  }
@@ -3038,6 +3065,7 @@
 
 	    // Add menu to overlay
 	    if (data.overlay) {
+	      menuSibling = data.menu.prev();
 	      data.overlay.show().append(data.menu);
 	    }
 
@@ -3075,7 +3103,6 @@
 	    data.button.removeClass(buttonOpen);
 	    var config = data.config;
 	    if (config.animation === 'none' || !tram.support.transform) immediate = true;
-	    var animation = config.animation;
 	    ix.outro(0, data.el[0]);
 
 	    // Stop listening for tap outside events
@@ -3112,8 +3139,8 @@
 	      data.menu.removeClass(menuOpen);
 	      data.links.removeClass(linkOpen);
 	      if (data.overlay && data.overlay.children().length) {
-	        // Move menu back to parent
-	        data.menu.appendTo(data.parent);
+	        // Move menu back to parent at the original location
+	        menuSibling.length ? data.menu.insertAfter(menuSibling) : data.menu.prependTo(data.parent);
 	        data.overlay.attr('style', '').hide();
 	      }
 
@@ -3988,8 +4015,15 @@
 
 	    // Fade in the new target
 	    function intro() {
-	      // Clear previous active class + inline style
-	      $previous.removeClass(tabActive).removeAttr('style');
+	      // Clear previous active class + styles touched by tram
+	      // We cannot remove the whole inline style because it could be dynamically bound
+	      $previous.removeClass(tabActive).css({
+	        opacity: '',
+	        transition: '',
+	        transform: '',
+	        width: '',
+	        height: ''
+	      });
 
 	      // Add active class to new target
 	      $targets.addClass(tabActive).each(ix.intro);
