@@ -4567,6 +4567,6 @@
  * Webflow: Interactions: Init
  */
 Webflow.require('ix').init([
-  {"slug":"display-none-on-load","name":"Display None on Load","value":{"style":{"display":"none"},"triggers":[]}},
+  {"slug":"display-none-on-load","name":"Display None on Load","value":{"style":{"display":"none"},"triggers":[{"type":"tabs","stepsA":[{}],"stepsB":[{}]}]}},
   {"slug":"show-and-hide","name":"Show and Hide","value":{"style":{},"triggers":[{"type":"click","selector":".bio-content","stepsA":[{"display":"block","height":"0px"},{"height":"auto","transition":"height 1000ms ease 0ms"}],"stepsB":[{"height":"0px","transition":"height 1000ms ease 0ms"},{"display":"none"}]}]}}
 ]);
