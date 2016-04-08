@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- This site was created in Webflow. http://www.webflow.com-->
-<!-- Last Published: Sat Mar 05 2016 05:18:36 GMT+0000 (UTC) -->
+<!-- Last Published: Thu Mar 31 2016 15:28:11 GMT+0000 (UTC) -->
 <html data-wf-site="54c24a0650f1708e4c8232a0" data-wf-page="54c42996e1a2e2814d484321">
 <head>
   <meta charset="utf-8">
@@ -160,7 +160,7 @@
     <div class="w-container">
       <h2 class="section-title">Our Team</h2>
       <h2 class="mission-title our-mission">Our <strong>Team</strong></h2>
-      <p class="section-subtitle mission-paragraph">The <strong>Center for Open Data Enterprise </strong>was founded by Joel Gurin, an international authority on open data, and an expert team that has led pioneering work in the field, both domestically and abroad.</p>
+      <p class="section-subtitle mission-paragraph">The <strong>Center for Open Data Enterprise </strong>was founded an expert team that has led pioneering work in the field, both domestically and abroad.</p>
       <div class="w-row row-team">
         <div class="w-col w-col-3 w-col-small-6"><img src="images/static1.squarespace.png">
           <div>
@@ -188,28 +188,34 @@
         </div>
       </div>
       <div class="w-row row-team">
-        <div class="w-col w-col-3 w-col-small-6"><img src="images/gm.png">
-          <div>
+        <div class="w-col w-col-4"><img src="images/mng.jpg">
+          <h4 class="team-name">Myeong Lee</h4>
+          <p class="team-role">TECHNOLOGY FELLOW</p>
+        </div>
+        <div class="w-col w-col-4">
+          <div><img src="images/gm.png">
             <h4 class="team-name">Gustavo Magalhaes</h4>
             <p class="team-role">VISITING FELLOW</p>
           </div>
         </div>
-        <div class="w-col w-col-3 w-col-small-6"><img src="images/SH-bio-pic.jpg">
+        <div class="w-col w-col-4">
+          <div><img src="images/matt.jpg">
+          </div>
+          <h4 class="team-name">Matthew Rumsey</h4>
+          <p class="team-role">research fellow</p>
+        </div>
+      </div>
+      <div class="w-row row-team">
+        <div class="w-col w-col-6"><img src="images/sophie.jpg">
           <div>
-            <h4 class="team-name">Stephanie Huang</h4>
+            <h4 class="team-name">Sophie Hu</h4>
             <p class="team-role">RESEARCH INTERN</p>
           </div>
         </div>
-        <div class="w-col w-col-3 w-col-small-6"><img src="images/ge.png">
+        <div class="w-col w-col-6"><img src="images/SH-bio-pic.jpg">
           <div>
-            <h4 class="team-name">Greg Elin</h4>
-            <p class="team-role">TOOLS &amp; PLATFORMS</p>
-          </div>
-        </div>
-        <div class="w-col w-col-3 w-col-small-6"><img src="images/mng.jpg">
-          <div>
-            <h4 class="team-name">Myeong Lee</h4>
-            <p class="team-role">TECHNOLOGY FELLOW</p>
+            <h4 class="team-name">Stephanie Huang</h4>
+            <p class="team-role">RESEARCH INTERN</p>
           </div>
         </div>
       </div><a href="about.html" class="menu-button learn-more team">LEARN MORE</a>
@@ -244,6 +250,10 @@
     });
     $('.custom-button-2').on('click', function (evt) {
       $('.target-tab-link-2').triggerHandler('click');
+      evt.preventDefault();
+    });  
+      $('.custom-button-3').on('click', function (evt) {
+      $('.target-tab-link-3').triggerHandler('click');
       evt.preventDefault();
     });
   </script>

@@ -83,6 +83,10 @@ p {
   list-style-type: disc;
 }
 
+a {
+  text-decoration: underline;
+}
+
 .button {
   display: inline-block;
   width: 40px;
@@ -203,6 +207,14 @@ p {
   background-image: none;
   color: #2ea0e6;
   text-decoration: underline;
+}
+
+.button.close.custom-button-3 {
+  display: block;
+}
+
+.button.close.custom-button {
+  cursor: pointer;
 }
 
 .button.bottom-close {
@@ -2415,8 +2427,8 @@ p {
   border: 1px solid #fff;
   background-color: transparent;
   box-shadow: none;
-  -webkit-transition: all 500ms ease;
-  transition: all 500ms ease;
+  -webkit-transition: all 500ms ease, opacity 200ms ease;
+  transition: all 500ms ease, opacity 200ms ease;
   text-align: center;
 }
 
@@ -2434,10 +2446,6 @@ p {
   box-shadow: 0 0 6px 0 rgba(0, 0, 0, .1);
 }
 
-.team-tab.display-none {
-  display: none;
-}
-
 .tabs-menu {
   display: block;
   margin-right: auto;
@@ -2445,29 +2453,9 @@ p {
   text-align: center;
 }
 
-.tab-5-content {
-  border: 0px solid #000;
-}
-
-.target-tab-link {
-  display: inline;
-  width: 0px;
-  height: 0px;
-  background-color: transparent;
-}
-
 .tabs {
   position: relative;
   z-index: 300;
-}
-
-.tab-5 {
-  position: absolute;
-  display: none;
-  width: 0px;
-  height: 0px;
-  padding-right: 0px;
-  padding-left: 0px;
 }
 
 .section-our-team {
@@ -2754,6 +2742,10 @@ p {
   margin-top: 10px;
 }
 
+.tabs-content-2 {
+  margin-bottom: 40px;
+}
+
 .disclaimer {
   margin-right: 0px;
   margin-left: 0px;
@@ -2761,6 +2753,14 @@ p {
   font-size: 17px;
   font-weight: 400;
   text-align: center;
+}
+
+.target-tab-link-2 {
+  background-color: transparent;
+}
+
+.target-tab-link-2.w--current {
+  background-color: transparent;
 }
 
 .booz-allen {
@@ -3389,6 +3389,22 @@ p {
 
 .rt-link-block:hover {
   color: #2ea0e6;
+}
+
+.target-tab-link {
+  background-color: transparent;
+}
+
+.target-tab-link.w--current {
+  background-color: transparent;
+}
+
+.target-tab-link-3 {
+  background-color: transparent;
+}
+
+.target-tab-link-3.w--current {
+  background-color: transparent;
 }
 
 html.w-mod-js *[data-ix="display-none-on-load"] {

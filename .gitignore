@@ -9,6 +9,9 @@ credentials.inc.php
 phpinfo.php
 parseConfig.php
 
+# testing files
+html/map/viz/app3
+
 # data
 scripts/data-etl/Inventory - Country Classification.csv
 Inventory.xlsx
