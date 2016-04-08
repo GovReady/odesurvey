@@ -146,7 +146,8 @@ define([],function(){
                     },
                     items: []
                 },
-                { /* Myeong added */
+                /* commented out for the future use. by Myeong
+                { 
                     label: 'Age of Organization',
                     value: 'ageorg',
                     selected: false,
@@ -181,6 +182,7 @@ define([],function(){
                         },
                     ]
                 },
+                */
                 {
                     label: 'Application',
                     value: 'dataApplication',
