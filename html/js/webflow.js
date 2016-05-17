@@ -638,6 +638,11 @@
 
 	  api.ready = function() {
 	    var doBranding = $html.attr('data-wf-status');
+	    var publishedDomain = $html.attr('data-wf-domain') || '';
+
+	    if (/\.webflow\.io$/i.test(publishedDomain) && location.hostname !== publishedDomain) {
+	      doBranding = true;
+	    }
 
 	    if (doBranding) {
 	      var $branding = $('<div></div>');

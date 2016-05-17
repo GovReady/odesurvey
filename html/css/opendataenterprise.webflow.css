@@ -659,7 +659,7 @@ a {
   bottom: 0px;
   display: block;
   overflow: visible;
-  margin: 80px auto 0px 0px;
+  margin: 45px auto 0px 0px;
   padding: 0px;
   float: none;
   clear: none;
@@ -2077,11 +2077,19 @@ a {
   left: 0px;
   top: 15%;
   right: 0px;
-  margin-top: 0px;
+  margin-top: 25px;
   margin-bottom: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
   text-align: center;
+}
+
+.container-1.map-page-home {
+  margin-top: 15px;
+}
+
+.container-1.roundtables-slide-3 {
+  margin-top: 40px;
 }
 
 .joel-bio {
@@ -2769,17 +2777,22 @@ a {
 }
 
 .pwclogo {
-  width: 145px;
+  display: inline-block;
+  margin-top: 0px;
+  text-align: right;
 }
 
 .socratalogo {
+  display: inline-block;
   width: 180px;
-  margin-top: 50px;
+  margin-top: 35px;
 }
 
 .wblogo {
-  width: 250px;
-  margin-top: 50px;
+  display: inline-block;
+  width: auto;
+  margin-top: 15px;
+  text-align: center;
 }
 
 .uchilogo {
@@ -2884,6 +2897,7 @@ a {
 }
 
 .map-description {
+  margin-top: 6px;
   margin-bottom: 20px;
   padding-top: 0px;
   color: #fff;
@@ -2924,8 +2938,8 @@ a {
   top: 0px;
   right: 0px;
   display: inline-block;
-  width: 400px;
-  margin: 20px auto 40px;
+  width: 300px;
+  margin: 0px 20px 40px;
   padding-top: 20px;
   padding-bottom: 20px;
   border-style: solid;
@@ -2943,6 +2957,19 @@ a {
 
 .explore-button:hover {
   background-color: #f8b401;
+}
+
+.explore-button.report-button {
+  display: inline-block;
+  margin-top: 20px;
+  margin-left: 20px;
+  float: none;
+  text-align: center;
+}
+
+.explore-button.report-button.home-page-report-button {
+  margin-top: 45px;
+  float: none;
 }
 
 .paragraph-description {
@@ -3037,9 +3064,10 @@ a {
   left: 0px;
   top: -45px;
   right: 0px;
-  margin-top: 150px;
+  margin-top: 340px;
   margin-bottom: 0px;
   padding-bottom: 0px;
+  text-align: center;
 }
 
 .row-supporters {
@@ -3060,7 +3088,7 @@ a {
 
 .list-item.research-bullet {
   margin-bottom: 15px;
-  color: #000;
+  color: #555;
 }
 
 .list-item.companines-eligibility {
@@ -3407,6 +3435,37 @@ a {
   background-color: transparent;
 }
 
+.odw-logo {
+  display: inline-block;
+  margin-top: 20px;
+  float: none;
+  text-align: center;
+}
+
+.home-button-for-map {
+  text-align: center;
+}
+
+.map-page-section {
+  min-height: 475px;
+  min-width: 100px;
+  background-color: rgba(0, 0, 0, .3);
+  background-image: -webkit-linear-gradient(270deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url('../images/bg_slide2.jpg');
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url('../images/bg_slide2.jpg');
+  background-position: 0px 0px, 0px 0px;
+  background-size: auto, cover;
+  background-repeat: repeat, no-repeat;
+  background-attachment: scroll, scroll;
+}
+
+.report-button-map-page {
+  text-decoration: none;
+}
+
+.explore-the-map-button-on-map-page {
+  text-decoration: none;
+}
+
 html.w-mod-js *[data-ix="display-none-on-load"] {
   display: none;
 }
@@ -3437,13 +3496,17 @@ html.w-mod-js *[data-ix="display-none-on-load"] {
     font-size: 15px;
   }
   .hero-heading {
-    margin-top: 150px;
+    margin-top: 100px;
   }
   .hero-heading.contact-us {
     margin-top: 60px;
   }
   .hero-heading.contact-us.contact-us-text {
     margin-bottom: 60px;
+  }
+  .hero-subhead {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
   }
   .section-subtitle.white.opendata-definition {
     display: block;
@@ -3498,6 +3561,9 @@ html.w-mod-js *[data-ix="display-none-on-load"] {
   .quote-container {
     left: 0px;
     right: 13px;
+  }
+  .container-1 {
+    top: 1%;
   }
   .contact {
     padding-top: 10%;
@@ -3572,6 +3638,12 @@ html.w-mod-js *[data-ix="display-none-on-load"] {
   }
   .esrilogo {
     width: 140px;
+  }
+  .explore-button.report-button.home-page-report-button {
+    margin-top: 30px;
+  }
+  .map-container {
+    margin-top: 335px;
   }
 }
 
@@ -3671,6 +3743,7 @@ html.w-mod-js *[data-ix="display-none-on-load"] {
     text-align: center;
   }
   .hero-heading {
+    margin-top: 110px;
     font-size: 40px;
     line-height: 34px;
   }
@@ -3690,7 +3763,7 @@ html.w-mod-js *[data-ix="display-none-on-load"] {
     margin-right: 0px;
   }
   .hero-subhead {
-    font-size: 29px;
+    font-size: 21px;
   }
   .section-title.white {
     margin-top: 10px;
@@ -3941,9 +4014,22 @@ html.w-mod-js *[data-ix="display-none-on-load"] {
   .uchilogo {
     margin-top: 20px;
   }
+  .map-description {
+    margin-bottom: 0px;
+  }
+  .explore-button {
+    margin-top: 0px;
+  }
+  .explore-button.report-button {
+    margin-top: 25px;
+    margin-bottom: 20px;
+  }
   .grey-background {
     padding-right: 10px;
     padding-left: 10px;
+  }
+  .map-container {
+    margin-top: 290px;
   }
   .fixed-share {
     display: none;
@@ -4062,7 +4148,7 @@ html.w-mod-js *[data-ix="display-none-on-load"] {
     margin-bottom: 20px;
   }
   .hero-heading {
-    margin-top: 130px;
+    margin-top: 70px;
     font-size: 39px;
     line-height: 41px;
   }
@@ -4078,7 +4164,7 @@ html.w-mod-js *[data-ix="display-none-on-load"] {
     margin-right: 0px;
   }
   .hero-subhead {
-    margin-bottom: 34px;
+    margin-bottom: 0px;
     line-height: 34px;
   }
   .section-subtitle.promo {
@@ -4449,12 +4535,19 @@ html.w-mod-js *[data-ix="display-none-on-load"] {
   }
   .explore-button {
     width: auto;
-    padding-right: 10px;
-    padding-left: 10px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    padding: 10px;
     font-size: 15px;
   }
+  .explore-button.report-button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
   .map-container {
-    margin-top: 60px;
+    margin-top: 600px;
   }
   .goals-block {
     margin-left: 10px;
