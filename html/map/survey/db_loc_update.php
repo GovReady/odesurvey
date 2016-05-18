@@ -93,8 +93,6 @@ foreach ($profile_ids as $record){
   print (org_profile_update($record));
   print (flatfile_update($record));
   print ("<br>");
-  $i += 1;
-  if ($i == 2) break;
 }
 // flatfile_update_db("org_hq_country_locode", "defined", 7);
 
