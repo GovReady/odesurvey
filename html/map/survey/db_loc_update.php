@@ -78,9 +78,8 @@ $i = 0;
 
 while(!feof($file))
 {
-  $rec = fgetcsv($file);
-  if ($rec[0] == "Profile ID") continue;
   $profile_ids[$i] = fgetcsv($file);
+  if ($profile_ids[$i] == "Profile ID") continue;
   $i += 1;
 }
 
