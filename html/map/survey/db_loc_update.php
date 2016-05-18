@@ -72,7 +72,7 @@ require 'functions.inc.php';
 
 /* 5/17/2016. use_... fields updates, by Myeong */
 $profile_ids = array();
-$file = fopen("data/ode_to_update.csv","r");
+$file = fopen("data/ode_to_update2.csv","r");
 
 $i = 0;
 
@@ -165,7 +165,7 @@ function org_profile_update($record){
     $parse->__set('data_use_type', $value["data_use_type"]);
     $request = $parse->update($key);
     
-    usleep(100);
+    usleep(200);
   }
   return "org_profile Success. ";
 }
@@ -294,7 +294,7 @@ function flatfile_update($record){
     $parse->__set('data_use_type', $value["data_use_type"]);
     $request = $parse->update($key);
     
-    usleep(100);
+    usleep(200);
   }
   if ($data_add_flag == true){
     $parse2 = new ParseObject('arcgis_flatfile');
@@ -343,7 +343,7 @@ function flatfile_update($record){
     $parse2->__set('row_type', $new_element['row_type']);
     $parse2->__set('org_size_id', $new_element['org_size_id']);
     $request2 = $parse2->save();
-    usleep(100);
+    usleep(200);
     print ("a new data type added. ");
   }
   return "Flatfile Success.";
