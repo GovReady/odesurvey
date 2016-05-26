@@ -79,7 +79,7 @@ $i = 0;
 while(!feof($file))
 {
   $profile_ids[$i] = fgetcsv($file);
-  if ($profile_ids[$i] == "Profile ID") continue;
+  if ($profile_ids[0] == "Profile ID") continue;
   $i += 1;
 }
 
@@ -260,7 +260,7 @@ function flatfile_update($record){
             $new_element['org_profile_src'] = $obj->org_profile_src;
             $new_element['org_hq_country_locode'] = $obj->org_hq_country_locode;
             $new_element['org_hq_country_region'] = $obj->org_hq_country_region;
-            $wb_region = addWbRegions($obj->org_hq_country_region);
+            $wb_region = addWbRegions($obj->org_hq_country_locode);
             $new_element['org_hq_country_region_code'] = $wb_region['org_hq_country_region_code'];
             $new_element['org_url'] = $obj->org_url;
             $new_element['org_type'] = $obj->org_type;
