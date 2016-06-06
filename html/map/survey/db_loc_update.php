@@ -1,5 +1,4 @@
 <?php
-
 // Expand memory being used by PHP
 ini_set('memory_limit','400M');
 // server should keep session data for AT LEAST 1 hour
@@ -62,14 +61,295 @@ require 'functions.inc.php';
 // flatfile_update_db("org_hq_country_income_code", "undefined", 0);
 //flatfile_update_db("org_hq_country_income", "blank", 0);
 // flatfile_update_db("org_hq_country_income", "undefined", 0);
-flatfile_update_db("org_hq_country_locode", "defined", 0);
-flatfile_update_db("org_hq_country_locode", "defined", 1);
-flatfile_update_db("org_hq_country_locode", "defined", 2);
-flatfile_update_db("org_hq_country_locode", "defined", 3);
-flatfile_update_db("org_hq_country_locode", "defined", 4);
-flatfile_update_db("org_hq_country_locode", "defined", 5);
-flatfile_update_db("org_hq_country_locode", "defined", 6);
-flatfile_update_db("org_hq_country_locode", "defined", 7);
+// flatfile_update_db("org_hq_country_locode", "defined", 0);
+// flatfile_update_db("org_hq_country_locode", "defined", 1);
+// flatfile_update_db("org_hq_country_locode", "defined", 2);
+// flatfile_update_db("org_hq_country_locode", "defined", 3);
+// flatfile_update_db("org_hq_country_locode", "defined", 4);
+// flatfile_update_db("org_hq_country_locode", "defined", 5);
+// flatfile_update_db("org_hq_country_locode", "defined", 6);
+// flatfile_update_db("org_hq_country_locode", "defined", 7);
+
+/* 5/17/2016. use_... fields updates, by Myeong */
+$profile_ids = array();
+$file = fopen("data/ode_to_update2.csv","r");
+
+$i = 0;
+
+while(!feof($file))
+{
+  $profile_ids[$i] = fgetcsv($file);
+  if ($profile_ids[0] == "Profile ID") continue;
+  $i += 1;
+}
+
+fclose($file);    
+$i = 0;
+
+foreach ($profile_ids as $record){
+  print ("Profile ID: " . strval($record[0]) . " -- ");
+  
+  print (org_profile_update($record));
+  print (flatfile_update($record));
+  print ("<br>");
+}
+// flatfile_update_db("org_hq_country_locode", "defined", 7);
+
+/* For "org_profile" table, use_... fields */
+function org_profile_update($record){
+
+  $query = new ParseQuery("org_profile");
+  $query->whereEqualTo("profile_id", $record[0]);
+  $query->setLimit(100);
+  $results = $query->find();
+
+  $element = array();
+  $data_use_type =array();
+  $i=0;
+
+  foreach ($results as $object){
+    if (empty($object)){
+        return "Not exist";
+    } else {
+
+      foreach($object as $obj){
+          
+          $element[$obj->objectId]["use_advocacy"] = filter_var($record[1], FILTER_VALIDATE_BOOLEAN);
+          $element[$obj->objectId]["use_advocacy_desc"] = str_replace(array("\r\n", "\r", "\n"), "", $record[2]);
+          $element[$obj->objectId]["use_prod_srvc"] = filter_var($record[3], FILTER_VALIDATE_BOOLEAN);
+          $element[$obj->objectId]["use_prod_srvc_desc"] = str_replace(array("\r\n", "\r", "\n"), "", $record[4]);
+          $element[$obj->objectId]["use_org_opt"] = filter_var($record[5], FILTER_VALIDATE_BOOLEAN);
+          $element[$obj->objectId]["use_org_opt_desc"] = str_replace(array("\r\n", "\r", "\n"), "", $record[6]);
+          $element[$obj->objectId]["use_research"] = filter_var($record[7], FILTER_VALIDATE_BOOLEAN);
+          $element[$obj->objectId]["use_research_desc"] = str_replace(array("\r\n", "\r", "\n"), "", $record[8]);
+          $element[$obj->objectId]["use_other"] = filter_var($record[9], FILTER_VALIDATE_BOOLEAN);
+          $element[$obj->objectId]["use_other_desc"] = str_replace(array("\r\n", "\r", "\n"), "", $record[10]);
+
+          $data_use_type = $obj->data_use_type;
+          if ($obj->industry_id == "Agriculture") {
+            if (!in_array("Agriculture", $obj->data_use_type)) {
+              array_push($data_use_type, "Agriculture");
+            }
+          }
+          if ($obj->industry_id == "Geospatial/mapping") {
+            if (!in_array("Geospatial/mapping", $obj->data_use_type)) {
+              array_push($data_use_type, "Geospatial/mapping");
+            }
+          }
+          if ($obj->industry_id == "Weather") {
+            if (!in_array("Weather", $obj->data_use_type)) {
+              array_push($data_use_type, "Weather");
+            }
+          }
+          $element[$obj->objectId]["data_use_type"] = $data_use_type;
+
+      }
+    }
+  }
+
+  // updating the server
+  foreach ($element as $key=>$value){
+    $parse = new ParseObject('org_profile');
+    $parse->__set('objectId', $key);    
+    $parse->__set('use_advocacy', $value["use_advocacy"]);
+    $parse->__set('use_advocacy_desc', $value["use_advocacy_desc"]);
+    $parse->__set('use_prod_srvc', $value["use_prod_srvc"]);
+    $parse->__set('use_prod_srvc_desc', $value["use_prod_srvc_desc"]);
+    $parse->__set('use_org_opt', $value["use_org_opt"]);
+    $parse->__set('use_org_opt_desc', $value["use_org_opt_desc"]);
+    $parse->__set('use_research', $value["use_research"]);
+    $parse->__set('use_research_desc', $value["use_research_desc"]);
+    $parse->__set('use_other', $value["use_other"]);
+    $parse->__set('use_other_desc', $value["use_other_desc"]);
+    $parse->__set('data_use_type', $value["data_use_type"]);
+    $request = $parse->update($key);
+    
+    usleep(200);
+  }
+  return "org_profile Success. ";
+}
+
+function flatfile_update($record){
+
+  $query = new ParseQuery("arcgis_flatfile");
+  $query->whereEqualTo("profile_id", $record[0]);
+  $query->setLimit(100);
+  $results = $query->find();
+
+  $element = array(); // for updating
+  $new_element = array(); // for new entry for data_type
+  $i=0;
+  $data_add_flag = false;
+
+  foreach ($results as $object){
+    if (empty($object)){
+        return "Not exist";
+    } else {   
+      foreach($object as $obj){
+
+          $data_use_type =array();
+          $element[$obj->objectId]["use_advocacy"] = filter_var($record[1], FILTER_VALIDATE_BOOLEAN);
+          $element[$obj->objectId]["use_advocacy_desc"] = str_replace(array("\r\n", "\r", "\n"), "", $record[2]);
+          $element[$obj->objectId]["use_prod_srvc"] = filter_var($record[3], FILTER_VALIDATE_BOOLEAN);
+          $element[$obj->objectId]["use_prod_srvc_desc"] = str_replace(array("\r\n", "\r", "\n"), "", $record[4]);
+          $element[$obj->objectId]["use_org_opt"] = filter_var($record[5], FILTER_VALIDATE_BOOLEAN);
+          $element[$obj->objectId]["use_org_opt_desc"] = str_replace(array("\r\n", "\r", "\n"), "", $record[6]);
+          $element[$obj->objectId]["use_research"] = filter_var($record[7], FILTER_VALIDATE_BOOLEAN);
+          $element[$obj->objectId]["use_research_desc"] = str_replace(array("\r\n", "\r", "\n"), "", $record[8]);
+          $element[$obj->objectId]["use_other"] = filter_var($record[9], FILTER_VALIDATE_BOOLEAN);
+          $element[$obj->objectId]["use_other_desc"] = str_replace(array("\r\n", "\r", "\n"), "", $record[10]);
+
+          $data_use_type = $obj->data_use_type;
+          $new_data_type = ""; 
+          if ($obj->industry_id == "Agriculture") {
+            if (!in_array("Agriculture", $obj->data_use_type)) {
+              array_push($data_use_type, "Agriculture");
+              $data_add_flag = true;
+              $new_data_type = "Agriculture";
+            }
+          }
+          if ($obj->industry_id == "Geospatial/mapping") {
+            if (!in_array("Geospatial/mapping", $obj->data_use_type)) {
+              array_push($data_use_type, "Geospatial/mapping");
+              $data_add_flag = true;
+              $new_data_type = "Geospatial/mapping";
+            }
+          }
+          if ($obj->industry_id == "Weather") {
+            if (!in_array("Weather", $obj->data_use_type)) {
+              array_push($data_use_type, "Weather");
+              $data_add_flag = true;
+              $new_data_type = "Weather";
+            }
+          }
+          $element[$obj->objectId]["data_use_type"] = $data_use_type;
+
+          // Copyting information for a new entry
+          if (empty($new_element) && $data_add_flag == true){
+            $new_element['profile_id'] = $obj->profile_id;
+            $new_element['use_advocacy'] = filter_var($record[1], FILTER_VALIDATE_BOOLEAN);
+            $new_element['use_advocacy_desc'] = str_replace(array("\r\n", "\r", "\n"), "", $record[2]);
+            $new_element['use_prod_srvc'] = filter_var($record[3], FILTER_VALIDATE_BOOLEAN);
+            $new_element['use_prod_srvc_desc'] = str_replace(array("\r\n", "\r", "\n"), "", $record[4]);
+            $new_element['use_org_opt'] = filter_var($record[5], FILTER_VALIDATE_BOOLEAN);
+            $new_element['use_org_opt_desc'] = str_replace(array("\r\n", "\r", "\n"), "", $record[6]);
+            $new_element['use_research'] = filter_var($record[7], FILTER_VALIDATE_BOOLEAN);
+            $new_element['use_research_desc'] = str_replace(array("\r\n", "\r", "\n"), "", $record[8]);
+            $new_element['use_other'] = filter_var($record[9], FILTER_VALIDATE_BOOLEAN);
+            $new_element['use_other_desc'] = str_replace(array("\r\n", "\r", "\n"), "", $record[10]);
+            $new_element['data_use_type'] = $data_use_type;
+            $new_element['org_description'] = $obj->org_description;
+            $new_element['org_additional'] = $obj->org_additional;
+            $new_element['org_profile_status'] = $obj->org_profile_status;
+            $new_element['data_src_country_name'] = $obj->data_src_country_name;
+            $new_element['org_hq_city'] = $obj->org_hq_city;
+            $new_element['org_type_other'] = $obj->org_type_other;
+            $new_element['org_name'] = $obj->org_name;
+            $new_element['data_src_country_locode'] = $obj->data_src_country_locode;
+            $new_element['latitude'] = $obj->latitude;
+            $new_element['org_hq_st_prov'] = $obj->org_hq_st_prov;
+            $new_element['org_hq_country_income'] = $obj->org_hq_country_income;
+            $new_element['org_hq_country_income_code'] = $obj->org_hq_country_income_code;
+            $new_element['org_profile_year'] = $obj->org_profile_year;
+            $new_element['longitude'] = $obj->longitude;
+            $new_element['data_type'] = $new_data_type;
+            $new_element['org_profile_category'] = $obj->org_profile_category;
+            $new_element['org_greatest_impact'] = $obj->org_greatest_impact;
+            $new_element['org_greatest_impact_detail'] = $obj->org_greatest_impact_detail;
+            // $new_element['data_country_count'] = $obj->data_country_count;
+            $new_element['org_profile_src'] = $obj->org_profile_src;
+            $new_element['org_hq_country_locode'] = $obj->org_hq_country_locode;
+            $new_element['org_hq_country_region'] = $obj->org_hq_country_region;
+            $wb_region = addWbRegions($obj->org_hq_country_locode);
+            $new_element['org_hq_country_region_code'] = $wb_region['org_hq_country_region_code'];
+            $new_element['org_url'] = $obj->org_url;
+            $new_element['org_type'] = $obj->org_type;
+            $new_element['no_org_url'] = $obj->no_org_url;
+            $new_element['org_year_founded'] = $obj->org_year_founded;
+            $new_element['org_hq_country'] = $obj->org_hq_country;
+            $new_element['industry_id'] = $obj->industry_id;
+            $new_element['row_type'] = "data_use";
+            $new_element['org_size_id'] = $obj->org_size_id;
+          }
+      }
+
+    }
+  }
+
+  // updating the server
+  foreach ($element as $key=>$value){
+    $parse = new ParseObject('arcgis_flatfile');
+    $parse->__set('objectId', $key);    
+    $parse->__set('use_advocacy', $value["use_advocacy"]);
+    $parse->__set('use_advocacy_desc', $value["use_advocacy_desc"]);
+    $parse->__set('use_prod_srvc', $value["use_prod_srvc"]);
+    $parse->__set('use_prod_srvc_desc', $value["use_prod_srvc_desc"]);
+    $parse->__set('use_org_opt', $value["use_org_opt"]);
+    $parse->__set('use_org_opt_desc', $value["use_org_opt_desc"]);
+    $parse->__set('use_research', $value["use_research"]);
+    $parse->__set('use_research_desc', $value["use_research_desc"]);
+    $parse->__set('use_other', $value["use_other"]);
+    $parse->__set('use_other_desc', $value["use_other_desc"]);
+    $parse->__set('data_use_type', $value["data_use_type"]);
+    $request = $parse->update($key);
+    
+    usleep(200);
+  }
+  if ($data_add_flag == true){
+    $parse2 = new ParseObject('arcgis_flatfile');
+    $parse2->__set('use_advocacy', $new_element["use_advocacy"]);
+    $parse2->__set('use_advocacy_desc', $new_element["use_advocacy_desc"]);
+    $parse2->__set('use_prod_srvc', $new_element["use_prod_srvc"]);
+    $parse2->__set('use_prod_srvc_desc', $new_element["use_prod_srvc_desc"]);
+    $parse2->__set('use_org_opt', $new_element["use_org_opt"]);
+    $parse2->__set('use_org_opt_desc', $new_element["use_org_opt_desc"]);
+    $parse2->__set('use_research', $new_element["use_research"]);
+    $parse2->__set('use_research_desc', $new_element["use_research_desc"]);
+    $parse2->__set('use_other', $new_element["use_other"]);
+    $parse2->__set('use_other_desc', $new_element["use_other_desc"]);
+    $parse2->__set('data_use_type', $new_element["data_use_type"]);
+    $parse2->__set('profile_id', $new_element['profile_id']);
+    $parse2->__set('org_description', $new_element['org_description']);
+    $parse2->__set('org_additional', $new_element['org_additional']);
+    $parse2->__set('org_profile_status', $new_element['org_profile_status']);
+    $parse2->__set('data_src_country_name', $new_element['data_src_country_name']);
+    $parse2->__set('org_hq_city', $new_element['org_hq_city']);
+    $parse2->__set('org_type_other', $new_element['org_type_other']);
+    $parse2->__set('org_name', $new_element['org_name']);
+    $parse2->__set('data_src_country_locode', $new_element['data_src_country_locode']);
+    $parse2->__set('latitude', $new_element['latitude']);
+    $parse2->__set('org_hq_st_prov', $new_element['org_hq_st_prov']);
+    $parse2->__set('org_hq_country_income', $new_element['org_hq_country_income']);
+    $parse2->__set('org_hq_country_income_code', $new_element['org_hq_country_income_code']);
+    $parse2->__set('org_profile_year', $new_element['org_profile_year']);
+    // $parse2->__set('industry_other', $new_element['industry_other']);
+    $parse2->__set('longitude', $new_element['longitude']);
+    $parse2->__set('data_type', $new_element['data_type']);
+    $parse2->__set('org_profile_category', $new_element['org_profile_category']);
+    $parse2->__set('org_greatest_impact', $new_element['org_greatest_impact']);
+    $parse2->__set('org_greatest_impact_detail', $new_element['org_greatest_impact_detail']);
+    // $parse2->__set('data_country_count', $new_element['data_country_count']);
+    $parse2->__set('org_profile_src', $new_element['org_profile_src']);
+    $parse2->__set('org_hq_country_locode', $new_element['org_hq_country_locode']);
+    $parse2->__set('org_hq_country_region', $new_element['org_hq_country_region']);
+    $parse2->__set('org_hq_country_region_code', $new_element['org_hq_country_region_code']);
+    $parse2->__set('org_url', $new_element['org_url']);
+    $parse2->__set('org_type', $new_element['org_type']);
+    $parse2->__set('no_org_url', $new_element['no_org_url']);
+    $parse2->__set('org_year_founded', $new_element['org_year_founded']);
+    $parse2->__set('org_hq_country', $new_element['org_hq_country']);
+    $parse2->__set('industry_id', $new_element['industry_id']);
+    $parse2->__set('row_type', $new_element['row_type']);
+    $parse2->__set('org_size_id', $new_element['org_size_id']);
+    $request2 = $parse2->save();
+    usleep(200);
+    print ("a new data type added. ");
+  }
+  return "Flatfile Success.";
+}
+
+
+
 
 
 function flatfile_update_db($missing_column, $condition, $loop){
