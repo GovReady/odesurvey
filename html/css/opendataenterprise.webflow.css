@@ -869,7 +869,7 @@ a {
   padding-top: 0px;
   padding-bottom: 0px;
   color: #000;
-  font-size: 21px;
+  font-size: 25px;
   line-height: 35px;
   font-weight: 300;
   text-align: center;
@@ -1204,12 +1204,18 @@ a {
   margin-bottom: 10px;
   padding-bottom: 20px;
   color: #2ea0e6;
-  font-size: 37px;
+  font-size: 36px;
   font-weight: 300;
 }
 
 .mission-title.our-mission.sponsor {
   margin-top: 20px;
+}
+
+.mission-title.our-mission.rt-action {
+  color: #000;
+  font-size: 25px;
+  line-height: 35px;
 }
 
 .light {
@@ -3577,6 +3583,22 @@ a {
 .break {
   width: 100%;
   height: 25px;
+}
+
+.rt-header-text {
+  color: #000;
+  font-size: 25px;
+  font-weight: 300;
+  text-decoration: underline;
+}
+
+.rt-bold {
+  color: #2ea0e6;
+  font-size: 36px;
+}
+
+.black-link {
+  color: #000;
 }
 
 html.w-mod-js *[data-ix="display-none-on-load"] {
