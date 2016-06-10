@@ -3233,24 +3233,26 @@ a {
 }
 
 .el-salvador {
+  display: block;
+  max-width: 100%;
   margin-top: 0px;
-  padding-top: 5px;
+  padding-top: 20px;
 }
 
 .ennovent {
   margin-top: 0px;
   margin-bottom: 10px;
-  padding-top: 20px;
+  padding-top: 30px;
 }
 
 .expert-grup {
   margin-top: 5px;
-  padding-top: 15px;
+  padding-top: 25px;
 }
 
 .geocensos {
-  margin-top: 5px;
-  padding-top: 10px;
+  margin-top: 0px;
+  padding-top: 25px;
 }
 
 .open-data-500 {
@@ -3368,8 +3370,9 @@ a {
 }
 
 .insight-centre {
-  margin-top: 20px;
+  margin-top: 0px;
   margin-bottom: 0px;
+  padding-top: 5px;
 }
 
 .open-institute {
@@ -3381,7 +3384,8 @@ a {
 }
 
 .nitec {
-  margin-top: 20px;
+  margin-top: 0px;
+  padding-top: 5px;
 }
 
 .open-city-foundation {
