@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- This site was created in Webflow. http://www.webflow.com-->
-<!-- Last Published: Fri Jun 10 2016 06:31:05 GMT+0000 (UTC) -->
+<!-- Last Published: Tue Jun 21 2016 22:32:13 GMT+0000 (UTC) -->
 <html data-wf-site="54c24a0650f1708e4c8232a0" data-wf-page="54c429852ee043ce313a9a48">
 <head>
   <meta charset="utf-8">
@@ -209,6 +209,10 @@
     });  
       $('.custom-button-3').on('click', function (evt) {
       $('.target-tab-link-3').triggerHandler('click');
+      evt.preventDefault();
+    });  
+      $('.custom-button-4').on('click', function (evt) {
+      $('.target-tab-link-4').triggerHandler('click');
       evt.preventDefault();
     });
   </script>

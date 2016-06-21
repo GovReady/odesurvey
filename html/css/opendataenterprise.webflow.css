@@ -211,10 +211,15 @@ a {
 
 .button.close.custom-button-3 {
   display: block;
+  margin-bottom: 40px;
 }
 
 .button.close.custom-button {
   cursor: pointer;
+}
+
+.button.close.custom-button-4 {
+  margin-bottom: 40px;
 }
 
 .button.bottom-close {
@@ -3449,7 +3454,7 @@ a {
 }
 
 .data-61 {
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
 ._2016 {
@@ -3474,6 +3479,10 @@ a {
 
 .rt-link-block:hover {
   color: #2ea0e6;
+}
+
+.tabs-content-3 {
+  margin-bottom: 40px;
 }
 
 .target-tab-link {
@@ -3603,6 +3612,22 @@ a {
 
 .black-link {
   color: #000;
+}
+
+.target-tab-link-4 {
+  background-color: transparent;
+}
+
+.target-tab-link-4.w--current {
+  background-color: transparent;
+}
+
+.previous-events {
+  margin-bottom: -20px;
+}
+
+.ctic {
+  margin-top: 15px;
 }
 
 html.w-mod-js *[data-ix="display-none-on-load"] {
