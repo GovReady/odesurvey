@@ -267,6 +267,7 @@ function getCountries(idSuffixNum) {
 <option value="KY">Cayman Islands</option> \
 <option value="CF">Central African Republic</option> \
 <option value="TD">Chad</option> \
+<option value="U1">Channel Islands</option> \
 <option value="CL">Chile</option> \
 <option value="CN">China</option> \
 <option value="CX">Christmas Island</option> \
@@ -343,6 +344,7 @@ function getCountries(idSuffixNum) {
 <option value="KI">Kiribati</option> \
 <option value="KP">Korea, Dem. Rep.</option> \
 <option value="KR">Korea, Rep.</option> \
+<option value="U2">Kosovo</option> \
 <option value="KW">Kuwait</option> \
 <option value="KG">Kyrgyz Republic</option> \
 <option value="LA">Lao PDR</option> \
@@ -434,6 +436,7 @@ function getCountries(idSuffixNum) {
 <option value="SS">South Sudan</option> \
 <option value="ES">Spain</option> \
 <option value="LK">Sri Lanka</option> \
+<option value="U6">St. Vincent and the Grenadines</option> \
 <option value="SD">Sudan</option> \
 <option value="SR">Suriname</option> \
 <option value="SJ">Svalbard and Jan Mayen</option> \
@@ -466,6 +469,7 @@ function getCountries(idSuffixNum) {
 <option value="VU">Vanuatu</option> \
 <option value="VE">Venezuela, RB</option> \
 <option value="VN">Vietnam</option> \
+<option value="U7">West Bank and Gaza</option> \
 <option value="VG">Virgin Islands, British</option> \
 <option value="VI">Virgin Islands (U.S.)</option> \
 <option value="WF">Wallis and Futuna</option> \
