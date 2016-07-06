@@ -499,8 +499,9 @@ a {
 
 .section.contact-us {
   margin-top: 0px;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  margin-bottom: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 .section.first {
@@ -889,7 +890,7 @@ a {
 }
 
 .section-subtitle.mission-paragraph.larger {
-  color: #555;
+  color: #020b4f;
   font-size: 21px;
   line-height: 33px;
   text-align: center;
@@ -908,8 +909,8 @@ a {
 }
 
 .section-subtitle.inquiries {
-  margin-top: 0px;
-  margin-bottom: 100px;
+  margin-top: 40px;
+  margin-bottom: 40px;
   padding-top: 0px;
   padding-bottom: 0px;
   font-size: 22px;
@@ -1205,9 +1206,9 @@ a {
 }
 
 .mission-title.our-mission {
-  margin-top: 20px;
+  margin-top: 0px;
   margin-bottom: 10px;
-  padding-bottom: 20px;
+  padding-bottom: 0px;
   color: #2ea0e6;
   font-size: 36px;
   font-weight: 300;
@@ -3628,6 +3629,16 @@ a {
 
 .ctic {
   margin-top: 20px;
+}
+
+.researcher-link {
+  color: #2fa767;
+  font-weight: 400;
+}
+
+.admin-link {
+  color: #2fa767;
+  font-weight: 400;
 }
 
 html.w-mod-js *[data-ix="display-none-on-load"] {
