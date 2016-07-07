@@ -488,8 +488,8 @@ a {
 .section.team-section {
   margin-top: 0px;
   margin-bottom: 0px;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: 20px;
+  padding-bottom: 30px;
 }
 
 .section.team {
@@ -566,7 +566,7 @@ a {
 }
 
 .section.email-form {
-  padding-bottom: 60px;
+  padding-bottom: 0px;
   border-top: 1px solid #ccc;
   border-bottom: 1px none #ccc;
 }
@@ -706,7 +706,7 @@ a {
   right: 0px;
   bottom: 0px;
   margin-top: 0px;
-  padding-top: 5%;
+  padding-top: 65px;
   color: #020b4f;
 }
 
@@ -795,6 +795,7 @@ a {
   color: #fff;
   font-size: 35px;
   line-height: 38px;
+  font-weight: 300;
 }
 
 .section-title.about {
@@ -875,8 +876,8 @@ a {
   padding-top: 0px;
   padding-bottom: 0px;
   color: #000;
-  font-size: 25px;
-  line-height: 35px;
+  font-size: 20px;
+  line-height: 30px;
   font-weight: 300;
   text-align: center;
 }
@@ -890,14 +891,24 @@ a {
 }
 
 .section-subtitle.mission-paragraph.larger {
+  margin-top: 10px;
+  margin-bottom: 50px;
   color: #020b4f;
-  font-size: 21px;
-  line-height: 33px;
+  font-size: 20px;
+  line-height: 30px;
   text-align: center;
+}
+
+.section-subtitle.mission-paragraph.larger.weekly-10-text {
+  margin-bottom: 20px;
 }
 
 .section-subtitle.mission-paragraph.previous-roundtables {
   margin-bottom: 10px;
+}
+
+.section-subtitle.mission-paragraph.federal-agency-descrip {
+  margin-bottom: 15px;
 }
 
 .section-subtitle.thank-you-subscribing {
@@ -916,6 +927,13 @@ a {
   font-size: 22px;
   line-height: 40px;
   text-indent: 0px;
+}
+
+.section-subtitle.inquiries.general-inquiries {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-size: 20px;
+  line-height: 30px;
 }
 
 .section-subtitle.setion-subtitle-for-pc {
@@ -1206,8 +1224,8 @@ a {
 }
 
 .mission-title.our-mission {
-  margin-top: 0px;
-  margin-bottom: 10px;
+  margin-top: 20px;
+  margin-bottom: 30px;
   padding-bottom: 0px;
   color: #2ea0e6;
   font-size: 36px;
@@ -1215,13 +1233,38 @@ a {
 }
 
 .mission-title.our-mission.sponsor {
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .mission-title.our-mission.rt-action {
   color: #000;
   font-size: 25px;
   line-height: 35px;
+}
+
+.mission-title.our-mission.federal-agency-header {
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.mission-title.our-mission.who-we-are {
+  margin-top: 20px;
+}
+
+.mission-title.our-mission.advisors {
+  margin-top: 0px;
+  padding-top: 1px;
+}
+
+.mission-title.our-mission.career-header {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.mission-title.our-mission.team-header {
+  margin-top: 20px;
+  text-align: center;
+  text-transform: capitalize;
 }
 
 .light {
@@ -2154,7 +2197,7 @@ a {
   bottom: 0px;
   display: block;
   margin-top: 0px;
-  padding-top: 5%;
+  padding-top: 7%;
   padding-right: 0px;
   padding-left: 0px;
   color: #020b4f;
@@ -2169,7 +2212,7 @@ a {
 
 .sign-up-text {
   padding-top: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 0px;
 }
 
 .partners {
@@ -2719,10 +2762,11 @@ a {
 }
 
 .upcoming-events {
+  margin-top: 20px;
   margin-bottom: 30px;
   padding-bottom: 20px;
   color: #000;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 35px;
   font-weight: 300;
   text-align: center;
@@ -2816,8 +2860,9 @@ a {
   margin-left: 0px;
   padding-top: 0px;
   color: #000;
-  font-size: 18px;
+  font-size: 15px;
   line-height: 25px;
+  font-style: italic;
   font-weight: 300;
   text-align: center;
 }
@@ -3679,6 +3724,9 @@ html.w-mod-js *[data-ix="display-none-on-load"] {
   .hero-heading.contact-us.contact-us-text {
     margin-bottom: 60px;
   }
+  .hero-heading.contact-us.what-we-do-text {
+    text-align: center;
+  }
   .hero-subhead {
     margin-bottom: 0px;
     padding-bottom: 0px;
@@ -3932,7 +3980,7 @@ html.w-mod-js *[data-ix="display-none-on-load"] {
   }
   .hero-heading.contact-us.what-we-do-text {
     margin-top: 0px;
-    padding-top: 16%;
+    padding-top: 10%;
   }
   .hero-heading.map-page {
     margin-right: 0px;
