@@ -59,7 +59,7 @@ textdomain($domain);
 <br />
 
     <div class="col-md-12" role="orgInfo-titlebar"  id="role-orgInfo-titlebar">
-      <div class="section-title"><h3>1. Organizational Information</h3></div>
+      <div class="section-title"><h3>1. Organizational Info</h3></div>
     </div>
 
     <div class="col-md-12" role="orgInfo"  id="role-orgInfo">

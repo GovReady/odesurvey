@@ -259,7 +259,6 @@ $app->get('/oops/', function () use ($app) {
 	$app->view()->setData(array('content' => $content ));
 	$app->render('survey/tp_oops.php');
 });
-
 // ************
 $app->get('/start/', function () use ($app) {
 	
@@ -376,16 +375,24 @@ $app->get('/:surveyId/form', function ($surveyId) use ($app) {
 
 	$app->log->debug(date_format(date_create(), 'Y-m-d H:i:s')."; DEBUG; "."new survey created, ...");
 	
-	$parse = new parseRestClient(array(
+	/*$parse = new parseRestClient(array(
 		'appid' => PARSE_APPLICATION_ID,
 		'restkey' => PARSE_API_KEY
-	));
+	));*/
 
 	// bring up new blank survey
 	$content['surveyId'] = $surveyId;
 	$content['surveyName'] = "opendata";
 	$content['title'] = "Open Data Enterprise Survey";
 	$content['language'] = "en_US";
+	print "db connection working successfully.";
+    
+    $sql="select * from org_surveys";
+    $db = connect_db();
+	$stmt = $db->query($sql); 
+	$users = $stmt->fetchAll(PDO::FETCH_OBJ);
+	$db = null;
+	echo json_encode($users);
 
 	$app->view()->setData(array('content' => $content ));
 	$app->render('survey/tp_survey.php');
@@ -397,16 +404,24 @@ $app->get('/:surveyId/form/:lang/', function ($surveyId, $lang) use ($app) {
 
 	$app->log->debug(date_format(date_create(), 'Y-m-d H:i:s')."; DEBUG; "."new survey created, ...");
 	
-	$parse = new parseRestClient(array(
+	/*$parse = new parseRestClient(array(
 		'appid' => PARSE_APPLICATION_ID,
 		'restkey' => PARSE_API_KEY
-	));
+	));*/
 
 	// bring up new blank survey
 	$content['surveyId'] = $surveyId;
 	$content['surveyName'] = "opendata";
 	$content['title'] = "Open Data Enterprise Survey";
 	$content['language'] = "$lang";
+	print "db connection working successfully.";
+    
+    $sql="select * from org_surveys";
+    $db = connect_db();
+	$stmt = $db->query($sql); 
+	$users = $stmt->fetchAll(PDO::FETCH_OBJ);
+	$db = null;
+	echo json_encode($users);
 
 	$app->view()->setData(array('content' => $content ));
 	// $app->render('survey/tp_survey_es.php');
@@ -422,16 +437,24 @@ $app->get('/:surveyId/form/internal/add/', function ($surveyId) use ($app) {
 
 	$app->log->debug(date_format(date_create(), 'Y-m-d H:i:s')."; DEBUG; "."new internal survey created, ...");
 	
-	$parse = new parseRestClient(array(
+	/*$parse = new parseRestClient(array(
 		'appid' => PARSE_APPLICATION_ID,
 		'restkey' => PARSE_API_KEY
-	));
+	));*/
 
 	// bring up new blank survey
 	$content['surveyId'] = $surveyId;
 	$content['surveyName'] = "opendata";
 	$content['title'] = "Open Data Enterprise Survey (Internal)";
 	$content['language'] = "en_US";
+	print "db connection working successfully.";
+    
+    $sql="select * from org_surveys";
+    $db = connect_db();
+	$stmt = $db->query($sql); 
+	$users = $stmt->fetchAll(PDO::FETCH_OBJ);
+	$db = null;
+	echo json_encode($users);
 
 	$app->view()->setData(array('content' => $content ));
 	$app->render('survey/tp_survey_less_req.php');
@@ -442,11 +465,11 @@ $app->get('/:surveyId/form/internal/add/', function ($surveyId) use ($app) {
 // ************
 $app->post('/2du/:surveyId/', function ($surveyId) use ($app) {
 
-	$parse = new parseRestClient(array(
+	/*$parse = new parseRestClient(array(
 		'appid' => PARSE_APPLICATION_ID,
 		'restkey' => PARSE_API_KEY
-	));
-
+	));*/
+     $db = connect_db();
 	// Access post variables from submitted survey form
 	$allPostVars = $app->request->post();
 	// echo "<pre>"; print_r($allPostVars); echo "</pre>";
@@ -460,6 +483,614 @@ $app->post('/2du/:surveyId/', function ($surveyId) use ($app) {
     $allPostVars["latitude"] = floatval($allPostVars["latitude"]);
     $allPostVars["longitude"] = floatval($allPostVars["longitude"]);
 
+
+
+
+    // org_country_info
+	$params = array("org_hq_country","org_hq_country_locode");
+	$org_country_info = array();
+	
+	foreach ($params as $param) {
+
+    	if (!isset($allPostVars[$param])) { $allPostVars[$param] = null; }
+    	$org_country_info[$param] = $allPostVars[$param];
+    }
+    $country_locade = $org_country_info['org_hq_country_locode'];
+    echo "......";
+    echo $country_locade;
+    try{
+    	$db = connect_db();
+    } catch(PDOException $e) {
+        echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+    }
+
+	$wb_region = addWbRegions($org_country_info['org_hq_country_locode']);
+    $org_country_info['org_hq_country_region'] = $wb_region['org_hq_country_region'];
+    $attr1 = $org_country_info['org_hq_country_region'];
+    $org_country_info['org_hq_country_region_code'] = $wb_region['org_hq_country_region_code'];
+    $attr2	= $org_country_info['org_hq_country_region_code'];
+    $org_country_info['org_hq_country_income'] = $wb_region['org_hq_country_income'];
+    $attr3	= $org_country_info['org_hq_country_income'];
+    $org_country_info['org_hq_country_income_code'] = $wb_region['org_hq_country_income_code'];
+    $attr4	= $org_country_info['org_hq_country_region'];
+    $attr5 = $org_country_info['org_hq_country_locode'];
+    $attr6 = $org_country_info['org_hq_country'];
+    echo "the hq country";
+    echo $attr6;
+   
+    $check_country_query = "SELECT * FROM org_country_info where org_hq_country=?";
+    try {
+    	$stmt = $db->prepare($check_country_query);
+    	$stmt->bindParam(1, $attr6);
+    	$stmt->execute();
+    	$row = $stmt->fetch(PDO::FETCH_ASSOC);
+    	if(! $row){
+    		echo "not found----------->1";
+    }else{
+    		echo "found-------------->1";
+    		$newCountryId = $row['country_id'];
+    	}
+    }catch(PDOException $e) {
+        echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+    }
+
+  	$locationInfoQuery = "INSERT INTO org_locations_info(`org_hq_city`, `org_hq_city_locode`,`org_hq_st_prov`,`country_id`) VALUES 
+ (:org_hq_city, :org_hq_city_locode, :org_hq_st_prov, :country_id)";
+
+    	/**/
+       //org_locations_info
+    	//error was the name of the variable was $param and in the below foreach loop, $params as param so array name is $params.
+    $params =  array("org_hq_city", "org_hq_city_locode", "org_hq_st_prov");
+    $org_locations_info = array();
+    
+    foreach ($params as $param) {
+    	if (!isset($allPostVars[$param])) {
+    	 $allPostVars[$param] = null; 
+    	}
+    //ar_dump($org_locations_info);
+    	$org_locations_info[$param] = $allPostVars[$param];
+    }
+   /* echo "hey........//..//..";
+    var_dump($org_locations_info);
+//getting user inserted data into variables. */
+  $hq_city = $org_locations_info["org_hq_city"];
+   $hq_city_locode = $org_locations_info["org_hq_city_locode"];
+   $hq_st_prov = $org_locations_info["org_hq_st_prov"];
+
+    /*$loc_obj_id	=	$org_locations_info['object_id'];
+    $org_locations_info['country_id'] = $country_id;*/ //primary key
+
+    /*print $country_id;*/
+//puting PDO statements inside try catch block. Using the same $db connection throughout the function. 
+ try {
+ 	$stmt1 = $db->prepare($locationInfoQuery);
+ $stmt1->bindParam("country_id",$newCountryId);
+ $stmt1->bindParam("org_hq_city", $hq_city);
+ $stmt1->bindParam("org_hq_city_locode", $hq_city_locode);
+ $stmt1->bindParam("org_hq_st_prov", $hq_st_prov);
+ $stmt1->execute();
+$lastObjectId = $db->lastInsertId();
+
+echo $lastObjectId;
+    
+ }catch(PDOException $e) {
+        echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+    }
+//values inserted successfully into two tables: country info and location info tables with foreign key constraint. 
+
+// similarly do for other tables. lastCountryId indicates id of the last inserted value for country which will be used as
+// foreign key. lastObjectId is last object id. $locationInfoQuery indicates query to insert into location info table. 
+// Following the same pattern to insert into all tables. 
+   $survey_name = "opendata";
+
+    $survey_query="INSERT INTO org_surveys(`object_id`,
+    `survey_name`)VALUES (:object_id,:survey_name)";
+     $Org_prof_query =	"INSERT INTO org_profiles(`industry_id`,
+	`industry_other`,
+	`latitude`,
+	`longitude`,
+	`no_org_url`,
+	`org_additional`,
+	`org_description`,
+	`org_greatest_impact`,
+	`org_greatest_impact_detail`,
+	`org_name`,
+	`org_open_corporates_id`,
+	`org_profile_category`,
+	`org_profile_src`,
+	`org_profile_status`,
+	`org_profile_year`,
+	`org_size_id`,
+	`org_type`,
+	`org_type_other`,
+	`org_url`,
+	`org_year_founded`,
+	`profile_id`,
+	`org_loc_id`
+
+	)	values(
+	:industry_id,
+	:industry_other,
+	:latitude,
+	:longitude,
+	:no_org_url,
+	:org_additional,
+	:org_description,
+	:org_greatest_impact,
+	:org_greatest_impact_detail,
+	:org_name,
+	:org_open_corporates_id,
+	:org_profile_category,
+	:org_profile_src,
+	:org_profile_status,
+	:org_profile_year,
+	:org_size_id,
+	:org_type,
+	:org_type_other,
+	:org_url,
+	:org_year_founded,
+	:profile_id,
+	:org_loc_id
+)";
+try {
+        $db = connect_db();
+        $stmt = $db->prepare($survey_query);
+        $stmt->bindParam("object_id",$surveyId);
+        $stmt->bindParam("survey_name",$survey_name);
+        $stmt->execute();
+    	$lastsurvey_id=$db->lastInsertId();
+    } catch(PDOException $e) {
+        echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+    }   
+
+     $params = array("industry_id",
+	"industry_other",
+	"latitude",
+	"longitude",
+	"no_org_url",
+	"org_additional",
+	"org_description",
+	"org_greatest_impact",
+	"org_greatest_impact_detail",
+	"org_name",
+	"org_open_corporates_id",
+	"org_profile_category",
+	"org_profile_src",
+	"org_profile_status",
+	"org_profile_year",
+	"org_size_id",
+	"org_type",
+	"org_type_other",
+	"org_url",
+	"org_year_founded","data_use_type");
+    $org_obj_prof = array();
+	foreach ($params as $param) {
+    	if (!isset($allPostVars[$param])) { $allPostVars[$param] = null; }
+    	$org_obj_prof[$param] = $allPostVars[$param];
+    }
+
+    /*$org_obj_prof['profile_id'] = $surveyId;
+    $profileid = $org_obj_prof['profile_id'];
+    print $profileid;*/
+    $industry_id = $org_obj_prof['industry_id'];
+    print $industry_id;
+    $industry_other = $org_obj_prof['industry_other'];
+    $latitude = $org_obj_prof['latitude'];
+    $longitude = $org_obj_prof['longitude'];
+    $no_org_url = $org_obj_prof['no_org_url'];
+    $org_additional = $org_obj_prof['org_additional'];
+    $org_description = $org_obj_prof['org_description'];
+    $org_greatest_impact = $org_obj_prof['org_greatest_impact'];
+    $org_greatest_impact_detail = $org_obj_prof['org_greatest_impact_detail'];
+    $org_name = $org_obj_prof['org_name'];
+    $org_open_corporates_id = $org_obj_prof['org_open_corporates_id'];
+    $org_profile_category = $org_obj_prof['org_profile_category'];
+    $org_profile_src = $org_obj_prof['org_profile_src'];
+    $org_profile_status = $org_obj_prof['org_profile_status'];
+    $org_profile_year = $org_obj_prof['org_profile_year'];
+    $org_size_id = $org_obj_prof['org_size_id'];
+    $org_type = $org_obj_prof['org_type'];
+    $org_type_other = $org_obj_prof['org_type_other'];
+    $org_url = $org_obj_prof['org_url'];
+    $org_year_founded = $org_obj_prof['org_year_founded'];
+    $data_use_type = $org_obj_prof['data_use_type'];
+
+ try {
+        $db = connect_db();
+        $stmt2 = $db->prepare($Org_prof_query);
+        $stmt2->bindParam("industry_id", $industry_id);
+		$stmt2->bindParam("industry_other", $industry_other);
+		$stmt2->bindParam("latitude", $latitude);
+		$stmt2->bindParam("longitude", $longitude);
+		$stmt2->bindParam("no_org_url", $no_org_url);
+		$stmt2->bindParam("org_additional", $org_additional);
+		$stmt2->bindParam("org_description", $org_description);
+		$stmt2->bindParam("org_greatest_impact", $org_greatest_impact);
+		$stmt2->bindParam("org_greatest_impact_detail", $org_greatest_impact_detail);
+		$stmt2->bindParam("org_name", $org_name);
+		$stmt2->bindParam("org_open_corporates_id", $org_open_corporates_id);
+		$stmt2->bindParam("org_profile_category", $org_profile_category);
+		$stmt2->bindParam("org_profile_src", $org_profile_src);
+		$stmt2->bindParam("org_profile_status", $org_profile_status);
+		$stmt2->bindParam("org_profile_year", $org_profile_year);
+		$stmt2->bindParam("org_size_id", $org_size_id);
+		$stmt2->bindParam("org_type", $org_type);
+		$stmt2->bindParam("org_type_other", $org_type_other);
+		$stmt2->bindParam("org_url", $org_url);
+		$stmt2->bindParam("org_year_founded", $org_year_founded);
+		/*$stmt2->bindParam("data_use_type", $data_use_type);*/
+		$stmt2->bindParam("profile_id", $surveyId);
+		$stmt2->bindParam("org_loc_id",$lastObjectId);
+        $stmt2->execute();
+   /*//echo $user;
+        $last_id = mysql_insert_id();
+    //$db = null;
+      //echo json_encode($user); */
+    } catch(PDOException $e) {
+        echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+    }   
+    
+   /* $get_profile_id = "*/
+   /*$fetch_prof_val = "SELECT profile_id from org_profiles";
+   $sth = $dbh->prepare($fetch_prof_val);
+	$sth->execute();
+
+	$result = $sth->fetchAll(PDO::FETCH_OBJ);
+	/*var_dump($result);*/
+
+    /*$org_obj_prof['org_loc_id'] = $loc_obj_id;*/
+
+    //org_contacts
+    echo "details";
+    $params = array("survey_contact_first", "survey_contact_last", "survey_contact_title", "survey_contact_email", "survey_contact_phone");
+    $contact_details = array();
+    var_dump($contact_details);
+    // Set all parameters to received value or null
+    foreach ($params as $param) {
+    	if (!isset($allPostVars[$param])) { $allPostVars[$param] = null; }
+    	$contact_object[$param] = $allPostVars[$param];
+    }
+    $survey_contact_first = $contact_object["survey_contact_first"];
+    print "woho";
+    print $survey_contact_first;
+    $survey_contact_last = $contact_object["survey_contact_last"];
+    print $survey_contact_last;
+    $survey_contact_title = $contact_object["survey_contact_title"];
+    print $survey_contact_title;
+    $survey_contact_email = $contact_object["survey_contact_email"];
+    print $survey_contact_email;
+    $survey_contact_phone = $contact_object["survey_contact_phone"];
+    print $survey_contact_phone;
+
+    $contact_info_query = "INSERT INTO org_contacts
+	(`survey_contact_first`
+	,`survey_contact_last`,
+	`survey_contact_title`
+	,`survey_contact_email`
+	,`survey_contact_phone`,
+	`profile_id`
+	) VALUES 
+	(:survey_contact_first,
+	:survey_contact_last,
+	:survey_contact_title,
+	:survey_contact_email,
+	:survey_contact_phone,
+	:profile_id
+	)";
+    try {
+        $db = connect_db();
+        $stmt = $db->prepare($contact_info_query);
+        $stmt->bindParam("survey_contact_first",$survey_contact_first);
+		 $stmt->bindParam("survey_contact_last",$survey_contact_last); 
+		 $stmt->bindParam("survey_contact_title",$survey_contact_title);
+		  $stmt->bindParam("survey_contact_email",$survey_contact_email);
+		   $stmt->bindParam("survey_contact_phone",$survey_contact_phone);
+		   $stmt->bindParam("profile_id",$surveyId);
+        $stmt->execute();
+    } catch(PDOException $e) {
+        echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+    }   
+
+
+
+    //data_app_use
+    $params = array("use_advocacy", "use_advocacy_desc", "use_org_opt", "use_org_opt_desc", "use_other", "use_other_desc", "use_prod_srvc", "use_prod_srvc_desc","use_research","use_research_des");
+	$data_app_info = array();
+	foreach ($params as $param) {
+    	if (!isset($allPostVars[$param])) { $allPostVars[$param] = null; }
+    	$data_app_info[$param] = $allPostVars[$param];
+    }
+  //  var_dump($data_app_info);
+    $advocacy_desc = $data_app_info["use_advocacy_desc"];
+   // print "woho";
+   // print "   ";
+   // print $advocacy_desc;
+    $org_opt_desc = $data_app_info["use_org_opt_desc"];
+   // print $org_opt_desc;
+    $other_desc = $data_app_info["use_other_desc"];
+   // print $other_desc;
+    $prod_srvc_desc = $data_app_info["use_prod_srvc_desc"];
+   // print $prod_srvc_desc;
+    $research_des = $data_app_info["use_research_des"];
+   // print $research_des;
+
+
+   // var_dump($data_app_info);
+   	$params = array("use_advocacy", "use_prod_srvc", "use_org_opt", "use_research", "use_other");
+	foreach ($params as $param) {
+		if(empty($data_app_info[$param])){
+			//echo "null it is";
+			$data_app_info[$param] = "false";
+		}else {
+			//echo "not null";
+			$data_app_info[$param] = "true";
+		}
+		/*if (is_null($data_app_info[$param])) {
+			$data_app_info[$param] = false;
+		} else {
+			$data_app_info[$param] = true;
+		}*/
+	}
+	//var_dump($data_app_info);
+	$advocacy = $data_app_info["use_advocacy"];
+	$prod_srvc = $data_app_info["use_prod_srvc"];
+	$org_opt = $data_app_info["use_org_opt"];
+	$research = $data_app_info["use_research"];
+	$other = $data_app_info["use_other"];
+	//echo "hey ";
+	//echo $advocacy;
+	//var_dump($data_app_info);
+	/*$data_app_info['profile_id'] = $profileid;*/
+
+     
+       $data_info_query ="INSERT INTO data_app_info(`advocacy`, `advocacy_desc`, `org_opt`, `org_opt_desc`, `other`, `other_desc`, `prod_srvc`, `prod_srvc_desc`,`research`,`research_desc`,`profile_id`)
+    values(
+	:use_advocacy, :use_advocacy_desc, :use_org_opt, :use_org_opt_desc, :use_other, :use_other_desc, :use_prod_srvc, :use_prod_srvc_desc,:use_research,:use_research_desc,:profile_id)";
+try {
+        $db = connect_db();
+        $stmt = $db->prepare($data_info_query);
+        $stmt->bindParam("use_advocacy",$advocacy);
+		$stmt->bindParam("use_advocacy_desc",$advocacy_desc);
+		$stmt->bindParam("use_org_opt",$org_opt);
+		$stmt->bindParam("use_org_opt_desc",$org_opt_desc);
+		$stmt->bindParam("use_other",$other);
+		$stmt->bindParam("use_other_desc",$other_desc);
+		$stmt->bindParam("use_prod_srvc",$prod_srvc);
+		$stmt->bindParam("use_prod_srvc_desc",$prod_srvc_desc);
+		$stmt->bindParam("use_research",$research);
+		$stmt->bindParam("use_research_desc",$research_desc);
+		$stmt->bindParam("profile_id",$surveyId);
+        $stmt->execute();
+    } catch(PDOException $e) {
+        echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+    }   
+
+    $idSuffixNum = 1;
+    echo "heyyy";
+    //var_dump($allPostVars);
+	while (array_key_exists('dataUseData-'.$idSuffixNum, $allPostVars)) {
+		//echo "while loop with index".$idSuffixNum;
+
+		// skip row and continue if user did not select country
+		if (is_null($allPostVars['dataUseData-'.$idSuffixNum])) {
+		 continue; 
+		}
+		$data_use_types = $allPostVars['data_use_type'];
+		$org_data_sources = array();
+
+		  $params = array ("data_country_count", "data_use_type", "dataUseData-2");
+		    $org_data_sources = array();
+		foreach ($params as $param) {
+		    	if (!isset($allPostVars[$param])) { $allPostVars[$param] = null; }
+		    	$org_data_sources[$param] = $allPostVars[$param];
+		    }
+		    var_dump($org_data_sources);
+		foreach ($allPostVars['dataUseData-'.$idSuffixNum] as $row) {
+			$src_country = $row['src_country_locode'];
+			if (!array_key_exists('type', $row)) { 
+				$data_country_count = $org_data_sources["data_country_count"];
+				$org_data_sources['profile_id'] = $surveyId;
+				//	$wb_region = addWbRegions($org_country_info['org_hq_country_locode']);
+
+				$org_data_sources['data_src_country_locode'] = $src_country;
+				
+				$data_use_wb_region = addWbRegions($src_country);
+				$country_name = $data_use_wb_region['org_hq_country_name'];	
+			    $country_region = $data_use_wb_region['org_hq_country_region'];
+			    $country_region_code = $data_use_wb_region['org_hq_country_region_code'];
+			    $country_income = $data_use_wb_region['org_hq_country_income'];
+			    $country_income_code = $data_use_wb_region['org_hq_country_income_code'];
+			    
+				//check if country info is already available in org_country_info , if not insert new country info.
+				  $check_country_query = "SELECT * FROM org_country_info where org_hq_country=?";
+				    try {
+				    	$stmt = $db->prepare($check_country_query);
+				    	$stmt->bindParam(1, $country_name);
+				    	$stmt->execute();
+				    	$row = $stmt->fetch(PDO::FETCH_ASSOC);
+				    	if(! $row){
+				    		echo "not found----------> first condition";  
+					    }else{
+					    	echo "country id---------->first condition";
+					    	$newCountryId = $row['country_id'];
+					    }
+					}catch(PDOException $e) {
+					    
+				    }  
+				$org_data_sources['row_type'] = 'data_use';
+				echo "if loop";
+				// //var_dump($data_use_object);
+				/* Create a record for each type even though the national is blank */
+				foreach ($data_use_types as $type){
+					echo "data use types loop";
+					$org_data_sources['data_type'] = $type;
+					$data_type = $org_data_sources['data_type'];
+					$row_type = $org_data_sources['row_type'];
+					$org_data_sources_query="INSERT INTO org_data_sources(`data_country_count`,`data_type`, `row_type`,`profile_id`,`country_id`)
+					values(:data_country_count,:data_type, :row_type,:profile_id,:country_id)";
+
+						try {
+					        $db = connect_db();
+					        $stmt = $db->prepare($org_data_sources_query);
+					        $stmt->bindParam("data_country_count",$data_country_count);
+							$stmt->bindParam("data_type",$data_type);
+							$stmt->bindParam("row_type",$row_type);
+							$stmt->bindParam("profile_id",$surveyId);
+							$stmt->bindParam("country_id",$newCountryId);
+					        $stmt->execute();
+					    } catch(PDOException $e) {
+					        
+					    }   
+				}
+
+			}
+
+			 else {
+				echo "else loop";
+				$existing_types = array();
+				foreach ($row['type'] as $type => $details) {
+					$existing_types[] = $type;
+					foreach ($details['src_gov_level'] as $gov_level) {
+						$org_data_sources['data_src_country_locode'] = $src_country;
+						$data_use_wb_region = addWbRegions($src_country);
+						$country_name = $data_use_wb_region['org_hq_country_name'];	
+					    $country_region = $data_use_wb_region['org_hq_country_region'];
+					    $country_region_code = $data_use_wb_region['org_hq_country_region_code'];
+					    $country_income = $data_use_wb_region['org_hq_country_income'];
+					    $country_income_code = $data_use_wb_region['org_hq_country_income_code'];
+						
+						//check if country info is already available in org_country_info , if not insert new country info.
+					 	$check_country_query = "SELECT * FROM org_country_info where org_hq_country=?";
+					    try {
+					    	$stmt = $db->prepare($check_country_query);
+					    	$stmt->bindParam(1, $country_name);
+					    	$stmt->execute();
+					    	$row = $stmt->fetch(PDO::FETCH_ASSOC);
+					    	if(! $row){
+					    		echo "not found----------> second condition";
+						    }else{
+						    	echo "country id---------->second condition";
+						    	$newCountryId = $row['country_id'];
+						    }
+						}catch(PDOException $e) {
+						    
+					    }  
+
+						$org_data_sources['data_type'] = $type;
+						$data_type = $org_data_sources['data_type'];
+						$org_data_sources['data_src_gov_level'] = $gov_level;
+						$data_src_gov_level = $org_data_sources['data_src_gov_level'];
+						// set profile_id
+						$org_data_sources['profile_id'] = $surveyId;
+						// identify row as data use row for flattened file for ARC GIS
+						$org_data_sources['row_type'] = 'data_use';
+						$row_type = $org_data_sources['row_type'];
+						$data_country_count = $org_data_sources['data_country_count'];
+						print "printing data_country_count";
+				        echo $data_country_count;
+						// echo "<pre>";print_r($data_use_object);echo "</pre>";
+						//var_dump($org_data_sources);
+						$org_data_sources_query="INSERT INTO org_data_sources(`data_country_count`,`data_type`, `row_type`,`data_src_gov_level`,`profile_id`,`country_id`)values(:data_country_count,:data_type, :row_type,:data_src_gov_level,:profile_id,:country_id)";
+						try {
+						        //$db = connect_db();
+						        $stmt = $db->prepare($org_data_sources_query);
+						        $stmt->bindParam("data_country_count",$data_country_count);
+								$stmt->bindParam("data_type",$data_type);
+								$stmt->bindParam("row_type",$row_type);
+								$stmt->bindParam("data_src_gov_level",$data_src_gov_level);
+								$stmt->bindParam("profile_id",$surveyId);
+								$stmt->bindParam("country_id",$newCountryId);
+						        $stmt->execute();
+						    } catch(PDOException $e) {
+						       
+						    }   
+					}
+				}
+				
+				/* Creating records for empty-national/local value records */
+				foreach ($data_use_types as $type){
+					if (!in_array($type, $existing_types)){
+						$org_data_sources['data_src_country_locode'] = $src_country;
+						$data_use_wb_region = addWbRegions($src_country);
+						$country_name = $data_use_wb_region['org_hq_country_name'];	
+					    $country_region = $data_use_wb_region['org_hq_country_region'];
+					    $country_region_code = $data_use_wb_region['org_hq_country_region_code'];
+					    $country_income = $data_use_wb_region['org_hq_country_income'];
+					    $country_income_code = $data_use_wb_region['org_hq_country_income_code'];
+						//$org_data_sources['data_src_country_name'] = $data_use_wb_region['org_hq_country_name'];
+						
+						//check if country info is already available in org_country_info , if not insert new country info.
+					 	$check_country_query = "SELECT * FROM org_country_info where org_hq_country=?";
+					    try {
+					    	$stmt = $db->prepare($check_country_query);
+					    	$stmt->bindParam(1, $country_name);
+					    	$stmt->execute();
+					    	$row = $stmt->fetch(PDO::FETCH_ASSOC);
+					    	if(! $row){
+					    		echo "not found----------> second condition";
+						    }else{
+						    	echo "country id---------->second condition";
+						    	$newCountryId = $row['country_id'];
+						    }
+						}catch(PDOException $e) {
+						   
+					    }  
+
+						$org_data_sources['data_type'] = $type;
+						$data_type = $org_data_sources['data_type'];
+						$org_data_sources['data_src_gov_level'] = $gov_level;
+						$data_src_gov_level = $org_data_sources['data_src_gov_level'];
+						// set profile_id
+						$org_data_sources['profile_id'] = $surveyId;
+						// identify row as data use row for flattened file for ARC GIS
+						$org_data_sources['row_type'] = 'data_use';
+						$row_type = $org_data_sources['row_type'];
+						// echo "<pre>";print_r($data_use_object);echo "</pre>";
+						//var_dump($org_data_sources);
+						$org_data_sources_query="INSERT INTO org_data_sources(`data_country_count`,`data_type`, `row_type`,`data_src_gov_level`,`profile_id`,`country_id`)values(:data_country_count,:data_type, :row_type,:data_src_gov_level,:profile_id,:country_id)";
+						try {
+						        //$db = connect_db();
+						        $stmt = $db->prepare($org_data_sources_query);
+						        $stmt->bindParam("data_country_count",$data_country_count);
+								$stmt->bindParam("data_type",$data_type);
+								$stmt->bindParam("row_type",$row_type);
+								$stmt->bindParam("data_src_gov_level",$data_src_gov_level);
+								$stmt->bindParam("profile_id",$surveyId);
+								$stmt->bindParam("country_id",$newCountryId);
+						        $stmt->execute();
+						    } catch(PDOException $e) {
+						         
+						    }   
+						
+					}
+				}
+			}
+		}
+		$idSuffixNum++;
+	}
+	echo "after while loop";
+
+   
+   // var_dump($org_data_sources);
+    /*$data_country_count = $org_data_sources["data_country_count"];
+    print "woho";
+    print $data_country_count;*/
+    /*$data_type = $org_data_sources["data_type"];
+    print $data_type;*/
+    /*$data_src_gov_level = $org_data_sources["data_src_gov_level"];
+    print $data_src_gov_level;*/
+
+
+
+    /*$data_app_info['profile_id'] = $profileid;
+    $data_app_info['country_id'] = $country_id;*/
+
+    //org_contacts
+   
+
+    /*$data_app_info['profile_id'] = $profileid;
+*/
+
     // Copy country abbreviation to loc code
     // $allPostVars["org_hq_country_locode"] = $allPostVars["org_hq_country"];
 
@@ -470,6 +1101,10 @@ $app->post('/2du/:surveyId/', function ($surveyId) use ($app) {
 	// Prepare and save org_object
 	// ============================
 	/* Saves once per survey submission */
+
+
+
+
     $params = array("org_name", "org_open_corporates_id", "org_type", "org_type_other", "org_url", "no_org_url", "org_year_founded", "org_description", "org_size_id", "industry_id", "industry_other", "org_greatest_impact", "org_greatest_impact_detail", "use_advocacy", "use_advocacy_desc", "use_prod_srvc", "use_prod_srvc_desc", "use_org_opt", "use_org_opt_desc", "use_research", "use_research_desc", "use_other", "use_other_desc", "org_hq_city", "org_hq_st_prov", "org_hq_country", "latitude", "longitude", "org_hq_city_locode", "org_hq_country_locode", "org_profile_year", "org_additional", "org_profile_status", "org_profile_src", "org_profile_category", "data_use_type", "data_country_count", "data_use_type_other");
     $org_object = array();
     // Set all parameters to received value or null
@@ -502,12 +1137,12 @@ $app->post('/2du/:surveyId/', function ($surveyId) use ($app) {
 	// exit;
 
 	// save org_object to Parse
-	$parse_params = array(
-		'className' => 'org_profile',
-		'object' => $org_object
-	);
-	$request = $parse->create($parse_params);
-	$response = json_decode($request, true);
+	//$parse_params = array(
+	//	'className' => 'org_profile',
+	//	'object' => $org_object
+	//);
+	//$request = $parse->create($parse_params);
+	//$response = json_decode($request, true);
 	// echo "<pre>"; print_r($response); echo "</pre>";
 	// exit;
 
@@ -517,215 +1152,215 @@ $app->post('/2du/:surveyId/', function ($surveyId) use ($app) {
 	/* Saves once per survey submission */
 	// remove certain fields from org_profile
 	// fields "use_prod_srvc_desc", "use_org_opt_desc", "use_research_desc", "use_other_desc" should be copied to arcgis_flatfield (by Myeong)
-	$remove_keys = array ("org_additional", "data_country_count", "data_use_type", "data_country_count");
-	foreach ( $remove_keys as $key) {
-		if (array_key_exists($key, $org_object)) {
-			unset($org_object[$key]);
-		}
-	}
-	// Identify row as org profile in flattened file for ARC GIS
-	$org_object['row_type'] = 'org_profile';
-	// Prepare parse.com params
-	$parse_params = array(
-		'className' => 'arcgis_flatfile',
-		'object' => $org_object
-	);
-	$request = $parse->create($parse_params);
-	$response = json_decode($request, true);
-	if(!isset($response['createdAt'])) {
-		echo "<br>Problem. Problem saving how data is used create not yet handled.";
-		// log error and generate email to admins
-		exit;
-	}
+	// $remove_keys = array ("org_additional", "data_country_count", "data_use_type", "data_country_count");
+	// foreach ( $remove_keys as $key) {
+	// 	if (array_key_exists($key, $org_object)) {
+	// 		unset($org_object[$key]);
+	// 	}
+	// }
+	// // Identify row as org profile in flattened file for ARC GIS
+	// $org_object['row_type'] = 'org_profile';
+	// // Prepare parse.com params
+	// $parse_params = array(
+	// 	'className' => 'arcgis_flatfile',
+	// 	'object' => $org_object
+	// );
+	// $request = $parse->create($parse_params);
+	// $response = json_decode($request, true);
+	// if(!isset($response['createdAt'])) {
+	// 	echo "<br>Problem. Problem saving how data is used create not yet handled.";
+	// 	// log error and generate email to admins
+	// 	exit;
+	// }
 
-	// ================================
-	// Prepare and save contact_object
-	// ================================
-	/* Saves once per survey submission */
-    $params = array("org_name", "org_profile_src", "survey_contact_first", "survey_contact_last", "survey_contact_title", "survey_contact_email", "survey_contact_phone");
-    $contact_object = array();
-    // Set all parameters to received value or null
-    foreach ($params as $param) {
-    	if (!isset($allPostVars[$param])) { $allPostVars[$param] = null; }
-    	$contact_object[$param] = $allPostVars[$param];
-    }
-    // set profile_id
-	$contact_object['profile_id'] = $surveyId;
-	// save contact_object to Parse
-	$parse_params = array(
-		'className' => 'org_contact',
-		'object' => $contact_object
-	);
-	$request = $parse->create($parse_params);
-	$response = json_decode($request, true);
-	if(!isset($response['createdAt'])) {
-		echo "<br>Problem. Problem saving how data is used create not yet handled.";
-		// log error and generate email to admins
-		exit;
-	}
-
+	// // ================================
+	// // Prepare and save contact_object
+	// // ================================
+	// /* Saves once per survey submission */
+ //    $params = array("org_name", "org_profile_src", "survey_contact_first", "survey_contact_last", "survey_contact_title", "survey_contact_email", "survey_contact_phone");
+ //    $contact_object = array();
+ //    // Set all parameters to received value or null
+ //    foreach ($params as $param) {
+ //    	if (!isset($allPostVars[$param])) { $allPostVars[$param] = null; }
+ //    	$contact_object[$param] = $allPostVars[$param];
+ //    }
+ //    // set profile_id
+	// $contact_object['profile_id'] = $surveyId;
+	// // save contact_object to Parse
+	// $parse_params = array(
+	// 	'className' => 'org_contact',
+	// 	'object' => $contact_object
+	// );
+	// $request = $parse->create($parse_params);
+	// $response = json_decode($request, true);
+	// if(!isset($response['createdAt'])) {
+	// 	echo "<br>Problem. Problem saving how data is used create not yet handled.";
+	// 	// log error and generate email to admins
+	// 	exit;
+	// }
+	echo "here";
 	// ============================================================================================
 	// Prepare and save data_use_object and arcgis_object combining data_use_object and org_object
 	// ============================================================================================
 	/* Saves multiple times per survey submission, once for each data use into two tables */
-	$idSuffixNum = 1;
+	//$idSuffixNum = 1;
 	//include_once("wb_country.php");
 
 	// dataUseData-2]
-	while (array_key_exists('dataUseData-'.$idSuffixNum, $allPostVars)) {
-		// skip row and continue if user did not select country
-		if (is_null($allPostVars['dataUseData-'.$idSuffixNum])) { continue; }
-		// echo "<pre>";
-		// print_r ($allPostVars);
-		// echo "</pre>";
-		// exit;
-		$data_use_types = $allPostVars['data_use_type'];
-		$data_use_object = array();
+	// while (array_key_exists('dataUseData-'.$idSuffixNum, $allPostVars)) {
+	// 	// skip row and continue if user did not select country
+	// 	if (is_null($allPostVars['dataUseData-'.$idSuffixNum])) { continue; }
+	// 	// echo "<pre>";
+	// 	// print_r ($allPostVars);
+	// 	// echo "</pre>";
+	// 	// exit;
+	// 	$data_use_types = $allPostVars['data_use_type'];
+	// 	$data_use_object = array();
 
-		foreach ($allPostVars['dataUseData-'.$idSuffixNum] as $row) {
+	// 	foreach ($allPostVars['dataUseData-'.$idSuffixNum] as $row) {
 			
-			$src_country = $row['src_country_locode'];
+	// 		$src_country = $row['src_country_locode'];
 
-			// old implemntation: skip row and continue if user did not select types for country
-			// March 2016 (Myeong): need to store the row even if there's no selection for the type of country
-			if (!array_key_exists('type', $row)) { 
-				// echo "<pre>";print_r($row);echo "</pre>";
-				$data_use_object['data_src_country_locode'] = $src_country;
-				$data_use_wb_region = addWbRegions($src_country);
-				$data_use_object['data_src_country_name'] = $data_use_wb_region['org_hq_country_name'];
-				$data_use_object['profile_id'] = $surveyId;
-				$data_use_object['row_type'] = 'data_use';
+	// 		// old implemntation: skip row and continue if user did not select types for country
+	// 		// March 2016 (Myeong): need to store the row even if there's no selection for the type of country
+	// 		if (!array_key_exists('type', $row)) { 
+	// 			// echo "<pre>";print_r($row);echo "</pre>";
+	// 			$data_use_object['data_src_country_locode'] = $src_country;
+	// 			$data_use_wb_region = addWbRegions($src_country);
+	// 			$data_use_object['data_src_country_name'] = $data_use_wb_region['org_hq_country_name'];
+	// 			$data_use_object['profile_id'] = $surveyId;
+	// 			$data_use_object['row_type'] = 'data_use';
 
-				/* Create a record for each type even though the national is blank */
-				foreach ($data_use_types as $type){
-					$data_use_object['data_type'] = $type;
-										// save data_use_object to Parse
-					$parse_params = array(
-						'className' => 'org_data_use',
-						'object' => $data_use_object 	// contains data for org_data_use row
-					);
-					$request = $parse->create($parse_params);
-					$response = json_decode($request, true);
-					// print_r($response); echo "<br />";
-					if(!isset($response['createdAt'])) {
-						echo "<br>Problem. Problem saving how data is used create not yet handled.";
-						// log error and generate email to admins
-						exit;
-					}
+	// 			/* Create a record for each type even though the national is blank */
+	// 			foreach ($data_use_types as $type){
+	// 				$data_use_object['data_type'] = $type;
+	// 									// save data_use_object to Parse
+	// 				$parse_params = array(
+	// 					'className' => 'org_data_use',
+	// 					'object' => $data_use_object 	// contains data for org_data_use row
+	// 				);
+	// 				$request = $parse->create($parse_params);
+	// 				$response = json_decode($request, true);
+	// 				// print_r($response); echo "<br />";
+	// 				if(!isset($response['createdAt'])) {
+	// 					echo "<br>Problem. Problem saving how data is used create not yet handled.";
+	// 					// log error and generate email to admins
+	// 					exit;
+	// 				}
 
-					// merge org_profile and data_use objects and save to parse for arcgis
-					$arcgis_object = array_merge($org_object, $data_use_object);
-					$parse_params = array(
-						'className' => 'arcgis_flatfile',
-						'object' => $arcgis_object 	// contains data for org_data_use row
-					);
-					$request = $parse->create($parse_params);
-					$response = json_decode($request, true);
-					// print_r($response); echo "<br />";
-					if(!isset($response['createdAt'])) {
-						echo "<br>Problem. Problem saving how data is used create not yet handled.";
-						// log error and generate email to admins
-						exit;
-					}
-					// continue;
-				}
-			} else {
-				$existing_types = array();
-				foreach ($row['type'] as $type => $details) {
-					/* store a type that exists in the data */
-					$existing_types[] = $type;
-					foreach ($details['src_gov_level'] as $gov_level) {
-						// echo "<br>$src_country|$type|$gov_level";
-						$data_use_object['data_src_country_locode'] = $src_country;
-						$data_use_wb_region = addWbRegions($src_country);
-						$data_use_object['data_src_country_name'] = $data_use_wb_region['org_hq_country_name'];
-						$data_use_object['data_type'] = $type;
+	// 				// merge org_profile and data_use objects and save to parse for arcgis
+	// 				$arcgis_object = array_merge($org_object, $data_use_object);
+	// 				$parse_params = array(
+	// 					'className' => 'arcgis_flatfile',
+	// 					'object' => $arcgis_object 	// contains data for org_data_use row
+	// 				);
+	// 				$request = $parse->create($parse_params);
+	// 				$response = json_decode($request, true);
+	// 				// print_r($response); echo "<br />";
+	// 				if(!isset($response['createdAt'])) {
+	// 					echo "<br>Problem. Problem saving how data is used create not yet handled.";
+	// 					// log error and generate email to admins
+	// 					exit;
+	// 				}
+	// 				// continue;
+	// 			}
+	// 		} else {
+	// 			$existing_types = array();
+	// 			foreach ($row['type'] as $type => $details) {
+	// 				/* store a type that exists in the data */
+	// 				$existing_types[] = $type;
+	// 				foreach ($details['src_gov_level'] as $gov_level) {
+	// 					// echo "<br>$src_country|$type|$gov_level";
+	// 					$data_use_object['data_src_country_locode'] = $src_country;
+	// 					$data_use_wb_region = addWbRegions($src_country);
+	// 					$data_use_object['data_src_country_name'] = $data_use_wb_region['org_hq_country_name'];
+	// 					$data_use_object['data_type'] = $type;
 						
-						$data_use_object['data_src_gov_level'] = $gov_level;
-						// set profile_id
-						$data_use_object['profile_id'] = $surveyId;
-						// identify row as data use row for flattened file for ARC GIS
-						$data_use_object['row_type'] = 'data_use';
-						// echo "<pre>";print_r($data_use_object);echo "</pre>";
+	// 					$data_use_object['data_src_gov_level'] = $gov_level;
+	// 					// set profile_id
+	// 					$data_use_object['profile_id'] = $surveyId;
+	// 					// identify row as data use row for flattened file for ARC GIS
+	// 					$data_use_object['row_type'] = 'data_use';
+	// 					// echo "<pre>";print_r($data_use_object);echo "</pre>";
 
-						// save data_use_object to Parse
-						$parse_params = array(
-							'className' => 'org_data_use',
-							'object' => $data_use_object 	// contains data for org_data_use row
-						);
-						$request = $parse->create($parse_params);
-						$response = json_decode($request, true);
-						// print_r($response); echo "<br />";
-						if(!isset($response['createdAt'])) {
-							echo "<br>Problem. Problem saving how data is used create not yet handled.";
-							// log error and generate email to admins
-							exit;
-						}
+	// 					// save data_use_object to Parse
+	// 					$parse_params = array(
+	// 						'className' => 'org_data_use',
+	// 						'object' => $data_use_object 	// contains data for org_data_use row
+	// 					);
+	// 					$request = $parse->create($parse_params);
+	// 					$response = json_decode($request, true);
+	// 					// print_r($response); echo "<br />";
+	// 					if(!isset($response['createdAt'])) {
+	// 						echo "<br>Problem. Problem saving how data is used create not yet handled.";
+	// 						// log error and generate email to admins
+	// 						exit;
+	// 					}
 
-						// merge org_profile and data_use objects and save to parse for arcgis
-						$arcgis_object = array_merge($org_object, $data_use_object);
-						$parse_params = array(
-							'className' => 'arcgis_flatfile',
-							'object' => $arcgis_object 	// contains data for org_data_use row
-						);
-						$request = $parse->create($parse_params);
-						$response = json_decode($request, true);
-						// print_r($response); echo "<br />";
-						if(!isset($response['createdAt'])) {
-							echo "<br>Problem. Problem saving how data is used create not yet handled.";
-							// log error and generate email to admins
-							exit;
-						}
-					}
-				}
-				/* Creating records for empty-national/local value records */
-				foreach ($data_use_types as $type){
-					if (!in_array($type, $existing_types)){
-						$data_use_object['data_src_country_locode'] = $src_country;
-						$data_use_wb_region = addWbRegions($src_country);
-						$data_use_object['data_src_country_name'] = $data_use_wb_region['org_hq_country_name'];
-						$data_use_object['profile_id'] = $surveyId;
-						$data_use_object['row_type'] = 'data_use';
-						$data_use_object['data_type'] = $type;
-						unset($data_use_object['data_src_gov_level']);
-											// save data_use_object to Parse
-						$parse_params = array(
-							'className' => 'org_data_use',
-							'object' => $data_use_object 	// contains data for org_data_use row
-						);
-						$request = $parse->create($parse_params);
-						$response = json_decode($request, true);
-						// print_r($response); echo "<br />";
-						if(!isset($response['createdAt'])) {
-							echo "<br>Problem. Problem saving how data is used create not yet handled.";
-							// log error and generate email to admins
-							exit;
-						}
+	// 					// merge org_profile and data_use objects and save to parse for arcgis
+	// 					$arcgis_object = array_merge($org_object, $data_use_object);
+	// 					$parse_params = array(
+	// 						'className' => 'arcgis_flatfile',
+	// 						'object' => $arcgis_object 	// contains data for org_data_use row
+	// 					);
+	// 					$request = $parse->create($parse_params);
+	// 					$response = json_decode($request, true);
+	// 					// print_r($response); echo "<br />";
+	// 					if(!isset($response['createdAt'])) {
+	// 						echo "<br>Problem. Problem saving how data is used create not yet handled.";
+	// 						// log error and generate email to admins
+	// 						exit;
+	// 					}
+	// 				}
+	// 			}
+	// 			/* Creating records for empty-national/local value records */
+	// 			foreach ($data_use_types as $type){
+	// 				if (!in_array($type, $existing_types)){
+	// 					$data_use_object['data_src_country_locode'] = $src_country;
+	// 					$data_use_wb_region = addWbRegions($src_country);
+	// 					$data_use_object['data_src_country_name'] = $data_use_wb_region['org_hq_country_name'];
+	// 					$data_use_object['profile_id'] = $surveyId;
+	// 					$data_use_object['row_type'] = 'data_use';
+	// 					$data_use_object['data_type'] = $type;
+	// 					unset($data_use_object['data_src_gov_level']);
+	// 										// save data_use_object to Parse
+	// 					$parse_params = array(
+	// 						'className' => 'org_data_use',
+	// 						'object' => $data_use_object 	// contains data for org_data_use row
+	// 					);
+	// 					$request = $parse->create($parse_params);
+	// 					$response = json_decode($request, true);
+	// 					// print_r($response); echo "<br />";
+	// 					if(!isset($response['createdAt'])) {
+	// 						echo "<br>Problem. Problem saving how data is used create not yet handled.";
+	// 						// log error and generate email to admins
+	// 						exit;
+	// 					}
 
-						// merge org_profile and data_use objects and save to parse for arcgis
-						$arcgis_object = array_merge($org_object, $data_use_object);
-						$parse_params = array(
-							'className' => 'arcgis_flatfile',
-							'object' => $arcgis_object 	// contains data for org_data_use row
-						);
-						$request = $parse->create($parse_params);
-						$response = json_decode($request, true);
-						// print_r($response); echo "<br />";
-						if(!isset($response['createdAt'])) {
-							echo "<br>Problem. Problem saving how data is used create not yet handled.";
-							// log error and generate email to admins
-							exit;
-						}
-						// continue;
+	// 					// merge org_profile and data_use objects and save to parse for arcgis
+	// 					$arcgis_object = array_merge($org_object, $data_use_object);
+	// 					$parse_params = array(
+	// 						'className' => 'arcgis_flatfile',
+	// 						'object' => $arcgis_object 	// contains data for org_data_use row
+	// 					);
+	// 					$request = $parse->create($parse_params);
+	// 					$response = json_decode($request, true);
+	// 					// print_r($response); echo "<br />";
+	// 					if(!isset($response['createdAt'])) {
+	// 						echo "<br>Problem. Problem saving how data is used create not yet handled.";
+	// 						// log error and generate email to admins
+	// 						exit;
+	// 					}
+	// 					// continue;
 						
-					}
-				}
-			}
-		}
-		$idSuffixNum++;
-	}
+	// 				}
+	// 			}
+	// 		}
+	// 	}
+	// 	$idSuffixNum++;
+	// }
 
-
+	echo "it reached here";
 	// If we made it here, everything saved.
 
 	// ==========================================
@@ -799,21 +1434,32 @@ EOL;
 // ************
 $app->get('/:surveyId/thankyou/', function ($surveyId) use ($app) {
 	
-	$parse = new parseRestClient(array(
-		'appid' => PARSE_APPLICATION_ID,
-		'restkey' => PARSE_API_KEY
-	));
-	// Retrieve org_profile
-	$params = array(
-	    'className' => 'org_profile',
-	    'query' => array(
-	        'profile_id' => $surveyId
-	    )
-	);
+	// $parse = new parseRestClient(array(
+	// 	'appid' => PARSE_APPLICATION_ID,
+	// 	'restkey' => PARSE_API_KEY
+	// ));
+	// // Retrieve org_profile
+	// $params = array(
+	//     'className' => 'org_profile',
+	//     'query' => array(
+	//         'profile_id' => $surveyId
+	//     )
+	// );
 
-	$request = $parse->query($params);
-	$request_decoded = json_decode($request, true);
-	$org_profile = $request_decoded['results'][0];
+	// $request = $parse->query($params);
+	// $request_decoded = json_decode($request, true);
+	//$org_profile = $request_decoded['results'][0];
+		$db = connect_db();
+		$org_profile_query="select * from org_profiles where profile_id=?";
+		$stmt = $db->prepare($org_profile_query); 
+		$stmt->bindParam(1, $surveyId);
+		$stmt->execute();
+		$query_result = $stmt->fetchAll();
+		
+         
+	//$org_profile = "organizational details";
+/*	echo "org_profiles";
+	var_dump($org_profile);*/
 
 	$content['surveyId'] = $surveyId;
 
@@ -822,7 +1468,8 @@ $app->get('/:surveyId/thankyou/', function ($surveyId) use ($app) {
 	$content['title'] = "Open Data Enterprise Survey - Thank You";
 	$content['language'] = "en_US";
 	
-	$app->view()->setData(array('content' => $content, 'org_profile' => $org_profile ));
+	//$app->view()->setData(array('content' => $content, 'org_profile' => $org_profile ));
+	$app->view()->setData(array('content' => $content));
 	$app->render('survey/tp_thankyou.php');
 
 });
@@ -841,10 +1488,19 @@ $app->get('/:surveyId/submitted/', function ($surveyId) use ($app) {
 	        'profile_id' => $surveyId
 	    	)
 	);
-
+  
 	$request = $parse->query($params);
 	$request_decoded = json_decode($request, true);
 	$org_profile = $request_decoded['results'][0];
+
+
+	/*$db = connect_db();
+		$org_profile_query="select * from org_profiles where object_id=?";
+		$stmt = $db->prepare($org_profile_query); 
+		$stmt->bindParam(1, $surveyId);
+		$stmt->execute();
+		$query_result = $stmt->fetchAll();
+		*/
 
 	// Retrieve org_data_use
 	$params = array(
@@ -853,6 +1509,15 @@ $app->get('/:surveyId/submitted/', function ($surveyId) use ($app) {
 	        'profile_id' => $surveyId
 			)
 	);
+
+	/*$db = connect_db();
+		$org_data_use_query="select * from org_data_sources where object_id=?";
+		$stmt = $db->prepare($org_data_use_query); 
+		$stmt->bindParam(1, $surveyId);
+		$stmt->execute();
+		$query_result = $stmt->fetchAll();
+		*/
+
 
 	$request = $parse->query($params);
 	$request_decoded = json_decode($request, true);
@@ -888,23 +1553,30 @@ $app->get('/:profile_id/edit', function ($profile_id) use ($app) {
 // ************
 $app->get('/edit/:profile_id', function ($profile_id) use ($app) {
 
-	$parse = new parseRestClient(array(
-		'appid' => PARSE_APPLICATION_ID,
-		'restkey' => PARSE_API_KEY
-	));
-	// Retrieve org_profile
-	$params = array(
-	    'className' => 'org_profile',
-	    'query' => array(
-	        'profile_id' => $profile_id
-	    	)
-	);
+	// $parse = new parseRestClient(array(
+	// 	'appid' => PARSE_APPLICATION_ID,
+	// 	'restkey' => PARSE_API_KEY
+	// ));
+	// // Retrieve org_profile
+	// $params = array(
+	//     'className' => 'org_profile',
+	//     'query' => array(
+	//         'profile_id' => $profile_id
+	//     	)
+	// );
 
-	$request = $parse->query($params);
-	$request_decoded = json_decode($request, true);
-	if (count($request_decoded['results']) > 0) {
+	//$request = $parse->query($params);
+	//$request_decoded = json_decode($request, true);
+	$db = connect_db();
+		$org_profile_query="select * from org_profiles where profile_id=?";
+		$stmt = $db->prepare($org_profile_query); 
+		$stmt->bindParam(1, $profile_id);
+		$stmt->execute();
+		$query_result = $stmt->fetchAll();
+
+	if (count($query_result) > 0) {
 		// No result redirect to error
-		$org_profile = $request_decoded['results'][0];
+		//$org_profile = $request_decoded['results'][0];
 		// echo "<pre>"; print_r($request_decoded); 
 	} else {
 		$app->redirect("/map/org/".$profile_id."/notfound/");
@@ -916,7 +1588,8 @@ $app->get('/edit/:profile_id', function ($profile_id) use ($app) {
 	$content['title'] = "Open Data Enterprise Survey - Edit Message";
 	$content['language'] = "en_US";
 	
-	$app->view()->setData(array('content' => $content, 'org_profile' => $org_profile ));
+	//$app->view()->setData(array('content' => $content, 'org_profile' => $org_profile ));
+	$app->view()->setData(array('content' => $content));
 	$app->render('survey/tp_profile_edit_msg.php');
 
 });
@@ -924,39 +1597,50 @@ $app->get('/edit/:profile_id', function ($profile_id) use ($app) {
 // ************
 $app->get('/edit/:profile_id/form', function ($profile_id) use ($app) {
 
-	$parse = new parseRestClient(array(
-		'appid' => PARSE_APPLICATION_ID,
-		'restkey' => PARSE_API_KEY
-	));
-	// Retrieve org_profile
-	$params = array(
-	    'className' => 'org_profile',
-	    'query' => array(
-	        'profile_id' => $profile_id
-	    	)
-	);
+	// $parse = new parseRestClient(array(
+	// 	'appid' => PARSE_APPLICATION_ID,
+	// 	'restkey' => PARSE_API_KEY
+	// ));
+	// // Retrieve org_profile
+	// $params = array(
+	//     'className' => 'org_profile',
+	//     'query' => array(
+	//         'profile_id' => $profile_id
+	//     	)
+	// );
 
-	$request = $parse->query($params);
-	$request_decoded = json_decode($request, true);
-	if (count($request_decoded['results']) > 0) {
+	// $request = $parse->query($params);
+	// $request_decoded = json_decode($request, true);
+	$db = connect_db();
+		$org_profile_query="select * from org_profiles where profile_id=?";
+		$stmt = $db->prepare($org_profile_query); 
+		$stmt->bindParam(1, $profile_id);
+		$stmt->execute();
+		$query_result = $stmt->fetchAll();
+	if (count($query_result) > 0) {
 		// No result redirect to error
-		$org_profile = $request_decoded['results'][0];
+		//$org_profile = $request_decoded['results'][0];
 		// echo "<pre>"; print_r($request_decoded); 
 	} else {
 		$app->redirect("/map/survey/".$profile_id."/notfound/");
 	}
 
+	$org_profile_query="select * from org_surveys where object_id=?";
+	$stmt = $db->prepare($org_profile_query); 
+	$stmt->bindParam(1, $profile_id);
+	$stmt->execute();
+	$query_result = $stmt->fetchAll();
 	// Retrieve org_data_use
-	$params = array(
-		'className' => 'org_data_use',
-		'query' => array(
-	        'profile_id' => $profile_id
-			)
-	);
+	// $params = array(
+	// 	'className' => 'org_data_use',
+	// 	'query' => array(
+	//         'profile_id' => $profile_id
+	// 		)
+	// );
 
-	$request = $parse->query($params);
-	$request_decoded = json_decode($request, true);
-	$org_data_use = $request_decoded['results'];
+	//$request = $parse->query($params);
+//	$request_decoded = json_decode($request, true);
+	//$org_data_use = $request_decoded['results'];
 
 	// When editing, it creates a new survey instead of using the old survey fields
 	$survey_object = array("survey_name" => "opendata", "action" => "start", "notes" => "");
@@ -1042,6 +1726,14 @@ EOL;
 
 	// writeDataLog($allPostVars);
 	$app->log->info(date_format(date_create(), 'Y-m-d H:i:s')."; INFO; ". str_replace("\n", "||", print_r($allPostVars, true)) );
+	//capture edits
+	$time = time();
+    $sql = "INSERT INTO org_surveys(updatedAt) Values ('$time')";
+    mysql_query($sql);
+
+
+
+
 	// echo "<br>"."/map/survey/".$surveyId."/thankyou/";
 
 // exit;
@@ -1668,55 +2360,290 @@ $app->get('/survey/opendata/data/org/:profile_id', function ($profile_id) use ($
 // **************
 $app->get('/data/flatfile.json', function () use ($app) {
 
-	$parse = new parseRestClient(array(
-		'appid' => PARSE_APPLICATION_ID,
-		'restkey' => PARSE_API_KEY
-	));
+	$db = connect_db();
+	$sql="select * from org_surveys";
+    
+	$stmt = $db->query($sql); 
+	$query_result1 = $stmt->fetchAll();
 
-	// Initialize variables for loop
-	$arcgis_rows = array();
-	$skip = 0;
-	$retrieved = 0;
-
-	// Retrieve all records from parse.com, 1000 records at a time b/c 1000 records is the max allowed
-	// Build up a single array of all retrieved records
-	while ( $skip == 0 OR $retrieved > 0 ) {
-
-		$params = array(
-			'className' => 'arcgis_flatfile',
-			'query' => array(
-				'org_profile_status' => 'publish'
-			),
-			'limit' => '1000',
-			'skip' => $skip
-		);
-
-		$request = $parse->query($params);
-		$request_array = json_decode($request, true);
-
-		foreach ($request_array['results'] as &$item){
-			unset($item['objectId']);
-		}
-		
-		$retrieved = count($request_array['results']);
-		if ($retrieved > 0) {
-			// Use array_merge_recursive to keep merged array flat
-			$arcgis_rows = array_merge_recursive($arcgis_rows,$request_array['results']);
-		}
-		// echo "$retrieved ";
-		// increment skip
-		$skip = $skip + 1000;
+	//var_dump($users);
+	//fetch all object id first																		
+	$object_id = array();
+	foreach ($query_result1 as $row ) {
+		array_push($object_id, $row['object_id'] );
 	}
-	// We now have all records in one big array in $arcgis_rows
+	//echo "hey";
+    $createdAt = array();
+	$data_use_type = array();	
+	$data_use_type_other = array();
+	$industry_id = array();
+	$industry_other = array();
+	$latitude = array();
+	$longitude = array();
+	$no_org_url = array();
+	$org_additional = array();
+	$org_description = array();
+	$org_greatest_impact = array();
+	$org_greatest_impact_detail = array();
+	$org_name = array();
+	$org_open_corporates_id = array();
+	$org_profile_category = array();
+	$org_profile_src = array();
+	$org_profile_status = array();
+	$org_profile_year = array();
+	$org_size_id = array();
+	$org_type = array();
+	$org_type_other = array();
+	$org_url = array();
+	$org_year_founded = array();
+	$profile_id = array();
+	$updatedAt = array();
 
-	array_walk($arcgis_rows, 'fixFlatfileValues');
+	$org_hq_city = array();
+	$org_hq_city_locode = array();
+	$org_hq_st_prov = array();
+
+	$org_hq_country = array();
+	$org_hq_country_income = array();
+	$org_hq_country_income_code = array();
+	$org_hq_country_locode = array();
+	$org_hq_country_region = array();
+	$org_hq_country_region_code = array();
+
+	$advocacy = array();
+	$advocacy_desc = array();
+	$org_opt = array();
+	$org_opt_desc = array();
+	$other = array();
+	$other_desc = array();
+	$prod_srvc = array();
+	$prod_srvc_desc = array();
+    $research = array();
+    $research_desc = array();
+
+    $data_country_count = array();
+	//calculate total number of objects, this will total number of objects in json as well.
+	$totalObjects = count($object_id);
+	//echo $totalObjects;
+	//run for loop those many times.
+	for($i = 0;$i < $totalObjects;$i++){
+		//echo $object_id[$i];
+		$sql="select * from org_profiles where profile_id=?";
+    
+		$stmt = $db->prepare($sql); 
+		$stmt->bindParam(1, $object_id[$i]);
+		$stmt->execute();
+		$query_result1 = $stmt->fetchAll();
+
+	 	foreach ($query_result1 as $row ) {
+	 		//echo $row['object_id'];
+	 		array_push($createdAt, $row['createdAt'] );
+			array_push($data_use_type, $row['data_use_type']);
+			array_push($object_id, $row['object_id'] );
+			array_push($data_use_type_other, $row['data_use_type_other'] );
+			array_push($industry_id, $row['industry_id'] );
+			array_push($industry_other, $row['industry_other'] );
+			array_push($latitude, $row['latitude'] );
+			array_push($longitude, $row['longitude'] );
+			array_push($no_org_url, $row['no_org_url'] );
+			array_push($org_additional, $row['org_additional'] );
+			array_push($org_description, $row['org_description'] );
+			array_push($org_greatest_impact, $row['org_greatest_impact'] );
+			array_push($org_greatest_impact_detail, $row['org_greatest_impact_detail'] );
+			array_push($org_name, $row['org_name'] );
+			array_push($org_open_corporates_id , $row['org_open_corporates_id'] );
+			array_push($org_profile_category, $row['org_profile_category'] );
+			array_push($org_profile_src , $row['org_profile_src'] );
+            array_push($org_profile_status , $row['org_profile_status'] );
+            array_push($org_profile_year, $row['org_profile_year'] );
+            array_push($org_size_id , $row['org_size_id'] );
+            array_push($org_type , $row['org_type'] );
+            array_push($org_type_other , $row['org_type_other'] );
+            array_push($org_url , $row['org_url'] );
+            array_push($org_year_founded, $row['org_year_founded'] );
+            array_push($profile_id, $row['profile_id'] );
+            array_push($updatedAt, $row['updatedAt'] );
+			//write all columns in similar way.
+		}
+         
+        $loc_id = $row['org_loc_id']; 
+		$sql1="select * from org_locations_info where object_id=?";
+		$stmt = $db->prepare($sql1);
+		$stmt->bindParam(1, $loc_id);
+		$stmt->execute();
+
+		$query_result2 = $stmt->fetchAll();
+		//var_dump($users);
+		
+		foreach ($query_result2 as $row ) {
+			array_push($org_hq_city, $row['org_hq_city']);
+			array_push($org_hq_city_locode, $row['org_hq_city_locode'] );
+			array_push($org_hq_st_prov, $row['org_hq_st_prov'] );
+		}
+		$countryId = $row['country_id'];
+		//echo $countryId;
+
+		$sql2="select * from org_country_info where country_id=?";
+		$stmt = $db->prepare($sql2); 
+		$stmt->bindParam(1, $countryId);
+		$stmt->execute();
+
+		$query_result3 = $stmt->fetchAll();
+		//var_dump($users);
+
+		foreach ($query_result3 as $row ) {
+			array_push($org_hq_country, $row['org_hq_country']);
+			array_push($org_hq_country_income, $row['org_hq_country_income'] );
+			array_push($org_hq_country_income_code, $row['org_hq_country_income_code'] );
+			array_push($org_hq_country_locode, $row['org_hq_country_locode'] );
+			array_push($org_hq_country_region, $row['org_hq_country_region'] );
+			array_push($org_hq_country_region_code, $row['org_hq_country_region_code'] );
+		}
+
+		$sql3="select * from data_app_info where profile_id=?";
+		$stmt = $db->prepare($sql3); 
+		$stmt->bindParam(1, $object_id[$i]);
+		$stmt->execute();
+
+		$query_result4 = $stmt->fetchAll();
+		//var_dump($users);
+		//echo "hey";
+		foreach ($query_result4 as $row ) {
+			array_push($advocacy, $row['advocacy']);
+			array_push($advocacy_desc, $row['advocacy_desc'] );
+			array_push($org_opt, $row['org_opt'] );
+			array_push($org_opt_desc, $row['org_opt_desc'] );
+			array_push($other, $row['other'] );
+			array_push($other_desc, $row['other_desc'] );
+			array_push($prod_srvc, $row['prod_srvc'] );
+			array_push($prod_srvc_desc, $row['prod_srvc_desc'] );
+			array_push($research, $row['research'] );
+			array_push($research_desc, $row['research_desc'] );
+		}
+
+		$sql4="select * from org_data_sources where profile_id=? limit 1";
+		$stmt = $db->prepare($sql4); 
+		$stmt->bindParam(1, $object_id[$i]);
+		$stmt->execute();
+
+		$query_result5 = $stmt->fetchAll();
+		//var_dump($users);
+
+		foreach ($query_result5 as $row ) {
+			array_push($data_country_count, $row['data_country_count']);
+		}
+	}
+	//var_dump($advocacy);
+	// //echo $org_hq_city_locode[0];
+	// //echo $object_id[0];
+
+	$allArrays = array();
+	$finalArray = array();
+
+	for ($i = 0; $i < $totalObjects; $i++) {
+
+		$allArrays['createdAt'] = $createdAt[$i];
+		$allArrays['data_country_count'] = $data_country_count[$i];
+		$allArrays['data_use_type'] = $data_use_type[$i];
+		$allArrays['data_use_type_other'] = $data_use_type_other[$i];
+		$allArrays['industry_id']= $industry_id[$i];
+		$allArrays['industry_other'] = $industry_other[$i];
+		$allArrays['latitude'] = $latitude[$i];
+		$allArrays['longitude'] = $longitude[$i];
+		$allArrays['no_org_url']= $no_org_url[$i];
+		$allArrays['object_id']= $object_id[$i];
+		$allArrays['org_additional'] = $org_additional[$i];
+		$allArrays['org_description'] = $org_description[$i];
+		$allArrays['org_greatest_impact'] = $org_greatest_impact[$i];
+		$allArrays['org_greatest_impact_detail'] = $org_greatest_impact_detail[$i];
+		$allArrays['org_hq_city'] = $org_hq_city[$i];
+		$allArrays['org_hq_city_locode'] = $org_hq_city_locode[$i];
+		$allArrays['org_hq_country'] = $org_hq_country[$i];
+		$allArrays['org_hq_country_income'] = $org_hq_country_income[$i];
+		$allArrays['org_hq_country_income_code'] = $org_hq_country_income_code[$i];
+		$allArrays['org_hq_country_locode'] = $org_hq_country_locode[$i];
+		$allArrays['org_hq_country_region'] = $org_hq_country_region[$i];
+		$allArrays['org_hq_country_region_code'] = $org_hq_country_region_code[$i];
+		$allArrays['org_hq_st_prov'] = $org_hq_st_prov[$i];
+		$allArrays['org_name'] = $org_name[$i];
+		$allArrays['org_open_corporates_id'] = $org_open_corporates_id[$i];
+		$allArrays['org_profile_category'] = $org_profile_category[$i];
+		$allArrays['org_profile_src'] = $org_profile_src[$i];
+		$allArrays['org_profile_status'] = $org_profile_status[$i];
+		$allArrays['org_profile_year'] = $org_profile_year[$i];
+		$allArrays['org_size_id'] = $org_size_id[$i];
+		$allArrays['org_type'] = $org_type[$i];
+		$allArrays['org_type_other'] = $org_type_other[$i];
+		$allArrays['org_url'] = $org_url[$i];
+		$allArrays['org_year_founded'] = $org_year_founded[$i];
+		$allArrays['profile_id'] = $profile_id[$i];
+		$allArrays['updatedAt'] = $updatedAt[$i];
+		$allArrays['advocacy'] = $advocacy[$i];
+		$allArrays['advocacy_desc'] = $advocacy_desc[$i];
+		$allArrays['org_opt'] = $org_opt[$i];
+		$allArrays['org_opt_desc'] = $org_opt_desc[$i];
+		$allArrays['other'] = $other[$i];
+		$allArrays['other_desc'] = $other_desc[$i];
+		$allArrays['prod_srvc'] = $prod_srvc[$i];
+		$allArrays['prod_srvc_desc'] = $prod_srvc_desc[$i];
+		$allArrays['research'] = $research[$i];
+		$allArrays['research_desc'] = $research_desc[$i];
+		array_push($finalArray, $allArrays);
+	}
+	//var_dump($finalArray);
+	$jsonArray = array("results" => $finalArray);
+	echo json_encode($jsonArray);
+	// //echo $users['object_id'];
+	// //echo json_encode($users);
+	// // $parse = new parseRestClient(array(
+	// 	'appid' => PARSE_APPLICATION_ID,
+	// 	'restkey' => PARSE_API_KEY
+	// ));
+
+	// // Initialize variables for loop
+	// $arcgis_rows = array();
+	// $skip = 0;
+	// $retrieved = 0;
+
+	// // Retrieve all records from parse.com, 1000 records at a time b/c 1000 records is the max allowed
+	// // Build up a single array of all retrieved records
+	// while ( $skip == 0 OR $retrieved > 0 ) {
+
+	// 	$params = array(
+	// 		'className' => 'arcgis_flatfile',
+	// 		'query' => array(
+	// 			'org_profile_status' => 'publish'
+	// 		),
+	// 		'limit' => '1000',
+	// 		'skip' => $skip
+	// 	);
+
+	// 	$request = $parse->query($params);
+	// 	$request_array = json_decode($request, true);
+
+	// 	foreach ($request_array['results'] as &$item){
+	// 		unset($item['objectId']);
+	// 	}
+		
+	// 	$retrieved = count($request_array['results']);
+	// 	if ($retrieved > 0) {
+	// 		// Use array_merge_recursive to keep merged array flat
+	// 		$arcgis_rows = array_merge_recursive($arcgis_rows,$request_array['results']);
+	// 	}
+	// 	// echo "$retrieved ";
+	// 	// increment skip
+	// 	$skip = $skip + 1000;
+	// }
+	// // We now have all records in one big array in $arcgis_rows
+
+	// array_walk($arcgis_rows, 'fixFlatfileValues');
 
 
-	// Let's convert to json and send using expected format with 'results' key
-	$arcgis_flatfile = array("results" => $arcgis_rows);
-	// $arcgis_flatfile = array("results" => array_slice($arcgis_rows,1,2));
-	header('Content-Type: application/json');
-	echo json_pretty(json_encode($arcgis_flatfile));
+	// // Let's convert to json and send using expected format with 'results' key
+	// $arcgis_flatfile = array("results" => $arcgis_rows);
+	// // $arcgis_flatfile = array("results" => array_slice($arcgis_rows,1,2));
+	// header('Content-Type: application/json');
+	// echo json_pretty(json_encode($arcgis_flatfile));
 
 	return true;
 });
