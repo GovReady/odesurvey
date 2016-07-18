@@ -272,7 +272,7 @@ $app->get('/start/', function () use ($app) {
 	# store new information as new record 
     $parse_params = array(
 		'className' => 'survey',
-		'object' => $survey_objec
+		'object' => $survey_object
     );
 	
 	// Create Parse object and save
