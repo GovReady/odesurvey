@@ -4,7 +4,7 @@
 
 $inputFileName = './insert_excel.xlsx';
 
-//  Read your Excel workbook
+//  Read your Excel workbook for country table information
 try {
     $inputFileType = PHPExcel_IOFactory::identify($inputFileName);
     $objReader = PHPExcel_IOFactory::createReader($inputFileType);
