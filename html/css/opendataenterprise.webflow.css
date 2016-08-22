@@ -3417,7 +3417,7 @@ a {
 }
 
 .balefire-global {
-  margin-top: 25px;
+  margin-top: 15px;
 }
 
 .insight-centre {
@@ -3684,6 +3684,10 @@ a {
 .admin-link {
   color: #2fa767;
   font-weight: 400;
+}
+
+.costa-rica {
+  margin-top: 15px;
 }
 
 html.w-mod-js *[data-ix="display-none-on-load"] {
