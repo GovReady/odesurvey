@@ -3,10 +3,10 @@ import os
 class BaseSettings(object):
 
     def __init__(self):
-        self.agol_user = os.environ.get('AGOL_USER', '')  # - add ArcGIS Online User ID or set environment variable
-        self.agol_pass = os.environ.get('AGOL_PASS', '')  # - add ArcGIS Online User Pass or set environment variable
-        self.parse_data_endpoint = 'http://www.opendataenterprise.org/map/survey/data/flatfile.json'
-        # self.parse_data_endpoint = 'http://odetest.opendataenterprise.org/map/survey/data/flatfile.json'
+        self.agol_user = os.environ.get('AGOL_USER', 'gregelin2')  # - add ArcGIS Online User ID or set environment variable
+        self.agol_pass = os.environ.get('AGOL_PASS', 'orange-x39')  # - add ArcGIS Online User Pass or set environment variable
+        # self.parse_data_endpoint = 'http://www.opendataenterprise.org/map/survey/data/flatfile.json'
+        self.parse_data_endpoint = 'http://192.168.56.101/flatfile_new.json'
         # self.arcgis_source_file = 'arcgis_flatfile.json'
         self.max_character_limit = 1024
         self.country_centroid_lookup_table = os.path.join(os.path.dirname(__file__), 'country_centroids_all.csv')
