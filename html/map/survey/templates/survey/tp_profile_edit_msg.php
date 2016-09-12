@@ -19,7 +19,7 @@ textdomain($domain);
  
     <div class="col-md-12" role="Intro" id="role-intro">
       <div style="text-align:center;font-size:2.1em;margin-top:20px;">
-        To edit <?php echo $org_profile['org_name']; ?>
+        To edit <?php echo $org_name; ?>
       </div>
     </div>
      
@@ -38,7 +38,7 @@ textdomain($domain);
       <div style="text-align:center;">
         <b>Click here to edit:</b>
         <br />
-          <a href="http://<?php echo $content['HTTP_HOST']; ?>/map/survey/edit/<?php echo $org_profile['profile_id']; ?>/form">http://<?php echo $content['HTTP_HOST']; ?>/map/survey/edit/<?php echo $org_profile['profile_id']; ?>/form</a>
+          <a href="http://<?php echo $content['HTTP_HOST']; ?>/map/survey/edit/<?php echo $content['surveyId']; ?>/form">http://<?php echo $content['HTTP_HOST']; ?>/map/survey/edit/<?php echo $content['surveyId']; ?>/form</a>
       </div>
     </div>
 

@@ -459,8 +459,74 @@
 /***/ function(module, exports) {
 
 	// shim for using process in browser
-
 	var process = module.exports = {};
+
+	// cached from whatever global is present so that test runners that stub it
+	// don't break things.  But we need to wrap it in a try catch in case it is
+	// wrapped in strict mode code which doesn't define any globals.  It's inside a
+	// function because try/catches deoptimize in certain engines.
+
+	var cachedSetTimeout;
+	var cachedClearTimeout;
+
+	(function () {
+	    try {
+	        cachedSetTimeout = setTimeout;
+	    } catch (e) {
+	        cachedSetTimeout = function () {
+	            throw new Error('setTimeout is not defined');
+	        }
+	    }
+	    try {
+	        cachedClearTimeout = clearTimeout;
+	    } catch (e) {
+	        cachedClearTimeout = function () {
+	            throw new Error('clearTimeout is not defined');
+	        }
+	    }
+	} ())
+	function runTimeout(fun) {
+	    if (cachedSetTimeout === setTimeout) {
+	        //normal enviroments in sane situations
+	        return setTimeout(fun, 0);
+	    }
+	    try {
+	        // when when somebody has screwed with setTimeout but no I.E. maddness
+	        return cachedSetTimeout(fun, 0);
+	    } catch(e){
+	        try {
+	            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+	            return cachedSetTimeout.call(null, fun, 0);
+	        } catch(e){
+	            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+	            return cachedSetTimeout.call(this, fun, 0);
+	        }
+	    }
+
+
+	}
+	function runClearTimeout(marker) {
+	    if (cachedClearTimeout === clearTimeout) {
+	        //normal enviroments in sane situations
+	        return clearTimeout(marker);
+	    }
+	    try {
+	        // when when somebody has screwed with setTimeout but no I.E. maddness
+	        return cachedClearTimeout(marker);
+	    } catch (e){
+	        try {
+	            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+	            return cachedClearTimeout.call(null, marker);
+	        } catch (e){
+	            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+	            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+	            return cachedClearTimeout.call(this, marker);
+	        }
+	    }
+
+
+
+	}
 	var queue = [];
 	var draining = false;
 	var currentQueue;
@@ -485,7 +551,7 @@
 	    if (draining) {
 	        return;
 	    }
-	    var timeout = setTimeout(cleanUpNextTick);
+	    var timeout = runTimeout(cleanUpNextTick);
 	    draining = true;
 
 	    var len = queue.length;
@@ -502,7 +568,7 @@
 	    }
 	    currentQueue = null;
 	    draining = false;
-	    clearTimeout(timeout);
+	    runClearTimeout(timeout);
 	}
 
 	process.nextTick = function (fun) {
@@ -514,7 +580,7 @@
 	    }
 	    queue.push(new Item(fun, args));
 	    if (queue.length === 1 && !draining) {
-	        setTimeout(drainQueue, 0);
+	        runTimeout(drainQueue);
 	    }
 	};
 
@@ -2594,6 +2660,7 @@
 	  var google = null;
 	  var $maps;
 	  var namespace = '.w-widget-map';
+	  var apiKey = 'AIzaSyBks0W0NawnPju70JQS5XXPOTTrguDQjWE';
 
 	  // -----------------------------------
 	  // Module methods
@@ -2640,7 +2707,7 @@
 	    if (!$maps.length) return;
 
 	    if (google === null) {
-	      $.getScript('https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callback=_wf_maps_loaded');
+	      $.getScript('https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callback=_wf_maps_loaded&key=' + apiKey);
 	      window._wf_maps_loaded = mapsLoaded;
 	    } else {
 	      mapsLoaded();
@@ -3110,7 +3177,7 @@
 	    data.open = false;
 	    data.button.removeClass(buttonOpen);
 	    var config = data.config;
-	    if (config.animation === 'none' || !tram.support.transform) immediate = true;
+	    if (config.animation === 'none' || !tram.support.transform || config.duration <= 0) immediate = true;
 	    ix.outro(0, data.el[0]);
 
 	    // Stop listening for tap outside events
@@ -4575,6 +4642,14 @@
  * Webflow: Interactions: Init
  */
 Webflow.require('ix').init([
-  {"slug":"display-none-on-load","name":"Display None on Load","value":{"style":{"display":"none"},"triggers":[{"type":"tabs","stepsA":[{}],"stepsB":[{}]}]}},
-  {"slug":"show-and-hide","name":"Show and Hide","value":{"style":{},"triggers":[{"type":"click","selector":".bio-content","stepsA":[{"display":"block","height":"0px"},{"height":"auto","transition":"height 1000ms ease 0ms"}],"stepsB":[{"height":"0px","transition":"height 1000ms ease 0ms"},{"display":"none"}]}]}}
+  {"slug":"show-case-study-1","name":"Show Case Study 1","value":{"style":{},"triggers":[{"type":"click","selector":".case-study-body-1","stepsA":[{"display":"block"},{}],"stepsB":[]},{"type":"click","stepsA":[{"display":"none"}],"stepsB":[]},{"type":"click","selector":".show-less-button-1","stepsA":[{"display":"block"}],"stepsB":[]},{"type":"click","selector":".case-study-thumbnail-image-1","stepsA":[{"display":"none"}],"stepsB":[]}]}},
+  {"slug":"hide-case-study-1","name":"Hide Case Study 1","value":{"style":{},"triggers":[{"type":"click","selector":".case-study-body-1","stepsA":[{"display":"none"}],"stepsB":[]},{"type":"click","stepsA":[{"display":"none"}],"stepsB":[]},{"type":"click","selector":".read-more-button-1","stepsA":[{"display":"block"}],"stepsB":[]},{"type":"click","selector":".case-study-thumbnail-image-1","stepsA":[{"display":"block"}],"stepsB":[]}]}},
+  {"slug":"show-case-study-2","name":"Show Case Study 2","value":{"style":{},"triggers":[{"type":"click","selector":".case-study-body-2","stepsA":[{"display":"block"},{}],"stepsB":[]},{"type":"click","selector":".show-less-button-2","stepsA":[{"display":"block"}],"stepsB":[]},{"type":"click","selector":".case-study-thumbnail-image-2","stepsA":[{"display":"none"}],"stepsB":[]},{"type":"click","stepsA":[{"display":"none"}],"stepsB":[]}]}},
+  {"slug":"hide-case-study-2","name":"Hide Case Study 2","value":{"style":{},"triggers":[{"type":"click","selector":".case-study-thumbnail-image-2","stepsA":[{"display":"block"}],"stepsB":[]},{"type":"click","selector":".read-more-button-2","stepsA":[{"display":"block"}],"stepsB":[]},{"type":"click","selector":".case-study-body-2","stepsA":[{"display":"none"}],"stepsB":[]},{"type":"click","stepsA":[{"display":"none"}],"stepsB":[]}]}},
+  {"slug":"show-case-study-3","name":"Show Case Study 3","value":{"style":{},"triggers":[{"type":"click","selector":".case-study-body-3","stepsA":[{"display":"block"}],"stepsB":[]},{"type":"click","selector":".show-less-button-3","stepsA":[{"display":"block"}],"stepsB":[]},{"type":"click","selector":".case-study-thumbnail-image-3","stepsA":[{"display":"none"}],"stepsB":[]},{"type":"click","stepsA":[{"display":"none"}],"stepsB":[]}]}},
+  {"slug":"hide-case-study-3","name":"Hide Case Study 3","value":{"style":{},"triggers":[{"type":"click","selector":".read-more-button-3","stepsA":[{"display":"block"}],"stepsB":[]},{"type":"click","selector":".case-study-thumbnail-image-3","stepsA":[{"display":"block"}],"stepsB":[]},{"type":"click","selector":".case-study-body-3","stepsA":[{"display":"none"}],"stepsB":[]},{"type":"click","stepsA":[{"display":"none"}],"stepsB":[]}]}},
+  {"slug":"open-mobile-menu","name":"Open Mobile Menu","value":{"style":{},"triggers":[{"type":"click","selector":".mobile-menu","stepsA":[{"display":"block"}],"stepsB":[]},{"type":"click","selector":".close-menu-button","stepsA":[{"display":"block"}],"stepsB":[]},{"type":"click","stepsA":[{"display":"none"}],"stepsB":[]}]}},
+  {"slug":"close-mobile-menu","name":"Close Mobile Menu","value":{"style":{},"triggers":[{"type":"click","selector":".mobile-menu-button","stepsA":[{"display":"block"}],"stepsB":[]},{"type":"click","selector":".mobile-menu","stepsA":[{"display":"none"}],"stepsB":[]},{"type":"click","stepsA":[{"display":"none"}],"stepsB":[]}]}},
+  {"slug":"showhide-json-csv-button","name":"show/hide json csv button","value":{"style":{},"triggers":[{"type":"click","selector":".data_buttons","stepsA":[{"display":"inline-block"}],"stepsB":[{"display":"none"}]}]}},
+  {"slug":"display-none-on-load","name":"display none on load","value":{"style":{"display":"none"},"triggers":[]}}
 ]);

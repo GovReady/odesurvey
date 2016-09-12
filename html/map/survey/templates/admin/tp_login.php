@@ -64,7 +64,7 @@
                     <div style="margin:10% 30% 0 30%;height:600px;text-align:center;border:0px solid red;">
            
                       <!--  Login form -->
-                      <form id="login_form" class="form-horizontal" style="border:0px dotted black;" action="/map/survey/authenticate.php" method="post">
+                      <form id="login_form" class="form-horizontal" style="border:0px dotted black;" action="map/survey/authenticate.php" method="post">
 
                         <div class="col-md-12" role="contact-titlebar"  id="role-contact-titlebar">
                           <div class="section-title"><h2>Login</h2></div>

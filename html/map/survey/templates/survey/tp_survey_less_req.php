@@ -17,7 +17,7 @@ textdomain($domain);
 <!-- Main Content Section -->
 <div class="container lg-font col-md-12" style="border:0px solid black;">
 
- <form id="survey_form" class="form-horizontal" style="border:0px dotted black;" action="/map/survey/2du/<?php echo $content['surveyId']; ?>" method="post">
+ <form id="survey_form" class="form-horizontal" style="border:0px dotted black;" action="/map/survey/2du/<?php echo $content['surveyId'] ?>" method="post">
 
     <div class="col-md-12" role="Intro" id="role-intro">
       <div style="text-align:center;font-size:1.1em;margin-top:20px;">
@@ -31,7 +31,7 @@ textdomain($domain);
 
     </div>
      
-    <div class="col-md-12" role="eligibility" id="role-eligibility">
+    <div class="col-md-12" role="eligibility" id="role-eligibility">Profile source
       <div class="row col-md-12">
         <h4>ELIGIBILITY</h4>
       </div>
@@ -138,39 +138,27 @@ textdomain($domain);
         <label id="industry_id-error" class="error" for="industry_id"></label>
         <fieldset>
         <div class="col-md-4" id="industry_id_col-1">
-          <input type="radio" name="industry_id" class="industry_id" value="Agriculture">&nbsp; Agriculture
-          <br /><input type="radio" name="industry_id" class="industry_id" value="Arts and culture">&nbsp; Arts and culture
-          <br /><input id="industry_id_cul" type="radio" name="industry_id" class="industry_id" value="Business and legal services" required>&nbsp; Business and legal services
-          <br /><input type="radio" name="industry_id" class="industry_id" value="Consumer services">&nbsp; Consumer services
-          <br /><input type="radio" name="industry_id" class="industry_id" value="Data/information technology">&nbsp; Data/information technology
+          <input type="radio" name="industry_id" class="industry_id" value="Agriculture" required>&nbsp; Agriculture
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Arts, culture and tourism">&nbsp; Arts, culture and tourism
+          <br /><input id="industry_id_cul" type="radio" name="industry_id" class="industry_id" value="Business, research and consulting" required>&nbsp; Business, research and consulting
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Consumer">&nbsp; Consumer
+          <br /><input type="radio" name="industry_id" class="industry_id" value="IT and geospatial">&nbsp; IT and geospatial
           <br /><input type="radio" name="industry_id" class="industry_id" value="Education">&nbsp; Education
-          <br /><input type="radio" name="industry_id" class="industry_id" value="Energy">&nbsp; Energy
-          <br /><input type="radio" name="industry_id" class="industry_id" value="Environment">&nbsp; Environment
-          <br /><input type="radio" name="industry_id" class="industry_id" value="Finance and investment">&nbsp; Finance and investment
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Energy and climate">&nbsp; Energy and climate
         </div>
         <div class="col-md-4" id="industry_id_col-2">
-          <input type="radio" name="industry_id" class="industry_id" value="Geospatial/mapping">&nbsp; Geospatial/mapping
+        <input type="radio" name="industry_id" class="industry_id" value="Finance, investment and insurance">&nbsp; Finance, investment and insurance
           <br /><input type="radio" name="industry_id" class="industry_id" value="Governance">&nbsp; Governance
-          <br /><input type="radio" name="industry_id" class="industry_id" value="Healthcare">&nbsp; Healthcare
-          <br /><input type="radio" name="industry_id" class="industry_id" value="Housing/real estate">&nbsp; Housing and real estate
-          <br /><input type="radio" name="industry_id" class="industry_id" value="Insurance">&nbsp; Insurance
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Health">&nbsp; Health
+          <br /><input type="radio" name="industry_id" class="industry_id" value="Housing, construction and real estate">&nbsp; Housing, construction and real estate
           <br /><input type="radio" name="industry_id" class="industry_id" value="Media and communications">&nbsp; Media and communications
-          <br /><input type="radio" name="industry_id" class="industry_id" value="Mining/manufacturing">&nbsp; Mining/manufacturing
-          <br /><input type="radio" name="industry_id" class="industry_id" value="Research and consulting">&nbsp; Research and consulting
-          <br /><input type="radio" name="industry_id" class="industry_id" value="Security and public safety">&nbsp; Security and public safety
-        </div>
-        <div class="col-md-4" id="industry_id_col-3">
-          <input type="radio" name="industry_id" class="industry_id" value="Scientific research">&nbsp; Scientific research
-          <br /><input type="radio" name="industry_id" class="industry_id" value="Telecommunications/internet service providers (ISPs)">&nbsp; Telecommunications/internet service providers (ISPs)
-          <br /><input type="radio" name="industry_id" class="industry_id" value="Tourism">&nbsp; Tourism
           <br /><input type="radio" name="industry_id" class="industry_id" value="Transportation and logistics">&nbsp; Transportation and logistics
-          <br /><input type="radio" name="industry_id" class="industry_id" value="Water and sanitation">&nbsp; Water and sanitation
-          <br /><input type="radio" name="industry_id" class="industry_id" value="Weather">&nbsp; Weather
           <br /><input type="radio" name="industry_id" class="industry_id" id="industr_id_other" value="Other">&nbsp; Other
                 <input type="text" class="form-control" style="display:none" id="industry_other" name="industry_other" placeholder="Describe other">
         </div>
         </fieldset>
       </div>
+      
 
       <!-- Founding year -->    
       <div class="form-group col-md-12">
@@ -338,6 +326,26 @@ textdomain($domain);
           </div>
         </div>
       </div>
+
+      <!-- Machine read -->
+      <div class="form-group col-md-12" id="m_read">
+          <label for="m_read">Uses machine-readable data? <small class="required">*</small></label>
+          <label id="m_read-error" class="error" for="m_read"></label>
+        <div class="col-md-10">
+          <div class="btn-group" data-toggle="buttons" id="machine_read">
+            <label class="btn btn-default">
+                <input type="radio" name="m_read" id="Yes" value="Yes"> Yes
+            </label>
+            <label class="btn btn-default">
+                <input type="radio" name="m_read" id="No" value="No"> No
+            </label>
+            <label class="btn btn-default">
+                <input type="radio" name="m_read" id="NA" value="NA"> NA
+            </label>
+          </div>
+        </div>
+      </div>
+
 
       <!-- Additional description --> 
       <div class="row col-md-12">

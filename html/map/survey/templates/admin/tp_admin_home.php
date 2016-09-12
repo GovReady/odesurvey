@@ -34,7 +34,7 @@
                 <nav id="menu" class="navbar-collapse collapse" role="navigation">
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">(<?php echo $_SESSION['username'];?>)</a></li>
+                        <li><a href="#">Pooja</a></li>
                         <li><a href="/map/survey/admin/logout/">logout</a></li>
                         <li><a href="/map/survey/info">Start page</a></li>
                     </ul>
@@ -64,7 +64,7 @@
                     <div style="margin:5% 30% 0 30%;text-align:center;">
                         <h3><a href="/map/survey/start">Take survey</a></h3>
 
-                        <h3><a href="/map/survey/start/internal/add">Take survey (few requireds)</a></h3>
+                        <h3><a href="/map/survey/start/internal/add">Internal surveys</a></h3>
 
                         <h3><a href="/map/survey/admin/survey/grid/">Manage surveys</a></h3>
 
