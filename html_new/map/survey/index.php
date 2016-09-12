@@ -629,20 +629,20 @@ $app->post('/2du/:surveyId/', function ($lastsurvey_id) use ($app) {
     }    
 	     
     $industry_id = isset($allPostVars['industry_id']) ? $allPostVars['industry_id'] : null;
-    $industry_other = isset($allPostVars['industry_other']) ? mysqli_real_escape_string($allPostVars['industry_other']) : null;
+    $industry_other = isset($allPostVars['industry_other']) ? mysqli_real_escape_string($conn,$allPostVars['industry_other']) : null;
     $no_org_url = isset($allPostVars['no_org_url']) ? $allPostVars['no_org_url'] : null;
     $org_additional = isset($allPostVars['org_additional']) ? $allPostVars['org_additional']: null;
-    $org_description = isset($allPostVars['org_description']) ? mysqli_real_escape_string($allPostVars['org_description']) : null;
-    $org_greatest_impact = isset($allPostVars['org_greatest_impact']) ? mysqli_real_escape_string($allPostVars['org_greatest_impact']) : null;
-    $org_greatest_impact_detail = isset($allPostVars['org_greatest_impact_detail']) ? mysqli_real_escape_string($allPostVars['org_greatest_impact_detail']) : null;
-    $org_name = isset($allPostVars['org_name']) ? mysqli_real_escape_string($allPostVars['org_name']) : null;
-    $org_profile_category = isset($allPostVars['org_profile_category']) ? mysqli_real_escape_string($allPostVars['org_profile_category']) : null;
-    $org_profile_src = isset($allPostVars['org_profile_src']) ? mysqli_real_escape_string($allPostVars['org_profile_src']) : null;
+    $org_description = isset($allPostVars['org_description']) ? mysqli_real_escape_string($conn,$allPostVars['org_description']) : null;
+    $org_greatest_impact = isset($allPostVars['org_greatest_impact']) ? mysqli_real_escape_string($conn,$conn,$allPostVars['org_greatest_impact']) : null;
+    $org_greatest_impact_detail = isset($allPostVars['org_greatest_impact_detail']) ? mysqli_real_escape_string($conn,$allPostVars['org_greatest_impact_detail']) : null;
+    $org_name = isset($allPostVars['org_name']) ? mysqli_real_escape_string($conn,$allPostVars['org_name']) : null;
+    $org_profile_category = isset($allPostVars['org_profile_category']) ? mysqli_real_escape_string($conn,$allPostVars['org_profile_category']) : null;
+    $org_profile_src = isset($allPostVars['org_profile_src']) ? mysqli_real_escape_string($conn,$allPostVars['org_profile_src']) : null;
     $org_profile_status = isset($allPostVars['org_profile_status']) ? strval($allPostVars['org_profile_status']): null;
     $org_profile_year = isset($allPostVars['org_profile_year']) ? intval($allPostVars['org_profile_year']): null;
     $org_size = isset($allPostVars['org_size_id']) ? strval($allPostVars['org_size_id']) : null;
     $org_type = isset($allPostVars['org_type']) ? strval($allPostVars['org_type']) : null;
-    $org_type_other = isset($allPostVars['org_type_other']) ? mysqli_real_escape_string($allPostVars['org_type_other']) : null;
+    $org_type_other = isset($allPostVars['org_type_other']) ? mysqli_real_escape_string($conn,$allPostVars['org_type_other']) : null;
     $org_url = isset($allPostVars['org_url']) ? strval($allPostVars['org_url']) : null;
     $org_year_founded = isset($allPostVars['org_year_founded']) ? intval($allPostVars['org_year_founded']): null;
     $machine_read = isset($allPostVars["m_read"]) ? $allPostVars["m_read"] : null;
@@ -681,11 +681,11 @@ $app->post('/2du/:surveyId/', function ($lastsurvey_id) use ($app) {
 
 
     /* org_contacts */
-    $survey_contact_first = isset($allPostVars["survey_contact_first"]) ? mysqli_real_escape_string($allPostVars["survey_contact_first"]) : null;
-    $survey_contact_last =  isset($allPostVars["survey_contact_last"]) ? mysqli_real_escape_string($allPostVars["survey_contact_last"]) : null;
-    $survey_contact_title = isset($allPostVars["survey_contact_title"]) ? mysqli_real_escape_string($allPostVars["survey_contact_title"]) : null;
-    $survey_contact_email = isset($allPostVars["survey_contact_email"]) ? mysqli_real_escape_string($allPostVars["survey_contact_email"]) : null;
-    $survey_contact_phone = isset($allPostVars["survey_contact_phone"]) ? mysqli_real_escape_string($allPostVars["survey_contact_phone"]) : null;
+    $survey_contact_first = isset($allPostVars["survey_contact_first"]) ? mysqli_real_escape_string($conn,$allPostVars["survey_contact_first"]) : null;
+    $survey_contact_last =  isset($allPostVars["survey_contact_last"]) ? mysqli_real_escape_string($conn,$allPostVars["survey_contact_last"]) : null;
+    $survey_contact_title = isset($allPostVars["survey_contact_title"]) ? mysqli_real_escape_string($conn,$allPostVars["survey_contact_title"]) : null;
+    $survey_contact_email = isset($allPostVars["survey_contact_email"]) ? mysqli_real_escape_string($conn,$allPostVars["survey_contact_email"]) : null;
+    $survey_contact_phone = isset($allPostVars["survey_contact_phone"]) ? mysqli_real_escape_string($conn,$allPostVars["survey_contact_phone"]) : null;
 
   	// Checking existing data
     $check_contact_query = "SELECT * FROM org_contacts where profile_id=:profile_id";
@@ -749,11 +749,11 @@ $app->post('/2du/:surveyId/', function ($lastsurvey_id) use ($app) {
     $use_org_opt = (!isset($allPostVars["use_org_opt"]) || empty($allPostVars["use_org_opt"])) ? FALSE : TRUE;
     $use_other = (!isset($allPostVars["use_other"]) || empty($allPostVars["use_other"])) ? FALSE : TRUE;
 
-    $use_advocacy_desc = isset($allPostVars["use_advocacy_desc"]) ? mysqli_real_escape_string($allPostVars["use_advocacy_desc"]) : null;
-    $use_org_opt_desc = isset($allPostVars["use_org_opt_desc"]) ? mysqli_real_escape_string($allPostVars["use_org_opt_desc"]) : null;
-    $use_other_desc = isset($allPostVars["use_other_desc"]) ? mysqli_real_escape_string($allPostVars["use_other_desc"]) : null;
-    $use_prod_srvc_desc = isset($allPostVars["use_prod_srvc_desc"]) ? mysqli_real_escape_string($allPostVars["use_prod_srvc_desc"]) : null;
-    $use_research_desc = isset($allPostVars["use_research_desc"]) ? mysqli_real_escape_string($allPostVars["use_research_desc"]) : null;
+    $use_advocacy_desc = isset($allPostVars["use_advocacy_desc"]) ? mysqli_real_escape_string($conn,$allPostVars["use_advocacy_desc"]) : null;
+    $use_org_opt_desc = isset($allPostVars["use_org_opt_desc"]) ? mysqli_real_escape_string($conn,$allPostVars["use_org_opt_desc"]) : null;
+    $use_other_desc = isset($allPostVars["use_other_desc"]) ? mysqli_real_escape_string($conn,$allPostVars["use_other_desc"]) : null;
+    $use_prod_srvc_desc = isset($allPostVars["use_prod_srvc_desc"]) ? mysqli_real_escape_string($conn,$allPostVars["use_prod_srvc_desc"]) : null;
+    $use_research_desc = isset($allPostVars["use_research_desc"]) ? mysqli_real_escape_string($conn,$allPostVars["use_research_desc"]) : null;
    	
 
 	// Checking existing data
@@ -894,7 +894,7 @@ $app->post('/2du/:surveyId/', function ($lastsurvey_id) use ($app) {
         echo '{"error":{"text":'. $e->getMessage() .'}}'; 
     }
 
-    $other = isset($allPostVars['data_use_type_other']) ? mysqli_real_escape_string($allPostVars['data_use_type_other']) : null;
+    $other = isset($allPostVars['data_use_type_other']) ? mysqli_real_escape_string($conn,$allPostVars['data_use_type_other']) : null;
 
 
 	foreach ($type_to_input[0] as $cid => $ty){
