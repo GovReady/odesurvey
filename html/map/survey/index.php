@@ -194,7 +194,7 @@ $app->get('/admin/logout/', function () use ($app) {
 // ************
 $app->get('/index.html', function () use ($app) {
 	// Route /map/survey/index.html to /start/
-	$app->redirect("http://opendataimpactmap.org");
+	$app->redirect("http://opendataimpactmap.org/survey");
     // $app->redirect("/map/survey/start/");
 
 });
