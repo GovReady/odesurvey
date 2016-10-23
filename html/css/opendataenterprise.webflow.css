@@ -921,6 +921,7 @@ a {
 
 .section-subtitle.mission-paragraph.convene-header {
   margin-bottom: 10px;
+  text-align: left;
 }
 
 .section-subtitle.mission-paragraph.federal-agency-descrip {
@@ -3768,6 +3769,285 @@ a {
   padding-bottom: 10px;
 }
 
+.download-report {
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 700;
+}
+
+.small-row {
+  padding-bottom: 9px;
+  padding-left: 0px;
+}
+
+.actor {
+  padding-right: 5px;
+  padding-left: 0px;
+  color: #333;
+  font-size: 16px;
+  font-weight: 300;
+  text-align: left;
+}
+
+.recommendation {
+  padding-right: 10px;
+  float: none;
+  color: #333;
+  font-size: 18px;
+  line-height: 23px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.timing {
+  display: block;
+  margin-left: 0px;
+  color: #2ea0e6;
+  font-size: 16px;
+  font-weight: 300;
+  text-align: left;
+}
+
+.goal {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 25px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.rows {
+  border: 1px dotted #333;
+  text-align: left;
+}
+
+.toc {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color: #2ea0e6;
+  font-size: 20px;
+  font-weight: 400;
+  text-align: left;
+  text-decoration: none;
+}
+
+.toc.w--current {
+  display: inline;
+  text-align: left;
+}
+
+.page-rec {
+  margin-top: 0px;
+  color: #000;
+  font-size: 30px;
+  line-height: 40px;
+  font-weight: 700;
+}
+
+.rec-text {
+  float: none;
+  direction: ltr;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.rec-timing {
+  margin-top: 0px;
+  color: #fd9808;
+  font-size: 18px;
+  line-height: 30px;
+  font-weight: 400;
+}
+
+.rec-actor {
+  margin-top: 0px;
+  color: #000;
+  font-size: 18px;
+  line-height: 30px;
+  font-weight: 400;
+}
+
+.rec-bullets {
+  padding-right: 0px;
+  list-style-type: disc;
+}
+
+.rec-sub-bullet {
+  margin-top: 5px;
+  margin-left: 25px;
+  font-family: Lato, sans-serif;
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 300;
+}
+
+.rec-sub-sub-bullet {
+  margin-top: 5px;
+  margin-left: 50px;
+  font-family: Lato, sans-serif;
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 300;
+}
+
+.action-plan {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  color: #2ea0e6;
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.rec-bullet {
+  margin-top: 5px;
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 300;
+}
+
+.recommendation-text {
+  display: inline-block;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  padding-top: 0px;
+  font-family: Lato, sans-serif;
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 300;
+  text-align: left;
+}
+
+.summary-text {
+  position: static;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+}
+
+.rec-button {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.rec-goal {
+  margin-top: 15px;
+  color: #2ea0e6;
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 400;
+}
+
+.rec-header {
+  background-color: #031070;
+  color: #fff;
+  font-size: 20px;
+  line-height: 23px;
+  font-weight: 300;
+  text-align: left;
+}
+
+.rec-rows {
+  display: block;
+}
+
+.no-border {
+  border-style: none;
+}
+
+.rec-top-text {
+  font-size: 18px;
+  text-align: left;
+}
+
+.nav-box {
+  display: inline-block;
+  padding: 10px;
+  text-align: center;
+}
+
+.nav-box.toc {
+  display: block;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  font-size: 14px;
+}
+
+.nav-box.toc.w--current {
+  display: block;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  text-align: center;
+}
+
+.nav-box.cover {
+  display: block;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  color: #333;
+}
+
+.nav-left {
+  position: fixed;
+  left: 1px;
+  bottom: 1px;
+  background-color: #fff;
+}
+
+.rec-table-link {
+  color: #333;
+  text-decoration: none;
+}
+
+.timing-link {
+  text-align: left;
+  text-decoration: none;
+}
+
+.top-exec-summary {
+  margin-top: 25px;
+  box-shadow: 1px 1px 3px 0 #000;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.odtr-launch-event {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.odtr-launch-event.top {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.report-link {
+  background-image: url('../images/PresTransitionReport1018_Prefinal.jpg');
+  background-position: 0px 0px;
+  background-size: 250px;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+
+.launch-links {
+  color: #000;
+  font-weight: 400;
+}
+
 html.w-mod-js *[data-ix="display-none-on-load"] {
   display: none;
 }
@@ -3970,6 +4250,34 @@ html.w-mod-js *[data-ix="display-none-on-load"] {
   }
   .map-page-section {
     background-position: 50% 50%;
+  }
+  .rows {
+    display: block;
+  }
+  .toc.w--current {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+  }
+  .recommendation-text {
+    display: block;
+  }
+  .rec-top-text {
+    position: static;
+    left: 0px;
+    top: 0px;
+    display: block;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    font-size: 18px;
+    font-weight: 400;
+    text-align: left;
   }
 }
 
