@@ -88,7 +88,7 @@ $app->notFound(function () use ($app) {
         $actual_link = rtrim($actual_link, '/');
         
 	// Any change to below array must also be made to identical array in route "/" around line 210
-	if (in_array($actual_link, array("/about", "/contact", "/convene", "/implement", "/map", "/open-data-roundtables" ))) {
+	if (in_array($actual_link, array("/about", "/contact", "/convene", "/implement", "/map", "/open-data-roundtables", "/transition-report"))) {
 		echo "in array";
 		$app->redirect($actual_link.".html");
 	}
@@ -208,7 +208,7 @@ $app->get('/', function () use ($app) {
         $actual_link = rtrim($actual_link, '/');
 
 	// Any change to below array must also be made to identical array in route "/" around line 91
-	if (in_array($actual_link, array("/about", "/contact", "/convene", "/implement", "/map", "/open-data-roundtables" ))) {
+	if (in_array($actual_link, array("/about", "/contact", "/convene", "/implement", "/map", "/open-data-roundtables", "/transition-report" ))) {
 		echo "in array";
 		$app->redirect($actual_link.".html");
 	}
