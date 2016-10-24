@@ -782,6 +782,10 @@ a {
   text-transform: none;
 }
 
+.hero-subhead.transition {
+  font-size: 33px;
+}
+
 .section-title {
   margin-top: 0px;
   margin-bottom: 0px;
@@ -3817,7 +3821,9 @@ a {
 }
 
 .rows {
-  border: 1px dotted #333;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  border: 1px none #333;
   text-align: left;
 }
 
@@ -3947,6 +3953,7 @@ a {
 }
 
 .rec-header {
+  margin-bottom: 5px;
   background-color: #031070;
   color: #fff;
   font-size: 20px;
@@ -3978,10 +3985,10 @@ a {
 .nav-box.toc {
   display: block;
   margin-top: 0px;
-  margin-bottom: 0px;
-  padding-top: 3px;
-  padding-bottom: 3px;
+  margin-bottom: 5px;
+  padding: 1px 5px;
   font-size: 14px;
+  line-height: 18px;
 }
 
 .nav-box.toc.w--current {
@@ -4003,6 +4010,7 @@ a {
 .nav-left {
   position: fixed;
   left: 1px;
+  top: 335px;
   bottom: 1px;
   background-color: #fff;
   text-align: center;
