@@ -745,8 +745,7 @@ a {
 
 .hero-heading.implement-page {
   margin-top: 0px;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding: 30px;
   background-color: #031070;
   font-size: 45px;
   font-weight: 300;
@@ -1286,6 +1285,10 @@ a {
   margin-top: 20px;
   text-align: center;
   text-transform: capitalize;
+}
+
+.mission-title.our-mission.exec-summary-transition-report {
+  margin-top: 30px;
 }
 
 .light {
@@ -3815,14 +3818,15 @@ a {
 .goal {
   margin-top: 10px;
   margin-bottom: 10px;
-  font-size: 25px;
+  font-size: 27px;
+  line-height: 25px;
   font-weight: 700;
   text-align: left;
 }
 
 .rows {
   margin-top: 3px;
-  margin-bottom: 3px;
+  margin-bottom: 15px;
   border: 1px none #333;
   text-align: left;
 }
@@ -3938,10 +3942,14 @@ a {
 .rec-button {
   display: block;
   margin-top: 20px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   font-size: 16px;
   font-weight: 700;
   text-align: center;
+}
+
+.rec-button.transition-report-home {
+  background-color: #f8b401;
 }
 
 .rec-goal {
@@ -3973,6 +3981,7 @@ a {
 .rec-top-text {
   margin-bottom: 30px;
   font-size: 18px;
+  line-height: 25px;
   text-align: left;
 }
 
@@ -4010,7 +4019,6 @@ a {
 .nav-left {
   position: fixed;
   left: 1px;
-  top: 335px;
   bottom: 1px;
   background-color: #fff;
   text-align: center;
@@ -4055,6 +4063,7 @@ a {
 }
 
 .launch-links {
+  margin-top: 10px;
   color: #000;
   font-weight: 400;
 }
@@ -4066,6 +4075,24 @@ a {
 .rec-link-block {
   display: block;
   margin-bottom: 5px;
+}
+
+.transition-report-home-button {
+  text-align: center;
+}
+
+.transition-report-buttons-top-row {
+  margin-top: 30px;
+}
+
+.download-report-button {
+  background-color: #f8b401;
+  font-size: 18px;
+}
+
+.recs-buttons {
+  background-color: #f8b401;
+  font-size: 16px;
 }
 
 html.w-mod-js *[data-ix="display-none-on-load"] {
@@ -4415,6 +4442,9 @@ html.w-mod-js *[data-ix="display-none-on-load"] {
   }
   .hero-heading.map-page {
     margin-right: 0px;
+  }
+  .hero-heading.implement-page {
+    line-height: 49px;
   }
   .hero-subhead {
     font-size: 21px;
