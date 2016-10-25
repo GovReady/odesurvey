@@ -751,6 +751,11 @@ a {
   font-weight: 300;
 }
 
+.hero-heading.implement-page.transition-report {
+  display: block;
+  text-decoration: none;
+}
+
 .hero-heading.link {
   text-decoration: none;
 }
@@ -4093,6 +4098,10 @@ a {
 .recs-buttons {
   background-color: #f8b401;
   font-size: 16px;
+}
+
+.transition-report-top-section {
+  display: inline-block;
 }
 
 html.w-mod-js *[data-ix="display-none-on-load"] {
