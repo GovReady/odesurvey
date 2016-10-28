@@ -4055,7 +4055,9 @@ a {
 }
 
 .odtr-launch-event.top {
+  margin-top: 5px;
   margin-bottom: 10px;
+  padding-top: 5px;
   font-size: 20px;
 }
 
